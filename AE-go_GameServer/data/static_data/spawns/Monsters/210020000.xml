@@ -4,11 +4,11 @@ map npcid pool interval
 object x y z h
 Eltnen -->
 <!-- 2010.04.04
-Completely rechecked Eltnen location by stpavel. Fixed Z coordinate, fixed duplicate spawns,
-fixed incorrect pool values, added some missing monsters.
+Completely rechecked Eltnen location by stpavel. Fixed Z coordinate,
+fixed duplicate spawns, added some missing monsters.
 -->
 <spawns>
-	<!-- Commander -->
+	<!-- Commander (Monster lvl:40)-->
 	<spawn map="210020000" npcid="211720" pool="14" interval="105">
 		<object x="2383.915" y="2315.333" z="270.30237" h="0"/>
 		<object x="2373.2" y="2417.69" z="272.66125" h="51"/>
@@ -25,7 +25,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2359.181" y="2322.676" z="271.28876" h="118"/>
 		<object x="2363.666" y="2409.717" z="272.3573" h="105"/>
 	</spawn>
-	<!-- Crack Kaidan Smasher -->
+	<!-- Crack Kaidan Smasher (Monster lvl:38)-->
 	<spawn map="210020000" npcid="212023" pool="11" interval="105">
 		<object x="2243.826" y="436.53" z="462.537" h="70"/>
 		<object x="2187.959" y="465.2039" z="450.5523" h="76"/>
@@ -39,7 +39,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2465.463" y="358.2406" z="483.78705" h="59"/>
 		<object x="2271.455" y="377.2282" z="474.0142" h="117"/>
 	</spawn>
-	<!-- Apprentice Mage -->
+	<!-- Apprentice Mage (Monster lvl:39)-->
 	<spawn map="210020000" npcid="211725" pool="21" interval="105">
 		<object x="1913.05" y="2470.17" z="267.63126" h="11"/>
 		<object x="2019.37" y="2443.83" z="277.0" h="67"/>
@@ -63,7 +63,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1986.443" y="2617.958" z="268.19348" h="7"/>
 		<object x="2366.61" y="2506.27" z="271.74377" h="47"/>
 	</spawn>
-	<!-- Carapace Ksellid -->
+	<!-- Carapace Ksellid (Monster lvl:29)-->
 	<spawn map="210020000" npcid="210847" pool="40" interval="105">
 		<object x="665.75" y="773.72" z="291.76938" h="48"/>
 		<object x="598.79" y="968.95" z="282.10187" h="1"/>
@@ -106,7 +106,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="824.26" y="1184.12" z="281.39124" h="48"/>
 		<object x="825.74" y="899.48" z="283.25" h="98"/>
 	</spawn>
-	<!-- Canyon Griffon -->
+	<!-- Canyon Griffon (Monster lvl:37)-->
 	<spawn map="210020000" npcid="211003" pool="11" interval="105">
 		<object x="2477.662" y="2176.35" z="380.94064" h="39"/>
 		<object x="2495.32" y="2128.016" z="380.9535" h="117"/>
@@ -120,7 +120,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2358.95" y="2163.649" z="374.9314" h="96"/>
 		<object x="2288.643" y="2200.648" z="369.9152" h="84"/>
 	</spawn>
-	<!-- Crack Kaidan Slasher -->
+	<!-- Crack Kaidan Slasher (Monster lvl:37)-->
 	<spawn map="210020000" npcid="212019" pool="13" interval="105">
 		<object x="2195.72" y="1071.507" z="397.81827" h="93"/>
 		<object x="2118.42" y="965.61" z="419.77063" h="8"/>
@@ -136,7 +136,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2183.247" y="446.4488" z="451.83792" h="86"/>
 		<object x="2406.049" y="955.7517" z="447.87177" h="80"/>
 	</spawn>
-	<!-- Burning Barghest -->
+	<!-- Burning Barghest (Monster lvl:37)-->
 	<spawn map="210020000" npcid="210996" pool="8" interval="105">
 		<object x="2423.512" y="1480.825" z="406.80157" h="18"/>
 		<object x="2477.428" y="1501.563" z="408.1523" h="27"/>
@@ -147,14 +147,14 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2595.697" y="1489.807" z="406.98862" h="91"/>
 		<object x="2500.949" y="1520.853" z="406.9283" h="96"/>
 	</spawn>
-	<!-- Blackclaw Fangwing -->
+	<!-- Blackclaw Fangwing (Monster lvl:31)-->
 	<spawn map="210020000" npcid="211781" pool="4" interval="105">
 		<object x="373.37" y="238.5772" z="16.5" h="65"/>
 		<object x="335.2223" y="170.7847" z="16.5" h="49"/>
 		<object x="368.6443" y="263.0879" z="16.5" h="102"/>
 		<object x="314.3254" y="177.6043" z="16.5" h="99"/>
 	</spawn>
-	<!-- Chaotic Temptress -->
+	<!-- Chaotic Temptress (Monster lvl:33)-->
 	<spawn map="210020000" npcid="211849" pool="13" interval="105">
 		<object x="1384.249" y="380.7206" z="348.66718" h="46"/>
 		<object x="1459.46" y="360.6636" z="348.94983" h="23"/>
@@ -170,7 +170,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1503.301" y="352.6646" z="348.6706" h="119"/>
 		<object x="1481.97" y="394.0766" z="367.0057" h="57"/>
 	</spawn>
-	<!-- Crack Kaidan Blocker -->
+	<!-- Crack Kaidan Blocker (Monster lvl:37)-->
 	<spawn map="210020000" npcid="212026" pool="9" interval="105">
 		<object x="2107.117" y="995.205" z="414.44086" h="68"/>
 		<object x="2056.941" y="976.5157" z="401.625" h="24"/>
@@ -182,14 +182,14 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2386.043" y="951.9171" z="447.9812" h="51"/>
 		<object x="2203.002" y="779.1837" z="471.94897" h="69"/>
 	</spawn>
-	<!-- Crack Kaidan Plantygrunt -->
+	<!-- Crack Kaidan Plantygrunt (Monster lvl:30)-->
 	<spawn map="210020000" npcid="210892" pool="4" interval="105">
 		<object x="1367.046" y="2717.475" z="306.375" h="87"/>
 		<object x="1314.435" y="2792.382" z="315.6771" h="83"/>
 		<object x="1324.196" y="2722.888" z="303.0" h="88"/>
 		<object x="1364.45" y="2692.2" z="307.40314" h="23"/>
 	</spawn>
-	<!-- Crack Kaidan Grappler -->
+	<!-- Crack Kaidan Grappler (Monster lvl:29)-->
 	<spawn map="210020000" npcid="212064" pool="18" interval="105">
 		<object x="1269.22" y="2634.592" z="290.04877" h="119"/>
 		<object x="1247.122" y="2634.05" z="292.5" h="92"/>
@@ -210,11 +210,11 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1310.282" y="2718.996" z="302.5" h="114"/>
 		<object x="1234.342" y="2747.524" z="306.125" h="119"/>
 	</spawn>
-	<!-- Air Spirit -->
+	<!-- Air Spirit (Monster lvl:29)-->
 	<spawn map="210020000" npcid="211739" pool="1" interval="105">
 		<object x="302.7654" y="193.3061" z="254.98222" h="45"/>
 	</spawn>
-	<!-- Crack Kaidan Slicer -->
+	<!-- Crack Kaidan Slicer (Monster lvl:29)-->
 	<spawn map="210020000" npcid="212066" pool="11" interval="105">
 		<object x="1330.226" y="2443.883" z="272.6182" h="93"/>
 		<object x="1398.672" y="2632.44" z="298.75" h="91"/>
@@ -228,19 +228,19 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1285.957" y="2770.188" z="310.74832" h="43"/>
 		<object x="1337.491" y="2658.973" z="301.05743" h="24"/>
 	</spawn>
-	<!-- Klaw Sentry -->
+	<!-- Klaw Sentry (Monster lvl:38)-->
 	<spawn map="210020000" npcid="212136" pool="1" interval="105">
 		<object x="1681.0" y="1335.0" z="363.625" h="64"/>
 	</spawn>
-	<!-- Chaos Dracus -->
+	<!-- Chaos Dracus (Monster lvl:35)-->
 	<spawn map="210020000" npcid="211800" pool="1" interval="14400">
 		<object x="1421.7506" y="241.9237" z="348.05386" h="93"/>
 	</spawn>
-	<!-- Klaw Gatherer -->
+	<!-- Klaw Gatherer (Monster lvl:38)-->
 	<spawn map="210020000" npcid="212137" pool="1" interval="105">
 		<object x="1675.0" y="1428.0" z="370.25" h="85"/>
 	</spawn>
-	<!-- Crack Kaidan Afari -->
+	<!-- Crack Kaidan Afari (Monster lvl:29)-->
 	<spawn map="210020000" npcid="212068" pool="6" interval="105">
 		<object x="1365.348" y="2621.297" z="297.0847" h="94"/>
 		<object x="1396.93" y="2510.47" z="285.18314" h="95"/>
@@ -249,7 +249,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1347.167" y="2685.202" z="304.66675" h="67"/>
 		<object x="1335.916" y="2785.987" z="316.5" h="97"/>
 	</spawn>
-	<!-- Blade Fangwing -->
+	<!-- Blade Fangwing (Monster lvl:29)-->
 	<spawn map="210020000" npcid="211743" pool="18" interval="105">
 		<object x="127.8498" y="214.5046" z="222.54985" h="56"/>
 		<object x="148.7587" y="281.924" z="213.62401" h="14"/>
@@ -270,13 +270,13 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="172.4378" y="250.2122" z="215.1611" h="76"/>
 		<object x="154.2908" y="266.772" z="213.51015" h="86"/>
 	</spawn>
-	<!-- Blackshade Bloodwing -->
+	<!-- Blackshade Bloodwing (Monster lvl:30)-->
 	<spawn map="210020000" npcid="211803" pool="3" interval="105">
 		<object x="111.8903" y="230.1087" z="222.80673" h="7"/>
 		<object x="141.8293" y="270.2443" z="212.59708" h="95"/>
 		<object x="91.79494" y="275.2763" z="222.80681" h="45"/>
 	</spawn>
-	<!-- Crack Kaidan Loudmouth -->
+	<!-- Crack Kaidan Loudmouth (Monster lvl:29)-->
 	<spawn map="210020000" npcid="212070" pool="22" interval="105">
 		<object x="1330.979" y="2656.356" z="300.79712" h="50"/>
 		<object x="1233.315" y="2606.935" z="292.03876" h="66"/>
@@ -301,19 +301,19 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1385.132" y="2619.292" z="298.0" h="91"/>
 		<object x="1337.669" y="2758.773" z="314.22162" h="115"/>
 	</spawn>
-	<!-- Andre -->
+	<!-- Andre (Named Mob lvl:40)-->
 	<spawn map="210020000" npcid="211041" pool="1" interval="14400">
 		<object x="792.5521" y="653.5261" z="294.39972" h="51"/>
 	</spawn>
-	<!-- Arrogant Amurru -->
+	<!-- Arrogant Amurru (Monster lvl:35)-->
 	<spawn map="210020000" npcid="211798" pool="1" interval="105">
 		<object x="1405.88" y="268.53" z="345.58212" h="8"/>
 	</spawn>
-	<!-- Chaoslord Kalabar -->
+	<!-- Chaoslord Kalabar (Monster lvl:39)-->
 	<spawn map="210020000" npcid="212351" pool="1" interval="105">
 		<object x="2387.01" y="784.46" z="359.815" h="101"/>
 	</spawn>
-	<!-- Ancient Bloodwing -->
+	<!-- Ancient Bloodwing (Monster lvl:29)-->
 	<spawn map="210020000" npcid="211735" pool="5" interval="105">
 		<object x="446.5533" y="199.7908" z="274.44348" h="71"/>
 		<object x="432.3177" y="259.6043" z="274.44348" h="56"/>
@@ -321,7 +321,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="351.2776" y="210.4833" z="274.44348" h="75"/>
 		<object x="414.8179" y="172.9069" z="274.44348" h="78"/>
 	</spawn>
-	<!-- Carapace Kselliki -->
+	<!-- Carapace Kselliki (Monster lvl:28)-->
 	<spawn map="210020000" npcid="210823" pool="41" interval="105">
 		<object x="567.0" y="984.0" z="284.1875" h="89"/>
 		<object x="660.75" y="773.95" z="291.50626" h="52"/>
@@ -365,7 +365,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="823.38" y="1190.53" z="281.2975" h="53"/>
 		<object x="824.25" y="895.15" z="283.44376" h="59"/>
 	</spawn>
-	<!-- Blaze Spirit -->
+	<!-- Blaze Spirit (Monster lvl:26)-->
 	<spawn map="210020000" npcid="211632" pool="17" interval="105">
 		<object x="190.8764" y="1345.281" z="278.24017" h="26"/>
 		<object x="259.5849" y="1406.363" z="266.5746" h="45"/>
@@ -385,7 +385,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="213.7217" y="1357.152" z="269.37097" h="84"/>
 		<object x="201.8189" y="1412.88" z="270.32764" h="60"/>
 	</spawn>
-	<!-- Blackmane Keraton -->
+	<!-- Blackmane Keraton (Monster lvl:33)-->
 	<spawn map="210020000" npcid="210942" pool="39" interval="105">
 		<object x="1263.64" y="670.98" z="320.20377" h="81"/>
 		<object x="1218.2" y="617.74" z="323.60626" h="87"/>
@@ -427,7 +427,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1337.13" y="778.61" z="330.16812" h="115"/>
 		<object x="1423.81" y="767.45" z="340.08063" h="7"/>
 	</spawn>
-	<!-- Ancient Caryatid -->
+	<!-- Ancient Caryatid (Monster lvl:26)-->
 	<spawn map="210020000" npcid="210804" pool="43" interval="105">
 		<object x="1215.744" y="2222.177" z="248.95" h="27"/>
 		<object x="1018.894" y="2116.325" z="246.22969" h="84"/>
@@ -473,14 +473,14 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1214.685" y="2184.759" z="250.98445" h="76"/>
 		<object x="1227.0" y="2255.0" z="259.4375" h="75"/>
 	</spawn>
-	<!-- Crack Kaidan Soothsayer -->
+	<!-- Crack Kaidan Soothsayer (Monster lvl:38)-->
 	<spawn map="210020000" npcid="212049" pool="4" interval="105">
 		<object x="2186.167" y="692.5851" z="460.03656" h="93"/>
 		<object x="2154.772" y="587.8881" z="453.375" h="46"/>
 		<object x="2434.256" y="465.2344" z="503.74747" h="58"/>
 		<object x="2317.56" y="439.224" z="488.0" h="66"/>
 	</spawn>
-	<!-- Ancient Caltrops -->
+	<!-- Ancient Caltrops (Monster lvl:33)-->
 	<spawn map="210020000" npcid="210939" pool="7" interval="105">
 		<object x="1375.615" y="1024.501" z="321.39673" h="31"/>
 		<object x="1374.841" y="757.5474" z="335.34802" h="33"/>
@@ -490,7 +490,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1293.348" y="796.46" z="317.93124" h="119"/>
 		<object x="1286.255" y="979.2256" z="299.54782" h="110"/>
 	</spawn>
-	<!-- Crack Kaidan Patrol -->
+	<!-- Crack Kaidan Patrol (Monster lvl:37)-->
 	<spawn map="210020000" npcid="211816" pool="23" interval="105">
 		<object x="1952.809" y="1188.514" z="429.0" h="115"/>
 		<object x="2167.502" y="941.6012" z="421.59387" h="8"/>
@@ -516,7 +516,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2177.111" y="499.5794" z="446.44446" h="50"/>
 		<object x="2408.841" y="942.3511" z="447.9503" h="96"/>
 	</spawn>
-	<!-- Crack Kaidan Charger -->
+	<!-- Crack Kaidan Charger (Monster lvl:29)-->
 	<spawn map="210020000" npcid="212058" pool="21" interval="105">
 		<object x="1231.545" y="2581.084" z="275.0393" h="83"/>
 		<object x="1330.1" y="2579.03" z="289.45187" h="13"/>
@@ -540,11 +540,11 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1361.92" y="2692.49" z="307.3194" h="62"/>
 		<object x="1258.073" y="2761.314" z="306.37042" h="27"/>
 	</spawn>
-	<!-- Crack Kaidan Charger -->
+	<!-- Crack Kaidan Charger (Monster lvl:29)-->
 	<spawn map="210020000" npcid="212058" pool="1" interval="105">
 		<object x="1385.426" y="2452.053" z="285.3391" h="41"/>
 	</spawn>
-	<!-- Alluring Temptress -->
+	<!-- Alluring Temptress (Monster lvl:32)-->
 	<spawn map="210020000" npcid="211746" pool="8" interval="105">
 		<object x="220.528" y="140.0765" z="146.28587" h="116"/>
 		<object x="192.0357" y="113.2538" z="145.91629" h="105"/>
@@ -555,7 +555,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="199.128" y="168.4003" z="145.99612" h="92"/>
 		<object x="195.0896" y="168.8105" z="146.02357" h="6"/>
 	</spawn>
-	<!-- Bladebeak Crestlich -->
+	<!-- Bladebeak Crestlich (Monster lvl:30)-->
 	<spawn map="210020000" npcid="210871" pool="24" interval="105">
 		<object x="1252.181" y="1382.955" z="301.04263" h="1"/>
 		<object x="1379.112" y="1509.653" z="284.51843" h="52"/>
@@ -582,7 +582,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1400.035" y="1365.212" z="290.78683" h="59"/>
 		<object x="1335.727" y="1301.018" z="294.47275" h="117"/>
 	</spawn>
-	<!-- Crack Kaidan Wallarm -->
+	<!-- Crack Kaidan Wallarm (Monster lvl:29)-->
 	<spawn map="210020000" npcid="212060" pool="7" interval="105">
 		<object x="1339.972" y="2611.49" z="293.72162" h="81"/>
 		<object x="1249.2" y="2693.146" z="307.1034" h="4"/>
@@ -592,7 +592,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1264.857" y="2682.679" z="303.9733" h="14"/>
 		<object x="1304.36" y="2654.13" z="303.8982" h="51"/>
 	</spawn>
-	<!-- Crack Kaidan Captain -->
+	<!-- Crack Kaidan Captain (Monster lvl:40)-->
 	<spawn map="210020000" npcid="212033" pool="14" interval="105">
 		<object x="2407.007" y="505.6916" z="370.03943" h="6"/>
 		<object x="2428.022" y="607.4183" z="370.53635" h="66"/>
@@ -609,7 +609,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2360.418" y="558.6633" z="368.625" h="84"/>
 		<object x="2364.481" y="724.7784" z="363.59494" h="2"/>
 	</spawn>
-	<!-- Assassin -->
+	<!-- Assassin (Monster lvl:39)-->
 	<spawn map="210020000" npcid="211023" pool="26" interval="105">
 		<object x="2240.071" y="2557.834" z="272.6608" h="12"/>
 		<object x="1887.371" y="2670.471" z="280.43985" h="40"/>
@@ -638,7 +638,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2622.315" y="2666.166" z="286.73486" h="11"/>
 		<object x="2519.468" y="2269.722" z="283.74213" h="71"/>
 	</spawn>
-	<!-- Baby Warg -->
+	<!-- Baby Warg (Monster lvl:1)-->
 	<spawn map="210020000" npcid="211835" pool="20" interval="105">
 		<object x="842.75" y="1792.25" z="255.78125" h="35"/>
 		<object x="328.75" y="1831.75" z="234.40625" h="28"/>
@@ -661,7 +661,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="216.75" y="1547.25" z="270.10938" h="13"/>
 		<object x="459.75" y="897.75" z="293.125" h="111"/>
 	</spawn>
-	<!-- Crack Kaidan Warmonger -->
+	<!-- Crack Kaidan Warmonger (Monster lvl:37)-->
 	<spawn map="210020000" npcid="211775" pool="25" interval="105">
 		<object x="2089.306" y="1189.992" z="411.50363" h="93"/>
 		<object x="2150.545" y="950.435" z="413.50687" h="43"/>
@@ -689,7 +689,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2249.367" y="623.8824" z="448.14987" h="3"/>
 		<object x="2402.81" y="963.42" z="447.755" h="38"/>
 	</spawn>
-	<!-- Armored Sparkle -->
+	<!-- Armored Sparkle (Monster lvl:19)-->
 	<spawn map="210020000" npcid="211682" pool="20" interval="105">
 		<object x="405.3671" y="2676.583" z="173.9844" h="44"/>
 		<object x="333.9748" y="2704.5" z="180.12814" h="59"/>
@@ -712,7 +712,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="161.3129" y="2859.987" z="154.04213" h="2"/>
 		<object x="427.6091" y="2735.396" z="158.42386" h="25"/>
 	</spawn>
-	<!-- Crack Kaidan Outrider -->
+	<!-- Crack Kaidan Outrider (Monster lvl:38)-->
 	<spawn map="210020000" npcid="212037" pool="15" interval="105">
 		<object x="2401.186" y="970.9533" z="449.90662" h="41"/>
 		<object x="2185.087" y="646.9362" z="455.69583" h="82"/>
@@ -730,7 +730,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2446.475" y="385.752" z="484.5" h="116"/>
 		<object x="2467.639" y="427.9816" z="494.375" h="1"/>
 	</spawn>
-	<!-- Acheron Drake -->
+	<!-- Acheron Drake (Monster lvl:26)-->
 	<spawn map="210020000" npcid="210799" pool="12" interval="105">
 		<object x="300.9147" y="1277.163" z="271.87015" h="70"/>
 		<object x="324.2044" y="1234.162" z="281.95203" h="35"/>
@@ -745,7 +745,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="341.415" y="1266.747" z="278.5381" h="104"/>
 		<object x="274.8539" y="1264.339" z="273.18564" h="95"/>
 	</spawn>
-	<!-- Crack Kaidan Chucker -->
+	<!-- Crack Kaidan Chucker (Monster lvl:38)-->
 	<spawn map="210020000" npcid="212043" pool="11" interval="105">
 		<object x="2369.543" y="871.5325" z="450.72076" h="70"/>
 		<object x="2246.348" y="388.8161" z="469.2872" h="90"/>
@@ -759,7 +759,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2521.698" y="353.4536" z="493.89026" h="1"/>
 		<object x="2465.381" y="364.9238" z="483.48932" h="35"/>
 	</spawn>
-	<!-- Crack Kaidan Lancer -->
+	<!-- Crack Kaidan Lancer (Monster lvl:38)-->
 	<spawn map="210020000" npcid="212040" pool="8" interval="105">
 		<object x="2229.076" y="542.8112" z="438.38205" h="71"/>
 		<object x="2119.305" y="936.3626" z="420.5" h="64"/>
@@ -770,7 +770,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2558.41" y="537.2788" z="419.52463" h="2"/>
 		<object x="2384.6" y="322.8961" z="489.394" h="18"/>
 	</spawn>
-	<!-- Bighorn Baku -->
+	<!-- Bighorn Baku (Monster lvl:25)-->
 	<spawn map="210020000" npcid="210794" pool="11" interval="105">
 		<object x="859.5505" y="1702.174" z="272.84515" h="75"/>
 		<object x="967.941" y="1672.682" z="257.7463" h="42"/>
@@ -784,7 +784,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1081.401" y="1912.941" z="263.1471" h="66"/>
 		<object x="1040.547" y="1738.229" z="264.4577" h="111"/>
 	</spawn>
-	<!-- Crack Chucker Boss -->
+	<!-- Crack Chucker Boss (Monster lvl:40)-->
 	<spawn map="210020000" npcid="212045" pool="6" interval="105">
 		<object x="2404.031" y="503.4624" z="369.87888" h="70"/>
 		<object x="2331.765" y="797.8561" z="363.00003" h="88"/>
@@ -793,7 +793,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2276.278" y="641.3192" z="364.72482" h="3"/>
 		<object x="2361.7" y="618.8376" z="366.625" h="100"/>
 	</spawn>
-	<!-- Assaulter -->
+	<!-- Assaulter (Monster lvl:38)-->
 	<spawn map="210020000" npcid="211012" pool="14" interval="105">
 		<object x="2128.033" y="2230.545" z="290.14716" h="20"/>
 		<object x="2134.12" y="2231.84" z="290.14716" h="112"/>
@@ -810,7 +810,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2243.046" y="2591.331" z="267.64386" h="39"/>
 		<object x="2375.646" y="2607.051" z="269.75" h="95"/>
 	</spawn>
-	<!-- Experimental Pretor -->
+	<!-- Experimental Pretor (Monster lvl:38)-->
 	<spawn map="210020000" npcid="211668" pool="14" interval="105">
 		<object x="2385.848" y="2290.695" z="276.05713" h="98"/>
 		<object x="1898.974" y="2394.215" z="297.2169" h="24"/>
@@ -827,7 +827,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1917.454" y="2369.994" z="295.5403" h="37"/>
 		<object x="2369.875" y="2301.934" z="275.77798" h="11"/>
 	</spawn>
-	<!-- Dune Basilisk -->
+	<!-- Dune Basilisk (Monster lvl:29)-->
 	<spawn map="210020000" npcid="210844" pool="18" interval="105">
 		<object x="608.3333" y="925.16" z="282.5425" h="94"/>
 		<object x="1062.961" y="1291.288" z="296.59387" h="4"/>
@@ -848,7 +848,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1030.568" y="1197.632" z="277.102" h="107"/>
 		<object x="283.6434" y="848.5916" z="293.5076" h="59"/>
 	</spawn>
-	<!-- Eracus Mugolem -->
+	<!-- Eracus Mugolem (Monster lvl:31)-->
 	<spawn map="210020000" npcid="211787" pool="6" interval="105">
 		<object x="158.4394" y="316.333" z="16.615578" h="109"/>
 		<object x="365.4628" y="208.1115" z="16.5" h="28"/>
@@ -857,14 +857,14 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="265.7689" y="368.1496" z="16.5" h="10"/>
 		<object x="362.299" y="327.2185" z="17.511354" h="99"/>
 	</spawn>
-	<!-- Desert Ksellid -->
+	<!-- Desert Ksellid (Monster lvl:29)-->
 	<spawn map="210020000" npcid="210846" pool="4" interval="105">
 		<object x="740.8842" y="1167.384" z="284.1132" h="52"/>
 		<object x="846.285" y="1292.788" z="275.76782" h="18"/>
 		<object x="913.639" y="1381.076" z="277.48694" h="117"/>
 		<object x="592.8686" y="1128.24" z="275.57214" h="33"/>
 	</spawn>
-	<!-- Eracus Gargoyle -->
+	<!-- Eracus Gargoyle (Monster lvl:28)-->
 	<spawn map="210020000" npcid="211847" pool="10" interval="105">
 		<object x="177.1434" y="208.6583" z="273.63058" h="19"/>
 		<object x="178.652" y="281.4831" z="273.63058" h="109"/>
@@ -877,7 +877,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="66.13261" y="259.9162" z="273.63058" h="101"/>
 		<object x="147.8486" y="302.8979" z="273.63058" h="35"/>
 	</spawn>
-	<!-- Fierce Maeki -->
+	<!-- Fierce Maeki (Monster lvl:37)-->
 	<spawn map="210020000" npcid="211676" pool="29" interval="105">
 		<object x="2042.523" y="1016.478" z="404.25" h="108"/>
 		<object x="2165.459" y="1172.017" z="396.48456" h="20"/>
@@ -909,7 +909,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2414.238" y="437.6124" z="498.09525" h="31"/>
 		<object x="2407.536" y="439.7883" z="499.40656" h="2"/>
 	</spawn>
-	<!-- Desert Caltrops -->
+	<!-- Desert Caltrops (Monster lvl:31)-->
 	<spawn map="210020000" npcid="210897" pool="40" interval="105">
 		<object x="902.9909" y="106.0154" z="315.6877" h="17"/>
 		<object x="391.7685" y="602.9454" z="313.27893" h="17"/>
@@ -952,7 +952,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1030.473" y="285.5341" z="314.7791" h="118"/>
 		<object x="1177.728" y="514.5549" z="317.67804" h="70"/>
 	</spawn>
-	<!-- Experimental Pretor -->
+	<!-- Experimental Pretor (Monster lvl:38)-->
 	<spawn map="210020000" npcid="212999" pool="7" interval="105">
 		<object x="2297.588" y="2623.04" z="275.9307" h="0"/>
 		<object x="2669.008" y="2718.681" z="292.625" h="115"/>
@@ -962,7 +962,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2302.882" y="2624.837" z="275.9307" h="55"/>
 		<object x="2297.675" y="2623.313" z="272.04294" h="103"/>
 	</spawn>
-	<!-- Eracus Gargoyle -->
+	<!-- Eracus Gargoyle (Monster lvl:29)-->
 	<spawn map="210020000" npcid="211737" pool="16" interval="105">
 		<object x="275.6013" y="264.4188" z="247.47603" h="50"/>
 		<object x="305.262" y="244.5722" z="248.68365" h="62"/>
@@ -981,7 +981,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="274.0395" y="416.1184" z="158.47087" h="116"/>
 		<object x="227.3422" y="325.9149" z="146.25153" h="84"/>
 	</spawn>
-	<!-- Fierce Drake -->
+	<!-- Fierce Drake (Monster lvl:30)-->
 	<spawn map="210020000" npcid="210889" pool="9" interval="105">
 		<object x="1756.098" y="2213.948" z="302.0025" h="6"/>
 		<object x="1760.495" y="2144.24" z="296.40594" h="101"/>
@@ -993,7 +993,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1616.348" y="1949.484" z="290.02576" h="46"/>
 		<object x="1760.271" y="2173.482" z="296.96912" h="59"/>
 	</spawn>
-	<!-- Crack Pathrunner -->
+	<!-- Crack Pathrunner (Monster lvl:37)-->
 	<spawn map="210020000" npcid="211862" pool="12" interval="105">
 		<object x="2252.162" y="1102.225" z="389.70554" h="72"/>
 		<object x="2052.735" y="941.8798" z="416.29117" h="92"/>
@@ -1008,11 +1008,11 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2254.586" y="431.6086" z="476.25" h="50"/>
 		<object x="2181.916" y="440.8817" z="452.375" h="42"/>
 	</spawn>
-	<!-- Cursed Miku -->
+	<!-- Cursed Miku (Monster lvl:34)-->
 	<spawn map="210020000" npcid="211796" pool="1" interval="105">
 		<object x="1405.241" y="348.0482" z="400.92502" h="7"/>
 	</spawn>
-	<!-- Ferocious Griffon -->
+	<!-- Ferocious Griffon (Monster lvl:35)-->
 	<spawn map="210020000" npcid="210981" pool="15" interval="105">
 		<object x="2324.19" y="2749.073" z="364.0" h="93"/>
 		<object x="2408.36" y="2799.131" z="365.0061" h="108"/>
@@ -1030,11 +1030,11 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2260.718" y="2774.531" z="358.49792" h="65"/>
 		<object x="2293.587" y="2746.541" z="363.22644" h="8"/>
 	</spawn>
-	<!-- Ferocious Griffon -->
+	<!-- Ferocious Griffon (Monster lvl:35)-->
 	<spawn map="210020000" npcid="210981" pool="1" interval="105">
 		<object x="2351.684" y="2711.315" z="361.22705" h="26"/>
 	</spawn>
-	<!-- Elder Pathrunner -->
+	<!-- Elder Pathrunner (Monster lvl:39)-->
 	<spawn map="210020000" npcid="211864" pool="9" interval="105">
 		<object x="2406.784" y="412.7819" z="487.125" h="88"/>
 		<object x="2458.403" y="350.2946" z="485.7946" h="26"/>
@@ -1046,15 +1046,15 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2480.208" y="658.9895" z="365.50262" h="52"/>
 		<object x="2336.776" y="552.9866" z="364.53534" h="99"/>
 	</spawn>
-	<!-- Cursed Muku -->
+	<!-- Cursed Muku (Monster lvl:35)-->
 	<spawn map="210020000" npcid="211797" pool="1" interval="105">
 		<object x="1435.17" y="240.76" z="348.05978" h="55"/>
 	</spawn>
-	<!-- Elite Mage -->
+	<!-- Elite Mage (Monster lvl:35)-->
 	<spawn map="210020000" npcid="211660" pool="1" interval="105">
 		<object x="2211.197" y="2401.107" z="384.75" h="69"/>
 	</spawn>
-	<!-- Crack Kaidan Witchdoctor -->
+	<!-- Crack Kaidan Witchdoctor (Monster lvl:29)-->
 	<spawn map="210020000" npcid="212074" pool="5" interval="105">
 		<object x="1268.802" y="2609.842" z="288.4549" h="16"/>
 		<object x="1273.086" y="2654.961" z="292.87598" h="39"/>
@@ -1062,7 +1062,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1259.846" y="2763.719" z="306.375" h="75"/>
 		<object x="1421.14" y="2642.55" z="300.75" h="116"/>
 	</spawn>
-	<!-- Fantail Crestlich -->
+	<!-- Fantail Crestlich (Monster lvl:27)-->
 	<spawn map="210020000" npcid="210819" pool="14" interval="105">
 		<object x="1361.126" y="1751.418" z="289.96362" h="120"/>
 		<object x="1454.586" y="1697.583" z="295.91727" h="84"/>
@@ -1079,7 +1079,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1078.242" y="1675.102" z="272.46136" h="44"/>
 		<object x="1185.439" y="1781.938" z="280.21106" h="36"/>
 	</spawn>
-	<!-- Desert Kselliki -->
+	<!-- Desert Kselliki (Monster lvl:28)-->
 	<spawn map="210020000" npcid="210822" pool="6" interval="105">
 		<object x="876.9811" y="1312.375" z="271.75" h="7"/>
 		<object x="890.0872" y="1349.247" z="273.70837" h="97"/>
@@ -1088,7 +1088,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="185.2894" y="690.0814" z="284.125" h="95"/>
 		<object x="225.811" y="800.999" z="291.0" h="105"/>
 	</spawn>
-	<!-- Fierce Rynoce -->
+	<!-- Fierce Rynoce (Monster lvl:35)-->
 	<spawn map="210020000" npcid="210978" pool="26" interval="105">
 		<object x="1724.949" y="735.2796" z="419.36072" h="38"/>
 		<object x="1632.051" y="1028.018" z="391.37387" h="72"/>
@@ -1117,7 +1117,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1715.318" y="1039.594" z="407.09674" h="80"/>
 		<object x="1717.498" y="891.542" z="409.59363" h="56"/>
 	</spawn>
-	<!-- Desert Spirit -->
+	<!-- Desert Spirit (Monster lvl:31)-->
 	<spawn map="210020000" npcid="211633" pool="10" interval="105">
 		<object x="1523.183" y="1537.5" z="304.0572" h="119"/>
 		<object x="1535.33" y="1505.459" z="303.67432" h="32"/>
@@ -1130,7 +1130,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1576.223" y="1454.665" z="314.44446" h="51"/>
 		<object x="1499.409" y="1347.045" z="301.28696" h="99"/>
 	</spawn>
-	<!-- Elder Kaidan Soothsayer -->
+	<!-- Elder Kaidan Soothsayer (Monster lvl:40)-->
 	<spawn map="210020000" npcid="212051" pool="6" interval="105">
 		<object x="2366.005" y="728.1794" z="363.4994" h="49"/>
 		<object x="2398.622" y="633.9644" z="369.875" h="112"/>
@@ -1139,14 +1139,14 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2301.725" y="634.472" z="365.13245" h="5"/>
 		<object x="2287.343" y="700.5728" z="363.1966" h="98"/>
 	</spawn>
-	<!-- Elder Kaidan Witchdoctor -->
+	<!-- Elder Kaidan Witchdoctor (Monster lvl:40)-->
 	<spawn map="210020000" npcid="212048" pool="4" interval="105">
 		<object x="2279.604" y="579.8944" z="375.3816" h="56"/>
 		<object x="2312.215" y="696.4567" z="364.75" h="66"/>
 		<object x="2355.786" y="519.6141" z="369.8509" h="45"/>
 		<object x="2442.712" y="736.4456" z="371.9606" h="17"/>
 	</spawn>
-	<!-- Dune Ampha -->
+	<!-- Dune Ampha (Monster lvl:30)-->
 	<spawn map="210020000" npcid="210873" pool="16" interval="105">
 		<object x="698.5875" y="903.4496" z="289.4782" h="43"/>
 		<object x="443.8251" y="875.1052" z="292.375" h="70"/>
@@ -1165,7 +1165,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1079.68" y="383.8371" z="304.22018" h="29"/>
 		<object x="1013.572" y="643.6179" z="306.74988" h="6"/>
 	</spawn>
-	<!-- Crater Spirit -->
+	<!-- Crater Spirit (Monster lvl:35)-->
 	<spawn map="210020000" npcid="211634" pool="12" interval="105">
 		<object x="2201.234" y="1561.111" z="396.56943" h="117"/>
 		<object x="2207.062" y="1417.836" z="394.38275" h="62"/>
@@ -1180,7 +1180,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2306.175" y="1472.27" z="387.4074" h="45"/>
 		<object x="2264.048" y="1457.908" z="392.87448" h="11"/>
 	</spawn>
-	<!-- Draft Spirit -->
+	<!-- Draft Spirit (Monster lvl:31)-->
 	<spawn map="210020000" npcid="211751" pool="11" interval="105">
 		<object x="336.0223" y="125.4015" z="145.02861" h="119"/>
 		<object x="340.3253" y="127.8853" z="143.86884" h="54"/>
@@ -1194,7 +1194,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="322.521" y="134.2038" z="146.14671" h="92"/>
 		<object x="305.8264" y="134.3805" z="145.97552" h="111"/>
 	</spawn>
-	<!-- Defense Commander -->
+	<!-- Defense Commander (Monster lvl:40)-->
 	<spawn map="210020000" npcid="211031" pool="14" interval="105">
 		<object x="2494.786" y="2247.299" z="289.4536" h="41"/>
 		<object x="2452.814" y="2550.908" z="274.88882" h="62"/>
@@ -1211,7 +1211,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2525.612" y="2296.753" z="277.38684" h="6"/>
 		<object x="2683.954" y="2672.786" z="289.01587" h="13"/>
 	</spawn>
-	<!-- Enticing Temptress -->
+	<!-- Enticing Temptress (Monster lvl:31)-->
 	<spawn map="210020000" npcid="211748" pool="8" interval="105">
 		<object x="209.6526" y="123.4594" z="144.68246" h="93"/>
 		<object x="175.3423" y="124.4865" z="144.68246" h="35"/>
@@ -1222,7 +1222,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="171.0735" y="129.8606" z="144.68246" h="42"/>
 		<object x="211.343" y="157.308" z="144.68246" h="76"/>
 	</spawn>
-	<!-- Crimsontail Pluma -->
+	<!-- Crimsontail Pluma (Monster lvl:19)-->
 	<spawn map="210020000" npcid="211684" pool="36" interval="105">
 		<object x="298.3688" y="2508.51" z="156.43625" h="74"/>
 		<object x="288.6035" y="2515.894" z="154.80096" h="84"/>
@@ -1261,7 +1261,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="335.5414" y="2859.786" z="156.34747" h="43"/>
 		<object x="340.7715" y="2916.5" z="156.17322" h="44"/>
 	</spawn>
-	<!-- Crynac -->
+	<!-- Crynac (Monster lvl:1)-->
 	<spawn map="210020000" npcid="211837" pool="115" interval="105">
 		<object x="1608.579" y="2147.133" z="283.8208" h="39"/>
 		<object x="1687.934" y="1092.846" z="403.10965" h="25"/>
@@ -1379,7 +1379,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1184.316" y="1760.658" z="278.875" h="50"/>
 		<object x="1233.3375" y="2058.8955" z="258.49857" h="56"/>
 	</spawn>
-	<!-- Fighter -->
+	<!-- Fighter (Monster lvl:25)-->
 	<spawn map="210020000" npcid="210788" pool="76" interval="105">
 		<object x="872.6257" y="1861.464" z="260.82053" h="68"/>
 		<object x="890.9027" y="1905.611" z="259.88715" h="28"/>
@@ -1458,7 +1458,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2362.11" y="2537.49" z="267.44376" h="81"/>
 		<object x="2051.233" y="2699.961" z="267.24756" h="27"/>
 	</spawn>
-	<!-- Crack Outrider Boss -->
+	<!-- Crack Outrider Boss (Monster lvl:40)-->
 	<spawn map="210020000" npcid="212039" pool="7" interval="105">
 		<object x="2311.089" y="714.307" z="364.625" h="100"/>
 		<object x="2408.337" y="523.5272" z="371.0897" h="67"/>
@@ -1468,7 +1468,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2352.585" y="574.1788" z="368.5" h="38"/>
 		<object x="2312.146" y="693.6986" z="364.75" h="72"/>
 	</spawn>
-	<!-- Dried Gnarl -->
+	<!-- Dried Gnarl (Monster lvl:24)-->
 	<spawn map="210020000" npcid="210786" pool="28" interval="105">
 		<object x="249.2472" y="1822.496" z="244.25" h="6"/>
 		<object x="288.5707" y="1716.876" z="249.3905" h="99"/>
@@ -1499,7 +1499,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="610.611" y="1877.356" z="235.00412" h="97"/>
 		<object x="325.6904" y="1654.226" z="253.73065" h="73"/>
 	</spawn>
-	<!-- Desert Crestlich -->
+	<!-- Desert Crestlich (Monster lvl:24)-->
 	<spawn map="210020000" npcid="210784" pool="62" interval="105">
 		<object x="375.8582" y="1774.643" z="233.21867" h="63"/>
 		<object x="311.6683" y="1741.789" z="238.41646" h="16"/>
@@ -1564,7 +1564,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="672.0927" y="1895.782" z="246.41008" h="76"/>
 		<object x="966.9536" y="1954.405" z="250.73366" h="21"/>
 	</spawn>
-	<!-- Devourer Sheluk -->
+	<!-- Devourer Sheluk (Monster lvl:32)-->
 	<spawn map="210020000" npcid="210918" pool="20" interval="105">
 		<object x="1151.85" y="896.63" z="294.85437" h="87"/>
 		<object x="1116.91" y="811.04" z="295.995" h="108"/>
@@ -1587,12 +1587,12 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1174.38" y="824.06" z="296.69876" h="116"/>
 		<object x="1182.4" y="860.72" z="292.33002" h="60"/>
 	</spawn>
-	<!-- Failed Pretor -->
+	<!-- Failed Pretor (Monster lvl:36)-->
 	<spawn map="210020000" npcid="211693" pool="2" interval="105">
 		<object x="2676.897" y="2722.237" z="294.03845" h="49"/>
 		<object x="2310.745" y="2616.093" z="273.57697" h="85"/>
 	</spawn>
-	<!-- Eracus Mugolem -->
+	<!-- Eracus Mugolem (Monster lvl:30)-->
 	<spawn map="210020000" npcid="211767" pool="6" interval="105">
 		<object x="335.1854" y="370.7261" z="158.24939" h="107"/>
 		<object x="316.5189" y="405.2134" z="158.2631" h="15"/>
@@ -1601,7 +1601,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="210.5923" y="371.6617" z="158.27701" h="3"/>
 		<object x="254.5201" y="350.8932" z="144.62915" h="39"/>
 	</spawn>
-	<!-- Defender -->
+	<!-- Defender (Monster lvl:38)-->
 	<spawn map="210020000" npcid="211013" pool="5" interval="105">
 		<object x="2131.605" y="2227.575" z="290.14716" h="52"/>
 		<object x="2264.779" y="2574.759" z="266.97894" h="114"/>
@@ -1609,7 +1609,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1908.893" y="2670.723" z="277.84036" h="21"/>
 		<object x="1874.095" y="2659.139" z="280.43985" h="61"/>
 	</spawn>
-	<!-- Kerubian Gatherer -->
+	<!-- Kerubian Gatherer (Monster lvl:23)-->
 	<spawn map="210020000" npcid="210774" pool="55" interval="105">
 		<object x="405.9847" y="2174.061" z="210.49619" h="103"/>
 		<object x="201.2518" y="2246.908" z="218.15648" h="111"/>
@@ -1667,7 +1667,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="147.5095" y="2226.154" z="216.90565" h="55"/>
 		<object x="153.1447" y="2100.023" z="212.19942" h="95"/>
 	</spawn>
-	<!-- Ironhorn Gorgon -->
+	<!-- Ironhorn Gorgon (Monster lvl:37)-->
 	<spawn map="210020000" npcid="211001" pool="7" interval="105">
 		<object x="2397.564" y="1317.154" z="406.94714" h="29"/>
 		<object x="2468.438" y="1317.096" z="406.97263" h="13"/>
@@ -1677,7 +1677,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2444.584" y="1341.219" z="407.49042" h="2"/>
 		<object x="2371.245" y="1397.999" z="406.29724" h="21"/>
 	</spawn>
-	<!-- Gazing Oculazen -->
+	<!-- Gazing Oculazen (Monster lvl:29)-->
 	<spawn map="210020000" npcid="211850" pool="10" interval="105">
 		<object x="415.4639" y="226.9097" z="208.55042" h="28"/>
 		<object x="362.293" y="213.0915" z="209.01822" h="84"/>
@@ -1690,7 +1690,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="363.9334" y="264.8718" z="208.85316" h="56"/>
 		<object x="367.0227" y="209.2312" z="209.01822" h="11"/>
 	</spawn>
-	<!-- Hookhorn Keraton -->
+	<!-- Hookhorn Keraton (Monster lvl:31)-->
 	<spawn map="210020000" npcid="210902" pool="22" interval="105">
 		<object x="1103.78" y="969.41" z="281.14752" h="34"/>
 		<object x="1106.37" y="970.76" z="280.78687" h="112"/>
@@ -1715,7 +1715,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1107.928" y="1161.25" z="274.22986" h="56"/>
 		<object x="1107.35" y="1242.4" z="296.45" h="39"/>
 	</spawn>
-	<!-- Grove Vespine -->
+	<!-- Grove Vespine (Monster lvl:21)-->
 	<spawn map="210020000" npcid="210755" pool="16" interval="105">
 		<object x="650.0944" y="2144.896" z="218.3367" h="96"/>
 		<object x="578.9593" y="2302.02" z="214.75125" h="58"/>
@@ -1734,12 +1734,12 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="438.3171" y="2534.051" z="167.37888" h="75"/>
 		<object x="650.7469" y="2420.381" z="213.67264" h="81"/>
 	</spawn>
-	<!-- Kaidan Special Shaman -->
+	<!-- Kaidan Special Shaman (Monster lvl:30)-->
 	<spawn map="210020000" npcid="212072" pool="2" interval="105">
 		<object x="1317.105" y="2771.331" z="314.02725" h="100"/>
 		<object x="1336.785" y="2761.716" z="314.375" h="77"/>
 	</spawn>
-	<!-- Granite Gorgon -->
+	<!-- Granite Gorgon (Monster lvl:35)-->
 	<spawn map="210020000" npcid="210980" pool="12" interval="105">
 		<object x="2195.2" y="1410.946" z="393.86588" h="74"/>
 		<object x="2189.178" y="1367.286" z="395.0" h="44"/>
@@ -1754,7 +1754,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2236.819" y="1393.593" z="395.0" h="18"/>
 		<object x="2239.328" y="1426.447" z="395.25" h="36"/>
 	</spawn>
-	<!-- Gust Spirit -->
+	<!-- Gust Spirit (Monster lvl:33)-->
 	<spawn map="210020000" npcid="211731" pool="17" interval="105">
 		<object x="2069.54" y="2496.12" z="369.52875" h="104"/>
 		<object x="2065.43" y="2492.93" z="369.66064" h="61"/>
@@ -1774,7 +1774,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2130.25" y="2554.59" z="359.98" h="22"/>
 		<object x="2110.01" y="2536.99" z="360.4375" h="79"/>
 	</spawn>
-	<!-- Grassland Rynoce -->
+	<!-- Grassland Rynoce (Monster lvl:30)-->
 	<spawn map="210020000" npcid="210887" pool="27" interval="105">
 		<object x="1370.005" y="1424.244" z="289.92407" h="87"/>
 		<object x="1415.593" y="1462.078" z="289.16287" h="30"/>
@@ -1804,7 +1804,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1296.329" y="1340.212" z="299.875" h="24"/>
 		<object x="1747.773" y="1787.702" z="330.12057" h="93"/>
 	</spawn>
-	<!-- Flame Barghest -->
+	<!-- Flame Barghest (Monster lvl:35)-->
 	<spawn map="210020000" npcid="210982" pool="16" interval="105">
 		<object x="2175.442" y="1553.778" z="395.4096" h="83"/>
 		<object x="2239.369" y="1575.008" z="396.53943" h="39"/>
@@ -1823,7 +1823,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2471.82" y="1525.209" z="407.0" h="56"/>
 		<object x="2334.432" y="1484.465" z="390.875" h="15"/>
 	</spawn>
-	<!-- Kerubian Fighter -->
+	<!-- Kerubian Fighter (Monster lvl:24)-->
 	<spawn map="210020000" npcid="211732" pool="12" interval="105">
 		<object x="129.0166" y="2112.975" z="211.55005" h="30"/>
 		<object x="256.603" y="2332.394" z="223.98694" h="41"/>
@@ -1838,7 +1838,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="272.4373" y="2113.765" z="209.24255" h="91"/>
 		<object x="190.4089" y="2119.137" z="214.0" h="62"/>
 	</spawn>
-	<!-- Kerubian Hunter -->
+	<!-- Kerubian Hunter (Monster lvl:35)-->
 	<spawn map="210020000" npcid="210976" pool="17" interval="105">
 		<object x="2231.844" y="1881.463" z="434.03357" h="79"/>
 		<object x="2489.72" y="1834.476" z="436.57776" h="22"/>
@@ -1858,7 +1858,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2353.29" y="1956.007" z="425.37543" h="11"/>
 		<object x="2315.437" y="1854.796" z="429.45026" h="43"/>
 	</spawn>
-	<!-- Flame Spirit -->
+	<!-- Flame Spirit (Monster lvl:26)-->
 	<spawn map="210020000" npcid="210805" pool="9" interval="105">
 		<object x="287.5494" y="1380.726" z="263.20462" h="24"/>
 		<object x="168.4986" y="1399.742" z="270.717" h="29"/>
@@ -1870,7 +1870,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="206.4165" y="1310.196" z="282.17285" h="38"/>
 		<object x="239.8199" y="1321.276" z="276.54425" h="18"/>
 	</spawn>
-	<!-- Hunter Griffon -->
+	<!-- Hunter Griffon (Monster lvl:32)-->
 	<spawn map="210020000" npcid="210940" pool="23" interval="105">
 		<object x="1767.852" y="2609.977" z="350.875" h="63"/>
 		<object x="1764.637" y="2427.079" z="352.0" h="56"/>
@@ -1896,11 +1896,11 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1760.484" y="2665.495" z="354.87256" h="70"/>
 		<object x="1786.558" y="2743.794" z="356.0" h="30"/>
 	</spawn>
-	<!-- Griffonix -->
+	<!-- Griffonix (Monster lvl:34)-->
 	<spawn map="210020000" npcid="212057" pool="1" interval="105">
 		<object x="1872.033" y="2798.739" z="360.9212" h="118"/>
 	</spawn>
-	<!-- Foraging Kurin -->
+	<!-- Foraging Kurin (Monster lvl:25)-->
 	<spawn map="210020000" npcid="210791" pool="5" interval="105">
 		<object x="254.1447" y="1660.391" z="250.4846" h="93"/>
 		<object x="563.5412" y="1845.516" z="233.09633" h="68"/>
@@ -1908,7 +1908,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="216.3289" y="1685.236" z="248.6661" h="33"/>
 		<object x="662.6616" y="1923.017" z="243.70558" h="92"/>
 	</spawn>
-	<!-- Kaidan Raider -->
+	<!-- Kaidan Raider (Monster lvl:38)-->
 	<spawn map="210020000" npcid="212034" pool="18" interval="105">
 		<object x="2197.901" y="475.7687" z="447.80988" h="103"/>
 		<object x="2229.903" y="511.5511" z="438.33484" h="25"/>
@@ -1929,7 +1929,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2513.583" y="344.6482" z="493.5" h="58"/>
 		<object x="2605.165" y="598.4661" z="473.01456" h="37"/>
 	</spawn>
-	<!-- Inflamed Temptress -->
+	<!-- Inflamed Temptress (Monster lvl:34)-->
 	<spawn map="210020000" npcid="210957" pool="15" interval="105">
 		<object x="1398.084" y="377.9375" z="351.0969" h="48"/>
 		<object x="1481.802" y="389.8241" z="348.6706" h="107"/>
@@ -1947,7 +1947,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1359.155" y="349.5537" z="348.66718" h="76"/>
 		<object x="1345.058" y="354.9316" z="348.66718" h="61"/>
 	</spawn>
-	<!-- Kaidan Raider Boss -->
+	<!-- Kaidan Raider Boss (Monster lvl:40)-->
 	<spawn map="210020000" npcid="212036" pool="11" interval="105">
 		<object x="2383.415" y="559.0777" z="369.5" h="107"/>
 		<object x="2327.569" y="557.1907" z="364.375" h="82"/>
@@ -1961,12 +1961,12 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2476.847" y="655.3215" z="365.76465" h="102"/>
 		<object x="2334.675" y="754.9506" z="358.0" h="86"/>
 	</spawn>
-	<!-- Kaidan Lancer Boss -->
+	<!-- Kaidan Lancer Boss (Monster lvl:40)-->
 	<spawn map="210020000" npcid="212042" pool="2" interval="105">
 		<object x="2437.496" y="505.8968" z="378.875" h="53"/>
 		<object x="2443.499" y="504.7104" z="378.875" h="92"/>
 	</spawn>
-	<!-- Hulking Tipolid -->
+	<!-- Hulking Tipolid (Monster lvl:33)-->
 	<spawn map="210020000" npcid="210948" pool="15" interval="105">
 		<object x="2136.749" y="1724.103" z="375.75" h="79"/>
 		<object x="2081.159" y="1876.114" z="367.57233" h="112"/>
@@ -1984,7 +1984,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2072.327" y="1939.471" z="367.61047" h="46"/>
 		<object x="2081.15" y="1756.091" z="370.22128" h="118"/>
 	</spawn>
-	<!-- Hunter Griffo -->
+	<!-- Hunter Griffo (Monster lvl:31)-->
 	<spawn map="210020000" npcid="210915" pool="14" interval="105">
 		<object x="1770.29" y="2402.052" z="352.0" h="48"/>
 		<object x="1818.215" y="2437.211" z="354.0891" h="83"/>
@@ -2001,7 +2001,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1807.191" y="2664.969" z="352.75" h="55"/>
 		<object x="1668.952" y="2519.423" z="347.8876" h="109"/>
 	</spawn>
-	<!-- Horned Rynoce -->
+	<!-- Horned Rynoce (Monster lvl:33)-->
 	<spawn map="210020000" npcid="210945" pool="15" interval="105">
 		<object x="1806.013" y="1630.985" z="346.25644" h="104"/>
 		<object x="1763.228" y="1589.279" z="356.85205" h="71"/>
@@ -2019,7 +2019,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2056.973" y="1910.683" z="361.6394" h="113"/>
 		<object x="1869.331" y="1546.961" z="367.64813" h="107"/>
 	</spawn>
-	<!-- Huge Eracus Gargoyle -->
+	<!-- Huge Eracus Gargoyle (Monster lvl:31)-->
 	<spawn map="210020000" npcid="211789" pool="6" interval="105">
 		<object x="265.4096" y="395.2513" z="158.27711" h="15"/>
 		<object x="312.9295" y="354.4086" z="145.63734" h="0"/>
@@ -2028,7 +2028,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="282.3586" y="364.8149" z="145.66046" h="42"/>
 		<object x="281.85034" y="396.70078" z="158.27711" h="82"/>
 	</spawn>
-	<!-- Kaidan Scout -->
+	<!-- Kaidan Scout (Monster lvl:28)-->
 	<spawn map="210020000" npcid="210840" pool="10" interval="105">
 		<object x="1288.391" y="2442.814" z="272.27325" h="54"/>
 		<object x="1281.654" y="2394.693" z="276.0218" h="49"/>
@@ -2041,7 +2041,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1253.02" y="2537.301" z="274.77612" h="52"/>
 		<object x="1237.556" y="2507.286" z="276.0" h="43"/>
 	</spawn>
-	<!-- Kaidan Juggernaut -->
+	<!-- Kaidan Juggernaut (Monster lvl:39)-->
 	<spawn map="210020000" npcid="212021" pool="10" interval="105">
 		<object x="2374.025" y="363.3525" z="480.45953" h="10"/>
 		<object x="2482.521" y="363.5163" z="493.25" h="65"/>
@@ -2054,14 +2054,14 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2504.936" y="493.5631" z="394.6675" h="54"/>
 		<object x="2325.234" y="694.2161" z="364.875" h="112"/>
 	</spawn>
-	<!-- Huge Mugolem -->
+	<!-- Huge Mugolem (Monster lvl:31)-->
 	<spawn map="210020000" npcid="211788" pool="4" interval="105">
 		<object x="265.0538" y="302.6195" z="146.22768" h="66"/>
 		<object x="281.5839" y="303.2317" z="146.22768" h="34"/>
 		<object x="258.5399" y="409.9837" z="158.47087" h="25"/>
 		<object x="289.1181" y="409.6735" z="158.47087" h="53"/>
 	</spawn>
-	<!-- Horned Tipolid -->
+	<!-- Horned Tipolid (Monster lvl:35)-->
 	<spawn map="210020000" npcid="211669" pool="12" interval="105">
 		<object x="2223.083" y="1967.802" z="420.9818" h="103"/>
 		<object x="2246.936" y="1912.583" z="426.80212" h="114"/>
@@ -2076,12 +2076,12 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2440.721" y="1857.961" z="426.92493" h="16"/>
 		<object x="2365.859" y="1851.58" z="427.39008" h="81"/>
 	</spawn>
-	<!-- Kaidan Blocker Lieutenant -->
+	<!-- Kaidan Blocker Lieutenant (Monster lvl:39)-->
 	<spawn map="210020000" npcid="212028" pool="2" interval="105">
 		<object x="2505.063" y="341.7372" z="493.5" h="99"/>
 		<object x="2372.337" y="973.4582" z="447.89606" h="42"/>
 	</spawn>
-	<!-- Kaidan Blocker Boss -->
+	<!-- Kaidan Blocker Boss (Monster lvl:40)-->
 	<spawn map="210020000" npcid="212029" pool="5" interval="105">
 		<object x="2535.912" y="659.2516" z="452.8447" h="27"/>
 		<object x="2281.26" y="618.049" z="366.69568" h="100"/>
@@ -2089,7 +2089,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2299.746" y="577.4138" z="375.25" h="12"/>
 		<object x="2277.883" y="730.3749" z="364.57812" h="86"/>
 	</spawn>
-	<!-- Flirtatious Temptress -->
+	<!-- Flirtatious Temptress (Monster lvl:32)-->
 	<spawn map="210020000" npcid="211783" pool="6" interval="105">
 		<object x="340.9434" y="201.9025" z="16.5" h="39"/>
 		<object x="296.7334" y="257.8361" z="16.5" h="57"/>
@@ -2098,7 +2098,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="328.0693" y="272.3725" z="16.5" h="92"/>
 		<object x="314.0897" y="270.6289" z="16.5" h="8"/>
 	</spawn>
-	<!-- Kaidan Special Tracker -->
+	<!-- Kaidan Special Tracker (Monster lvl:38)-->
 	<spawn map="210020000" npcid="211777" pool="8" interval="105">
 		<object x="2252.009" y="518.9838" z="446.31464" h="7"/>
 		<object x="2224.698" y="419.3759" z="463.44043" h="80"/>
@@ -2109,7 +2109,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2419.209" y="953.5812" z="449.43896" h="91"/>
 		<object x="2251.7" y="473.1938" z="447.25" h="28"/>
 	</spawn>
-	<!-- Kaidan Wallarm Boss -->
+	<!-- Kaidan Wallarm Boss (Monster lvl:40)-->
 	<spawn map="210020000" npcid="212025" pool="14" interval="105">
 		<object x="2442.384" y="525.6407" z="378.875" h="61"/>
 		<object x="2320.046" y="486.0121" z="408.86066" h="101"/>
@@ -2126,7 +2126,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2329.788" y="756.4672" z="358.01324" h="43"/>
 		<object x="2333.167" y="541.9919" z="364.375" h="76"/>
 	</spawn>
-	<!-- Kaidan Wallarm -->
+	<!-- Kaidan Wallarm (Monster lvl:28)-->
 	<spawn map="210020000" npcid="210839" pool="7" interval="105">
 		<object x="1424.219" y="2474.479" z="285.22263" h="79"/>
 		<object x="1259.038" y="2537.351" z="275.23044" h="94"/>
@@ -2136,12 +2136,12 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1414.848" y="2504.867" z="285.48337" h="95"/>
 		<object x="1386.538" y="2478.77" z="280.2595" h="68"/>
 	</spawn>
-	<!-- Kaidan Bonemender -->
+	<!-- Kaidan Bonemender (Monster lvl:38)-->
 	<spawn map="210020000" npcid="211779" pool="2" interval="105">
 		<object x="2262.637" y="539.2151" z="441.75" h="20"/>
 		<object x="2241.872" y="510.8273" z="446.125" h="84"/>
 	</spawn>
-	<!-- Kaidan Bigmouth -->
+	<!-- Kaidan Bigmouth (Monster lvl:28)-->
 	<spawn map="210020000" npcid="210838" pool="7" interval="105">
 		<object x="1316.53" y="2484.95" z="263.875" h="120"/>
 		<object x="1421.214" y="2485.03" z="285.083" h="56"/>
@@ -2151,7 +2151,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1373.067" y="2553.443" z="278.0" h="18"/>
 		<object x="1286.153" y="2505.389" z="263.99915" h="75"/>
 	</spawn>
-	<!-- Hulking Kurin -->
+	<!-- Hulking Kurin (Monster lvl:26)-->
 	<spawn map="210020000" npcid="211648" pool="46" interval="105">
 		<object x="735.6819" y="1490.3" z="271.74887" h="52"/>
 		<object x="662.7303" y="1606.228" z="263.95203" h="44"/>
@@ -2200,7 +2200,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="722.6486" y="1571.985" z="274.45947" h="21"/>
 		<object x="376.5211" y="1367.127" z="268.7447" h="73"/>
 	</spawn>
-	<!-- Gumi -->
+	<!-- Gumi (Monster lvl:2)-->
 	<spawn map="210020000" npcid="210342" pool="15" interval="105">
 		<object x="368.0817" y="2534.208" z="154.35194" h="120"/>
 		<object x="295.9702" y="2559.213" z="153.86624" h="4"/>
@@ -2218,7 +2218,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="194.0139" y="2593.102" z="153.82184" h="102"/>
 		<object x="481.6467" y="2710.438" z="154.35535" h="39"/>
 	</spawn>
-	<!-- Kaidan Scout -->
+	<!-- Kaidan Scout (Monster lvl:36)-->
 	<spawn map="210020000" npcid="212010" pool="12" interval="105">
 		<object x="1816.46" y="1045.589" z="428.30444" h="61"/>
 		<object x="1809.952" y="1107.07" z="435.5" h="46"/>
@@ -2233,7 +2233,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1801.034" y="1095.491" z="435.40256" h="58"/>
 		<object x="1804.26" y="1051.311" z="427.4879" h="87"/>
 	</spawn>
-	<!-- Kadan Loudmouth Boss -->
+	<!-- Kadan Loudmouth Boss (Monster lvl:40)-->
 	<spawn map="210020000" npcid="211035" pool="7" interval="105">
 		<object x="2451.868" y="668.2984" z="364.67667" h="27"/>
 		<object x="2364.114" y="617.6284" z="366.625" h="59"/>
@@ -2243,7 +2243,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2445.972" y="553.8451" z="378.36447" h="39"/>
 		<object x="2549.671" y="537.0264" z="419.52716" h="88"/>
 	</spawn>
-	<!-- Kaidan Charger -->
+	<!-- Kaidan Charger (Monster lvl:29)-->
 	<spawn map="210020000" npcid="210867" pool="6" interval="105">
 		<object x="1352.744" y="2460.076" z="275.26926" h="77"/>
 		<object x="1464.41" y="2579.273" z="312.02875" h="107"/>
@@ -2252,7 +2252,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1372.712" y="2607.632" z="297.125" h="108"/>
 		<object x="1226.327" y="2604.418" z="291.241" h="100"/>
 	</spawn>
-	<!-- Kaidan Loudmouth -->
+	<!-- Kaidan Loudmouth (Monster lvl:29)-->
 	<spawn map="210020000" npcid="210866" pool="24" interval="105">
 		<object x="1467.25" y="2522.799" z="307.00305" h="14"/>
 		<object x="1214.268" y="2559.529" z="275.47058" h="28"/>
@@ -2279,7 +2279,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2500.705" y="633.1482" z="448.34225" h="14"/>
 		<object x="2412.142" y="523.4778" z="370.86945" h="61"/>
 	</spawn>
-	<!-- Healer -->
+	<!-- Healer (Monster lvl:39)-->
 	<spawn map="210020000" npcid="211024" pool="19" interval="105">
 		<object x="2226.806" y="2560.971" z="272.6608" h="6"/>
 		<object x="1887.185" y="2646.938" z="274.75" h="105"/>
@@ -2301,7 +2301,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2404.08" y="2636.034" z="272.99924" h="19"/>
 		<object x="2460.8" y="2561.09" z="274.88882" h="80"/>
 	</spawn>
-	<!-- Footsoldier -->
+	<!-- Footsoldier (Monster lvl:40)-->
 	<spawn map="210020000" npcid="211030" pool="25" interval="105">
 		<object x="2474.227" y="2274.565" z="287.19357" h="76"/>
 		<object x="2711.716" y="2700.386" z="287.3224" h="83"/>
@@ -2329,14 +2329,14 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2608.346" y="2674.819" z="287.7776" h="80"/>
 		<object x="2734.259" y="2686.531" z="287.125" h="119"/>
 	</spawn>
-	<!-- Kaidan Plantygrunt -->
+	<!-- Kaidan Plantygrunt (Monster lvl:29)-->
 	<spawn map="210020000" npcid="210869" pool="4" interval="105">
 		<object x="1231.949" y="2722.573" z="308.16357" h="10"/>
 		<object x="1377.915" y="2636.152" z="298.0" h="34"/>
 		<object x="1244.201" y="2759.759" z="306.26257" h="41"/>
 		<object x="1244.752" y="2634.912" z="292.578" h="111"/>
 	</spawn>
-	<!-- Kaidan Shaman -->
+	<!-- Kaidan Shaman (Monster lvl:39)-->
 	<spawn map="210020000" npcid="211019" pool="8" interval="105">
 		<object x="2311.514" y="419.9155" z="487.875" h="76"/>
 		<object x="2527.13" y="348.8008" z="493.625" h="73"/>
@@ -2347,7 +2347,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2234.029" y="725.4544" z="365.83728" h="81"/>
 		<object x="2409.993" y="657.7111" z="366.875" h="88"/>
 	</spawn>
-	<!-- Kaidan Warmonger -->
+	<!-- Kaidan Warmonger (Monster lvl:39)-->
 	<spawn map="210020000" npcid="211017" pool="34" interval="105">
 		<object x="2530.703" y="370.1614" z="493.5" h="102"/>
 		<object x="2494.62" y="341.4651" z="493.5" h="69"/>
@@ -2384,7 +2384,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2591.092" y="549.085" z="487.21722" h="108"/>
 		<object x="2331.771" y="752.2709" z="358.12238" h="54"/>
 	</spawn>
-	<!-- Hooked Sylphen -->
+	<!-- Hooked Sylphen (Monster lvl:20)-->
 	<spawn map="210020000" npcid="211686" pool="12" interval="105">
 		<object x="149.953" y="2751.933" z="152.86664" h="39"/>
 		<object x="205.4651" y="2864.264" z="152.61679" h="75"/>
@@ -2399,7 +2399,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="195.7975" y="2627.915" z="152.63765" h="113"/>
 		<object x="162.2106" y="2646.699" z="152.375" h="50"/>
 	</spawn>
-	<!-- Hissing Frillneck -->
+	<!-- Hissing Frillneck (Monster lvl:21)-->
 	<spawn map="210020000" npcid="211687" pool="28" interval="105">
 		<object x="540.0506" y="2046.516" z="227.92538" h="25"/>
 		<object x="587.6794" y="2169.923" z="218.1298" h="71"/>
@@ -2430,7 +2430,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="943.2178" y="2563.548" z="247.5262" h="5"/>
 		<object x="962.5878" y="2584.232" z="256.85248" h="54"/>
 	</spawn>
-	<!-- Kaidan Healer -->
+	<!-- Kaidan Healer (Monster lvl:39)-->
 	<spawn map="210020000" npcid="211020" pool="12" interval="105">
 		<object x="2476.475" y="455.3262" z="497.25" h="16"/>
 		<object x="2368.589" y="399.2889" z="487.5965" h="10"/>
@@ -2445,7 +2445,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2363.41" y="555.0331" z="368.625" h="1"/>
 		<object x="2439.075" y="525.7516" z="378.875" h="55"/>
 	</spawn>
-	<!-- Kaidan Tracker -->
+	<!-- Kaidan Tracker (Monster lvl:38)-->
 	<spawn map="210020000" npcid="211014" pool="11" interval="105">
 		<object x="2074.552" y="950.0853" z="414.0" h="73"/>
 		<object x="2224.208" y="561.3301" z="433.875" h="60"/>
@@ -2459,7 +2459,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2536.845" y="355.6651" z="493.625" h="11"/>
 		<object x="2330.879" y="370.233" z="487.5398" h="79"/>
 	</spawn>
-	<!-- Giant Hissing Frillneck -->
+	<!-- Giant Hissing Frillneck (Monster lvl:23)-->
 	<spawn map="210020000" npcid="211689" pool="9" interval="105">
 		<object x="691.2261" y="2610.303" z="230.5673" h="79"/>
 		<object x="805.2128" y="2848.01" z="264.05045" h="94"/>
@@ -2471,7 +2471,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="820.1713" y="2560.802" z="230.625" h="38"/>
 		<object x="763.5615" y="2539.907" z="225.36919" h="33"/>
 	</spawn>
-	<!-- Mamaki Patrol -->
+	<!-- Mamaki Patrol (Monster lvl:37)-->
 	<spawn map="210020000" npcid="211004" pool="10" interval="105">
 		<object x="2187.733" y="1150.829" z="390.13702" h="103"/>
 		<object x="2069.548" y="948.6217" z="414.0" h="11"/>
@@ -2484,7 +2484,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2043.674" y="1073.836" z="405.68863" h="38"/>
 		<object x="2087.853" y="1114.65" z="405.78143" h="40"/>
 	</spawn>
-	<!-- Mamaki Butcher -->
+	<!-- Mamaki Butcher (Monster lvl:28)-->
 	<spawn map="210020000" npcid="211005" pool="30" interval="105">
 		<object x="2082.352" y="1014.248" z="410.509" h="73"/>
 		<object x="2214.099" y="930.3506" z="422.0" h="83"/>
@@ -2517,7 +2517,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1322.686" y="2615.54" z="288.6145" h="19"/>
 		<object x="1249.005" y="2655.168" z="294.323" h="105"/>
 	</spawn>
-	<!-- Lepharist Outrider -->
+	<!-- Lepharist Outrider (Monster lvl:39)-->
 	<spawn map="210020000" npcid="211723" pool="25" interval="105">
 		<object x="2010.472" y="2419.146" z="277.3385" h="74"/>
 		<object x="2065.69" y="2661.52" z="267.97186" h="56"/>
@@ -2545,7 +2545,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1917.513" y="2621.788" z="264.61572" h="6"/>
 		<object x="2342.955" y="2350.969" z="267.99612" h="59"/>
 	</spawn>
-	<!-- Klaw Soldier -->
+	<!-- Klaw Soldier (Monster lvl:31)-->
 	<spawn map="210020000" npcid="210911" pool="5" interval="105">
 		<object x="1710.004" y="1251.364" z="351.8755" h="80"/>
 		<object x="1638.444" y="1247.907" z="344.11682" h="98"/>
@@ -2553,7 +2553,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1716.683" y="1262.688" z="353.37805" h="29"/>
 		<object x="1707.033" y="1300.105" z="357.56042" h="50"/>
 	</spawn>
-	<!-- Mamaki Bruiser -->
+	<!-- Mamaki Bruiser (Monster lvl:37)-->
 	<spawn map="210020000" npcid="211006" pool="21" interval="105">
 		<object x="1927.772" y="1158.466" z="436.59528" h="7"/>
 		<object x="2068.102" y="944.139" z="414.0" h="111"/>
@@ -2577,7 +2577,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2482.719" y="328.6503" z="493.5" h="96"/>
 		<object x="2169.666" y="599.3004" z="453.5" h="120"/>
 	</spawn>
-	<!-- Mamaki Veteran Captain -->
+	<!-- Mamaki Veteran Captain (Monster lvl:39)-->
 	<spawn map="210020000" npcid="211842" pool="10" interval="105">
 		<object x="2569.823" y="408.4681" z="496.0" h="45"/>
 		<object x="2583.59" y="652.93" z="463.44186" h="107"/>
@@ -2590,13 +2590,13 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2416.883" y="543.1031" z="373.51462" h="26"/>
 		<object x="2449.933" y="563.0268" z="378.625" h="75"/>
 	</spawn>
-	<!-- Mystic Kaidan Head Priest -->
+	<!-- Mystic Kaidan Head Priest (Monster lvl:39)-->
 	<spawn map="210020000" npcid="211846" pool="3" interval="105">
 		<object x="2420.6" y="321.23" z="495.38562" h="25"/>
 		<object x="2423.47" y="312.06" z="495.37875" h="26"/>
 		<object x="2429.59" y="319.35" z="495.41562" h="114"/>
 	</spawn>
-	<!-- Manduri Looter -->
+	<!-- Manduri Looter (Monster lvl:23)-->
 	<spawn map="210020000" npcid="210770" pool="16" interval="105">
 		<object x="747.736" y="2781.465" z="257.125" h="45"/>
 		<object x="893.4579" y="2667.031" z="242.90942" h="10"/>
@@ -2615,7 +2615,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="769.2709" y="2815.474" z="261.0" h="117"/>
 		<object x="792.0809" y="2808.912" z="259.21286" h="91"/>
 	</spawn>
-	<!-- Manduri Fighter -->
+	<!-- Manduri Fighter (Monster lvl:23)-->
 	<spawn map="210020000" npcid="210771" pool="19" interval="105">
 		<object x="729.6171" y="2803.485" z="260.59283" h="119"/>
 		<object x="813.5754" y="2618.17" z="239.72586" h="117"/>
@@ -2637,7 +2637,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="763.6215" y="2849.519" z="262.75" h="101"/>
 		<object x="825.9824" y="2618.817" z="240.125" h="106"/>
 	</spawn>
-	<!-- Kerubiel Ringleader -->
+	<!-- Kerubiel Ringleader (Monster lvl:37)-->
 	<spawn map="210020000" npcid="210997" pool="13" interval="105">
 		<object x="2515.717" y="1720.205" z="447.12012" h="99"/>
 		<object x="2548.911" y="1755.59" z="456.0" h="108"/>
@@ -2653,7 +2653,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2389.92" y="1879.826" z="423.70236" h="99"/>
 		<object x="2363.941" y="1961.168" z="425.3787" h="15"/>
 	</spawn>
-	<!-- Magma Spirit -->
+	<!-- Magma Spirit (Monster lvl:36)-->
 	<spawn map="210020000" npcid="210993" pool="23" interval="105">
 		<object x="2357.118" y="1405.056" z="406.3199" h="91"/>
 		<object x="2377.036" y="1490.441" z="397.80127" h="81"/>
@@ -2679,7 +2679,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2610.571" y="1417.263" z="403.65656" h="33"/>
 		<object x="2544.718" y="1476.456" z="404.3642" h="38"/>
 	</spawn>
-	<!-- Mottled Basilisk -->
+	<!-- Mottled Basilisk (Monster lvl:24)-->
 	<spawn map="210020000" npcid="210779" pool="27" interval="105">
 		<object x="603.6111" y="1795.518" z="233.75583" h="115"/>
 		<object x="613.9728" y="1787.078" z="234.30762" h="85"/>
@@ -2709,7 +2709,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="355.0341" y="1576.06" z="264.76532" h="9"/>
 		<object x="509.8539" y="1683.037" z="238.80557" h="105"/>
 	</spawn>
-	<!-- Moss Spirit -->
+	<!-- Moss Spirit (Monster lvl:21)-->
 	<spawn map="210020000" npcid="210756" pool="18" interval="105">
 		<object x="434.2139" y="2042.894" z="243.3591" h="8"/>
 		<object x="445.0207" y="2044.625" z="244.00781" h="21"/>
@@ -2730,7 +2730,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="557.8303" y="2171.427" z="229.15317" h="4"/>
 		<object x="533.9831" y="2154.6" z="228.01657" h="42"/>
 	</spawn>
-	<!-- Manduri Hunter -->
+	<!-- Manduri Hunter (Monster lvl:21)-->
 	<spawn map="210020000" npcid="210759" pool="23" interval="105">
 		<object x="767.0332" y="2155.316" z="237.36475" h="52"/>
 		<object x="704.9262" y="2203.342" z="230.43457" h="31"/>
@@ -2756,7 +2756,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="868.1472" y="2605.543" z="239.52856" h="85"/>
 		<object x="917.7546" y="2600.174" z="241.23912" h="104"/>
 	</spawn>
-	<!-- Manduri Gatherer -->
+	<!-- Manduri Gatherer (Monster lvl:21)-->
 	<spawn map="210020000" npcid="210758" pool="26" interval="105">
 		<object x="681.31" y="2229.28" z="227.1581" h="22"/>
 		<object x="703.7194" y="2248.731" z="226.08994" h="111"/>
@@ -2785,7 +2785,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="882.2649" y="2697.984" z="246.49698" h="63"/>
 		<object x="869.5881" y="2729.45" z="255.811" h="70"/>
 	</spawn>
-	<!-- Merciless Ancient Bloodwing -->
+	<!-- Merciless Ancient Bloodwing (Monster lvl:29)-->
 	<spawn map="210020000" npcid="211741" pool="6" interval="105">
 		<object x="124.4404" y="216.1701" z="222.54863" h="118"/>
 		<object x="143.2285" y="306.025" z="215.21106" h="77"/>
@@ -2794,7 +2794,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="91.58705" y="292.3139" z="222.54655" h="109"/>
 		<object x="173.5984" y="245.3668" z="215.1611" h="92"/>
 	</spawn>
-	<!-- Kerubiel Fighter -->
+	<!-- Kerubiel Fighter (Monster lvl:35)-->
 	<spawn map="210020000" npcid="210977" pool="19" interval="105">
 		<object x="2202.141" y="2041.799" z="409.20856" h="25"/>
 		<object x="2260.403" y="1882.045" z="432.31616" h="82"/>
@@ -2816,7 +2816,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2492.615" y="1861.646" z="436.625" h="79"/>
 		<object x="2390.552" y="1913.721" z="419.8023" h="62"/>
 	</spawn>
-	<!-- Needlethorn Keraton -->
+	<!-- Needlethorn Keraton (Monster lvl:35)-->
 	<spawn map="210020000" npcid="210974" pool="13" interval="105">
 		<object x="1605.478" y="821.644" z="368.8405" h="86"/>
 		<object x="1548.911" y="830.2114" z="368.77435" h="64"/>
@@ -2832,14 +2832,14 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2354.528" y="1649.52" z="419.876" h="1"/>
 		<object x="2449.669" y="1812.541" z="427.9041" h="101"/>
 	</spawn>
-	<!-- Mystic Kaidan Greatlama -->
+	<!-- Mystic Kaidan Greatlama (Monster lvl:40)-->
 	<spawn map="210020000" npcid="212054" pool="4" interval="105">
 		<object x="2450.692" y="565.9907" z="378.83475" h="19"/>
 		<object x="2447.887" y="736.6" z="371.9606" h="102"/>
 		<object x="2323.91" y="569.463" z="364.375" h="46"/>
 		<object x="2323.769" y="691.9176" z="364.875" h="46"/>
 	</spawn>
-	<!-- Klaw Sentry -->
+	<!-- Klaw Sentry (Monster lvl:31)-->
 	<spawn map="210020000" npcid="212055" pool="18" interval="105">
 		<object x="1643.257" y="1284.97" z="345.7678" h="2"/>
 		<object x="1638.641" y="1264.696" z="344.16025" h="33"/>
@@ -2860,14 +2860,14 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1710.993" y="1280.271" z="355.03473" h="116"/>
 		<object x="1700.666" y="1414.663" z="370.20825" h="40"/>
 	</spawn>
-	<!-- Mystic Kaidan Lama -->
+	<!-- Mystic Kaidan Lama (Monster lvl:38)-->
 	<spawn map="210020000" npcid="212052" pool="4" interval="105">
 		<object x="2226.571" y="418.3542" z="463.70648" h="51"/>
 		<object x="2167.303" y="520.7094" z="447.25" h="29"/>
 		<object x="2372.76" y="336.63" z="487.58563" h="117"/>
 		<object x="2555.396" y="621.9421" z="461.60263" h="113"/>
 	</spawn>
-	<!-- Maned Basilisk -->
+	<!-- Maned Basilisk (Monster lvl:26)-->
 	<spawn map="210020000" npcid="210800" pool="28" interval="105">
 		<object x="389.2161" y="1358.776" z="271.8815" h="78"/>
 		<object x="655.9332" y="1445.709" z="272.25" h="46"/>
@@ -2898,14 +2898,14 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="530.1893" y="1574.175" z="263.4435" h="90"/>
 		<object x="269.091" y="1426.831" z="264.61362" h="43"/>
 	</spawn>
-	<!-- Long-Eared Fangwing -->
+	<!-- Long-Eared Fangwing (Monster lvl:28)-->
 	<spawn map="210020000" npcid="211756" pool="4" interval="105">
 		<object x="205.8532" y="190.1144" z="260.53412" h="85"/>
 		<object x="213.6566" y="174.3577" z="260.53412" h="105"/>
 		<object x="243.5188" y="151.233" z="260.53412" h="81"/>
 		<object x="229.1926" y="157.7691" z="260.53412" h="42"/>
 	</spawn>
-	<!-- Long-tusked Rynoce -->
+	<!-- Long-tusked Rynoce (Monster lvl:32)-->
 	<spawn map="210020000" npcid="210930" pool="21" interval="105">
 		<object x="1683.565" y="1704.642" z="337.30438" h="28"/>
 		<object x="1589.726" y="1241.134" z="341.32126" h="30"/>
@@ -2929,7 +2929,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1504.533" y="1255.137" z="310.88416" h="102"/>
 		<object x="1358.731" y="1268.584" z="292.1405" h="74"/>
 	</spawn>
-	<!-- Klaw Seeker -->
+	<!-- Klaw Seeker (Monster lvl:32)-->
 	<spawn map="210020000" npcid="210928" pool="11" interval="105">
 		<object x="700.7012" y="246.5349" z="303.80646" h="23"/>
 		<object x="723.4265" y="271.538" z="302.93274" h="21"/>
@@ -2943,7 +2943,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="611.652" y="138.3657" z="305.25" h="58"/>
 		<object x="628.3392" y="254.7598" z="304.75" h="37"/>
 	</spawn>
-	<!-- Klaw Gatherer -->
+	<!-- Klaw Gatherer (Monster lvl:32)-->
 	<spawn map="210020000" npcid="210917" pool="21" interval="105">
 		<object x="622.0327" y="200.9571" z="304.81314" h="13"/>
 		<object x="704.1279" y="219.4077" z="304.55005" h="41"/>
@@ -2967,7 +2967,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1701.346" y="1427.858" z="370.32526" h="86"/>
 		<object x="1691.154" y="1356.737" z="365.5" h="57"/>
 	</spawn>
-	<!-- Mottled Tipolid -->
+	<!-- Mottled Tipolid (Monster lvl:31)-->
 	<spawn map="210020000" npcid="210914" pool="15" interval="105">
 		<object x="1819.413" y="1802.28" z="331.67664" h="41"/>
 		<object x="1884.766" y="1801.904" z="337.25" h="93"/>
@@ -2985,7 +2985,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1663.093" y="1652.423" z="344.5681" h="47"/>
 		<object x="1792.773" y="1549.08" z="371.4892" h="53"/>
 	</spawn>
-	<!-- Mystic Kaidan Witchdoctor -->
+	<!-- Mystic Kaidan Witchdoctor (Monster lvl:38)-->
 	<spawn map="210020000" npcid="212046" pool="5" interval="105">
 		<object x="2247.832" y="604.9671" z="445.64188" h="6"/>
 		<object x="2221.662" y="582.1988" z="434.01242" h="60"/>
@@ -2993,7 +2993,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2462.303" y="453.7614" z="497.375" h="119"/>
 		<object x="2501.809" y="636.35" z="448.30994" h="78"/>
 	</spawn>
-	<!-- Knuckledragger Trollkin -->
+	<!-- Knuckledragger Trollkin (Monster lvl:35)-->
 	<spawn map="210020000" npcid="211671" pool="5" interval="105">
 		<object x="2125.742" y="1407.668" z="406.28226" h="48"/>
 		<object x="2143.223" y="1352.004" z="403.28577" h="116"/>
@@ -3001,7 +3001,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2295.092" y="1284.975" z="426.06406" h="71"/>
 		<object x="2306.81" y="1315.647" z="420.73108" h="97"/>
 	</spawn>
-	<!-- Old Eracus Gargoyle -->
+	<!-- Old Eracus Gargoyle (Monster lvl:32)-->
 	<spawn map="210020000" npcid="211786" pool="9" interval="105">
 		<object x="265.9006" y="222.3591" z="16.57828" h="23"/>
 		<object x="288.9388" y="203.0937" z="15.549466" h="6"/>
@@ -3013,7 +3013,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="167.1605" y="331.2323" z="17.12852" h="59"/>
 		<object x="359.3153" y="309.1295" z="16.989578" h="87"/>
 	</spawn>
-	<!-- Mamaki Peon -->
+	<!-- Mamaki Peon (Monster lvl:28)-->
 	<spawn map="210020000" npcid="210835" pool="14" interval="105">
 		<object x="1315.034" y="2486.337" z="263.875" h="62"/>
 		<object x="1280.803" y="2505.809" z="263.76193" h="86"/>
@@ -3030,7 +3030,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1472.85" y="2524.128" z="307.7285" h="29"/>
 		<object x="1210.433" y="2551.428" z="274.6872" h="58"/>
 	</spawn>
-	<!-- Mamaki Worker -->
+	<!-- Mamaki Worker (Monster lvl:28)-->
 	<spawn map="210020000" npcid="210834" pool="19" interval="105">
 		<object x="1405.492" y="2450.181" z="283.21826" h="96"/>
 		<object x="1285.899" y="2476.887" z="266.19458" h="80"/>
@@ -3052,7 +3052,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1210.28" y="2546.368" z="274.34" h="40"/>
 		<object x="1469.961" y="2518.105" z="307.482" h="53"/>
 	</spawn>
-	<!-- Mamaki Watcher -->
+	<!-- Mamaki Watcher (Monster lvl:28)-->
 	<spawn map="210020000" npcid="210837" pool="9" interval="105">
 		<object x="1381.38" y="2547.955" z="279.38376" h="58"/>
 		<object x="1345.723" y="2489.917" z="276.79538" h="7"/>
@@ -3064,7 +3064,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1398.592" y="2560.791" z="300.28546" h="14"/>
 		<object x="1230.297" y="2545.762" z="275.5322" h="115"/>
 	</spawn>
-	<!-- Mamaki Tracker -->
+	<!-- Mamaki Tracker (Monster lvl:28)-->
 	<spawn map="210020000" npcid="210836" pool="12" interval="105">
 		<object x="1358.099" y="2555.115" z="277.77057" h="22"/>
 		<object x="1260.08" y="2501.259" z="266.12845" h="93"/>
@@ -3079,7 +3079,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1387.409" y="2576.707" z="298.7497" h="46"/>
 		<object x="1252.957" y="2656.232" z="294.375" h="24"/>
 	</spawn>
-	<!-- Mystic Kaidan Head Priest -->
+	<!-- Mystic Kaidan Head Priest (Monster lvl:39)-->
 	<spawn map="210020000" npcid="212998" pool="10" interval="105">
 		<object x="2430.29" y="315.41" z="495.375" h="114"/>
 		<object x="2437.83" y="319.17" z="495.35254" h="8"/>
@@ -3092,13 +3092,13 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2411.52" y="312.12" z="495.135" h="43"/>
 		<object x="2421.23" y="309.78" z="495.48624" h="0"/>
 	</spawn>
-	<!-- Mystic Kaidan Shaman -->
+	<!-- Mystic Kaidan Shaman (Monster lvl:38)-->
 	<spawn map="210020000" npcid="211778" pool="3" interval="105">
 		<object x="2283.229" y="560.6752" z="418.4578" h="65"/>
 		<object x="2204.133" y="636.7918" z="458.5657" h="48"/>
 		<object x="2287.19" y="787.4001" z="470.875" h="31"/>
 	</spawn>
-	<!-- Larail -->
+	<!-- Larail (Monster lvl:1)-->
 	<spawn map="210020000" npcid="210350" pool="20" interval="105">
 		<object x="364.56" y="2630.19" z="164.97687" h="92"/>
 		<object x="370.19" y="2631.39" z="164.825" h="32"/>
@@ -3121,7 +3121,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="368.1" y="2637.93" z="165.36436" h="26"/>
 		<object x="419.4" y="2625.96" z="159.14499" h="109"/>
 	</spawn>
-	<!-- Mamaki Flagbearer -->
+	<!-- Mamaki Flagbearer (Monster lvl:28)-->
 	<spawn map="210020000" npcid="210831" pool="6" interval="105">
 		<object x="1390.069" y="2478.192" z="281.0345" h="46"/>
 		<object x="1302.522" y="2452.669" z="269.99957" h="41"/>
@@ -3130,7 +3130,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1238.062" y="2550.301" z="274.51495" h="34"/>
 		<object x="1407.439" y="2601.558" z="297.625" h="86"/>
 	</spawn>
-	<!-- Mamaki Bruiser Boss -->
+	<!-- Mamaki Bruiser Boss (Monster lvl:38)-->
 	<spawn map="210020000" npcid="212013" pool="12" interval="105">
 		<object x="2181.643" y="499.8602" z="446.50873" h="6"/>
 		<object x="2386.57" y="402.8665" z="486.64395" h="10"/>
@@ -3145,7 +3145,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2205.867" y="720.5709" z="361.875" h="109"/>
 		<object x="2601.992" y="629.0438" z="463.99503" h="104"/>
 	</spawn>
-	<!-- Mamaki Butcher Boss -->
+	<!-- Mamaki Butcher Boss (Monster lvl:38)-->
 	<spawn map="210020000" npcid="212012" pool="13" interval="105">
 		<object x="2410.626" y="412.4845" z="487.25885" h="82"/>
 		<object x="2364.809" y="923.4686" z="447.97614" h="10"/>
@@ -3161,21 +3161,21 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2585.67" y="651.3" z="463.64813" h="79"/>
 		<object x="2564.118" y="424.3516" z="494.75" h="47"/>
 	</spawn>
-	<!-- Oozing Clodworm -->
+	<!-- Oozing Clodworm (Monster lvl:35)-->
 	<spawn map="210020000" npcid="211799" pool="3" interval="105">
 		<object x="1431.0269" y="240.3709" z="348.05795" h="68"/>
 		<object x="1418.0062" y="237.52919" z="348.0541" h="9"/>
 		<object x="1405.8367" y="245.68732" z="348.04684" h="43"/>
 	</spawn>
-	<!-- MuMu Mon -->
+	<!-- MuMu Mon (Monster lvl:35)-->
 	<spawn map="210020000" npcid="211793" pool="1" interval="105">
 		<object x="1436.8875" y="270.4638" z="345.58212" h="58"/>
 	</spawn>
-	<!-- MuMu Zoo -->
+	<!-- MuMu Zoo (Monster lvl:35)-->
 	<spawn map="210020000" npcid="211794" pool="1" interval="105">
 		<object x="1432.8875" y="270.4638" z="345.58212" h="25"/>
 	</spawn>
-	<!-- Parasitic Clodworm -->
+	<!-- Parasitic Clodworm (Monster lvl:27)-->
 	<spawn map="210020000" npcid="280197" pool="18" interval="105">
 		<object x="307.97" y="1658.81" z="252.49812" h="31"/>
 		<object x="300.1" y="1668.56" z="251.72125" h="89"/>
@@ -3196,7 +3196,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="278.06" y="1647.88" z="251.00375" h="70"/>
 		<object x="464.38" y="1923.81" z="225.75" h="19"/>
 	</spawn>
-	<!-- Klaw Worker -->
+	<!-- Klaw Worker (Monster lvl:30)-->
 	<spawn map="210020000" npcid="210874" pool="33" interval="105">
 		<object x="819.1598" y="202.4773" z="304.25" h="45"/>
 		<object x="749.5692" y="277.6217" z="303.09808" h="89"/>
@@ -3232,7 +3232,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="630.3643" y="140.8921" z="305.03625" h="15"/>
 		<object x="663.8998" y="142.38" z="305.30374" h="44"/>
 	</spawn>
-	<!-- Mottled Slink -->
+	<!-- Mottled Slink (Monster lvl:19)-->
 	<spawn map="210020000" npcid="211680" pool="7" interval="105">
 		<object x="181.0935" y="2804.327" z="154.3733" h="40"/>
 		<object x="222.9698" y="2912.05" z="153.7019" h="43"/>
@@ -3242,7 +3242,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="460.5053" y="2809.168" z="153.625" h="10"/>
 		<object x="411.9902" y="2849.909" z="153.91484" h="39"/>
 	</spawn>
-	<!-- Mamaki Vigilante -->
+	<!-- Mamaki Vigilante (Monster lvl:38)-->
 	<spawn map="210020000" npcid="211011" pool="7" interval="105">
 		<object x="2288.037" y="804.3314" z="472.69696" h="116"/>
 		<object x="2301.5" y="917.5294" z="440.65442" h="87"/>
@@ -3252,7 +3252,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2599.4" y="397.7" z="499.875" h="71"/>
 		<object x="2617.251" y="406.8219" z="501.0" h="82"/>
 	</spawn>
-	<!-- Mamaki Cook -->
+	<!-- Mamaki Cook (Monster lvl:28)-->
 	<spawn map="210020000" npcid="211828" pool="10" interval="105">
 		<object x="1373.993" y="2614.752" z="297.125" h="56"/>
 		<object x="1321.057" y="2694.443" z="301.9027" h="38"/>
@@ -3265,7 +3265,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1385.695" y="2715.389" z="306.60593" h="79"/>
 		<object x="1255.513" y="2540.861" z="274.66574" h="42"/>
 	</spawn>
-	<!-- Mamaki Brawler -->
+	<!-- Mamaki Brawler (Monster lvl:28)-->
 	<spawn map="210020000" npcid="211826" pool="14" interval="105">
 		<object x="1326.996" y="2415.262" z="271.125" h="90"/>
 		<object x="1302.956" y="2487.405" z="265.65308" h="30"/>
@@ -3282,7 +3282,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1392.552" y="2613.261" z="297.875" h="6"/>
 		<object x="1291.32" y="2619.784" z="288.6675" h="8"/>
 	</spawn>
-	<!-- Marshland Mudthorn -->
+	<!-- Marshland Mudthorn (Monster lvl:23)-->
 	<spawn map="210020000" npcid="211285" pool="20" interval="105">
 		<object x="359.8" y="2342.04" z="208.04251" h="92"/>
 		<object x="89.73036" y="2148.545" z="208.48279" h="3"/>
@@ -3305,7 +3305,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="386.9521" y="2325.937" z="209.09521" h="47"/>
 		<object x="324.6486" y="2105.309" z="208.07198" h="48"/>
 	</spawn>
-	<!-- Redthroat Crestlich -->
+	<!-- Redthroat Crestlich (Monster lvl:23)-->
 	<spawn map="210020000" npcid="210775" pool="13" interval="105">
 		<object x="375.4682" y="1812.256" z="233.10776" h="67"/>
 		<object x="466.39" y="1924.55" z="225.80875" h="26"/>
@@ -3321,7 +3321,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="356.2987" y="1880.763" z="233.125" h="18"/>
 		<object x="444.0721" y="1882.625" z="225.5" h="44"/>
 	</spawn>
-	<!-- Speartail Skyray -->
+	<!-- Speartail Skyray (Monster lvl:33)-->
 	<spawn map="210020000" npcid="211843" pool="20" interval="105">
 		<object x="1482.92" y="491.78" z="359.27374" h="107"/>
 		<object x="1481.09" y="484.73" z="359.98877" h="69"/>
@@ -3344,7 +3344,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1453.72" y="378.27" z="365.73312" h="27"/>
 		<object x="1404.76" y="388.84" z="366.3025" h="105"/>
 	</spawn>
-	<!-- Raging Obscura -->
+	<!-- Raging Obscura (Monster lvl:33)-->
 	<spawn map="210020000" npcid="211844" pool="14" interval="105">
 		<object x="1520.051" y="439.1868" z="360.92264" h="16"/>
 		<object x="1414.908" y="447.7085" z="364.2115" h="9"/>
@@ -3361,7 +3361,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1414.136" y="390.3279" z="366.2295" h="73"/>
 		<object x="1489.826" y="485.0566" z="358.64673" h="15"/>
 	</spawn>
-	<!-- Shielded Skyray -->
+	<!-- Shielded Skyray (Monster lvl:32)-->
 	<spawn map="210020000" npcid="211785" pool="19" interval="105">
 		<object x="375.81" y="292.61" z="16.5" h="68"/>
 		<object x="390.65" y="294.38" z="16.414997" h="52"/>
@@ -3383,7 +3383,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="266.38" y="378.92" z="16.5" h="97"/>
 		<object x="207.07" y="162.51" z="16.5" h="13"/>
 	</spawn>
-	<!-- Seductive Temptress -->
+	<!-- Seductive Temptress (Monster lvl:29)-->
 	<spawn map="210020000" npcid="211848" pool="14" interval="105">
 		<object x="95.30911" y="260.768" z="273.63058" h="27"/>
 		<object x="127.5331" y="256.3618" z="273.63058" h="115"/>
@@ -3400,7 +3400,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="159.9299" y="253.6207" z="273.63058" h="1"/>
 		<object x="130.0762" y="211.7056" z="273.63058" h="92"/>
 	</spawn>
-	<!-- Roaring Monitor -->
+	<!-- Roaring Monitor (Monster lvl:24)-->
 	<spawn map="210020000" npcid="210781" pool="12" interval="105">
 		<object x="215.3405" y="2073.189" z="207.375" h="63"/>
 		<object x="225.4336" y="2074.054" z="207.375" h="21"/>
@@ -3415,7 +3415,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="323.4744" y="2128.132" z="212.24814" h="67"/>
 		<object x="411.2288" y="2203.235" z="209.34941" h="116"/>
 	</spawn>
-	<!-- Relentless Bloodwing -->
+	<!-- Relentless Bloodwing (Monster lvl:32)-->
 	<spawn map="210020000" npcid="211782" pool="18" interval="105">
 		<object x="297.56" y="149.46" z="16.563751" h="99"/>
 		<object x="386.69" y="250.13" z="16.5" h="47"/>
@@ -3436,14 +3436,14 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="391.71" y="259.04" z="16.44" h="21"/>
 		<object x="312.36" y="161.93" z="16.5" h="19"/>
 	</spawn>
-	<!-- Skyray Hatchling -->
+	<!-- Skyray Hatchling (Monster lvl:30)-->
 	<spawn map="210020000" npcid="211852" pool="4" interval="105">
 		<object x="443.7448" y="250.9228" z="209.01788" h="98"/>
 		<object x="344.651" y="246.0271" z="209.01822" h="98"/>
 		<object x="444.097" y="241.4986" z="209.01788" h="77"/>
 		<object x="344.8254" y="236.9898" z="209.01822" h="15"/>
 	</spawn>
-	<!-- Spying Skyray -->
+	<!-- Spying Skyray (Monster lvl:30)-->
 	<spawn map="210020000" npcid="211853" pool="20" interval="105">
 		<object x="377.25" y="240.25" z="208.55042" h="10"/>
 		<object x="374.75" y="243.25" z="208.55042" h="26"/>
@@ -3466,13 +3466,13 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="415.75" y="247.75" z="208.55042" h="41"/>
 		<object x="415.75" y="244.75" z="208.55042" h="70"/>
 	</spawn>
-	<!-- Speedy Trollkin -->
+	<!-- Speedy Trollkin (Monster lvl:37)-->
 	<spawn map="210020000" npcid="211673" pool="3" interval="105">
 		<object x="2466.209" y="1181.175" z="453.25" h="24"/>
 		<object x="2390.084" y="1265.53" z="427.77936" h="39"/>
 		<object x="2403.704" y="1204.36" z="438.3525" h="68"/>
 	</spawn>
-	<!-- Ruthless Fangwing -->
+	<!-- Ruthless Fangwing (Monster lvl:28)-->
 	<spawn map="210020000" npcid="211736" pool="10" interval="105">
 		<object x="382.9324" y="171.3029" z="274.44348" h="50"/>
 		<object x="376.486" y="260.2132" z="274.44348" h="58"/>
@@ -3485,7 +3485,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="347.6766" y="188.832" z="274.44348" h="115"/>
 		<object x="369.0401" y="204.2899" z="274.44348" h="119"/>
 	</spawn>
-	<!-- Razorwing Gryphu -->
+	<!-- Razorwing Gryphu (Monster lvl:30)-->
 	<spawn map="210020000" npcid="211652" pool="25" interval="105">
 		<object x="982.3265" y="884.1606" z="283.02008" h="68"/>
 		<object x="369.7326" y="860.8845" z="291.46884" h="95"/>
@@ -3513,7 +3513,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="936.2954" y="840.0281" z="279.32062" h="106"/>
 		<object x="382.181" y="880.7789" z="293.70132" h="60"/>
 	</spawn>
-	<!-- Springwater Spirit -->
+	<!-- Springwater Spirit (Monster lvl:28)-->
 	<spawn map="210020000" npcid="210827" pool="5" interval="105">
 		<object x="1250.73" y="1647.33" z="270.5" h="78"/>
 		<object x="1186.454" y="1687.186" z="270.5" h="111"/>
@@ -3521,11 +3521,11 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1191.391" y="1641.415" z="270.5" h="94"/>
 		<object x="1166.28" y="1596.927" z="270.5" h="102"/>
 	</spawn>
-	<!-- Runty Porthos -->
+	<!-- Runty Porthos (Named Mob lvl:24)-->
 	<spawn map="210020000" npcid="213796" pool="1" interval="1800">
 		<object x="413.6239" y="1873.964" z="228.70001" h="40"/>
 	</spawn>
-	<!-- Rock Mountain Griffon -->
+	<!-- Rock Mountain Griffon (Monster lvl:35)-->
 	<spawn map="210020000" npcid="211730" pool="13" interval="105">
 		<object x="2420.38" y="2602.804" z="262.94824" h="5"/>
 		<object x="2449.2947" y="2648.4924" z="275.99988" h="71"/>
@@ -3541,7 +3541,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2451.704" y="2590.138" z="270.87375" h="72"/>
 		<object x="2413.264" y="2684.387" z="285.00433" h="66"/>
 	</spawn>
-	<!-- Pretor Sentinel -->
+	<!-- Pretor Sentinel (Monster lvl:36)-->
 	<spawn map="210020000" npcid="210983" pool="12" interval="105">
 		<object x="2363.111" y="2160.273" z="374.45953" h="76"/>
 		<object x="2295.568" y="2206.398" z="369.82526" h="54"/>
@@ -3556,11 +3556,11 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2262.559" y="2184.151" z="368.0793" h="80"/>
 		<object x="2255.426" y="2165.218" z="367.42825" h="80"/>
 	</spawn>
-	<!-- Qooqoo -->
+	<!-- Qooqoo (Monster lvl:1)-->
 	<spawn map="210020000" npcid="210340" pool="1" interval="105">
 		<object x="1959.438" y="2038.643" z="361.625" h="25"/>
 	</spawn>
-	<!-- Red-tipped Sheluk -->
+	<!-- Red-tipped Sheluk (Monster lvl:30)-->
 	<spawn map="210020000" npcid="210880" pool="22" interval="105">
 		<object x="684.3599" y="859.9656" z="288.6028" h="64"/>
 		<object x="753.9781" y="914.1296" z="285.125" h="8"/>
@@ -3585,7 +3585,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="847.92" y="502.2735" z="297.64917" h="59"/>
 		<object x="895.2126" y="482.2777" z="299.24606" h="15"/>
 	</spawn>
-	<!-- Piercing Vespine -->
+	<!-- Piercing Vespine (Monster lvl:22)-->
 	<spawn map="210020000" npcid="210760" pool="32" interval="105">
 		<object x="544.0461" y="2396.867" z="215.51375" h="9"/>
 		<object x="713.5527" y="2127.764" z="241.2368" h="35"/>
@@ -3620,7 +3620,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="916.7189" y="2725.326" z="264.77655" h="79"/>
 		<object x="869.5148" y="2862.373" z="262.60168" h="44"/>
 	</spawn>
-	<!-- Poisonous Drynac -->
+	<!-- Poisonous Drynac (Monster lvl:35)-->
 	<spawn map="210020000" npcid="211656" pool="25" interval="105">
 		<object x="1643.946" y="793.316" z="408.2039" h="110"/>
 		<object x="1584.611" y="959.2079" z="392.1745" h="50"/>
@@ -3648,7 +3648,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1777.824" y="1161.043" z="422.2878" h="118"/>
 		<object x="1709.495" y="1113.26" z="404.2175" h="19"/>
 	</spawn>
-	<!-- Shadow Bloodwing -->
+	<!-- Shadow Bloodwing (Monster lvl:33)-->
 	<spawn map="210020000" npcid="210943" pool="26" interval="105">
 		<object x="1362.515" y="354.322" z="348.66727" h="116"/>
 		<object x="1421.65" y="378.2129" z="354.5209" h="27"/>
@@ -3677,7 +3677,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1354.112" y="359.922" z="348.66718" h="60"/>
 		<object x="1337.99" y="365.5374" z="348.66718" h="113"/>
 	</spawn>
-	<!-- Rotting Gnarl -->
+	<!-- Rotting Gnarl (Monster lvl:30)-->
 	<spawn map="210020000" npcid="211754" pool="35" interval="105">
 		<object x="467.298" y="737.5501" z="288.20612" h="66"/>
 		<object x="1073.58" y="1127.233" z="272.8008" h="113"/>
@@ -3715,12 +3715,12 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1090.171" y="319.2682" z="311.1586" h="14"/>
 		<object x="756.7829" y="941.2557" z="283.25" h="68"/>
 	</spawn>
-	<!-- Reprimanded Mamaki -->
+	<!-- Reprimanded Mamaki (Monster lvl:29)-->
 	<spawn map="210020000" npcid="211821" pool="2" interval="105">
 		<object x="1431.175" y="2459.217" z="289.97147" h="59"/>
 		<object x="1432.01" y="2460.589" z="289.96686" h="40"/>
 	</spawn>
-	<!-- Scaly Skyray -->
+	<!-- Scaly Skyray (Monster lvl:29)-->
 	<spawn map="210020000" npcid="211759" pool="5" interval="105">
 		<object x="231.6929" y="228.248" z="254.95934" h="82"/>
 		<object x="226.5112" y="253.9358" z="262.64783" h="109"/>
@@ -3728,7 +3728,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="214.4777" y="239.3684" z="262.5773" h="60"/>
 		<object x="242.5628" y="243.278" z="254.96251" h="43"/>
 	</spawn>
-	<!-- Special Kaidan Patrol -->
+	<!-- Special Kaidan Patrol (Monster lvl:39)-->
 	<spawn map="210020000" npcid="211818" pool="20" interval="105">
 		<object x="2375.263" y="312.3435" z="489.71713" h="22"/>
 		<object x="2482.301" y="331.326" z="493.5" h="82"/>
@@ -3751,12 +3751,12 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2387.903" y="533.3913" z="369.5" h="12"/>
 		<object x="2514.185" y="527.2781" z="390.13657" h="112"/>
 	</spawn>
-	<!-- Ruthless Ancient Bloodwing -->
+	<!-- Ruthless Ancient Bloodwing (Monster lvl:29)-->
 	<spawn map="210020000" npcid="211757" pool="2" interval="105">
 		<object x="235.8271" y="154.4969" z="260.53412" h="51"/>
 		<object x="209.726" y="182.6655" z="260.53412" h="108"/>
 	</spawn>
-	<!-- Rattletail Scolopen -->
+	<!-- Rattletail Scolopen (Monster lvl:26)-->
 	<spawn map="210020000" npcid="210801" pool="23" interval="105">
 		<object x="678.2556" y="1450.317" z="270.90695" h="82"/>
 		<object x="723.0613" y="1381.973" z="278.81635" h="57"/>
@@ -3782,7 +3782,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="787.7327" y="1199.313" z="278.31537" h="41"/>
 		<object x="480.7133" y="1110.637" z="277.3758" h="107"/>
 	</spawn>
-	<!-- Shadow Obscura -->
+	<!-- Shadow Obscura (Monster lvl:34)-->
 	<spawn map="210020000" npcid="211814" pool="6" interval="105">
 		<object x="1416.846" y="290.8326" z="347.64212" h="51"/>
 		<object x="1418.583" y="318.2079" z="351.04395" h="31"/>
@@ -3791,7 +3791,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1413.896" y="240.3129" z="348.0504" h="80"/>
 		<object x="1429.098" y="240.5453" z="348.0571" h="37"/>
 	</spawn>
-	<!-- Sorcerer -->
+	<!-- Sorcerer (Monster lvl:39)-->
 	<spawn map="210020000" npcid="211025" pool="24" interval="105">
 		<object x="2226.713" y="2583.864" z="271.39337" h="96"/>
 		<object x="1895.66" y="2684.54" z="280.43985" h="56"/>
@@ -3818,7 +3818,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2556.821" y="2224.409" z="282.875" h="22"/>
 		<object x="2442.827" y="2628.631" z="271.96613" h="73"/>
 	</spawn>
-	<!-- Reckless Kurin -->
+	<!-- Reckless Kurin (Monster lvl:24)-->
 	<spawn map="210020000" npcid="211646" pool="12" interval="105">
 		<object x="137.0356" y="1734.5" z="253.0625" h="84"/>
 		<object x="99.84228" y="1805.234" z="255.28801" h="46"/>
@@ -3833,11 +3833,11 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="116.2122" y="1825.625" z="256.65317" h="105"/>
 		<object x="100.318" y="1746.531" z="255.034" h="101"/>
 	</spawn>
-	<!-- Pitiless Bloodwing -->
+	<!-- Pitiless Bloodwing (Monster lvl:35)-->
 	<spawn map="210020000" npcid="211838" pool="1" interval="105">
 		<object x="1421.788" y="247.4271" z="348.10583" h="19"/>
 	</spawn>
-	<!-- Raider -->
+	<!-- Raider (Monster lvl:14)-->
 	<spawn map="210020000" npcid="210789" pool="6" interval="105">
 		<object x="884.4954" y="1872.166" z="262.71902" h="3"/>
 		<object x="901.9206" y="1884.423" z="261.84857" h="100"/>
@@ -3846,7 +3846,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="935.4861" y="1905.541" z="263.61816" h="62"/>
 		<object x="919.5515" y="1910.659" z="264.2074" h="46"/>
 	</spawn>
-	<!-- Scorpin -->
+	<!-- Scorpin (Monster lvl:1)-->
 	<spawn map="210020000" npcid="211836" pool="123" interval="105">
 		<object x="1725.375" y="838.4421" z="409.25" h="81"/>
 		<object x="1534.15" y="982.382" z="396.2326" h="89"/>
@@ -3972,7 +3972,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2168.58" y="2665.55" z="275.1856" h="119"/>
 		<object x="2166.79" y="2669.25" z="275.375" h="41"/>
 	</spawn>
-	<!-- Sandstorm Spirit -->
+	<!-- Sandstorm Spirit (Monster lvl:32)-->
 	<spawn map="210020000" npcid="210922" pool="5" interval="105">
 		<object x="2086.491" y="2590.184" z="360.625" h="46"/>
 		<object x="2082.151" y="2536.089" z="359.625" h="112"/>
@@ -3980,11 +3980,11 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2042.36" y="2558.498" z="357.53113" h="36"/>
 		<object x="2109.285" y="2614.96" z="360.7206" h="106"/>
 	</spawn>
-	<!-- Pretor Chaser -->
+	<!-- Pretor Chaser (Monster lvl:33)-->
 	<spawn map="210020000" npcid="210952" pool="1" interval="105">
 		<object x="1761.18" y="2710.907" z="355.06213" h="8"/>
 	</spawn>
-	<!-- Researcher -->
+	<!-- Researcher (Monster lvl:39)-->
 	<spawn map="210020000" npcid="211694" pool="7" interval="105">
 		<object x="2373.931" y="2291.269" z="277.06638" h="112"/>
 		<object x="2297.604" y="2617.83" z="272.18277" h="22"/>
@@ -3994,7 +3994,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2320.17" y="2611.12" z="272.32" h="74"/>
 		<object x="2684.131" y="2718.393" z="292.75" h="59"/>
 	</spawn>
-	<!-- Pretor Looter -->
+	<!-- Pretor Looter (Monster lvl:31)-->
 	<spawn map="210020000" npcid="210916" pool="10" interval="105">
 		<object x="1743.828" y="2396.679" z="346.89594" h="53"/>
 		<object x="1759.07" y="2453.587" z="349.79105" h="87"/>
@@ -4007,7 +4007,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1690.302" y="2655.326" z="355.96088" h="34"/>
 		<object x="1616.651" y="2741.204" z="359.12524" h="5"/>
 	</spawn>
-	<!-- Seductive Temptress -->
+	<!-- Seductive Temptress (Monster lvl:28)-->
 	<spawn map="210020000" npcid="211760" pool="5" interval="105">
 		<object x="285.3871" y="151.8109" z="243.46657" h="65"/>
 		<object x="300.9639" y="159.7948" z="244.60619" h="4"/>
@@ -4015,7 +4015,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="274.6993" y="161.3944" z="245.44757" h="9"/>
 		<object x="268.1745" y="147.2125" z="243.23737" h="115"/>
 	</spawn>
-	<!-- Scout Fighter -->
+	<!-- Scout Fighter (Monster lvl:33)-->
 	<spawn map="210020000" npcid="210947" pool="16" interval="105">
 		<object x="1932.559" y="1704.563" z="346.98004" h="81"/>
 		<object x="1970.45" y="1731.165" z="351.5522" h="109"/>
@@ -4034,7 +4034,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1999.696" y="1652.915" z="357.85825" h="2"/>
 		<object x="1981.742" y="1701.413" z="352.39633" h="43"/>
 	</spawn>
-	<!-- Snapping Spiner -->
+	<!-- Snapping Spiner (Monster lvl:25)-->
 	<spawn map="210020000" npcid="210795" pool="45" interval="105">
 		<object x="1067.881" y="2159.011" z="241.63988" h="55"/>
 		<object x="1102.519" y="2135.308" z="241.89053" h="5"/>
@@ -4082,7 +4082,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1160.507" y="2421.53" z="266.125" h="78"/>
 		<object x="823.4673" y="1637.494" z="295.4747" h="62"/>
 	</spawn>
-	<!-- Scout Vaegir -->
+	<!-- Scout Vaegir (Monster lvl:33)-->
 	<spawn map="210020000" npcid="210946" pool="12" interval="105">
 		<object x="1954.582" y="1769.005" z="350.67133" h="34"/>
 		<object x="1955.129" y="1722.01" z="351.625" h="12"/>
@@ -4097,7 +4097,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2089.878" y="1552.902" z="375.44363" h="64"/>
 		<object x="2110.353" y="1700.585" z="372.25656" h="87"/>
 	</spawn>
-	<!-- Sawtooth Frillneck -->
+	<!-- Sawtooth Frillneck (Monster lvl:22)-->
 	<spawn map="210020000" npcid="211690" pool="13" interval="105">
 		<object x="745.8433" y="2130.396" z="240.76959" h="81"/>
 		<object x="553.9361" y="2139.594" z="220.25" h="111"/>
@@ -4113,7 +4113,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="846.9189" y="2538.606" z="230.56757" h="119"/>
 		<object x="822.4302" y="2832.579" z="260.43808" h="81"/>
 	</spawn>
-	<!-- Sand Spirit -->
+	<!-- Sand Spirit (Monster lvl:31)-->
 	<spawn map="210020000" npcid="210913" pool="20" interval="105">
 		<object x="1526.98" y="1361.9" z="304.09375" h="91"/>
 		<object x="1607.91" y="1455.34" z="321.01877" h="89"/>
@@ -4136,7 +4136,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1564.11" y="1471.12" z="315.4369" h="58"/>
 		<object x="1613.38" y="1455.71" z="322.23813" h="96"/>
 	</spawn>
-	<!-- Veteran Mamaki Gatherer -->
+	<!-- Veteran Mamaki Gatherer (Monster lvl:39)-->
 	<spawn map="210020000" npcid="211811" pool="24" interval="105">
 		<object x="2437.01" y="628.7896" z="370.875" h="46"/>
 		<object x="2515.929" y="551.1843" z="387.39404" h="100"/>
@@ -4163,11 +4163,11 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2490.635" y="543.3311" z="382.99237" h="58"/>
 		<object x="2425.273" y="617.517" z="370.875" h="82"/>
 	</spawn>
-	<!-- Tenacious Drake -->
+	<!-- Tenacious Drake (Monster lvl:28)-->
 	<spawn map="210020000" npcid="212354" pool="1" interval="105">
 		<object x="228.8203" y="1225.605" z="279.3503" h="47"/>
 	</spawn>
-	<!-- Striped Gumi -->
+	<!-- Striped Gumi (Monster lvl:2)-->
 	<spawn map="210020000" npcid="210658" pool="7" interval="105">
 		<object x="1183.153" y="1717.821" z="270.26" h="58"/>
 		<object x="1210.728" y="1684.67" z="270.25998" h="13"/>
@@ -4177,7 +4177,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1166.302" y="1696.519" z="271.30075" h="109"/>
 		<object x="1208.06" y="1597.886" z="270.5" h="47"/>
 	</spawn>
-	<!-- Veteran Mamaki Peon -->
+	<!-- Veteran Mamaki Peon (Monster lvl:37)-->
 	<spawn map="210020000" npcid="211809" pool="34" interval="105">
 		<object x="2146.762" y="879.2285" z="418.625" h="18"/>
 		<object x="2102.839" y="975.9623" z="411.10962" h="119"/>
@@ -4214,7 +4214,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2194.465" y="552.5648" z="434.92566" h="81"/>
 		<object x="2402.457" y="921.7324" z="448.34644" h="52"/>
 	</spawn>
-	<!-- Veteran Mamaki Digger -->
+	<!-- Veteran Mamaki Digger (Monster lvl:39)-->
 	<spawn map="210020000" npcid="211808" pool="24" interval="105">
 		<object x="2195.104" y="711.8826" z="361.875" h="92"/>
 		<object x="2425.864" y="621.7071" z="370.875" h="88"/>
@@ -4241,11 +4241,11 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2503.12" y="564.7496" z="384.28003" h="75"/>
 		<object x="2337.864" y="646.5622" z="362.84836" h="87"/>
 	</spawn>
-	<!-- Veteran Mamaki Butcher -->
+	<!-- Veteran Mamaki Butcher (Monster lvl:39)-->
 	<spawn map="210020000" npcid="211770" pool="1" interval="105">
 		<object x="2597.1" y="398.06" z="499.875" h="4"/>
 	</spawn>
-	<!-- Veteran Mamaki Cook -->
+	<!-- Veteran Mamaki Cook (Monster lvl:38)-->
 	<spawn map="210020000" npcid="211839" pool="10" interval="105">
 		<object x="2502.362" y="330.1466" z="493.5" h="79"/>
 		<object x="2229.768" y="621.235" z="449.15436" h="83"/>
@@ -4258,15 +4258,15 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2365.332" y="558.6234" z="368.625" h="34"/>
 		<object x="2570.667" y="406.5841" z="496.0" h="85"/>
 	</spawn>
-	<!-- Veteran Mamaki Bruiser -->
+	<!-- Veteran Mamaki Bruiser (Monster lvl:39)-->
 	<spawn map="210020000" npcid="211771" pool="1" interval="105">
 		<object x="2615.421" y="409.8641" z="501.0" h="25"/>
 	</spawn>
-	<!-- Veteran Mamaki Vigilante -->
+	<!-- Veteran Mamaki Vigilante (Monster lvl:39)-->
 	<spawn map="210020000" npcid="211774" pool="1" interval="105">
 		<object x="2594.56" y="398.03" z="499.875" h="90"/>
 	</spawn>
-	<!-- Tornado Spirit -->
+	<!-- Tornado Spirit (Monster lvl:33)-->
 	<spawn map="210020000" npcid="210923" pool="7" interval="105">
 		<object x="2060.442" y="2567.348" z="359.64087" h="42"/>
 		<object x="2046.005" y="2495.329" z="371.5" h="105"/>
@@ -4276,15 +4276,15 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1973.671" y="2489.969" z="360.65137" h="113"/>
 		<object x="1993.997" y="2505.176" z="359.24982" h="10"/>
 	</spawn>
-	<!-- Trainee Kaidan Scout -->
+	<!-- Trainee Kaidan Scout (Monster lvl:29)-->
 	<spawn map="210020000" npcid="211832" pool="1" interval="105">
 		<object x="1291.754" y="2715.672" z="302.5" h="110"/>
 	</spawn>
-	<!-- Supervisor Kargas -->
+	<!-- Supervisor Kargas (Monster lvl:29)-->
 	<spawn map="210020000" npcid="210860" pool="1" interval="105">
 		<object x="1268.209" y="1677.98" z="274.42474" h="27"/>
 	</spawn>
-	<!-- Veteran Mamaki Patrol -->
+	<!-- Veteran Mamaki Patrol (Monster lvl:37)-->
 	<spawn map="210020000" npcid="211772" pool="14" interval="105">
 		<object x="1994.401" y="1135.525" z="421.6062" h="109"/>
 		<object x="2169.202" y="945.8373" z="421.51016" h="51"/>
@@ -4301,12 +4301,12 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2459.652" y="410.9786" z="494.1223" h="15"/>
 		<object x="2276.226" y="808.6819" z="472.3865" h="116"/>
 	</spawn>
-	<!-- Trainee Kaidan Wallarm -->
+	<!-- Trainee Kaidan Wallarm (Monster lvl:29)-->
 	<spawn map="210020000" npcid="211833" pool="2" interval="105">
 		<object x="1245.933" y="2736.019" z="304.63275" h="10"/>
 		<object x="1250.808" y="2737.529" z="304.59558" h="16"/>
 	</spawn>
-	<!-- Veteran Kaidan Scout -->
+	<!-- Veteran Kaidan Scout (Monster lvl:28)-->
 	<spawn map="210020000" npcid="211830" pool="16" interval="105">
 		<object x="1475.711" y="2585.173" z="316.3736" h="108"/>
 		<object x="1502.803" y="2586.998" z="327.80087" h="114"/>
@@ -4325,7 +4325,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1277.856" y="2591.675" z="285.714" h="17"/>
 		<object x="1229.38" y="2650.259" z="292.65738" h="5"/>
 	</spawn>
-	<!-- Venomous Skyray -->
+	<!-- Venomous Skyray (Monster lvl:29)-->
 	<spawn map="210020000" npcid="211762" pool="9" interval="105">
 		<object x="429.4468" y="209.9849" z="209.01822" h="89"/>
 		<object x="350.2365" y="221.9102" z="209.01822" h="78"/>
@@ -4337,12 +4337,12 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="430.698" y="213.4992" z="209.01822" h="101"/>
 		<object x="397.991" y="292.1588" z="209.01788" h="105"/>
 	</spawn>
-	<!-- Endymion The Slow -->
+	<!-- Endymion The Slow (Named Mob lvl:31)-->
 	<spawn map="210020000" npcid="210909" pool="1" interval="1800">
 		<object x="212.8125" y="588.2468" z="290.875" h="111"/>
 	</spawn>
-	<!-- Summoned Sartemon -->
-	<spawn map="210020000" npcid="211845" pool="12" interval="14400">
+	<!-- Summoned Sartemon (Named Mob lvl:40)-->
+	<spawn map="210020000" npcid="211845" pool="1" interval="14400">
 		<object x="2333.39" y="354.84" z="489.41876" h="83"/>
 		<object x="2438.34" y="316.35" z="495.53937" h="28"/>
 		<object x="2262.06" y="483.42" z="460.43124" h="34"/>
@@ -4356,32 +4356,32 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2431.74" y="312.17" z="495.70688" h="72"/>
 		<object x="2224.99" y="457.58" z="446.70502" h="51"/>
 	</spawn>
-	<!-- Lekion -->
+	<!-- Lekion (Named Mob lvl:40)-->
 	<spawn map="210020000" npcid="211727" pool="1" interval="1800">
 		<object x="2242.591" y="2553.222" z="272.6608" h="79"/>
 	</spawn>
-	<!-- Millennium Laupede -->
+	<!-- Millennium Laupede (Named Mob lvl:40)-->
 	<spawn map="210020000" npcid="211713" pool="1" interval="1800">
 		<object x="2265.6409" y="463.41235" z="420.64017" h="92"/>
 	</spawn>
-	<!-- Sartemon the Insane -->
+	<!-- Sartemon the Insane (Named Mob lvl:40)-->
 	<spawn map="210020000" npcid="211712" pool="1" interval="14400">
 		<object x="2423.39" y="316.54" z="495.41315" h="108"/>
 	</spawn>
-	<!-- Raging Kraterr -->
+	<!-- Raging Kraterr (Named Mob lvl:40)-->
 	<spawn map="210020000" npcid="211715" pool="1" interval="21600">
 		<object x="2114.4912" y="1039.5474" z="357.9057" h="106"/>
 	</spawn>
-	<!-- Trisqeek -->
+	<!-- Trisqeek (Named Mob lvl:24)-->
 	<spawn map="210020000" npcid="210782" pool="1" interval="1800">
 		<object x="214.0" y="2063.0" z="207.375" h="116"/>
 	</spawn>
-	<!-- Chieftain Mamaku -->
+	<!-- Chieftain Mamaku (Named Mob lvl:39)-->
 	<spawn map="210020000" npcid="211714" pool="1" interval="1800">
 		<object x="2146.205" y="909.7701" z="420.75156" h="9"/>
 	</spawn>
-	<!-- Akeras Stripeback -->
-	<spawn map="210020000" npcid="210999" pool="20" interval="1800">
+	<!-- Akeras Stripeback (Named Mob lvl:37)-->
+	<spawn map="210020000" npcid="210999" pool="1" interval="1800">
 		<object x="1791.25" y="740.25" z="419.85938" h="83"/>
 		<object x="1756.97" y="665.94" z="425.375" h="81"/>
 		<object x="1816.75" y="796.25" z="424.6875" h="5"/>
@@ -4403,7 +4403,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1803.73" y="765.75" z="424.60938" h="4"/>
 		<object x="1755.26" y="665.0" z="425.375" h="68"/>
 	</spawn>
-	<!-- Wasteland Kurin -->
+	<!-- Wasteland Kurin (Monster lvl:23)-->
 	<spawn map="210020000" npcid="210776" pool="21" interval="105">
 		<object x="507.5598" y="1957.036" z="230.625" h="37"/>
 		<object x="418.0077" y="1941.789" z="230.875" h="89"/>
@@ -4427,7 +4427,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="238.2872" y="1886.492" z="246.6993" h="97"/>
 		<object x="160.4731" y="1709.613" z="253.74869" h="46"/>
 	</spawn>
-	<!-- Stonescale Ksellid -->
+	<!-- Stonescale Ksellid (Monster lvl:31)-->
 	<spawn map="210020000" npcid="210899" pool="20" interval="105">
 		<object x="1244.55" y="520.82" z="320.96" h="58"/>
 		<object x="1136.18" y="439.68" z="310.915" h="77"/>
@@ -4450,43 +4450,43 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1017.16" y="190.25" z="315.48438" h="65"/>
 		<object x="1017.16" y="190.25" z="315.48438" h="73"/>
 	</spawn>
-	<!-- Mistryl -->
+	<!-- Mistryl (Named Mob lvl:30)-->
 	<spawn map="210020000" npcid="211740" pool="1" interval="1800">
 		<object x="268.7782" y="200.6856" z="259.24878" h="88"/>
 	</spawn>
-	<!-- Fidget -->
-	<spawn map="210020000" npcid="210765" pool="2" interval="1800">
+	<!-- Fidget (Named Mob lvl:22)-->
+	<spawn map="210020000" npcid="210765" pool="1" interval="1800">
 		<object x="765.8" y="2227.33" z="230.19186" h="34"/>
 		<object x="756.63" y="2823.63" z="260.97687" h="86"/>
 	</spawn>
-	<!-- Simunai -->
+	<!-- Simunai (Named Mob lvl:38)-->
 	<spawn map="210020000" npcid="212348" pool="1" interval="1800">
 		<object x="2245.352" y="2629.704" z="267.1065" h="92"/>
 	</spawn>
-	<!-- Thundermane -->
+	<!-- Thundermane (Named Mob lvl:33)-->
 	<spawn map="210020000" npcid="211753" pool="1" interval="1800">
 		<object x="291.83" y="143.22" z="149.70583" h="3"/>
 	</spawn>
-	<!-- Isson -->
+	<!-- Isson (Named Mob lvl:34)-->
 	<spawn map="210020000" npcid="210970" pool="1" interval="1800">
 		<object x="2071.99" y="1598.111" z="368.25" h="14"/>
 	</spawn>
-	<!-- Watch Bodyguard -->
+	<!-- Watch Bodyguard (Monster lvl:17)-->
 	<spawn map="210020000" npcid="210528" pool="1" interval="105">
 		<object x="1314.0" y="1630.0" z="273.25" h="26"/>
 	</spawn>
-	<!-- Lichna the Cruel -->
+	<!-- Lichna the Cruel (Named Mob lvl:35)-->
 	<spawn map="210020000" npcid="210967" pool="1" interval="1800">
 		<object x="1510.79" y="384.0" z="348.6706" h="25"/>
 	</spawn>
-	<!-- Galatia -->
-	<spawn map="210020000" npcid="210815" pool="4" interval="1800">
+	<!-- Galatia (Named Mob lvl:27)-->
+	<spawn map="210020000" npcid="210815" pool="1" interval="1800">
 		<object x="1060.54" y="2296.02" z="243.07167" h="22"/>
 		<object x="1018.78" y="2130.08" z="245.99815" h="51"/>
 		<object x="1294.0" y="2070.0" z="264.125" h="112"/>
 		<object x="1215.71" y="2206.33" z="248.95" h="22"/>
 	</spawn>
-	<!-- Whitelegged Baku -->
+	<!-- Whitelegged Baku (Monster lvl:27)-->
 	<spawn map="210020000" npcid="210812" pool="9" interval="105">
 		<object x="1210.016" y="1811.204" z="286.5995" h="101"/>
 		<object x="1172.855" y="1787.994" z="279.67844" h="3"/>
@@ -4498,26 +4498,26 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1379.737" y="1690.617" z="283.53857" h="48"/>
 		<object x="1344.52" y="1754.316" z="289.6575" h="10"/>
 	</spawn>
-	<!-- Nightstalker -->
+	<!-- Nightstalker (Named Mob lvl:31)-->
 	<spawn map="210020000" npcid="211745" pool="1" interval="1800">
 		<object x="83.3" y="243.52" z="227.03825" h="76"/>
 	</spawn>
-	<!-- Queen Vespine -->
-	<spawn map="210020000" npcid="211645" pool="4" interval="1800">
+	<!-- Queen Vespine (Named Mob lvl:23)-->
+	<spawn map="210020000" npcid="211645" pool="1" interval="1800">
 		<object x="655.95" y="2133.33" z="220.75122" h="21"/>
 		<object x="649.09" y="2575.22" z="230.125" h="34"/>
 		<object x="948.81" y="2663.7" z="265.68063" h="119"/>
 		<object x="886.61" y="2851.05" z="264.1844" h="63"/>
 	</spawn>
-	<!-- Selcuris Dreamweaver -->
+	<!-- Selcuris Dreamweaver (Named Mob lvl:33)-->
 	<spawn map="210020000" npcid="211750" pool="1" interval="1800">
 		<object x="193.58434" y="141.20218" z="152.11444" h="87"/>
 	</spawn>
-	<!-- Queen Klawterun -->
+	<!-- Queen Klawterun (Named Mob lvl:32)-->
 	<spawn map="210020000" npcid="210929" pool="1" interval="1800">
 		<object x="1679.393" y="1424.58" z="370.16125" h="2"/>
 	</spawn>
-	<!-- Wasteland Basilisk -->
+	<!-- Wasteland Basilisk (Monster lvl:27)-->
 	<spawn map="210020000" npcid="210809" pool="18" interval="105">
 		<object x="438.7678" y="1177.899" z="279.9621" h="31"/>
 		<object x="454.0979" y="1241.88" z="281.7044" h="55"/>
@@ -4538,23 +4538,23 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="546.7973" y="1154.702" z="275.5745" h="49"/>
 		<object x="520.1285" y="1043.958" z="283.8588" h="24"/>
 	</spawn>
-	<!-- Major Gennaion -->
+	<!-- Major Gennaion (Named Mob lvl:38)-->
 	<spawn map="210020000" npcid="214790" pool="1" interval="1800">
 		<object x="2255.574" y="2577.773" z="267.83163" h="115"/>
 	</spawn>
-	<!-- Adjutant Epicara -->
+	<!-- Adjutant Epicara (Named Mob lvl:38)-->
 	<spawn map="210020000" npcid="214791" pool="1" interval="1800">
 		<object x="1900.639" y="2636.545" z="274.31223" h="50"/>
 	</spawn>
-	<!-- Gurkel the Ancient -->
+	<!-- Gurkel the Ancient (Named Mob lvl:32)-->
 	<spawn map="210020000" npcid="211769" pool="1" interval="1800">
 		<object x="274.13214" y="348.57816" z="143.95256" h="34"/>
 	</spawn>
-	<!-- The Iceheart Queen -->
+	<!-- The Iceheart Queen (Named Mob lvl:34)-->
 	<spawn map="210020000" npcid="210954" pool="1" interval="1800">
 		<object x="2626.48" y="2499.35" z="367.5" h="51"/>
 	</spawn>
-	<!-- Strange Object -->
+	<!-- Strange Object (Monster lvl:30)-->
 	<spawn map="210020000" npcid="280603" pool="7" interval="105">
 		<object x="687.5" y="681.98" z="307.2775" h="9"/>
 		<object x="700.53" y="588.02" z="300.6225" h="97"/>
@@ -4564,7 +4564,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="727.99" y="1170.66" z="284.70935" h="35"/>
 		<object x="1131.04" y="1276.72" z="295.035" h="9"/>
 	</spawn>
-	<!-- Wasteland Ampha -->
+	<!-- Wasteland Ampha (Monster lvl:32)-->
 	<spawn map="210020000" npcid="210919" pool="7" interval="105">
 		<object x="1209.461" y="869.0693" z="292.0913" h="13"/>
 		<object x="1105.104" y="277.5071" z="314.7378" h="64"/>
@@ -4574,36 +4574,36 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1131.654" y="765.0416" z="302.98358" h="115"/>
 		<object x="1185.118" y="798.873" z="297.89087" h="11"/>
 	</spawn>
-	<!-- Captain Luitra -->
+	<!-- Captain Luitra (Named Mob lvl:40)-->
 	<spawn map="210020000" npcid="214794" pool="1" interval="1800">
 		<object x="2763.77" y="2680.47" z="287.375" h="94"/>
 	</spawn>
-	<!-- Supervisor Gravi -->
+	<!-- Supervisor Gravi (Named Mob lvl:40)-->
 	<spawn map="210020000" npcid="214795" pool="1" interval="1800">
 		<object x="2721.474" y="2611.969" z="291.0696" h="23"/>
 	</spawn>
-	<!-- Faceless Scop -->
+	<!-- Faceless Scop (Named Mob lvl:39)-->
 	<spawn map="210020000" npcid="214792" pool="1" interval="1800">
 		<object x="2467.796" y="2560.415" z="279.27377" h="31"/>
 	</spawn>
-	<!-- Dekita -->
-	<spawn map="210020000" npcid="211764" pool="2" interval="1800">
+	<!-- Dekita (Named Mob lvl:31)-->
+	<spawn map="210020000" npcid="211764" pool="1" interval="1800">
 		<object x="442.34" y="245.72" z="209.01788" h="105"/>
 		<object x="344.42" y="241.54" z="209.01822" h="33"/>
 	</spawn>
-	<!-- Pale Narcis -->
+	<!-- Pale Narcis (Named Mob lvl:39)-->
 	<spawn map="210020000" npcid="214793" pool="1" interval="1800">
 		<object x="2550.777" y="2284.986" z="282.92358" h="108"/>
 	</spawn>
-	<!-- Wily Kundu -->
+	<!-- Wily Kundu (Named Mob lvl:22)-->
 	<spawn map="210020000" npcid="213000" pool="1" interval="1800">
 		<object x="852.5392" y="2657.17" z="240.5" h="110"/>
 	</spawn>
-	<!-- Kumonga -->
+	<!-- Kumonga (Named Mob lvl:24)-->
 	<spawn map="210020000" npcid="213001" pool="1" interval="1800">
 		<object x="816.2219" y="2120.642" z="246.90804" h="23"/>
 	</spawn>
-	<!-- Worker -->
+	<!-- Worker (Monster lvl:39)-->
 	<spawn map="210020000" npcid="211667" pool="25" interval="105">
 		<object x="2295.879" y="2551.674" z="262.0204" h="62"/>
 		<object x="2001.799" y="2439.937" z="277.36243" h="32"/>
@@ -4631,12 +4631,12 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1995.838" y="2372.651" z="281.07437" h="52"/>
 		<object x="2019.54" y="2364.43" z="282.92316" h="12"/>
 	</spawn>
-	<!-- Wild Sandstorm Spirit -->
+	<!-- Wild Sandstorm Spirit (Monster lvl:32)-->
 	<spawn map="210020000" npcid="211784" pool="2" interval="105">
 		<object x="311.9255" y="302.0452" z="16.5" h="118"/>
 		<object x="196.7747" y="336.9324" z="17.12852" h="14"/>
 	</spawn>
-	<!-- Wasteland Drakie -->
+	<!-- Wasteland Drakie (Monster lvl:28)-->
 	<spawn map="210020000" npcid="210833" pool="7" interval="105">
 		<object x="1621.183" y="2084.381" z="276.75" h="53"/>
 		<object x="1605.057" y="2134.911" z="283.17792" h="61"/>
@@ -4646,11 +4646,11 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1593.859" y="2111.682" z="280.63382" h="100"/>
 		<object x="1667.529" y="2137.27" z="280.125" h="53"/>
 	</spawn>
-	<!-- Moomba the Earthshaker -->
+	<!-- Moomba the Earthshaker (Named Mob lvl:37)-->
 	<spawn map="210020000" npcid="211679" pool="1" interval="1800">
 		<object x="2596.96" y="1361.105" z="411.74594" h="11"/>
 	</spawn>
-	<!-- Wasteland Drake -->
+	<!-- Wasteland Drake (Monster lvl:28)-->
 	<spawn map="210020000" npcid="210832" pool="10" interval="105">
 		<object x="1583.574" y="2196.11" z="286.63876" h="72"/>
 		<object x="1542.587" y="2104.864" z="280.375" h="118"/>
@@ -4663,30 +4663,30 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1647.286" y="2204.052" z="285.59988" h="81"/>
 		<object x="1663.658" y="2008.622" z="285.737" h="113"/>
 	</spawn>
-	<!-- Razorjaw -->
+	<!-- Razorjaw (Named Mob lvl:30)-->
 	<spawn map="210020000" npcid="211675" pool="1" interval="1800">
 		<object x="1604.99" y="2127.62" z="281.33563" h="15"/>
 	</spawn>
-	<!-- Faithful Servant -->
+	<!-- Faithful Servant (Monster lvl:40)-->
 	<spawn map="210020000" npcid="280333" pool="4" interval="105">
 		<object x="2123.2795" y="1046.6991" z="358.74124" h="1"/>
 		<object x="2115.149" y="1048.7505" z="358.5938" h="94"/>
 		<object x="2109.0505" y="1046.7365" z="357.96704" h="77"/>
 		<object x="2110.9666" y="1033.5171" z="358.3363" h="92"/>
 	</spawn>
-	<!-- Mean Tukroll -->
+	<!-- Mean Tukroll (Named Mob lvl:37)-->
 	<spawn map="210020000" npcid="211674" pool="1" interval="1800">
 		<object x="2557.431" y="1208.815" z="452.5" h="119"/>
 	</spawn>
-	<!-- Kratia -->
+	<!-- Kratia (Named Mob lvl:33)-->
 	<spawn map="210020000" npcid="211805" pool="1" interval="1800">
 		<object x="308.7912" y="192.9945" z="16.5" h="69"/>
 	</spawn>
-	<!-- Queen Klawtaka -->
+	<!-- Queen Klawtaka (Named Mob lvl:32)-->
 	<spawn map="210020000" npcid="211653" pool="1" interval="1800">
 		<object x="584.4992" y="158.04248" z="304.5" h="119"/>
 	</spawn>
-	<!-- Watch Patrol -->
+	<!-- Watch Patrol (Monster lvl:27)-->
 	<spawn map="210020000" npcid="210828" pool="12" interval="105">
 		<object x="1298.653" y="1651.252" z="271.9915" h="28"/>
 		<object x="1320.086" y="1658.709" z="275.2582" h="17"/>
@@ -4701,7 +4701,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1126.854" y="1709.348" z="273.25" h="108"/>
 		<object x="1095.979" y="1575.597" z="271.5" h="106"/>
 	</spawn>
-	<!-- Watch Guard -->
+	<!-- Watch Guard (Monster lvl:27)-->
 	<spawn map="210020000" npcid="210829" pool="18" interval="105">
 		<object x="1325.614" y="1637.842" z="275.16776" h="77"/>
 		<object x="1105.95" y="1578.119" z="271.5" h="32"/>
@@ -4722,72 +4722,72 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1082.816" y="1604.687" z="277.3397" h="21"/>
 		<object x="1133.577" y="1702.678" z="273.95764" h="109"/>
 	</spawn>
-	<!-- Mysterious Crate -->
+	<!-- Mysterious Crate (Boss lvl:80)-->
 	<spawn map="210020000" npcid="211801" pool="1" interval="14400">
 		<object x="1421.277" y="239.6181" z="348.05365" h="27"/>
 	</spawn>
-	<!-- Snaggletooth -->
+	<!-- Snaggletooth (Named Mob lvl:27)-->
 	<spawn map="210020000" npcid="211649" pool="1" interval="1800">
 		<object x="251.6558" y="1440.935" z="268.7849" h="31"/>
 	</spawn>
-	<!-- Beleffon -->
+	<!-- Beleffon (Named Mob lvl:30)-->
 	<spawn map="210020000" npcid="210816" pool="1" interval="1800">
 		<object x="1741.922" y="2828.356" z="356.5" h="81"/>
 	</spawn>
-	<!-- Nimble Aramis -->
+	<!-- Nimble Aramis (Named Mob lvl:23)-->
 	<spawn map="210020000" npcid="213797" pool="1" interval="1800">
 		<object x="578.5497" y="1724.013" z="237.90936" h="97"/>
 	</spawn>
-	<!-- Grand Chieftain Saendukal -->
+	<!-- Grand Chieftain Saendukal (Boss lvl:40)-->
 	<spawn map="210020000" npcid="211040" pool="1" interval="21600">
 		<object x="2441.7983" y="720.8473" z="371.9606" h="108"/>
 	</spawn>
-	<!-- Dirty Chindu -->
+	<!-- Dirty Chindu (Named Mob lvl:23)-->
 	<spawn map="210020000" npcid="213794" pool="1" interval="1800">
 		<object x="880.3674" y="2792.626" z="263.77295" h="13"/>
 	</spawn>
-	<!-- Fat Athos -->
+	<!-- Fat Athos (Named Mob lvl:25)-->
 	<spawn map="210020000" npcid="213795" pool="1" interval="1800">
 		<object x="127.6728" y="1837.826" z="256.98782" h="106"/>
 	</spawn>
-	<!-- Summoner Klacha -->
+	<!-- Summoner Klacha (Named Mob lvl:30)-->
 	<spawn map="210020000" npcid="211700" pool="1" interval="14400">
 		<object x="1341.594" y="2802.639" z="320.49716" h="44"/>
 	</spawn>
-	<!-- Commander Xenon -->
+	<!-- Commander Xenon (Named Mob lvl:40)-->
 	<spawn map="210020000" npcid="211703" pool="1" interval="1800">
 		<object x="1878.928" y="2675.706" z="280.43985" h="120"/>
 	</spawn>
-	<!-- Supervisor Penteros -->
+	<!-- Supervisor Penteros (Boss lvl:40)-->
 	<spawn map="210020000" npcid="211032" pool="1" interval="14400">
 		<object x="2775.9531" y="2651.625" z="290.60846" h="116"/>
 	</spawn>
-	<!-- Highpriest Rhipel -->
+	<!-- Highpriest Rhipel (Named Mob lvl:40)-->
 	<spawn map="210020000" npcid="211702" pool="1" interval="1800">
 		<object x="2456.306" y="2548.454" z="274.88882" h="8"/>
 	</spawn>
-	<!-- Greatmage Teotem -->
-	<spawn map="210020000" npcid="211697" pool="2" interval="1800">
+	<!-- Greatmage Teotem (Named Mob lvl:30)-->
+	<spawn map="210020000" npcid="211697" pool="1" interval="1800">
 		<object x="1396.32" y="2634.15" z="298.75" h="101"/>
 		<object x="1397.4" y="2606.69" z="297.5" h="40"/>
 	</spawn>
-	<!-- Chieftain Shaku -->
+	<!-- Chieftain Shaku (Boss lvl:39)-->
 	<spawn map="210020000" npcid="211038" pool="1" interval="14400">
 		<object x="2423.96" y="968.3329" z="452.01068" h="21"/>
 	</spawn>
-	<!-- Kamtak the Destroyer -->
+	<!-- Kamtak the Destroyer (Named Mob lvl:30)-->
 	<spawn map="210020000" npcid="211696" pool="1" interval="1800">
 		<object x="1208.6" y="2608.11" z="286.60254" h="47"/>
 	</spawn>
-	<!-- Chieftain Kurka -->
+	<!-- Chieftain Kurka (Boss lvl:40)-->
 	<spawn map="210020000" npcid="211039" pool="1" interval="14400">
 		<object x="2277.491" y="583.9587" z="375.375" h="3"/>
 	</spawn>
-	<!-- Kantu -->
+	<!-- Kantu (Named Mob lvl:30)-->
 	<spawn map="210020000" npcid="211699" pool="1" interval="1800">
 		<object x="1226.9" y="2724.81" z="308.15424" h="36"/>
 	</spawn>
-	<!-- Wheel of Death -->
+	<!-- Wheel of Death (Monster lvl:39)-->
 	<spawn map="210020000" npcid="280357" pool="15" interval="105">
 		<object x="2379.58" y="781.19" z="360.92563" h="110"/>
 		<object x="2376.89" y="776.7" z="361.0694" h="81"/>
@@ -4805,11 +4805,11 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2402.89" y="799.25" z="353.75815" h="26"/>
 		<object x="2377.21" y="784.59" z="360.45685" h="46"/>
 	</spawn>
-	<!-- Greathealer Quvak -->
+	<!-- Greathealer Quvak (Named Mob lvl:30)-->
 	<spawn map="210020000" npcid="211698" pool="1" interval="1800">
 		<object x="1376.45" y="2705.22" z="306.375" h="94"/>
 	</spawn>
-	<!-- Stonescale Kselliki -->
+	<!-- Stonescale Kselliki (Monster lvl:30)-->
 	<spawn map="210020000" npcid="210876" pool="20" interval="105">
 		<object x="1250.26" y="546.26" z="323.5" h="67"/>
 		<object x="1174.25" y="113.25" z="317.46875" h="116"/>
@@ -4832,8 +4832,8 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1070.14" y="161.8" z="315.60876" h="74"/>
 		<object x="1174.03" y="115.29" z="317.5" h="23"/>
 	</spawn>
-	<!-- Bladeclaw -->
-	<spawn map="210020000" npcid="211711" pool="13" interval="1800">
+	<!-- Bladeclaw (Named Mob lvl:40)-->
+	<spawn map="210020000" npcid="211711" pool="1" interval="1800">
 		<object x="2210.75" y="536.43" z="434.44626" h="83"/>
 		<object x="2210.19" y="551.19" z="433.875" h="39"/>
 		<object x="2578.75" y="620.25" z="464.01562" h="35"/>
@@ -4848,20 +4848,20 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2226.47" y="476.53" z="439.3125" h="87"/>
 		<object x="2221.82" y="493.22" z="438.57123" h="59"/>
 	</spawn>
-	<!-- Harpback -->
+	<!-- Harpback (Named Mob lvl:33)-->
 	<spawn map="210020000" npcid="211812" pool="1" interval="1800">
 		<object x="261.8954" y="279.85114" z="16.5" h="92"/>
 	</spawn>
-	<!-- Spiritmaster Czubarto -->
+	<!-- Spiritmaster Czubarto (Named Mob lvl:40)-->
 	<spawn map="210020000" npcid="211710" pool="1" interval="1800">
 		<object x="2492.533" y="383.188" z="480.68182" h="43"/>
 	</spawn>
-	<!-- Highmage Wyron -->
+	<!-- Highmage Wyron (Named Mob lvl:40)-->
 	<spawn map="210020000" npcid="211705" pool="1" interval="1800">
 		<object x="2488.899" y="2248.965" z="289.4536" h="33"/>
 	</spawn>
-	<!--  Treasure Box -->
-	<spawn map="210020000" npcid="210596" pool="12" interval="14400">
+	<!-- Treasure Box (Monster lvl:9)-->
+	<spawn map="210020000" npcid="210596" pool="1" interval="14400">
 		<object x="513.94" y="2699.89" z="152.86436" h="68"/>
 		<object x="114.34" y="2676.92" z="152.97874" h="25"/>
 		<object x="506.37" y="2868.52" z="153.29688" h="33"/>
@@ -4875,18 +4875,18 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2203.0" y="721.03" z="361.875" h="74"/>
 		<object x="2518.597" y="692.2172" z="347.48456" h="12"/>
 	</spawn>
-	<!-- Queen Mediarch -->
+	<!-- Queen Mediarch (Named Mob lvl:29)-->
 	<spawn map="210020000" npcid="210870" pool="1" interval="1800">
 		<object x="1166.5" y="840.49" z="294.59564" h="87"/>
 	</spawn>
-	<!-- Spiritmaster Shapiel -->
-	<spawn map="210020000" npcid="211704" pool="4" interval="1800">
+	<!-- Spiritmaster Shapiel (Named Mob lvl:40)-->
+	<spawn map="210020000" npcid="211704" pool="1" interval="1800">
 		<object x="2736.4" y="2714.3" z="288.0" h="5"/>
 		<object x="2759.03" y="2607.27" z="293.0644" h="119"/>
 		<object x="2749.23" y="2605.34" z="292.7431" h="38"/>
 		<object x="2760.56" y="2699.91" z="287.25" h="30"/>
 	</spawn>
-	<!-- Warg -->
+	<!-- Warg (Monster lvl:1)-->
 	<spawn map="210020000" npcid="211834" pool="20" interval="105">
 		<object x="845.76" y="1792.23" z="255.91313" h="43"/>
 		<object x="327.24" y="1829.95" z="234.72313" h="96"/>
@@ -4909,7 +4909,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="741.75" y="966.91" z="282.75" h="53"/>
 		<object x="274.44" y="1851.94" z="241.5975" h="105"/>
 	</spawn>
-	<!-- Web Crasaur -->
+	<!-- Web Crasaur (Monster lvl:20)-->
 	<spawn map="210020000" npcid="211681" pool="17" interval="105">
 		<object x="227.8668" y="2537.988" z="152.62575" h="95"/>
 		<object x="239.6022" y="2541.491" z="152.75" h="105"/>
@@ -4929,7 +4929,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="148.641" y="2691.041" z="152.875" h="70"/>
 		<object x="137.4074" y="2660.078" z="152.75487" h="68"/>
 	</spawn>
-	<!-- Wasteland Tipolid -->
+	<!-- Wasteland Tipolid (Monster lvl:27)-->
 	<spawn map="210020000" npcid="211692" pool="20" interval="105">
 		<object x="1416.83" y="2085.62" z="285.2525" h="45"/>
 		<object x="1494.32" y="2073.67" z="283.33563" h="77"/>
@@ -4952,11 +4952,11 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1496.24" y="2076.11" z="282.71313" h="6"/>
 		<object x="1419.9" y="2077.74" z="286.1225" h="19"/>
 	</spawn>
-	<!-- Chief Krukel -->
+	<!-- Chief Krukel (Named Mob lvl:38)-->
 	<spawn map="210020000" npcid="211008" pool="1" interval="1800">
 		<object x="2554.023" y="1756.572" z="456.27087" h="4"/>
 	</spawn>
-	<!-- Wild Tipolid -->
+	<!-- Wild Tipolid (Monster lvl:28)-->
 	<spawn map="210020000" npcid="210854" pool="11" interval="105">
 		<object x="1741.667" y="1986.782" z="302.77725" h="17"/>
 		<object x="1785.647" y="1983.637" z="304.97794" h="111"/>
@@ -4970,11 +4970,11 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1481.838" y="1885.631" z="297.51056" h="111"/>
 		<object x="1571.342" y="1848.235" z="300.06625" h="95"/>
 	</spawn>
-	<!-- Watch Footsoldier -->
+	<!-- Watch Footsoldier (Monster lvl:38)-->
 	<spawn map="210020000" npcid="212096" pool="1" interval="105">
 		<object x="1312.0" y="1630.0" z="273.25" h="83"/>
 	</spawn>
-	<!-- Queens Egg -->
+	<!-- Queen's Egg (Monster lvl:40)-->
 	<spawn map="210020000" npcid="280327" pool="19" interval="105">
 		<object x="1685.04" y="1397.82" z="367.72748" h="105"/>
 		<object x="1682.75" y="1396.7" z="367.66562" h="80"/>
@@ -4996,12 +4996,12 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1683.16" y="1401.3" z="368.2875" h="67"/>
 		<object x="1691.17" y="1398.18" z="367.84564" h="33"/>
 	</spawn>
-	<!-- Virago Outlaw -->
+	<!-- Virago Outlaw (Monster lvl:34)-->
 	<spawn map="210020000" npcid="211664" pool="2" interval="105">
 		<object x="2636.329" y="2565.795" z="372.63782" h="67"/>
 		<object x="2627.307" y="2585.376" z="372.625" h="97"/>
 	</spawn>
-	<!-- Trap -->
+	<!-- Trap (Monster lvl:29)-->
 	<spawn map="210020000" npcid="280449" pool="35" interval="105">
 		<object x="1270.96" y="2404.15" z="275.8981" h="23"/>
 		<object x="1279.79" y="2394.05" z="275.605" h="53"/>
@@ -5039,7 +5039,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2324.16" y="598.23" z="367.34625" h="77"/>
 		<object x="2437.17" y="540.14" z="376.95624" h="97"/>
 	</spawn>
-	<!-- Powerful Trap -->
+	<!-- Powerful Trap (Monster lvl:29)-->
 	<spawn map="210020000" npcid="280450" pool="37" interval="105">
 		<object x="1264.0" y="2375.47" z="268.55124" h="47"/>
 		<object x="1263.01" y="2375.37" z="268.2663" h="58"/>
@@ -5079,7 +5079,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2565.92" y="451.36" z="491.08502" h="106"/>
 		<object x="2585.48" y="471.53" z="493.075" h="68"/>
 	</spawn>
-	<!-- Steelclaw Griffo -->
+	<!-- Steelclaw Griffo (Monster lvl:32)-->
 	<spawn map="210020000" npcid="211717" pool="6" interval="105">
 		<object x="1653.232" y="2605.061" z="357.048" h="25"/>
 		<object x="1733.557" y="2414.66" z="348.61087" h="32"/>
@@ -5088,11 +5088,11 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1816.746" y="2420.668" z="352.29175" h="41"/>
 		<object x="1848.721" y="2398.978" z="352.0" h="15"/>
 	</spawn>
-	<!-- Gryphu Nest -->
+	<!-- Gryphu Nest (Monster lvl:)-->
 	<spawn map="210020000" npcid="206022" pool="1" interval="105">
 		<object x="887.587" y="913.4932" z="285.125" h="18"/>
 	</spawn>
-	<!-- Steelclaw Griffon -->
+	<!-- Steelclaw Griffon (Monster lvl:33)-->
 	<spawn map="210020000" npcid="211716" pool="7" interval="105">
 		<object x="1778.981" y="2400.945" z="352.0" h="114"/>
 		<object x="1682.009" y="2553.034" z="345.62387" h="79"/>
@@ -5102,29 +5102,29 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1945.466" y="2717.105" z="357.28568" h="89"/>
 		<object x="1738.362" y="2582.624" z="343.72736" h="88"/>
 	</spawn>
-	<!-- Dartas Village -->
+	<!-- Dartas Village (Monster lvl:)-->
 	<spawn map="210020000" npcid="206021" pool="1" interval="105">
 		<object x="666.5143" y="1496.775" z="269.93527" h="0"/>
 	</spawn>
-	<!-- Morphinoss Trace -->
+	<!-- Morphinos's Trace (Monster lvl:)-->
 	<spawn map="210020000" npcid="206020" pool="1" interval="105">
 		<object x="410.3496" y="940.7636" z="291.94055" h="51"/>
 	</spawn>
-	<!-- Forgotten Passage -->
+	<!-- Forgotten Passage (Monster lvl:)-->
 	<spawn map="210020000" npcid="206042" pool="1" interval="105">
 		<object x="1831.192" y="2528.628" z="266.64752" h="38"/>
 	</spawn>
-	<!-- Desert Kselliki -->
+	<!-- Desert Kselliki (Monster lvl:28)-->
 	<spawn map="210020000" npcid="210824" pool="1" interval="105">
 		<object x="869.0" y="1258.0" z="278.0" h="115"/>
 	</spawn>
-	<!-- Destruction Trap -->
+	<!-- Destruction Trap (Monster lvl:37)-->
 	<spawn map="210020000" npcid="749161" pool="3" interval="105">
 		<object x="1509.04" y="520.87" z="355.26062" h="35"/>
 		<object x="2154.03" y="658.4" z="458.83313" h="45"/>
 		<object x="1410.66" y="395.61" z="366.10062" h="117"/>
 	</spawn>
-	<!-- Garrison Patrol -->
+	<!-- Garrison Patrol (Monster lvl:40)-->
 	<spawn map="210020000" npcid="207742" pool="71" interval="105">
 		<object x="407.9157" y="1577.091" z="264.75528" h="66"/>
 		<object x="178.306" y="2336.612" z="228.49112" h="108"/>
@@ -5198,11 +5198,11 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1530.919" y="523.8489" z="357.0" h="119"/>
 		<object x="1064.346" y="336.7793" z="307.75" h="25"/>
 	</spawn>
-	<!-- Secret Exit -->
+	<!-- Secret Exit (Monster lvl:)-->
 	<spawn map="210020000" npcid="206040" pool="1" interval="105">
 		<object x="2264.92" y="2346.699" z="277.85754" h="107"/>
 	</spawn>
-	<!-- Trap of Slowing -->
+	<!-- Trap of Slowing (Monster lvl:37)-->
 	<spawn map="210020000" npcid="749167" pool="7" interval="105">
 		<object x="2306.87" y="455.36" z="488.48248" h="21"/>
 		<object x="2292.76" y="395.55" z="488.125" h="78"/>
@@ -5212,7 +5212,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1921.08" y="2564.2" z="266.11002" h="64"/>
 		<object x="2422.29" y="2682.87" z="278.66504" h="57"/>
 	</spawn>
-	<!-- Virago Robber -->
+	<!-- Virago Robber (Monster lvl:32)-->
 	<spawn map="210020000" npcid="211662" pool="10" interval="105">
 		<object x="2076.227" y="2462.649" z="370.33444" h="81"/>
 		<object x="2118.34" y="2630.07" z="360.625" h="114"/>
@@ -5225,7 +5225,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2138.11" y="2385.566" z="373.5" h="21"/>
 		<object x="2147.237" y="2465.914" z="364.38037" h="46"/>
 	</spawn>
-	<!-- Virago Sentinel -->
+	<!-- Virago Sentinel (Monster lvl:33)-->
 	<spawn map="210020000" npcid="211728" pool="18" interval="105">
 		<object x="2069.35" y="2492.37" z="369.52313" h="6"/>
 		<object x="2108.61" y="2529.23" z="360.45187" h="55"/>
@@ -5246,7 +5246,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2106.77" y="2525.98" z="360.37375" h="48"/>
 		<object x="2130.06" y="2562.04" z="360.51" h="85"/>
 	</spawn>
-	<!-- Virago Sentinel -->
+	<!-- Virago Sentinel (Monster lvl:34)-->
 	<spawn map="210020000" npcid="211729" pool="11" interval="105">
 		<object x="2423.163" y="2603.373" z="263.58173" h="32"/>
 		<object x="2453.316" y="2649.765" z="289.91315" h="21"/>
@@ -5260,13 +5260,13 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2431.468" y="2664.283" z="273.34174" h="25"/>
 		<object x="2416.287" y="2685.585" z="283.74603" h="62"/>
 	</spawn>
-	<!-- Explosive Trap -->
+	<!-- Explosive Trap (Monster lvl:33)-->
 	<spawn map="210020000" npcid="749019" pool="3" interval="105">
 		<object x="501.49" y="2121.85" z="213.7475" h="46"/>
 		<object x="513.24" y="2042.38" z="227.67874" h="68"/>
 		<object x="501.35" y="2388.73" z="208.53375" h="11"/>
 	</spawn>
-	<!-- Explosive Trap -->
+	<!-- Explosive Trap (Monster lvl:25)-->
 	<spawn map="210020000" npcid="749018" pool="15" interval="105">
 		<object x="493.67" y="2146.73" z="211.25" h="60"/>
 		<object x="387.61" y="2751.28" z="177.0" h="3"/>
@@ -5284,19 +5284,19 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2488.05" y="2634.23" z="277.13937" h="69"/>
 		<object x="2476.76" y="2627.98" z="274.08875" h="71"/>
 	</spawn>
-	<!-- Grand Chieftain Saendukal -->
-	<spawn map="210020000" npcid="211701" pool="1" interval="105">
+	<!-- Grand Chieftain Saendukal (Boss lvl:40)-->
+	<spawn map="210020000" npcid="211701" pool="1" interval="14400">
 		<object x="2450.0" y="729.0" z="371.9606" h="23"/>
 	</spawn>
-	<!-- Small Multiple Fire Cannon -->
+	<!-- Small Multiple Fire Cannon (Monster lvl:40)-->
 	<spawn map="210020000" npcid="294999" pool="1" interval="105">
 		<object x="2448.97" y="714.79" z="371.9606" h="74"/>
 	</spawn>
-	<!-- Wasteland Kurin -->
+	<!-- Wasteland Kurin (Monster lvl:23)-->
 	<spawn map="210020000" npcid="211272" pool="1" interval="105">
 		<object x="283.0" y="1878.0" z="239.4375" h="57"/>
 	</spawn>
-	<!-- Ice Sheet -->
+	<!-- Ice Sheet (Monster lvl:)-->
 	<spawn map="210020000" npcid="749085" pool="9" interval="105">
 		<object x="337.17" y="2731.24" z="263.4721" h="86"/>
 		<object x="736.87" y="2392.38" z="209.73375" h="22"/>
@@ -5308,19 +5308,19 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="581.05" y="1798.69" z="234.31502" h="90"/>
 		<object x="306.43" y="2746.33" z="263.49844" h="27"/>
 	</spawn>
-	<!-- Thorntail Scolopen -->
+	<!-- Thorntail Scolopen (Monster lvl:28)-->
 	<spawn map="210020000" npcid="211274" pool="1" interval="105">
 		<object x="689.0" y="785.0" z="291.875" h="86"/>
 	</spawn>
-	<!-- Granite Gorgon -->
+	<!-- Granite Gorgon (Monster lvl:35)-->
 	<spawn map="210020000" npcid="211276" pool="1" interval="105">
 		<object x="2195.0" y="1410.0" z="393.875" h="107"/>
 	</spawn>
-	<!-- Stoneshell Kselliki -->
+	<!-- Stoneshell Kselliki (Monster lvl:30)-->
 	<spawn map="210020000" npcid="210877" pool="1" interval="105">
 		<object x="1001.0" y="197.0" z="316.1875" h="85"/>
 	</spawn>
-	<!-- Steelback Ksellid -->
+	<!-- Steelback Ksellid (Monster lvl:33)-->
 	<spawn map="210020000" npcid="210937" pool="40" interval="105">
 		<object x="1263.8" y="629.24" z="327.32" h="100"/>
 		<object x="1237.79" y="953.93" z="293.72375" h="47"/>
@@ -5363,7 +5363,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1391.61" y="859.57" z="334.73312" h="107"/>
 		<object x="1314.09" y="771.44" z="325.445" h="35"/>
 	</spawn>
-	<!-- Stone Guard -->
+	<!-- Stone Guard (Monster lvl:39)-->
 	<spawn map="210020000" npcid="280356" pool="9" interval="105">
 		<object x="2375.14" y="778.79" z="361.29065" h="102"/>
 		<object x="2377.56" y="774.1" z="360.90875" h="80"/>
@@ -5375,7 +5375,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2393.43" y="787.25" z="358.01752" h="72"/>
 		<object x="2404.22" y="799.59" z="353.08658" h="39"/>
 	</spawn>
-	<!-- Virago Sentinel -->
+	<!-- Virago Sentinel (Monster lvl:32)-->
 	<spawn map="210020000" npcid="210935" pool="10" interval="105">
 		<object x="2146.844" y="2396.414" z="373.625" h="74"/>
 		<object x="2119.427" y="2417.005" z="370.25882" h="52"/>
@@ -5388,7 +5388,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2100.517" y="2473.371" z="367.31308" h="108"/>
 		<object x="2135.163" y="2430.159" z="367.1773" h="12"/>
 	</spawn>
-	<!-- Faithful Laborer -->
+	<!-- Faithful Laborer (Monster lvl:40)-->
 	<spawn map="210020000" npcid="280546" pool="11" interval="105">
 		<object x="2666.55" y="2670.12" z="291.29623" h="26"/>
 		<object x="2672.57" y="2673.59" z="291.26312" h="97"/>
@@ -5402,7 +5402,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2670.09" y="2679.93" z="289.88" h="108"/>
 		<object x="2691.95" y="2669.04" z="287.38126" h="26"/>
 	</spawn>
-	<!-- Sandstorm Trap -->
+	<!-- Sandstorm Trap (Monster lvl:44)-->
 	<spawn map="210020000" npcid="749034" pool="6" interval="105">
 		<object x="2288.88" y="529.38" z="410.46878" h="22"/>
 		<object x="2324.14" y="685.69" z="364.89438" h="11"/>
@@ -5411,7 +5411,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2363.85" y="651.04" z="366.4031" h="20"/>
 		<object x="2263.36" y="2664.75" z="283.38504" h="111"/>
 	</spawn>
-	<!-- Veteran Smackstopper -->
+	<!-- Veteran Smackstopper (Monster lvl:28)-->
 	<spawn map="210020000" npcid="212062" pool="8" interval="105">
 		<object x="1479.13" y="2570.446" z="318.23837" h="111"/>
 		<object x="1433.694" y="2458.619" z="289.96677" h="48"/>
@@ -5422,7 +5422,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1439.071" y="2645.942" z="301.12137" h="95"/>
 		<object x="1349.945" y="2722.521" z="305.8869" h="66"/>
 	</spawn>
-	<!-- Wandering Mudthorn -->
+	<!-- Wandering Mudthorn (Monster lvl:33)-->
 	<spawn map="210020000" npcid="211289" pool="12" interval="105">
 		<object x="2000.262" y="1850.853" z="350.47345" h="54"/>
 		<object x="1963.675" y="1847.694" z="346.17114" h="115"/>
@@ -5437,15 +5437,15 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2004.4836" y="1800.5139" z="353.45593" h="105"/>
 		<object x="1984.807" y="1800.577" z="353.875" h="37"/>
 	</spawn>
-	<!-- Sentinel Leader -->
+	<!-- Sentinel Leader (Monster lvl:42)-->
 	<spawn map="210020000" npcid="207557" pool="1" interval="105">
 		<object x="388.38" y="2700.3" z="265.58182" h="42"/>
 	</spawn>
-	<!-- Defense Commander -->
+	<!-- Defense Commander (Monster lvl:45)-->
 	<spawn map="210020000" npcid="207554" pool="1" interval="105">
 		<object x="269.66" y="2789.04" z="272.477" h="95"/>
 	</spawn>
-	<!-- Senior Soldier -->
+	<!-- Senior Soldier (Monster lvl:41)-->
 	<spawn map="210020000" npcid="207553" pool="42" interval="105">
 		<object x="338.2263" y="2736.645" z="182.32054" h="7"/>
 		<object x="332.0511" y="2728.475" z="182.49362" h="25"/>
@@ -5490,7 +5490,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1854.75" y="1990.81" z="350.30814" h="120"/>
 		<object x="1903.1" y="1977.61" z="349.875" h="60"/>
 	</spawn>
-	<!-- Virago Scavenger -->
+	<!-- Virago Scavenger (Monster lvl:33)-->
 	<spawn map="210020000" npcid="210953" pool="34" interval="105">
 		<object x="2454.006" y="2497.666" z="360.41638" h="93"/>
 		<object x="2506.847" y="2470.496" z="362.2281" h="93"/>
@@ -5527,11 +5527,11 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2592.571" y="2592.474" z="369.25" h="114"/>
 		<object x="2625.502" y="2539.761" z="369.25" h="6"/>
 	</spawn>
-	<!-- Medic Leader -->
+	<!-- Medic Leader (Monster lvl:45)-->
 	<spawn map="210020000" npcid="207566" pool="1" interval="105">
 		<object x="264.2007" y="2724.056" z="270.6597" h="21"/>
 	</spawn>
-	<!-- Water Spirit -->
+	<!-- Water Spirit (Monster lvl:21)-->
 	<spawn map="210020000" npcid="201024" pool="12" interval="105">
 		<object x="516.05" y="2036.63" z="227.96063" h="29"/>
 		<object x="483.23" y="2484.49" z="186.3275" h="63"/>
@@ -5546,22 +5546,22 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="597.68" y="731.6" z="290.38" h="53"/>
 		<object x="1965.68" y="1665.48" z="352.2025" h="79"/>
 	</spawn>
-	<!-- Virago Scout -->
+	<!-- Virago Scout (Monster lvl:37)-->
 	<spawn map="210020000" npcid="211695" pool="3" interval="105">
 		<object x="2552.601" y="2230.773" z="283.0" h="59"/>
 		<object x="2550.269" y="2226.064" z="282.875" h="65"/>
 		<object x="2557.504" y="2230.974" z="283.0" h="32"/>
 	</spawn>
-	<!-- Support Leader -->
+	<!-- Support Leader (Monster lvl:45)-->
 	<spawn map="210020000" npcid="207563" pool="2" interval="105">
 		<object x="288.52" y="2772.45" z="272.4496" h="52"/>
 		<object x="346.5242" y="2721.727" z="264.17618" h="82"/>
 	</spawn>
-	<!-- Scout Leader -->
+	<!-- Scout Leader (Monster lvl:45)-->
 	<spawn map="210020000" npcid="207560" pool="1" interval="105">
 		<object x="322.6423" y="2743.127" z="181.42957" h="30"/>
 	</spawn>
-	<!-- Swamp Slime -->
+	<!-- Swamp Slime (Monster lvl:23)-->
 	<spawn map="210020000" npcid="210772" pool="20" interval="105">
 		<object x="415.5269" y="2286.758" z="207.5" h="84"/>
 		<object x="281.212" y="2230.891" z="207.49356" h="14"/>
@@ -5584,7 +5584,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="396.7343" y="2109.391" z="207.375" h="78"/>
 		<object x="403.3624" y="2272.076" z="207.5" h="67"/>
 	</spawn>
-	<!-- Veteran Mamaki Lieutenant -->
+	<!-- Veteran Mamaki Lieutenant (Monster lvl:38)-->
 	<spawn map="210020000" npcid="211841" pool="10" interval="105">
 		<object x="2470.401" y="304.7206" z="496.8998" h="79"/>
 		<object x="2405.908" y="944.049" z="447.125" h="20"/>
@@ -5597,7 +5597,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2172.485" y="595.0155" z="453.43848" h="106"/>
 		<object x="2366.2703" y="395.03232" z="486.5345" h="82"/>
 	</spawn>
-	<!-- Strong Sandstorm Spirit -->
+	<!-- Strong Sandstorm Spirit (Monster lvl:32)-->
 	<spawn map="210020000" npcid="211790" pool="6" interval="105">
 		<object x="306.9958" y="165.0988" z="147.79488" h="11"/>
 		<object x="305.2278" y="120.3288" z="147.79488" h="24"/>
@@ -5606,7 +5606,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="291.2453" y="139.6172" z="149.70583" h="106"/>
 		<object x="297.1873" y="159.488" z="147.79488" h="80"/>
 	</spawn>
-	<!-- Troll Fighter -->
+	<!-- Troll Fighter (Monster lvl:37)-->
 	<spawn map="210020000" npcid="211000" pool="8" interval="105">
 		<object x="2412.002" y="1267.711" z="428.85693" h="16"/>
 		<object x="2384.667" y="1211.428" z="435.23224" h="109"/>
@@ -5617,7 +5617,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2509.709" y="1177.361" z="452.28476" h="95"/>
 		<object x="2532.309" y="1200.601" z="452.5" h="105"/>
 	</spawn>
-	<!-- Tough Mamaki Watcher -->
+	<!-- Tough Mamaki Watcher (Monster lvl:37)-->
 	<spawn map="210020000" npcid="212016" pool="7" interval="105">
 		<object x="2204.27" y="1096.031" z="389.96237" h="83"/>
 		<object x="2514.431" y="390.3391" z="483.8617" h="50"/>
@@ -5627,18 +5627,18 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2509.284" y="396.0323" z="484.71332" h="28"/>
 		<object x="2407.665" y="864.4901" z="456.5" h="19"/>
 	</spawn>
-	<!-- Traders Bodyguard -->
+	<!-- Trader's Bodyguard (Monster lvl:45)-->
 	<spawn map="210020000" npcid="207842" pool="3" interval="105">
 		<object x="664.5" y="479.0" z="331.875" h="118"/>
 		<object x="678.0" y="479.0" z="332.0" h="53"/>
 		<object x="672.0" y="489.0" z="332.4375" h="24"/>
 	</spawn>
-	<!-- Tough Mamaki Patrol -->
+	<!-- Tough Mamaki Patrol (Monster lvl:39)-->
 	<spawn map="210020000" npcid="212018" pool="2" interval="105">
 		<object x="2502.304" y="458.558" z="496.88776" h="87"/>
 		<object x="2438.527" y="444.1451" z="499.36926" h="22"/>
 	</spawn>
-	<!-- Trained Maeki -->
+	<!-- Trained Maeki (Monster lvl:37)-->
 	<spawn map="210020000" npcid="211780" pool="16" interval="105">
 		<object x="2158.383" y="525.1136" z="447.375" h="84"/>
 		<object x="2160.191" y="522.7148" z="447.375" h="37"/>
@@ -5657,7 +5657,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2321.163" y="970.8754" z="445.0" h="19"/>
 		<object x="2325.357" y="971.8411" z="445.0" h="50"/>
 	</spawn>
-	<!-- Tamed Tipolid -->
+	<!-- Tamed Tipolid (Monster lvl:37)-->
 	<spawn map="210020000" npcid="211678" pool="13" interval="105">
 		<object x="2262.635" y="760.466" z="470.875" h="91"/>
 		<object x="2266.938" y="762.3621" z="470.875" h="45"/>
@@ -5673,7 +5673,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2601.132" y="636.0397" z="463.55426" h="67"/>
 		<object x="2340.812" y="746.2799" z="358.05075" h="5"/>
 	</spawn>
-	<!-- Twiggy Gnarl -->
+	<!-- Twiggy Gnarl (Monster lvl:23)-->
 	<spawn map="210020000" npcid="210777" pool="12" interval="105">
 		<object x="476.3428" y="1901.741" z="225.66261" h="46"/>
 		<object x="439.9703" y="1807.936" z="227.76683" h="0"/>
@@ -5688,7 +5688,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="388.1044" y="1899.349" z="231.11847" h="81"/>
 		<object x="322.8817" y="1801.488" z="235.95724" h="21"/>
 	</spawn>
-	<!-- Tigric Sentinel -->
+	<!-- Tigric Sentinel (Monster lvl:36)-->
 	<spawn map="210020000" npcid="210989" pool="7" interval="105">
 		<object x="1760.145" y="652.0596" z="425.38406" h="91"/>
 		<object x="1766.362" y="639.0898" z="425.375" h="112"/>
@@ -5698,21 +5698,21 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1854.57" y="835.0224" z="434.47452" h="115"/>
 		<object x="1722.274" y="667.3464" z="423.125" h="64"/>
 	</spawn>
-	<!-- Thorntail Skyray -->
+	<!-- Thorntail Skyray (Monster lvl:33)-->
 	<spawn map="210020000" npcid="211654" pool="4" interval="105">
 		<object x="1408.49" y="357.5781" z="351.04395" h="84"/>
 		<object x="1410.237" y="336.4906" z="351.04395" h="17"/>
 		<object x="1433.346" y="361.4922" z="351.04395" h="63"/>
 		<object x="1431.392" y="330.3204" z="351.04395" h="52"/>
 	</spawn>
-	<!-- Swift Fangwing -->
+	<!-- Swift Fangwing (Monster lvl:29)-->
 	<spawn map="210020000" npcid="211804" pool="4" interval="105">
 		<object x="131.5152" y="289.1341" z="214.73138" h="120"/>
 		<object x="173.8309" y="277.8876" z="215.21106" h="44"/>
 		<object x="169.3915" y="287.597" z="215.21106" h="83"/>
 		<object x="148.7462" y="248.3372" z="214.73122" h="9"/>
 	</spawn>
-	<!-- Twister Spirit -->
+	<!-- Twister Spirit (Monster lvl:29)-->
 	<spawn map="210020000" npcid="211738" pool="18" interval="105">
 		<object x="258.1483" y="186.1343" z="256.54752" h="12"/>
 		<object x="262.3896" y="227.0856" z="239.71826" h="114"/>
@@ -5733,7 +5733,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="283.9578" y="201.7603" z="256.627" h="83"/>
 		<object x="255.7106" y="264.7805" z="255.52174" h="93"/>
 	</spawn>
-	<!-- Veteran Mamaki Weakarm -->
+	<!-- Veteran Mamaki Weakarm (Monster lvl:37)-->
 	<spawn map="210020000" npcid="211806" pool="43" interval="105">
 		<object x="2099.906" y="972.0305" z="411.7227" h="80"/>
 		<object x="2035.978" y="1005.372" z="401.625" h="57"/>
@@ -5779,7 +5779,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2378.309" y="910.3619" z="447.21466" h="63"/>
 		<object x="2373.826" y="309.4013" z="490.7874" h="36"/>
 	</spawn>
-	<!-- Summoned Pretor -->
+	<!-- Summoned Pretor (Monster lvl:40)-->
 	<spawn map="210020000" npcid="280262" pool="16" interval="105">
 		<object x="2425.52" y="2272.61" z="269.13312" h="9"/>
 		<object x="2308.04" y="2595.38" z="269.46997" h="56"/>
@@ -5798,7 +5798,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2498.67" y="2251.91" z="289.4536" h="64"/>
 		<object x="2531.17" y="2284.93" z="281.26752" h="76"/>
 	</spawn>
-	<!-- Stoneskull Monitor -->
+	<!-- Stoneskull Monitor (Monster lvl:22)-->
 	<spawn map="210020000" npcid="210766" pool="18" interval="105">
 		<object x="824.5903" y="2515.242" z="236.9119" h="77"/>
 		<object x="814.6297" y="2528.451" z="236.9202" h="54"/>
@@ -5819,7 +5819,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="712.471" y="2675.769" z="248.23557" h="35"/>
 		<object x="409.3795" y="2148.006" z="209.37538" h="82"/>
 	</spawn>
-	<!-- Thorntail Scolopen -->
+	<!-- Thorntail Scolopen (Monster lvl:28)-->
 	<spawn map="210020000" npcid="210821" pool="35" interval="105">
 		<object x="812.8087" y="767.3993" z="293.099" h="91"/>
 		<object x="584.9405" y="857.2584" z="293.30377" h="80"/>
@@ -5857,7 +5857,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="679.4066" y="1004.332" z="280.2456" h="95"/>
 		<object x="933.2626" y="1180.781" z="277.45117" h="45"/>
 	</spawn>
-	<!-- Troll Outlaw -->
+	<!-- Troll Outlaw (Monster lvl:35)-->
 	<spawn map="210020000" npcid="210979" pool="13" interval="105">
 		<object x="2164.844" y="1333.987" z="405.35632" h="85"/>
 		<object x="2090.156" y="1388.928" z="404.19202" h="80"/>
@@ -5873,11 +5873,11 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="2191.609" y="1297.309" z="412.5318" h="103"/>
 		<object x="2237.266" y="1332.214" z="415.01337" h="69"/>
 	</spawn>
-	<!-- Stoneshell Kselliki -->
+	<!-- Stoneshell Kselliki (Monster lvl:30)-->
 	<spawn map="210020000" npcid="210875" pool="1" interval="105">
 		<object x="1001.841" y="197.2419" z="316.06726" h="70"/>
 	</spawn>
-	<!-- Tigric Fighter -->
+	<!-- Tigric Fighter (Monster lvl:35)-->
 	<spawn map="210020000" npcid="210971" pool="5" interval="105">
 		<object x="1782.345" y="679.0677" z="425.125" h="114"/>
 		<object x="1793.231" y="731.4148" z="420.08282" h="45"/>
@@ -5885,7 +5885,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="1784.704" y="802.7336" z="415.42786" h="116"/>
 		<object x="1822.425" y="701.2882" z="424.464" h="76"/>
 	</spawn>
-	<!-- Stoneshell Ksellid -->
+	<!-- Stoneshell Ksellid (Monster lvl:30)-->
 	<spawn map="210020000" npcid="210878" pool="18" interval="105">
 		<object x="140.3035" y="582.8618" z="289.35434" h="67"/>
 		<object x="362.6598" y="955.5416" z="295.27777" h="107"/>
@@ -5906,7 +5906,7 @@ fixed incorrect pool values, added some missing monsters.
 		<object x="943.4216" y="218.37" z="316.9804" h="40"/>
 		<object x="249.7801" y="708.663" z="287.69482" h="26"/>
 	</spawn>
-	<!-- Striped Maeki -->
+	<!-- Striped Maeki (Monster lvl:26)-->
 	<spawn map="210020000" npcid="210803" pool="30" interval="105">
 		<object x="1127.858" y="2078.679" z="248.1987" h="4"/>
 		<object x="1104.231" y="2055.945" z="250.97191" h="5"/>
