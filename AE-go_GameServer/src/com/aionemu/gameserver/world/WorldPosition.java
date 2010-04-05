@@ -100,16 +100,32 @@ public class WorldPosition
 		return isSpawned ? mapRegion : null;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public int getInstanceId()
 	{
 		return mapRegion.getParent().getInstanceId();
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public int getInstanceCount()
 	{
 		return mapRegion.getParent().getParent().getInstanceCount();
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
+	public boolean isInstanceMap()
+	{
+		return mapRegion.getParent().getParent().isInstanceType();
+	}
 	/**
 	 * Return heading.
 	 * 

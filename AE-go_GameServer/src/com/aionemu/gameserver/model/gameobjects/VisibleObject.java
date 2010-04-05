@@ -182,7 +182,7 @@ public abstract class VisibleObject extends AionObject
 	 */
 	public boolean isInInstance()
 	{
-		return position.getMapRegion().getParent().getParent().isInstanceType();
+		return position.isInstanceMap();
 	}
 
 	/**

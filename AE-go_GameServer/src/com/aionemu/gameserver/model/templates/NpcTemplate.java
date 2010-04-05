@@ -24,6 +24,7 @@ import javax.xml.bind.annotation.XmlID;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import com.aionemu.gameserver.model.NpcType;
+import com.aionemu.gameserver.model.Race;
 import com.aionemu.gameserver.model.items.NpcEquippedGear;
 import com.aionemu.gameserver.model.templates.stats.NpcRank;
 import com.aionemu.gameserver.model.templates.stats.NpcStatsTemplate;
@@ -71,6 +72,8 @@ public class NpcTemplate extends VisibleObjectTemplate
 	private int					hpGauge;
 	@XmlAttribute(name = "tribe")
 	private String				tribe;
+	@XmlAttribute
+	private Race				race;
 	
 	@Override
 	public int getTemplateId()
@@ -199,5 +202,13 @@ public class NpcTemplate extends VisibleObjectTemplate
 	public int getHpGauge()
 	{
 		return hpGauge;
+	}
+
+	/**
+	 * @return the race
+	 */
+	public Race getRace()
+	{
+		return race;
 	}
 }

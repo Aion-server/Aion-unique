@@ -24,6 +24,7 @@ import com.aionemu.gameserver.dataholders.PortalData;
 import com.aionemu.gameserver.dataholders.TeleLocationData;
 import com.aionemu.gameserver.dataholders.TeleporterData;
 import com.aionemu.gameserver.dataholders.PlayerInitialData.LocationData;
+import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.Storage;
 import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
@@ -210,6 +211,14 @@ public class TeleportService
 			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_CANNOT_USE_AIRPORT_WHEN_FLYING);
 			return;
 		}
+		
+		Npc object = (Npc) world.findAionObject(targetObjectId);
+		if(object.getObjectTemplate().getRace() != player.getCommonData().getRace())
+		{
+			PacketSendUtility.sendMessage(player, "You cannot use this teleport");//TODO retail message
+			return;
+		}
+		
 		PacketSendUtility.sendPacket(player, new SM_TELEPORT_MAP(player, targetObjectId, getTeleporterTemplate(npcId)));
 	}
 
