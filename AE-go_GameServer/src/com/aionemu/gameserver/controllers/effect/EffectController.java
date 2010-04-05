@@ -20,7 +20,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+
+import javolution.util.FastMap;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -50,9 +51,9 @@ public class EffectController
 	public EffectController(Creature owner)
 	{
 		this.owner = owner;
-		this.abnormalEffectMap = new ConcurrentHashMap<String, Effect>();
-		this.passiveEffectMap = new ConcurrentHashMap<String, Effect>();
-		this.noshowEffects = new ConcurrentHashMap<String, Effect>();
+		this.abnormalEffectMap = new FastMap<String, Effect>().shared();
+		this.passiveEffectMap = new FastMap<String, Effect>().shared();
+		this.noshowEffects = new FastMap<String, Effect>().shared();
 	}
 
 	/**
