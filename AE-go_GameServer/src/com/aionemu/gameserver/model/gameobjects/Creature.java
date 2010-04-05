@@ -67,6 +67,14 @@ public abstract class Creature extends VisibleObject
 	private int transformedModelId;
 	private ObserveController 	observeController;
 
+	/**
+	 * 
+	 * @param objId
+	 * @param controller
+	 * @param spawnTemplate
+	 * @param objectTemplate
+	 * @param position
+	 */
 	public Creature(int objId, CreatureController<? extends Creature> controller,
 		SpawnTemplate spawnTemplate, VisibleObjectTemplate objectTemplate, WorldPosition position)
 	{

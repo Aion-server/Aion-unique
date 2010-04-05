@@ -423,10 +423,14 @@ public class NpcController extends CreatureController<Npc>
 	}
 
 	/**
-	 * 
+	 * Schedule respawn of npc
+	 * In instances - no npc respawn
 	 */
 	public void scheduleRespawn()
-	{
+	{	
+		if(getOwner().isInInstance())
+			return;
+		
 		int instanceId = getOwner().getInstanceId();
 		if(!getOwner().getSpawn().isNoRespawn(instanceId))
 		{

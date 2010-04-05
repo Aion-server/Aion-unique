@@ -166,9 +166,23 @@ public abstract class VisibleObject extends AionObject
 		return position.isSpawned();
 	}
 	
+	/**
+	 * 
+	 * @return 
+	 */
 	public boolean isInWorld()
 	{
 		return position.getWorld().findAionObject(getObjectId()) != null;
+	}
+	
+	/**
+	 * Check if map is instance
+	 * 
+	 * @return true if object in one of the instance maps
+	 */
+	public boolean isInInstance()
+	{
+		return position.getMapRegion().getParent().getParent().isInstanceType();
 	}
 
 	/**
