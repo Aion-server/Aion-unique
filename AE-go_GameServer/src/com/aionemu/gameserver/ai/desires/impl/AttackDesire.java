@@ -22,6 +22,7 @@ import com.aionemu.gameserver.ai.events.Event;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
+import com.aionemu.gameserver.model.gameobjects.stats.StatEnum;
 import com.aionemu.gameserver.utils.MathUtil;
 
 /**
@@ -94,7 +95,8 @@ public final class AttackDesire extends AbstractDesire
 				return false;
 			}
 		}
-		if(distance <= 2)
+		int attackRange = owner.getGameStats().getCurrentStat(StatEnum.ATTACK_RANGE);
+		if(distance * 1000 <= attackRange)
 		{
 			owner.getController().attackTarget(target);
 			attackNotPossibleCounter = 0;

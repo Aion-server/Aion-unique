@@ -16,9 +16,15 @@
  */
 package com.aionemu.gameserver.model.gameobjects.stats;
 
+import java.util.TreeSet;
+
 import com.aionemu.commons.callbacks.EnhancedObject;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.stats.listeners.StatChangeListener;
+import com.aionemu.gameserver.model.gameobjects.stats.modifiers.StatModifier;
+import com.aionemu.gameserver.model.items.ItemSlot;
+import com.aionemu.gameserver.model.items.NpcEquippedGear;
+import com.aionemu.gameserver.model.templates.item.ItemTemplate;
 import com.aionemu.gameserver.model.templates.stats.NpcStatsTemplate;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -29,10 +35,12 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
  */
 public class NpcGameStats extends CreatureGameStats<Npc>
 {
-	public NpcGameStats(Npc owner, NpcStatsTemplate nst)
+	public NpcGameStats(Npc owner)
 	{
 		super(owner);
 		// TODO set other stats
+		NpcStatsTemplate nst = owner.getObjectTemplate().getStatsTemplate();
+
 		initStat(StatEnum.MAXHP, nst.getMaxHp()
 			+ Math.round((owner.getObjectTemplate().getHpGauge() * 1.5f) * (int) owner.getLevel()));
 		initStat(StatEnum.MAXMP, nst.getMaxMp());
@@ -48,7 +56,43 @@ public class NpcGameStats extends CreatureGameStats<Npc>
 		initStat(StatEnum.MAIN_HAND_CRITICAL, Math.round(nst.getCrit()));
 		initStat(StatEnum.SPEED, Math.round(nst.getRunSpeedFight() * 1000));
 
+		initStatsFromEquipment(owner);
+
 		addRecomputeListener(owner);
+	}
+
+	/**
+	 * I hope one day we will have all stats from equip applied automatically
+	 * 
+	 * @param owner
+	 */
+	private void initStatsFromEquipment(Npc owner)
+	{
+		NpcEquippedGear equipment = owner.getObjectTemplate().getEquipment();
+		if(equipment != null)
+		{
+			equipment.init();
+			
+			ItemTemplate itemTemplate = equipment.getItem(ItemSlot.MAIN_HAND);
+			if(itemTemplate != null)
+			{
+				TreeSet<StatModifier> modifiers = itemTemplate.getModifiers();
+				if(modifiers != null)
+				{
+					for(StatModifier modifier : modifiers)
+					{
+						if(modifier.getStat() == StatEnum.ATTACK_RANGE)
+							initStat(StatEnum.ATTACK_RANGE, modifier.apply(0, 0));
+					}
+				}
+			}
+		}
+
+		/**
+		 * ATTACK_RANGE should be set to default 2000 if there is no equipment
+		 */
+		if(getCurrentStat(StatEnum.ATTACK_RANGE) == 0)
+			initStat(StatEnum.ATTACK_RANGE, 2000);
 	}
 
 	/**

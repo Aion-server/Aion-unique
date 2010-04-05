@@ -52,6 +52,7 @@ public class MoveController
 
 	private int moveCounter;
 	private float speed = 0;
+	private float distance = 2;
 	
 	private boolean walking;
 	
@@ -74,6 +75,14 @@ public class MoveController
 	public void setSpeed(float speed)
 	{
 		this.speed = speed;
+	}
+
+	/**
+	 * @param distance the distance to set
+	 */
+	public void setDistance(float distance)
+	{
+		this.distance = distance;
 	}
 
 	/**
@@ -160,7 +169,7 @@ public class MoveController
 		float ownerZ = owner.getZ();
 
 		double dist = MathUtil.getDistance(ownerX, ownerY, ownerZ, targetX, targetY, targetZ);
-		if(dist > 2)
+		if(dist > this.distance)
 		{
 			isStopped = false;
 

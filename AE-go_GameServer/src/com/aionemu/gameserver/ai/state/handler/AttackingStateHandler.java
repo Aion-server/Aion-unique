@@ -63,7 +63,10 @@ public class AttackingStateHandler extends StateHandler
 			new SM_EMOTION(owner, 30, 0, target.getObjectId()));
 		PacketSendUtility.broadcastPacket(owner,
 			new SM_EMOTION(owner, 19, 0, target.getObjectId()));
+		
 		owner.getMoveController().setSpeed(owner.getGameStats().getCurrentStat(StatEnum.SPEED) / 1000f);
+		owner.getMoveController().setDistance(owner.getGameStats().getCurrentStat(StatEnum.ATTACK_RANGE) / 1000f);
+		
 		ai.addDesire(new AttackDesire(owner, target, AIState.ATTACKING.getPriority()));
 		ai.addDesire(new MoveToTargetDesire(owner, target, AIState.ATTACKING.getPriority()));
 

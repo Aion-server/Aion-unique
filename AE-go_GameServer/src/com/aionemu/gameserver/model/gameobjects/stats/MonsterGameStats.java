@@ -29,7 +29,7 @@ public class MonsterGameStats extends NpcGameStats
 
 	public MonsterGameStats(Npc owner, NpcStatsTemplate nst)
 	{
-		super(owner, nst);
+		super(owner);
 		// TODO Auto-generated constructor stub
 	}
 

@@ -64,7 +64,7 @@ public class NpcEquippedGear implements Iterable<Entry<ItemSlot,ItemTemplate>>
 	 *  Here NPC equipment mask is initialized.
 	 *  All NPC slot masks should be lower than 65536
 	 */
-	private void init()
+	public void init()
 	{
 		synchronized(this)
 		{
@@ -87,6 +87,16 @@ public class NpcEquippedGear implements Iterable<Entry<ItemSlot,ItemTemplate>>
 			}
 			v = null;
 		}
+	}
+	
+	/**
+	 * 
+	 * @param itemSlot
+	 * @return
+	 */
+	public ItemTemplate getItem(ItemSlot itemSlot)
+	{
+		return items != null ? items.get(itemSlot) : null;
 	}
 	
 }

@@ -57,8 +57,7 @@ public class Npc extends Creature
 		super(objId, controller, spawnTemplate, objectTemplate, new WorldPosition());
 		controller.setOwner(this);
 		
-		NpcStatsTemplate nst = getObjectTemplate().getStatsTemplate();
-		super.setGameStats(new NpcGameStats(this,nst));
+		super.setGameStats(new NpcGameStats(this));
 		super.setLifeStats(new NpcLifeStats(this));
 		
 		this.aggroList = new AggroList(this);
