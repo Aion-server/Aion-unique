@@ -7646,32 +7646,4 @@ Beluslan -->
 	<spawn map="220040000" npcid="213744" pool="1" interval="14400">
 		<object x="638" y="2900" z="298" h="31"/>
 	</spawn>
-	<!-- Deputy Brigade General Yavant -->
-	<spawn map="220040000" npcid="214026" pool="1" interval="1800">
-		<object x="1606" y="2730" z="705" h="102"/>
-	</spawn>
-	<!-- Commander Bakarma -->
-	<spawn map="220040000" npcid="213780" pool="1" interval="14400">
-		<object x="1580" y="2724" z="705" h="71"/>
-	</spawn>
-	<!-- Instructor Afrane -->
-	<spawn map="220040000" npcid="213776" pool="1" interval="14400">
-		<object x="1594" y="2656" z="691" h="98"/>
-	</spawn>
-	<!-- Beautiful Lakshmi -->
-	<spawn map="220040000" npcid="213778" pool="1" interval="14400">
-		<object x="1591" y="2615" z="678" h="111"/>
-	</spawn>
-	<!-- Lucky Golden Saam -->
-	<spawn map="220040000" npcid="213588" pool="1" interval="105">
-		<object x="1591" y="2587" z="668" h="79"/>
-	</spawn>
-	<!-- Commander Nimbarka -->
-	<spawn map="220040000" npcid="213779" pool="1" interval="14400">
-		<object x="1582" y="2568" z="658" h="0"/>
-	</spawn>
-	<!-- Hungry Ooze -->
-	<spawn map="220040000" npcid="213587" pool="1" interval="105">
-		<object x="1606" y="2730" z="705" h="36"/>
-	</spawn>
 </spawns>
