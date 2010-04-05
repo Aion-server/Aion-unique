@@ -16,10 +16,10 @@
  */
 package com.aionemu.gameserver.world;
 
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+
+import javolution.util.FastMap;
 
 import org.apache.log4j.Logger;
 
@@ -63,11 +63,11 @@ public class World
 	/**
 	 * Container with all AionObjects in the world [ie Players, Npcs etc]
 	 */
-	private final Map<Integer, AionObject>	allObjects	= new ConcurrentHashMap<Integer, AionObject>();
+	private final Map<Integer, AionObject>	allObjects	= new FastMap<Integer, AionObject>().shared();
 	/**
 	 * World maps supported by server.
 	 */
-	private final Map<Integer, WorldMap>	worldMaps	= new HashMap<Integer, WorldMap>();
+	private final Map<Integer, WorldMap>	worldMaps	= new FastMap<Integer, WorldMap>().shared();
 
 	private IDFactory						aionObjectsIDFactory;
 

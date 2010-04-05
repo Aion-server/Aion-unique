@@ -18,7 +18,8 @@ package com.aionemu.gameserver.world.container;
 
 import java.util.Iterator;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+
+import javolution.util.FastMap;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.world.exceptions.DuplicateAionObjectException;
@@ -34,11 +35,11 @@ public class PlayerContainer implements Iterable<Player>
 	/**
 	 * Map<ObjectId,Player>
 	 */
-	private final Map<Integer, Player>	playersById		= new ConcurrentHashMap<Integer, Player>();
+	private final Map<Integer, Player>	playersById		= new FastMap<Integer, Player>().shared();
 	/**
 	 * Map<Name,Player>
 	 */
-	private final Map<String, Player>	playersByName	= new ConcurrentHashMap<String, Player>();
+	private final Map<String, Player>	playersByName	= new FastMap<String, Player>().shared();
 
 	/**
 	 * Add Player to this Container.

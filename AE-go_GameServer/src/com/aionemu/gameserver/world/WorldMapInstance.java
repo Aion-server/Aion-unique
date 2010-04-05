@@ -17,12 +17,12 @@
 package com.aionemu.gameserver.world;
 
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.Future;
+
+import javolution.util.FastMap;
 
 import com.aionemu.gameserver.model.gameobjects.AionObject;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
@@ -52,20 +52,19 @@ public class WorldMapInstance
 	/**
 	 * Map of active regions.
 	 */
-	private final Map<Integer, MapRegion>		regions				= new HashMap<Integer, MapRegion>();
+	private final Map<Integer, MapRegion>		regions				= new FastMap<Integer, MapRegion>().shared();
 
 	/**
 	 * All objects spawned in this world map instance
 	 */
-	private final Map<Integer, VisibleObject>	worldMapObjects		= new ConcurrentHashMap<Integer, VisibleObject>();
+	private final Map<Integer, VisibleObject>	worldMapObjects		= new FastMap<Integer, VisibleObject>().shared();
 
 	/**
 	 * All players spawned in this world map instance
 	 */
-	private final Map<Integer, Player>			worldMapPlayers		= new ConcurrentHashMap<Integer, Player>();
+	private final Map<Integer, Player>			worldMapPlayers		= new FastMap<Integer, Player>().shared();
 
-	private final Set<Integer>					registeredObjects	= Collections
-																		.newSetFromMap(new ConcurrentHashMap<Integer, Boolean>());
+	private final Set<Integer>					registeredObjects	= Collections.newSetFromMap(new FastMap<Integer, Boolean>().shared());
 
 	/**
 	 * Id of this instance (channel)

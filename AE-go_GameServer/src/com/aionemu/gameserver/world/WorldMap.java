@@ -16,9 +16,10 @@
  */
 package com.aionemu.gameserver.world;
 
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+
+import javolution.util.FastMap;
 
 import com.aionemu.gameserver.model.templates.WorldMapTemplate;
 
@@ -36,7 +37,7 @@ public class WorldMap
 	/**
 	 * List of instances.
 	 */
-	private Map<Integer, WorldMapInstance>	instances	= new HashMap<Integer, WorldMapInstance>();
+	private Map<Integer, WorldMapInstance>	instances	= new FastMap<Integer, WorldMapInstance>().shared();
 
 	/** World to which belongs this WorldMap */
 	private World world;
