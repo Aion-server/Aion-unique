@@ -681,7 +681,7 @@ public class LegionService
 
 				// Send question packet to buddy
 				PacketSendUtility.sendPacket(targetPlayer, new SM_QUESTION_WINDOW(SM_QUESTION_WINDOW.STR_LEGION_INVITE,
-					activePlayer.getObjectId(), legion.getLegionName(), legion.getLegionLevel() + "", activePlayer
+					0, legion.getLegionName(), legion.getLegionLevel() + "", activePlayer
 						.getName()));
 			}
 		}

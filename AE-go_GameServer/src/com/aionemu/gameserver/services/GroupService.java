@@ -162,7 +162,7 @@ public class GroupService
 			if(result)
 			{
 				PacketSendUtility.sendPacket(invited, new SM_QUESTION_WINDOW(
-					SM_QUESTION_WINDOW.STR_REQUEST_GROUP_INVITE, inviter.getObjectId(), inviter.getName()));
+					SM_QUESTION_WINDOW.STR_REQUEST_GROUP_INVITE, 0, inviter.getName()));
 			}
 		}
 	}
