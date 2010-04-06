@@ -42,6 +42,7 @@ import com.aionemu.gameserver.utils.AEVersions;
 import com.aionemu.gameserver.utils.DeadlockDetector;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.utils.ThreadUncaughtExceptionHandler;
+import com.aionemu.gameserver.utils.Util;
 import com.aionemu.gameserver.utils.gametime.GameTimeManager;
 import com.aionemu.gameserver.utils.guice.DataInjectionModule;
 import com.aionemu.gameserver.utils.guice.IDFactoriesInjectionModule;
@@ -101,19 +102,19 @@ public class GameServer
 		DAOManager.getDAO(PlayerDAO.class).setPlayersOffline(false);
 		gs.spawnMonsters();
 		gs.initQuests();
+		
+		Util.printSection("TaskManagers");
 		PacketBroadcaster.getInstance();
 		KnownListUpdateTask.getInstance();
 		if(TaskManagerConfig.ALLOW_GC) 		
 			new Thread(new GCTaskManager(TaskManagerConfig.GC_INTERVAL)).start();
 		
+		Util.printSection("System");
 		AEVersions.printFullVersionInfo();
 		AEInfos.printAllInfos();
 		
-		log.info("..................................................");
-		log.info("..................................................");
+		Util.printSection("GameServerLog");
 		log.info("AE Game Server started in " + (System.currentTimeMillis() - start) / 1000 + " seconds.");
-		log.info("..................................................");
-		log.info("..................................................");
 		
 		gs.startServers();
 		GameTimeManager.startClock();
@@ -135,6 +136,8 @@ public class GameServer
 	 */
 	private void spawnMonsters()
 	{
+		Util.printSection("Spawns");
+		
 		SpawnEngine spawnEngine = injector.getInstance(SpawnEngine.class);
 		spawnEngine.setInjector(injector);
 		spawnEngine.spawnAll();
@@ -142,6 +145,8 @@ public class GameServer
 
 	private void initQuests()
 	{
+		Util.printSection("Quests");
+		
 		QuestEngine questEngine = injector.getInstance(QuestEngine.class);
 		questEngine.setInjector(injector);
 		questEngine.load();
@@ -180,6 +185,7 @@ public class GameServer
 		// init config
 		Config.load();
 		// Second should be database factory
+		Util.printSection("DataBase");
 		DatabaseFactory.init();
 		// Initialize DAOs
 		DAOManager.init();

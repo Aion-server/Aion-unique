@@ -23,6 +23,7 @@ import java.util.Map;
 import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.model.ChatType;
+import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
@@ -30,6 +31,7 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
  * This chat handler is responsible for handling admin commands, starting with //
  * 
  * @author Luno
+ * @author Divinity - updated for GM Audit
  * 
  */
 public class AdminCommandChatHandler implements ChatHandler
@@ -74,6 +76,19 @@ public class AdminCommandChatHandler implements ChatHandler
 
 			String command = commandAndParams[0].substring(2);
 			AdminCommand admc = commands.get(command);
+			
+			if (sender.getAccessLevel() == 0)
+				log.info("[ADMIN COMMAND] > [Name: " + sender.getName() + "]: The player has tried to use the command without have the rights :");
+			
+			if (sender.getTarget() != null && sender.getTarget() instanceof Creature)
+			{
+				Creature target = (Creature) sender.getTarget();
+				
+				log.info("[ADMIN COMMAND] > [Name: " + sender.getName() + "][Target : " + target.getName() + "]: " + message);
+			}
+			else
+				log.info("[ADMIN COMMAND] > [Name: " + sender.getName() + "]: " + message);
+			
 			if(admc == null)
 			{
 				PacketSendUtility.sendMessage(sender, "<There is no such admin command: " + command + ">");

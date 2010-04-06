@@ -307,6 +307,8 @@ public class ItemService
 	 */
 	public int addItem(Player player, int itemId, int count)
 	{
+		log.info(String.format("[ITEM] ID/Count - %d/%d to player %s.", itemId, count, player.getName()));
+		
 		return this.addItemWithStones(player, itemId, count, null, null);
 	}
 	

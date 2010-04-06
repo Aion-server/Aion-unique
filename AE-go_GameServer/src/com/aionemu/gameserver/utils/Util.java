@@ -25,6 +25,19 @@ import java.nio.ByteBuffer;
 public class Util
 {
 	/**
+	 * @param s
+	 */
+	public static void printSection(String s)
+	{
+		s = "-[ " + s + " ]";
+		
+		while (s.length() < 79)
+			s = "=" + s;
+		
+		System.out.println(s);
+	}
+	
+	/**
 	 * Convert data from given ByteBuffer to hex
 	 * 
 	 * @param data

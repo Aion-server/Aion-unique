@@ -17,6 +17,8 @@
 
 package com.aionemu.gameserver.network.aion.clientpackets;
 
+//import org.apache.log4j.Logger;
+
 import org.apache.log4j.Logger;
 
 import com.aionemu.commons.objects.filter.ObjectFilter;
@@ -87,7 +89,7 @@ public class CM_CHAT_MESSAGE_PUBLIC extends AionClientPacket
 
 		final Player player = getConnection().getActivePlayer();
 
-		log.info(String.format("Public Message [%s]: %s, Type: %s", player.getName(), message, type));
+		//log.info(String.format("Public Message [%s]: %s, Type: %s", player.getName(), message, type));
 
 		for(ChatHandler chatHandler : chatHandlers)
 		{
@@ -103,16 +105,21 @@ public class CM_CHAT_MESSAGE_PUBLIC extends AionClientPacket
 			switch(this.type)
 			{
 				case GROUP:
+					log.info(String.format("[MESSAGE] - GROUP <%d>: [%s]> %s", player.getPlayerGroup().getGroupId(), player.getName(), message));
 					broadcastToGroupMembers(player);
 					break;
 				case GROUP_LEADER:
+					log.info(String.format("[MESSAGE] - GROUP: [%s]> %s", player.getName(), message));
 					broadcastToGroupMembers(player);
 					break;
 				case LEGION:
+				log.info(String.format("[MESSAGE] - LEGION <%s>: [%s]> %s", player.getLegion().getLegionName(), player.getName(), message));
 					broadcastToLegionMembers(player);
 					break;
 				default:
+					log.info(String.format("[MESSAGE] - ALL: [%s]> %s", player.getName(), message));
 					broadcastToNonBlockedPlayers(player);
+				break;
 			}
 		}
 	}

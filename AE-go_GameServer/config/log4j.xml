@@ -24,8 +24,9 @@
     <!-- This appender prints information to console -->
     <appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
         <layout class="org.apache.log4j.PatternLayout">
-            <param name="ConversionPattern" value="[%p %d{yyyy-MM-dd HH-mm-ss}] %c:%L - %m%n"/>
+            <param name="ConversionPattern" value="[%p] %d{yyyy-MM-dd HH:mm:ss} - %m%n"/>
         </layout>
+		<filter class="com.aionemu.commons.log4j.filters.ConsoleFilter"/>
     </appender>
 
     <!-- This appender prints all that is shown in console to file -->
@@ -36,8 +37,9 @@
         <!-- Windows systems doesn't support : char in file names -->
         <param name="backupDateFormat" value="yyyy-MM-dd HH-mm-ss"/>
         <layout class="org.apache.log4j.PatternLayout">
-            <param name="ConversionPattern" value="[%p %d{yyyy-MM-dd HH:mm:ss}] %c:%L - %m%n"/>
+            <param name="ConversionPattern" value="[%p] %d{yyyy-MM-dd HH:mm:ss} - %c:%L - %m%n"/>
         </layout>
+	  <filter class="com.aionemu.commons.log4j.filters.ConsoleFilter"/>
     </appender>
 
     <!-- This appender accepts only messages with exceptions and logs them to separate file -->
@@ -52,6 +54,58 @@
         </layout>
         <filter class="com.aionemu.commons.log4j.filters.ThrowablePresentFilter"/>
     </appender>
+	
+	<!-- Chat Log -->
+    <appender name="CHATLOG" class="com.aionemu.commons.log4j.appenders.TruncateToZipFileAppender">
+        <param name="file" value="log/chat.log"/>
+        <param name="append" value="false"/>
+        <param name="backupDir" value="log/backup"/>
+        <!-- Windows systems doesn't support : char in file names -->
+        <param name="backupDateFormat" value="yyyy-MM-dd HH-mm-ss"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%d{yyyy-dd-MM HH:mm:ss}] %m%n"/>
+        </layout>
+        <filter class="com.aionemu.commons.log4j.filters.ChatLogFilter"/>
+    </appender>
+	
+	<!-- GM Audit -->
+    <appender name="GMAUDIT" class="com.aionemu.commons.log4j.appenders.TruncateToZipFileAppender">
+        <param name="file" value="log/gmaudit.log"/>
+        <param name="append" value="false"/>
+        <param name="backupDir" value="log/backup"/>
+        <!-- Windows systems doesn't support : char in file names -->
+        <param name="backupDateFormat" value="yyyy-MM-dd HH-mm-ss"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%d{yyyy-dd-MM HH:mm:ss}] %m%n"/>
+        </layout>
+        <filter class="com.aionemu.commons.log4j.filters.GmAuditFilter"/>
+    </appender>
+    
+    <!-- Audit -->
+    <appender name="AUDIT" class="com.aionemu.commons.log4j.appenders.TruncateToZipFileAppender">
+        <param name="file" value="log/audit.log"/>
+        <param name="append" value="false"/>
+        <param name="backupDir" value="log/backup"/>
+        <!-- Windows systems doesn't support : char in file names -->
+        <param name="backupDateFormat" value="yyyy-MM-dd HH-mm-ss"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%d{yyyy-dd-MM HH:mm:ss}] %m%n"/>
+        </layout>
+        <filter class="com.aionemu.commons.log4j.filters.AuditFilter"/>
+    </appender>
+    
+    <!-- Item -->
+    <appender name="ITEM" class="com.aionemu.commons.log4j.appenders.TruncateToZipFileAppender">
+        <param name="file" value="log/item.log"/>
+        <param name="append" value="false"/>
+        <param name="backupDir" value="log/backup"/>
+        <!-- Windows systems doesn't support : char in file names -->
+        <param name="backupDateFormat" value="yyyy-MM-dd HH-mm-ss"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%d{yyyy-dd-MM HH:mm:ss}] %m%n"/>
+        </layout>
+        <filter class="com.aionemu.commons.log4j.filters.ItemFilter"/>
+    </appender>
 
     <!-- Root Logger -->
     <root>
@@ -59,6 +113,10 @@
         <appender-ref ref="CONSOLE"/>
         <appender-ref ref="CONSOLE_TO_FILE"/>
         <appender-ref ref="ERROR_APPENDER"/>
+        <appender-ref ref="CHATLOG"/>
+        <appender-ref ref="GMAUDIT"/>
+        <appender-ref ref="AUDIT"/>
+        <appender-ref ref="ITEM"/>
     </root>
 
     <!--

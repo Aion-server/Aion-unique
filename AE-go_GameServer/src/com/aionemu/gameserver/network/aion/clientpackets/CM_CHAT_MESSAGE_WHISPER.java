@@ -86,7 +86,7 @@ public class CM_CHAT_MESSAGE_WHISPER extends AionClientPacket
 		Player sender = getConnection().getActivePlayer();
 		Player receiver = world.findPlayer(formatname);
 
-		log.info(String.format("[%s] Whisper To: %s, Message: %s", sender.getName(), formatname, message));
+		log.info(String.format("[MESSAGE] [%s] Whisper To: %s, Message: %s", sender.getName(), formatname, message));
 
 		if(receiver == null)
 		{
