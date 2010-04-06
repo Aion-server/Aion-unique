@@ -4034,7 +4034,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="707.87" y="1172.45" z="63.471878" h="76"/>
 	</spawn>
 	<!-- Port Caryatid (Monster lvl:48)-->
-	<spawn map="210060000" npcid="214265" pool="59" interval="105">
+	<spawn map="210060000" npcid="214265" pool="58" interval="105">
 		<object x="2643.476" y="848.7527" z="153.23962" h="45"/>
 		<object x="2722.979" y="827.5045" z="126.222404" h="94"/>
 		<object x="2873.212" y="935.9232" z="97.9524" h="73"/>
@@ -4056,7 +4056,6 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2661.222" y="795.3459" z="142.78168" h="67"/>
 		<object x="2796.237" y="860.7802" z="120.50765" h="3"/>
 		<object x="2791.67" y="840.0038" z="120.495804" h="16"/>
-		<object x="2568.0" y="809.0" z="171.19992" h="108"/>
 		<object x="2732.572" y="833.6582" z="124.30395" h="39"/>
 		<object x="2799.746" y="810.8793" z="120.51448" h="12"/>
 		<object x="2519.473" y="754.0078" z="190.25569" h="0"/>
