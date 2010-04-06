@@ -18,7 +18,7 @@
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
-import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import com.aionemu.gameserver.model.gameobjects.Item;
@@ -34,31 +34,26 @@ public class SM_WAREHOUSE_INFO extends InventoryPacket
 {
 	private int warehouseType;
 	private List<Item> itemList;
-	private int haveItems;
-	private int expandLv;
+	private boolean firstPacket;
+	private int expandLvl;
 
-	public SM_WAREHOUSE_INFO(List<Item> items, int warehouseType, int Lv)
+	public SM_WAREHOUSE_INFO(List<Item> items, int warehouseType, int expandLvl, boolean firstPacket)
 	{
 		this.warehouseType = warehouseType;
-		this.expandLv = Lv;
+		this.expandLvl = expandLvl;
+		this.firstPacket = firstPacket;
 		if(items == null)
-		{
-			this.itemList = new ArrayList<Item>();
-			this.haveItems = 0;
-		}
+			this.itemList = Collections.emptyList();
 		else
-		{
 			this.itemList = items;
-			this.haveItems = 1;
-		}
 	}
 
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
 		writeC(buf, warehouseType);
-		writeC(buf, haveItems);
-		writeC(buf, expandLv); //warehouse expand (0 - 9)
+		writeC(buf, firstPacket ? 1 : 0);
+		writeC(buf, expandLvl); //warehouse expand (0 - 9)
 		writeH(buf, 0);
 		writeH(buf, itemList.size());
 		for(Item item : itemList)

@@ -1001,12 +1001,12 @@ public class LegionService
 		if(legionRestrictions.canOpenWarehouse(activePlayer))
 		{
 			// TODO: ADD WAREHOUSE EXPAND TO LEGION!!!
+			// TODO send splitted wh packets ?
 			PacketSendUtility.sendPacket(activePlayer, new SM_DIALOG_WINDOW(activePlayer.getObjectId(), 25));
 			PacketSendUtility.sendPacket(activePlayer, new SM_WAREHOUSE_INFO(activePlayer.getLegion()
-				.getLegionWarehouse().getStorageItems(), StorageType.LEGION_WAREHOUSE.getId(), 0));
+				.getLegionWarehouse().getStorageItems(), StorageType.LEGION_WAREHOUSE.getId(), 0, true));
 			PacketSendUtility.sendPacket(activePlayer, new SM_WAREHOUSE_INFO(null,
-				StorageType.LEGION_WAREHOUSE.getId(), 0)); // strange retail way of sending
-			// warehouse packets
+				StorageType.LEGION_WAREHOUSE.getId(), 0, false));
 		}
 	}
 
@@ -1980,12 +1980,12 @@ public class LegionService
 				else
 				{
 					// TODO: ADD WAREHOUSE EXPAND TO LEGION!!!
+					// TODO send splitted wh packets ? remove duplication
 					PacketSendUtility.sendPacket(activePlayer, new SM_DIALOG_WINDOW(activePlayer.getObjectId(), 25));
 					PacketSendUtility.sendPacket(activePlayer, new SM_WAREHOUSE_INFO(legion.getLegionWarehouse()
-						.getStorageItems(), StorageType.LEGION_WAREHOUSE.getId(), 0));
+						.getStorageItems(), StorageType.LEGION_WAREHOUSE.getId(), 0, true));
 					PacketSendUtility.sendPacket(activePlayer, new SM_WAREHOUSE_INFO(null, StorageType.LEGION_WAREHOUSE
-						.getId(), 0)); // strange retail way of sending
-					// warehouse packets
+						.getId(), 0, false));
 					return true;
 				}
 			}

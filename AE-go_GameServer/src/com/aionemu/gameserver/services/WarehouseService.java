@@ -16,10 +16,13 @@
  */
 package com.aionemu.gameserver.services;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.dataholders.WarehouseExpandData;
 import com.aionemu.gameserver.model.gameobjects.Creature;
+import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.RequestResponseHandler;
@@ -109,11 +112,8 @@ public class WarehouseService
 	{
 		PacketSendUtility.sendPacket(player, new SM_SYSTEM_MESSAGE(1300433, "8")); // 8 Slots added
 		player.setWarehouseSize(player.getWarehouseSize() + 1);
-		PacketSendUtility.sendPacket(player, new SM_WAREHOUSE_INFO(player.getStorage(
-			StorageType.REGULAR_WAREHOUSE.getId()).getStorageItems(), StorageType.REGULAR_WAREHOUSE.getId(), player
-			.getWarehouseSize()));
-		PacketSendUtility.sendPacket(player, new SM_WAREHOUSE_INFO(null, StorageType.REGULAR_WAREHOUSE.getId(), player
-			.getWarehouseSize()));
+		
+		sendWarehouseInfo(player, false);
 	}
 
 	/**
@@ -163,39 +163,46 @@ public class WarehouseService
 	 *  
 	 * @param player
 	 */
-	public void sendWarehouseInfo(Player player)
+	public void sendWarehouseInfo(Player player, boolean sendAccountWh)
 	{		
-//		List<Item> items = player.getStorage(StorageType.REGULAR_WAREHOUSE.getId()).getStorageItems();
-//		int whSize = player.getWarehouseSize();
-//
-//		int itemsSize = items.size();
-//
-//		if(itemsSize != 0)
-//		{
-//			int index = 0;
-//			while(index + 20 < itemsSize)
-//			{
-//				PacketSendUtility.sendPacket(player, new SM_WAREHOUSE_INFO(items.subList(index, index + 20),
-//					StorageType.REGULAR_WAREHOUSE.getId(), whSize));
-//				index += 20;
-//			}
-//			PacketSendUtility.sendPacket(player, new SM_WAREHOUSE_INFO(items.subList(index, itemsSize),
-//				StorageType.REGULAR_WAREHOUSE.getId(), whSize));
-//		}
+		List<Item> items = player.getStorage(StorageType.REGULAR_WAREHOUSE.getId()).getStorageItems();
+		
+		int whSize = player.getWarehouseSize();
+		int itemsSize = items.size();
 
-		PacketSendUtility.sendPacket(player, new SM_WAREHOUSE_INFO(player.getStorage(
-			StorageType.REGULAR_WAREHOUSE.getId()).getStorageItems(),
-			StorageType.REGULAR_WAREHOUSE.getId(), player.getWarehouseSize()));
+		/**
+		 * Regular warehouse
+		 */
+		boolean firstPacket = true;
+		if(itemsSize != 0)
+		{
+			int index = 0;
+			
+			while(index + 10 < itemsSize)
+			{
+				PacketSendUtility.sendPacket(player, new SM_WAREHOUSE_INFO(items.subList(index, index + 10),
+					StorageType.REGULAR_WAREHOUSE.getId(), whSize, firstPacket));
+				index += 10;
+				firstPacket = false;
+			}
+			PacketSendUtility.sendPacket(player, new SM_WAREHOUSE_INFO(items.subList(index, itemsSize),
+				StorageType.REGULAR_WAREHOUSE.getId(), whSize, firstPacket));
+		}
+
 		PacketSendUtility.sendPacket(player, new SM_WAREHOUSE_INFO(null, StorageType.REGULAR_WAREHOUSE
-			.getId(), player.getWarehouseSize())); // strange
-		// retail
-		// way of sending
-		// warehouse packets
-		PacketSendUtility
-			.sendPacket(player, new SM_WAREHOUSE_INFO(player.getStorage(
-				StorageType.ACCOUNT_WAREHOUSE.getId()).getAllItems(),
-				StorageType.ACCOUNT_WAREHOUSE.getId(), 0));
-		PacketSendUtility.sendPacket(player, new SM_WAREHOUSE_INFO(null, StorageType.ACCOUNT_WAREHOUSE
-			.getId(), 0));
+			.getId(), whSize, firstPacket)); 
+		
+		if(sendAccountWh)
+		{
+			/**
+			 * Account warehouse
+			 */
+			PacketSendUtility
+				.sendPacket(player, new SM_WAREHOUSE_INFO(player.getStorage(
+					StorageType.ACCOUNT_WAREHOUSE.getId()).getAllItems(),
+					StorageType.ACCOUNT_WAREHOUSE.getId(), 0, true));
+			PacketSendUtility.sendPacket(player, new SM_WAREHOUSE_INFO(null, StorageType.ACCOUNT_WAREHOUSE
+				.getId(), 0, false));
+		}	
 	}
 }
