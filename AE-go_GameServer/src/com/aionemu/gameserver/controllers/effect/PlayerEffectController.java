@@ -17,9 +17,11 @@
 package com.aionemu.gameserver.controllers.effect;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.templates.item.ArmorType;
 import com.aionemu.gameserver.model.templates.item.WeaponType;
 import com.aionemu.gameserver.skillengine.model.Effect;
+import com.aionemu.gameserver.skillengine.model.SkillTargetSlot;
 
 /**
  * @author ATracer
@@ -53,6 +55,9 @@ public class PlayerEffectController extends EffectController
 		if(effect.isFood())
 			addFoodEffect(effect);
 		
+		if(checkDuelCondition(effect))
+			return;
+		
 		super.addEffect(effect);
 	}
 	
@@ -64,7 +69,31 @@ public class PlayerEffectController extends EffectController
 	
 		super.clearEffect(effect);
 	}
+	
 
+	@Override
+	public Player getOwner()
+	{
+		return (Player) super.getOwner();
+	}
+
+	/**
+	 * Effect of DEBUFF should not be added if duel ended (friendly unit)
+	 * @param effect
+	 * @return
+	 */
+	private boolean checkDuelCondition(Effect effect)
+	{
+		Creature creature = effect.getEffector();
+		if(creature instanceof Player)
+		{
+			if(getOwner().getController().isFriend((Player) creature) && effect.getTargetSlot() == SkillTargetSlot.DEBUFF.ordinal())
+				return true;
+		}
+		
+		return false;
+	}
+	
 	/**
 	 * @param effect
 	 */

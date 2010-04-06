@@ -390,7 +390,30 @@ public class PlayerController extends CreatureController<Player>
 	public boolean isEnemy(Player player)
 	{
 		return player.getCommonData().getRace() != getOwner().getCommonData().getRace()
-			|| sp.getDuelService().isDueling(player.getObjectId(), getOwner().getObjectId());
+			|| isDueling(player);
+	}
+	
+	/**
+	 * Player-player friends:<br>
+	 * - not in duel<br>
+	 * - same race<br>
+	 * 
+	 * @param player
+	 * @return
+	 */
+	public boolean isFriend(Player player)
+	{
+		return player.getCommonData().getRace() == getOwner().getCommonData().getRace() && !isDueling(player);
+	}
+	
+	/**
+	 * 
+	 * @param player
+	 * @return
+	 */
+	public boolean isDueling(Player player)
+	{
+		return sp.getDuelService().isDueling(player.getObjectId(), getOwner().getObjectId());
 	}
 
 	/**

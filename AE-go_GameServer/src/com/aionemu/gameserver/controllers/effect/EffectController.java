@@ -42,18 +42,15 @@ public class EffectController
 {
 	private Creature owner;
 
-	private Map<String, Effect> passiveEffectMap;
-	private Map<String, Effect> noshowEffects;
-	private Map<String, Effect> abnormalEffectMap;
+	private Map<String, Effect> passiveEffectMap = new FastMap<String, Effect>().shared();
+	private Map<String, Effect> noshowEffects = new FastMap<String, Effect>().shared();
+	private Map<String, Effect> abnormalEffectMap = new FastMap<String, Effect>().shared();
 
 	private int abnormals;
 
 	public EffectController(Creature owner)
 	{
 		this.owner = owner;
-		this.abnormalEffectMap = new FastMap<String, Effect>().shared();
-		this.passiveEffectMap = new FastMap<String, Effect>().shared();
-		this.noshowEffects = new FastMap<String, Effect>().shared();
 	}
 
 	/**
