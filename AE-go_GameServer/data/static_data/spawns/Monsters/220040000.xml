@@ -8,8 +8,8 @@ Completely rechecked Beluslan location by stpavel. Fixed Z coordinate,
 fixed duplicate spawns, added a lot of  missing monsters.
 -->
 <spawns>
-	<!-- Alquimia Infiltrator (Monster lvl:43)-->
-	<spawn map="220040000" npcid="213540" pool="12" interval="105">
+	<!-- Alquimia Infiltrator (Monster Elite lvl:43)-->
+	<spawn map="220040000" npcid="213540" pool="12" interval="300">
 		<object x="2360.8604" y="2579.7498" z="691.7728" h="53"/>
 		<object x="2352.6624" y="2551.5806" z="691.7728" h="63"/>
 		<object x="2369.6013" y="2546.5256" z="691.7728" h="42"/>
@@ -23,13 +23,13 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2392.906" y="2598.7056" z="682.21765" h="105"/>
 		<object x="2349.6934" y="2670.7595" z="686.135" h="38"/>
 	</spawn>
-	<!-- Alquimia Battlechef (Monster lvl:44)-->
-	<spawn map="220040000" npcid="213539" pool="2" interval="105">
+	<!-- Alquimia Battlechef (Monster Elite lvl:44)-->
+	<spawn map="220040000" npcid="213539" pool="2" interval="300">
 		<object x="2674.065" y="2927.8557" z="691.5" h="12"/>
 		<object x="2751.242" y="2867.0132" z="695.5" h="58"/>
 	</spawn>
-	<!-- Alquimia Healer (Monster lvl:43)-->
-	<spawn map="220040000" npcid="213536" pool="7" interval="105">
+	<!-- Alquimia Healer (Monster Elite lvl:43)-->
+	<spawn map="220040000" npcid="213536" pool="7" interval="300">
 		<object x="2766.2683" y="2837.1853" z="695.926" h="115"/>
 		<object x="2707.9731" y="2940.4548" z="691.78546" h="112"/>
 		<object x="2678.0935" y="2957.7234" z="691.5" h="50"/>
@@ -38,8 +38,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2508.3674" y="2873.0037" z="683.326" h="63"/>
 		<object x="2763.5518" y="2937.0952" z="707.1218" h="48"/>
 	</spawn>
-	<!-- Alquimia Medic (Monster lvl:44)-->
-	<spawn map="220040000" npcid="213537" pool="13" interval="105">
+	<!-- Alquimia Medic (Monster Elite lvl:44)-->
+	<spawn map="220040000" npcid="213537" pool="13" interval="300">
 		<object x="2354.7095" y="2774.1738" z="683.93396" h="97"/>
 		<object x="2333.5945" y="2656.7854" z="688.05066" h="25"/>
 		<object x="2469.686" y="2506.392" z="672.4927" h="10"/>
@@ -54,15 +54,14 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2438.4626" y="2814.1348" z="683.9292" h="109"/>
 		<object x="2312.3208" y="2753.8164" z="687.75" h="38"/>
 	</spawn>
-	<!-- Anair Spiritsoldier (Monster lvl:41)-->
-	<spawn map="220040000" npcid="213204" pool="26" interval="105">
+	<!-- Anair Spiritsoldier (Monster  lvl:41)-->
+	<spawn map="220040000" npcid="213204" pool="25" interval="105">
 		<object x="299.13528" y="2327.322" z="214.82095" h="54"/>
 		<object x="109.49626" y="2381.253" z="219.14114" h="8"/>
 		<object x="129.86644" y="2338.2856" z="218.75" h="61"/>
 		<object x="119.23222" y="2374.7302" z="218.70436" h="28"/>
 		<object x="262.2982" y="2267.2354" z="218.73137" h="16"/>
 		<object x="125.288895" y="2259.4585" z="218.75" h="76"/>
-		<object x="46.580013" y="2300.6355" z="227.38898" h="21"/>
 		<object x="39.96466" y="2320.0789" z="229.875" h="48"/>
 		<object x="107.7478" y="2314.382" z="219.16464" h="46"/>
 		<object x="141.5836" y="2334.562" z="218.75" h="115"/>
@@ -83,7 +82,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="329.60077" y="2373.0776" z="215.05765" h="102"/>
 		<object x="388.65326" y="2355.1384" z="216.34897" h="7"/>
 	</spawn>
-	<!-- Anair Spiritarcher (Monster lvl:40)-->
+	<!-- Anair Spiritarcher (Monster  lvl:40)-->
 	<spawn map="220040000" npcid="213205" pool="28" interval="105">
 		<object x="325.71356" y="2165.3538" z="215.12668" h="61"/>
 		<object x="330.47372" y="2196.689" z="214.1223" h="11"/>
@@ -114,7 +113,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="319.91663" y="2411.893" z="215.25" h="6"/>
 		<object x="343.32562" y="2335.3362" z="215.33339" h="84"/>
 	</spawn>
-	<!-- Alpine Gorgon (Monster lvl:37)-->
+	<!-- Alpine Gorgon (Monster  lvl:37)-->
 	<spawn map="220040000" npcid="213080" pool="21" interval="105">
 		<object x="1738.4185" y="306.02536" z="335.77457" h="79"/>
 		<object x="1704.4509" y="586.4507" z="343.5282" h="6"/>
@@ -138,16 +137,16 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1763.644" y="338.5211" z="336.50687" h="85"/>
 		<object x="1770.5533" y="272.65524" z="338.0431" h="1"/>
 	</spawn>
-	<!-- Archmage Ysika (Monster lvl:43)-->
-	<spawn map="220040000" npcid="213753" pool="5" interval="105">
+	<!-- Archmage Ysika (Monster Elite lvl:43)-->
+	<spawn map="220040000" npcid="213753" pool="5" interval="300">
 		<object x="2613.9717" y="2467.785" z="650.78546" h="21"/>
 		<object x="2837.39" y="2518.06" z="639.5139" h="51"/>
 		<object x="2614.43" y="2468.66" z="650.78546" h="5"/>
 		<object x="2894.21" y="2361.12" z="597.155" h="37"/>
 		<object x="2811.18" y="2442.71" z="616.7581" h="69"/>
 	</spawn>
-	<!-- Alquimia Footsoldier (Monster lvl:43)-->
-	<spawn map="220040000" npcid="213517" pool="9" interval="105">
+	<!-- Alquimia Footsoldier (Monster Elite lvl:43)-->
+	<spawn map="220040000" npcid="213517" pool="9" interval="300">
 		<object x="2723.58" y="2768.31" z="692.6907" h="70"/>
 		<object x="2737.9712" y="2833.0222" z="697.50244" h="28"/>
 		<object x="2718.304" y="2888.0193" z="692.4834" h="31"/>
@@ -158,8 +157,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2658.145" y="2848.7615" z="687.3954" h="81"/>
 		<object x="2679.2637" y="2767.5835" z="686.28296" h="78"/>
 	</spawn>
-	<!-- Alquimia Defender (Monster lvl:44)-->
-	<spawn map="220040000" npcid="213518" pool="12" interval="105">
+	<!-- Alquimia Defender (Monster Elite lvl:44)-->
+	<spawn map="220040000" npcid="213518" pool="12" interval="300">
 		<object x="2630.1804" y="2777.1257" z="680.0546" h="18"/>
 		<object x="2557.4675" y="2847.1929" z="686.875" h="46"/>
 		<object x="2383.5469" y="2824.894" z="686.0" h="116"/>
@@ -173,7 +172,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2553.708" y="2833.6445" z="679.6127" h="8"/>
 		<object x="2444.8945" y="2740.3066" z="677.57666" h="102"/>
 	</spawn>
-	<!-- Alquimia Laborer (Monster lvl:43)-->
+	<!-- Alquimia Laborer (Monster  lvl:43)-->
 	<spawn map="220040000" npcid="213513" pool="36" interval="105">
 		<object x="2709.0142" y="2741.0305" z="694.6759" h="60"/>
 		<object x="2696.0989" y="2741.3625" z="692.7796" h="40"/>
@@ -212,8 +211,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2699.9558" y="2855.1748" z="689.2171" h="55"/>
 		<object x="2550.9485" y="2734.411" z="676.2806" h="72"/>
 	</spawn>
-	<!-- Alquimia Overseer (Monster lvl:44)-->
-	<spawn map="220040000" npcid="213515" pool="12" interval="105">
+	<!-- Alquimia Overseer (Monster Elite lvl:44)-->
+	<spawn map="220040000" npcid="213515" pool="12" interval="300">
 		<object x="2601.2705" y="2956.2168" z="687.26355" h="3"/>
 		<object x="2582.2595" y="2573.2646" z="662.6256" h="94"/>
 		<object x="2606.5781" y="2571.4941" z="662.62805" h="31"/>
@@ -227,8 +226,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2677.238" y="2844.581" z="686.75" h="91"/>
 		<object x="2702.8335" y="2749.3596" z="690.75775" h="39"/>
 	</spawn>
-	<!-- Alquimia Fighter (Monster lvl:44)-->
-	<spawn map="220040000" npcid="213508" pool="8" interval="105">
+	<!-- Alquimia Fighter (Monster Elite lvl:44)-->
+	<spawn map="220040000" npcid="213508" pool="8" interval="300">
 		<object x="2604.4744" y="2770.6206" z="679.77966" h="60"/>
 		<object x="2411.7456" y="2655.0415" z="677.7158" h="67"/>
 		<object x="2311.6091" y="2835.9385" z="689.6012" h="62"/>
@@ -238,7 +237,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2660.5667" y="2788.056" z="684.66394" h="69"/>
 		<object x="2537.0896" y="2719.57" z="680.30304" h="40"/>
 	</spawn>
-	<!-- Anair Spiritwarrior (Monster lvl:39)-->
+	<!-- Anair Spiritwarrior (Monster  lvl:39)-->
 	<spawn map="220040000" npcid="213162" pool="49" interval="105">
 		<object x="345.419" y="2192.652" z="215.05237" h="60"/>
 		<object x="109.2482" y="2238.589" z="218.57802" h="110"/>
@@ -290,8 +289,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="477.76544" y="2225.061" z="313.48535" h="104"/>
 		<object x="479.44437" y="2228.8518" z="313.44678" h="4"/>
 	</spawn>
-	<!-- Alquimia Guardian (Monster lvl:43)-->
-	<spawn map="220040000" npcid="213510" pool="19" interval="105">
+	<!-- Alquimia Guardian (Monster Elite lvl:43)-->
+	<spawn map="220040000" npcid="213510" pool="19" interval="300">
 		<object x="2729.7817" y="2843.572" z="695.6654" h="25"/>
 		<object x="2741.2068" y="2860.403" z="695.625" h="34"/>
 		<object x="2747.8376" y="2870.0044" z="695.625" h="28"/>
@@ -312,8 +311,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2755.929" y="2842.2083" z="695.0" h="117"/>
 		<object x="2760.2234" y="2851.3577" z="695.1669" h="77"/>
 	</spawn>
-	<!-- Alquimia Beater (Monster lvl:44)-->
-	<spawn map="220040000" npcid="213511" pool="39" interval="105">
+	<!-- Alquimia Beater (Monster Elite lvl:44)-->
+	<spawn map="220040000" npcid="213511" pool="39" interval="300">
 		<object x="2421.765" y="2588.348" z="679.9044" h="11"/>
 		<object x="2514.422" y="2636.989" z="679.96735" h="24"/>
 		<object x="2646.539" y="2746.164" z="682.875" h="57"/>
@@ -354,13 +353,13 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2314.197" y="2770.596" z="687.75" h="93"/>
 		<object x="2399.371" y="2726.379" z="679.79736" h="69"/>
 	</spawn>
-	<!-- Alquimia Soldier (Monster lvl:43)-->
-	<spawn map="220040000" npcid="213507" pool="3" interval="105">
+	<!-- Alquimia Soldier (Monster Elite lvl:43)-->
+	<spawn map="220040000" npcid="213507" pool="3" interval="300">
 		<object x="2744.8745" y="2722.4504" z="703.178" h="52"/>
 		<object x="2662.0894" y="2794.5247" z="685.1634" h="87"/>
 		<object x="2589.173" y="2648.0205" z="673.52295" h="60"/>
 	</spawn>
-	<!-- Anair Spiritmage (Monster lvl:39)-->
+	<!-- Anair Spiritmage (Monster  lvl:39)-->
 	<spawn map="220040000" npcid="213164" pool="33" interval="105">
 		<object x="271.539" y="2237.1497" z="215.78812" h="25"/>
 		<object x="429.58508" y="2259.5461" z="273.9457" h="18"/>
@@ -396,8 +395,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="460.27048" y="2231.346" z="312.375" h="99"/>
 		<object x="486.87643" y="2244.2327" z="311.70636" h="60"/>
 	</spawn>
-	<!-- Alquimia Inciter (Monster lvl:43)-->
-	<spawn map="220040000" npcid="213533" pool="8" interval="105">
+	<!-- Alquimia Inciter (Monster Elite lvl:43)-->
+	<spawn map="220040000" npcid="213533" pool="8" interval="300">
 		<object x="2680.3083" y="2833.6863" z="687.2693" h="17"/>
 		<object x="2733.0728" y="2845.4675" z="695.8165" h="63"/>
 		<object x="2773.015" y="2857.5955" z="695.7629" h="65"/>
@@ -407,8 +406,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2600.0784" y="2860.954" z="687.06537" h="82"/>
 		<object x="2659.7913" y="2874.0154" z="691.13806" h="85"/>
 	</spawn>
-	<!-- Alquimia Provocateur (Monster lvl:44)-->
-	<spawn map="220040000" npcid="213534" pool="11" interval="105">
+	<!-- Alquimia Provocateur (Monster Elite lvl:44)-->
+	<spawn map="220040000" npcid="213534" pool="11" interval="300">
 		<object x="2558.0747" y="2808.1746" z="678.8859" h="22"/>
 		<object x="2367.9849" y="2809.7207" z="684.2335" h="44"/>
 		<object x="2350.952" y="2725.2725" z="684.4205" h="93"/>
@@ -421,8 +420,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2416.1055" y="2786.5532" z="680.06256" h="116"/>
 		<object x="2376.9316" y="2587.7957" z="685.375" h="52"/>
 	</spawn>
-	<!-- Alquimia Archmage (Monster lvl:43)-->
-	<spawn map="220040000" npcid="213529" pool="22" interval="105">
+	<!-- Alquimia Archmage (Monster Elite lvl:43)-->
+	<spawn map="220040000" npcid="213529" pool="22" interval="300">
 		<object x="2734.0002" y="2848.293" z="695.75" h="20"/>
 		<object x="2680.5085" y="2954.595" z="691.5636" h="113"/>
 		<object x="2587.7822" y="2844.3157" z="686.875" h="70"/>
@@ -446,7 +445,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2510.197" y="2626.559" z="679.9642" h="47"/>
 		<object x="2252.92" y="2908.852" z="696.875" h="104"/>
 	</spawn>
-	<!-- Amethyst Drakie (Monster lvl:34)-->
+	<!-- Amethyst Drakie (Monster  lvl:34)-->
 	<spawn map="220040000" npcid="213054" pool="47" interval="105">
 		<object x="1037.5219" y="573.4922" z="324.78885" h="51"/>
 		<object x="1042.8823" y="610.75903" z="333.8655" h="31"/>
@@ -496,8 +495,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1170.9487" y="427.9767" z="340.36334" h="117"/>
 		<object x="1166.8954" y="426.13187" z="340.04944" h="65"/>
 	</spawn>
-	<!-- Alquimia Scholar (Monster lvl:44)-->
-	<spawn map="220040000" npcid="213531" pool="22" interval="105">
+	<!-- Alquimia Scholar (Monster Elite lvl:44)-->
+	<spawn map="220040000" npcid="213531" pool="22" interval="300">
 		<object x="2498.68" y="2802.28" z="679.46497" h="0"/>
 		<object x="2469.37" y="2843.97" z="688.62744" h="62"/>
 		<object x="2345.03" y="2846.96" z="689.5" h="66"/>
@@ -521,7 +520,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2384.056" y="2646.37" z="681.76263" h="31"/>
 		<object x="2330.995" y="2627.65" z="687.85376" h="58"/>
 	</spawn>
-	<!-- Amethyst Drake (Monster lvl:36)-->
+	<!-- Amethyst Drake (Monster  lvl:36)-->
 	<spawn map="220040000" npcid="213246" pool="9" interval="105">
 		<object x="1034.1075" y="656.8025" z="349.32846" h="118"/>
 		<object x="1042.4823" y="583.1437" z="326.89395" h="104"/>
@@ -533,8 +532,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1174.8198" y="414.49158" z="339.03058" h="108"/>
 		<object x="1179.3003" y="386.3973" z="335.64532" h="16"/>
 	</spawn>
-	<!-- Alquimia Assassin (Monster lvl:44)-->
-	<spawn map="220040000" npcid="213524" pool="14" interval="105">
+	<!-- Alquimia Assassin (Monster Elite lvl:44)-->
+	<spawn map="220040000" npcid="213524" pool="14" interval="300">
 		<object x="2479.3076" y="2822.8643" z="685.85516" h="33"/>
 		<object x="2483.4883" y="2866.492" z="685.83026" h="74"/>
 		<object x="2382.9934" y="2809.8997" z="686.1604" h="44"/>
@@ -550,7 +549,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2584.0947" y="2767.499" z="678.5" h="75"/>
 		<object x="2454.102" y="2782.0522" z="679.3812" h="92"/>
 	</spawn>
-	<!-- Anubite Vigilante (Monster lvl:35)-->
+	<!-- Anubite Vigilante (Monster  lvl:35)-->
 	<spawn map="220040000" npcid="213042" pool="41" interval="105">
 		<object x="707.4013" y="1428.6857" z="228.08759" h="74"/>
 		<object x="752.2039" y="1404.1558" z="229.95589" h="120"/>
@@ -594,8 +593,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="976.2037" y="1539.2997" z="231.01988" h="34"/>
 		<object x="964.55084" y="1562.1458" z="230.53093" h="37"/>
 	</spawn>
-	<!-- Alquimia Warden (Monster lvl:44)-->
-	<spawn map="220040000" npcid="213527" pool="9" interval="105">
+	<!-- Alquimia Warden (Monster Elite lvl:44)-->
+	<spawn map="220040000" npcid="213527" pool="9" interval="300">
 		<object x="2570.5112" y="2909.07" z="687.875" h="20"/>
 		<object x="2486.2979" y="2844.3428" z="685.8964" h="49"/>
 		<object x="2398.3914" y="2559.5618" z="689.9523" h="46"/>
@@ -606,8 +605,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2410.3074" y="2762.611" z="681.394" h="103"/>
 		<object x="2334.536" y="2763.7036" z="687.75" h="78"/>
 	</spawn>
-	<!-- Alquimia Patroller (Monster lvl:43)-->
-	<spawn map="220040000" npcid="213526" pool="9" interval="105">
+	<!-- Alquimia Patroller (Monster Elite lvl:43)-->
+	<spawn map="220040000" npcid="213526" pool="9" interval="300">
 		<object x="2640.2935" y="2887.6409" z="690.1065" h="69"/>
 		<object x="2588.4968" y="2827.2998" z="686.93097" h="76"/>
 		<object x="2579.1057" y="2829.9062" z="686.91345" h="2"/>
@@ -618,7 +617,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2686.224" y="2868.0498" z="687.2671" h="112"/>
 		<object x="2595.3213" y="2753.6755" z="679.8723" h="80"/>
 	</spawn>
-	<!-- Amethyst Caltrops (Monster lvl:32)-->
+	<!-- Amethyst Caltrops (Monster  lvl:32)-->
 	<spawn map="220040000" npcid="213047" pool="64" interval="105">
 		<object x="1210.867" y="626.0396" z="252.1151" h="93"/>
 		<object x="916.4116" y="876.3568" z="257.62158" h="35"/>
@@ -685,8 +684,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1065.654" y="369.0584" z="316.6406" h="94"/>
 		<object x="1122.14" y="1184.143" z="216.87518" h="108"/>
 	</spawn>
-	<!-- Alquimia Outrider (Monster lvl:44)-->
-	<spawn map="220040000" npcid="213521" pool="14" interval="105">
+	<!-- Alquimia Outrider (Monster Elite lvl:44)-->
+	<spawn map="220040000" npcid="213521" pool="14" interval="300">
 		<object x="2614.7598" y="2843.2898" z="686.875" h="13"/>
 		<object x="2625.64" y="2677.9158" z="682.875" h="105"/>
 		<object x="2518.9004" y="2778.2153" z="681.5383" h="75"/>
@@ -702,8 +701,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2336.75" y="2710.7307" z="687.20557" h="40"/>
 		<object x="2409.087" y="2825.343" z="686.0411" h="30"/>
 	</spawn>
-	<!-- Alquimia Raider (Monster lvl:43)-->
-	<spawn map="220040000" npcid="213520" pool="8" interval="105">
+	<!-- Alquimia Raider (Monster Elite lvl:43)-->
+	<spawn map="220040000" npcid="213520" pool="8" interval="300">
 		<object x="2426.243" y="2699.701" z="679.89795" h="36"/>
 		<object x="2504.651" y="2541.509" z="669.16266" h="65"/>
 		<object x="2710.726" y="2927.685" z="691.4204" h="28"/>
@@ -713,8 +712,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2741.876" y="2893.976" z="696.24225" h="3"/>
 		<object x="2730.425" y="2926.374" z="695.125" h="16"/>
 	</spawn>
-	<!-- Alquimia Slayer (Monster lvl:43)-->
-	<spawn map="220040000" npcid="213523" pool="9" interval="105">
+	<!-- Alquimia Slayer (Monster Elite lvl:43)-->
+	<spawn map="220040000" npcid="213523" pool="9" interval="300">
 		<object x="2766.045" y="2825.3147" z="695.66504" h="87"/>
 		<object x="2736.9915" y="2940.9993" z="695.2494" h="57"/>
 		<object x="2547.7332" y="2873.2012" z="686.98334" h="27"/>
@@ -725,7 +724,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2709.8838" y="2767.546" z="690.035" h="31"/>
 		<object x="2564.0098" y="2767.7598" z="678.1244" h="117"/>
 	</spawn>
-	<!-- Anair High Spiritmage (Monster lvl:41)-->
+	<!-- Anair High Spiritmage (Monster  lvl:41)-->
 	<spawn map="220040000" npcid="213240" pool="17" interval="105">
 		<object x="352.19165" y="2374.2363" z="215.25" h="109"/>
 		<object x="91.662544" y="2265.491" z="218.71819" h="119"/>
@@ -745,25 +744,25 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="292.38873" y="2314.517" z="215.89877" h="115"/>
 		<object x="290.91196" y="2357.9875" z="213.26022" h="65"/>
 	</spawn>
-	<!-- Training Patrol (Monster lvl:42)-->
+	<!-- Training Patrol (Monster  lvl:42)-->
 	<spawn map="220040000" npcid="213610" pool="1" interval="105">
 		<object x="2922.265" y="2612.587" z="679.4412" h="84"/>
 	</spawn>
-	<!-- Training Recruit (Monster lvl:42)-->
+	<!-- Training Recruit (Monster  lvl:42)-->
 	<spawn map="220040000" npcid="213609" pool="2" interval="105">
 		<object x="2904.393" y="2609.852" z="678.375" h="89"/>
-		<object x="2918.8745" y="2608.8367" z="678.932" h="7"/>		
+		<object x="2918.8745" y="2608.8367" z="678.932" h="7"/>
 	</spawn>
-	<!-- Training Novice (Monster lvl:42)-->
+	<!-- Training Novice (Monster  lvl:42)-->
 	<spawn map="220040000" npcid="213612" pool="1" interval="105">
 		<object x="2904.954" y="2612.746" z="678.375" h="16"/>
 	</spawn>
-	<!-- Steadfast Dalloki (Named Mob lvl:39)-->
+	<!-- Steadfast Dalloki (Named Mob  lvl:39)-->
 	<spawn map="220040000" npcid="213736" pool="1" interval="1800">
 		<object x="936.0" y="2137.0" z="260.5" h="43"/>
 		<object x="832.8" y="2268.84" z="270.77255" h="41"/>
 	</spawn>
-	<!-- Snowy Rynoce (Monster lvl:40)-->
+	<!-- Snowy Rynoce (Monster  lvl:40)-->
 	<spawn map="220040000" npcid="213207" pool="22" interval="105">
 		<object x="2448.13" y="1532.972" z="501.375" h="15"/>
 		<object x="2323.02" y="1481.411" z="497.0025" h="73"/>
@@ -788,7 +787,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2355.219" y="1522.44" z="494.67987" h="10"/>
 		<object x="2196.241" y="1566.322" z="505.51013" h="82"/>
 	</spawn>
-	<!-- Snowy Mosbear (Monster lvl:33)-->
+	<!-- Snowy Mosbear (Monster  lvl:33)-->
 	<spawn map="220040000" npcid="213022" pool="87" interval="105">
 		<object x="129.2025" y="1202.118" z="282.45093" h="81"/>
 		<object x="178.346" y="1434.232" z="315.16824" h="45"/>
@@ -878,7 +877,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="401.6922" y="1458.313" z="276.10544" h="82"/>
 		<object x="279.6823" y="1381.966" z="270.625" h="83"/>
 	</spawn>
-	<!-- Starved Crystalhorn Gorgon (Monster lvl:42)-->
+	<!-- Starved Crystalhorn Gorgon (Monster  lvl:42)-->
 	<spawn map="220040000" npcid="213318" pool="5" interval="105">
 		<object x="2620.027" y="2458.8005" z="652.9966" h="62"/>
 		<object x="2893.885" y="2221.207" z="590.8678" h="11"/>
@@ -886,7 +885,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2868.6074" y="2573.5254" z="659.0489" h="35"/>
 		<object x="2874.225" y="2594.151" z="656.5" h="118"/>
 	</spawn>
-	<!-- Trollkin Worker (Monster lvl:41)-->
+	<!-- Trollkin Worker (Monster  lvl:41)-->
 	<spawn map="220040000" npcid="213213" pool="125" interval="105">
 		<object x="1838.314" y="1686.404" z="560.43115" h="97"/>
 		<object x="1971.394" y="1636.576" z="556.07764" h="51"/>
@@ -1014,12 +1013,12 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1805.336" y="1648.435" z="565.3893" h="71"/>
 		<object x="2210.277" y="1934.566" z="580.1614" h="39"/>
 	</spawn>
-	<!-- Starved Kurin (Monster lvl:42)-->
+	<!-- Starved Kurin (Monster  lvl:42)-->
 	<spawn map="220040000" npcid="213317" pool="2" interval="105">
 		<object x="2914.155" y="2261.402" z="594.1739" h="32"/>
 		<object x="2614.6953" y="2480.0745" z="650.5" h="28"/>
 	</spawn>
-	<!-- Snowy Kurin (Monster lvl:40)-->
+	<!-- Snowy Kurin (Monster  lvl:40)-->
 	<spawn map="220040000" npcid="213103" pool="35" interval="105">
 		<object x="2608.188" y="653.6527" z="372.7265" h="80"/>
 		<object x="2480.683" y="807.0243" z="360.7999" h="90"/>
@@ -1057,13 +1056,13 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2412.398" y="1535.745" z="500.63394" h="93"/>
 		<object x="2412.198" y="1568.292" z="500.1315" h="45"/>
 	</spawn>
-	<!-- Toothy Boggart (Monster lvl:38)-->
+	<!-- Toothy Boggart (Monster  lvl:38)-->
 	<spawn map="220040000" npcid="213157" pool="3" interval="105">
 		<object x="1087.93" y="1765.136" z="239.06662" h="84"/>
 		<object x="1040.037" y="1805.453" z="238.80432" h="66"/>
 		<object x="1100.019" y="1716.755" z="234.95401" h="5"/>
 	</spawn>
-	<!-- Snowy Ettin (Monster lvl:38)-->
+	<!-- Snowy Ettin (Monster  lvl:38)-->
 	<spawn map="220040000" npcid="213095" pool="15" interval="105">
 		<object x="1933.925" y="1206.373" z="367.7547" h="1"/>
 		<object x="1953.347" y="1186.419" z="363.826" h="74"/>
@@ -1081,7 +1080,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1988.366" y="745.2429" z="359.25" h="117"/>
 		<object x="1938.048" y="1134.664" z="350.339" h="97"/>
 	</spawn>
-	<!-- Snowy Kirrin (Monster lvl:33)-->
+	<!-- Snowy Kirrin (Monster  lvl:33)-->
 	<spawn map="220040000" npcid="213027" pool="33" interval="105">
 		<object x="343.0788" y="1230.081" z="260.92752" h="21"/>
 		<object x="340.5335" y="887.8568" z="279.80832" h="17"/>
@@ -1117,7 +1116,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="242.6858" y="826.3439" z="297.2464" h="72"/>
 		<object x="160.7977" y="977.5887" z="294.67755" h="41"/>
 	</spawn>
-	<!-- Snowy Tayga (Monster lvl:38)-->
+	<!-- Snowy Tayga (Monster  lvl:38)-->
 	<spawn map="220040000" npcid="213092" pool="34" interval="105">
 		<object x="1961.965" y="631.0232" z="358.36844" h="15"/>
 		<object x="1988.6" y="1129.134" z="359.5919" h="74"/>
@@ -1154,12 +1153,12 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2016.748" y="1122.391" z="358.2303" h="94"/>
 		<object x="1982.978" y="1092.301" z="353.45963" h="92"/>
 	</spawn>
-	<!-- Trained Monitor (Monster lvl:44)-->
+	<!-- Trained Monitor (Monster  lvl:44)-->
 	<spawn map="220040000" npcid="213646" pool="2" interval="105">
 		<object x="1921.63" y="2074.166" z="588.97687" h="77"/>
-		<object x="1673.4292" y="1999.72" z="582.44684" h="4"/>		
+		<object x="1673.4292" y="1999.72" z="582.44684" h="4"/>
 	</spawn>
-	<!-- Strange Object (Monster lvl:45)-->
+	<!-- Strange Object (Monster  lvl:45)-->
 	<spawn map="220040000" npcid="280714" pool="7" interval="105">
 		<object x="2771.11" y="2677.52" z="703.8131" h="12"/>
 		<object x="2785.97" y="2838.53" z="697.3306" h="64"/>
@@ -1169,7 +1168,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2774.11" y="2859.36" z="695.97375" h="32"/>
 		<object x="2756.39" y="2684.44" z="706.2469" h="107"/>
 	</spawn>
-	<!-- Spriggle Bundler (Monster lvl:34)-->
+	<!-- Spriggle Bundler (Monster  lvl:34)-->
 	<spawn map="220040000" npcid="213031" pool="8" interval="105">
 		<object x="367.5003" y="1170.808" z="255.48804" h="24"/>
 		<object x="355.7723" y="1141.9" z="254.625" h="32"/>
@@ -1180,7 +1179,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="399.2092" y="1143.403" z="260.45056" h="94"/>
 		<object x="367.395" y="1125.94" z="254.83719" h="119"/>
 	</spawn>
-	<!-- The Soulswallower (Named Mob lvl:36)-->
+	<!-- The Soulswallower (Named Mob  lvl:36)-->
 	<spawn map="220040000" npcid="213710" pool="1" interval="1800">
 		<object x="842.0" y="1061.6909" z="225.12108" h="3"/>
 		<object x="839.88" y="1063.31" z="224.37" h="72"/>
@@ -1191,7 +1190,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="562.47" y="1348.68" z="266.2125" h="74"/>
 		<object x="564.07" y="1348.2" z="265.95813" h="25"/>
 	</spawn>
-	<!-- Spriggle Gatherer (Monster lvl:33)-->
+	<!-- Spriggle Gatherer (Monster  lvl:33)-->
 	<spawn map="220040000" npcid="213029" pool="54" interval="105">
 		<object x="382.1999" y="1216.563" z="259.20233" h="37"/>
 		<object x="449.5036" y="1307.196" z="278.25" h="117"/>
@@ -1248,14 +1247,14 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="466.1946" y="1296.851" z="277.6782" h="25"/>
 		<object x="434.2318" y="1354.017" z="275.66953" h="59"/>
 	</spawn>
-	<!-- Strange Object (Monster lvl:30)-->
+	<!-- Strange Object (Monster  lvl:30)-->
 	<spawn map="220040000" npcid="280603" pool="4" interval="105">
 		<object x="637.5" y="750.58" z="218.0575" h="64"/>
 		<object x="758.37" y="792.67" z="243.07938" h="102"/>
 		<object x="584.49" y="861.45" z="242.34062" h="97"/>
 		<object x="583.73" y="857.36" z="242.20375" h="91"/>
 	</spawn>
-	<!-- Spriggle Raider (Monster lvl:41)-->
+	<!-- Spriggle Raider (Monster  lvl:41)-->
 	<spawn map="220040000" npcid="213114" pool="33" interval="105">
 		<object x="2264.913" y="1067.952" z="373.2008" h="30"/>
 		<object x="2242.018" y="1051.366" z="376.4101" h="0"/>
@@ -1291,7 +1290,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2296.517" y="963.2477" z="363.625" h="65"/>
 		<object x="2368.342" y="994.4056" z="366.6638" h="65"/>
 	</spawn>
-	<!-- Spriggle Sentinel (Monster lvl:41)-->
+	<!-- Spriggle Sentinel (Monster  lvl:41)-->
 	<spawn map="220040000" npcid="213113" pool="23" interval="105">
 		<object x="2316.892" y="992.4968" z="357.64258" h="89"/>
 		<object x="2257.688" y="1023.556" z="372.125" h="99"/>
@@ -1317,9 +1316,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2450.614" y="812.4783" z="358.1702" h="6"/>
 		<object x="2381.341" y="983.6919" z="367.76926" h="120"/>
 	</spawn>
-	<!-- Snowy Mamut Calf (Monster lvl:41)-->
-	<spawn map="220040000" npcid="213107" pool="40" interval="105">
-		<object x="2662.0" y="339.0" z="284.5" h="84"/>
+	<!-- Snowy Mamut Calf (Monster  lvl:41)-->
+	<spawn map="220040000" npcid="213107" pool="39" interval="105">
 		<object x="2485.75" y="235.25" z="357.53125" h="80"/>
 		<object x="2439.1" y="531.81" z="413.61313" h="96"/>
 		<object x="2390.24" y="554.17" z="409.40063" h="14"/>
@@ -1360,14 +1358,12 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2570.78" y="303.58" z="288.6975" h="69"/>
 		<object x="2791.51" y="228.81" z="291.645" h="73"/>
 	</spawn>
-	<!-- Training Pretor (Monster lvl:42)-->
-	<spawn map="220040000" npcid="213346" pool="2" interval="105">
+	<!-- Training Pretor (Monster  lvl:42)-->
+	<spawn map="220040000" npcid="213346" pool="1" interval="105">
 		<object x="2857.919" y="2669.373" z="679.0" h="84"/>
-		<object x="2857.4832" y="2669.4333" z="679.0" h="26"/>		
 	</spawn>
-	<!-- Snowy Mamut (Monster lvl:41)-->
-	<spawn map="220040000" npcid="213105" pool="40" interval="105">
-		<object x="2653.0" y="297.0" z="290.3125" h="43"/>
+	<!-- Snowy Mamut (Monster  lvl:41)-->
+	<spawn map="220040000" npcid="213105" pool="39" interval="105">
 		<object x="2389.53" y="550.8" z="408.99564" h="108"/>
 		<object x="2375.68" y="517.32" z="403.7075" h="118"/>
 		<object x="2400.41" y="533.55" z="407.31372" h="61"/>
@@ -1408,7 +1404,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2437.91" y="566.72" z="412.78375" h="90"/>
 		<object x="2541.01" y="321.97" z="287.25" h="14"/>
 	</spawn>
-	<!-- Watch Trainee (Monster lvl:42)-->
+	<!-- Watch Trainee (Monster  lvl:42)-->
 	<spawn map="220040000" npcid="213343" pool="19" interval="105">
 		<object x="2632.445" y="2869.312" z="686.7348" h="77"/>
 		<object x="2905.793" y="2666.508" z="677.6885" h="97"/>
@@ -1430,7 +1426,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2559.508" y="2917.195" z="687.8777" h="108"/>
 		<object x="2938.465" y="2609.844" z="682.125" h="108"/>
 	</spawn>
-	<!-- Young Odd Granker (Monster lvl:35)-->
+	<!-- Young Odd Granker (Monster  lvl:35)-->
 	<spawn map="220040000" npcid="213034" pool="16" interval="105">
 		<object x="608.368" y="1274.303" z="242.83307" h="113"/>
 		<object x="715.2357" y="1269.222" z="229.69534" h="72"/>
@@ -1449,18 +1445,18 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="780.459" y="1047.327" z="231.64905" h="105"/>
 		<object x="956.6829" y="1270.284" z="220.56348" h="111"/>
 	</spawn>
-	<!-- Watch Rookie (Monster lvl:42)-->
+	<!-- Watch Rookie (Monster  lvl:42)-->
 	<spawn map="220040000" npcid="213342" pool="3" interval="105">
 		<object x="2845.485" y="2512.358" z="637.5" h="49"/>
 		<object x="2779.681" y="2445.348" z="617.9592" h="87"/>
 		<object x="2797.769" y="2422.11" z="615.7789" h="69"/>
 	</spawn>
-	<!-- Watch Initiate (Monster lvl:42)-->
+	<!-- Watch Initiate (Monster  lvl:42)-->
 	<spawn map="220040000" npcid="213341" pool="2" interval="105">
-		<object x="2795.1804" y="2432.062" z="616.75775" h="18"/>	
+		<object x="2795.1804" y="2432.062" z="616.75775" h="18"/>
 		<object x="2936.221" y="2662.622" z="681.7053" h="7"/>
 	</spawn>
-	<!-- Weeping Banshee (Monster lvl:37)-->
+	<!-- Weeping Banshee (Monster  lvl:37)-->
 	<spawn map="220040000" npcid="213153" pool="14" interval="105">
 		<object x="1050.751" y="1627.983" z="226.16982" h="95"/>
 		<object x="994.8052" y="1711.817" z="226.3781" h="84"/>
@@ -1477,22 +1473,22 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1076.929" y="1784.076" z="238.75" h="17"/>
 		<object x="1075.519" y="1785.323" z="238.75" h="107"/>
 	</spawn>
-	<!-- Watch Novitiate (Monster lvl:42)-->
+	<!-- Watch Novitiate (Monster  lvl:42)-->
 	<spawn map="220040000" npcid="213340" pool="2" interval="105">
-		<object x="2781.9927" y="2446.3384" z="618.0211" h="17"/>	
+		<object x="2781.9927" y="2446.3384" z="618.0211" h="17"/>
 		<object x="2845.436" y="2518.163" z="637.5" h="32"/>
 	</spawn>
-	<!-- Watch Coward (Monster lvl:42)-->
+	<!-- Watch Coward (Monster  lvl:42)-->
 	<spawn map="220040000" npcid="213546" pool="1" interval="105">
 		<object x="2828.404" y="2430.326" z="614.88196" h="98"/>
-		<object x="2850.1143" y="2518.4766" z="637.6393" h="19"/>		
+		<object x="2850.1143" y="2518.4766" z="637.6393" h="19"/>
 	</spawn>
-	<!-- Watch Archer (Monster lvl:42)-->
+	<!-- Watch Archer (Monster  lvl:42)-->
 	<spawn map="220040000" npcid="213339" pool="2" interval="105">
 		<object x="2933.697" y="2660.176" z="680.97314" h="56"/>
 		<object x="2910.715" y="2657.213" z="677.46436" h="24"/>
 	</spawn>
-	<!-- Watch Cadet (Monster lvl:42)-->
+	<!-- Watch Cadet (Monster  lvl:42)-->
 	<spawn map="220040000" npcid="213338" pool="5" interval="105">
 		<object x="2912.899" y="2659.632" z="677.89557" h="66"/>
 		<object x="2849.98" y="2524.173" z="637.8041" h="65"/>
@@ -1500,16 +1496,16 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2912.888" y="2655.102" z="677.73596" h="25"/>
 		<object x="2931.125" y="2657.815" z="680.6722" h="70"/>
 	</spawn>
-	<!-- Watch Cadet (Monster lvl:42)-->
+	<!-- Watch Cadet (Monster  lvl:42)-->
 	<spawn map="220040000" npcid="213544" pool="1" interval="105">
 		<object x="2796.392" y="2427.144" z="616.10046" h="31"/>
 	</spawn>
-	<!-- Watch Novice (Monster lvl:42)-->
+	<!-- Watch Novice (Monster  lvl:42)-->
 	<spawn map="220040000" npcid="213545" pool="1" interval="105">
 		<object x="2825.916" y="2440.4734" z="618.2381" h="71"/>
 		<object x="2915.194" y="2657.55" z="678.2239" h="94"/>
 	</spawn>
-	<!-- Wardrake (Monster lvl:44)-->
+	<!-- Wardrake (Monster  lvl:44)-->
 	<spawn map="220040000" npcid="213644" pool="11" interval="105">
 		<object x="1629.356" y="1956.359" z="581.5602" h="9"/>
 		<object x="1536.071" y="1981.14" z="582.24554" h="56"/>
@@ -1523,7 +1519,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1635.029" y="1900.623" z="592.6549" h="61"/>
 		<object x="1470.19" y="2090.693" z="599.125" h="0"/>
 	</spawn>
-	<!-- Turbulent Seafoam (Monster lvl:44)-->
+	<!-- Turbulent Seafoam (Monster  lvl:44)-->
 	<spawn map="220040000" npcid="213569" pool="61" interval="105">
 		<object x="798.3206" y="2889.97" z="187.75" h="93"/>
 		<object x="928.18427" y="2667.3442" z="276.6471" h="98"/>
@@ -1587,7 +1583,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="786.308" y="2963.96" z="423.2002" h="91"/>
 		<object x="836.0429" y="2915.9502" z="229.82137" h="112"/>
 	</spawn>
-	<!-- Virago Tracker (Monster lvl:41)-->
+	<!-- Virago Tracker (Monster  lvl:41)-->
 	<spawn map="220040000" npcid="213133" pool="27" interval="105">
 		<object x="2900.966" y="667.1645" z="509.49185" h="108"/>
 		<object x="2906.958" y="703.1201" z="505.34985" h="56"/>
@@ -1617,7 +1613,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2947.449" y="753.5071" z="503.78442" h="80"/>
 		<object x="2975.005" y="819.6786" z="502.91577" h="5"/>
 	</spawn>
-	<!-- Virago Tundra Hunter (Monster lvl:41)-->
+	<!-- Virago Tundra Hunter (Monster  lvl:41)-->
 	<spawn map="220040000" npcid="213135" pool="18" interval="105">
 		<object x="2713.985" y="641.6317" z="516.0" h="16"/>
 		<object x="2790.187" y="607.0386" z="514.8984" h="30"/>
@@ -1638,11 +1634,11 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2920.905" y="686.1271" z="509.3354" h="30"/>
 		<object x="2895.398" y="566.9871" z="527.75" h="20"/>
 	</spawn>
-	<!-- Veribe the Fallen (Named Mob lvl:41)-->
+	<!-- Veribe the Fallen (Named Mob  lvl:41)-->
 	<spawn map="220040000" npcid="213740" pool="1" interval="1800">
 		<object x="324.0" y="2395.0" z="215.375" h="2"/>
 	</spawn>
-	<!-- Wailing Karnif (Monster lvl:32)-->
+	<!-- Wailing Karnif (Monster  lvl:32)-->
 	<spawn map="220040000" npcid="213019" pool="11" interval="105">
 		<object x="520.8035" y="871.1834" z="231.875" h="119"/>
 		<object x="417.5273" y="912.671" z="256.2439" h="107"/>
@@ -1656,7 +1652,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="486.7794" y="890.2849" z="251.70462" h="41"/>
 		<object x="746.0473" y="751.1844" z="234.94518" h="101"/>
 	</spawn>
-	<!-- Vengeful Obscura (Monster lvl:38)-->
+	<!-- Vengeful Obscura (Monster  lvl:38)-->
 	<spawn map="220040000" npcid="213168" pool="21" interval="105">
 		<object x="1007.689" y="1968.653" z="262.375" h="50"/>
 		<object x="961.3571" y="1974.811" z="262.1872" h="97"/>
@@ -1680,7 +1676,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="944.5471" y="2213.126" z="295.625" h="82"/>
 		<object x="996.8593" y="2197.893" z="293.7418" h="31"/>
 	</spawn>
-	<!-- Wild Cyclone Spirit (Monster lvl:45)-->
+	<!-- Wild Cyclone Spirit (Monster  lvl:45)-->
 	<spawn map="220040000" npcid="213236" pool="8" interval="105">
 		<object x="2747.099" y="1575.672" z="415.84637" h="93"/>
 		<object x="2628.908" y="1335.787" z="389.19855" h="99"/>
@@ -1691,7 +1687,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2773.313" y="1645.676" z="420.97974" h="70"/>
 		<object x="2517.455" y="1356.235" z="389.05875" h="50"/>
 	</spawn>
-	<!-- Worn Kalgolem (Monster lvl:36)-->
+	<!-- Worn Kalgolem (Monster  lvl:36)-->
 	<spawn map="220040000" npcid="213143" pool="17" interval="105">
 		<object x="881.5455" y="1674.742" z="224.25" h="103"/>
 		<object x="918.0811" y="1775.93" z="225.5014" h="68"/>
@@ -1711,18 +1707,18 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="923.5527" y="1841.685" z="257.21063" h="3"/>
 		<object x="910.4633" y="1827.16" z="250.53084" h="87"/>
 	</spawn>
-	<!-- Watch Hunter (Monster lvl:43)-->
+	<!-- Watch Hunter (Monster  lvl:43)-->
 	<spawn map="220040000" npcid="213319" pool="2" interval="105">
 		<object x="2889.137" y="2310.271" z="587.07275" h="99"/>
 		<object x="2918.473" y="2233.974" z="593.375" h="2"/>
 	</spawn>
-	<!-- Watch Apprentice (Monster lvl:42)-->
+	<!-- Watch Apprentice (Monster  lvl:42)-->
 	<spawn map="220040000" npcid="213345" pool="3" interval="105">
 		<object x="2854.481" y="2672.073" z="679.0" h="101"/>
 		<object x="2865.487" y="2667.402" z="679.0" h="44"/>
 		<object x="2565.592" y="2918.446" z="687.75" h="59"/>
 	</spawn>
-	<!-- White Hair Kurin (Monster lvl:42)-->
+	<!-- White Hair Kurin (Monster  lvl:42)-->
 	<spawn map="220040000" npcid="213104" pool="69" interval="105">
 		<object x="2278.246" y="1904.381" z="568.04614" h="69"/>
 		<object x="2483.645" y="975.9915" z="375.10233" h="43"/>
@@ -1794,8 +1790,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2420.379" y="2258.916" z="546.95593" h="111"/>
 		<object x="2882.654" y="2190.705" z="595.4376" h="30"/>
 	</spawn>
-	<!-- Bakarma Striker (Monster lvl:45)-->
-	<spawn map="220040000" npcid="213669" pool="28" interval="105">
+	<!-- Bakarma Striker (Monster Elite lvl:45)-->
+	<spawn map="220040000" npcid="213669" pool="28" interval="300">
 		<object x="1688.5574" y="2104.1978" z="578.4877" h="1"/>
 		<object x="1696.2527" y="2240.776" z="600.86035" h="9"/>
 		<object x="1550.0626" y="2317.7554" z="630.9056" h="80"/>
@@ -1825,8 +1821,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1555.9926" y="2224.683" z="635.54175" h="110"/>
 		<object x="1836.8893" y="2330.346" z="637.16815" h="33"/>
 	</spawn>
-	<!-- Bakarma Duelist (Monster lvl:44)-->
-	<spawn map="220040000" npcid="213667" pool="21" interval="105">
+	<!-- Bakarma Duelist (Monster Elite lvl:44)-->
+	<spawn map="220040000" npcid="213667" pool="21" interval="300">
 		<object x="1512.5349" y="2003.2079" z="597.14105" h="14"/>
 		<object x="1625.3574" y="2244.648" z="636.115" h="68"/>
 		<object x="1630.3132" y="2221.2117" z="635.66156" h="26"/>
@@ -1849,8 +1845,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1741.3792" y="2400.8145" z="639.5242" h="23"/>
 		<object x="1867.6715" y="2347.877" z="621.3263" h="6"/>
 	</spawn>
-	<!-- Bakarma Fleshmender (Monster lvl:45)-->
-	<spawn map="220040000" npcid="213676" pool="23" interval="105">
+	<!-- Bakarma Fleshmender (Monster Elite lvl:45)-->
+	<spawn map="220040000" npcid="213676" pool="23" interval="300">
 		<object x="1683.1196" y="2074.8147" z="581.4131" h="49"/>
 		<object x="1515.0044" y="2100.2825" z="598.62445" h="21"/>
 		<object x="1655.1078" y="2171.8303" z="595.51337" h="37"/>
@@ -1875,16 +1871,15 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1729.6189" y="2314.1086" z="635.48645" h="80"/>
 		<object x="1775.6875" y="2352.9983" z="636.73047" h="117"/>
 	</spawn>
-	<!-- Bakarma Snakepriest (Monster lvl:45)-->
-	<spawn map="220040000" npcid="213674" pool="5" interval="105">
+	<!-- Bakarma Snakepriest (Monster Elite lvl:45)-->
+	<spawn map="220040000" npcid="213674" pool="4" interval="300">
 		<object x="1431.574" y="2354.885" z="637.8296" h="35"/>
 		<object x="1438.758" y="2388.836" z="640.88477" h="89"/>
 		<object x="1392.169" y="2404.811" z="648.5114" h="56"/>
 		<object x="1459.3" y="2290.55" z="640.825" h="94"/>
-		<object x="1799.41" y="2202.09" z="617.98566" h="35"/>
 	</spawn>
-	<!-- Bakarma Bloodmaster (Monster lvl:45)-->
-	<spawn map="220040000" npcid="213672" pool="29" interval="105">
+	<!-- Bakarma Bloodmaster (Monster Elite lvl:45)-->
+	<spawn map="220040000" npcid="213672" pool="29" interval="300">
 		<object x="1536.1667" y="2085.1548" z="592.33484" h="59"/>
 		<object x="1622.0938" y="2164.8093" z="592.2262" h="83"/>
 		<object x="1661.3583" y="2246.7905" z="613.74994" h="76"/>
@@ -1915,8 +1910,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1568.4534" y="2550.0464" z="650.2696" h="31"/>
 		<object x="1603.949" y="2349.2932" z="624.6641" h="15"/>
 	</spawn>
-	<!-- Bakarma Curselock (Monster lvl:45)-->
-	<spawn map="220040000" npcid="213684" pool="10" interval="105">
+	<!-- Bakarma Curselock (Monster Elite lvl:45)-->
+	<spawn map="220040000" npcid="213684" pool="10" interval="300">
 		<object x="1482.7413" y="2379.5142" z="636.2101" h="33"/>
 		<object x="1440.296" y="2390.943" z="641.0809" h="55"/>
 		<object x="1418.0569" y="2404.078" z="641.8776" h="38"/>
@@ -1928,8 +1923,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1458.1332" y="2331.5222" z="639.64655" h="30"/>
 		<object x="1437.9639" y="2333.7866" z="641.33856" h="73"/>
 	</spawn>
-	<!-- Bakarma Specialist (Monster lvl:44)-->
-	<spawn map="220040000" npcid="213628" pool="38" interval="105">
+	<!-- Bakarma Specialist (Monster Elite lvl:44)-->
+	<spawn map="220040000" npcid="213628" pool="38" interval="300">
 		<object x="1973.5286" y="2070.6318" z="596.546" h="10"/>
 		<object x="1856.78" y="2057.2896" z="583.42377" h="91"/>
 		<object x="1793.3721" y="2109.9714" z="591.666" h="41"/>
@@ -1969,8 +1964,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1686.0209" y="2052.417" z="586.97656" h="74"/>
 		<object x="1837.0806" y="1880.4706" z="592.71924" h="113"/>
 	</spawn>
-	<!-- Bakarma Summoner (Monster lvl:45)-->
-	<spawn map="220040000" npcid="213681" pool="13" interval="105">
+	<!-- Bakarma Summoner (Monster Elite lvl:45)-->
+	<spawn map="220040000" npcid="213681" pool="13" interval="300">
 		<object x="1577.9413" y="2206.896" z="635.7427" h="5"/>
 		<object x="1569.5436" y="2257.1863" z="634.3579" h="68"/>
 		<object x="1489.2609" y="2341.1663" z="633.48816" h="17"/>
@@ -1985,7 +1980,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1588.9716" y="2304.5186" z="631.3821" h="106"/>
 		<object x="1574.7717" y="2341.3218" z="626.0687" h="4"/>
 	</spawn>
-	<!-- Baby Crystalhorn (Monster lvl:42)-->
+	<!-- Baby Crystalhorn (Monster  lvl:42)-->
 	<spawn map="220040000" npcid="213315" pool="10" interval="105">
 		<object x="2865.554" y="2234.94" z="590.3531" h="33"/>
 		<object x="2835.202" y="2284.518" z="587.239" h="69"/>
@@ -1998,8 +1993,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2789.446" y="2279.743" z="594.3775" h="9"/>
 		<object x="2822.231" y="2241.117" z="590.5788" h="114"/>
 	</spawn>
-	<!-- Bakarma Scalepriest (Monster lvl:43)-->
-	<spawn map="220040000" npcid="213312" pool="33" interval="105">
+	<!-- Bakarma Scalepriest (Monster Elite lvl:43)-->
+	<spawn map="220040000" npcid="213312" pool="33" interval="300">
 		<object x="2043.804" y="2508.2769" z="608.53674" h="84"/>
 		<object x="2039.699" y="2453.833" z="587.29565" h="43"/>
 		<object x="2005.7007" y="2332.9805" z="572.58514" h="115"/>
@@ -2034,8 +2029,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2044.2194" y="2571.793" z="601.2065" h="89"/>
 		<object x="2012.0658" y="2592.6638" z="598.5758" h="9"/>
 	</spawn>
-	<!-- Bakarma Operative (Monster lvl:43)-->
-	<spawn map="220040000" npcid="213304" pool="24" interval="105">
+	<!-- Bakarma Operative (Monster Elite lvl:43)-->
+	<spawn map="220040000" npcid="213304" pool="24" interval="300">
 		<object x="2073.7546" y="2636.5977" z="613.38794" h="48"/>
 		<object x="1985.9872" y="2176.9553" z="583.0032" h="85"/>
 		<object x="2040.3291" y="2164.0312" z="582.4422" h="116"/>
@@ -2061,8 +2056,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2057.963" y="2517.233" z="605.50464" h="20"/>
 		<object x="2041.5085" y="2569.94" z="600.58234" h="8"/>
 	</spawn>
-	<!-- Bakarma Assailant (Monster lvl:44)-->
-	<spawn map="220040000" npcid="213636" pool="17" interval="105">
+	<!-- Bakarma Assailant (Monster Elite lvl:44)-->
+	<spawn map="220040000" npcid="213636" pool="17" interval="300">
 		<object x="1690.9772" y="2118.6147" z="580.1862" h="92"/>
 		<object x="1657.9333" y="2172.8408" z="595.8352" h="59"/>
 		<object x="1656.8274" y="2170.2102" z="595.10425" h="53"/>
@@ -2081,14 +2076,14 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1853.0538" y="1876.6489" z="592.1317" h="80"/>
 		<object x="1918.9865" y="1916.7131" z="596.7788" h="102"/>
 	</spawn>
-	<!-- Bakarma Manbane (Monster lvl:44)-->
-	<spawn map="220040000" npcid="213307" pool="3" interval="105">
+	<!-- Bakarma Manbane (Monster Elite lvl:44)-->
+	<spawn map="220040000" npcid="213307" pool="3" interval="300">
 		<object x="1901.8945" y="2380.786" z="585.4361" h="64"/>
 		<object x="1885.0238" y="2441.989" z="589.2523" h="120"/>
 		<object x="2042.9872" y="2403.14" z="584.3546" h="57"/>
 	</spawn>
-	<!-- Bakarma Swordlord (Monster lvl:43)-->
-	<spawn map="220040000" npcid="213698" pool="22" interval="105">
+	<!-- Bakarma Swordlord (Monster Elite lvl:43)-->
+	<spawn map="220040000" npcid="213698" pool="22" interval="300">
 		<object x="2060.4473" y="2548.2532" z="606.4451" h="108"/>
 		<object x="2042.2112" y="2505.9128" z="608.4759" h="3"/>
 		<object x="1917.8367" y="2563.8591" z="596.44226" h="51"/>
@@ -2112,8 +2107,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1995.9735" y="2492.6" z="589.4608" h="105"/>
 		<object x="2005.7272" y="2529.8435" z="590.75476" h="33"/>
 	</spawn>
-	<!-- Bakarma Fearbringer (Monster lvl:44)-->
-	<spawn map="220040000" npcid="213632" pool="20" interval="105">
+	<!-- Bakarma Fearbringer (Monster Elite lvl:44)-->
+	<spawn map="220040000" npcid="213632" pool="20" interval="300">
 		<object x="1865.3749" y="2040.2515" z="582.797" h="116"/>
 		<object x="1853.7496" y="2104.1616" z="584.8336" h="85"/>
 		<object x="1449.661" y="2034.9379" z="614.875" h="28"/>
@@ -2135,8 +2130,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1813.2153" y="2217.029" z="620.4546" h="30"/>
 		<object x="1732.8486" y="2252.3865" z="605.7306" h="60"/>
 	</spawn>
-	<!-- Bakarma Patroller (Monster lvl:43)-->
-	<spawn map="220040000" npcid="213310" pool="33" interval="105">
+	<!-- Bakarma Patroller (Monster Elite lvl:43)-->
+	<spawn map="220040000" npcid="213310" pool="33" interval="300">
 		<object x="2119.092" y="2584.6152" z="605.28845" h="15"/>
 		<object x="1865.6058" y="2599.8865" z="601.13916" h="6"/>
 		<object x="2094.6304" y="2584.7373" z="603.9281" h="78"/>
@@ -2171,8 +2166,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1958.1597" y="2546.4514" z="590.44965" h="73"/>
 		<object x="2011.9067" y="2551.6472" z="595.2972" h="82"/>
 	</spawn>
-	<!-- Bakarma Honorblade (Monster lvl:43)-->
-	<spawn map="220040000" npcid="213702" pool="20" interval="105">
+	<!-- Bakarma Honorblade (Monster Elite lvl:43)-->
+	<spawn map="220040000" npcid="213702" pool="20" interval="300">
 		<object x="2127.542" y="2592.886" z="606.05536" h="15"/>
 		<object x="2099.5715" y="2629.0312" z="610.61414" h="35"/>
 		<object x="2045.1357" y="2642.2905" z="606.41016" h="81"/>
@@ -2194,7 +2189,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2079.6357" y="2566.3308" z="603.62177" h="68"/>
 		<object x="2072.2021" y="2477.242" z="604.2153" h="103"/>
 	</spawn>
-	<!-- Bakarma Raider (Monster lvl:42)-->
+	<!-- Bakarma Raider (Monster  lvl:42)-->
 	<spawn map="220040000" npcid="213231" pool="30" interval="105">
 		<object x="2320.0933" y="2450.833" z="606.875" h="19"/>
 		<object x="2316.7544" y="2452.542" z="606.875" h="54"/>
@@ -2227,8 +2222,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2193.7153" y="2363.3257" z="594.9232" h="118"/>
 		<object x="2199.3442" y="2519.8552" z="597.2792" h="116"/>
 	</spawn>
-	<!-- Bakarma Petmaster (Monster lvl:43)-->
-	<spawn map="220040000" npcid="213704" pool="20" interval="105">
+	<!-- Bakarma Petmaster (Monster Elite lvl:43)-->
+	<spawn map="220040000" npcid="213704" pool="20" interval="300">
 		<object x="2134.506" y="2613.9233" z="603.06177" h="46"/>
 		<object x="1982.7289" y="2344.267" z="572.6624" h="87"/>
 		<object x="1922.6333" y="2412.3657" z="581.8452" h="95"/>
@@ -2250,8 +2245,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1974.8868" y="2579.388" z="596.06445" h="76"/>
 		<object x="2013.5593" y="2510.3699" z="589.659" h="26"/>
 	</spawn>
-	<!-- Bakarma Lookout (Monster lvl:43)-->
-	<spawn map="220040000" npcid="213299" pool="12" interval="105">
+	<!-- Bakarma Lookout (Monster Elite lvl:43)-->
+	<spawn map="220040000" npcid="213299" pool="12" interval="300">
 		<object x="2142.3408" y="2562.972" z="605.64667" h="109"/>
 		<object x="1964.8802" y="2477.7295" z="580.875" h="81"/>
 		<object x="1921.2596" y="2448.863" z="587.2715" h="44"/>
@@ -2265,7 +2260,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2073.2285" y="2558.405" z="604.455" h="76"/>
 		<object x="2016.1544" y="2556.8816" z="596.2545" h="98"/>
 	</spawn>
-	<!-- Bakarma Crusader (Monster lvl:42)-->
+	<!-- Bakarma Crusader (Monster  lvl:42)-->
 	<spawn map="220040000" npcid="213229" pool="49" interval="105">
 		<object x="2324.646" y="2467.5261" z="606.0885" h="107"/>
 		<object x="2328.3513" y="2479.8342" z="606.2457" h="53"/>
@@ -2317,8 +2312,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2199.4902" y="2390.5444" z="594.72327" h="120"/>
 		<object x="2195.6145" y="2361.3162" z="594.7828" h="53"/>
 	</spawn>
-	<!-- Bakarma Legionary (Monster lvl:43)-->
-	<spawn map="220040000" npcid="213301" pool="49" interval="105">
+	<!-- Bakarma Legionary (Monster Elite lvl:43)-->
+	<spawn map="220040000" npcid="213301" pool="49" interval="300">
 		<object x="2183.6582" y="2556.1711" z="603.3825" h="120"/>
 		<object x="2107.7102" y="2633.5918" z="610.70636" h="88"/>
 		<object x="2042.4735" y="2642.4602" z="606.08795" h="53"/>
@@ -2369,22 +2364,22 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1980.4503" y="2499.4163" z="587.0074" h="13"/>
 		<object x="2019.7115" y="2551.1978" z="596.06354" h="9"/>
 	</spawn>
-	<!-- Bakarma Outrider (Monster lvl:45)-->
-	<spawn map="220040000" npcid="213640" pool="3" interval="105">
+	<!-- Bakarma Outrider (Monster Elite lvl:45)-->
+	<spawn map="220040000" npcid="213640" pool="3" interval="300">
 		<object x="1732.7819" y="1865.6641" z="594.4449" h="86"/>
 		<object x="1720.8215" y="1905.3264" z="591.0" h="113"/>
 		<object x="1654.2401" y="1847.637" z="605.0643" h="28"/>
 	</spawn>
-	<!-- Bakarma Fighter (Monster lvl:44)-->
-	<spawn map="220040000" npcid="213303" pool="5" interval="105">
+	<!-- Bakarma Fighter (Monster Elite lvl:44)-->
+	<spawn map="220040000" npcid="213303" pool="5" interval="300">
 		<object x="1867.7203" y="2518.0151" z="596.07446" h="119"/>
 		<object x="2054.126" y="2452.9126" z="586.38525" h="94"/>
 		<object x="1964.197" y="2358.7036" z="591.4258" h="100"/>
 		<object x="2030.9521" y="2312.703" z="577.78876" h="99"/>
 		<object x="2093.0664" y="2327.404" z="584.43335" h="13"/>
 	</spawn>
-	<!-- Bakarma Guard (Monster lvl:44)-->
-	<spawn map="220040000" npcid="213652" pool="34" interval="105">
+	<!-- Bakarma Guard (Monster Elite lvl:44)-->
+	<spawn map="220040000" npcid="213652" pool="34" interval="300">
 		<object x="1877.4254" y="2076.6965" z="586.1326" h="13"/>
 		<object x="1831.9242" y="2099.3413" z="585.4209" h="84"/>
 		<object x="1832.6481" y="2095.4333" z="585.61993" h="41"/>
@@ -2420,8 +2415,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1619.1959" y="2302.7227" z="642.3216" h="59"/>
 		<object x="1838.4807" y="1915.4149" z="604.24097" h="47"/>
 	</spawn>
-	<!-- Bakarma Tamer (Monster lvl:44)-->
-	<spawn map="220040000" npcid="213648" pool="18" interval="105">
+	<!-- Bakarma Tamer (Monster Elite lvl:44)-->
+	<spawn map="220040000" npcid="213648" pool="18" interval="300">
 		<object x="1614.0231" y="2054.4602" z="579.19995" h="48"/>
 		<object x="1614.1488" y="2053.9194" z="579.1708" h="30"/>
 		<object x="1491.8134" y="2066.1523" z="598.76166" h="56"/>
@@ -2441,8 +2436,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1635.0953" y="1958.1125" z="582.2889" h="31"/>
 		<object x="1486.7301" y="1992.5056" z="617.98596" h="72"/>
 	</spawn>
-	<!-- Bakarma Serpentguard (Monster lvl:44)-->
-	<spawn map="220040000" npcid="213663" pool="44" interval="105">
+	<!-- Bakarma Serpentguard (Monster Elite lvl:44)-->
+	<spawn map="220040000" npcid="213663" pool="44" interval="300">
 		<object x="1689.1229" y="2119.016" z="580.39404" h="13"/>
 		<object x="1655.5093" y="2109.1614" z="582.29034" h="6"/>
 		<object x="1522.052" y="2032.855" z="596.4956" h="64"/>
@@ -2488,16 +2483,16 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1396.7454" y="2239.1843" z="600.05334" h="88"/>
 		<object x="1750.8396" y="2312.331" z="632.5401" h="62"/>
 	</spawn>
-	<!-- Bakarma Sniper (Monster lvl:45)-->
-	<spawn map="220040000" npcid="213656" pool="5" interval="105">
+	<!-- Bakarma Sniper (Monster Elite lvl:45)-->
+	<spawn map="220040000" npcid="213656" pool="5" interval="300">
 		<object x="1583.9932" y="2043.2129" z="583.7766" h="73"/>
 		<object x="1688.5424" y="2195.963" z="594.8727" h="65"/>
 		<object x="1697.3202" y="2193.8457" z="595.1747" h="100"/>
 		<object x="1509.9412" y="1973.0259" z="583.0065" h="76"/>
 		<object x="1553.1714" y="1992.9142" z="581.2446" h="46"/>
 	</spawn>
-	<!-- Bakarma Healer (Monster lvl:44)-->
-	<spawn map="220040000" npcid="213659" pool="26" interval="105">
+	<!-- Bakarma Healer (Monster Elite lvl:44)-->
+	<spawn map="220040000" npcid="213659" pool="26" interval="300">
 		<object x="1766.1638" y="2089.5508" z="591.71674" h="56"/>
 		<object x="1684.8036" y="2140.9922" z="589.89954" h="104"/>
 		<object x="1846.3024" y="2011.6464" z="584.2474" h="2"/>
@@ -2525,8 +2520,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1659.0546" y="2135.839" z="594.7902" h="81"/>
 		<object x="1879.2511" y="2075.7095" z="586.0105" h="95"/>
 	</spawn>
-	<!-- Bakarma Tyrant (Monster lvl:45)-->
-	<spawn map="220040000" npcid="213670" pool="30" interval="105">
+	<!-- Bakarma Tyrant (Monster Elite lvl:45)-->
+	<spawn map="220040000" npcid="213670" pool="30" interval="300">
 		<object x="1671.1467" y="2279.7058" z="617.97974" h="120"/>
 		<object x="1613.6405" y="2217.0837" z="635.2032" h="84"/>
 		<object x="1567.0399" y="2216.4326" z="635.0541" h="31"/>
@@ -2558,8 +2553,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1572.262" y="2343.4543" z="626.5404" h="107"/>
 		<object x="1867.6788" y="2342.5564" z="644.9178" h="72"/>
 	</spawn>
-	<!-- Canyon Trico (Monster lvl:43)-->
-	<spawn map="220040000" npcid="213125" pool="40" interval="105">
+	<!-- Canyon Trico (Monster  lvl:43)-->
+	<spawn map="220040000" npcid="213125" pool="38" interval="105">
 		<object x="2590.9678" y="1233.992" z="362.75958" h="53"/>
 		<object x="2583.75" y="1247.95" z="364.02814" h="10"/>
 		<object x="2585.75" y="1245.45" z="363.69687" h="20"/>
@@ -2569,7 +2564,6 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2658.75" y="1055.46" z="375.5" h="62"/>
 		<object x="2662.75" y="1036.55" z="375.92188" h="26"/>
 		<object x="2671.76" y="1103.51" z="375.57938" h="69"/>
-		<object x="2627.68" y="1203.85" z="361.89374" h="100"/>
 		<object x="2586.34" y="1269.65" z="366.68378" h="3"/>
 		<object x="2585.93" y="1272.68" z="367.2525" h="88"/>
 		<object x="2615.25" y="1461.65" z="398.07187" h="16"/>
@@ -2586,7 +2580,6 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2618.25" y="1458.34" z="397.77124" h="109"/>
 		<object x="2660.06" y="1469.71" z="401.98563" h="102"/>
 		<object x="2663.87" y="1469.4" z="402.20438" h="115"/>
-		<object x="2612.78" y="1448.63" z="396.95374" h="4"/>
 		<object x="2655.95" y="1469.75" z="401.71564" h="119"/>
 		<object x="2658.91" y="1469.75" z="401.91626" h="30"/>
 		<object x="2583.75" y="1309.11" z="373.91812" h="5"/>
@@ -2601,8 +2594,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2587.54" y="1364.04" z="388.61127" h="24"/>
 		<object x="2612.75" y="1446.75" z="396.76562" h="20"/>
 	</spawn>
-	<!-- Canyon Trico Foal (Monster lvl:43)-->
-	<spawn map="220040000" npcid="213127" pool="20" interval="105">
+	<!-- Canyon Trico Foal (Monster  lvl:43)-->
+	<spawn map="220040000" npcid="213127" pool="18" interval="105">
 		<object x="2624.05" y="1201.25" z="362.3875" h="45"/>
 		<object x="2629.46" y="1206.75" z="362.03375" h="48"/>
 		<object x="2674.25" y="1105.16" z="375.72876" h="71"/>
@@ -2614,8 +2607,6 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2665.11" y="1034.89" z="376.0" h="49"/>
 		<object x="2659.22" y="1037.69" z="375.875" h="24"/>
 		<object x="2672.01" y="1100.35" z="375.5006" h="112"/>
-		<object x="2624.55" y="1201.25" z="362.35626" h="105"/>
-		<object x="2629.75" y="1206.75" z="362.01562" h="44"/>
 		<object x="2587.75" y="1373.45" z="391.34375" h="105"/>
 		<object x="2593.33" y="1366.83" z="389.89502" h="72"/>
 		<object x="2618.04" y="1456.54" z="397.66125" h="14"/>
@@ -2624,8 +2615,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2581.71" y="1310.16" z="374.32626" h="4"/>
 		<object x="2719.46" y="1443.25" z="400.70563" h="24"/>
 	</spawn>
-	<!-- Bakarma Willwarper (Monster lvl:45)-->
-	<spawn map="220040000" npcid="213679" pool="24" interval="105">
+	<!-- Bakarma Willwarper (Monster Elite lvl:45)-->
+	<spawn map="220040000" npcid="213679" pool="24" interval="300">
 		<object x="1510.5898" y="2006.2217" z="597.13885" h="61"/>
 		<object x="1463.4285" y="2057.8193" z="612.0226" h="79"/>
 		<object x="1712.092" y="2240.9902" z="600.69836" h="61"/>
@@ -2651,8 +2642,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1455.822" y="2267.9463" z="643.23553" h="109"/>
 		<object x="1774.1481" y="2351.3606" z="636.5093" h="51"/>
 	</spawn>
-	<!-- Bakarma Worldbender (Monster lvl:45)-->
-	<spawn map="220040000" npcid="213686" pool="10" interval="105">
+	<!-- Bakarma Worldbender (Monster Elite lvl:45)-->
+	<spawn map="220040000" npcid="213686" pool="10" interval="300">
 		<object x="1499.3293" y="2460.8645" z="644.696" h="79"/>
 		<object x="1471.4001" y="2462.9363" z="651.6705" h="115"/>
 		<object x="1440.2798" y="2438.0505" z="658.48566" h="86"/>
@@ -2664,7 +2655,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1469.5444" y="2550.5312" z="648.45874" h="113"/>
 		<object x="1483.505" y="2521.778" z="644.22546" h="74"/>
 	</spawn>
-	<!-- Crookhorn Gorgon (Monster lvl:40)-->
+	<!-- Crookhorn Gorgon (Monster  lvl:40)-->
 	<spawn map="220040000" npcid="213256" pool="30" interval="105">
 		<object x="2598.6733" y="807.2292" z="494.41833" h="17"/>
 		<object x="2908.2715" y="1134.6014" z="482.49634" h="25"/>
@@ -2697,8 +2688,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2815.1206" y="950.8949" z="473.50098" h="14"/>
 		<object x="2828.0283" y="1244.5156" z="486.93555" h="77"/>
 	</spawn>
-	<!-- Bakarma Warmonger (Monster lvl:44)-->
-	<spawn map="220040000" npcid="213624" pool="21" interval="105">
+	<!-- Bakarma Warmonger (Monster Elite lvl:44)-->
+	<spawn map="220040000" npcid="213624" pool="20" interval="300">
 		<object x="1855.8473" y="2059.4731" z="583.46704" h="117"/>
 		<object x="1701.6526" y="2077.7148" z="586.55597" h="120"/>
 		<object x="1735.4253" y="2131.5647" z="584.05444" h="53"/>
@@ -2710,7 +2701,6 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1771.1749" y="1975.7292" z="586.9612" h="49"/>
 		<object x="1756.3998" y="2027.2302" z="587.22504" h="49"/>
 		<object x="1958.2865" y="2073.25" z="593.6181" h="68"/>
-		<object x="1958.3839" y="2073.856" z="593.664" h="97"/>
 		<object x="1929.6016" y="2050.4656" z="587.7542" h="38"/>
 		<object x="1908.8053" y="2061.5493" z="586.4475" h="39"/>
 		<object x="1712.8368" y="2102.9575" z="583.8918" h="35"/>
@@ -2721,7 +2711,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1882.6392" y="1948.5431" z="599.1406" h="26"/>
 		<object x="1854.7646" y="1878.3374" z="592.3723" h="79"/>
 	</spawn>
-	<!-- Bigspike Starcrab (Monster lvl:39)-->
+	<!-- Bigspike Starcrab (Monster  lvl:39)-->
 	<spawn map="220040000" npcid="213200" pool="19" interval="105">
 		<object x="281.58533" y="2112.7607" z="209.63107" h="44"/>
 		<object x="301.6004" y="2123.0066" z="210.50897" h="58"/>
@@ -2743,7 +2733,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="188.64346" y="1751.9075" z="224.99936" h="82"/>
 		<object x="248.38036" y="1742.668" z="212.245" h="119"/>
 	</spawn>
-	<!-- Blue Jaw Monitor (Monster lvl:29)-->
+	<!-- Blue Jaw Monitor (Monster  lvl:29)-->
 	<spawn map="220040000" npcid="213009" pool="58" interval="105">
 		<object x="576.09937" y="434.65005" z="218.94693" h="55"/>
 		<object x="598.5556" y="472.27512" z="229.64253" h="110"/>
@@ -2804,7 +2794,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="831.35394" y="671.3022" z="253.71222" h="34"/>
 		<object x="560.54083" y="580.69635" z="244.71155" h="29"/>
 	</spawn>
-	<!-- Basalt Kalgolem (Monster lvl:38)-->
+	<!-- Basalt Kalgolem (Monster  lvl:38)-->
 	<spawn map="220040000" npcid="213145" pool="18" interval="105">
 		<object x="517.3593" y="1686.0054" z="215.08882" h="84"/>
 		<object x="515.228" y="1636.2244" z="214.29916" h="68"/>
@@ -2825,18 +2815,16 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1001.45276" y="1843.6956" z="248.92773" h="19"/>
 		<object x="981.6645" y="1854.4252" z="258.3158" h="3"/>
 	</spawn>
-	<!-- Captain Amichel (Monster lvl:42)-->
-	<spawn map="220040000" npcid="213752" pool="3" interval="105">
+	<!-- Captain Amichel (Monster Elite lvl:42)-->
+	<spawn map="220040000" npcid="213752" pool="2" interval="300">
 		<object x="2883.2354" y="2655.1428" z="677.1192" h="116"/>
 		<object x="2931.01" y="2662.57" z="680.8131" h="102"/>
-		<object x="2883.37" y="2655.33" z="677.1225" h="112"/>
 	</spawn>
-	<!-- Chubby Porgus (Monster lvl:36)-->
-	<spawn map="220040000" npcid="213148" pool="20" interval="105">
+	<!-- Chubby Porgus (Monster  lvl:36)-->
+	<spawn map="220040000" npcid="213148" pool="19" interval="105">
 		<object x="950.41345" y="1759.8967" z="224.48064" h="6"/>
 		<object x="948.6974" y="1775.6459" z="226.60287" h="51"/>
 		<object x="945.75" y="1767.9701" z="225.60376" h="108"/>
-		<object x="945.16724" y="1767.4476" z="225.46939" h="19"/>
 		<object x="945.6651" y="1657.7845" z="215.81776" h="1"/>
 		<object x="1022.824" y="1613.7438" z="225.75" h="55"/>
 		<object x="1032.2821" y="1609.519" z="226.43512" h="92"/>
@@ -2854,7 +2842,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1085.8221" y="1795.2175" z="239.48325" h="2"/>
 		<object x="1062.9705" y="1790.5448" z="239.25" h="28"/>
 	</spawn>
-	<!-- Black Branch Gnarl (Monster lvl:30)-->
+	<!-- Black Branch Gnarl (Monster  lvl:30)-->
 	<spawn map="220040000" npcid="213013" pool="32" interval="105">
 		<object x="738.28394" y="635.50476" z="257.18887" h="11"/>
 		<object x="790.0989" y="787.8014" z="243.88736" h="41"/>
@@ -2889,11 +2877,11 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="804.6714" y="824.941" z="255.06828" h="14"/>
 		<object x="797.0791" y="736.3892" z="242.48557" h="111"/>
 	</spawn>
-	<!-- Cowardly Novice (Monster lvl:42)-->
+	<!-- Cowardly Novice (Monster  lvl:42)-->
 	<spawn map="220040000" npcid="213623" pool="1" interval="105">
 		<object x="2918.2417" y="2613.9653" z="678.53235" h="1"/>
 	</spawn>
-	<!-- Cold Land Rynoce (Monster lvl:42)-->
+	<!-- Cold Land Rynoce (Monster  lvl:42)-->
 	<spawn map="220040000" npcid="213209" pool="18" interval="105">
 		<object x="1903.8789" y="1491.5652" z="554.1673" h="7"/>
 		<object x="2321.2007" y="2016.217" z="571.2979" h="32"/>
@@ -2914,11 +2902,11 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2292.8472" y="2041.258" z="568.8286" h="97"/>
 		<object x="2275.333" y="2079.925" z="570.5094" h="104"/>
 	</spawn>
-	<!-- Cowardly Patrol (Monster lvl:42)-->
+	<!-- Cowardly Patrol (Monster  lvl:42)-->
 	<spawn map="220040000" npcid="213622" pool="1" interval="105">
 		<object x="2903.58" y="2617.5557" z="678.375" h="2"/>
 	</spawn>
-	<!-- Black Armor Kirrin (Monster lvl:36)-->
+	<!-- Black Armor Kirrin (Monster  lvl:36)-->
 	<spawn map="220040000" npcid="213075" pool="26" interval="105">
 		<object x="1804.818" y="938.3906" z="285.70053" h="66"/>
 		<object x="1794.5881" y="913.3708" z="292.37054" h="12"/>
@@ -2947,18 +2935,18 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1635.2021" y="933.81995" z="271.8132" h="115"/>
 		<object x="1642.0919" y="950.36163" z="273.35776" h="120"/>
 	</spawn>
-	<!-- Cowardly Initiate (Monster lvl:42)-->
+	<!-- Cowardly Initiate (Monster  lvl:42)-->
 	<spawn map="220040000" npcid="213621" pool="1" interval="105">
 		<object x="2883.6765" y="2643.894" z="676.1559" h="1"/>
 	</spawn>
-	<!-- Cowardly Recruit (Monster lvl:42)-->
+	<!-- Cowardly Recruit (Monster  lvl:42)-->
 	<spawn map="220040000" npcid="213620" pool="4" interval="105">
 		<object x="2791.516" y="2577.5361" z="650.9053" h="19"/>
 		<object x="2924.2458" y="2633.03" z="679.4664" h="77"/>
 		<object x="2928.4727" y="2636.7422" z="680.0886" h="24"/>
 		<object x="2885.857" y="2646.898" z="676.5382" h="53"/>
 	</spawn>
-	<!-- Cruel Tayga (Monster lvl:42)-->
+	<!-- Cruel Tayga (Monster  lvl:42)-->
 	<spawn map="220040000" npcid="213102" pool="63" interval="105">
 		<object x="2214.423" y="1737.1198" z="528.695" h="66"/>
 		<object x="2186.5015" y="1751.34" z="528.70874" h="68"/>
@@ -3024,12 +3012,12 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2277.7476" y="555.7735" z="395.24838" h="68"/>
 		<object x="2683.804" y="267.2365" z="300.18497" h="37"/>
 	</spawn>
-	<!-- Chillblow (Monster lvl:43)-->
+	<!-- Chillblow (Monster  lvl:43)-->
 	<spawn map="220040000" npcid="213790" pool="1" interval="105">
 		<object x="2766.485" y="1668.277" z="423.4782" h="107"/>
 	</spawn>
-	<!-- Bakarma Windblade (Monster lvl:44)-->
-	<spawn map="220040000" npcid="213638" pool="32" interval="105">
+	<!-- Bakarma Windblade (Monster Elite lvl:44)-->
+	<spawn map="220040000" npcid="213638" pool="32" interval="300">
 		<object x="1861.2825" y="2088.499" z="584.42786" h="52"/>
 		<object x="1812.2667" y="2122.0645" z="586.75024" h="17"/>
 		<object x="1789.5714" y="2111.02" z="591.7475" h="54"/>
@@ -3063,7 +3051,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1510.0032" y="2113.632" z="597.25" h="90"/>
 		<object x="1659.9163" y="2132.2917" z="595.67706" h="17"/>
 	</spawn>
-	<!-- Cold Agrint (Monster lvl:40)-->
+	<!-- Cold Agrint (Monster  lvl:40)-->
 	<spawn map="220040000" npcid="213159" pool="19" interval="105">
 		<object x="542.91583" y="1973.0459" z="267.46475" h="42"/>
 		<object x="482.0619" y="1937.6038" z="283.56268" h="82"/>
@@ -3085,7 +3073,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="548.8156" y="2397.8455" z="253.59602" h="17"/>
 		<object x="538.7804" y="2386.2695" z="251.00177" h="103"/>
 	</spawn>
-	<!-- Cold Earth Spirit (Monster lvl:34)-->
+	<!-- Cold Earth Spirit (Monster  lvl:34)-->
 	<spawn map="220040000" npcid="213039" pool="26" interval="105">
 		<object x="860.30176" y="1217.5715" z="218.10516" h="109"/>
 		<object x="818.7736" y="1209.7246" z="219.51108" h="32"/>
@@ -3114,8 +3102,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="625.57465" y="1227.9949" z="248.58136" h="119"/>
 		<object x="679.9182" y="1356.1467" z="233.36478" h="69"/>
 	</spawn>
-	<!-- Bakarma Trooper (Monster lvl:43)-->
-	<spawn map="220040000" npcid="213700" pool="12" interval="105">
+	<!-- Bakarma Trooper (Monster Elite lvl:43)-->
+	<spawn map="220040000" npcid="213700" pool="12" interval="300">
 		<object x="2081.1458" y="2495.5874" z="606.2795" h="69"/>
 		<object x="1995.369" y="2603.3901" z="600.0882" h="75"/>
 		<object x="1922.2352" y="2615.241" z="605.125" h="62"/>
@@ -3129,7 +3117,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1997.4989" y="2500.5793" z="589.2138" h="101"/>
 		<object x="2028.9508" y="2543.7131" z="595.6306" h="114"/>
 	</spawn>
-	<!-- Cold Terra Spirit (Monster lvl:34)-->
+	<!-- Cold Terra Spirit (Monster  lvl:34)-->
 	<spawn map="220040000" npcid="213037" pool="8" interval="105">
 		<object x="900.604" y="1278.1294" z="225.42258" h="110"/>
 		<object x="818.247" y="1242.2412" z="229.62242" h="68"/>
@@ -3140,11 +3128,11 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="712.33185" y="1345.189" z="238.46085" h="12"/>
 		<object x="715.80084" y="1370.7576" z="241.99756" h="2"/>
 	</spawn>
-	<!-- Blueback Karnif (Monster lvl:35)-->
+	<!-- Blueback Karnif (Monster  lvl:35)-->
 	<spawn map="220040000" npcid="213916" pool="1" interval="105">
 		<object x="918.8254" y="1019.2493" z="244.86566" h="48"/>
 	</spawn>
-	<!-- Bakarma Technician (Monster lvl:41)-->
+	<!-- Bakarma Technician (Monster  lvl:41)-->
 	<spawn map="220040000" npcid="213913" pool="19" interval="105">
 		<object x="1892.11" y="2222.07" z="650.76624" h="73"/>
 		<object x="1884.12" y="2230.51" z="648.65686" h="22"/>
@@ -3166,7 +3154,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1877.98" y="2251.03" z="647.9369" h="120"/>
 		<object x="1855.82" y="2228.21" z="649.2369" h="86"/>
 	</spawn>
-	<!-- Combat Drakie (Monster lvl:44)-->
+	<!-- Combat Drakie (Monster  lvl:44)-->
 	<spawn map="220040000" npcid="213642" pool="12" interval="105">
 		<object x="1492.686" y="2064.993" z="598.75" h="40"/>
 		<object x="1634.5044" y="2140.6045" z="592.0872" h="73"/>
@@ -3181,7 +3169,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1599.1814" y="2129.0999" z="587.89996" h="5"/>
 		<object x="1593.7299" y="2112.558" z="584.6035" h="2"/>
 	</spawn>
-	<!-- Cold Storm Spirit (Monster lvl:43)-->
+	<!-- Cold Storm Spirit (Monster  lvl:43)-->
 	<spawn map="220040000" npcid="213237" pool="21" interval="105">
 		<object x="2550.0415" y="1401.2787" z="398.25" h="10"/>
 		<object x="2616.1992" y="1126.1755" z="375.10156" h="16"/>
@@ -3205,7 +3193,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2495.372" y="1211.874" z="365.66425" h="92"/>
 		<object x="2728.054" y="1620.448" z="419.9276" h="119"/>
 	</spawn>
-	<!-- Cold Cyclone Spirit (Monster lvl:43)-->
+	<!-- Cold Cyclone Spirit (Monster  lvl:43)-->
 	<spawn map="220040000" npcid="213234" pool="21" interval="105">
 		<object x="2543.1372" y="1291.8391" z="381.68896" h="112"/>
 		<object x="2595.5308" y="1198.713" z="364.3152" h="68"/>
@@ -3229,16 +3217,16 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2454.962" y="1184.664" z="364.27338" h="1"/>
 		<object x="2596.889" y="1458.209" z="401.47058" h="81"/>
 	</spawn>
-	<!-- Blade Captain Gauri (Monster lvl:46)-->
+	<!-- Blade Captain Gauri (Monster Hero lvl:46)-->
 	<spawn map="220040000" npcid="213770" pool="1" interval="14400">
 		<object x="1546.9355" y="2521.0706" z="645.3004" h="31"/>
 	</spawn>
-	<!-- Bridge of Heaven (Monster lvl:)-->
+	<!-- Bridge of Heaven (Monster  lvl:)-->
 	<spawn map="220040000" npcid="206069" pool="1" interval="105">
 		<object x="1338.334" y="1176.557" z="233.38887" h="120"/>
 	</spawn>
-	<!-- Deep Sea Lobnite (Monster lvl:44)-->
-	<spawn map="220040000" npcid="213373" pool="106" interval="105">
+	<!-- Deep Sea Lobnite (Monster Elite lvl:44)-->
+	<spawn map="220040000" npcid="213373" pool="106" interval="300">
 		<object x="700.5363" y="2739.9836" z="178.7556" h="93"/>
 		<object x="695.16016" y="2887.245" z="179.1149" h="28"/>
 		<object x="689.6672" y="2876.2144" z="178.87207" h="25"/>
@@ -3346,7 +3334,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="510.86752" y="2792.697" z="188.01508" h="49"/>
 		<object x="516.8016" y="2776.1355" z="187.2585" h="2"/>
 	</spawn>
-	<!-- Deep Sea Crynac (Monster lvl:44)-->
+	<!-- Deep Sea Crynac (Monster  lvl:44)-->
 	<spawn map="220040000" npcid="213375" pool="6" interval="105">
 		<object x="747.89075" y="2869.2068" z="183.75" h="91"/>
 		<object x="741.1039" y="2878.1658" z="183.67065" h="86"/>
@@ -3355,28 +3343,25 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="728.41626" y="2871.39" z="183.65102" h="94"/>
 		<object x="735.10315" y="2863.4885" z="183.72592" h="84"/>
 	</spawn>
-	<!-- Decent Water Spirit (Monster lvl:43)-->
-	<spawn map="220040000" npcid="280706" pool="18" interval="105">
+	<!-- Decent Water Spirit (Monster Elite lvl:43)-->
+	<spawn map="220040000" npcid="280706" pool="15" interval="300">
 		<object x="225.32" y="1591.7" z="212.20628" h="83"/>
 		<object x="224.56" y="1603.69" z="214.88597" h="105"/>
 		<object x="216.84" y="1594.82" z="211.96346" h="2"/>
 		<object x="213.46" y="1596.16" z="212.5008" h="82"/>
 		<object x="220.46" y="1601.81" z="214.30103" h="100"/>
 		<object x="209.49" y="1592.64" z="211.47498" h="77"/>
-		<object x="216.31" y="1600.25" z="213.82605" h="44"/>
 		<object x="208.5" y="1596.1" z="212.68648" h="106"/>
-		<object x="214.05" y="1603.76" z="215.05682" h="83"/>
 		<object x="220.74" y="1599.16" z="213.39172" h="107"/>
 		<object x="209.1" y="1602.9" z="214.96179" h="0"/>
 		<object x="210.55" y="1598.49" z="213.4098" h="49"/>
 		<object x="224.64" y="1598.79" z="213.2108" h="95"/>
 		<object x="218.79" y="1590.69" z="211.01439" h="92"/>
-		<object x="214.67" y="1599.94" z="213.74304" h="81"/>
 		<object x="220.42" y="1596.67" z="212.5455" h="25"/>
 		<object x="208.24" y="1591.92" z="211.28336" h="35"/>
 		<object x="220.88" y="1602.63" z="206.375" h="114"/>
 	</spawn>
-	<!-- Decaying Zombie (Monster lvl:37)-->
+	<!-- Decaying Zombie (Monster  lvl:37)-->
 	<spawn map="220040000" npcid="213547" pool="23" interval="105">
 		<object x="1040.3007" y="1641.6182" z="227.3034" h="36"/>
 		<object x="1070.8507" y="1723.6411" z="235.20059" h="109"/>
@@ -3402,7 +3387,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1097.5624" y="1771.19" z="239.69577" h="55"/>
 		<object x="1057.2872" y="1776.9738" z="239.60541" h="100"/>
 	</spawn>
-	<!-- Ferocious Tayga (Monster lvl:40)-->
+	<!-- Ferocious Tayga (Monster  lvl:40)-->
 	<spawn map="220040000" npcid="213094" pool="68" interval="105">
 		<object x="2451.8315" y="1450.7753" z="506.13202" h="29"/>
 		<object x="2456.7615" y="1489.7548" z="503.60968" h="42"/>
@@ -3473,8 +3458,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2110.1118" y="1749.7734" z="521.7145" h="83"/>
 		<object x="2499.9836" y="242.10854" z="357.64636" h="6"/>
 	</spawn>
-	<!-- Faithful Servant (Monster lvl:43)-->
-	<spawn map="220040000" npcid="280715" pool="15" interval="105">
+	<!-- Faithful Servant (Monster Elite lvl:43)-->
+	<spawn map="220040000" npcid="280715" pool="15" interval="300">
 		<object x="366.16" y="1686.92" z="214.15938" h="31"/>
 		<object x="214.85" y="1599.44" z="213.5697" h="93"/>
 		<object x="219.99" y="1604.08" z="215.0831" h="88"/>
@@ -3491,7 +3476,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="214.78" y="1603.32" z="214.89627" h="27"/>
 		<object x="200.83" y="1634.52" z="218.91422" h="68"/>
 	</spawn>
-	<!-- Drowned Nahas (Monster lvl:44)-->
+	<!-- Drowned Nahas (Monster Hero lvl:44)-->
 	<spawn map="220040000" npcid="213742" pool="1" interval="14400">
 		<object x="763.4433" y="2795.0408" z="229.63469" h="69"/>
 		<object x="755.98" y="2626.0" z="205.76285" h="77"/>
@@ -3499,7 +3484,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="786.98" y="2978.0" z="221.6773" h="97"/>
 		<object x="447.98" y="2835.0" z="345.83667" h="22"/>
 	</spawn>
-	<!-- Cursed Vigilante (Monster lvl:35)-->
+	<!-- Cursed Vigilante (Monster  lvl:35)-->
 	<spawn map="220040000" npcid="214089" pool="24" interval="105">
 		<object x="814.452" y="1352.3337" z="214.72043" h="33"/>
 		<object x="830.5211" y="1361.236" z="216.38403" h="32"/>
@@ -3526,7 +3511,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="806.85333" y="1380.126" z="220.21242" h="100"/>
 		<object x="806.98224" y="1366.4657" z="219.12404" h="71"/>
 	</spawn>
-	<!-- Faithful Underling (Monster lvl:44)-->
+	<!-- Faithful Underling (Monster  lvl:44)-->
 	<spawn map="220040000" npcid="280645" pool="13" interval="105">
 		<object x="1507.75" y="2367.03" z="634.6894" h="74"/>
 		<object x="1538.91" y="2413.54" z="655.47815" h="21"/>
@@ -3542,8 +3527,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1548.91" y="2376.87" z="633.91064" h="10"/>
 		<object x="1486.21" y="2390.99" z="640.66187" h="68"/>
 	</spawn>
-	<!-- Faithful Servant (Monster lvl:46)-->
-	<spawn map="220040000" npcid="280712" pool="10" interval="105">
+	<!-- Faithful Servant (Monster  lvl:46)-->
+	<spawn map="220040000" npcid="280712" pool="9" interval="105">
 		<object x="798.9" y="2953.84" z="397.66016" h="79"/>
 		<object x="810.13" y="2964.51" z="400.30344" h="90"/>
 		<object x="812.03" y="2967.29" z="400.72232" h="36"/>
@@ -3552,10 +3537,9 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="795.48" y="2953.47" z="397.19934" h="36"/>
 		<object x="797.88" y="2951.23" z="397.22595" h="85"/>
 		<object x="797.5967" y="2950.4421" z="397.0263" h="69"/>
-		<object x="796.1384" y="2951.7183" z="397.0553" h="55"/>
 		<object x="798.14" y="2951.73" z="397.33652" h="37"/>
 	</spawn>
-	<!-- Cursed Mercenary (Monster lvl:36)-->
+	<!-- Cursed Mercenary (Monster  lvl:36)-->
 	<spawn map="220040000" npcid="214091" pool="5" interval="105">
 		<object x="903.3477" y="1515.4355" z="213.88867" h="76"/>
 		<object x="857.0617" y="1545.7" z="213.375" h="18"/>
@@ -3563,7 +3547,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="890.543" y="1447.4413" z="215.50781" h="109"/>
 		<object x="807.9669" y="1386.8556" z="220.01392" h="7"/>
 	</spawn>
-	<!-- Floating Caltrops (Monster lvl:36)-->
+	<!-- Floating Caltrops (Monster  lvl:36)-->
 	<spawn map="220040000" npcid="213059" pool="27" interval="105">
 		<object x="1034.2529" y="325.93826" z="348.875" h="111"/>
 		<object x="1136.6459" y="307.47214" z="319.467" h="78"/>
@@ -3593,11 +3577,11 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1601.5934" y="770.21814" z="331.5476" h="28"/>
 		<object x="1601.3903" y="758.04767" z="332.86377" h="55"/>
 	</spawn>
-	<!-- Divine Shard (Monster lvl:36)-->
+	<!-- Divine Shard (Monster  lvl:36)-->
 	<spawn map="220040000" npcid="213713" pool="1" interval="105">
 		<object x="1077.122" y="480.99887" z="286.19513" h="34"/>
 	</spawn>
-	<!-- White Wriggot (Monster lvl:32)-->
+	<!-- White Wriggot (Monster  lvl:32)-->
 	<spawn map="220040000" npcid="213055" pool="27" interval="105">
 		<object x="1218.216" y="346.1149" z="283.9595" h="78"/>
 		<object x="1277.168" y="663.8314" z="244.21892" h="82"/>
@@ -3627,8 +3611,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1247.698" y="306.0601" z="293.3256" h="43"/>
 		<object x="1260.687" y="428.3801" z="256.01538" h="65"/>
 	</spawn>
-	<!-- Frost Agrint (Monster lvl:38)-->
-	<spawn map="220040000" npcid="213142" pool="47" interval="105">
+	<!-- Frost Agrint (Monster  lvl:38)-->
+	<spawn map="220040000" npcid="213142" pool="46" interval="105">
 		<object x="551.3488" y="1718.324" z="213.60475" h="14"/>
 		<object x="594.7964" y="1726.6792" z="212.34222" h="30"/>
 		<object x="584.04504" y="1748.0995" z="213.11877" h="69"/>
@@ -3640,7 +3624,6 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="629.2254" y="1840.0356" z="215.25" h="77"/>
 		<object x="615.0904" y="1878.2754" z="215.25" h="105"/>
 		<object x="660.5947" y="1877.5421" z="215.34637" h="78"/>
-		<object x="660.24634" y="1877.1611" z="215.32257" h="43"/>
 		<object x="679.53644" y="1833.7864" z="215.13835" h="93"/>
 		<object x="807.9075" y="1854.3412" z="240.49422" h="96"/>
 		<object x="756.73236" y="1798.0494" z="248.77728" h="17"/>
@@ -3677,7 +3660,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="482.2992" y="2005.8358" z="215.25" h="20"/>
 		<object x="463.88394" y="2010.6969" z="215.25" h="52"/>
 	</spawn>
-	<!-- Friar Lich (Monster lvl:39)-->
+	<!-- Friar Lich (Monster  lvl:39)-->
 	<spawn map="220040000" npcid="213173" pool="17" interval="105">
 		<object x="839.33044" y="2120.6433" z="256.7065" h="1"/>
 		<object x="957.69885" y="2195.408" z="295.625" h="14"/>
@@ -3697,8 +3680,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="890.84247" y="2183.447" z="257.92764" h="12"/>
 		<object x="846.8456" y="2153.279" z="256.18564" h="40"/>
 	</spawn>
-	<!-- Drakmotir (Monster lvl:45)-->
-	<spawn map="220040000" npcid="213695" pool="9" interval="105">
+	<!-- Drakmotir (Monster Elite lvl:45)-->
+	<spawn map="220040000" npcid="213695" pool="9" interval="300">
 		<object x="1988.8777" y="2138.0012" z="588.3747" h="101"/>
 		<object x="2006.679" y="2134.846" z="588.19324" h="9"/>
 		<object x="1977.9637" y="2207.9358" z="583.0126" h="107"/>
@@ -3709,7 +3692,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1466.2863" y="2012.0161" z="615.3226" h="32"/>
 		<object x="1459.1993" y="1993.7858" z="612.4347" h="4"/>
 	</spawn>
-	<!-- Fierce Undead Worg (Monster lvl:23)-->
+	<!-- Fierce Undead Worg (Monster  lvl:23)-->
 	<spawn map="220040000" npcid="213247" pool="14" interval="105">
 		<object x="990.764" y="1630.3402" z="219.95145" h="104"/>
 		<object x="1002.5039" y="1587.9833" z="235.56723" h="20"/>
@@ -3726,7 +3709,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1080.3385" y="1659.2506" z="228.74548" h="92"/>
 		<object x="1019.6045" y="1689.7242" z="223.54518" h="55"/>
 	</spawn>
-	<!-- Crystalhorn Gorgon (Monster lvl:43)-->
+	<!-- Crystalhorn Gorgon (Monster  lvl:43)-->
 	<spawn map="220040000" npcid="213314" pool="10" interval="105">
 		<object x="2857.457" y="2198.7927" z="593.23395" h="65"/>
 		<object x="2894.5642" y="2256.5488" z="597.53235" h="50"/>
@@ -3739,7 +3722,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2843.8528" y="2334.1992" z="595.86633" h="19"/>
 		<object x="2856.4695" y="2352.6238" z="604.7202" h="102"/>
 	</spawn>
-	<!-- Red Thorn Monitor (Monster lvl:31)-->
+	<!-- Red Thorn Monitor (Monster  lvl:31)-->
 	<spawn map="220040000" npcid="213015" pool="38" interval="105">
 		<object x="577.3178" y="849.4078" z="243.46881" h="86"/>
 		<object x="571.1255" y="730.6021" z="233.39111" h="16"/>
@@ -3780,8 +3763,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="726.4964" y="774.7341" z="237.82649" h="106"/>
 		<object x="624.8322" y="840.5569" z="251.95767" h="19"/>
 	</spawn>
-	<!-- Fang Troll Hunter (Monster lvl:41)-->
-	<spawn map="220040000" npcid="213211" pool="59" interval="105">
+	<!-- Fang Troll Hunter (Monster  lvl:41)-->
+	<spawn map="220040000" npcid="213211" pool="58" interval="105">
 		<object x="2246.84" y="1632.221" z="516.0276" h="14"/>
 		<object x="2219.3933" y="1659.4767" z="521.7552" h="52"/>
 		<object x="2248.8738" y="1655.9181" z="518.1203" h="89"/>
@@ -3825,7 +3808,6 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1810.911" y="1694.8644" z="564.3832" h="44"/>
 		<object x="1912.011" y="1634.0247" z="552.7543" h="29"/>
 		<object x="1985.0454" y="1732.0687" z="542.48145" h="64"/>
-		<object x="1970.3702" y="1735.622" z="544.33704" h="72"/>
 		<object x="2253.3384" y="1705.4568" z="525.48083" h="69"/>
 		<object x="2221.5046" y="1680.3745" z="525.00714" h="34"/>
 		<object x="2385.8982" y="1780.3752" z="545.7373" h="84"/>
@@ -3842,7 +3824,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2147.8457" y="1978.0541" z="580.91406" h="40"/>
 		<object x="2196.0027" y="2081.1064" z="579.7365" h="15"/>
 	</spawn>
-	<!-- Fierce Daru (Monster lvl:40)-->
+	<!-- Fierce Daru (Monster  lvl:40)-->
 	<spawn map="220040000" npcid="213253" pool="31" interval="105">
 		<object x="2356.9116" y="1076.0809" z="483.04593" h="79"/>
 		<object x="2619.4326" y="758.2584" z="495.53882" h="114"/>
@@ -3876,22 +3858,22 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2872.5642" y="961.2093" z="475.35074" h="89"/>
 		<object x="2807.517" y="1016.4206" z="475.625" h="13"/>
 	</spawn>
-	<!-- Masto the Ancient (Monster lvl:42)-->
+	<!-- Masto the Ancient (Monster Hero lvl:42)-->
 	<spawn map="220040000" npcid="213729" pool="1" interval="14400">
 		<object x="2598.0" y="354.0" z="282.875" h="73"/>
 	</spawn>
-	<!-- Garrison Patrol Leader (Monster lvl:50)-->
+	<!-- Garrison Patrol Leader (Monster Hero lvl:50)-->
 	<spawn map="220040000" npcid="207783" pool="1" interval="14400">
 		<object x="1898.616" y="502.3484" z="412.1468" h="72"/>
 		<object x="1905.369" y="505.1873" z="412.28943" h="16"/>
 		<object x="2468.455" y="2067.293" z="577.2545" h="104"/>
 		<object x="2472.951" y="2075.736" z="577.22736" h="39"/>
 	</spawn>
-	<!-- Aarien the Seacaller (Named Mob lvl:43)-->
+	<!-- Aarien the Seacaller (Named Mob Hero lvl:43)-->
 	<spawn map="220040000" npcid="213738" pool="1" interval="14400">
 		<object x="216.2699" y="1600.65" z="213.96327" h="70"/>
 	</spawn>
-	<!-- Trap of Slowing (Monster lvl:37)-->
+	<!-- Trap of Slowing (Monster  lvl:37)-->
 	<spawn map="220040000" npcid="749170" pool="7" interval="105">
 		<object x="2862.55" y="2301.15" z="586.3031" h="97"/>
 		<object x="2417.73" y="1467.12" z="503.26688" h="71"/>
@@ -3901,26 +3883,26 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2755.65" y="2717.83" z="705.5593" h="16"/>
 		<object x="2770.93" y="2681.67" z="704.35126" h="10"/>
 	</spawn>
-	<!-- Swimmersbane (Named Mob lvl:44)-->
+	<!-- Swimmersbane (Named Mob Hero lvl:44)-->
 	<spawn map="220040000" npcid="213743" pool="1" interval="14400">
 		<object x="699.9301" y="2769.731" z="323.55307" h="92"/>
 		<object x="679.2416" y="2737.026" z="322.40714" h="15"/>
 		<object x="691.2329" y="2702.073" z="326.44037" h="10"/>
 	</spawn>
-	<!-- Aika Deathsong (Named Mob lvl:44)-->
-	<spawn map="220040000" npcid="213741" pool="1" interval="1800">
+	<!-- Aika Deathsong (Named Mob Elite lvl:44)-->
+	<spawn map="220040000" npcid="213741" pool="1" interval="3600">
 		<object x="856.7704" y="2636.287" z="310.29608" h="54"/>
 	</spawn>
-	<!-- Old Wise Skiron (Named Mob lvl:45)-->
+	<!-- Old Wise Skiron (Named Mob Hero lvl:45)-->
 	<spawn map="220040000" npcid="213746" pool="1" interval="14400">
 		<object x="654.0" y="2867.128" z="131.39099" h="108"/>
 		<object x="772.0" y="2681.498" z="126.75" h="75"/>
 	</spawn>
-	<!-- Queen Alukina (Boss lvl:46)-->
+	<!-- Queen Alukina (Boss Hero lvl:46)-->
 	<spawn map="220040000" npcid="213747" pool="1" interval="14400">
 		<object x="796.6738" y="2951.997" z="397.16766" h="2"/>
 	</spawn>
-	<!-- Destruction Trap (Monster lvl:34)-->
+	<!-- Destruction Trap (Monster  lvl:34)-->
 	<spawn map="220040000" npcid="749163" pool="7" interval="105">
 		<object x="1079.22" y="460.87" z="290.695" h="68"/>
 		<object x="653.61" y="702.11" z="228.51437" h="19"/>
@@ -3930,21 +3912,20 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1081.78" y="994.53" z="232.81189" h="85"/>
 		<object x="192.0" y="1110.81" z="274.44937" h="3"/>
 	</spawn>
-	<!-- Quiet Elime (Named Mob lvl:44)-->
+	<!-- Quiet Elime (Named Mob Hero lvl:44)-->
 	<spawn map="220040000" npcid="213744" pool="1" interval="14400">
 		<object x="638.0" y="2900.0" z="296.0491" h="45"/>
 	</spawn>
-	<!-- Bakarma Cursewitch (Monster lvl:47)-->
-	<spawn map="220040000" npcid="213444" pool="1" interval="105">
+	<!-- Bakarma Cursewitch (Monster Elite lvl:47)-->
+	<spawn map="220040000" npcid="213444" pool="1" interval="300">
 		<object x="1604.0" y="2728.0" z="705.625" h="118"/>
 	</spawn>
-	<!-- Sepra Surftalker (Named Mob lvl:45)-->
+	<!-- Sepra Surftalker (Named Mob Hero lvl:45)-->
 	<spawn map="220040000" npcid="213745" pool="1" interval="14400">
 		<object x="550.0" y="2768.0" z="351.6327" h="47"/>
-		<object x="550.18" y="2768.67" z="351.63104" h="52"/>
 	</spawn>
-	<!-- Chieftain Chantara (Named Mob lvl:43)-->
-	<spawn map="220040000" npcid="213750" pool="1" interval="1800">
+	<!-- Chieftain Chantara (Named Mob Elite lvl:43)-->
+	<spawn map="220040000" npcid="213750" pool="1" interval="3600">
 		<object x="2765.0" y="2024.0" z="601.0" h="35"/>
 		<object x="2643.83" y="2063.65" z="582.59314" h="20"/>
 		<object x="2639.96" y="2064.43" z="581.96814" h="74"/>
@@ -3957,31 +3938,31 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2763.98" y="2028.91" z="601.72253" h="13"/>
 		<object x="2762.57" y="2017.52" z="598.8619" h="95"/>
 	</spawn>
-	<!-- Captain Shahaar (Named Mob lvl:43)-->
-	<spawn map="220040000" npcid="213751" pool="1" interval="1800">
+	<!-- Captain Shahaar (Named Mob Elite lvl:43)-->
+	<spawn map="220040000" npcid="213751" pool="1" interval="3600">
 		<object x="2245.185" y="2462.221" z="601.375" h="30"/>
 	</spawn>
-	<!-- Trap of Slowing (Monster lvl:37)-->
+	<!-- Trap of Slowing (Monster  lvl:37)-->
 	<spawn map="220040000" npcid="749167" pool="4" interval="105">
 		<object x="2129.43" y="2563.08" z="608.8681" h="35"/>
 		<object x="1020.13" y="837.17" z="238.0875" h="99"/>
 		<object x="2313.05" y="1705.81" z="534.935" h="30"/>
 		<object x="2249.82" y="2032.32" z="570.9888" h="5"/>
 	</spawn>
-	<!-- Lieutenant Dynah (Named Mob lvl:43)-->
-	<spawn map="220040000" npcid="213758" pool="1" interval="1800">
+	<!-- Lieutenant Dynah (Named Mob Elite lvl:43)-->
+	<spawn map="220040000" npcid="213758" pool="1" interval="3600">
 		<object x="2514.201" y="2655.495" z="669.17267" h="109"/>
 	</spawn>
-	<!-- Captain Vener (Named Mob lvl:44)-->
-	<spawn map="220040000" npcid="213759" pool="1" interval="1800">
+	<!-- Captain Vener (Named Mob Elite lvl:44)-->
+	<spawn map="220040000" npcid="213759" pool="1" interval="3600">
 		<object x="2452.29" y="2506.964" z="672.4927" h="43"/>
 	</spawn>
-	<!-- Instructor Mara (Monster lvl:43)-->
+	<!-- Instructor Mara (Monster Hero lvl:43)-->
 	<spawn map="220040000" npcid="213757" pool="1" interval="14400">
 		<object x="2880.325" y="2669.675" z="679.125" h="117"/>
 	</spawn>
-	<!-- Seabreeze Skyray (Monster lvl:44)-->
-	<spawn map="220040000" npcid="213369" pool="56" interval="105">
+	<!-- Seabreeze Skyray (Monster Elite lvl:44)-->
+	<spawn map="220040000" npcid="213369" pool="56" interval="300">
 		<object x="484.0101" y="2818.883" z="246.51022" h="96"/>
 		<object x="844.4031" y="2935.052" z="310.93393" h="32"/>
 		<object x="552.8669" y="2705.182" z="280.0004" h="63"/>
@@ -4039,8 +4020,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="866.1345" y="2742.29" z="344.89468" h="85"/>
 		<object x="846.2951" y="2901.682" z="279.50397" h="106"/>
 	</spawn>
-	<!-- Gloomy Water Spirit (Monster lvl:43)-->
-	<spawn map="220040000" npcid="280705" pool="16" interval="105">
+	<!-- Gloomy Water Spirit (Monster Elite lvl:43)-->
+	<spawn map="220040000" npcid="280705" pool="16" interval="300">
 		<object x="219.12" y="1602.69" z="214.62036" h="21"/>
 		<object x="211.13" y="1596.77" z="212.80391" h="94"/>
 		<object x="210.71" y="1601.04" z="214.26575" h="29"/>
@@ -4058,8 +4039,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="196.55" y="1647.05" z="217.81137" h="37"/>
 		<object x="225.07" y="1596.9" z="212.55907" h="49"/>
 	</spawn>
-	<!-- Red Tail Spiner (Monster lvl:44)-->
-	<spawn map="220040000" npcid="213365" pool="31" interval="105">
+	<!-- Red Tail Spiner (Monster Elite lvl:44)-->
+	<spawn map="220040000" npcid="213365" pool="31" interval="300">
 		<object x="539.3915" y="2782.892" z="160.25" h="74"/>
 		<object x="852.3203" y="2650.79" z="157.5" h="100"/>
 		<object x="624.8049" y="2620.037" z="126.74304" h="33"/>
@@ -4092,7 +4073,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="787.7585" y="2934.486" z="166.375" h="41"/>
 		<object x="787.4457" y="2764.248" z="176.52255" h="30"/>
 	</spawn>
-	<!-- Water Energy (Monster lvl:32)-->
+	<!-- Water Energy (Monster  lvl:32)-->
 	<spawn map="220040000" npcid="749139" pool="5" interval="105">
 		<object x="399.66" y="473.46" z="226.38875" h="46"/>
 		<object x="405.98" y="505.74" z="219.895" h="39"/>
@@ -4100,12 +4081,12 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="448.5" y="499.31" z="218.43437" h="107"/>
 		<object x="2758.59" y="2029.03" z="600.8075" h="60"/>
 	</spawn>
-	<!-- Sandstorm Trap (Monster lvl:44)-->
+	<!-- Sandstorm Trap (Monster  lvl:44)-->
 	<spawn map="220040000" npcid="749034" pool="1" interval="105">
 		<object x="2619.47" y="1161.23" z="375.34625" h="93"/>
 	</spawn>
-	<!-- Sea Potcrab (Monster lvl:44)-->
-	<spawn map="220040000" npcid="213361" pool="38" interval="105">
+	<!-- Sea Potcrab (Monster Elite lvl:44)-->
+	<spawn map="220040000" npcid="213361" pool="38" interval="300">
 		<object x="580.0" y="2708.0" z="131.75" h="113"/>
 		<object x="615.58" y="2687.48" z="126.685" h="117"/>
 		<object x="581.37" y="2707.38" z="131.78876" h="52"/>
@@ -4145,8 +4126,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="707.44" y="2666.88" z="127.34" h="106"/>
 		<object x="705.23" y="2670.53" z="127.25" h="79"/>
 	</spawn>
-	<!-- Seiren Coastguard (Monster lvl:44)-->
-	<spawn map="220040000" npcid="213573" pool="39" interval="105">
+	<!-- Seiren Coastguard (Monster Elite lvl:44)-->
+	<spawn map="220040000" npcid="213573" pool="37" interval="300">
 		<object x="671.89" y="2641.26" z="127.90311" h="2"/>
 		<object x="671.67" y="2643.27" z="127.703125" h="113"/>
 		<object x="620.53" y="2765.34" z="126.833755" h="100"/>
@@ -4160,7 +4141,6 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="620.66754" y="2722.353" z="126.210846" h="34"/>
 		<object x="668.31" y="2937.09" z="154.12619" h="113"/>
 		<object x="621.7893" y="2609.553" z="127.56998" h="105"/>
-		<object x="621.9667" y="2609.5142" z="127.60247" h="0"/>
 		<object x="650.64" y="2648.56" z="127.35742" h="51"/>
 		<object x="651.31" y="2646.75" z="127.62556" h="46"/>
 		<object x="729.47" y="2789.67" z="205.48746" h="42"/>
@@ -4183,12 +4163,11 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="724.57025" y="2883.1826" z="183.62813" h="112"/>
 		<object x="663.0038" y="2939.7852" z="145.36076" h="46"/>
 		<object x="781.14325" y="2846.1917" z="217.7505" h="76"/>
-		<object x="758.95294" y="2841.3384" z="204.81903" h="32"/>
 		<object x="633.71" y="2959.58" z="225.57956" h="7"/>
 		<object x="632.85754" y="2826.5493" z="135.7982" h="67"/>
 	</spawn>
-	<!-- Sea Starturtle (Monster lvl:44)-->
-	<spawn map="220040000" npcid="213363" pool="19" interval="105">
+	<!-- Sea Starturtle (Monster Elite lvl:44)-->
+	<spawn map="220040000" npcid="213363" pool="19" interval="300">
 		<object x="654.2189" y="2644.278" z="128.22891" h="7"/>
 		<object x="879.5888" y="2651.567" z="157.5" h="43"/>
 		<object x="636.4429" y="2903.582" z="140.08704" h="27"/>
@@ -4209,8 +4188,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="754.2377" y="2676.255" z="126.75" h="68"/>
 		<object x="869.2184" y="2685.385" z="146.02585" h="56"/>
 	</spawn>
-	<!-- Sea Malodor Sprout (Monster lvl:44)-->
-	<spawn map="220040000" npcid="213356" pool="36" interval="105">
+	<!-- Sea Malodor Sprout (Monster Elite lvl:44)-->
+	<spawn map="220040000" npcid="213356" pool="35" interval="300">
 		<object x="563.6509" y="2731.632" z="353.7321" h="33"/>
 		<object x="657.2711" y="2757.387" z="336.8994" h="58"/>
 		<object x="550.0475" y="2773.285" z="351.74197" h="62"/>
@@ -4238,7 +4217,6 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="675.1181" y="2763.613" z="320.10468" h="83"/>
 		<object x="620.0" y="2911.0" z="296.4841" h="78"/>
 		<object x="725.3253" y="2976.712" z="352.7881" h="120"/>
-		<object x="620.5367" y="2911.422" z="296.5162" h="69"/>
 		<object x="657.1891" y="2959.614" z="361.69586" h="71"/>
 		<object x="637.0555" y="2902.005" z="296.10007" h="3"/>
 		<object x="666.6107" y="2998.398" z="354.48077" h="68"/>
@@ -4248,8 +4226,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="720.1618" y="3004.813" z="361.60007" h="9"/>
 		<object x="687.0255" y="2988.688" z="352.8128" h="24"/>
 	</spawn>
-	<!-- Seafoam Spirit (Monster lvl:44)-->
-	<spawn map="220040000" npcid="213358" pool="46" interval="105">
+	<!-- Seafoam Spirit (Monster Elite lvl:44)-->
+	<spawn map="220040000" npcid="213358" pool="45" interval="300">
 		<object x="625.1403" y="2935.088" z="226.34015" h="7"/>
 		<object x="661.1828" y="2871.088" z="294.71005" h="39"/>
 		<object x="618.2219" y="2926.261" z="303.5278" h="75"/>
@@ -4285,7 +4263,6 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="671.527" y="2885.401" z="297.23154" h="50"/>
 		<object x="594.8908" y="2862.401" z="280.7479" h="44"/>
 		<object x="629.0441" y="2909.246" z="296.6151" h="58"/>
-		<object x="602.0" y="2837.0" z="215.19809" h="46"/>
 		<object x="617.9287" y="2849.72" z="213.3408" h="112"/>
 		<object x="624.5945" y="2939.79" z="225.80116" h="10"/>
 		<object x="551.5535" y="2848.198" z="281.18936" h="14"/>
@@ -4297,8 +4274,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="575.472" y="2847.287" z="281.7701" h="108"/>
 		<object x="650.7828" y="2970.584" z="224.53372" h="99"/>
 	</spawn>
-	<!-- Seiren Fishtamer (Monster lvl:44)-->
-	<spawn map="220040000" npcid="213353" pool="41" interval="105">
+	<!-- Seiren Fishtamer (Monster Elite lvl:44)-->
+	<spawn map="220040000" npcid="213353" pool="39" interval="300">
 		<object x="690.27356" y="2772.0942" z="327.5753" h="45"/>
 		<object x="658.52" y="2749.04" z="320.6067" h="117"/>
 		<object x="643.17" y="2769.56" z="319.5991" h="15"/>
@@ -4320,12 +4297,10 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="680.28" y="2754.69" z="321.7788" h="22"/>
 		<object x="669.96" y="2780.15" z="319.71176" h="76"/>
 		<object x="645.17" y="2775.56" z="319.10025" h="12"/>
-		<object x="690.04706" y="2772.7715" z="328.79657" h="94"/>
 		<object x="669.11" y="2706.32" z="329.31152" h="40"/>
 		<object x="675.85" y="2671.75" z="330.82523" h="90"/>
 		<object x="714.41" y="2645.79" z="333.5278" h="37"/>
 		<object x="706.0" y="2674.25" z="330.2621" h="82"/>
-		<object x="767.52" y="2682.5" z="335.16727" h="59"/>
 		<object x="756.15" y="2646.09" z="340.49957" h="60"/>
 		<object x="768.84" y="2717.08" z="327.66763" h="6"/>
 		<object x="853.0" y="2618.06" z="313.32556" h="54"/>
@@ -4341,8 +4316,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="764.52" y="2687.5" z="334.03915" h="85"/>
 		<object x="753.15" y="2650.09" z="339.6474" h="97"/>
 	</spawn>
-	<!-- Demolitionist Horst (Named Mob lvl:37)-->
-	<spawn map="220040000" npcid="213719" pool="1" interval="1800">
+	<!-- Demolitionist Horst (Named Mob Elite lvl:37)-->
+	<spawn map="220040000" npcid="213719" pool="1" interval="3600">
 		<object x="1666.0" y="1220.0" z="276.0" h="73"/>
 		<object x="1532.0" y="1146.0" z="233.25" h="31"/>
 		<object x="1314.62" y="1005.18" z="234.78876" h="107"/>
@@ -4353,8 +4328,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1528.23" y="1162.81" z="234.38" h="34"/>
 		<object x="1649.19" y="1155.95" z="258.73438" h="99"/>
 	</spawn>
-	<!-- Officer Poretti (Monster lvl:37)-->
-	<spawn map="220040000" npcid="213720" pool="20" interval="105">
+	<!-- Officer Poretti (Monster Elite lvl:37)-->
+	<spawn map="220040000" npcid="213720" pool="20" interval="300">
 		<object x="1519.0" y="1456.0" z="304.5" h="73"/>
 		<object x="1454.75" y="1233.75" z="235.03125" h="119"/>
 		<object x="1439.65" y="1240.01" z="234.60312" h="65"/>
@@ -4376,12 +4351,12 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1408.07" y="1361.11" z="271.2225" h="3"/>
 		<object x="1468.42" y="1221.67" z="234.39189" h="116"/>
 	</spawn>
-	<!-- Ruby Jannsen (Monster lvl:36)-->
-	<spawn map="220040000" npcid="213721" pool="1" interval="105">
+	<!-- Ruby Jannsen (Monster Elite lvl:36)-->
+	<spawn map="220040000" npcid="213721" pool="1" interval="300">
 		<object x="1599.0" y="1367.0" z="316.3125" h="93"/>
 	</spawn>
-	<!-- Seiren Choralist (Monster lvl:46)-->
-	<spawn map="220040000" npcid="213349" pool="26" interval="105">
+	<!-- Seiren Choralist (Monster Elite lvl:46)-->
+	<spawn map="220040000" npcid="213349" pool="26" interval="300">
 		<object x="867.7836" y="2620.428" z="314.01135" h="16"/>
 		<object x="811.9724" y="2938.16" z="394.8528" h="106"/>
 		<object x="883.611" y="2715.829" z="303.7594" h="25"/>
@@ -4409,18 +4384,18 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="834.1342" y="2669.295" z="306.04764" h="68"/>
 		<object x="798.4647" y="2931.149" z="393.82422" h="67"/>
 	</spawn>
-	<!-- Supervisor Magnis (Boss lvl:38)-->
+	<!-- Supervisor Magnis (Boss Hero lvl:38)-->
 	<spawn map="220040000" npcid="213722" pool="1" interval="14400">
 		<object x="1548.108" y="1570.5" z="333.09457" h="82"/>
 	</spawn>
-	<!-- Mine Deathblade (Monster lvl:38)-->
-	<spawn map="220040000" npcid="213275" pool="3" interval="105">
+	<!-- Mine Deathblade (Monster Elite lvl:38)-->
+	<spawn map="220040000" npcid="213275" pool="3" interval="300">
 		<object x="1597.739" y="1464.142" z="323.7337" h="62"/>
 		<object x="1534.43" y="1503.27" z="316.0269" h="8"/>
 		<object x="1644.331" y="1502.04" z="331.83777" h="98"/>
 	</spawn>
-	<!-- Mine Warrior (Monster lvl:37)-->
-	<spawn map="220040000" npcid="213274" pool="8" interval="105">
+	<!-- Mine Warrior (Monster Elite lvl:37)-->
+	<spawn map="220040000" npcid="213274" pool="8" interval="300">
 		<object x="1574.589" y="1538.169" z="323.38586" h="92"/>
 		<object x="1489.814" y="1519.985" z="319.14636" h="114"/>
 		<object x="1527.511" y="1465.677" z="304.3515" h="29"/>
@@ -4430,8 +4405,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1562.879" y="1464.87" z="324.69424" h="88"/>
 		<object x="1585.355" y="1531.554" z="322.11362" h="98"/>
 	</spawn>
-	<!-- Mine Protector (Monster lvl:37)-->
-	<spawn map="220040000" npcid="213276" pool="8" interval="105">
+	<!-- Mine Protector (Monster Elite lvl:37)-->
+	<spawn map="220040000" npcid="213276" pool="8" interval="300">
 		<object x="1586.528" y="1441.827" z="323.625" h="47"/>
 		<object x="1595.562" y="1478.5" z="323.56638" h="100"/>
 		<object x="1518.298" y="1467.971" z="304.5" h="61"/>
@@ -4441,45 +4416,45 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1604.87" y="1535.091" z="325.6468" h="117"/>
 		<object x="1623.062" y="1422.974" z="324.74548" h="85"/>
 	</spawn>
-	<!-- Painbinder Efitir (Named Mob lvl:45)-->
-	<spawn map="220040000" npcid="213785" pool="1" interval="1800">
+	<!-- Painbinder Efitir (Named Mob Elite lvl:45)-->
+	<spawn map="220040000" npcid="213785" pool="1" interval="3600">
 		<object x="1391.797" y="2401.653" z="648.5114" h="25"/>
 		<object x="1440.56" y="2314.069" z="643.4607" h="2"/>
 	</spawn>
-	<!-- Fearcaller Radach (Named Mob lvl:45)-->
-	<spawn map="220040000" npcid="213784" pool="1" interval="1800">
+	<!-- Fearcaller Radach (Named Mob Elite lvl:45)-->
+	<spawn map="220040000" npcid="213784" pool="1" interval="3600">
 		<object x="1574.367" y="2281.72" z="636.156" h="14"/>
 	</spawn>
-	<!-- Mine High Priest (Monster lvl:37)-->
-	<spawn map="220040000" npcid="213297" pool="2" interval="105">
+	<!-- Mine High Priest (Monster Elite lvl:37)-->
+	<spawn map="220040000" npcid="213297" pool="2" interval="300">
 		<object x="1619.616" y="1477.875" z="323.673" h="58"/>
 		<object x="1587.761" y="1379.698" z="319.22168" h="91"/>
 	</spawn>
-	<!-- Scalepriest Haar (Named Mob lvl:45)-->
-	<spawn map="220040000" npcid="213783" pool="1" interval="1800">
+	<!-- Scalepriest Haar (Named Mob Elite lvl:45)-->
+	<spawn map="220040000" npcid="213783" pool="1" interval="3600">
 		<object x="1869.572" y="2345.415" z="620.8723" h="97"/>
 		<object x="1799.41" y="2202.086" z="617.9846" h="112"/>
 	</spawn>
-	<!-- Sea Malodor (Monster lvl:45)-->
-	<spawn map="220040000" npcid="213781" pool="5" interval="105">
+	<!-- Sea Malodor (Monster Elite lvl:45)-->
+	<spawn map="220040000" npcid="213781" pool="5" interval="300">
 		<object x="627.553" y="2890.277" z="295.2811" h="4"/>
 		<object x="687.0445" y="2991.877" z="352.90384" h="77"/>
 		<object x="701.013" y="2677.778" z="329.48462" h="85"/>
 		<object x="711.4457" y="2705.685" z="327.95203" h="23"/>
 		<object x="730.43" y="2678.031" z="332.31976" h="39"/>
 	</spawn>
-	<!-- Spike Bite Trap (Monster lvl:38)-->
+	<!-- Spike Bite Trap (Monster  lvl:38)-->
 	<spawn map="220040000" npcid="749071" pool="2" interval="105">
 		<object x="1405.63" y="1099.9" z="145.5925" h="42"/>
 		<object x="2060.26" y="2570.55" z="603.59625" h="72"/>
 	</spawn>
-	<!-- Mine Poisoner (Monster lvl:38)-->
-	<spawn map="220040000" npcid="213288" pool="2" interval="105">
+	<!-- Mine Poisoner (Monster Elite lvl:38)-->
+	<spawn map="220040000" npcid="213288" pool="2" interval="300">
 		<object x="1634.143" y="1500.853" z="328.89236" h="71"/>
 		<object x="1629.818" y="1398.985" z="324.2718" h="110"/>
 	</spawn>
-	<!-- Mine Patroller (Monster lvl:37)-->
-	<spawn map="220040000" npcid="213289" pool="8" interval="105">
+	<!-- Mine Patroller (Monster Elite lvl:37)-->
+	<spawn map="220040000" npcid="213289" pool="8" interval="300">
 		<object x="1547.786" y="1462.29" z="322.48563" h="8"/>
 		<object x="1504.87" y="1487.054" z="314.69562" h="61"/>
 		<object x="1688.234" y="1317.283" z="326.33868" h="87"/>
@@ -4489,8 +4464,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1558.676" y="1527.718" z="318.90662" h="32"/>
 		<object x="1618.001" y="1525.674" z="324.20663" h="90"/>
 	</spawn>
-	<!-- Mine Archmage (Monster lvl:37)-->
-	<spawn map="220040000" npcid="213291" pool="6" interval="105">
+	<!-- Mine Archmage (Monster Elite lvl:37)-->
+	<spawn map="220040000" npcid="213291" pool="6" interval="300">
 		<object x="1689.797" y="1347.624" z="324.00894" h="82"/>
 		<object x="1491.626" y="1480.222" z="314.52338" h="6"/>
 		<object x="1606.08" y="1454.135" z="324.08124" h="2"/>
@@ -4498,33 +4473,33 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1540.426" y="1389.539" z="325.17624" h="4"/>
 		<object x="1555.213" y="1570.513" z="333.09457" h="26"/>
 	</spawn>
-	<!-- Mine Jeweler (Monster lvl:37)-->
-	<spawn map="220040000" npcid="213293" pool="2" interval="105">
+	<!-- Mine Jeweler (Monster Elite lvl:37)-->
+	<spawn map="220040000" npcid="213293" pool="2" interval="300">
 		<object x="1563.58" y="1396.385" z="324.0" h="61"/>
 		<object x="1618.99" y="1466.488" z="323.75" h="82"/>
 	</spawn>
-	<!-- Mine Chanter (Monster lvl:37)-->
-	<spawn map="220040000" npcid="213295" pool="3" interval="105">
+	<!-- Mine Chanter (Monster Elite lvl:37)-->
+	<spawn map="220040000" npcid="213295" pool="3" interval="300">
 		<object x="1672.006" y="1336.168" z="324.3541" h="29"/>
 		<object x="1601.38" y="1418.975" z="323.75" h="89"/>
 		<object x="1542.023" y="1574.396" z="333.09457" h="9"/>
 	</spawn>
-	<!-- Stormwings Dugolle (Named Mob lvl:45)-->
+	<!-- Stormwings Dugolle (Named Mob Hero lvl:45)-->
 	<spawn map="220040000" npcid="213769" pool="1" interval="14400">
 		<object x="1440.113" y="2004.545" z="611.83386" h="59"/>
 	</spawn>
-	<!-- Lieutenant Aamaah (Named Mob lvl:45)-->
-	<spawn map="220040000" npcid="213766" pool="1" interval="1800">
+	<!-- Lieutenant Aamaah (Named Mob Elite lvl:45)-->
+	<spawn map="220040000" npcid="213766" pool="1" interval="3600">
 		<object x="1918.051" y="1919.806" z="596.61926" h="2"/>
 		<object x="1627.879" y="2106.546" z="580.02655" h="90"/>
 	</spawn>
-	<!-- Captain Larakyn (Named Mob lvl:45)-->
-	<spawn map="220040000" npcid="213767" pool="1" interval="1800">
+	<!-- Captain Larakyn (Named Mob Elite lvl:45)-->
+	<spawn map="220040000" npcid="213767" pool="1" interval="3600">
 		<object x="1885.222" y="2154.063" z="595.92755" h="62"/>
 		<object x="1868.493" y="1898.314" z="593.209" h="67"/>
 	</spawn>
-	<!-- Mine Supervisor (Monster lvl:37)-->
-	<spawn map="220040000" npcid="213281" pool="8" interval="105">
+	<!-- Mine Supervisor (Monster Elite lvl:37)-->
+	<spawn map="220040000" npcid="213281" pool="8" interval="300">
 		<object x="1569.853" y="1373.124" z="323.375" h="42"/>
 		<object x="1589.318" y="1541.635" z="323.97717" h="29"/>
 		<object x="1649.541" y="1371.29" z="323.82306" h="27"/>
@@ -4534,71 +4509,71 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1594.9" y="1365.52" z="315.91376" h="50"/>
 		<object x="1673.358" y="1455.41" z="324.75" h="13"/>
 	</spawn>
-	<!-- RA-45c (Monster lvl:45)-->
+	<!-- RA-45c (Monster Hero lvl:45)-->
 	<spawn map="220040000" npcid="213764" pool="1" interval="14400">
 		<object x="2697.087" y="2940.022" z="697.8253" h="53"/>
 		<object x="2750.932" y="2908.448" z="696.9115" h="104"/>
-		<object x="2771.28" y="2847.0044" z="695.926" h="67"/>		
+		<object x="2771.28" y="2847.0044" z="695.926" h="67"/>
 	</spawn>
-	<!-- Commander Brhekman (Named Mob lvl:45)-->
+	<!-- Commander Brhekman (Named Mob Hero lvl:45)-->
 	<spawn map="220040000" npcid="213765" pool="1" interval="14400">
 		<object x="1916.53" y="2698.99" z="616.185" h="67"/>
 	</spawn>
-	<!-- Mine Escort (Monster lvl:37)-->
-	<spawn map="220040000" npcid="213283" pool="5" interval="105">
+	<!-- Mine Escort (Monster Elite lvl:37)-->
+	<spawn map="220040000" npcid="213283" pool="5" interval="300">
 		<object x="1664.71" y="1360.828" z="324.588" h="6"/>
 		<object x="1548.012" y="1485.366" z="317.58075" h="7"/>
 		<object x="1503.814" y="1530.64" z="320.29" h="2"/>
 		<object x="1556.859" y="1463.688" z="323.67868" h="60"/>
 		<object x="1531.279" y="1527.335" z="323.42035" h="76"/>
 	</spawn>
-	<!-- Mine Bodyguard (Monster lvl:38)-->
-	<spawn map="220040000" npcid="213284" pool="4" interval="105">
+	<!-- Mine Bodyguard (Monster Elite lvl:38)-->
+	<spawn map="220040000" npcid="213284" pool="4" interval="300">
 		<object x="1650.856" y="1465.33" z="324.54187" h="86"/>
 		<object x="1536.975" y="1574.127" z="333.09457" h="92"/>
 		<object x="1540.78" y="1404.095" z="324.00592" h="42"/>
 		<object x="1545.949" y="1522.239" z="320.5799" h="4"/>
 	</spawn>
-	<!-- RA-98c (Monster lvl:44)-->
+	<!-- RA-98c (Monster Hero lvl:44)-->
 	<spawn map="220040000" npcid="213762" pool="1" interval="14400">
 		<object x="2481.0" y="2845.0" z="685.8125" h="69"/>
 	</spawn>
-	<!-- Mine Trooper (Monster lvl:37)-->
-	<spawn map="220040000" npcid="213285" pool="5" interval="105">
+	<!-- Mine Trooper (Monster Elite lvl:37)-->
+	<spawn map="220040000" npcid="213285" pool="5" interval="300">
 		<object x="1501.666" y="1509.913" z="316.50455" h="82"/>
 		<object x="1447.812" y="1475.961" z="314.64362" h="75"/>
 		<object x="1566.141" y="1421.936" z="324.11618" h="8"/>
 		<object x="1611.307" y="1525.872" z="324.133" h="88"/>
 		<object x="1535.652" y="1416.381" z="324.6488" h="98"/>
 	</spawn>
-	<!-- Archmage Vichkor (Named Mob lvl:45)-->
-	<spawn map="220040000" npcid="213760" pool="1" interval="1800">
+	<!-- Archmage Vichkor (Named Mob Elite lvl:45)-->
+	<spawn map="220040000" npcid="213760" pool="1" interval="3600">
 		<object x="2306.635" y="2840.202" z="689.6012" h="42"/>
 	</spawn>
-	<!-- Mine Assassin (Monster lvl:37)-->
-	<spawn map="220040000" npcid="213287" pool="5" interval="105">
+	<!-- Mine Assassin (Monster Elite lvl:37)-->
+	<spawn map="220040000" npcid="213287" pool="5" interval="300">
 		<object x="1666.959" y="1399.29" z="324.16125" h="94"/>
 		<object x="1623.024" y="1467.248" z="323.75" h="2"/>
 		<object x="1485.237" y="1485.543" z="314.86554" h="4"/>
 		<object x="1580.423" y="1392.294" z="322.931" h="18"/>
 		<object x="1689.145" y="1345.197" z="324.19006" h="93"/>
 	</spawn>
-	<!-- Lindasie the Prim (Named Mob lvl:43)-->
-	<spawn map="220040000" npcid="213761" pool="1" interval="1800">
+	<!-- Lindasie the Prim (Named Mob Elite lvl:43)-->
+	<spawn map="220040000" npcid="213761" pool="1" interval="3600">
 		<object x="2676.245" y="2918.869" z="691.625" h="101"/>
 	</spawn>
-	<!-- Eto the Living Glacier (Named Mob lvl:44)-->
+	<!-- Eto the Living Glacier (Named Mob  lvl:44)-->
 	<spawn map="220040000" npcid="213731" pool="1" interval="1800">
 		<object x="2545.0" y="1603.0" z="410.56073" h="29"/>
 		<object x="2767.413" y="1336.916" z="388.75" h="25"/>
 	</spawn>
-	<!-- Chieftain Zarchiel (Boss lvl:43)-->
+	<!-- Chieftain Zarchiel (Boss  lvl:43)-->
 	<spawn map="220040000" npcid="213728" pool="1" interval="14400">
 		<object x="2254.0" y="1032.0" z="372.5" h="29"/>
 		<object x="2381.53" y="994.79" z="368.79938" h="115"/>
 		<object x="2299.0" y="954.0" z="365.0625" h="5"/>
 	</spawn>
-	<!-- Frostmist Spirit (Monster lvl:39)-->
+	<!-- Frostmist Spirit (Monster  lvl:39)-->
 	<spawn map="220040000" npcid="213190" pool="9" interval="105">
 		<object x="244.8496" y="1682.742" z="214.78954" h="10"/>
 		<object x="252.7361" y="1596.785" z="209.78009" h="97"/>
@@ -4610,7 +4585,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="273.5841" y="1630.367" z="211.32137" h="18"/>
 		<object x="230.5005" y="1642.175" z="220.57741" h="15"/>
 	</spawn>
-	<!-- Clever Alfi (Named Mob lvl:38)-->
+	<!-- Clever Alfi (Named Mob  lvl:38)-->
 	<spawn map="220040000" npcid="213735" pool="1" interval="1800">
 		<object x="994.0" y="1774.0" z="239.375" h="106"/>
 		<object x="968.23" y="1704.2" z="227.45876" h="54"/>
@@ -4619,14 +4594,11 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1082.34" y="1771.99" z="239.0" h="98"/>
 		<object x="970.69" y="1702.01" z="227.33125" h="86"/>
 		<object x="970.72" y="1704.53" z="227.17188" h="9"/>
-		<object x="994.06" y="1774.39" z="239.4125" h="105"/>
 		<object x="967.88" y="1701.35" z="227.45187" h="52"/>
-		<object x="970.36" y="1702.09" z="227.34688" h="90"/>
 		<object x="995.35" y="1775.41" z="239.34564" h="106"/>
-		<object x="1081.33" y="1772.13" z="238.98375" h="19"/>
 		<object x="968.24" y="1701.78" z="227.47125" h="74"/>
 	</spawn>
-	<!-- Frost Lobnite (Monster lvl:38)-->
+	<!-- Frost Lobnite (Monster  lvl:38)-->
 	<spawn map="220040000" npcid="213184" pool="25" interval="105">
 		<object x="287.4079" y="1779.863" z="207.65294" h="36"/>
 		<object x="344.8793" y="1798.883" z="208.78783" h="30"/>
@@ -4654,31 +4626,29 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="399.0009" y="1763.424" z="211.22874" h="114"/>
 		<object x="312.6129" y="1749.878" z="208.32825" h="51"/>
 	</spawn>
-	<!-- Drunkard Huron (Named Mob lvl:38)-->
+	<!-- Drunkard Huron (Named Mob  lvl:38)-->
 	<spawn map="220040000" npcid="213734" pool="1" interval="1800">
 		<object x="1058.45" y="1683.93" z="234.50436" h="66"/>
 	</spawn>
-	<!-- Watch Sorcerer (Monster lvl:42)-->
-	<spawn map="220040000" npcid="213615" pool="6" interval="105">
-		<object x="2614.43" y="2468.658" z="650.78546" h="101"/>
+	<!-- Watch Sorcerer (Monster Elite lvl:42)-->
+	<spawn map="220040000" npcid="213615" pool="4" interval="300">
 		<object x="2874.004" y="2584.719" z="656.78546" h="17"/>
-		<object x="2837.389" y="2518.056" z="639.5139" h="85"/>
 		<object x="2662.321" y="2441.871" z="650.99884" h="97"/>
 		<object x="2638.0" y="2540.0" z="651.03546" h="11"/>
 		<object x="2873.281" y="2679.63" z="679.5064" h="17"/>
 	</spawn>
-	<!-- Cynix the Banished (Named Mob lvl:41)-->
+	<!-- Cynix the Banished (Named Mob  lvl:41)-->
 	<spawn map="220040000" npcid="213733" pool="1" interval="1800">
 		<object x="2823.0" y="1195.0" z="478.875" h="87"/>
 		<object x="2991.0" y="1104.0" z="492.125" h="78"/>
 	</spawn>
-	<!-- Watch Defender (Monster lvl:42)-->
-	<spawn map="220040000" npcid="213613" pool="2" interval="105">
+	<!-- Watch Defender (Monster Elite lvl:42)-->
+	<spawn map="220040000" npcid="213613" pool="2" interval="300">
 		<object x="2872.826" y="2681.343" z="679.5064" h="102"/>
 		<object x="2872.583" y="2582.124" z="656.78546" h="96"/>
 	</spawn>
-	<!-- Watch Devotee (Monster lvl:42)-->
-	<spawn map="220040000" npcid="213336" pool="9" interval="105">
+	<!-- Watch Devotee (Monster Elite lvl:42)-->
+	<spawn map="220040000" npcid="213336" pool="9" interval="300">
 		<object x="2769.201" y="2497.956" z="644.2102" h="50"/>
 		<object x="2872.782" y="2561.705" z="656.53046" h="119"/>
 		<object x="2949.953" y="2635.539" z="682.125" h="62"/>
@@ -4689,12 +4659,12 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2889.289" y="2690.628" z="679.6539" h="63"/>
 		<object x="2927.964" y="2630.727" z="679.9955" h="78"/>
 	</spawn>
-	<!-- Captain Hinden (Named Mob lvl:38)-->
+	<!-- Captain Hinden (Named Mob  lvl:38)-->
 	<spawn map="220040000" npcid="213739" pool="1" interval="1800">
 		<object x="155.49" y="2013.44" z="222.9627" h="116"/>
 	</spawn>
-	<!-- Watch High Priest (Monster lvl:42)-->
-	<spawn map="220040000" npcid="213334" pool="16" interval="105">
+	<!-- Watch High Priest (Monster Elite lvl:42)-->
+	<spawn map="220040000" npcid="213334" pool="16" interval="300">
 		<object x="2674.026" y="2531.338" z="647.625" h="71"/>
 		<object x="2857.342" y="2561.05" z="659.1783" h="118"/>
 		<object x="2779.249" y="2452.975" z="619.8314" h="96"/>
@@ -4712,14 +4682,14 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2636.93" y="2447.334" z="650.375" h="21"/>
 		<object x="2736.648" y="2552.252" z="653.6994" h="71"/>
 	</spawn>
-	<!-- Endangered Crasaur (Named Mob lvl:38)-->
+	<!-- Endangered Crasaur (Named Mob  lvl:38)-->
 	<spawn map="220040000" npcid="213737" pool="1" interval="1800">
 		<object x="247.0" y="1840.0" z="212.68227" h="106"/>
 		<object x="352.44" y="1737.38" z="214.28362" h="120"/>
 		<object x="357.4" y="1739.58" z="214.79422" h="114"/>
 	</spawn>
-	<!-- Watch Archmage (Monster lvl:42)-->
-	<spawn map="220040000" npcid="213332" pool="14" interval="105">
+	<!-- Watch Archmage (Monster Elite lvl:42)-->
+	<spawn map="220040000" npcid="213332" pool="14" interval="300">
 		<object x="2828.856" y="2467.287" z="625.3841" h="7"/>
 		<object x="2645.264" y="2468.594" z="650.079" h="117"/>
 		<object x="2672.16" y="2476.005" z="649.25" h="52"/>
@@ -4735,13 +4705,13 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2638.231" y="2491.486" z="647.64594" h="104"/>
 		<object x="2621.233" y="2447.738" z="651.2688" h="17"/>
 	</spawn>
-	<!-- Supervisor Wyrmirren (Named Mob lvl:45)-->
-	<spawn map="220040000" npcid="214029" pool="1" interval="1800">
+	<!-- Supervisor Wyrmirren (Named Mob Elite lvl:45)-->
+	<spawn map="220040000" npcid="214029" pool="1" interval="3600">
 		<object x="2538.0" y="2712.0" z="680.3676" h="113"/>
 		<object x="2486.0" y="2598.0" z="679.77795" h="87"/>
 	</spawn>
-	<!-- Watch Ranger (Monster lvl:42)-->
-	<spawn map="220040000" npcid="213330" pool="23" interval="105">
+	<!-- Watch Ranger (Monster Elite lvl:42)-->
+	<spawn map="220040000" npcid="213330" pool="23" interval="300">
 		<object x="2636.873" y="2517.133" z="649.94586" h="23"/>
 		<object x="2911.406" y="2627.057" z="687.83826" h="96"/>
 		<object x="2893.146" y="2667.593" z="678.89825" h="9"/>
@@ -4766,8 +4736,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2779.141" y="2555.218" z="648.58093" h="51"/>
 		<object x="2796.154" y="2412.448" z="613.4879" h="87"/>
 	</spawn>
-	<!-- Watch Deathblade (Monster lvl:42)-->
-	<spawn map="220040000" npcid="213328" pool="15" interval="105">
+	<!-- Watch Deathblade (Monster Elite lvl:42)-->
+	<spawn map="220040000" npcid="213328" pool="15" interval="300">
 		<object x="2894.849" y="2332.795" z="591.6747" h="52"/>
 		<object x="2863.153" y="2580.335" z="656.5" h="26"/>
 		<object x="2898.893" y="2640.353" z="677.26697" h="111"/>
@@ -4784,8 +4754,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2676.936" y="2531.995" z="647.8667" h="29"/>
 		<object x="2882.805" y="2685.265" z="679.5064" h="30"/>
 	</spawn>
-	<!-- Watch Outrider (Monster lvl:42)-->
-	<spawn map="220040000" npcid="213326" pool="17" interval="105">
+	<!-- Watch Outrider (Monster Elite lvl:42)-->
+	<spawn map="220040000" npcid="213326" pool="17" interval="300">
 		<object x="2830.275" y="2505.129" z="637.1411" h="16"/>
 		<object x="2665.153" y="2489.177" z="648.9318" h="60"/>
 		<object x="2765.175" y="2572.337" z="652.8132" h="1"/>
@@ -4804,8 +4774,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2626.06" y="2546.492" z="650.75" h="45"/>
 		<object x="2898.565" y="2673.27" z="679.0" h="118"/>
 	</spawn>
-	<!-- Watch Footsoldier (Monster lvl:42)-->
-	<spawn map="220040000" npcid="213324" pool="16" interval="105">
+	<!-- Watch Footsoldier (Monster Elite lvl:42)-->
+	<spawn map="220040000" npcid="213324" pool="16" interval="300">
 		<object x="2830.968" y="2600.054" z="656.89185" h="114"/>
 		<object x="2807.021" y="2382.39" z="613.0368" h="38"/>
 		<object x="2789.348" y="2475.156" z="626.81604" h="32"/>
@@ -4823,8 +4793,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2698.779" y="2499.313" z="647.25" h="84"/>
 		<object x="2637.105" y="2493.362" z="647.5958" h="26"/>
 	</spawn>
-	<!-- Watch Templar (Monster lvl:42)-->
-	<spawn map="220040000" npcid="213322" pool="16" interval="105">
+	<!-- Watch Templar (Monster Elite lvl:42)-->
+	<spawn map="220040000" npcid="213322" pool="16" interval="300">
 		<object x="2925.839" y="2377.185" z="598.78925" h="91"/>
 		<object x="2701.198" y="2498.341" z="647.25" h="82"/>
 		<object x="2856.822" y="2573.827" z="656.5" h="38"/>
@@ -4842,7 +4812,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2817.388" y="2569.87" z="648.35876" h="27"/>
 		<object x="2634.366" y="2472.242" z="649.4771" h="60"/>
 	</spawn>
-	<!-- Fearless Doni (Named Mob lvl:41)-->
+	<!-- Fearless Doni (Named Mob  lvl:41)-->
 	<spawn map="220040000" npcid="213748" pool="1" interval="1800">
 		<object x="2396.0" y="1582.0" z="499.38596" h="91"/>
 		<object x="2081.52" y="1600.17" z="524.66064" h="90"/>
@@ -4853,17 +4823,14 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2283.02" y="1516.58" z="494.9225" h="58"/>
 		<object x="2400.86" y="1582.07" z="499.69186" h="23"/>
 		<object x="2275.08" y="1515.44" z="494.84" h="56"/>
-		<object x="2396.16" y="1582.67" z="499.67688" h="36"/>
 		<object x="2390.69" y="1577.36" z="499.46313" h="94"/>
 	</spawn>
-	<!-- Watch Guardian (Monster lvl:42)-->
-	<spawn map="220040000" npcid="213320" pool="19" interval="105">
-		<object x="2883.368" y="2655.334" z="677.12286" h="114"/>
+	<!-- Watch Guardian (Monster Elite lvl:42)-->
+	<spawn map="220040000" npcid="213320" pool="17" interval="300">
 		<object x="2639.778" y="2465.194" z="650.05035" h="106"/>
 		<object x="2856.78" y="2570.791" z="656.5" h="41"/>
 		<object x="2871.219" y="2566.907" z="656.5" h="106"/>
 		<object x="2629.624" y="2432.042" z="651.2265" h="101"/>
-		<object x="2931.014" y="2662.571" z="680.81335" h="84"/>
 		<object x="2670.859" y="2472.179" z="649.13617" h="19"/>
 		<object x="2626.868" y="2531.221" z="650.3971" h="59"/>
 		<object x="2935.948" y="2344.925" z="593.7439" h="30"/>
@@ -4878,7 +4845,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2763.62" y="2608.11" z="656.1288" h="73"/>
 		<object x="2947.035" y="2340.179" z="593.9596" h="93"/>
 	</spawn>
-	<!-- Chieftain Tufu (Named Mob lvl:42)-->
+	<!-- Chieftain Tufu (Named Mob  lvl:42)-->
 	<spawn map="220040000" npcid="213749" pool="1" interval="1800">
 		<object x="2415.0" y="1743.0" z="550.75" h="62"/>
 		<object x="2159.16" y="2048.78" z="578.625" h="12"/>
@@ -4893,24 +4860,20 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2170.15" y="2047.01" z="579.2594" h="87"/>
 		<object x="2157.5" y="2036.06" z="578.625" h="15"/>
 	</spawn>
-	<!-- Abyss Supply Box (Monster lvl:44)-->
-	<spawn map="220040000" npcid="213754" pool="1" interval="105">
-		<object x="2742.09" y="2579.77" z="655.8749" h="7"/>
-	</spawn>
-	<!-- Watch Strongarm (Monster lvl:43)-->
-	<spawn map="220040000" npcid="213619" pool="1" interval="105">
+	<!-- Watch Strongarm (Monster Elite lvl:43)-->
+	<spawn map="220040000" npcid="213619" pool="1" interval="300">
 		<object x="2644.855" y="2538.777" z="651.03546" h="50"/>
 	</spawn>
-	<!-- Watch Ambusher (Monster lvl:43)-->
-	<spawn map="220040000" npcid="213618" pool="1" interval="105">
+	<!-- Watch Ambusher (Monster Elite lvl:43)-->
+	<spawn map="220040000" npcid="213618" pool="1" interval="300">
 		<object x="2641.903" y="2539.689" z="651.03546" h="120"/>
 	</spawn>
-	<!-- Watch Curate (Monster lvl:42)-->
-	<spawn map="220040000" npcid="213617" pool="1" interval="105">
+	<!-- Watch Curate (Monster Elite lvl:42)-->
+	<spawn map="220040000" npcid="213617" pool="1" interval="300">
 		<object x="2617.513" y="2466.213" z="650.78546" h="112"/>
 	</spawn>
-	<!-- Special Wardrake (Monster lvl:43)-->
-	<spawn map="220040000" npcid="213696" pool="12" interval="105">
+	<!-- Special Wardrake (Monster Elite lvl:43)-->
+	<spawn map="220040000" npcid="213696" pool="12" interval="300">
 		<object x="2017.759" y="2241.319" z="584.24207" h="1"/>
 		<object x="2021.806" y="2112.355" z="592.6149" h="76"/>
 		<object x="2001.464" y="2160.288" z="582.0155" h="115"/>
@@ -4924,10 +4887,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2034.348" y="2187.314" z="580.2803" h="86"/>
 		<object x="1999.473" y="2122.582" z="590.57153" h="10"/>
 	</spawn>
-	<!-- Splendid Water Spirit (Monster lvl:43)-->
-	<spawn map="220040000" npcid="280707" pool="18" interval="105">
-		<object x="223.46" y="1602.76" z="214.58363" h="95"/>
-		<object x="217.53" y="1595.11" z="212.0529" h="69"/>
+	<!-- Splendid Water Spirit (Monster Elite lvl:43)-->
+	<spawn map="220040000" npcid="280707" pool="16" interval="300">
 		<object x="225.91" y="1598.03" z="212.9334" h="112"/>
 		<object x="223.08" y="1591.14" z="211.77124" h="2"/>
 		<object x="234.68" y="1634.15" z="220.06544" h="107"/>
@@ -4945,7 +4906,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="221.96" y="1659.46" z="218.85982" h="91"/>
 		<object x="219.79" y="1649.05" z="219.7074" h="53"/>
 	</spawn>
-	<!-- Frost Eye Ettin (Monster lvl:39)-->
+	<!-- Frost Eye Ettin (Monster  lvl:39)-->
 	<spawn map="220040000" npcid="213096" pool="17" interval="105">
 		<object x="1993.883" y="1281.392" z="393.75732" h="67"/>
 		<object x="2040.388" y="1231.253" z="399.84518" h="22"/>
@@ -4965,8 +4926,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2071.214" y="1244.712" z="407.5312" h="57"/>
 		<object x="2002.521" y="1311.842" z="396.6151" h="81"/>
 	</spawn>
-	<!-- Undertow Obscura (Monster lvl:44)-->
-	<spawn map="220040000" npcid="213371" pool="48" interval="105">
+	<!-- Undertow Obscura (Monster Elite lvl:44)-->
+	<spawn map="220040000" npcid="213371" pool="47" interval="300">
 		<object x="775.5234" y="2636.037" z="206.79376" h="26"/>
 		<object x="767.9977" y="2804.167" z="229.43623" h="84"/>
 		<object x="507.7362" y="2800.659" z="226.98685" h="91"/>
@@ -4995,7 +4956,6 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="832.1993" y="2782.0" z="250.30766" h="29"/>
 		<object x="695.6451" y="2892.765" z="179.4897" h="49"/>
 		<object x="861.2772" y="2786.063" z="253.0877" h="66"/>
-		<object x="693.4843" y="2907.134" z="173.90234" h="35"/>
 		<object x="547.2226" y="2821.187" z="193.47165" h="114"/>
 		<object x="747.8327" y="2632.402" z="205.98969" h="65"/>
 		<object x="669.9462" y="2621.369" z="226.13774" h="101"/>
@@ -5016,15 +4976,15 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="749.3487" y="2600.716" z="204.37701" h="73"/>
 		<object x="744.0505" y="2767.222" z="204.46492" h="120"/>
 	</spawn>
-	<!-- Captain Moloch (Named Mob lvl:36)-->
+	<!-- Captain Moloch (Named Mob  lvl:36)-->
 	<spawn map="220040000" npcid="213709" pool="1" interval="1800">
 		<object x="879.116" y="1439.828" z="214.65875" h="102"/>
 	</spawn>
-	<!-- Deathbelcher Imud (Named Mob lvl:36)-->
+	<!-- Deathbelcher Imud (Named Mob  lvl:36)-->
 	<spawn map="220040000" npcid="213708" pool="1" interval="1800">
 		<object x="839.9732" y="1425.623" z="213.60312" h="18"/>
 	</spawn>
-	<!-- Clever Mahiki (Named Mob lvl:32)-->
+	<!-- Clever Mahiki (Named Mob  lvl:32)-->
 	<spawn map="220040000" npcid="213712" pool="1" interval="1800">
 		<object x="1087.0" y="901.0" z="210.88599" h="107"/>
 		<object x="1269.91" y="586.5" z="251.25" h="5"/>
@@ -5036,7 +4996,6 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1091.51" y="903.54" z="211.56375" h="75"/>
 		<object x="1085.59" y="897.96" z="210.84438" h="67"/>
 		<object x="1250.33" y="737.08" z="228.64563" h="38"/>
-		<object x="1087.98" y="901.0" z="211.18625" h="85"/>
 		<object x="1099.55" y="901.17" z="212.86375" h="112"/>
 		<object x="1089.26" y="898.69" z="211.32562" h="44"/>
 		<object x="1089.78" y="904.18" z="211.38126" h="39"/>
@@ -5046,25 +5005,24 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1245.4" y="738.87" z="228.67874" h="90"/>
 		<object x="1248.98" y="740.0" z="228.5" h="46"/>
 	</spawn>
-	<!-- Supervisor Yotunmork (Monster lvl:37)-->
-	<spawn map="220040000" npcid="213714" pool="1" interval="105">
+	<!-- Supervisor Yotunmork (Monster Elite lvl:37)-->
+	<spawn map="220040000" npcid="213714" pool="1" interval="300">
 		<object x="1428.084" y="1102.725" z="145.875" h="58"/>
 	</spawn>
-	<!-- Captain Walkris (Named Mob lvl:36)-->
+	<!-- Captain Walkris (Named Mob  lvl:36)-->
 	<spawn map="220040000" npcid="213715" pool="1" interval="1800">
 		<object x="1341.0" y="1179.0" z="250.96039" h="66"/>
-		<object x="1341.09" y="1179.28" z="250.96039" h="79"/>
 		<object x="1495.57" y="1175.64" z="223.71169" h="33"/>
 		<object x="1341.12" y="1177.05" z="243.13297" h="19"/>
 		<object x="1371.96" y="1170.57" z="241.95772" h="7"/>
 		<object x="1497.65" y="1181.02" z="223.71169" h="117"/>
 	</spawn>
-	<!-- Archmage Megran (Named Mob lvl:37)-->
+	<!-- Archmage Megran (Named Mob  lvl:37)-->
 	<spawn map="220040000" npcid="213716" pool="1" interval="1800">
 		<object x="1392.0" y="1269.0" z="239.0" h="103"/>
 	</spawn>
-	<!-- Seiren Wavedancer (Monster lvl:46)-->
-	<spawn map="220040000" npcid="213352" pool="25" interval="105">
+	<!-- Seiren Wavedancer (Monster Elite lvl:46)-->
+	<spawn map="220040000" npcid="213352" pool="25" interval="300">
 		<object x="815.2078" y="2976.712" z="403.63226" h="86"/>
 		<object x="910.5464" y="2640.829" z="304.3993" h="50"/>
 		<object x="909.2615" y="2624.687" z="309.10648" h="117"/>
@@ -5091,13 +5049,13 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="872.5102" y="2636.672" z="306.1237" h="40"/>
 		<object x="706.3451" y="3005.733" z="354.13043" h="67"/>
 	</spawn>
-	<!-- Captain Kirikren (Named Mob lvl:38)-->
+	<!-- Captain Kirikren (Named Mob  lvl:38)-->
 	<spawn map="220040000" npcid="213717" pool="1" interval="1800">
 		<object x="1386.0" y="1404.0" z="310.08044" h="78"/>
 		<object x="1466.4" y="1350.99" z="272.75" h="21"/>
 	</spawn>
-	<!-- Seiren Whaletamer (Monster lvl:46)-->
-	<spawn map="220040000" npcid="213355" pool="20" interval="105">
+	<!-- Seiren Whaletamer (Monster Elite lvl:46)-->
+	<spawn map="220040000" npcid="213355" pool="19" interval="300">
 		<object x="780.0" y="2937.0" z="392.37582" h="57"/>
 		<object x="745.37" y="2709.85" z="327.80255" h="107"/>
 		<object x="830.83" y="2618.62" z="310.52393" h="50"/>
@@ -5116,11 +5074,10 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="657.2" y="2960.25" z="361.59558" h="99"/>
 		<object x="653.5" y="3001.78" z="355.5958" h="71"/>
 		<object x="768.41" y="2887.75" z="396.3461" h="107"/>
-		<object x="780.74" y="2937.72" z="392.45633" h="22"/>
 		<object x="790.14" y="2968.27" z="394.1271" h="16"/>
 	</spawn>
-	<!-- Seiren Wavespinner (Monster lvl:44)-->
-	<spawn map="220040000" npcid="213350" pool="34" interval="105">
+	<!-- Seiren Wavespinner (Monster Elite lvl:44)-->
+	<spawn map="220040000" npcid="213350" pool="34" interval="300">
 		<object x="532.0074" y="2769.468" z="353.07635" h="56"/>
 		<object x="714.4332" y="2699.72" z="362.33643" h="100"/>
 		<object x="692.1769" y="2665.041" z="331.66635" h="46"/>
@@ -5156,8 +5113,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="678.1902" y="2969.702" z="353.88486" h="75"/>
 		<object x="796.4968" y="2894.541" z="187.75" h="74"/>
 	</spawn>
-	<!-- Seiren Seasinger (Monster lvl:44)-->
-	<spawn map="220040000" npcid="213347" pool="52" interval="105">
+	<!-- Seiren Seasinger (Monster Elite lvl:44)-->
+	<spawn map="220040000" npcid="213347" pool="52" interval="300">
 		<object x="563.3738" y="2739.86" z="353.23102" h="30"/>
 		<object x="653.9344" y="2754.803" z="320.73495" h="41"/>
 		<object x="695.1454" y="2680.678" z="357.02216" h="118"/>
@@ -5211,7 +5168,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="679.994" y="2988.265" z="353.39117" h="109"/>
 		<object x="890.0828" y="2621.66" z="310.85483" h="110"/>
 	</spawn>
-	<!-- Frostmane Trico (Monster lvl:44)-->
+	<!-- Frostmane Trico (Monster  lvl:44)-->
 	<spawn map="220040000" npcid="213128" pool="13" interval="105">
 		<object x="2577.675" y="1670.966" z="434.30157" h="15"/>
 		<object x="2650.449" y="1693.862" z="472.69553" h="5"/>
@@ -5227,7 +5184,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2685.935" y="1690.544" z="434.30157" h="4"/>
 		<object x="2648.529" y="1670.731" z="472.69553" h="85"/>
 	</spawn>
-	<!-- Frost Granker Fawn (Monster lvl:43)-->
+	<!-- Frost Granker Fawn (Monster  lvl:43)-->
 	<spawn map="220040000" npcid="213130" pool="13" interval="105">
 		<object x="2670.257" y="1393.803" z="396.75" h="25"/>
 		<object x="2627.735" y="1447.127" z="397.8039" h="11"/>
@@ -5243,7 +5200,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2686.554" y="1524.632" z="408.5904" h="45"/>
 		<object x="2697.997" y="1495.718" z="410.80286" h="3"/>
 	</spawn>
-	<!-- Frost Granker (Monster lvl:44)-->
+	<!-- Frost Granker (Monster  lvl:44)-->
 	<spawn map="220040000" npcid="213132" pool="8" interval="105">
 		<object x="2671.264" y="1573.758" z="408.6731" h="105"/>
 		<object x="2623.546" y="1564.327" z="404.11707" h="57"/>
@@ -5254,17 +5211,17 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2668.779" y="1509.015" z="404.5201" h="82"/>
 		<object x="2710.763" y="1463.36" z="401.7073" h="68"/>
 	</spawn>
-	<!-- Frostfist (Monster lvl:43)-->
+	<!-- Frostfist (Monster  lvl:43)-->
 	<spawn map="220040000" npcid="213788" pool="1" interval="105">
 		<object x="2498.241" y="1187.43" z="367.3865" h="74"/>
 	</spawn>
-	<!-- Soulbreaker Erarir (Named Mob lvl:45)-->
-	<spawn map="220040000" npcid="213786" pool="1" interval="1800">
+	<!-- Soulbreaker Erarir (Named Mob Elite lvl:45)-->
+	<spawn map="220040000" npcid="213786" pool="1" interval="3600">
 		<object x="1687.163" y="2299.646" z="646.954" h="69"/>
 		<object x="1565.282" y="2104.75" z="595.25" h="43"/>
 	</spawn>
-	<!-- Frost Spire (Monster lvl:38)-->
-	<spawn map="220040000" npcid="213912" pool="19" interval="105">
+	<!-- Frost Spire (Monster  lvl:38)-->
+	<spawn map="220040000" npcid="213912" pool="16" interval="105">
 		<object x="50.74627" y="2291.273" z="227.38898" h="110"/>
 		<object x="50.557495" y="2290.8127" z="227.65906" h="18"/>
 		<object x="48.42" y="2294.24" z="227.38898" h="46"/>
@@ -5275,22 +5232,19 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="45.3" y="2301.98" z="227.38898" h="56"/>
 		<object x="50.66" y="2322.25" z="230.06813" h="26"/>
 		<object x="50.75" y="2303.08" z="227.38898" h="23"/>
-		<object x="37.4" y="2314.39" z="231.05656" h="57"/>
 		<object x="54.54" y="2292.73" z="227.56334" h="89"/>
 		<object x="56.07" y="2289.94" z="227.93066" h="2"/>
 		<object x="51.82" y="2291.77" z="227.38898" h="34"/>
 		<object x="49.24" y="2290.13" z="228.10599" h="73"/>
-		<object x="50.97" y="2291.4" z="227.38898" h="63"/>
 		<object x="46.38" y="2300.95" z="227.38898" h="112"/>
 		<object x="47.03" y="2302.47" z="227.38898" h="33"/>
-		<object x="50.17" y="2303.67" z="227.38898" h="101"/>
 	</spawn>
-	<!-- Shadowmaster Zoang (Named Mob lvl:45)-->
-	<spawn map="220040000" npcid="213768" pool="1" interval="1800">
+	<!-- Shadowmaster Zoang (Named Mob Elite lvl:45)-->
+	<spawn map="220040000" npcid="213768" pool="1" interval="3600">
 		<object x="1735.232" y="1868.635" z="594.2476" h="63"/>
 		<object x="1804.046" y="2019.887" z="592.3567" h="16"/>
 	</spawn>
-	<!-- Glittering Malekor (Monster lvl:36)-->
+	<!-- Glittering Malekor (Monster  lvl:36)-->
 	<spawn map="220040000" npcid="213068" pool="14" interval="105">
 		<object x="1010.633" y="385.8859" z="304.38214" h="65"/>
 		<object x="1001.238" y="505.4335" z="306.2146" h="15"/>
@@ -5307,7 +5261,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1015.223" y="451.1049" z="301.375" h="91"/>
 		<object x="1032.696" y="538.0751" z="285.125" h="36"/>
 	</spawn>
-	<!-- Ice Lake Spirit (Monster lvl:39)-->
+	<!-- Ice Lake Spirit (Monster  lvl:39)-->
 	<spawn map="220040000" npcid="213189" pool="8" interval="105">
 		<object x="258.5615" y="1627.981" z="214.78865" h="28"/>
 		<object x="264.2506" y="1653.028" z="213.55367" h="72"/>
@@ -5318,11 +5272,11 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="274.4337" y="1677.137" z="209.40495" h="39"/>
 		<object x="218.171" y="1695.782" z="217.11792" h="23"/>
 	</spawn>
-	<!-- Glaciont the Hardy (Monster lvl:43)-->
+	<!-- Glaciont the Hardy (Monster  lvl:43)-->
 	<spawn map="220040000" npcid="213730" pool="1" interval="105">
 		<object x="2750.651" y="1023.182" z="378.0486" h="60"/>
 	</spawn>
-	<!-- Ice Petrahulk (Monster lvl:43)-->
+	<!-- Ice Petrahulk (Monster  lvl:43)-->
 	<spawn map="220040000" npcid="213122" pool="29" interval="105">
 		<object x="2726.283" y="957.4189" z="373.48328" h="40"/>
 		<object x="2547.293" y="1236.268" z="366.0808" h="74"/>
@@ -5354,7 +5308,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2624.014" y="1518.883" z="402.4362" h="73"/>
 		<object x="2578.526" y="1538.634" z="401.90677" h="106"/>
 	</spawn>
-	<!-- Ice Fang Kirrin (Monster lvl:35)-->
+	<!-- Ice Fang Kirrin (Monster  lvl:35)-->
 	<spawn map="220040000" npcid="213060" pool="34" interval="105">
 		<object x="1168.74" y="1211.322" z="229.13487" h="23"/>
 		<object x="956.4598" y="234.5252" z="400.97757" h="76"/>
@@ -5391,7 +5345,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1624.659" y="1110.165" z="256.30292" h="14"/>
 		<object x="1173.612" y="306.9229" z="336.84576" h="105"/>
 	</spawn>
-	<!-- Ice Lake Crasaur (Monster lvl:39)-->
+	<!-- Ice Lake Crasaur (Monster  lvl:39)-->
 	<spawn map="220040000" npcid="213196" pool="17" interval="105">
 		<object x="348.9512" y="1693.462" z="211.57242" h="94"/>
 		<object x="212.0651" y="1951.733" z="222.88031" h="25"/>
@@ -5411,7 +5365,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="189.6975" y="1922.908" z="229.66641" h="57"/>
 		<object x="196.7419" y="1950.995" z="224.65303" h="66"/>
 	</spawn>
-	<!-- Ice Ribbit (Monster lvl:39)-->
+	<!-- Ice Ribbit (Monster  lvl:39)-->
 	<spawn map="220040000" npcid="213192" pool="23" interval="105">
 		<object x="502.7829" y="1804.3" z="207.9061" h="44"/>
 		<object x="516.824" y="2107.654" z="207.63261" h="71"/>
@@ -5437,21 +5391,21 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="333.8477" y="1967.07" z="210.55045" h="78"/>
 		<object x="327.6754" y="1985.177" z="213.26451" h="62"/>
 	</spawn>
-	<!-- Hairy Potcrab (Monster lvl:40)-->
+	<!-- Hairy Potcrab (Monster  lvl:40)-->
 	<spawn map="220040000" npcid="213195" pool="4" interval="105">
 		<object x="191.604" y="2086.494" z="215.2682" h="33"/>
 		<object x="335.8503" y="2083.628" z="214.96051" h="80"/>
 		<object x="324.0364" y="2073.167" z="215.28731" h="33"/>
 		<object x="175.1772" y="2087.529" z="218.12624" h="52"/>
 	</spawn>
-	<!-- Ice Horn Gorgon (Monster lvl:42)-->
+	<!-- Ice Horn Gorgon (Monster  lvl:42)-->
 	<spawn map="220040000" npcid="213258" pool="4" interval="105">
 		<object x="2846.213" y="1308.359" z="496.8575" h="83"/>
 		<object x="2857.308" y="995.2297" z="472.524" h="63"/>
 		<object x="2858.611" y="1269.274" z="490.15924" h="38"/>
 		<object x="2924.503" y="1328.391" z="498.08658" h="2"/>
 	</spawn>
-	<!-- Ice Canyon Griffo (Monster lvl:41)-->
+	<!-- Ice Canyon Griffo (Monster  lvl:41)-->
 	<spawn map="220040000" npcid="213137" pool="12" interval="105">
 		<object x="2841.607" y="1176.823" z="476.67734" h="84"/>
 		<object x="3008.091" y="1123.866" z="494.88336" h="99"/>
@@ -5466,7 +5420,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2930.993" y="937.3798" z="488.47583" h="37"/>
 		<object x="2958.359" y="1234.061" z="496.22757" h="74"/>
 	</spawn>
-	<!-- Iceghost Warrior (Monster lvl:37)-->
+	<!-- Iceghost Warrior (Monster  lvl:37)-->
 	<spawn map="220040000" npcid="213084" pool="46" interval="105">
 		<object x="1929.707" y="191.2856" z="363.2857" h="51"/>
 		<object x="1887.946" y="290.6041" z="347.00302" h="28"/>
@@ -5515,8 +5469,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1926.488" y="176.9606" z="363.09448" h="98"/>
 		<object x="1968.143" y="186.8725" z="372.02875" h="74"/>
 	</spawn>
-	<!-- Ice Canyon Griffo (Monster lvl:41)-->
-	<spawn map="220040000" npcid="213138" pool="18" interval="105">
+	<!-- Ice Canyon Griffo (Monster  lvl:41)-->
+	<spawn map="220040000" npcid="213138" pool="17" interval="105">
 		<object x="2908.659" y="980.3782" z="492.68665" h="3"/>
 		<object x="2930.314" y="1224.49" z="488.59186" h="45"/>
 		<object x="2950.927" y="1174.582" z="495.5943" h="83"/>
@@ -5532,20 +5486,17 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2881.236" y="1165.559" z="479.05707" h="54"/>
 		<object x="2970.725" y="1146.02" z="494.375" h="5"/>
 		<object x="2955.956" y="1088.801" z="486.13324" h="77"/>
-		<object x="2841.812" y="1212.501" z="478.1563" h="79"/>
 		<object x="2933.176" y="965.5903" z="488.90088" h="120"/>
 		<object x="2983.77" y="1089.078" z="491.68274" h="105"/>
 	</spawn>
-	<!-- Huge Bomb (Monster lvl:37)-->
-	<spawn map="220040000" npcid="280699" pool="19" interval="105">
+	<!-- Huge Bomb (Monster  lvl:37)-->
+	<spawn map="220040000" npcid="280699" pool="17" interval="105">
 		<object x="1530.6" y="1122.86" z="239.20125" h="1"/>
 		<object x="1500.73" y="1134.61" z="235.765" h="92"/>
 		<object x="1312.53" y="1059.58" z="234.69626" h="1"/>
 		<object x="1314.94" y="1078.01" z="229.26189" h="99"/>
 		<object x="1327.58" y="1000.05" z="236.34875" h="114"/>
-		<object x="1327.47" y="1000.0" z="236.34187" h="87"/>
 		<object x="1538.4935" y="1126.945" z="239.86581" h="11"/>
-		<object x="1314.25" y="1005.46" z="234.76562" h="112"/>
 		<object x="1325.82" y="1007.03" z="236.87561" h="107"/>
 		<object x="1332.28" y="1021.62" z="238.52374" h="40"/>
 		<object x="1337.31" y="1008.56" z="238.32" h="44"/>
@@ -5558,7 +5509,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1332.65" y="998.11" z="236.51375" h="37"/>
 		<object x="1532.12" y="1145.32" z="233.23" h="66"/>
 	</spawn>
-	<!-- Iceghost Mage (Monster lvl:37)-->
+	<!-- Iceghost Mage (Monster  lvl:37)-->
 	<spawn map="220040000" npcid="213086" pool="28" interval="105">
 		<object x="1938.863" y="335.9193" z="371.63202" h="32"/>
 		<object x="1986.744" y="201.35" z="383.03787" h="57"/>
@@ -5589,7 +5540,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2051.609" y="185.4111" z="382.375" h="84"/>
 		<object x="2072.406" y="352.545" z="366.9598" h="31"/>
 	</spawn>
-	<!-- Frozen Agrint (Monster lvl:36)-->
+	<!-- Frozen Agrint (Monster  lvl:36)-->
 	<spawn map="220040000" npcid="213140" pool="8" interval="105">
 		<object x="886.0863" y="1742.123" z="227.2469" h="5"/>
 		<object x="862.9341" y="1728.199" z="230.23717" h="54"/>
@@ -5600,7 +5551,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="838.7241" y="1794.869" z="239.875" h="71"/>
 		<object x="861.4999" y="1762.439" z="236.0275" h="46"/>
 	</spawn>
-	<!-- Ice Waterworm (Monster lvl:39)-->
+	<!-- Ice Waterworm (Monster  lvl:39)-->
 	<spawn map="220040000" npcid="213202" pool="29" interval="105">
 		<object x="401.9707" y="1888.771" z="211.42192" h="24"/>
 		<object x="451.7531" y="1840.699" z="216.7274" h="112"/>
@@ -5632,7 +5583,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="458.2028" y="2130.368" z="210.75076" h="98"/>
 		<object x="175.1311" y="1989.279" z="218.5978" h="110"/>
 	</spawn>
-	<!-- Hungry Undead Worg (Monster lvl:37)-->
+	<!-- Hungry Undead Worg (Monster  lvl:37)-->
 	<spawn map="220040000" npcid="213146" pool="11" interval="105">
 		<object x="1109.999" y="1623.625" z="235.2497" h="98"/>
 		<object x="1074.739" y="1652.198" z="228.38737" h="52"/>
@@ -5646,7 +5597,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1098.904" y="1797.569" z="242.71368" h="39"/>
 		<object x="1129.515" y="1731.632" z="242.51106" h="10"/>
 	</spawn>
-	<!-- Greedy Daru (Monster lvl:43)-->
+	<!-- Greedy Daru (Monster  lvl:43)-->
 	<spawn map="220040000" npcid="213316" pool="12" interval="105">
 		<object x="2950.095" y="2284.035" z="595.0112" h="100"/>
 		<object x="2831.943" y="2104.74" z="617.625" h="111"/>
@@ -5661,7 +5612,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2940.994" y="2298.638" z="590.3727" h="112"/>
 		<object x="2763.427" y="2385.593" z="608.6762" h="22"/>
 	</spawn>
-	<!-- Frostspirit Shaman (Monster lvl:42)-->
+	<!-- Frostspirit Shaman (Monster  lvl:42)-->
 	<spawn map="220040000" npcid="213223" pool="17" interval="105">
 		<object x="2560.427" y="2067.348" z="569.72186" h="69"/>
 		<object x="2585.237" y="1995.69" z="599.2205" h="116"/>
@@ -5681,7 +5632,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2694.458" y="1976.826" z="593.102" h="76"/>
 		<object x="2770.188" y="1862.999" z="596.19946" h="68"/>
 	</spawn>
-	<!-- Frostspirit Fighter (Monster lvl:42)-->
+	<!-- Frostspirit Fighter (Monster  lvl:42)-->
 	<spawn map="220040000" npcid="213221" pool="67" interval="105">
 		<object x="2619.095" y="2112.583" z="584.3303" h="36"/>
 		<object x="2440.896" y="1975.038" z="598.375" h="42"/>
@@ -5751,11 +5702,11 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2618.782" y="2015.724" z="580.15076" h="71"/>
 		<object x="2673.627" y="2031.401" z="588.30505" h="66"/>
 	</spawn>
-	<!-- Iceback (Monster lvl:43)-->
+	<!-- Iceback (Monster  lvl:43)-->
 	<spawn map="220040000" npcid="213789" pool="1" interval="105">
 		<object x="2492.769" y="1633.887" z="410.04068" h="100"/>
 	</spawn>
-	<!-- Greedy Ettin (Monster lvl:39)-->
+	<!-- Greedy Ettin (Monster  lvl:39)-->
 	<spawn map="220040000" npcid="213098" pool="8" interval="105">
 		<object x="1913.45" y="1219.567" z="370.4167" h="44"/>
 		<object x="1935.764" y="1239.019" z="369.5" h="16"/>
@@ -5766,7 +5717,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1922.766" y="1127.131" z="349.625" h="103"/>
 		<object x="2030.653" y="1366.66" z="399.55536" h="71"/>
 	</spawn>
-	<!-- Huge Snowy Mosbear (Monster lvl:34)-->
+	<!-- Huge Snowy Mosbear (Monster  lvl:34)-->
 	<spawn map="220040000" npcid="213024" pool="12" interval="105">
 		<object x="157.9567" y="1191.392" z="286.0726" h="43"/>
 		<object x="288.8337" y="1389.292" z="270.62808" h="31"/>
@@ -5781,11 +5732,11 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="303.2747" y="1402.245" z="269.96075" h="116"/>
 		<object x="182.9955" y="1190.029" z="283.7388" h="95"/>
 	</spawn>
-	<!-- Grayback Karnif (Monster lvl:35)-->
+	<!-- Grayback Karnif (Monster  lvl:35)-->
 	<spawn map="220040000" npcid="213914" pool="1" interval="105">
 		<object x="841.5441" y="709.7086" z="254.875" h="86"/>
 	</spawn>
-	<!-- Frostspirit Healer (Monster lvl:42)-->
+	<!-- Frostspirit Healer (Monster  lvl:42)-->
 	<spawn map="220040000" npcid="213227" pool="17" interval="105">
 		<object x="2622.338" y="2040.6" z="575.5922" h="105"/>
 		<object x="2634.5" y="1968.65" z="599.46484" h="110"/>
@@ -5805,7 +5756,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2717.505" y="1899.293" z="591.28094" h="12"/>
 		<object x="2763.892" y="1886.184" z="592.58374" h="49"/>
 	</spawn>
-	<!-- Gloomy Specter (Monster lvl:38)-->
+	<!-- Gloomy Specter (Monster  lvl:38)-->
 	<spawn map="220040000" npcid="213166" pool="17" interval="105">
 		<object x="916.6837" y="1930.659" z="261.875" h="66"/>
 		<object x="980.4793" y="1946.045" z="262.14932" h="95"/>
@@ -5825,11 +5776,11 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="921.0616" y="2145.664" z="261.29535" h="116"/>
 		<object x="909.1921" y="2094.03" z="255.125" h="64"/>
 	</spawn>
-	<!-- Iceback Kirrin (Monster lvl:35)-->
+	<!-- Iceback Kirrin (Monster  lvl:35)-->
 	<spawn map="220040000" npcid="213915" pool="1" interval="105">
 		<object x="251.0" y="1268.0" z="261.9375" h="118"/>
 	</spawn>
-	<!-- Frostspirit Sentinel (Monster lvl:42)-->
+	<!-- Frostspirit Sentinel (Monster  lvl:42)-->
 	<spawn map="220040000" npcid="213225" pool="26" interval="105">
 		<object x="2656.105" y="1985.675" z="590.5679" h="99"/>
 		<object x="2584.691" y="2094.361" z="568.4529" h="101"/>
@@ -5858,7 +5809,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2760.41" y="1933.343" z="591.5737" h="54"/>
 		<object x="2690.198" y="1921.597" z="593.96246" h="94"/>
 	</spawn>
-	<!-- Iceghost Priest (Monster lvl:37)-->
+	<!-- Iceghost Priest (Monster  lvl:37)-->
 	<spawn map="220040000" npcid="213088" pool="30" interval="105">
 		<object x="1985.309" y="291.7571" z="365.04318" h="48"/>
 		<object x="1936.877" y="158.5058" z="363.09338" h="30"/>
@@ -5891,7 +5842,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1948.897" y="166.7912" z="371.37964" h="71"/>
 		<object x="1985.973" y="558.9916" z="357.06302" h="1"/>
 	</spawn>
-	<!-- Graveknight Soldier (Monster lvl:38)-->
+	<!-- Graveknight Soldier (Monster  lvl:38)-->
 	<spawn map="220040000" npcid="213170" pool="24" interval="105">
 		<object x="975.5626" y="1966.234" z="264.27924" h="110"/>
 		<object x="929.1467" y="1969.068" z="260.93326" h="90"/>
@@ -5918,7 +5869,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="873.65" y="2141.382" z="261.45667" h="11"/>
 		<object x="906.1817" y="2152.049" z="259.51657" h="88"/>
 	</spawn>
-	<!-- Frozen Terra Spirit (Monster lvl:43)-->
+	<!-- Frozen Terra Spirit (Monster  lvl:43)-->
 	<spawn map="220040000" npcid="213119" pool="8" interval="105">
 		<object x="2637.435" y="1022.072" z="377.17038" h="59"/>
 		<object x="2702.95" y="975.1727" z="376.00766" h="57"/>
@@ -5929,7 +5880,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2522.911" y="1639.558" z="408.72238" h="100"/>
 		<object x="2759.264" y="1059.045" z="375.9944" h="8"/>
 	</spawn>
-	<!-- Ice Tail Kirrin (Monster lvl:32)-->
+	<!-- Ice Tail Kirrin (Monster  lvl:32)-->
 	<spawn map="220040000" npcid="213050" pool="41" interval="105">
 		<object x="854.7021" y="927.291" z="272.695" h="32"/>
 		<object x="1142.435" y="848.3851" z="218.75154" h="47"/>
@@ -5973,7 +5924,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1107.133" y="978.6866" z="225.26501" h="24"/>
 		<object x="1233.957" y="572.6407" z="261.3933" h="48"/>
 	</spawn>
-	<!-- Frozen Earth Spirit (Monster lvl:43)-->
+	<!-- Frozen Earth Spirit (Monster  lvl:43)-->
 	<spawn map="220040000" npcid="213116" pool="10" interval="105">
 		<object x="2687.149" y="1079.462" z="376.00543" h="2"/>
 		<object x="2655.457" y="1003.313" z="377.741" h="42"/>
@@ -5986,13 +5937,13 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2720.433" y="992.4006" z="376.07492" h="21"/>
 		<object x="2686.925" y="1111.0" z="376.75" h="32"/>
 	</spawn>
-	<!-- Huntzner the Brawny (Named Mob lvl:37)-->
+	<!-- Huntzner the Brawny (Named Mob  lvl:37)-->
 	<spawn map="220040000" npcid="213718" pool="1" interval="1800">
 		<object x="1399.0" y="1101.0" z="146.6875" h="1"/>
 		<object x="1391.2" y="1027.17" z="142.5479" h="89"/>
 		<object x="1389.66" y="959.11" z="138.93248" h="72"/>
 	</spawn>
-	<!-- Graveknight Guard (Monster lvl:40)-->
+	<!-- Graveknight Guard (Monster  lvl:40)-->
 	<spawn map="220040000" npcid="213172" pool="7" interval="105">
 		<object x="889.3359" y="2172.365" z="258.37137" h="53"/>
 		<object x="849.7357" y="2117.693" z="256.89417" h="35"/>
@@ -6002,14 +5953,14 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="817.8845" y="2162.823" z="260.33078" h="5"/>
 		<object x="790.9815" y="2220.801" z="265.2888" h="84"/>
 	</spawn>
-	<!-- Glacier Crasaur (Monster lvl:38)-->
+	<!-- Glacier Crasaur (Monster  lvl:38)-->
 	<spawn map="220040000" npcid="213182" pool="4" interval="105">
 		<object x="271.2014" y="1849.643" z="209.14793" h="117"/>
 		<object x="225.6039" y="1820.543" z="212.95123" h="14"/>
 		<object x="253.7349" y="1865.284" z="214.39351" h="108"/>
 		<object x="328.455" y="1705.977" z="208.63219" h="40"/>
 	</spawn>
-	<!-- Graveknight Sellsword (Monster lvl:36)-->
+	<!-- Graveknight Sellsword (Monster  lvl:36)-->
 	<spawn map="220040000" npcid="213046" pool="5" interval="105">
 		<object x="756.5338" y="1673.626" z="246.07825" h="40"/>
 		<object x="970.2337" y="1502.501" z="227.58118" h="26"/>
@@ -6017,16 +5968,16 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="754.9958" y="1412.577" z="232.29596" h="93"/>
 		<object x="929.7957" y="1406.57" z="222.56116" h="59"/>
 	</spawn>
-	<!-- Ice Claw Baza (Named Mob lvl:40)-->
+	<!-- Ice Claw Baza (Named Mob  lvl:40)-->
 	<spawn map="220040000" npcid="213726" pool="1" interval="1800">
 		<object x="1863.868" y="687.4838" z="363.51648" h="101"/>
 	</spawn>
-	<!-- Icy Terra Spirit (Monster lvl:45)-->
+	<!-- Icy Terra Spirit (Monster  lvl:45)-->
 	<spawn map="220040000" npcid="213121" pool="2" interval="105">
 		<object x="2524.066" y="1666.144" z="412.9391" h="19"/>
-		<object x="2471.8003" y="1631.2211" z="408.875" h="100"/>		
+		<object x="2471.8003" y="1631.2211" z="408.875" h="100"/>
 	</spawn>
-	<!-- Lake Waterworm (Monster lvl:38)-->
+	<!-- Lake Waterworm (Monster  lvl:38)-->
 	<spawn map="220040000" npcid="213188" pool="12" interval="105">
 		<object x="475.3376" y="1721.797" z="213.20941" h="12"/>
 		<object x="269.2014" y="1817.643" z="210.06912" h="28"/>
@@ -6041,12 +5992,12 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="232.0536" y="1782.714" z="216.7579" h="120"/>
 		<object x="454.7047" y="1868.926" z="214.10983" h="111"/>
 	</spawn>
-	<!-- Incompetent Novice (Monster lvl:42)-->
+	<!-- Incompetent Novice (Monster  lvl:42)-->
 	<spawn map="220040000" npcid="213608" pool="2" interval="105">
 		<object x="2885.935" y="2644.25" z="676.60126" h="86"/>
-		<object x="2926.6187" y="2635.5815" z="679.82733" h="52"/>		
+		<object x="2926.6187" y="2635.5815" z="679.82733" h="52"/>
 	</spawn>
-	<!-- Mine Sentinel (Monster lvl:37)-->
+	<!-- Mine Sentinel (Monster  lvl:37)-->
 	<spawn map="220040000" npcid="213272" pool="14" interval="105">
 		<object x="1594.634" y="1107.15" z="270.59274" h="24"/>
 		<object x="1527.364" y="1175.632" z="234.97699" h="101"/>
@@ -6063,7 +6014,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1449.688" y="1419.696" z="288.9145" h="110"/>
 		<object x="1829.9" y="1086.69" z="326.295" h="73"/>
 	</spawn>
-	<!-- Mine Peon (Monster lvl:36)-->
+	<!-- Mine Peon (Monster  lvl:36)-->
 	<spawn map="220040000" npcid="213278" pool="35" interval="105">
 		<object x="1461.118" y="973.7803" z="238.90247" h="23"/>
 		<object x="1370.96" y="1090.75" z="146.4925" h="10"/>
@@ -6101,12 +6052,12 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1471.717" y="1252.347" z="243.42" h="16"/>
 		<object x="1358.079" y="970.4112" z="136.04346" h="28"/>
 	</spawn>
-	<!-- Icehorn (Boss lvl:45)-->
+	<!-- Icehorn (Boss  lvl:45)-->
 	<spawn map="220040000" npcid="213732" pool="1" interval="14400">
 		<object x="2634.0" y="1700.0" z="472.3017" h="112"/>
 		<object x="2633.527" y="1665.569" z="472.69553" h="68"/>
 	</spawn>
-	<!-- Infected Zombie (Monster lvl:35)-->
+	<!-- Infected Zombie (Monster  lvl:35)-->
 	<spawn map="220040000" npcid="214092" pool="21" interval="105">
 		<object x="915.5019" y="1468.272" z="213.75" h="95"/>
 		<object x="815.2961" y="1390.146" z="219.49837" h="64"/>
@@ -6130,7 +6081,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="828.6826" y="1506.37" z="213.49641" h="55"/>
 		<object x="868.2368" y="1435.441" z="214.49466" h="79"/>
 	</spawn>
-	<!-- Mine Overseer (Monster lvl:37)-->
+	<!-- Mine Overseer (Monster  lvl:37)-->
 	<spawn map="220040000" npcid="213266" pool="25" interval="105">
 		<object x="1365.599" y="964.5816" z="136.15736" h="17"/>
 		<object x="1396.036" y="1034.334" z="143.40576" h="103"/>
@@ -6158,7 +6109,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1404.918" y="1278.636" z="238.75575" h="26"/>
 		<object x="1760.514" y="1162.189" z="322.30576" h="72"/>
 	</spawn>
-	<!-- Mine Worker (Monster lvl:38)-->
+	<!-- Mine Worker (Monster  lvl:38)-->
 	<spawn map="220040000" npcid="213265" pool="10" interval="105">
 		<object x="1651.557" y="1498.489" z="333.4112" h="14"/>
 		<object x="1679.172" y="1466.084" z="324.82324" h="93"/>
@@ -6171,36 +6122,35 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1601.016" y="1342.355" z="318.81735" h="36"/>
 		<object x="1565.476" y="1357.141" z="323.33643" h="111"/>
 	</spawn>
-	<!-- Incompetent Patrol (Monster lvl:42)-->
+	<!-- Incompetent Patrol (Monster  lvl:42)-->
 	<spawn map="220040000" npcid="213606" pool="1" interval="105">
 		<object x="2791.51" y="2572.726" z="650.3691" h="26"/>
-		<object x="2921.9915" y="2631.377" z="679.28784" h="54"/>		
+		<object x="2921.9915" y="2631.377" z="679.28784" h="54"/>
 	</spawn>
-	<!-- Incompetent Initiate (Monster lvl:42)-->
+	<!-- Incompetent Initiate (Monster  lvl:42)-->
 	<spawn map="220040000" npcid="213607" pool="2" interval="105">
 		<object x="2738.093" y="2531.597" z="648.8188" h="81"/>
 		<object x="2730.791" y="2531.468" z="648.7662" h="38"/>
 	</spawn>
-	<!-- Mine Mage (Monster lvl:37)-->
-	<spawn map="220040000" npcid="213270" pool="9" interval="105">
+	<!-- Mine Mage (Monster  lvl:37)-->
+	<spawn map="220040000" npcid="213270" pool="8" interval="105">
 		<object x="1399.338" y="1406.33" z="303.47247" h="74"/>
 		<object x="1431.283" y="1333.613" z="262.35846" h="1"/>
 		<object x="1400.738" y="1374.001" z="279.98718" h="30"/>
-		<object x="1392.718" y="1269.224" z="238.972" h="60"/>
 		<object x="1807.557" y="1110.938" z="310.22675" h="82"/>
 		<object x="1447.351" y="1353.382" z="272.5916" h="39"/>
 		<object x="1467.517" y="1340.961" z="272.90973" h="34"/>
 		<object x="1736.102" y="1245.044" z="332.48724" h="109"/>
 		<object x="1485.163" y="1395.032" z="298.23022" h="73"/>
 	</spawn>
-	<!-- Incompetent Recruit (Monster lvl:42)-->
+	<!-- Incompetent Recruit (Monster  lvl:42)-->
 	<spawn map="220040000" npcid="213605" pool="3" interval="105">
 		<object x="2741.582" y="2531.708" z="648.7214" h="88"/>
 		<object x="2791.338" y="2567.497" z="650.0199" h="14"/>
 		<object x="2734.562" y="2531.573" z="648.82166" h="46"/>
 	</spawn>
-	<!-- Mine Trooper (Monster lvl:37)-->
-	<spawn map="220040000" npcid="213268" pool="24" interval="105">
+	<!-- Mine Trooper (Monster  lvl:37)-->
+	<spawn map="220040000" npcid="213268" pool="22" interval="105">
 		<object x="1489.467" y="1083.612" z="237.59169" h="81"/>
 		<object x="1447.742" y="1347.618" z="272.6166" h="38"/>
 		<object x="1437.347" y="1211.088" z="228.94363" h="14"/>
@@ -6219,14 +6169,12 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1421.8506" y="1372.5282" z="276.1391" h="95"/>
 		<object x="1455.61" y="1340.082" z="272.86987" h="42"/>
 		<object x="1731.993" y="1206.403" z="332.0" h="94"/>
-		<object x="1386.406" y="1404.17" z="310.08044" h="111"/>
 		<object x="1471.024" y="1417.745" z="286.68875" h="44"/>
 		<object x="1743.775" y="1276.559" z="329.0" h="48"/>
 		<object x="1415.915" y="1222.021" z="228.88031" h="96"/>
 		<object x="1524.902" y="1440.031" z="306.201" h="111"/>
-		<object x="1466.404" y="1350.988" z="272.75" h="96"/>
 	</spawn>
-	<!-- Menacing Karnif (Monster lvl:30)-->
+	<!-- Menacing Karnif (Monster  lvl:30)-->
 	<spawn map="220040000" npcid="213017" pool="22" interval="105">
 		<object x="755.3913" y="621.2691" z="256.96194" h="70"/>
 		<object x="495.1696" y="763.6138" z="240.70036" h="49"/>
@@ -6251,7 +6199,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="675.2137" y="759.1406" z="221.6823" h="26"/>
 		<object x="616.8421" y="727.4795" z="225.95981" h="52"/>
 	</spawn>
-	<!-- Mine Outrider (Monster lvl:36)-->
+	<!-- Mine Outrider (Monster  lvl:36)-->
 	<spawn map="220040000" npcid="213567" pool="23" interval="105">
 		<object x="1661.955" y="1138.723" z="259.48663" h="71"/>
 		<object x="1297.328" y="1209.291" z="228.61938" h="44"/>
@@ -6277,7 +6225,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1482.125" y="1039.328" z="224.82324" h="18"/>
 		<object x="1326.609" y="1204.466" z="233.6818" h="116"/>
 	</spawn>
-	<!-- Mine Fighter (Monster lvl:37)-->
+	<!-- Mine Fighter (Monster  lvl:37)-->
 	<spawn map="220040000" npcid="213259" pool="24" interval="105">
 		<object x="1422.904" y="1378.875" z="279.9802" h="79"/>
 		<object x="1783.415" y="1163.487" z="320.40704" h="117"/>
@@ -6304,7 +6252,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1523.937" y="1436.993" z="305.97638" h="41"/>
 		<object x="1508.179" y="1467.068" z="304.5" h="16"/>
 	</spawn>
-	<!-- Mine Lookout (Monster lvl:36)-->
+	<!-- Mine Lookout (Monster  lvl:36)-->
 	<spawn map="220040000" npcid="213566" pool="32" interval="105">
 		<object x="1660.254" y="1181.278" z="269.22626" h="50"/>
 		<object x="1643.755" y="1173.304" z="260.69427" h="110"/>
@@ -6339,7 +6287,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1346.046" y="982.6754" z="235.79509" h="8"/>
 		<object x="1275.998" y="1174.193" z="224.98795" h="26"/>
 	</spawn>
-	<!-- Mine Drudge (Monster lvl:36)-->
+	<!-- Mine Drudge (Monster  lvl:36)-->
 	<spawn map="220040000" npcid="213263" pool="37" interval="105">
 		<object x="1308.662" y="1016.545" z="234.70044" h="50"/>
 		<object x="1399.273" y="1043.143" z="143.48354" h="52"/>
@@ -6379,12 +6327,11 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1392.389" y="948.1016" z="241.2246" h="79"/>
 		<object x="1390.024" y="1240.563" z="236.33438" h="35"/>
 	</spawn>
-	<!-- Malek Drakie (Monster lvl:31)-->
-	<spawn map="220040000" npcid="213020" pool="49" interval="105">
+	<!-- Malek Drakie (Monster  lvl:31)-->
+	<spawn map="220040000" npcid="213020" pool="48" interval="105">
 		<object x="805.5696" y="758.748" z="243.9019" h="59"/>
 		<object x="830.6505" y="785.3798" z="249.45139" h="99"/>
 		<object x="767.9797" y="839.7489" z="253.97116" h="117"/>
-		<object x="767.0" y="839.0" z="254.0" h="120"/>
 		<object x="978.3766" y="938.0353" z="250.5588" h="40"/>
 		<object x="796.0622" y="838.6197" z="253.65492" h="15"/>
 		<object x="992.0018" y="906.7864" z="226.19681" h="86"/>
@@ -6431,11 +6378,10 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1079.417" y="903.5579" z="211.73999" h="39"/>
 		<object x="1281.169" y="608.49" z="245.84457" h="65"/>
 	</spawn>
-	<!-- Mine Fencer (Monster lvl:37)-->
-	<spawn map="220040000" npcid="213261" pool="29" interval="105">
+	<!-- Mine Fencer (Monster  lvl:37)-->
+	<spawn map="220040000" npcid="213261" pool="27" interval="105">
 		<object x="1372.115" y="975.4904" z="240.0" h="17"/>
 		<object x="1626.617" y="1161.013" z="256.85187" h="56"/>
-		<object x="1341.091" y="1179.278" z="250.96039" h="21"/>
 		<object x="1498.427" y="1073.168" z="238.77806" h="26"/>
 		<object x="1763.463" y="1139.472" z="322.72513" h="50"/>
 		<object x="1348.949" y="1182.479" z="245.23814" h="95"/>
@@ -6453,7 +6399,6 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1519.815" y="1119.572" z="239.15175" h="95"/>
 		<object x="1420.101" y="1356.797" z="269.15576" h="55"/>
 		<object x="1434.325" y="958.2616" z="237.60022" h="67"/>
-		<object x="1495.569" y="1175.642" z="223.71169" h="27"/>
 		<object x="1438.989" y="1374.264" z="290.47256" h="98"/>
 		<object x="1453.659" y="1454.766" z="297.2926" h="21"/>
 		<object x="1402.316" y="1268.8" z="238.75525" h="49"/>
@@ -6463,16 +6408,15 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1714.699" y="1264.576" z="328.21237" h="67"/>
 		<object x="1416.997" y="1267.439" z="238.5" h="116"/>
 	</spawn>
-	<!-- Malek Protector (Named Mob lvl:37)-->
+	<!-- Malek Protector (Named Mob  lvl:37)-->
 	<spawn map="220040000" npcid="215383" pool="1" interval="1800">
 		<object x="1140.78" y="432.85" z="341.0825" h="112"/>
 		<object x="1142.64" y="430.55" z="340.72626" h="112"/>
 		<object x="1141.567" y="431.20724" z="340.88647" h="110"/>
 		<object x="1140.96" y="431.14" z="341.1225" h="63"/>
 		<object x="1141.13" y="424.01" z="341.1306" h="58"/>
-		<object x="1140.51" y="431.15" z="341.2475" h="118"/>
 	</spawn>
-	<!-- Meek Crestlich (Monster lvl:29)-->
+	<!-- Meek Crestlich (Monster  lvl:29)-->
 	<spawn map="220040000" npcid="213011" pool="40" interval="105">
 		<object x="173.1266" y="469.6611" z="228.89793" h="22"/>
 		<object x="302.0172" y="537.6561" z="220.04298" h="1"/>
@@ -6515,7 +6459,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="376.261" y="671.7546" z="233.55087" h="105"/>
 		<object x="144.4332" y="302.1422" z="238.0" h="4"/>
 	</spawn>
-	<!-- Mean Daru (Monster lvl:42)-->
+	<!-- Mean Daru (Monster  lvl:42)-->
 	<spawn map="220040000" npcid="213255" pool="5" interval="105">
 		<object x="2911.209" y="1296.209" z="495.02612" h="60"/>
 		<object x="2924.397" y="858.6354" z="490.75" h="113"/>
@@ -6523,14 +6467,14 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2893.416" y="1225.86" z="483.4385" h="14"/>
 		<object x="2881.149" y="1327.344" z="498.7622" h="42"/>
 	</spawn>
-	<!-- Obese Porgus (Monster lvl:38)-->
+	<!-- Obese Porgus (Monster  lvl:38)-->
 	<spawn map="220040000" npcid="213150" pool="4" interval="105">
 		<object x="1082.662" y="1798.234" z="240.09988" h="5"/>
 		<object x="1028.42" y="1813.381" z="241.55112" h="118"/>
 		<object x="1098.099" y="1725.813" z="235.23282" h="82"/>
 		<object x="1041.753" y="1790.461" z="238.46344" h="57"/>
 	</spawn>
-	<!-- Pale Boggart (Monster lvl:36)-->
+	<!-- Pale Boggart (Monster  lvl:36)-->
 	<spawn map="220040000" npcid="213155" pool="11" interval="105">
 		<object x="974.9913" y="1686.798" z="225.875" h="89"/>
 		<object x="973.1525" y="1698.958" z="227.0" h="101"/>
@@ -6544,7 +6488,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1075.041" y="1701.167" z="235.75" h="67"/>
 		<object x="989.806" y="1755.508" z="238.19514" h="33"/>
 	</spawn>
-	<!-- Odd Granker (Monster lvl:35)-->
+	<!-- Odd Granker (Monster  lvl:35)-->
 	<spawn map="220040000" npcid="213033" pool="9" interval="105">
 		<object x="986.5271" y="1291.066" z="228.35857" h="71"/>
 		<object x="717.1145" y="1058.448" z="230.08272" h="12"/>
@@ -6556,7 +6500,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="954.4685" y="1168.873" z="226.50891" h="52"/>
 		<object x="658.6307" y="1395.435" z="231.92117" h="90"/>
 	</spawn>
-	<!-- Obsidian Kirrin (Monster lvl:42)-->
+	<!-- Obsidian Kirrin (Monster  lvl:42)-->
 	<spawn map="220040000" npcid="213219" pool="19" interval="105">
 		<object x="2601.807" y="2181.422" z="548.9593" h="93"/>
 		<object x="2702.664" y="2172.631" z="580.5658" h="84"/>
@@ -6578,14 +6522,14 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2629.339" y="2175.645" z="550.2691" h="68"/>
 		<object x="2744.022" y="2178.877" z="590.13184" h="51"/>
 	</spawn>
-	<!-- Laborer Tipolid (Monster lvl:37)-->
+	<!-- Laborer Tipolid (Monster  lvl:37)-->
 	<spawn map="220040000" npcid="213568" pool="4" interval="105">
 		<object x="1640.391" y="1377.052" z="325.02075" h="68"/>
 		<object x="1434.842" y="1484.497" z="316.4145" h="70"/>
 		<object x="1685.314" y="1375.431" z="323.75" h="58"/>
 		<object x="1606.769" y="1343.807" z="316.4543" h="4"/>
 	</spawn>
-	<!-- Lament Obscura (Monster lvl:40)-->
+	<!-- Lament Obscura (Monster  lvl:40)-->
 	<spawn map="220040000" npcid="213782" pool="14" interval="105">
 		<object x="939.2203" y="2263.254" z="315.875" h="93"/>
 		<object x="854.0316" y="2321.084" z="290.94473" h="8"/>
@@ -6602,7 +6546,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="884.2766" y="2331.859" z="305.75812" h="1"/>
 		<object x="956.8499" y="2217.366" z="296.40323" h="76"/>
 	</spawn>
-	<!-- Obsidian Kalgolem (Monster lvl:39)-->
+	<!-- Obsidian Kalgolem (Monster  lvl:39)-->
 	<spawn map="220040000" npcid="213160" pool="40" interval="105">
 		<object x="666.8298" y="2037.689" z="250.53426" h="67"/>
 		<object x="694.9349" y="2342.807" z="249.67514" h="56"/>
@@ -6645,12 +6589,12 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="367.8029" y="2191.529" z="215.5" h="32"/>
 		<object x="394.8716" y="2183.493" z="215.25" h="68"/>
 	</spawn>
-	<!-- Icy Earth Spirit (Monster lvl:45)-->
+	<!-- Icy Earth Spirit (Monster  lvl:45)-->
 	<spawn map="220040000" npcid="213118" pool="1" interval="105">
 		<object x="2499.511" y="1606.583" z="408.875" h="26"/>
-		<object x="2493.9946" y="1649.9598" z="408.75" h="6"/>		
+		<object x="2493.9946" y="1649.9598" z="408.75" h="6"/>
 	</spawn>
-	<!-- Mine Laborer (Monster lvl:38)-->
+	<!-- Mine Laborer (Monster  lvl:38)-->
 	<spawn map="220040000" npcid="213280" pool="12" interval="105">
 		<object x="1390.6" y="1253.948" z="239.38039" h="88"/>
 		<object x="1489.37" y="1528.274" z="319.76712" h="82"/>
@@ -6665,7 +6609,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1523.703" y="1417.07" z="324.09033" h="98"/>
 		<object x="1716.753" y="1212.718" z="332.8706" h="7"/>
 	</spawn>
-	<!-- Mamut Calf Spirit (Monster lvl:41)-->
+	<!-- Mamut Calf Spirit (Monster  lvl:41)-->
 	<spawn map="220040000" npcid="213111" pool="14" interval="105">
 		<object x="2822.154" y="170.5542" z="294.40387" h="64"/>
 		<object x="2627.001" y="318.8625" z="284.15073" h="89"/>
@@ -6682,7 +6626,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2763.386" y="355.3498" z="297.5866" h="30"/>
 		<object x="2585.319" y="399.5395" z="278.125" h="99"/>
 	</spawn>
-	<!-- Mamut Soul (Monster lvl:41)-->
+	<!-- Mamut Soul (Monster  lvl:41)-->
 	<spawn map="220040000" npcid="213109" pool="21" interval="105">
 		<object x="2545.79" y="282.9063" z="288.49585" h="67"/>
 		<object x="2560.431" y="373.3563" z="282.84872" h="52"/>
@@ -6706,7 +6650,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2584.959" y="262.8909" z="290.5" h="93"/>
 		<object x="2559.856" y="344.8433" z="282.6597" h="83"/>
 	</spawn>
-	<!-- Malek Drake (Monster lvl:33)-->
+	<!-- Malek Drake (Monster  lvl:33)-->
 	<spawn map="220040000" npcid="213243" pool="17" interval="105">
 		<object x="1064.937" y="910.8378" z="217.45718" h="64"/>
 		<object x="1229.422" y="792.1522" z="233.34598" h="86"/>
@@ -6726,13 +6670,13 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1275.066" y="601.0198" z="248.11469" h="61"/>
 		<object x="1255.767" y="475.5948" z="257.6035" h="40"/>
 	</spawn>
-	<!-- Legas Painwing (Named Mob lvl:37)-->
+	<!-- Legas Painwing (Named Mob  lvl:37)-->
 	<spawn map="220040000" npcid="213725" pool="1" interval="1800">
 		<object x="1890.0" y="223.0" z="354.28793" h="47"/>
 		<object x="1959.0" y="205.0" z="371.36536" h="57"/>
 		<object x="2066.0" y="257.0" z="382.5625" h="79"/>
 	</spawn>
-	<!-- Lake Potcrab (Monster lvl:38)-->
+	<!-- Lake Potcrab (Monster  lvl:38)-->
 	<spawn map="220040000" npcid="213180" pool="16" interval="105">
 		<object x="322.1663" y="1875.778" z="209.95023" h="10"/>
 		<object x="324.176" y="1854.492" z="208.3882" h="43"/>
@@ -6751,12 +6695,12 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="197.6487" y="2100.989" z="213.93216" h="83"/>
 		<object x="350.8774" y="2091.7" z="214.77576" h="74"/>
 	</spawn>
-	<!-- Motherless Ramu (Monster lvl:40)-->
+	<!-- Motherless Ramu (Monster  lvl:40)-->
 	<spawn map="220040000" npcid="213727" pool="2" interval="105">
 		<object x="2612.2505" y="344.05875" z="283.62134" h="69"/>
-		<object x="2805.9475" y="159.1251" z="293.98108" h="85"/>		
+		<object x="2805.9475" y="159.1251" z="293.98108" h="85"/>
 	</spawn>
-	<!-- Quartz Petrahulk (Monster lvl:45)-->
+	<!-- Quartz Petrahulk (Monster  lvl:45)-->
 	<spawn map="220040000" npcid="213124" pool="18" interval="105">
 		<object x="2607.227" y="1531.232" z="402.1856" h="88"/>
 		<object x="2526.93" y="1596.364" z="411.29224" h="60"/>
@@ -6777,7 +6721,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2586.956" y="1605.977" z="427.93616" h="56"/>
 		<object x="2820.961" y="1552.223" z="432.79434" h="4"/>
 	</spawn>
-	<!-- Shining Malekor (Monster lvl:35)-->
+	<!-- Shining Malekor (Monster  lvl:35)-->
 	<spawn map="220040000" npcid="213066" pool="56" interval="105">
 		<object x="998.2376" y="495.3903" z="305.72675" h="59"/>
 		<object x="1012.245" y="375.0344" z="305.48468" h="94"/>
@@ -6836,7 +6780,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1078.399" y="520.6144" z="285.57678" h="88"/>
 		<object x="1036.331" y="548.1605" z="285.77737" h="38"/>
 	</spawn>
-	<!-- Smallspike Starcrab (Monster lvl:38)-->
+	<!-- Smallspike Starcrab (Monster  lvl:38)-->
 	<spawn map="220040000" npcid="213186" pool="8" interval="105">
 		<object x="324.3235" y="1784.218" z="208.38632" h="10"/>
 		<object x="226.9828" y="1895.406" z="227.444" h="62"/>
@@ -6847,7 +6791,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="486.9534" y="1772.413" z="206.74269" h="70"/>
 		<object x="408.1439" y="1858.188" z="216.34724" h="109"/>
 	</spawn>
-	<!-- Plains Vespine (Monster lvl:29)-->
+	<!-- Plains Vespine (Monster  lvl:29)-->
 	<spawn map="220040000" npcid="213007" pool="42" interval="105">
 		<object x="168.1184" y="329.6081" z="238.09338" h="44"/>
 		<object x="556.614" y="503.2758" z="217.57675" h="76"/>
@@ -6892,7 +6836,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="195.3606" y="434.1123" z="233.1992" h="120"/>
 		<object x="137.0746" y="410.5361" z="234.56995" h="113"/>
 	</spawn>
-	<!-- Pincer Lobnite (Monster lvl:40)-->
+	<!-- Pincer Lobnite (Monster  lvl:40)-->
 	<spawn map="220040000" npcid="213199" pool="8" interval="105">
 		<object x="294.0564" y="2137.576" z="210.43279" h="23"/>
 		<object x="212.9982" y="2062.594" z="208.78165" h="120"/>
@@ -6903,19 +6847,19 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="254.573" y="2183.898" z="207.47772" h="83"/>
 		<object x="164.0749" y="2152.941" z="212.00763" h="58"/>
 	</spawn>
-	<!-- Port Guard (Monster lvl:38)-->
+	<!-- Port Guard (Monster  lvl:38)-->
 	<spawn map="220040000" npcid="214033" pool="4" interval="105">
 		<object x="1765.0" y="1316.0" z="402.0" h="42"/>
 		<object x="1796.88" y="1300.927" z="402.0" h="10"/>
 		<object x="1781.809" y="1339.887" z="401.75" h="59"/>
 		<object x="1768.333" y="1312.228" z="401.875" h="78"/>
 	</spawn>
-	<!-- Sacred Dragon Relic (Monster lvl:44)-->
+	<!-- Sacred Dragon Relic (Monster  lvl:44)-->
 	<spawn map="220040000" npcid="280638" pool="2" interval="105">
 		<object x="1574.98" y="2094.79" z="595.10126" h="107"/>
-		<object x="1660.63" y="2077.09" z="578.61" h="102"/>		
+		<object x="1660.63" y="2077.09" z="578.61" h="102"/>
 	</spawn>
-	<!-- Pale Worg (Monster lvl:37)-->
+	<!-- Pale Worg (Monster  lvl:37)-->
 	<spawn map="220040000" npcid="213082" pool="12" interval="105">
 		<object x="1799.34" y="485.0592" z="350.75125" h="22"/>
 		<object x="1940.481" y="425.6788" z="390.8596" h="91"/>
@@ -6930,7 +6874,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1897.575" y="358.0683" z="393.8425" h="69"/>
 		<object x="1901.796" y="410.9902" z="400.32343" h="109"/>
 	</spawn>
-	<!-- Quartz Fang Kirrin (Monster lvl:37)-->
+	<!-- Quartz Fang Kirrin (Monster  lvl:37)-->
 	<spawn map="220040000" npcid="213077" pool="10" interval="105">
 		<object x="1789.685" y="746.7273" z="315.0288" h="25"/>
 		<object x="1732.282" y="979.5027" z="271.55286" h="49"/>
@@ -6943,11 +6887,10 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1737.073" y="775.3478" z="300.28" h="15"/>
 		<object x="1625.882" y="1097.587" z="256.53687" h="72"/>
 	</spawn>
-	<!-- Snowy Brax (Monster lvl:37)-->
-	<spawn map="220040000" npcid="213078" pool="39" interval="105">
+	<!-- Snowy Brax (Monster  lvl:37)-->
+	<spawn map="220040000" npcid="213078" pool="35" interval="105">
 		<object x="1672.18" y="611.7" z="345.595" h="103"/>
 		<object x="1676.25" y="657.25" z="352.125" h="93"/>
-		<object x="1643.38" y="635.51" z="355.47" h="35"/>
 		<object x="1664.35" y="555.08" z="343.61313" h="87"/>
 		<object x="1739.32" y="478.95" z="343.75" h="60"/>
 		<object x="1734.93" y="473.96" z="343.6275" h="62"/>
@@ -6958,7 +6901,6 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1699.73" y="689.04" z="361.04437" h="81"/>
 		<object x="1667.08" y="552.07" z="343.3075" h="32"/>
 		<object x="1605.57" y="625.93" z="363.795" h="109"/>
-		<object x="1651.67" y="626.95" z="349.2832" h="99"/>
 		<object x="1741.15" y="479.25" z="343.8" h="90"/>
 		<object x="1736.73" y="474.07" z="343.625" h="103"/>
 		<object x="1665.25" y="426.2" z="357.175" h="75"/>
@@ -6981,11 +6923,9 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1716.19" y="565.75" z="343.89752" h="26"/>
 		<object x="1748.75" y="585.3" z="349.3875" h="68"/>
 		<object x="1652.79" y="574.42" z="345.3781" h="41"/>
-		<object x="1754.25" y="316.7" z="335.25" h="58"/>
 		<object x="1749.11" y="325.39" z="335.39252" h="43"/>
-		<object x="1737.74" y="476.62" z="343.625" h="16"/>
 	</spawn>
-	<!-- Pretor Scout (Monster lvl:36)-->
+	<!-- Pretor Scout (Monster  lvl:36)-->
 	<spawn map="220040000" npcid="213073" pool="29" interval="105">
 		<object x="1599.614" y="788.1675" z="329.11182" h="117"/>
 		<object x="1695.722" y="1010.918" z="253.875" h="105"/>
@@ -7017,11 +6957,11 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1775.319" y="702.2982" z="322.15152" h="25"/>
 		<object x="1756.502" y="703.9885" z="322.09506" h="69"/>
 	</spawn>
-	<!-- Snowfury (Monster lvl:43)-->
+	<!-- Snowfury (Monster  lvl:43)-->
 	<spawn map="220040000" npcid="213791" pool="1" interval="105">
 		<object x="2790.0" y="1546.0" z="426.25394" h="47"/>
 	</spawn>
-	<!-- Roaring Karnif (Monster lvl:34)-->
+	<!-- Roaring Karnif (Monster  lvl:34)-->
 	<spawn map="220040000" npcid="213035" pool="29" interval="105">
 		<object x="1061.073" y="1240.029" z="227.93294" h="69"/>
 		<object x="892.7162" y="1049.398" z="238.74933" h="109"/>
@@ -7053,7 +6993,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1119.587" y="1378.479" z="240.375" h="28"/>
 		<object x="716.3875" y="963.83" z="249.98625" h="110"/>
 	</spawn>
-	<!-- Silver Granker (Monster lvl:33)-->
+	<!-- Silver Granker (Monster  lvl:33)-->
 	<spawn map="220040000" npcid="213032" pool="27" interval="105">
 		<object x="681.209" y="1547.504" z="244.40112" h="83"/>
 		<object x="491.0886" y="1240.519" z="260.25" h="13"/>
@@ -7083,7 +7023,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="234.0528" y="1034.089" z="277.10068" h="65"/>
 		<object x="297.5241" y="868.0471" z="279.625" h="88"/>
 	</spawn>
-	<!-- Sentinel Drake (Monster lvl:43)-->
+	<!-- Sentinel Drake (Monster  lvl:43)-->
 	<spawn map="220040000" npcid="213308" pool="30" interval="105">
 		<object x="2017.152" y="2508.335" z="589.5637" h="118"/>
 		<object x="2101.752" y="2599.77" z="603.9546" h="35"/>
@@ -7116,7 +7056,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1933.231" y="2531.007" z="592.80054" h="22"/>
 		<object x="1990.231" y="2534.129" z="592.36865" h="41"/>
 	</spawn>
-	<!-- Pretor Searcher (Monster lvl:42)-->
+	<!-- Pretor Searcher (Monster  lvl:42)-->
 	<spawn map="220040000" npcid="213217" pool="27" interval="105">
 		<object x="2666.39" y="2192.258" z="558.5405" h="102"/>
 		<object x="2728.002" y="2170.984" z="587.6909" h="55"/>
@@ -7146,8 +7086,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2612.699" y="2128.556" z="556.105" h="109"/>
 		<object x="2679.221" y="2181.432" z="569.5115" h="4"/>
 	</spawn>
-	<!-- Sea Crynac (Monster lvl:44)-->
-	<spawn map="220040000" npcid="213367" pool="30" interval="105">
+	<!-- Sea Crynac (Monster  lvl:44)-->
+	<spawn map="220040000" npcid="213367" pool="29" interval="105">
 		<object x="691.0" y="2774.0" z="328.10788" h="10"/>
 		<object x="653.71265" y="2752.2136" z="322.20743" h="67"/>
 		<object x="640.17" y="2772.56" z="319.46362" h="56"/>
@@ -7157,7 +7097,6 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="695.63" y="2822.36" z="173.125" h="19"/>
 		<object x="761.09" y="2903.38" z="188.05807" h="11"/>
 		<object x="715.0" y="2765.66" z="323.94278" h="71"/>
-		<object x="691.16" y="2774.85" z="322.33453" h="57"/>
 		<object x="664.96" y="2783.15" z="320.49472" h="58"/>
 		<object x="668.11" y="2709.32" z="330.05023" h="68"/>
 		<object x="674.85" y="2671.75" z="331.00735" h="37"/>
@@ -7179,8 +7118,8 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="858.66" y="2710.13" z="302.75403" h="109"/>
 		<object x="891.47" y="2623.12" z="310.4994" h="10"/>
 	</spawn>
-	<!-- Snowfur Youngling (Monster lvl:33)-->
-	<spawn map="220040000" npcid="213707" pool="20" interval="105">
+	<!-- Snowfur Youngling (Monster  lvl:33)-->
+	<spawn map="220040000" npcid="213707" pool="18" interval="105">
 		<object x="239.0" y="1351.0" z="268.25" h="41"/>
 		<object x="232.16" y="1362.49" z="269.42624" h="95"/>
 		<object x="238.81" y="1339.75" z="268.33188" h="4"/>
@@ -7192,17 +7131,15 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="177.18" y="1113.1" z="273.17377" h="22"/>
 		<object x="243.31" y="1352.7" z="268.0" h="9"/>
 		<object x="238.09" y="1345.93" z="268.73563" h="57"/>
-		<object x="239.09" y="1351.51" z="268.25" h="120"/>
 		<object x="233.58" y="1339.53" z="266.9994" h="109"/>
 		<object x="231.01" y="1345.08" z="268.26123" h="51"/>
 		<object x="169.02" y="1094.44" z="274.0125" h="83"/>
 		<object x="227.16" y="1346.42" z="268.27625" h="22"/>
-		<object x="238.17282" y="1339.7515" z="268.22995" h="119"/>
 		<object x="232.69" y="1343.93" z="268.29312" h="104"/>
 		<object x="235.49" y="1355.42" z="268.49564" h="47"/>
 		<object x="227.97" y="1354.58" z="268.915" h="94"/>
 	</spawn>
-	<!-- Silver Granker Fawn (Monster lvl:33)-->
+	<!-- Silver Granker Fawn (Monster  lvl:33)-->
 	<spawn map="220040000" npcid="213025" pool="62" interval="105">
 		<object x="302.5927" y="961.4927" z="279.625" h="34"/>
 		<object x="117.9959" y="1086.443" z="295.25153" h="37"/>
@@ -7267,7 +7204,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="261.4643" y="930.1884" z="280.08868" h="49"/>
 		<object x="562.5518" y="1435.571" z="252.50241" h="62"/>
 	</spawn>
-	<!-- Seafoam Rayal (Monster lvl:44)-->
+	<!-- Seafoam Rayal (Monster  lvl:44)-->
 	<spawn map="220040000" npcid="213571" pool="40" interval="105">
 		<object x="655.0" y="2658.0" z="126.375" h="75"/>
 		<object x="693.82" y="2651.09" z="127.40938" h="96"/>
@@ -7310,15 +7247,15 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="674.65" y="2989.05" z="141.52806" h="120"/>
 		<object x="672.68" y="2991.01" z="141.44063" h="17"/>
 	</spawn>
-	<!-- Purpleback Kirrin (Monster lvl:35)-->
+	<!-- Purpleback Kirrin (Monster  lvl:35)-->
 	<spawn map="220040000" npcid="213917" pool="1" interval="105">
 		<object x="1282.343" y="497.8178" z="259.96585" h="63"/>
 	</spawn>
-	<!-- Snowfur (Named Mob lvl:34)-->
+	<!-- Snowfur (Named Mob  lvl:34)-->
 	<spawn map="220040000" npcid="213706" pool="1" interval="1800">
 		<object x="118.5516" y="1507.413" z="317.33875" h="20"/>
 	</spawn>
-	<!-- Snow Snuffler (Monster lvl:38)-->
+	<!-- Snow Snuffler (Monster  lvl:38)-->
 	<spawn map="220040000" npcid="213090" pool="37" interval="105">
 		<object x="1847.15" y="799.44" z="358.805" h="70"/>
 		<object x="1867.06" y="707.71" z="364.53" h="16"/>
@@ -7358,11 +7295,11 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2082.1" y="1066.92" z="399.66254" h="101"/>
 		<object x="2081.35" y="1117.72" z="404.0669" h="30"/>
 	</spawn>
-	<!-- Queen Mahisha (Named Mob lvl:35)-->
+	<!-- Queen Mahisha (Named Mob  lvl:35)-->
 	<spawn map="220040000" npcid="213711" pool="1" interval="1800">
 		<object x="1381.992" y="286.9813" z="274.43918" h="74"/>
 	</spawn>
-	<!-- Snow Storm Spirit (Monster lvl:45)-->
+	<!-- Snow Storm Spirit (Monster  lvl:45)-->
 	<spawn map="220040000" npcid="213239" pool="9" interval="105">
 		<object x="2765.67" y="1288.93" z="389.945" h="118"/>
 		<object x="2613.27" y="1370.405" z="393.91034" h="79"/>
@@ -7374,7 +7311,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="2786.412" y="1588.643" z="430.71225" h="55"/>
 		<object x="2807.501" y="1645.627" z="433.375" h="49"/>
 	</spawn>
-	<!-- Quartz Tail Kirrin (Monster lvl:34)-->
+	<!-- Quartz Tail Kirrin (Monster  lvl:34)-->
 	<spawn map="220040000" npcid="213052" pool="31" interval="105">
 		<object x="1099.3" y="1122.11" z="222.70187" h="68"/>
 		<object x="1063.242" y="1134.979" z="230.19214" h="25"/>
@@ -7408,7 +7345,7 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1369.124" y="839.9512" z="303.11255" h="94"/>
 		<object x="1515.889" y="424.3224" z="321.04242" h="4"/>
 	</spawn>
-	<!-- Poisoned Slime (Monster lvl:35)-->
+	<!-- Poisoned Slime (Monster  lvl:35)-->
 	<spawn map="220040000" npcid="213041" pool="26" interval="105">
 		<object x="932.3726" y="1468.403" z="212.84982" h="19"/>
 		<object x="782.2491" y="1507.079" z="211.80756" h="5"/>
@@ -7437,17 +7374,17 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="793.6235" y="1354.654" z="212.625" h="33"/>
 		<object x="787.8024" y="1519.131" z="212.63734" h="40"/>
 	</spawn>
-	<!-- Priest Esekiel (Named Mob lvl:38)-->
+	<!-- Priest Esekiel (Named Mob  lvl:38)-->
 	<spawn map="220040000" npcid="213723" pool="1" interval="1800">
 		<object x="2065.364" y="165.9095" z="390.6275" h="34"/>
 	</spawn>
-	<!-- Shadow Priest Jungan (Named Mob lvl:38)-->
+	<!-- Shadow Priest Jungan (Named Mob  lvl:38)-->
 	<spawn map="220040000" npcid="213724" pool="1" interval="1800">
 		<object x="2115.0" y="430.0" z="384.1632" h="101"/>
 		<object x="2146.0" y="444.0" z="384.1639" h="66"/>
 		<object x="2101.0" y="457.0" z="384.16418" h="44"/>
 	</spawn>
-	<!-- Pale Zombie (Monster lvl:35)-->
+	<!-- Pale Zombie (Monster  lvl:35)-->
 	<spawn map="220040000" npcid="213044" pool="15" interval="105">
 		<object x="836.8829" y="1603.489" z="229.40154" h="74"/>
 		<object x="747.2712" y="1441.524" z="228.35504" h="102"/>
@@ -7465,12 +7402,12 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="754.3173" y="1653.409" z="241.80113" h="15"/>
 		<object x="947.2466" y="1412.642" z="224.18369" h="113"/>
 	</spawn>
-	<!-- Port (Monster lvl:)-->
+	<!-- Port (Monster  lvl:)-->
 	<spawn map="220040000" npcid="206071" pool="1" interval="105">
 		<object x="1750.696" y="1299.538" z="405.4136" h="38"/>
 	</spawn>
-	<!-- Snowy Braxie (Monster lvl:36)-->
-	<spawn map="220040000" npcid="213241" pool="38" interval="105">
+	<!-- Snowy Braxie (Monster  lvl:36)-->
+	<spawn map="220040000" npcid="213241" pool="34" interval="105">
 		<object x="1673.75" y="609.75" z="345.34375" h="9"/>
 		<object x="1672.9" y="655.9" z="352.58124" h="21"/>
 		<object x="1679.65" y="657.86" z="352.0175" h="42"/>
@@ -7487,8 +7424,6 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1700.87" y="685.66" z="359.01562" h="42"/>
 		<object x="1700.91" y="691.25" z="361.5025" h="98"/>
 		<object x="1665.74" y="554.77" z="343.51938" h="29"/>
-		<object x="1666.39" y="551.61" z="343.375" h="77"/>
-		<object x="1602.67" y="627.35" z="364.16626" h="48"/>
 		<object x="1608.7" y="624.93" z="363.15375" h="94"/>
 		<object x="1696.06" y="571.56" z="344.17502" h="66"/>
 		<object x="1771.32" y="542.07" z="349.76498" h="47"/>
@@ -7506,52 +7441,15 @@ fixed duplicate spawns, added a lot of  missing monsters.
 		<object x="1687.3" y="597.25" z="340.96564" h="42"/>
 		<object x="1772.25" y="583.15" z="353.1" h="103"/>
 		<object x="1765.93" y="586.07" z="351.86627" h="32"/>
-		<object x="1692.0" y="521.4" z="344.3625" h="76"/>
-		<object x="1690.25" y="603.25" z="341.23438" h="30"/>
 		<object x="1686.39" y="597.25" z="340.9775" h="38"/>
 	</spawn>
-	<!-- Commander Bakarma (Boss lvl:50)-->
+	<!-- Commander Bakarma (Boss Hero lvl:50)-->
 	<spawn map="220040000" npcid="213780" pool="1" interval="14400">
 		<object x="1606.0" y="2730.0" z="705.375" h="44"/>
 	</spawn>
-	<!-- Clone (Monster lvl:44) -->
+	<!-- Clone (Monster  lvl:44)-->
 	<spawn map="210040000" npcid="280625" pool="2" interval="105">
 		<object x="1878.88" y="1901.33" z="595.32" h="72"/>
 		<object x="1755.08" y="2090.92" z="588.01" h="66"/>
 	</spawn>
-	<!-- According aiondatabase.com ,these mobs has the same coordinates. 
-	 So I don't know  where these must be place
-	Commander Nimbarka (Monster lvl:48) 
-	<spawn map="220040000" npcid="213779" pool="1" interval="105">
-		<object x="1606.0" y="2730.0" z="705.375" h="23"/>
-	</spawn>
-	 Beautiful Lakshmi (Named Mob lvl:48)
-	<spawn map="220040000" npcid="213778" pool="1" interval="1800">
-		<object x="1606.0" y="2730.0" z="705.375" h="25"/>
-	</spawn>
-	Instructor Afrane (Monster lvl:47)
-	<spawn map="220040000" npcid="213776" pool="1" interval="105">
-		<object x="1606.0" y="2730.0" z="705.375" h="24"/>
-	</spawn>
-	Lazy Dragashum (Named Mob lvl:46)
-	<spawn map="220040000" npcid="213774" pool="1" interval="1800">
-		<object x="1606.0" y="2730.0" z="705.375" h="106"/>
-	</spawn>
-	Greatscholar Jaadis (Named Mob lvl:47)
-	<spawn map="220040000" npcid="213775" pool="1" interval="1800">
-		<object x="1606.0" y="2730.0" z="705.375" h="117"/>
-	</spawn>
-	Dragonpriest Tairgus (Named Mob lvl:46)
-	<spawn map="220040000" npcid="213773" pool="1" interval="1800">
-		<object x="1606.0" y="2730.0" z="705.375" h="32"/>
-	</spawn>
-	Protector Rakkan (Named Mob lvl:46)
-	<spawn map="220040000" npcid="213771" pool="1" interval="1800">
-		<object x="1606.0" y="2730.0" z="705.375" h="8"/>
-	</spawn>
-	Shadowmaster Takrin (Named Mob lvl:47)
-	<spawn map="220040000" npcid="213772" pool="1" interval="1800">
-		<object x="1606.0" y="2730.0" z="705.375" h="72"/>
-	</spawn>
-	-->
 </spawns>

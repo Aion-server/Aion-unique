@@ -4,18 +4,18 @@ map npcid pool interval
 object x y z h
 Brusthonin -->
 <!-- 2010.04.03
-Added about 6000 missing monsters by stpavel 
+Added about 6000 missing monsters by stpavel
 Thanks to RotO for Z-fixing tool !
 -->
 <spawns>
-	<!-- Fierce Undead Worg -->
+	<!-- Fierce Undead Worg (Monster  lvl:23)-->
 	<spawn map="220050000" npcid="213247" pool="4" interval="105">
 		<object x="2151.7566" y="1854.076" z="27.473373" h="70"/>
 		<object x="2163.7505" y="1856.8721" z="26.734406" h="79"/>
 		<object x="2165.7275" y="1868.783" z="26.642029" h="44"/>
 		<object x="2151.9934" y="1873.2759" z="26.627472" h="43"/>
 	</spawn>
-	<!-- Poison Wing Vespine -->
+	<!-- Poison Wing Vespine (Monster  lvl:20)-->
 	<spawn map="220050000" npcid="213843" pool="18" interval="105">
 		<object x="2742.7893" y="2242.1958" z="23.31157" h="21"/>
 		<object x="2592.8208" y="2402.6624" z="27.0802" h="97"/>
@@ -36,7 +36,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="2730.1807" y="2312.364" z="23.40921" h="14"/>
 		<object x="2604.7234" y="2499.9973" z="26.796219" h="83"/>
 	</spawn>
-	<!-- Poison Wing Vespine -->
+	<!--  (  lvl:)-->
 	<spawn map="220050000" npcid="213844" pool="18" interval="105">
 		<object x="2682.0247" y="2323.752" z="24.86258" h="66"/>
 		<object x="2689.8557" y="2303.6577" z="24.801804" h="20"/>
@@ -57,7 +57,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="2631.6475" y="2208.249" z="18.166443" h="92"/>
 		<object x="2683.2786" y="2312.6045" z="24.75" h="3"/>
 	</spawn>
-	<!-- Inflated Slime -->
+	<!-- Inflated Slime (Monster  lvl:21)-->
 	<spawn map="220050000" npcid="213845" pool="8" interval="105">
 		<object x="2526.5032" y="1872.0974" z="23.681015" h="100"/>
 		<object x="2563.9473" y="1866.7062" z="24.047432" h="10"/>
@@ -68,7 +68,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="2560.91" y="1835.6836" z="25.906036" h="50"/>
 		<object x="2530.3213" y="1838.9592" z="28.294968" h="55"/>
 	</spawn>
-	<!-- Inflated Slime -->
+	<!--  (  lvl:)-->
 	<spawn map="220050000" npcid="213846" pool="32" interval="105">
 		<object x="2592.2341" y="1750.946" z="17.544495" h="100"/>
 		<object x="2598.4348" y="1737.7744" z="15.957703" h="84"/>
@@ -103,7 +103,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="2572.1135" y="1691.0461" z="21.691711" h="16"/>
 		<object x="2536.2524" y="1724.6859" z="23.511314" h="69"/>
 	</spawn>
-	<!-- Laggardly Snuffler -->
+	<!-- Laggardly Snuffler (Monster  lvl:21)-->
 	<spawn map="220050000" npcid="213847" pool="8" interval="105">
 		<object x="2837.5337" y="1851.6533" z="27.175812" h="85"/>
 		<object x="2853.4546" y="1862.2583" z="27.259552" h="48"/>
@@ -114,7 +114,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="2872.279" y="1838.761" z="26.772202" h="109"/>
 		<object x="2846.689" y="1833.3049" z="27.0" h="58"/>
 	</spawn>
-	<!-- Sap Laupede -->
+	<!-- Sap Laupede (Monster  lvl:21)-->
 	<spawn map="220050000" npcid="213849" pool="15" interval="105">
 		<object x="2656.0586" y="2086.6345" z="26.37004" h="95"/>
 		<object x="2634.7002" y="2057.6628" z="24.064835" h="26"/>
@@ -132,7 +132,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="2806.604" y="2008.1385" z="23.522888" h="110"/>
 		<object x="2625.1445" y="2106.1394" z="24.760544" h="100"/>
 	</spawn>
-	<!-- Sap Laupede -->
+	<!--  (  lvl:)-->
 	<spawn map="220050000" npcid="213850" pool="15" interval="105">
 		<object x="2724.556" y="2007.0581" z="23.784744" h="56"/>
 		<object x="2858.3706" y="1987.0333" z="24.375" h="71"/>
@@ -150,7 +150,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="2847.2847" y="1970.1727" z="23.75" h="114"/>
 		<object x="2775.0845" y="1995.7019" z="19.700851" h="38"/>
 	</spawn>
-	<!-- Sick Kurin -->
+	<!-- Sick Kurin (Monster  lvl:22)-->
 	<spawn map="220050000" npcid="213854" pool="80" interval="105">
 		<object x="2742.113" y="1796.3488" z="24.096138" h="41"/>
 		<object x="2718.741" y="1790.6598" z="22.178879" h="90"/>
@@ -233,7 +233,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="2508.5244" y="1916.1292" z="24.415848" h="82"/>
 		<object x="2451.3223" y="2375.8552" z="17.549332" h="119"/>
 	</spawn>
-	<!-- Rotten Frightcorn -->
+	<!-- Rotten Frightcorn (Monster  lvl:20)-->
 	<spawn map="220050000" npcid="213855" pool="5" interval="105">
 		<object x="2715.524" y="2220.595" z="20.154755" h="79"/>
 		<object x="2665.9539" y="2200.572" z="17.3479" h="100"/>
@@ -241,7 +241,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="2705.8015" y="2207.034" z="20.577026" h="8"/>
 		<object x="2724.4917" y="2212.1526" z="20.301926" h="113"/>
 	</spawn>
-	<!-- Rotten Frightcorn -->
+	<!--  (  lvl:)-->
 	<spawn map="220050000" npcid="213856" pool="8" interval="105">
 		<object x="2627.9294" y="2217.1824" z="17.707718" h="80"/>
 		<object x="2576.2395" y="2155.2563" z="18.423584" h="86"/>
@@ -252,7 +252,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="2614.41" y="2213.5999" z="17.47377" h="108"/>
 		<object x="2563.1428" y="2150.5273" z="18.392853" h="83"/>
 	</spawn>
-	<!-- Undead Farm Resident -->
+	<!-- Undead Farm Resident (Monster  lvl:23)-->
 	<spawn map="220050000" npcid="213859" pool="11" interval="105">
 		<object x="2046.3461" y="2137.4778" z="24.75" h="21"/>
 		<object x="2069.449" y="2088.949" z="27.34056" h="38"/>
@@ -266,12 +266,12 @@ Thanks to RotO for Z-fixing tool !
 		<object x="2068.576" y="2100.26" z="27.25" h="11"/>
 		<object x="2057.7114" y="2125.737" z="24.856964" h="51"/>
 	</spawn>
-	<!-- Undead Farm Worker -->
+	<!-- Undead Farm Worker (Monster  lvl:23)-->
 	<spawn map="220050000" npcid="213861" pool="2" interval="105">
 		<object x="2464.857" y="2209.8652" z="17.920135" h="104"/>
 		<object x="2477.3772" y="2205.9363" z="18.051132" h="19"/>
 	</spawn>
-	<!-- Undead Farm Worker -->
+	<!--  (  lvl:)-->
 	<spawn map="220050000" npcid="213862" pool="6" interval="105">
 		<object x="2446.6562" y="2213.3347" z="19.999176" h="81"/>
 		<object x="2471.363" y="2229.327" z="17.997742" h="44"/>
@@ -280,7 +280,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="2457.208" y="2221.8306" z="18.148499" h="78"/>
 		<object x="2443.5642" y="2202.3162" z="20.409714" h="72"/>
 	</spawn>
-	<!-- Gluttonous Porgus -->
+	<!-- Gluttonous Porgus (Monster  lvl:23)-->
 	<spawn map="220050000" npcid="213865" pool="11" interval="105">
 		<object x="2222.498" y="2155.53" z="44.27762" h="42"/>
 		<object x="2191.2761" y="2138.5198" z="44.5" h="24"/>
@@ -294,7 +294,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="2223.4817" y="2119.847" z="44.625" h="60"/>
 		<object x="2181.0967" y="2127.9377" z="44.93535" h="94"/>
 	</spawn>
-	<!-- Snickering Boggart -->
+	<!-- Snickering Boggart (Monster  lvl:23)-->
 	<spawn map="220050000" npcid="213867" pool="24" interval="105">
 		<object x="2539.0483" y="2042.4763" z="22.494019" h="73"/>
 		<object x="2527.2595" y="2034.98" z="21.73616" h="98"/>
@@ -321,7 +321,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="2261.0347" y="2177.9595" z="38.053467" h="20"/>
 		<object x="2534.6555" y="2056.024" z="22.789474" h="62"/>
 	</spawn>
-	<!-- Wailing Banshee -->
+	<!-- Wailing Banshee (Monster  lvl:23)-->
 	<spawn map="220050000" npcid="213869" pool="17" interval="105">
 		<object x="2225.307" y="2263.8457" z="39.783676" h="83"/>
 		<object x="2243.8843" y="2152.7747" z="40.632233" h="21"/>
@@ -341,7 +341,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="2273.0212" y="2192.8086" z="39.202118" h="94"/>
 		<object x="2208.2368" y="2287.9514" z="39.003036" h="106"/>
 	</spawn>
-	<!-- Poison Fang Drynac -->
+	<!-- Poison Fang Drynac (Monster  lvl:23)-->
 	<spawn map="220050000" npcid="213871" pool="44" interval="105">
 		<object x="2360.2786" y="2241.5098" z="26.391708" h="81"/>
 		<object x="2259.9187" y="2196.2249" z="35.600784" h="120"/>
@@ -388,7 +388,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="2019.2896" y="2436.2463" z="13.815201" h="36"/>
 		<object x="2236.6643" y="2162.0298" z="40.92157" h="73"/>
 	</spawn>
-	<!-- Poison Fang Drynac -->
+	<!--  (  lvl:)-->
 	<spawn map="220050000" npcid="213872" pool="13" interval="105">
 		<object x="2267.2966" y="2372.8628" z="21.740036" h="44"/>
 		<object x="2443.514" y="2350.4736" z="16.84462" h="120"/>
@@ -404,7 +404,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="2312.7458" y="2360.423" z="19.95871" h="50"/>
 		<object x="2281.0679" y="2362.035" z="19.862152" h="69"/>
 	</spawn>
-	<!-- Fierce Undead Worg -->
+	<!--  (  lvl:)-->
 	<spawn map="220050000" npcid="213873" pool="48" interval="105">
 		<object x="2064.198" y="2036.3081" z="31.762375" h="22"/>
 		<object x="2087.3716" y="2056.0227" z="31.110077" h="35"/>
@@ -455,7 +455,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="2028.4817" y="2255.1963" z="21.979874" h="102"/>
 		<object x="2095.4604" y="1973.6394" z="34.13765" h="74"/>
 	</spawn>
-	<!-- Fierce Undead Worg -->
+	<!--  (  lvl:)-->
 	<spawn map="220050000" npcid="213874" pool="30" interval="105">
 		<object x="2003.6703" y="2337.2632" z="13.809204" h="13"/>
 		<object x="2078.9497" y="2433.9556" z="25.39444" h="53"/>
@@ -488,7 +488,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="2090.6248" y="2450.357" z="21.330383" h="77"/>
 		<object x="2436.8474" y="2271.7146" z="16.482712" h="65"/>
 	</spawn>
-	<!-- Anubite Astrologer -->
+	<!-- Anubite Astrologer (Monster  lvl:23)-->
 	<spawn map="220050000" npcid="213875" pool="45" interval="105">
 		<object x="2334.6482" y="1900.7374" z="27.027245" h="94"/>
 		<object x="2423.315" y="1903.4937" z="26.457184" h="114"/>
@@ -536,7 +536,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="2371.005" y="1924.7761" z="25.450882" h="89"/>
 		<object x="2375.8347" y="1913.0394" z="25.375" h="83"/>
 	</spawn>
-	<!-- Unfest Vigilante -->
+	<!-- Unfest Vigilante (Monster  lvl:23)-->
 	<spawn map="220050000" npcid="213877" pool="123" interval="105">
 		<object x="2381.3333" y="1966.4597" z="14.762939" h="57"/>
 		<object x="2313.729" y="1740.7777" z="30.233063" h="21"/>
@@ -662,7 +662,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="2344.9248" y="1863.289" z="24.0" h="36"/>
 		<object x="2296.4766" y="1949.8331" z="26.45543" h="115"/>
 	</spawn>
-	<!-- Vigilante Spirit -->
+	<!-- Vigilante Spirit (Monster  lvl:23)-->
 	<spawn map="220050000" npcid="213879" pool="10" interval="105">
 		<object x="1961.1571" y="2583.0159" z="39.375" h="107"/>
 		<object x="2007.082" y="2510.5405" z="19.760193" h="9"/>
@@ -675,12 +675,12 @@ Thanks to RotO for Z-fixing tool !
 		<object x="1920.6166" y="2474.575" z="17.25" h="62"/>
 		<object x="1881.9062" y="2432.0732" z="14.245422" h="20"/>
 	</spawn>
-	<!-- Vigilante Spirit -->
+	<!--  (  lvl:)-->
 	<spawn map="220050000" npcid="213880" pool="2" interval="105">
 		<object x="1953.9729" y="2599.531" z="39.27762" h="89"/>
 		<object x="1928.6943" y="2607.1814" z="38.867233" h="79"/>
 	</spawn>
-	<!-- Healer Spirit -->
+	<!-- Healer Spirit (Monster  lvl:23)-->
 	<spawn map="220050000" npcid="213881" pool="17" interval="105">
 		<object x="1934.4683" y="2478.2031" z="17.25" h="55"/>
 		<object x="1840.2366" y="2424.5833" z="14.191025" h="7"/>
@@ -700,11 +700,11 @@ Thanks to RotO for Z-fixing tool !
 		<object x="1992.8263" y="2490.3577" z="18.971992" h="93"/>
 		<object x="1946.6243" y="2579.1897" z="39.476288" h="77"/>
 	</spawn>
-	<!-- Healer Spirit -->
+	<!--  (  lvl:)-->
 	<spawn map="220050000" npcid="213882" pool="1" interval="105">
 		<object x="1966.3507" y="2592.4646" z="39.845398" h="111"/>
 	</spawn>
-	<!-- Witch Spirit -->
+	<!-- Witch Spirit (Monster  lvl:23)-->
 	<spawn map="220050000" npcid="213883" pool="14" interval="105">
 		<object x="1953.3398" y="2595.1643" z="39.41626" h="42"/>
 		<object x="1938.1941" y="2586.1724" z="39.477097" h="56"/>
@@ -721,7 +721,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="1872.7784" y="2428.6733" z="14.125" h="60"/>
 		<object x="1930.8882" y="2491.417" z="17.25" h="61"/>
 	</spawn>
-	<!-- Hunter Spirit -->
+	<!-- Hunter Spirit (Monster  lvl:24)-->
 	<spawn map="220050000" npcid="213884" pool="13" interval="105">
 		<object x="1845.5013" y="2440.66" z="14.125" h="63"/>
 		<object x="1995.7191" y="2481.0227" z="18.982445" h="0"/>
@@ -737,7 +737,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="1857.8142" y="2444.8738" z="14.210999" h="26"/>
 		<object x="1905.3002" y="2466.2676" z="17.25" h="59"/>
 	</spawn>
-	<!-- Guardian Outrider -->
+	<!-- Guardian Outrider (Monster  lvl:24)-->
 	<spawn map="220050000" npcid="213885" pool="118" interval="105">
 		<object x="2582.951" y="1659.3799" z="26.309433" h="68"/>
 		<object x="2603.7764" y="1667.2529" z="28.69043" h="69"/>
@@ -858,15 +858,15 @@ Thanks to RotO for Z-fixing tool !
 		<object x="2675.748" y="1638.6006" z="21.531494" h="36"/>
 		<object x="2692.594" y="1658.2871" z="22.146027" h="100"/>
 	</spawn>
-	<!-- Guardian Outrider -->
+	<!--  (  lvl:)-->
 	<spawn map="220050000" npcid="213886" pool="1" interval="105">
 		<object x="2438.921" y="1605.7955" z="26.548225" h="23"/>
 	</spawn>
-	<!-- Guardian Fighter -->
+	<!-- Guardian Fighter (Monster  lvl:24)-->
 	<spawn map="220050000" npcid="213887" pool="1" interval="105">
 		<object x="2373.9277" y="1596.0966" z="28.908173" h="78"/>
 	</spawn>
-	<!-- Guardian Mage -->
+	<!-- Guardian Mage (Monster  lvl:25)-->
 	<spawn map="220050000" npcid="213889" pool="11" interval="105">
 		<object x="2726.9326" y="1326.7858" z="16.482399" h="42"/>
 		<object x="2719.0293" y="1340.4774" z="16.345161" h="1"/>
@@ -880,7 +880,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="2698.4944" y="1349.5056" z="14.719101" h="23"/>
 		<object x="2708.8066" y="1380.8203" z="19.3042" h="87"/>
 	</spawn>
-	<!-- Guardian Protector -->
+	<!-- Guardian Protector (Monster  lvl:25)-->
 	<spawn map="220050000" npcid="213890" pool="7" interval="105">
 		<object x="2724.9731" y="1268.6945" z="14.560822" h="2"/>
 		<object x="2719.8594" y="1286.3625" z="13.983002" h="14"/>
@@ -890,7 +890,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="2729.8767" y="1304.5364" z="12.484589" h="116"/>
 		<object x="2747.8665" y="1235.7778" z="21.922195" h="113"/>
 	</spawn>
-	<!-- Elyos Worker -->
+	<!-- Elyos Worker (Monster  lvl:23)-->
 	<spawn map="220050000" npcid="213891" pool="59" interval="105">
 		<object x="2459.9014" y="1646.008" z="21.880661" h="95"/>
 		<object x="2670.0444" y="1641.247" z="23.11898" h="42"/>
@@ -952,7 +952,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="2524.5388" y="1477.429" z="23.283676" h="50"/>
 		<object x="2474.3225" y="1624.8914" z="20.80571" h="28"/>
 	</spawn>
-	<!-- Coast Starturtle -->
+	<!-- Coast Starturtle (Monster  lvl:20)-->
 	<spawn map="220050000" npcid="213894" pool="14" interval="105">
 		<object x="2955.299" y="2497.3394" z="9.918808" h="66"/>
 		<object x="2914.3704" y="2466.7405" z="13.61113" h="55"/>
@@ -969,7 +969,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="2946.0708" y="2461.5906" z="12.146164" h="120"/>
 		<object x="2977.041" y="2496.4153" z="8.619873" h="110"/>
 	</spawn>
-	<!-- Infected Kurin -->
+	<!--  (  lvl:)-->
 	<spawn map="220050000" npcid="213896" pool="25" interval="105">
 		<object x="2594.4329" y="2200.3374" z="18.125" h="77"/>
 		<object x="2804.4058" y="2206.8123" z="30.203018" h="79"/>
@@ -997,7 +997,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="2568.801" y="2377.9512" z="18.196884" h="79"/>
 		<object x="2584.292" y="2170.0295" z="18.125" h="21"/>
 	</spawn>
-	<!-- Grassland Sparkle -->
+	<!-- Grassland Sparkle (Monster  lvl:21)-->
 	<spawn map="220050000" npcid="213897" pool="20" interval="105">
 		<object x="2732.696" y="2158.6255" z="25.584808" h="35"/>
 		<object x="2662.779" y="2155.3489" z="19.75" h="102"/>
@@ -1020,7 +1020,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="2685.2617" y="2135.4978" z="22.644287" h="65"/>
 		<object x="2615.9556" y="2192.6743" z="17.75" h="26"/>
 	</spawn>
-	<!-- Grassland Sparkle -->
+	<!--  (  lvl:)-->
 	<spawn map="220050000" npcid="213898" pool="27" interval="105">
 		<object x="2606.846" y="2350.4448" z="24.722198" h="35"/>
 		<object x="2589.5713" y="2348.8787" z="21.811111" h="89"/>
@@ -1050,7 +1050,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="2633.9553" y="2300.4363" z="25.627792" h="88"/>
 		<object x="2519.1216" y="2452.165" z="27.0" h="21"/>
 	</spawn>
-	<!-- Ripened Pucorn -->
+	<!-- Ripened Pucorn (Named Mob  lvl:22)-->
 	<spawn map="220050000" npcid="213907" pool="1" interval="1800">
 		<object x="2579.029" y="1930.8151" z="21.263374" h="110"/>
 		<object x="2558.1072" y="1935.7327" z="21.381699" h="21"/>
@@ -1058,11 +1058,11 @@ Thanks to RotO for Z-fixing tool !
 		<object x="2584.9355" y="1929.178" z="21.441528" h="26"/>
 		<object x="2555.337" y="1926.6847" z="21.458557" h="19"/>
 	</spawn>
-	<!-- Farmer Havenjark -->
-	<spawn map="220050000" npcid="213908" pool="1" interval="1800">
+	<!-- Farmer Havenjark (Named Mob Elite lvl:24)-->
+	<spawn map="220050000" npcid="213908" pool="1" interval="3600">
 		<object x="1893.0662" y="2287.147" z="18.0" h="67"/>
 	</spawn>
-	<!-- Bakun the Zombified -->
+	<!-- Bakun the Zombified (Named Mob  lvl:23)-->
 	<spawn map="220050000" npcid="213909" pool="1" interval="1800">
 		<object x="2060.7607" y="2096.3772" z="27.053879" h="72"/>
 		<object x="2064.4248" y="2139.0703" z="25.106201" h="1"/>
@@ -1074,7 +1074,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="2048.5474" y="2125.593" z="24.289917" h="66"/>
 		<object x="2040.8389" y="2129.114" z="24.36911" h="41"/>
 	</spawn>
-	<!-- Unripe Frightcorn -->
+	<!-- Unripe Frightcorn (Monster  lvl:22)-->
 	<spawn map="220050000" npcid="213911" pool="51" interval="105">
 		<object x="2410.2507" y="2412.5637" z="16.796646" h="19"/>
 		<object x="2679.2954" y="1998.2917" z="20.613876" h="62"/>
@@ -1128,36 +1128,33 @@ Thanks to RotO for Z-fixing tool !
 		<object x="2440.11" y="2380.7456" z="17.126038" h="117"/>
 		<object x="2525.931" y="2309.4785" z="15.823822" h="19"/>
 	</spawn>
-	<!-- Supervisor Squiller -->
-	<spawn map="220050000" npcid="213930" pool="1" interval="105">
+	<!-- Supervisor Squiller (Monster Elite lvl:24)-->
+	<spawn map="220050000" npcid="213930" pool="1" interval="300">
 		<object x="2212.4312" y="2275.3835" z="39.509415" h="60"/>
 	</spawn>
-	<!-- Centurion Ikelus -->
-	<spawn map="220050000" npcid="213931" pool="1" interval="105">
+	<!-- Centurion Ikelus (Boss Elite lvl:25)-->
+	<spawn map="220050000" npcid="213931" pool="1" interval="3600">
 		<object x="2334.414" y="1389.0388" z="30.995148" h="114"/>
 	</spawn>
-	<!-- 2009.03.03 -->
-	<!-- Vampire Queen Ntuamu -->
+	<!-- Vampire Queen Ntuamu (Monster Hero lvl:50)-->
 	<spawn map="220050000" npcid="214583" pool="1" interval="14400">
-		<object x="1834.0" y="887.0" z="58.85354" h="77"/>
 		<object x="1762.6" y="877.73" z="56.429375" h="12"/>
 		<object x="1787.24" y="880.11" z="58.43322" h="6"/>
-		<object x="1834.07" y="887.16" z="58.85354" h="49"/>
 		<object x="1809.19" y="891.58" z="58.853542" h="21"/>
 		<object x="1833.39" y="896.48" z="58.853546" h="4"/>
 		<object x="1764.43" y="880.96" z="56.5" h="107"/>
 	</spawn>
-	<!-- Archon Volunteer -->
-	<spawn map="220050000" npcid="207741" pool="1" interval="105">
+	<!-- Archon Volunteer (Monster Elite lvl:51)-->
+	<spawn map="220050000" npcid="207741" pool="1" interval="300">
 		<object x="1731.388" y="2312.026" z="13.921341" h="29"/>
 	</spawn>
-	<!-- Archon Sentinel -->
-	<spawn map="220050000" npcid="207740" pool="3" interval="105">
+	<!-- Archon Sentinel (Monster Elite lvl:51)-->
+	<spawn map="220050000" npcid="207740" pool="3" interval="300">
 		<object x="1755.933" y="2306.769" z="11.995811" h="104"/>
 		<object x="1731.655" y="2290.167" z="14.581879" h="80"/>
 		<object x="1729.929" y="2311.725" z="13.978958" h="22"/>
 	</spawn>
-	<!-- Black Face Tayga -->
+	<!-- Black Face Tayga (Monster  lvl:48)-->
 	<spawn map="220050000" npcid="214476" pool="39" interval="105">
 		<object x="521.6411" y="2472.918" z="104.592316" h="0"/>
 		<object x="330.8582" y="2374.003" z="88.08991" h="102"/>
@@ -1199,11 +1196,11 @@ Thanks to RotO for Z-fixing tool !
 		<object x="537.6944" y="2407.306" z="101.14928" h="106"/>
 		<object x="430.0431" y="2616.069" z="115.02159" h="17"/>
 	</spawn>
-	<!-- Spike Bite Trap -->
+	<!-- Spike Bite Trap (Monster  lvl:50)-->
 	<spawn map="220050000" npcid="749097" pool="1" interval="105">
 		<object x="915.14" y="552.39" z="71.12188" h="77"/>
 	</spawn>
-	<!-- Spike Trap -->
+	<!-- Spike Trap (Monster  lvl:50)-->
 	<spawn map="220050000" npcid="749093" pool="5" interval="105">
 		<object x="1829.61" y="251.63" z="201.95375" h="57"/>
 		<object x="1829.35" y="263.17" z="203.80376" h="51"/>
@@ -1211,23 +1208,23 @@ Thanks to RotO for Z-fixing tool !
 		<object x="1833.03" y="241.73" z="201.39563" h="52"/>
 		<object x="563.46" y="334.44" z="6.061249" h="23"/>
 	</spawn>
-	<!-- Boatswain Barousan -->
+	<!-- Boatswain Barousan (Monster  lvl:50)-->
 	<spawn map="220050000" npcid="214591" pool="1" interval="105">
 		<object x="263.5977" y="73.99175" z="14.454736" h="31"/>
 	</spawn>
-	<!-- Big Mother Sauramam -->
+	<!-- Big Mother Sauramam (Named Mob  lvl:48)-->
 	<spawn map="220050000" npcid="215381" pool="1" interval="1800">
 		<object x="1186.456" y="698.0529" z="77.03618" h="85"/>
 	</spawn>
-	<!-- Chief Mate Devahanson -->
-	<spawn map="220050000" npcid="214586" pool="1" interval="105">
+	<!-- Chief Mate Devahanson (Monster Elite lvl:48)-->
+	<spawn map="220050000" npcid="214586" pool="1" interval="300">
 		<object x="231.3623" y="93.74483" z="12.2776985" h="46"/>
 	</spawn>
-	<!-- Elder Kitarpa -->
+	<!-- Elder Kitarpa (Named Mob Elite lvl:50)-->
 	<spawn map="220050000" npcid="214585" pool="1" interval="3600">
 		<object x="611.7998" y="2706.6064" z="278.1612" h="59"/>
 	</spawn>
-	<!-- Beach Chimaera -->
+	<!-- Beach Chimaera (Monster  lvl:50)-->
 	<spawn map="220050000" npcid="214592" pool="41" interval="105">
 		<object x="2373.831" y="2890.515" z="6.4783783" h="24"/>
 		<object x="2419.898" y="2877.569" z="4.0" h="74"/>
@@ -1271,14 +1268,13 @@ Thanks to RotO for Z-fixing tool !
 		<object x="2668.942" y="2719.604" z="7.208618" h="83"/>
 		<object x="2774.787" y="2673.76" z="12.352417" h="37"/>
 	</spawn>
-	<!-- Botanist Aello -->
+	<!-- Botanist Aello (Named Mob  lvl:25)-->
 	<spawn map="220050000" npcid="213910" pool="1" interval="1800">
 		<object x="2798.0" y="1398.0" z="28.25" h="83"/>
 		<object x="2697.06" y="1499.36" z="24.683746" h="91"/>
-		<object x="2798.83" y="1398.34" z="28.073112" h="13"/>
 	</spawn>
-	<!-- Brohum Sentinel -->
-	<spawn map="220050000" npcid="214457" pool="78" interval="105">
+	<!-- Brohum Sentinel (Monster  lvl:48)-->
+	<spawn map="220050000" npcid="214457" pool="75" interval="105">
 		<object x="161.3117" y="1903.46" z="268.63428" h="100"/>
 		<object x="279.8567" y="1750.008" z="280.9721" h="3"/>
 		<object x="229.7996" y="1859.502" z="262.36905" h="35"/>
@@ -1313,7 +1309,6 @@ Thanks to RotO for Z-fixing tool !
 		<object x="265.322" y="2771.067" z="250.01807" h="109"/>
 		<object x="259.5294" y="2510.153" z="265.41397" h="57"/>
 		<object x="62.44087" y="2246.579" z="245.25778" h="2"/>
-		<object x="166.2877" y="2816.971" z="255.25" h="65"/>
 		<object x="111.0638" y="2414.7" z="251.69946" h="85"/>
 		<object x="115.345" y="2399.125" z="250.85374" h="57"/>
 		<object x="104.9836" y="2454.7" z="235.30934" h="5"/>
@@ -1353,16 +1348,14 @@ Thanks to RotO for Z-fixing tool !
 		<object x="810.89" y="2967.25" z="273.82812" h="120"/>
 		<object x="811.3381" y="2971.5781" z="273.875" h="94"/>
 		<object x="806.1017" y="2970.1343" z="273.875" h="108"/>
-		<object x="810.78" y="2967.88" z="273.8675" h="5"/>
 		<object x="808.46" y="2970.99" z="273.875" h="32"/>
 		<object x="810.98" y="2969.77" z="273.875" h="1"/>
-		<object x="808.01" y="2970.77" z="273.875" h="25"/>
 	</spawn>
-	<!-- Ice Sheet -->
+	<!-- Ice Sheet (Monster  lvl:)-->
 	<spawn map="220050000" npcid="749084" pool="1" interval="105">
 		<object x="2342.06" y="1323.33" z="33.666878" h="34"/>
 	</spawn>
-	<!-- Brohum Chaser -->
+	<!-- Brohum Chaser (Monster  lvl:50)-->
 	<spawn map="220050000" npcid="214459" pool="28" interval="105">
 		<object x="630.872" y="2833.335" z="247.76263" h="31"/>
 		<object x="652.9539" y="2934.517" z="248.96191" h="19"/>
@@ -1393,7 +1386,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="782.4668" y="2866.263" z="263.68335" h="83"/>
 		<object x="863.2372" y="2927.718" z="276.3694" h="57"/>
 	</spawn>
-	<!-- Octacide -->
+	<!-- Octacide (Monster  lvl:1)-->
 	<spawn map="220050000" npcid="212360" pool="24" interval="105">
 		<object x="1854.539" y="1839.251" z="59.81215" h="75"/>
 		<object x="1369.386" y="1160.22" z="39.64836" h="9"/>
@@ -1420,8 +1413,8 @@ Thanks to RotO for Z-fixing tool !
 		<object x="1473.401" y="1098.008" z="40.25" h="37"/>
 		<object x="1258.0" y="1089.12" z="49.015" h="104"/>
 	</spawn>
-	<!-- Brohum Ranger -->
-	<spawn map="220050000" npcid="214460" pool="164" interval="105">
+	<!-- Brohum Ranger (Monster  lvl:48)-->
+	<spawn map="220050000" npcid="214460" pool="163" interval="105">
 		<object x="373.657" y="2036.068" z="259.7927" h="19"/>
 		<object x="347.8051" y="2054.821" z="265.1046" h="93"/>
 		<object x="501.7645" y="1781.469" z="273.40524" h="15"/>
@@ -1496,7 +1489,6 @@ Thanks to RotO for Z-fixing tool !
 		<object x="325.781" y="1793.822" z="272.59668" h="75"/>
 		<object x="453.6432" y="2228.555" z="303.77863" h="65"/>
 		<object x="301.676" y="2110.847" z="296.88394" h="22"/>
-		<object x="290.2138" y="1844.807" z="262.2237" h="93"/>
 		<object x="49.81807" y="2276.718" z="245.2562" h="46"/>
 		<object x="369.2993" y="2756.512" z="241.98279" h="74"/>
 		<object x="103.9997" y="2658.418" z="280.4739" h="25"/>
@@ -1587,8 +1579,8 @@ Thanks to RotO for Z-fixing tool !
 		<object x="335.266" y="2764.464" z="245.529" h="37"/>
 		<object x="78.3823" y="2275.855" z="240.61017" h="116"/>
 	</spawn>
-	<!-- Runaway Porgus -->
-	<spawn map="220050000" npcid="214732" pool="19" interval="105">
+	<!-- Runaway Porgus (Monster  lvl:10)-->
+	<spawn map="220050000" npcid="214732" pool="18" interval="105">
 		<object x="1357.42" y="2004.75" z="44.177505" h="101"/>
 		<object x="1359.46" y="2001.33" z="44.448112" h="12"/>
 		<object x="1388.31" y="1950.11" z="42.60562" h="41"/>
@@ -1600,7 +1592,6 @@ Thanks to RotO for Z-fixing tool !
 		<object x="1361.68" y="2003.97" z="44.836884" h="88"/>
 		<object x="1386.82" y="1952.83" z="42.62" h="65"/>
 		<object x="1385.24" y="1953.75" z="42.625" h="17"/>
-		<object x="1359.49" y="2001.69" z="44.47812" h="24"/>
 		<object x="1359.07" y="2004.02" z="44.450615" h="74"/>
 		<object x="1333.19" y="1953.55" z="45.360016" h="10"/>
 		<object x="1321.73" y="1887.18" z="46.5" h="28"/>
@@ -1609,7 +1600,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="1321.41" y="1884.58" z="46.5" h="108"/>
 		<object x="1332.92" y="1952.81" z="45.553726" h="3"/>
 	</spawn>
-	<!-- Brohum Protector -->
+	<!-- Brohum Protector (Monster  lvl:50)-->
 	<spawn map="220050000" npcid="214462" pool="47" interval="105">
 		<object x="83.86687" y="2709.989" z="280.875" h="21"/>
 		<object x="662.9142" y="2831.014" z="248.43039" h="36"/>
@@ -1659,7 +1650,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="431.534" y="2838.109" z="244.29465" h="5"/>
 		<object x="155.8072" y="2862.845" z="252.24066" h="50"/>
 	</spawn>
-	<!-- Sand Potcrab -->
+	<!-- Sand Potcrab (Monster  lvl:1)-->
 	<spawn map="220050000" npcid="212363" pool="7" interval="105">
 		<object x="2969.79" y="2443.882" z="11.270493" h="74"/>
 		<object x="3005.343" y="2498.102" z="4.9379883" h="2"/>
@@ -1669,8 +1660,8 @@ Thanks to RotO for Z-fixing tool !
 		<object x="2925.761" y="2426.568" z="15.446014" h="83"/>
 		<object x="2976.203" y="2497.405" z="8.72464" h="11"/>
 	</spawn>
-	<!-- Brohum Hunter -->
-	<spawn map="220050000" npcid="214463" pool="80" interval="105">
+	<!-- Brohum Hunter (Monster  lvl:49)-->
+	<spawn map="220050000" npcid="214463" pool="79" interval="105">
 		<object x="382.9119" y="2914.424" z="246.5415" h="62"/>
 		<object x="578.8797" y="2738.474" z="278.15036" h="8"/>
 		<object x="91.14304" y="1972.468" z="284.85068" h="108"/>
@@ -1703,7 +1694,6 @@ Thanks to RotO for Z-fixing tool !
 		<object x="442.2594" y="2248.91" z="311.40936" h="11"/>
 		<object x="578.6733" y="2700.436" z="278.625" h="71"/>
 		<object x="195.7466" y="2146.739" z="328.55975" h="51"/>
-		<object x="445.0" y="2893.0" z="246.6875" h="51"/>
 		<object x="704.1854" y="2774.479" z="252.0763" h="77"/>
 		<object x="414.2767" y="2928.897" z="246.55165" h="32"/>
 		<object x="736.4363" y="2866.91" z="257.4431" h="87"/>
@@ -1752,7 +1742,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="640.7129" y="2887.607" z="246.77457" h="91"/>
 		<object x="437.0517" y="2932.049" z="246.625" h="9"/>
 	</spawn>
-	<!-- Baby Web Cellatu -->
+	<!-- Baby Web Cellatu (Monster  lvl:46)-->
 	<spawn map="220050000" npcid="214541" pool="19" interval="105">
 		<object x="1696.77" y="1070.5" z="36.375" h="2"/>
 		<object x="1694.9" y="1071.2" z="36.375" h="16"/>
@@ -1774,7 +1764,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="1647.82" y="1099.7" z="36.25" h="6"/>
 		<object x="1688.95" y="1189.51" z="36.375" h="119"/>
 	</spawn>
-	<!-- Big Web Cellatu -->
+	<!-- Big Web Cellatu (Monster  lvl:47)-->
 	<spawn map="220050000" npcid="214542" pool="29" interval="105">
 		<object x="1988.83" y="766.0047" z="36.25" h="85"/>
 		<object x="1665.802" y="1029.579" z="36.375" h="55"/>
@@ -1806,19 +1796,19 @@ Thanks to RotO for Z-fixing tool !
 		<object x="1555.747" y="978.3939" z="36.375" h="76"/>
 		<object x="1889.467" y="737.3127" z="36.34169" h="108"/>
 	</spawn>
-	<!-- Unfaithful Ntuamu -->
+	<!-- Unfaithful Ntuamu (Monster Hero lvl:50)-->
 	<spawn map="220050000" npcid="214603" pool="1" interval="14400">
 		<object x="1834.072" y="887.1641" z="58.85354" h="24"/>
 	</spawn>
-	<!-- Cowardly Tutu -->
-	<spawn map="220050000" npcid="214604" pool="1" interval="1800">
+	<!-- Cowardly Tutu (Named Mob Elite lvl:47)-->
+	<spawn map="220050000" npcid="214604" pool="1" interval="3600">
 		<object x="1590.172" y="878.7168" z="36.375" h="85"/>
 	</spawn>
-	<!-- Stone Energy -->
+	<!-- Stone Energy (Monster  lvl:30)-->
 	<spawn map="220050000" npcid="749046" pool="1" interval="105">
 		<object x="2260.19" y="1875.3" z="29.75" h="107"/>
 	</spawn>
-	<!-- Black Tayga -->
+	<!-- Black Tayga (Monster  lvl:47)-->
 	<spawn map="220050000" npcid="214445" pool="80" interval="105">
 		<object x="97.47327" y="857.3385" z="107.05916" h="53"/>
 		<object x="263.5186" y="940.215" z="89.938385" h="111"/>
@@ -1901,7 +1891,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="333.8592" y="1454.845" z="172.51938" h="93"/>
 		<object x="169.8792" y="1147.314" z="145.69052" h="50"/>
 	</spawn>
-	<!-- Divine Canyon Spirit -->
+	<!-- Divine Canyon Spirit (Monster  lvl:47)-->
 	<spawn map="220050000" npcid="214440" pool="29" interval="105">
 		<object x="748.8767" y="1433.842" z="36.25" h="81"/>
 		<object x="821.8694" y="1320.992" z="36.25" h="96"/>
@@ -1933,8 +1923,8 @@ Thanks to RotO for Z-fixing tool !
 		<object x="312.7917" y="1950.292" z="254.5" h="96"/>
 		<object x="808.6686" y="1292.145" z="36.25" h="31"/>
 	</spawn>
-	<!-- Clodworm Parasite -->
-	<spawn map="220050000" npcid="280736" pool="19" interval="105">
+	<!-- Clodworm Parasite (Monster  lvl:24)-->
+	<spawn map="220050000" npcid="280736" pool="18" interval="105">
 		<object x="1755.99" y="2347.75" z="15.97" h="74"/>
 		<object x="1756.02" y="2348.17" z="16.03186" h="116"/>
 		<object x="1758.72" y="2349.24" z="16.23" h="68"/>
@@ -1942,7 +1932,6 @@ Thanks to RotO for Z-fixing tool !
 		<object x="1758.69" y="2350.54" z="16.476257" h="31"/>
 		<object x="1755.2" y="2369.18" z="19.65" h="43"/>
 		<object x="1757.08" y="2370.2" z="19.83" h="77"/>
-		<object x="1757.59" y="2370.29" z="19.8675" h="31"/>
 		<object x="1756.85" y="2369.82" z="19.79" h="58"/>
 		<object x="1757.23" y="2371.51" z="19.92125" h="36"/>
 		<object x="1766.56" y="2375.91" z="21.12" h="32"/>
@@ -1955,11 +1944,11 @@ Thanks to RotO for Z-fixing tool !
 		<object x="1978.29" y="2001.63" z="29.3" h="50"/>
 		<object x="1978.73" y="1999.01" z="29.64" h="81"/>
 	</spawn>
-	<!-- Cayron Hill -->
+	<!-- Cayron Hill (Monster  lvl:)-->
 	<spawn map="220050000" npcid="206081" pool="1" interval="105">
 		<object x="476.097" y="1650.992" z="219.875" h="40"/>
 	</spawn>
-	<!-- Divine Lake Spirit -->
+	<!-- Divine Lake Spirit (Monster  lvl:49)-->
 	<spawn map="220050000" npcid="214473" pool="24" interval="105">
 		<object x="215.0477" y="2603.918" z="265.875" h="59"/>
 		<object x="339.803" y="1946.236" z="254.5" h="37"/>
@@ -1986,7 +1975,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="288.4923" y="2988.225" z="238.5" h="110"/>
 		<object x="227.4216" y="2595.31" z="265.875" h="24"/>
 	</spawn>
-	<!-- Crown Ksellid -->
+	<!-- Crown Ksellid (Monster  lvl:48)-->
 	<spawn map="220050000" npcid="214489" pool="125" interval="105">
 		<object x="900.9512" y="487.318" z="80.47672" h="73"/>
 		<object x="949.1391" y="496.551" z="92.91673" h="30"/>
@@ -2114,7 +2103,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="971.956" y="693.6727" z="135.41818" h="50"/>
 		<object x="1187.075" y="119.4003" z="243.21092" h="22"/>
 	</spawn>
-	<!-- Colorful Arachna -->
+	<!-- Colorful Arachna (Monster  lvl:46)-->
 	<spawn map="220050000" npcid="214380" pool="71" interval="105">
 		<object x="1080.541" y="2348.337" z="79.96619" h="74"/>
 		<object x="905.3948" y="2403.581" z="83.02316" h="4"/>
@@ -2188,7 +2177,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="976.5109" y="2482.162" z="96.39526" h="51"/>
 		<object x="1506.269" y="2658.81" z="84.28363" h="78"/>
 	</spawn>
-	<!-- Cowardly Cellatu -->
+	<!-- Cowardly Cellatu (Monster  lvl:47)-->
 	<spawn map="220050000" npcid="280946" pool="20" interval="105">
 		<object x="1641.0" y="800.0" z="36.375" h="73"/>
 		<object x="1822.03" y="1129.15" z="36.375" h="62"/>
@@ -2211,7 +2200,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="1723.12" y="709.25" z="36.25" h="46"/>
 		<object x="1606.27" y="971.14" z="36.375" h="12"/>
 	</spawn>
-	<!-- Divine Trico -->
+	<!-- Divine Trico (Monster  lvl:48)-->
 	<spawn map="220050000" npcid="214471" pool="130" interval="105">
 		<object x="507.2629" y="2128.375" z="280.45474" h="60"/>
 		<object x="505.4842" y="2055.277" z="274.7783" h="34"/>
@@ -2344,7 +2333,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="717.0295" y="2105.737" z="310.09583" h="6"/>
 		<object x="233.3188" y="2441.294" z="297.89682" h="53"/>
 	</spawn>
-	<!-- Elder Spirit Archer -->
+	<!-- Elder Spirit Archer (Monster  lvl:46)-->
 	<spawn map="220050000" npcid="214396" pool="24" interval="105">
 		<object x="1423.202" y="2789.923" z="102.96643" h="2"/>
 		<object x="1371.836" y="2459.725" z="59.864754" h="33"/>
@@ -2371,11 +2360,11 @@ Thanks to RotO for Z-fixing tool !
 		<object x="1678.616" y="2823.614" z="78.326996" h="20"/>
 		<object x="1666.183" y="2809.902" z="77.15399" h="81"/>
 	</spawn>
-	<!-- Commander Matunata -->
+	<!-- Commander Matunata (Monster  lvl:48)-->
 	<spawn map="220050000" npcid="214587" pool="1" interval="105">
 		<object x="1883.259" y="2999.949" z="82.50996" h="13"/>
 	</spawn>
-	<!-- Cornhead Sylphen -->
+	<!-- Cornhead Sylphen (Monster  lvl:45)-->
 	<spawn map="220050000" npcid="214406" pool="90" interval="105">
 		<object x="1154.964" y="1601.824" z="46.763" h="12"/>
 		<object x="1703.206" y="1696.019" z="40.42224" h="79"/>
@@ -2468,7 +2457,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="1536.184" y="1313.937" z="39.882248" h="13"/>
 		<object x="1833.133" y="1405.191" z="37.72332" h="0"/>
 	</spawn>
-	<!-- Brohum Warrior -->
+	<!-- Brohum Warrior (Monster  lvl:49)-->
 	<spawn map="220050000" npcid="214465" pool="121" interval="105">
 		<object x="93.98385" y="2441.285" z="242.14517" h="60"/>
 		<object x="119.9365" y="2636.462" z="282.21716" h="49"/>
@@ -2592,7 +2581,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="641.9197" y="2963.274" z="247.46466" h="95"/>
 		<object x="643.4402" y="2783.768" z="250.10497" h="9"/>
 	</spawn>
-	<!-- Ferocious Pecku -->
+	<!-- Ferocious Pecku (Monster  lvl:48)-->
 	<spawn map="220050000" npcid="214495" pool="55" interval="105">
 		<object x="848.4997" y="463.6205" z="89.938644" h="50"/>
 		<object x="1110.185" y="659.0211" z="159.83694" h="117"/>
@@ -2650,7 +2639,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="1335.346" y="341.1488" z="209.62027" h="98"/>
 		<object x="1165.196" y="205.9754" z="231.39305" h="48"/>
 	</spawn>
-	<!-- Gold Sand Lobnite -->
+	<!-- Gold Sand Lobnite (Monster  lvl:50)-->
 	<spawn map="220050000" npcid="214594" pool="21" interval="105">
 		<object x="2866.051" y="2653.667" z="4.7803802" h="91"/>
 		<object x="2456.141" y="2804.028" z="6.855606" h="33"/>
@@ -2674,8 +2663,8 @@ Thanks to RotO for Z-fixing tool !
 		<object x="2861.949" y="2712.012" z="4.0" h="64"/>
 		<object x="2752.316" y="2740.22" z="7.361252" h="28"/>
 	</spawn>
-	<!-- Floating Plant -->
-	<spawn map="220050000" npcid="214425" pool="115" interval="105">
+	<!-- Floating Plant (Monster  lvl:46)-->
+	<spawn map="220050000" npcid="214425" pool="114" interval="105">
 		<object x="1103.766" y="1480.083" z="36.268875" h="56"/>
 		<object x="1109.044" y="1621.424" z="36.23301" h="116"/>
 		<object x="1595.149" y="1827.19" z="36.292374" h="37"/>
@@ -2770,7 +2759,6 @@ Thanks to RotO for Z-fixing tool !
 		<object x="1163.023" y="1727.201" z="36.375" h="70"/>
 		<object x="1458.73" y="1155.516" z="36.25" h="51"/>
 		<object x="1349.656" y="1666.51" z="36.375" h="106"/>
-		<object x="1263.0" y="1764.0" z="36.375" h="117"/>
 		<object x="1119.478" y="1101.649" z="36.25" h="119"/>
 		<object x="1183.3088" y="1084.7517" z="36.25" h="6"/>
 		<object x="1162.917" y="1114.364" z="36.25" h="82"/>
@@ -2792,7 +2780,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="1515.641" y="1057.12" z="36.25" h="111"/>
 		<object x="1330.663" y="956.9761" z="36.311005" h="89"/>
 	</spawn>
-	<!-- Elder Spirit Warrior -->
+	<!-- Elder Spirit Warrior (Monster  lvl:46)-->
 	<spawn map="220050000" npcid="214390" pool="48" interval="105">
 		<object x="1322.129" y="2480.536" z="69.55859" h="32"/>
 		<object x="1370.696" y="2539.542" z="72.38437" h="86"/>
@@ -2843,7 +2831,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="1678.322" y="2842.996" z="77.270615" h="7"/>
 		<object x="1609.092" y="2864.957" z="71.25842" h="108"/>
 	</spawn>
-	<!-- Fast Orfaimam -->
+	<!-- Fast Orfaimam (Monster  lvl:45)-->
 	<spawn map="220050000" npcid="214416" pool="104" interval="105">
 		<object x="1836.009" y="523.9167" z="59.377384" h="10"/>
 		<object x="1908.2272" y="569.9147" z="47.080673" h="45"/>
@@ -2950,7 +2938,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="1281.808" y="878.7016" z="45.01955" h="0"/>
 		<object x="1195.346" y="761.0767" z="65.72359" h="13"/>
 	</spawn>
-	<!-- Elder Spirit Mage -->
+	<!-- Elder Spirit Mage (Monster  lvl:46)-->
 	<spawn map="220050000" npcid="214399" pool="23" interval="105">
 		<object x="1478.081" y="2813.245" z="109.00641" h="91"/>
 		<object x="1449.586" y="2805.875" z="110.07326" h="110"/>
@@ -2976,7 +2964,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="1642.17" y="2830.695" z="76.58156" h="119"/>
 		<object x="1607.219" y="2804.576" z="79.65483" h="71"/>
 	</spawn>
-	<!-- Elder Spirit Healer -->
+	<!-- Elder Spirit Healer (Monster  lvl:46)-->
 	<spawn map="220050000" npcid="214393" pool="23" interval="105">
 		<object x="1472.656" y="2802.057" z="113.065926" h="109"/>
 		<object x="1431.737" y="2850.596" z="104.53407" h="30"/>
@@ -3002,17 +2990,17 @@ Thanks to RotO for Z-fixing tool !
 		<object x="1666.747" y="2857.558" z="76.5507" h="32"/>
 		<object x="1648.829" y="2884.994" z="70.63607" h="24"/>
 	</spawn>
-	<!-- Elder Spirit Priest -->
+	<!-- Elder Spirit Priest (Monster  lvl:48)-->
 	<spawn map="220050000" npcid="214609" pool="1" interval="105">
 		<object x="1936.461" y="2774.355" z="90.772995" h="90"/>
 	</spawn>
-	<!-- Elder Spirit Fighter -->
+	<!-- Elder Spirit Fighter (Monster  lvl:48)-->
 	<spawn map="220050000" npcid="214608" pool="2" interval="105">
 		<object x="1934.374" y="2773.562" z="90.64438" h="58"/>
 		<object x="1759.321" y="2759.068" z="85.332565" h="101"/>
 	</spawn>
-	<!-- Fierce Water Spirit -->
-	<spawn map="220050000" npcid="214550" pool="29" interval="105">
+	<!-- Fierce Water Spirit (Monster  lvl:48)-->
+	<spawn map="220050000" npcid="214550" pool="28" interval="105">
 		<object x="191.1097" y="2355.05" z="81.625" h="7"/>
 		<object x="241.6245" y="2316.134" z="81.875" h="88"/>
 		<object x="289.1128" y="2387.579" z="81.875" h="14"/>
@@ -3025,7 +3013,6 @@ Thanks to RotO for Z-fixing tool !
 		<object x="292.4471" y="2352.774" z="81.875" h="80"/>
 		<object x="238.7689" y="2356.074" z="81.75462" h="22"/>
 		<object x="215.089" y="2349.093" z="81.886375" h="18"/>
-		<object x="318.0" y="2329.0" z="81.875" h="70"/>
 		<object x="277.3535" y="2261.952" z="81.875" h="61"/>
 		<object x="274.1039" y="2302.348" z="81.875" h="63"/>
 		<object x="240.7031" y="2283.897" z="81.875" h="88"/>
@@ -3043,13 +3030,13 @@ Thanks to RotO for Z-fixing tool !
 		<object x="262.1983" y="2339.625" z="81.88739" h="103"/>
 		<object x="246.6456" y="2369.678" z="81.875" h="69"/>
 	</spawn>
-	<!-- Graveknight Soldier -->
+	<!-- Graveknight Soldier (Monster  lvl:48)-->
 	<spawn map="220050000" npcid="214610" pool="3" interval="105">
 		<object x="2145.661" y="2947.136" z="75.79442" h="27"/>
 		<object x="2124.858" y="2977.889" z="76.486115" h="32"/>
 		<object x="2083.248" y="2847.438" z="62.078003" h="102"/>
 	</spawn>
-	<!-- Gentle Granker -->
+	<!-- Gentle Granker (Monster  lvl:49)-->
 	<spawn map="220050000" npcid="214444" pool="20" interval="105">
 		<object x="452.6157" y="2474.372" z="101.14673" h="113"/>
 		<object x="549.2939" y="2291.976" z="126.67511" h="43"/>
@@ -3072,12 +3059,12 @@ Thanks to RotO for Z-fixing tool !
 		<object x="552.9217" y="2382.787" z="107.95819" h="24"/>
 		<object x="586.6785" y="2296.923" z="126.70415" h="2"/>
 	</spawn>
-	<!-- Fire Spirit -->
+	<!-- Fire Spirit (Monster  lvl:10)-->
 	<spawn map="220050000" npcid="201003" pool="1" interval="105">
 		<object x="1433.911" y="328.9468" z="240.125" h="86"/>
 	</spawn>
-	<!-- Fierce Pecku -->
-	<spawn map="220050000" npcid="214447" pool="95" interval="105">
+	<!-- Fierce Pecku (Monster  lvl:47)-->
+	<spawn map="220050000" npcid="214447" pool="94" interval="105">
 		<object x="110.9228" y="1340.995" z="135.95198" h="48"/>
 		<object x="327.489" y="1079.801" z="93.5195" h="61"/>
 		<object x="347.2064" y="1086.461" z="99.48554" h="40"/>
@@ -3126,7 +3113,6 @@ Thanks to RotO for Z-fixing tool !
 		<object x="48.92104" y="763.3506" z="114.84105" h="86"/>
 		<object x="499.53" y="1148.802" z="91.65437" h="22"/>
 		<object x="347.9718" y="1157.655" z="106.52332" h="20"/>
-		<object x="397.0" y="1048.0" z="93.3125" h="19"/>
 		<object x="224.9382" y="1121.691" z="109.2191" h="97"/>
 		<object x="151.3527" y="1471.729" z="162.37123" h="89"/>
 		<object x="238.8322" y="1119.71" z="107.85972" h="30"/>
@@ -3174,12 +3160,12 @@ Thanks to RotO for Z-fixing tool !
 		<object x="88.34251" y="1647.744" z="212.72537" h="105"/>
 		<object x="71.62042" y="1244.879" z="159.76624" h="23"/>
 	</spawn>
-	<!-- Forestlord Mahua -->
+	<!-- Forestlord Mahua (Monster  lvl:50)-->
 	<spawn map="220050000" npcid="214590" pool="1" interval="105">
 		<object x="591.0519" y="2979.381" z="252.33632" h="80"/>
 	</spawn>
-	<!-- Grave Bloodwing -->
-	<spawn map="220050000" npcid="214382" pool="73" interval="105">
+	<!-- Grave Bloodwing (Monster  lvl:46)-->
+	<spawn map="220050000" npcid="214382" pool="72" interval="105">
 		<object x="1401.528" y="2525.837" z="73.61909" h="16"/>
 		<object x="1219.114" y="2546.549" z="81.64407" h="60"/>
 		<object x="1316.523" y="2508.044" z="74.87775" h="93"/>
@@ -3227,7 +3213,6 @@ Thanks to RotO for Z-fixing tool !
 		<object x="1322.469" y="2781.011" z="122.883194" h="14"/>
 		<object x="1369.43" y="2709.547" z="100.117035" h="20"/>
 		<object x="1396.444" y="2678.491" z="98.47478" h="73"/>
-		<object x="1155.0" y="2722.0" z="120.1875" h="61"/>
 		<object x="1381.296" y="2701.827" z="97.90363" h="44"/>
 		<object x="1423.631" y="2911.902" z="98.45643" h="59"/>
 		<object x="1037.698" y="2547.686" z="92.375" h="84"/>
@@ -3254,7 +3239,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="1052.262" y="2534.387" z="92.375" h="103"/>
 		<object x="1055.212" y="2620.542" z="106.59355" h="26"/>
 	</spawn>
-	<!-- Grave Sheluk -->
+	<!-- Grave Sheluk (Monster  lvl:49)-->
 	<spawn map="220050000" npcid="214503" pool="27" interval="105">
 		<object x="2093.377" y="205.22" z="218.00818" h="98"/>
 		<object x="2015.332" y="250.9763" z="208.11067" h="74"/>
@@ -3284,7 +3269,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="1996.904" y="421.4996" z="192.03732" h="0"/>
 		<object x="2019.565" y="231.5712" z="209.31221" h="25"/>
 	</spawn>
-	<!-- Faithful Servant -->
+	<!-- Faithful Servant (Monster  lvl:45)-->
 	<spawn map="220050000" npcid="286080" pool="19" interval="105">
 		<object x="2374.47" y="1887.31" z="25.543121" h="105"/>
 		<object x="2350.34" y="1928.52" z="24.799988" h="56"/>
@@ -3306,8 +3291,8 @@ Thanks to RotO for Z-fixing tool !
 		<object x="2193.05" y="1881.21" z="28.513138" h="89"/>
 		<object x="2244.0" y="1887.42" z="28.056236" h="17"/>
 	</spawn>
-	<!-- Faithful Subordinate -->
-	<spawn map="220050000" npcid="280932" pool="19" interval="105">
+	<!-- Faithful Subordinate (Monster  lvl:48)-->
+	<spawn map="220050000" npcid="280932" pool="18" interval="105">
 		<object x="1772.31" y="880.49" z="56.66687" h="84"/>
 		<object x="1857.47" y="916.55" z="56.210636" h="112"/>
 		<object x="1840.26" y="937.99" z="55.60875" h="119"/>
@@ -3318,7 +3303,6 @@ Thanks to RotO for Z-fixing tool !
 		<object x="1819.66" y="910.1" z="58.85358" h="52"/>
 		<object x="1795.06" y="899.13" z="58.853546" h="88"/>
 		<object x="1770.79" y="879.53" z="56.520004" h="70"/>
-		<object x="1770.76" y="879.35" z="56.506874" h="32"/>
 		<object x="1768.84" y="879.97" z="56.5" h="17"/>
 		<object x="1792.63" y="883.57" z="58.85354" h="75"/>
 		<object x="1772.78" y="877.65" z="56.51687" h="7"/>
@@ -3328,7 +3312,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="1767.44" y="880.07" z="56.504375" h="71"/>
 		<object x="1858.52" y="916.45" z="56.011868" h="107"/>
 	</spawn>
-	<!-- Lich Necromancer -->
+	<!-- Lich Necromancer (Monster  lvl:48)-->
 	<spawn map="220050000" npcid="214389" pool="11" interval="105">
 		<object x="2162.252" y="2756.977" z="73.34543" h="107"/>
 		<object x="2126.696" y="2997.24" z="80.03" h="18"/>
@@ -3342,7 +3326,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="2200.701" y="2790.721" z="68.27345" h="35"/>
 		<object x="2149.712" y="2983.174" z="85.24682" h="59"/>
 	</spawn>
-	<!-- Infected Kurin -->
+	<!-- Infected Kurin (Monster  lvl:20)-->
 	<spawn map="220050000" npcid="213853" pool="35" interval="105">
 		<object x="2736.429" y="2056.657" z="21.58754" h="117"/>
 		<object x="2632.452" y="2045.05" z="23.968872" h="4"/>
@@ -3380,7 +3364,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="2536.253" y="2474.331" z="27.593384" h="71"/>
 		<object x="2521.701" y="2434.875" z="22.75" h="13"/>
 	</spawn>
-	<!-- Huge Pincer Potcrab -->
+	<!-- Huge Pincer Potcrab (Monster  lvl:49)-->
 	<spawn map="220050000" npcid="214488" pool="23" interval="105">
 		<object x="919.9627" y="147.661" z="3.1531801" h="46"/>
 		<object x="494.5975" y="300.4462" z="3.8431187" h="66"/>
@@ -3406,8 +3390,8 @@ Thanks to RotO for Z-fixing tool !
 		<object x="379.0132" y="315.4265" z="3.839157" h="48"/>
 		<object x="580.6194" y="272.341" z="4.125" h="32"/>
 	</spawn>
-	<!-- Lich Shaman -->
-	<spawn map="220050000" npcid="214387" pool="29" interval="105">
+	<!-- Lich Shaman (Monster  lvl:46)-->
+	<spawn map="220050000" npcid="214387" pool="28" interval="105">
 		<object x="1454.577" y="2623.522" z="83.4602" h="62"/>
 		<object x="1334.077" y="2801.763" z="113.90019" h="47"/>
 		<object x="1383.866" y="2795.802" z="102.037506" h="36"/>
@@ -3424,7 +3408,6 @@ Thanks to RotO for Z-fixing tool !
 		<object x="1356.325" y="2960.159" z="115.40524" h="113"/>
 		<object x="1496.917" y="2624.372" z="82.79901" h="79"/>
 		<object x="1302.104" y="2859.824" z="120.851" h="41"/>
-		<object x="1302.0" y="2859.0" z="120.8125" h="86"/>
 		<object x="1324.133" y="2901.038" z="119.70741" h="57"/>
 		<object x="1484.039" y="2508.65" z="90.53377" h="4"/>
 		<object x="1325.938" y="2969.969" z="121.11919" h="58"/>
@@ -3438,7 +3421,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="1428.024" y="2928.941" z="106.48523" h="102"/>
 		<object x="1475.872" y="2517.377" z="90.41394" h="62"/>
 	</spawn>
-	<!-- Hill Sparkle -->
+	<!-- Hill Sparkle (Monster  lvl:45)-->
 	<spawn map="220050000" npcid="214363" pool="102" interval="105">
 		<object x="1262.26" y="1626.202" z="44.73944" h="107"/>
 		<object x="1616.108" y="1630.044" z="41.51625" h="11"/>
@@ -3543,7 +3526,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="1629.898" y="1657.315" z="41.947876" h="8"/>
 		<object x="1024.334" y="1761.91" z="70.645874" h="107"/>
 	</spawn>
-	<!-- Kranuum Pirate -->
+	<!-- Kranuum Pirate (Monster  lvl:47)-->
 	<spawn map="220050000" npcid="214480" pool="68" interval="105">
 		<object x="178.5336" y="326.0736" z="5.9213505" h="10"/>
 		<object x="534.6401" y="426.0752" z="5.540291" h="54"/>
@@ -3614,7 +3597,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="658.3732" y="257.478" z="10.342375" h="98"/>
 		<object x="267.6174" y="583.0476" z="34.804085" h="54"/>
 	</spawn>
-	<!-- Green Dionae -->
+	<!-- Green Dionae (Monster  lvl:47)-->
 	<spawn map="220050000" npcid="214455" pool="53" interval="105">
 		<object x="109.7535" y="740.9664" z="102.48161" h="27"/>
 		<object x="516.2752" y="1018.281" z="70.80341" h="93"/>
@@ -3670,7 +3653,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="263.7007" y="1526.774" z="174.80612" h="13"/>
 		<object x="180.4187" y="1420.444" z="143.09726" h="69"/>
 	</spawn>
-	<!-- Krahumus Pirate -->
+	<!-- Krahumus Pirate (Monster  lvl:47)-->
 	<spawn map="220050000" npcid="214478" pool="106" interval="105">
 		<object x="832.8019" y="215.6041" z="10.25" h="0"/>
 		<object x="962.4225" y="131.1128" z="10.39841" h="52"/>
@@ -3779,7 +3762,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="269.9373" y="109.3832" z="5.3442893" h="8"/>
 		<object x="187.7935" y="424.2778" z="6.375" h="91"/>
 	</spawn>
-	<!-- Grove Moskie -->
+	<!-- Grove Moskie (Monster  lvl:45)-->
 	<spawn map="220050000" npcid="214409" pool="106" interval="105">
 		<object x="1696.327" y="1974.543" z="49.148193" h="50"/>
 		<object x="1266.683" y="1571.198" z="43.644257" h="119"/>
@@ -3888,23 +3871,23 @@ Thanks to RotO for Z-fixing tool !
 		<object x="2116.029" y="1135.718" z="66.922775" h="11"/>
 		<object x="1611.282" y="1453.657" z="47.003998" h="92"/>
 	</spawn>
-	<!-- Healer Kanar's Ghost -->
+	<!-- Healer Kanar's Ghost (Monster  lvl:47)-->
 	<spawn map="220050000" npcid="214579" pool="3" interval="105">
 		<object x="1356.0" y="2538.0" z="73.644585" h="26"/>
 		<object x="1259.59" y="2735.39" z="121.48799" h="81"/>
 		<object x="1056.36" y="2501.72" z="92.25" h="36"/>
 	</spawn>
-	<!-- Gumi -->
+	<!-- Gumi (Monster  lvl:2)-->
 	<spawn map="220050000" npcid="210342" pool="3" interval="105">
 		<object x="183.5688" y="1298.425" z="129.375" h="16"/>
 		<object x="469.8061" y="1542.569" z="179.0" h="49"/>
 		<object x="480.6751" y="1559.205" z="179.0" h="53"/>
 	</spawn>
-	<!-- Hobosku the One-eyed -->
+	<!-- Hobosku the One-eyed (Monster  lvl:47)-->
 	<spawn map="220050000" npcid="214588" pool="1" interval="105">
 		<object x="1500.896" y="1025.31" z="36.306" h="32"/>
 	</spawn>
-	<!-- Guard Vampire -->
+	<!-- Guard Vampire (Named Mob  lvl:47)-->
 	<spawn map="220050000" npcid="214437" pool="1" interval="1800">
 		<object x="1714.326" y="1045.488" z="38.11637" h="81"/>
 		<object x="1911.463" y="1016.033" z="36.15856" h="90"/>
@@ -3927,7 +3910,6 @@ Thanks to RotO for Z-fixing tool !
 		<object x="1760.097" y="984.499" z="49.38627" h="55"/>
 		<object x="1780.84" y="712.3265" z="38.81993" h="88"/>
 		<object x="1955.984" y="945.059" z="43.581562" h="0"/>
-		<object x="1632.0" y="942.0" z="37.25" h="97"/>
 		<object x="1856.688" y="1021.373" z="48.375" h="93"/>
 		<object x="1919.38" y="814.0596" z="46.192444" h="24"/>
 		<object x="1821.098" y="805.0525" z="53.450188" h="73"/>
@@ -3960,7 +3942,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="1940.84" y="807.0563" z="38.125" h="65"/>
 		<object x="1877.056" y="916.218" z="51.97937" h="9"/>
 	</spawn>
-	<!-- Lich Curser -->
+	<!-- Lich Curser (Monster  lvl:48)-->
 	<spawn map="220050000" npcid="214439" pool="17" interval="105">
 		<object x="1768.215" y="913.0974" z="54.210648" h="13"/>
 		<object x="1769.382" y="878.2734" z="56.5" h="25"/>
@@ -3980,14 +3962,14 @@ Thanks to RotO for Z-fixing tool !
 		<object x="1833.635" y="897.6642" z="58.853546" h="65"/>
 		<object x="1770.581" y="854.2198" z="54.375526" h="10"/>
 	</spawn>
-	<!-- Groznak's Servant -->
+	<!-- Groznak's Servant (Monster  lvl:47)-->
 	<spawn map="220050000" npcid="214555" pool="3" interval="105">
 		<object x="1079.35" y="2732.39" z="124.52254" h="25"/>
 		<object x="1075.55" y="2734.51" z="122.72063" h="4"/>
 		<object x="1077.4" y="2728.5" z="123.28125" h="79"/>
 	</spawn>
-	<!-- Meek Granker -->
-	<spawn map="220050000" npcid="214442" pool="49" interval="105">
+	<!-- Meek Granker (Monster  lvl:47)-->
+	<spawn map="220050000" npcid="214442" pool="48" interval="105">
 		<object x="364.678" y="927.6743" z="71.29237" h="54"/>
 		<object x="116.6921" y="685.4195" z="98.11326" h="34"/>
 		<object x="383.7801" y="901.3898" z="72.92379" h="66"/>
@@ -4011,7 +3993,6 @@ Thanks to RotO for Z-fixing tool !
 		<object x="288.6886" y="748.7733" z="70.71637" h="76"/>
 		<object x="365.8018" y="916.587" z="72.26286" h="40"/>
 		<object x="358.135" y="895.3157" z="68.06477" h="105"/>
-		<object x="383.0" y="901.0" z="72.875" h="118"/>
 		<object x="580.9218" y="2288.316" z="127.62338" h="59"/>
 		<object x="131.9217" y="728.8768" z="98.90508" h="81"/>
 		<object x="116.4164" y="770.5911" z="101.68191" h="47"/>
@@ -4038,7 +4019,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="258.5632" y="762.5236" z="74.679596" h="33"/>
 		<object x="190.597" y="953.4345" z="102.99669" h="57"/>
 	</spawn>
-	<!-- Pale Karnif -->
+	<!-- Pale Karnif (Monster  lvl:45)-->
 	<spawn map="220050000" npcid="214369" pool="122" interval="105">
 		<object x="1681.712" y="2308.013" z="18.411804" h="66"/>
 		<object x="996.6409" y="2114.326" z="79.34498" h="93"/>
@@ -4163,8 +4144,8 @@ Thanks to RotO for Z-fixing tool !
 		<object x="1192.523" y="2170.152" z="60.013275" h="14"/>
 		<object x="1350.823" y="2397.772" z="52.642365" h="103"/>
 	</spawn>
-	<!-- Nose-horn Cordilnus -->
-	<spawn map="220050000" npcid="214413" pool="97" interval="105">
+	<!-- Nose-horn Cordilnus (Monster  lvl:45)-->
+	<spawn map="220050000" npcid="214413" pool="96" interval="105">
 		<object x="1027.387" y="1475.014" z="36.125" h="37"/>
 		<object x="1034.86" y="1519.673" z="35.7675" h="113"/>
 		<object x="1033.421" y="1542.817" z="36.125" h="32"/>
@@ -4184,7 +4165,6 @@ Thanks to RotO for Z-fixing tool !
 		<object x="1099.966" y="1672.86" z="36.375" h="102"/>
 		<object x="1170.351" y="1785.521" z="36.30712" h="52"/>
 		<object x="1316.053" y="1575.759" z="36.75844" h="52"/>
-		<object x="1340.0" y="1526.0" z="36.375" h="68"/>
 		<object x="1061.172" y="1717.027" z="38.112564" h="49"/>
 		<object x="1518.728" y="1037.868" z="36.375" h="15"/>
 		<object x="1502.885" y="992.7696" z="36.25" h="53"/>
@@ -4263,7 +4243,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="1271.289" y="1150.563" z="36.25" h="54"/>
 		<object x="1149.366" y="1129.83" z="36.25" h="118"/>
 	</spawn>
-	<!-- Nahor Flonpi -->
+	<!-- Nahor Flonpi (Monster  lvl:46)-->
 	<spawn map="220050000" npcid="214433" pool="21" interval="105">
 		<object x="1807.311" y="1322.802" z="36.375" h="65"/>
 		<object x="1858.927" y="1339.348" z="36.375" h="70"/>
@@ -4287,7 +4267,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="1978.037" y="680.7342" z="36.25" h="91"/>
 		<object x="1687.819" y="1062.111" z="36.375" h="112"/>
 	</spawn>
-	<!-- Moldy Frightcorn -->
+	<!-- Moldy Frightcorn (Monster  lvl:23)-->
 	<spawn map="220050000" npcid="213857" pool="26" interval="105">
 		<object x="2418.777" y="2157.259" z="30.675827" h="62"/>
 		<object x="2415.665" y="2074.514" z="28.13475" h="103"/>
@@ -4316,21 +4296,21 @@ Thanks to RotO for Z-fixing tool !
 		<object x="1851.74" y="2436.808" z="14.318512" h="47"/>
 		<object x="2298.312" y="1831.052" z="24.540497" h="49"/>
 	</spawn>
-	<!-- Old Fang -->
+	<!-- Old Fang (Named Mob  lvl:49)-->
 	<spawn map="220050000" npcid="214589" pool="1" interval="1800">
 		<object x="72.03555" y="1595.184" z="212.89856" h="64"/>
 	</spawn>
-	<!-- Magma Spirit -->
+	<!-- Magma Spirit (Monster  lvl:50)-->
 	<spawn map="220050000" npcid="201041" pool="3" interval="105">
 		<object x="1108.89" y="526.91" z="129.93063" h="63"/>
 		<object x="1068.76" y="541.44" z="124.4175" h="79"/>
 		<object x="1077.07" y="514.94" z="124.70874" h="46"/>
 	</spawn>
-	<!-- Mossy Wooden Box -->
+	<!-- Mossy Wooden Box (Monster  lvl:49)-->
 	<spawn map="220050000" npcid="214633" pool="1" interval="105">
 		<object x="2645.0" y="2769.0" z="4.1875" h="64"/>
 	</spawn>
-	<!-- Old Earth Spirit -->
+	<!-- Old Earth Spirit (Monster  lvl:47)-->
 	<spawn map="220050000" npcid="214451" pool="18" interval="105">
 		<object x="213.5719" y="1278.581" z="133.7156" h="3"/>
 		<object x="139.9772" y="1338.29" z="134.83875" h="105"/>
@@ -4351,7 +4331,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="467.485" y="1604.817" z="189.70425" h="13"/>
 		<object x="454.4915" y="1516.084" z="180.25145" h="21"/>
 	</spawn>
-	<!-- Petrahulk Worker -->
+	<!-- Petrahulk Worker (Monster  lvl:48)-->
 	<spawn map="220050000" npcid="214497" pool="168" interval="105">
 		<object x="625.3937" y="577.1984" z="23.476482" h="30"/>
 		<object x="1207.774" y="225.6047" z="225.3997" h="112"/>
@@ -4522,7 +4502,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="892.8266" y="324.2024" z="109.782585" h="18"/>
 		<object x="1536.308" y="402.023" z="229.59625" h="73"/>
 	</spawn>
-	<!-- Old Terra Spirit -->
+	<!-- Old Terra Spirit (Monster  lvl:47)-->
 	<spawn map="220050000" npcid="214453" pool="16" interval="105">
 		<object x="154.1262" y="1280.064" z="130.512" h="96"/>
 		<object x="531.3737" y="1566.26" z="190.82054" h="36"/>
@@ -4541,7 +4521,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="370.0811" y="1594.858" z="184.24745" h="70"/>
 		<object x="449.7703" y="1507.781" z="181.94743" h="87"/>
 	</spawn>
-	<!-- Luciferin Hornskull -->
+	<!-- Luciferin Hornskull (Monster  lvl:45)-->
 	<spawn map="220050000" npcid="214499" pool="159" interval="105">
 		<object x="1538.536" y="1692.538" z="39.9085" h="30"/>
 		<object x="1169.91" y="1691.301" z="36.375" h="53"/>
@@ -4703,7 +4683,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="1375.044" y="1441.005" z="36.125" h="18"/>
 		<object x="1353.129" y="837.0977" z="60.044178" h="37"/>
 	</spawn>
-	<!-- Red Dionae -->
+	<!-- Red Dionae (Monster  lvl:45)-->
 	<spawn map="220050000" npcid="214427" pool="149" interval="105">
 		<object x="1236.229" y="1538.868" z="52.929253" h="15"/>
 		<object x="860.5936" y="1734.912" z="73.119385" h="28"/>
@@ -4855,7 +4835,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="2042.787" y="1351.624" z="65.4618" h="20"/>
 		<object x="1303.774" y="1277.18" z="38.403244" h="93"/>
 	</spawn>
-	<!-- Rotten Branch Rotron -->
+	<!-- Rotten Branch Rotron (Monster  lvl:47)-->
 	<spawn map="220050000" npcid="214424" pool="26" interval="105">
 		<object x="1748.254" y="607.1677" z="50.849648" h="115"/>
 		<object x="2064.386" y="842.242" z="38.765125" h="11"/>
@@ -4884,7 +4864,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="2035.126" y="796.7714" z="37.598946" h="51"/>
 		<object x="1169.636" y="919.6398" z="63.772278" h="107"/>
 	</spawn>
-	<!-- Slimy Wooden Box -->
+	<!-- Slimy Wooden Box (Monster  lvl:50)-->
 	<spawn map="220050000" npcid="214595" pool="13" interval="105">
 		<object x="2430.887" y="2855.604" z="4.0" h="120"/>
 		<object x="2615.232" y="2755.591" z="4.0" h="46"/>
@@ -4900,7 +4880,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="2856.068" y="2723.974" z="4.0" h="98"/>
 		<object x="2872.647" y="2716.703" z="4.0" h="47"/>
 	</spawn>
-	<!-- Sea Waterworm -->
+	<!-- Sea Waterworm (Monster  lvl:50)-->
 	<spawn map="220050000" npcid="214596" pool="11" interval="105">
 		<object x="2665.492" y="2775.158" z="4.1973724" h="48"/>
 		<object x="2498.893" y="2791.677" z="4.0" h="70"/>
@@ -4914,8 +4894,8 @@ Thanks to RotO for Z-fixing tool !
 		<object x="2366.571" y="2938.401" z="3.9643097" h="67"/>
 		<object x="2880.368" y="2724.191" z="4.0" h="51"/>
 	</spawn>
-	<!-- Rocky Back Ksellid -->
-	<spawn map="220050000" npcid="214491" pool="116" interval="105">
+	<!-- Rocky Back Ksellid (Monster  lvl:48)-->
+	<spawn map="220050000" npcid="214491" pool="115" interval="105">
 		<object x="1126.075" y="398.9527" z="149.45796" h="20"/>
 		<object x="763.9047" y="642.7297" z="30.517673" h="9"/>
 		<object x="790.6971" y="622.096" z="32.230137" h="42"/>
@@ -4988,7 +4968,6 @@ Thanks to RotO for Z-fixing tool !
 		<object x="1278.643" y="365.4349" z="182.4412" h="81"/>
 		<object x="698.275" y="498.7576" z="21.017189" h="45"/>
 		<object x="874.7515" y="470.5164" z="84.13317" h="110"/>
-		<object x="834.0" y="540.0" z="47.875" h="40"/>
 		<object x="1305.577" y="233.3127" z="212.9593" h="18"/>
 		<object x="1179.417" y="327.5514" z="182.57571" h="106"/>
 		<object x="1611.981" y="306.1909" z="196.7822" h="103"/>
@@ -5033,7 +5012,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="1692.324" y="273.9767" z="183.331" h="46"/>
 		<object x="1523.8" y="231.2292" z="228.42136" h="88"/>
 	</spawn>
-	<!-- Soul Flame Hornskull -->
+	<!-- Soul Flame Hornskull (Monster  lvl:50)-->
 	<spawn map="220050000" npcid="214597" pool="14" interval="105">
 		<object x="2844.462" y="2728.189" z="4.0" h="8"/>
 		<object x="2744.896" y="2765.565" z="5.875" h="16"/>
@@ -5050,7 +5029,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="2400.267" y="2898.665" z="4.0" h="55"/>
 		<object x="2466.86" y="2780.885" z="7.9068604" h="101"/>
 	</spawn>
-	<!-- Sea Skyray -->
+	<!-- Sea Skyray (Monster  lvl:47)-->
 	<spawn map="220050000" npcid="214486" pool="36" interval="105">
 		<object x="626.526" y="776.329" z="4.5" h="19"/>
 		<object x="656.446" y="792.152" z="4.3655014" h="57"/>
@@ -5089,7 +5068,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="471.4807" y="371.4489" z="4.8425446" h="106"/>
 		<object x="550.9893" y="532.0582" z="4.375" h="79"/>
 	</spawn>
-	<!-- Rotten Branch Agrint -->
+	<!-- Rotten Branch Agrint (Monster  lvl:45)-->
 	<spawn map="220050000" npcid="214419" pool="93" interval="105">
 		<object x="1853.08" y="1462.902" z="52.074104" h="87"/>
 		<object x="1572.298" y="1603.682" z="36.375" h="119"/>
@@ -5185,7 +5164,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="1779.396" y="1300.643" z="36.740685" h="108"/>
 		<object x="1625.688" y="1564.881" z="40.01606" h="13"/>
 	</spawn>
-	<!-- Plant Lobnite -->
+	<!-- Plant Lobnite (Monster  lvl:47)-->
 	<spawn map="220050000" npcid="214484" pool="53" interval="105">
 		<object x="773.6804" y="194.2283" z="5.5" h="38"/>
 		<object x="578.9306" y="303.8316" z="5.375" h="5"/>
@@ -5241,12 +5220,12 @@ Thanks to RotO for Z-fixing tool !
 		<object x="451.5191" y="443.8258" z="6.435112" h="89"/>
 		<object x="506.8873" y="578.6521" z="8.764088" h="25"/>
 	</spawn>
-	<!-- Slimy Wooden Box -->
+	<!-- Slimy Wooden Box (Monster  lvl:49)-->
 	<spawn map="220050000" npcid="214632" pool="1" interval="105">
 		<object x="2519.0" y="2791.0" z="4.0" h="36"/>
 	</spawn>
-	<!-- Sea Chimaera -->
-	<spawn map="220050000" npcid="214482" pool="49" interval="105">
+	<!-- Sea Chimaera (Monster  lvl:47)-->
+	<spawn map="220050000" npcid="214482" pool="48" interval="105">
 		<object x="578.4584" y="566.2169" z="5.8614426" h="84"/>
 		<object x="452.602" y="659.7316" z="18.983227" h="113"/>
 		<object x="440.2446" y="480.1096" z="6.75" h="74"/>
@@ -5256,7 +5235,6 @@ Thanks to RotO for Z-fixing tool !
 		<object x="482.1555" y="633.6644" z="14.471544" h="38"/>
 		<object x="589.5367" y="535.0054" z="5.5" h="55"/>
 		<object x="599.9136" y="297.8989" z="5.493681" h="33"/>
-		<object x="578.0" y="566.0" z="5.875" h="61"/>
 		<object x="230.7417" y="411.8964" z="6.328644" h="55"/>
 		<object x="548.1741" y="337.3499" z="6.1358795" h="71"/>
 		<object x="465.1559" y="419.2577" z="6.4536057" h="55"/>
@@ -5297,7 +5275,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="330.2965" y="385.2387" z="4.4233704" h="24"/>
 		<object x="227.6362" y="459.2678" z="12.716238" h="48"/>
 	</spawn>
-	<!-- Sick Zombie -->
+	<!-- Sick Zombie (Monster  lvl:49)-->
 	<spawn map="220050000" npcid="214639" pool="5" interval="105">
 		<object x="2212.421" y="138.9625" z="246.25" h="65"/>
 		<object x="2125.937" y="162.2537" z="224.49617" h="74"/>
@@ -5305,7 +5283,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="2283.711" y="197.5338" z="246.44734" h="1"/>
 		<object x="2114.247" y="154.5267" z="222.73048" h="48"/>
 	</spawn>
-	<!-- Rotten Root Agrint -->
+	<!-- Rotten Root Agrint (Monster  lvl:47)-->
 	<spawn map="220050000" npcid="214421" pool="38" interval="105">
 		<object x="1061.762" y="1068.891" z="45.722816" h="30"/>
 		<object x="1604.696" y="1130.323" z="37.81369" h="73"/>
@@ -5346,12 +5324,12 @@ Thanks to RotO for Z-fixing tool !
 		<object x="2086.93" y="782.0613" z="46.280212" h="28"/>
 		<object x="1110.995" y="1053.669" z="38.56156" h="12"/>
 	</spawn>
-	<!-- Rusty Scale Shalba -->
+	<!-- Rusty Scale Shalba (Monster  lvl:50)-->
 	<spawn map="220050000" npcid="214581" pool="2" interval="105">
 		<object x="2654.0" y="2737.0" z="6.137429" h="45"/>
 		<object x="2383.34" y="2898.51" z="5.384369" h="47"/>
 	</spawn>
-	<!-- Side-eyed Sylphen -->
+	<!-- Side-eyed Sylphen (Monster  lvl:47)-->
 	<spawn map="220050000" npcid="214408" pool="40" interval="105">
 		<object x="1027.854" y="1249.275" z="48.340622" h="58"/>
 		<object x="2014.047" y="687.0362" z="37.516037" h="92"/>
@@ -5394,13 +5372,13 @@ Thanks to RotO for Z-fixing tool !
 		<object x="1865.804" y="1352.444" z="39.32099" h="19"/>
 		<object x="1309.411" y="1102.177" z="36.0" h="18"/>
 	</spawn>
-	<!-- Ranger Agueria -->
+	<!-- Ranger Agueria (Named Mob  lvl:50)-->
 	<spawn map="220050000" npcid="214584" pool="1" interval="1800">
 		<object x="163.7982" y="1725.78" z="272.77863" h="44"/>
 		<object x="726.2507" y="1965.982" z="286.32834" h="11"/>
 		<object x="296.3295" y="2370.266" z="292.68436" h="0"/>
 	</spawn>
-	<!-- Starfish Starcrab -->
+	<!-- Starfish Starcrab (Monster  lvl:50)-->
 	<spawn map="220050000" npcid="214593" pool="17" interval="105">
 		<object x="2626.431" y="2726.574" z="8.544312" h="51"/>
 		<object x="2518.761" y="2745.592" z="7.981369" h="48"/>
@@ -5420,7 +5398,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="2351.618" y="2898.457" z="6.7453156" h="76"/>
 		<object x="2665.721" y="2752.456" z="5.3005524" h="42"/>
 	</spawn>
-	<!-- Stone Scale Kalgolem -->
+	<!-- Stone Scale Kalgolem (Monster  lvl:48)-->
 	<spawn map="220050000" npcid="214493" pool="71" interval="105">
 		<object x="2066.147" y="339.052" z="220.987" h="31"/>
 		<object x="686.1121" y="510.2654" z="18.075222" h="28"/>
@@ -5494,7 +5472,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="1532.26" y="243.2178" z="227.69542" h="114"/>
 		<object x="1980.451" y="335.528" z="221.40057" h="37"/>
 	</spawn>
-	<!-- Swamp Dionae -->
+	<!-- Swamp Dionae (Monster  lvl:47)-->
 	<spawn map="220050000" npcid="214429" pool="60" interval="105">
 		<object x="594.1023" y="1188.928" z="52.844208" h="54"/>
 		<object x="1030.016" y="1129.976" z="38.877007" h="118"/>
@@ -5557,7 +5535,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="899.6116" y="1041.64" z="58.795" h="79"/>
 		<object x="734.4702" y="925.0022" z="43.275803" h="101"/>
 	</spawn>
-	<!-- Tenacious Orfaimam -->
+	<!-- Tenacious Orfaimam (Monster  lvl:47)-->
 	<spawn map="220050000" npcid="214418" pool="47" interval="105">
 		<object x="1027.917" y="860.5159" z="60.989624" h="72"/>
 		<object x="979.7486" y="884.2735" z="65.32857" h="10"/>
@@ -5607,7 +5585,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="1019.948" y="890.2663" z="61.638393" h="31"/>
 		<object x="1239.248" y="699.0154" z="65.09207" h="116"/>
 	</spawn>
-	<!-- Spotted Kurin -->
+	<!-- Spotted Kurin (Monster  lvl:45)-->
 	<spawn map="220050000" npcid="214365" pool="61" interval="105">
 		<object x="954.9796" y="2020.204" z="78.5102" h="120"/>
 		<object x="959.8164" y="2154.03" z="76.35393" h="114"/>
@@ -5671,14 +5649,14 @@ Thanks to RotO for Z-fixing tool !
 		<object x="927.6693" y="2160.927" z="76.22933" h="9"/>
 		<object x="1525.921" y="2185.944" z="32.759872" h="38"/>
 	</spawn>
-	<!-- Starved Zombie -->
+	<!-- Starved Zombie (Monster  lvl:49)-->
 	<spawn map="220050000" npcid="214638" pool="4" interval="105">
 		<object x="2127.927" y="192.5662" z="226.04796" h="83"/>
 		<object x="2125.837" y="157.8873" z="224.35536" h="120"/>
 		<object x="2296.657" y="151.3198" z="246.44806" h="86"/>
 		<object x="2208.919" y="137.7923" z="246.25" h="105"/>
 	</spawn>
-	<!-- Swamp Moskie -->
+	<!-- Swamp Moskie (Monster  lvl:47)-->
 	<spawn map="220050000" npcid="214411" pool="62" interval="105">
 		<object x="583.0481" y="1133.656" z="54.667465" h="111"/>
 		<object x="2088.08" y="1346.523" z="78.77429" h="106"/>
@@ -5743,7 +5721,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="737.1751" y="1304.296" z="45.75878" h="42"/>
 		<object x="698.2175" y="1404.314" z="61.84781" h="45"/>
 	</spawn>
-	<!-- Striped Snuffler -->
+	<!-- Striped Snuffler (Monster  lvl:20)-->
 	<spawn map="220050000" npcid="213895" pool="16" interval="105">
 		<object x="2802.555" y="2171.352" z="28.590317" h="65"/>
 		<object x="2711.934" y="2254.374" z="21.097504" h="63"/>
@@ -5762,13 +5740,13 @@ Thanks to RotO for Z-fixing tool !
 		<object x="2691.504" y="2281.186" z="19.452515" h="84"/>
 		<object x="2671.565" y="2300.9" z="25.279358" h="24"/>
 	</spawn>
-	<!-- Thorn Beard Latulatu -->
+	<!-- Thorn Beard Latulatu (Named Mob  lvl:47)-->
 	<spawn map="220050000" npcid="214582" pool="1" interval="1800">
 		<object x="1558.0" y="930.0" z="36.135" h="55"/>
 		<object x="1562.57" y="925.09" z="36.375" h="70"/>
 		<object x="1552.61" y="936.27" z="36.375" h="116"/>
 	</spawn>
-	<!-- Undead Crusader -->
+	<!-- Undead Crusader (Monster  lvl:48)-->
 	<spawn map="220050000" npcid="214611" pool="24" interval="105">
 		<object x="2056.477" y="2867.221" z="62.48906" h="27"/>
 		<object x="2094.836" y="2980.77" z="76.682495" h="16"/>
@@ -5795,7 +5773,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="2054.207" y="2865.071" z="62.74594" h="11"/>
 		<object x="1916.096" y="2793.315" z="87.98201" h="98"/>
 	</spawn>
-	<!-- Spiked Cordilnus -->
+	<!-- Spiked Cordilnus (Monster  lvl:47)-->
 	<spawn map="220050000" npcid="214415" pool="59" interval="105">
 		<object x="1248.0" y="1172.706" z="36.25" h="120"/>
 		<object x="663.6805" y="1022.054" z="36.25" h="47"/>
@@ -5857,7 +5835,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="812.2994" y="1183.83" z="36.25" h="28"/>
 		<object x="1112.114" y="1118.869" z="36.25" h="101"/>
 	</spawn>
-	<!-- Striped Tayga -->
+	<!-- Striped Tayga (Monster  lvl:48)-->
 	<spawn map="220050000" npcid="214474" pool="37" interval="105">
 		<object x="412.27" y="2553.0" z="112.90875" h="78"/>
 		<object x="333.57" y="2368.02" z="88.14375" h="10"/>
@@ -5897,7 +5875,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="405.71" y="2584.52" z="114.83125" h="47"/>
 		<object x="568.17" y="2352.21" z="115.63625" h="19"/>
 	</spawn>
-	<!-- Tenacious Karnif -->
+	<!-- Tenacious Karnif (Monster  lvl:47)-->
 	<spawn map="220050000" npcid="214371" pool="43" interval="105">
 		<object x="683.4938" y="1391.527" z="63.56743" h="30"/>
 		<object x="834.3236" y="1072.871" z="45.656998" h="86"/>
@@ -5943,12 +5921,11 @@ Thanks to RotO for Z-fixing tool !
 		<object x="679.6929" y="1178.322" z="46.790253" h="100"/>
 		<object x="616.9819" y="1008.103" z="46.33798" h="1"/>
 	</spawn>
-	<!-- Soul Minion -->
-	<spawn map="220050000" npcid="280734" pool="19" interval="105">
+	<!-- Soul Minion (Monster  lvl:24)-->
+	<spawn map="220050000" npcid="280734" pool="18" interval="105">
 		<object x="2366.63" y="1916.25" z="27.710022" h="30"/>
 		<object x="2366.25" y="1917.84" z="27.488754" h="109"/>
 		<object x="2356.88" y="1908.01" z="29.088089" h="93"/>
-		<object x="2356.26" y="1908.05" z="28.905594" h="102"/>
 		<object x="2358.75" y="1936.75" z="26.171875" h="0"/>
 		<object x="2340.56" y="1963.23" z="25.875" h="13"/>
 		<object x="2355.05" y="1906.07" z="28.685654" h="2"/>
@@ -5965,7 +5942,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="2198.09" y="2254.64" z="38.94" h="89"/>
 		<object x="2198.05" y="2256.57" z="39.11374" h="107"/>
 	</spawn>
-	<!-- Undead Cultivator -->
+	<!-- Undead Cultivator (Monster  lvl:45)-->
 	<spawn map="220050000" npcid="214376" pool="83" interval="105">
 		<object x="1593.888" y="2014.259" z="40.858963" h="81"/>
 		<object x="1115.509" y="1901.783" z="73.888565" h="5"/>
@@ -6051,7 +6028,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="1615.448" y="2052.845" z="47.67462" h="108"/>
 		<object x="1661.468" y="2184.483" z="19.75679" h="71"/>
 	</spawn>
-	<!-- Vibrant Suncorn -->
+	<!-- Vibrant Suncorn (Monster  lvl:25)-->
 	<spawn map="220050000" npcid="280740" pool="9" interval="105">
 		<object x="2702.81" y="1502.03" z="24.677505" h="4"/>
 		<object x="2697.45" y="1496.5" z="24.659378" h="37"/>
@@ -6063,7 +6040,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="2772.07" y="1291.52" z="17.595001" h="108"/>
 		<object x="2706.95" y="1520.22" z="25.684372" h="37"/>
 	</spawn>
-	<!-- Unfest Grave Keeper -->
+	<!-- Unfest Grave Keeper (Monster  lvl:46)-->
 	<spawn map="220050000" npcid="214384" pool="53" interval="105">
 		<object x="1491.712" y="2629.643" z="82.709694" h="53"/>
 		<object x="1384.646" y="2839.56" z="102.52063" h="43"/>
@@ -6119,7 +6096,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="1394.176" y="2610.5" z="73.9485" h="109"/>
 		<object x="1297.13" y="2935.98" z="123.21875" h="72"/>
 	</spawn>
-	<!-- Unfest Legionary -->
+	<!-- Unfest Legionary (Monster  lvl:48)-->
 	<spawn map="220050000" npcid="214386" pool="28" interval="105">
 		<object x="2161.73" y="2965.267" z="81.10367" h="41"/>
 		<object x="2144.717" y="2989.039" z="85.87956" h="34"/>
@@ -6150,7 +6127,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="2155.401" y="2776.893" z="71.17581" h="2"/>
 		<object x="2126.091" y="2993.892" z="79.61151" h="2"/>
 	</spawn>
-	<!-- Undead Digger -->
+	<!-- Undead Digger (Monster  lvl:47)-->
 	<spawn map="220050000" npcid="214540" pool="31" interval="105">
 		<object x="772.2729" y="2517.675" z="86.7362" h="59"/>
 		<object x="704.2415" y="2490.52" z="94.14241" h="42"/>
@@ -6184,7 +6161,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="832.8116" y="2432.758" z="85.70569" h="16"/>
 		<object x="730.8434" y="2507.098" z="92.10043" h="3"/>
 	</spawn>
-	<!-- Vampire Soldier -->
+	<!-- Vampire Soldier (Monster  lvl:50)-->
 	<spawn map="220050000" npcid="214636" pool="6" interval="105">
 		<object x="2129.169" y="158.3217" z="225.63641" h="117"/>
 		<object x="2300.022" y="151.3516" z="246.44734" h="90"/>
@@ -6193,14 +6170,14 @@ Thanks to RotO for Z-fixing tool !
 		<object x="2131.65" y="192.4547" z="227.07243" h="103"/>
 		<object x="2208.105" y="167.8297" z="246.74344" h="68"/>
 	</spawn>
-	<!-- Vampire Guardian -->
+	<!-- Vampire Guardian (Named Mob  lvl:50)-->
 	<spawn map="220050000" npcid="214637" pool="1" interval="1800">
 		<object x="2129.3" y="161.6042" z="225.79404" h="80"/>
 		<object x="2206.114" y="167.2605" z="246.7494" h="73"/>
 		<object x="2298.406" y="201.6379" z="246.44734" h="29"/>
 		<object x="2217.188" y="125.4324" z="246.25" h="51"/>
 	</spawn>
-	<!-- Undead Drudge -->
+	<!-- Undead Drudge (Monster  lvl:46)-->
 	<spawn map="220050000" npcid="214539" pool="46" interval="105">
 		<object x="915.4956" y="2500.803" z="94.175186" h="35"/>
 		<object x="757.1722" y="2518.736" z="87.65244" h="45"/>
@@ -6249,11 +6226,11 @@ Thanks to RotO for Z-fixing tool !
 		<object x="888.6279" y="2453.117" z="83.03659" h="32"/>
 		<object x="739.5217" y="2466.106" z="97.364975" h="107"/>
 	</spawn>
-	<!-- Vengeful Narka -->
+	<!-- Vengeful Narka (Monster  lvl:48)-->
 	<spawn map="220050000" npcid="214580" pool="1" interval="105">
 		<object x="2008.0" y="2898.0" z="69.75" h="20"/>
 	</spawn>
-	<!-- Undead Resident -->
+	<!-- Undead Resident (Monster  lvl:49)-->
 	<spawn map="220050000" npcid="214501" pool="52" interval="105">
 		<object x="1833.129" y="239.9647" z="201.51834" h="40"/>
 		<object x="2109.209" y="265.1311" z="228.4972" h="58"/>
@@ -6308,7 +6285,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="2120.459" y="426.3085" z="211.59631" h="102"/>
 		<object x="1794.779" y="142.3057" z="217.64377" h="76"/>
 	</spawn>
-	<!-- Undead Grunt -->
+	<!-- Undead Grunt (Monster  lvl:47)-->
 	<spawn map="220050000" npcid="214402" pool="106" interval="105">
 		<object x="1876.241" y="2992.509" z="81.20764" h="18"/>
 		<object x="1901.583" y="3010.788" z="77.50574" h="76"/>
@@ -6417,8 +6394,8 @@ Thanks to RotO for Z-fixing tool !
 		<object x="2004.427" y="2915.722" z="68.339005" h="74"/>
 		<object x="1920.66" y="2862.353" z="85.89092" h="19"/>
 	</spawn>
-	<!-- Vengeful Vampire -->
-	<spawn map="220050000" npcid="214435" pool="48" interval="105">
+	<!-- Vengeful Vampire (Monster  lvl:47)-->
+	<spawn map="220050000" npcid="214435" pool="47" interval="105">
 		<object x="1736.05" y="956.88" z="48.628128" h="23"/>
 		<object x="1645.693" y="960.8867" z="41.864285" h="34"/>
 		<object x="1926.38" y="832.0385" z="47.082314" h="104"/>
@@ -6433,7 +6410,6 @@ Thanks to RotO for Z-fixing tool !
 		<object x="1846.762" y="719.126" z="41.60675" h="70"/>
 		<object x="1705.475" y="1025.946" z="38.059372" h="67"/>
 		<object x="1910.464" y="979.8519" z="44.372276" h="3"/>
-		<object x="1645.0" y="960.0" z="37.75" h="106"/>
 		<object x="1748.222" y="928.0397" z="53.017456" h="26"/>
 		<object x="1816.043" y="764.6058" z="51.69535" h="54"/>
 		<object x="1794.221" y="731.0384" z="45.77827" h="21"/>
@@ -6468,7 +6444,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="1863.95" y="968.6718" z="50.42228" h="17"/>
 		<object x="1753.483" y="900.4993" z="51.093792" h="9"/>
 	</spawn>
-	<!-- Undead Refugee -->
+	<!-- Undead Refugee (Monster  lvl:49)-->
 	<spawn map="220050000" npcid="214502" pool="53" interval="105">
 		<object x="1994.161" y="257.7184" z="206.708" h="115"/>
 		<object x="2099.955" y="257.9087" z="229.4798" h="55"/>
@@ -6524,7 +6500,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="1857.444" y="161.2618" z="219.8437" h="51"/>
 		<object x="1871.698" y="349.0008" z="208.70702" h="8"/>
 	</spawn>
-	<!-- Undead Minion -->
+	<!-- Undead Minion (Monster  lvl:45)-->
 	<spawn map="220050000" npcid="214378" pool="74" interval="105">
 		<object x="958.0199" y="2082.06" z="81.498" h="110"/>
 		<object x="1589.778" y="1986.361" z="39.883682" h="56"/>
@@ -6601,8 +6577,8 @@ Thanks to RotO for Z-fixing tool !
 		<object x="1168.494" y="1926.008" z="86.46572" h="0"/>
 		<object x="1030.986" y="2128.649" z="83.4417" h="6"/>
 	</spawn>
-	<!-- Weathered Dracolich -->
-	<spawn map="220050000" npcid="214404" pool="42" interval="105">
+	<!-- Weathered Dracolich (Monster  lvl:47)-->
+	<spawn map="220050000" npcid="214404" pool="41" interval="105">
 		<object x="1807.554" y="2912.283" z="82.90288" h="49"/>
 		<object x="1761.327" y="2798.318" z="84.69265" h="89"/>
 		<object x="1778.222" y="2925.503" z="81.51461" h="90"/>
@@ -6629,7 +6605,6 @@ Thanks to RotO for Z-fixing tool !
 		<object x="1874.729" y="2810.04" z="80.10065" h="50"/>
 		<object x="1734.032" y="2883.144" z="79.03749" h="45"/>
 		<object x="1825.542" y="2917.773" z="82.25" h="23"/>
-		<object x="1703.0" y="2718.0" z="88.0" h="100"/>
 		<object x="2030.971" y="2826.06" z="70.061516" h="6"/>
 		<object x="1932.027" y="2921.018" z="82.625" h="88"/>
 		<object x="2084.643" y="2894.401" z="65.179535" h="75"/>
@@ -6646,13 +6621,13 @@ Thanks to RotO for Z-fixing tool !
 		<object x="2116.491" y="2938.685" z="71.9485" h="89"/>
 		<object x="1937.396" y="3011.038" z="72.68036" h="37"/>
 	</spawn>
-	<!-- White Hair Larail -->
+	<!-- White Hair Larail (Monster  lvl:1)-->
 	<spawn map="220050000" npcid="213100" pool="3" interval="105">
 		<object x="644.1776" y="2827.83" z="247.74904" h="99"/>
 		<object x="630.2463" y="2837.209" z="247.22388" h="12"/>
 		<object x="314.1491" y="1678.698" z="244.3284" h="65"/>
 	</spawn>
-	<!-- Web Cellatu -->
+	<!-- Web Cellatu (Monster  lvl:46)-->
 	<spawn map="220050000" npcid="214431" pool="103" interval="105">
 		<object x="1677.315" y="1390.04" z="36.375" h="35"/>
 		<object x="1726.613" y="1164.522" z="36.375" h="118"/>
@@ -6758,7 +6733,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="1908.303" y="717.691" z="36.375" h="71"/>
 		<object x="1836.756" y="1181.732" z="36.375" h="55"/>
 	</spawn>
-	<!-- Wild Kurin -->
+	<!-- Wild Kurin (Monster  lvl:47)-->
 	<spawn map="220050000" npcid="214367" pool="39" interval="105">
 		<object x="538.2102" y="1325.066" z="76.10698" h="117"/>
 		<object x="620.0645" y="1205.985" z="54.231056" h="3"/>
@@ -6800,7 +6775,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="632.3217" y="1329.82" z="66.49071" h="56"/>
 		<object x="553.1324" y="946.6954" z="55.966904" h="106"/>
 	</spawn>
-	<!-- Young Divine Trico -->
+	<!-- Young Divine Trico (Monster  lvl:48)-->
 	<spawn map="220050000" npcid="214469" pool="151" interval="105">
 		<object x="240.1021" y="1679.565" z="264.38306" h="41"/>
 		<object x="572.0079" y="2069.349" z="274.83432" h="64"/>
@@ -6954,7 +6929,7 @@ Thanks to RotO for Z-fixing tool !
 		<object x="711.9398" y="2126.257" z="316.61475" h="85"/>
 		<object x="176.9113" y="2893.924" z="255.54112" h="85"/>
 	</spawn>
-	<!-- Wet Branch Rotron -->
+	<!-- Wet Branch Rotron (Monster  lvl:45)-->
 	<spawn map="220050000" npcid="214422" pool="96" interval="105">
 		<object x="1843.795" y="1477.893" z="49.429832" h="33"/>
 		<object x="1499.822" y="1742.22" z="36.375" h="35"/>
@@ -7053,8 +7028,8 @@ Thanks to RotO for Z-fixing tool !
 		<object x="1642.082" y="1470.129" z="42.116936" h="115"/>
 		<object x="1615.187" y="1255.674" z="38.516052" h="66"/>
 	</spawn>
-	<!-- Woodland Pluma -->
-	<spawn map="220050000" npcid="214467" pool="207" interval="105">
+	<!-- Woodland Pluma (Monster  lvl:48)-->
+	<spawn map="220050000" npcid="214467" pool="206" interval="105">
 		<object x="633.5947" y="1709.137" z="261.05887" h="118"/>
 		<object x="79.92921" y="2301.395" z="242.25" h="62"/>
 		<object x="185.0563" y="1677.694" z="268.58673" h="11"/>
@@ -7118,7 +7093,6 @@ Thanks to RotO for Z-fixing tool !
 		<object x="164.1082" y="1747.587" z="271.42786" h="114"/>
 		<object x="417.3886" y="1889.939" z="256.95416" h="95"/>
 		<object x="556.5069" y="1676.511" z="233.12749" h="60"/>
-		<object x="438.0" y="1657.0" z="208.1875" h="68"/>
 		<object x="146.9364" y="2068.512" z="316.375" h="120"/>
 		<object x="302.4471" y="2214.719" z="272.18466" h="31"/>
 		<object x="227.4875" y="2196.299" z="249.30559" h="57"/>
