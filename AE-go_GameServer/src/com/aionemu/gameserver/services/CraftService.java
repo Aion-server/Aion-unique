@@ -16,6 +16,8 @@
  */
 package com.aionemu.gameserver.services;
 
+import org.apache.log4j.Logger;
+
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.DescriptionId;
 import com.aionemu.gameserver.model.gameobjects.AionObject;
@@ -36,6 +38,8 @@ import com.google.inject.Inject;
  */
 public class CraftService 
 {
+	private static final Logger log = Logger.getLogger(CraftService.class);
+	
 	@Inject
 	private ItemService itemService;
 	@Inject
@@ -94,13 +98,15 @@ public class CraftService
 			//morphing dont need static object/npc to use
 			if ((skillId != 40009) && (target == null || !(target instanceof StaticObject)))
 			{
-				PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.INVALID_TARGET());
+				log.info("[AUDIT] Player " + player.getName() + " tried to craft incorrect target.");
 				return;
 			}
 			
 			if (recipeTemplate.getDp() != null && (player.getCommonData().getDp() <recipeTemplate.getDp()))
-				return; //TODO: Audith logger: Client moding.
-	
+			{
+				log.info("[AUDIT] Player " + player.getName() + " modded her/his client.");
+				return;
+			}
 			if (player.getInventory().isFull())
 			{
 				PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.COMBINE_INVENTORY_IS_FULL);
@@ -110,7 +116,10 @@ public class CraftService
 			for (Component component : recipeTemplate.getComponent())
 			{
 				if (player.getInventory().getItemCountByItemId(component.getItemid()) < component.getQuantity())
-					return; //TODO: Audith logger: Client moding.
+				{
+					log.info("[AUDIT] Player " + player.getName() + " modded her/his client.");
+					return;
+				}
 			}									
 			// ---------------------------------------------------------------------------------
 			
