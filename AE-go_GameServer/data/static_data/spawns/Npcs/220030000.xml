@@ -696,4 +696,9 @@ Altgard -->
 	<spawn map="220030000" npcid="700009" pool="1" interval="105">
 		<object x="1263.29" y="1116.12" z="254.15" h="85"/>
 	</spawn>
+
+	<!-- Abyss Gate Guardian Stone -->
+	<spawn map="220030000" npcid="700140" pool="1" interval="105">
+		<object x="2451.8828" y="2546.5891" z="316.12195" h="0" staticid="571"/>
+	</spawn>
 </spawns>
