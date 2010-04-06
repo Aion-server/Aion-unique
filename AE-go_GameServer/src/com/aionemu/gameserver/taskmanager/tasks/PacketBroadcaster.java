@@ -18,14 +18,13 @@ package com.aionemu.gameserver.taskmanager.tasks;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.taskmanager.AbstractPeriodicTaskManager;
-import com.aionemu.gameserver.utils.ThreadPoolManager;
+import com.aionemu.gameserver.taskmanager.AbstractFIFOPeriodicTaskManager;
 
 /**
  * @author lord_rex and MrPoke
  * 
  */
-public class PacketBroadcaster extends AbstractPeriodicTaskManager<Creature>
+public final class PacketBroadcaster extends AbstractFIFOPeriodicTaskManager<Creature>
 {
 	private static final class SingletonHolder
 	{
@@ -101,15 +100,7 @@ public class PacketBroadcaster extends AbstractPeriodicTaskManager<Creature>
 		{
 			if((mask & mask()) == mask())
 			{
-				ThreadPoolManager.getInstance().scheduleTaskManager((new Runnable()
-				{
-					@Override
-					public void run()
-					{
-						sendPacket(creature);
-					}
-				}), 0);
-
+				sendPacket(creature);
 				creature.removePacketBroadcastMask(this);
 			}
 		}

@@ -28,7 +28,7 @@ import com.aionemu.gameserver.dataholders.ZoneData;
 import com.aionemu.gameserver.model.TaskId;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.templates.zone.ZoneTemplate;
-import com.aionemu.gameserver.taskmanager.AbstractPeriodicTaskManager;
+import com.aionemu.gameserver.taskmanager.AbstractFIFOPeriodicTaskManager;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.world.MapRegion;
 import com.aionemu.gameserver.world.WorldPosition;
@@ -40,7 +40,7 @@ import com.google.inject.Inject;
  * @author ATracer
  *
  */
-public class ZoneService extends AbstractPeriodicTaskManager<Player>
+public final class ZoneService extends AbstractFIFOPeriodicTaskManager<Player>
 {
 	private Map<ZoneName, ZoneInstance> zoneMap = new HashMap<ZoneName, ZoneInstance>();
 	private Map<Integer, Collection<ZoneInstance>> zoneByMapIdMap = new HashMap<Integer, Collection<ZoneInstance>>();
@@ -80,8 +80,7 @@ public class ZoneService extends AbstractPeriodicTaskManager<Player>
 	 */
 	public static enum ZoneUpdateMode
 	{
-		ZONE_UPDATE
-		{
+		ZONE_UPDATE {
 			@Override
 			public void zoneTask(Player player)
 			{
@@ -89,15 +88,13 @@ public class ZoneService extends AbstractPeriodicTaskManager<Player>
 				player.getController().checkWaterLevel();
 			}
 		},
-		ZONE_REFRESH
-		{
+		ZONE_REFRESH {
 			@Override
 			public void zoneTask(Player player)
 			{
 				player.getController().refreshZoneImpl();
 			}
-		},
-
+		}
 		;
 
 		private final byte	MASK;
@@ -118,15 +115,7 @@ public class ZoneService extends AbstractPeriodicTaskManager<Player>
 		{
 			if((mask & mask()) == mask())
 			{
-				ThreadPoolManager.getInstance().scheduleTaskManager((new Runnable()
-				{
-					@Override
-					public void run()
-					{
-						zoneTask(player);
-					}
-				}), 0);
-				
+				zoneTask(player);		
 				player.getController().removeZoneUpdateMask(this);
 			}
 		}

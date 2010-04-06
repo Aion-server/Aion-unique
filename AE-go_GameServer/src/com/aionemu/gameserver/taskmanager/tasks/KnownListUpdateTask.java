@@ -17,14 +17,13 @@
 package com.aionemu.gameserver.taskmanager.tasks;
 
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
-import com.aionemu.gameserver.taskmanager.AbstractPeriodicTaskManager;
-import com.aionemu.gameserver.utils.ThreadPoolManager;
+import com.aionemu.gameserver.taskmanager.AbstractFIFOPeriodicTaskManager;
 
 /**
  * @author sphinx
  * 
  */
-public class KnownListUpdateTask extends AbstractPeriodicTaskManager<VisibleObject>
+public final class KnownListUpdateTask extends AbstractFIFOPeriodicTaskManager<VisibleObject>
 {
 	private static final class SingletonHolder
 	{
@@ -77,15 +76,7 @@ public class KnownListUpdateTask extends AbstractPeriodicTaskManager<VisibleObje
 		{
 			if((mask & mask()) == mask())
 			{
-				ThreadPoolManager.getInstance().scheduleTaskManager((new Runnable()
-				{
-					@Override
-					public void run()
-					{
-						knownListTask(visibleObject);
-					}
-				}), 0);
-				
+				knownListTask(visibleObject);			
 				visibleObject.removeKnownListUpdateMask(this);
 			}
 		}

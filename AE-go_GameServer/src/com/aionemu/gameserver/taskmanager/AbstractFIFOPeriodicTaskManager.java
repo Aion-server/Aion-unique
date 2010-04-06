@@ -16,12 +16,10 @@
  */
 package com.aionemu.gameserver.taskmanager;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-
 import org.apache.log4j.Logger;
 
 import com.aionemu.commons.taskmanager.AbstractLockManager;
+import com.aionemu.commons.utils.AEFastSet;
 import com.aionemu.commons.utils.Rnd;
 import com.aionemu.gameserver.GameServer;
 import com.aionemu.gameserver.GameServer.StartupHook;
@@ -29,17 +27,17 @@ import com.aionemu.gameserver.utils.ThreadPoolManager;
 
 /**
  * @author lord_rex and MrPoke
- * 
+ * 	based on l2j-free engines.
  */
-public abstract class AbstractPeriodicTaskManager<T> extends AbstractLockManager implements Runnable, StartupHook
+public abstract class AbstractFIFOPeriodicTaskManager<T> extends AbstractLockManager implements Runnable, StartupHook
 {
-	protected static final Logger	log		= Logger.getLogger(AbstractPeriodicTaskManager.class);
-	private final ArrayList<T>		LIST	= new ArrayList<T>();
-	private final int				PERIOD;
+	protected static final Logger	log		= Logger.getLogger(AbstractFIFOPeriodicTaskManager.class);
+	private final AEFastSet<T>		queue	= new AEFastSet<T>();
+	private final int				period;
 
-	public AbstractPeriodicTaskManager(int period)
+	public AbstractFIFOPeriodicTaskManager(int period)
 	{
-		PERIOD = period;
+		this.period = period;
 
 		GameServer.addStartupHook(this);
 
@@ -51,7 +49,7 @@ public abstract class AbstractPeriodicTaskManager<T> extends AbstractLockManager
 		writeLock();
 		try
 		{
-			LIST.add(t);
+			queue.add(t);
 		}
 		finally
 		{
@@ -64,12 +62,7 @@ public abstract class AbstractPeriodicTaskManager<T> extends AbstractLockManager
 		writeLock();
 		try
 		{
-			T next = null;
-			Iterator<T> it = LIST.iterator();
-			if(it.hasNext())
-				next = it.next();
-			return next;
-
+			return queue.getFirst();
 		}
 		finally
 		{
@@ -77,19 +70,12 @@ public abstract class AbstractPeriodicTaskManager<T> extends AbstractLockManager
 		}
 	}
 
-	private final T removeFirst()
+	private final void remove(T t)
 	{
 		writeLock();
 		try
 		{
-			T next = null;
-			Iterator<T> it = LIST.iterator();
-			if(it.hasNext())
-			{
-				next = it.next();
-				LIST.remove(next);
-			}
-			return next;
+			queue.remove(t);
 		}
 		finally
 		{
@@ -100,8 +86,8 @@ public abstract class AbstractPeriodicTaskManager<T> extends AbstractLockManager
 	@Override
 	public final void onStartup()
 	{
-		ThreadPoolManager.getInstance().scheduleAtFixedRate(this, 1000 + Rnd.get(PERIOD),
-			Rnd.get(PERIOD - 5, PERIOD + 5));
+		ThreadPoolManager.getInstance().scheduleAtFixedRate(this, 1000 + Rnd.get(period),
+			Rnd.get(period - 5, period + 5));
 	}
 
 	@Override
@@ -119,7 +105,7 @@ public abstract class AbstractPeriodicTaskManager<T> extends AbstractLockManager
 			}
 			finally
 			{
-				removeFirst();
+				remove(task);
 			}
 		}
 	}
