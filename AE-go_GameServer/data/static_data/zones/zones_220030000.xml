@@ -652,4 +652,15 @@
 		<link>ALTGARD_ICE_LAKE_220030000</link>
 		<link>ALTGARD_FORTRESS_DUNGEON_ENTRANCE_220030000</link>
     </zone>
+    <zone mapid="220030000" name="Q2016" priority="17">
+        <points>
+            <point x="1651" y="253"/>
+            <point x="1640" y="241"/>
+            <point x="1634" y="229"/>
+            <point x="1634" y="214"/>
+            <point x="1644" y="199"/>
+            <point x="1664" y="197"/>
+        </points>
+	<link>MUMU_VILLAGE_220030000</link>
+    </zone>
 </zones>

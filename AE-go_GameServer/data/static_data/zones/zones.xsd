@@ -264,6 +264,7 @@
 			<xs:enumeration value="ALTGARD_EAST_GATE_220030000"/>
 			<xs:enumeration value="SEGGURHEIM_220030000"/>
 			<xs:enumeration value="ALTGARD_FORTRESS_220030000"/>
+			<xs:enumeration value="Q2016"/>
 			<!-- morheim -->
 			<xs:enumeration value="EXECUTION_GROUND_OF_DELTRAS_220020000"/>
 			<xs:enumeration value="MIST_MANE_VILLAGE_220020000"/>
