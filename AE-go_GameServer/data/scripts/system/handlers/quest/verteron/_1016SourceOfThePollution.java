@@ -90,12 +90,19 @@ public class _1016SourceOfThePollution extends QuestHandler
                case 25:
                   if(var == 0)
                      return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 1011);
-               case 10000:
+			   case 10000:
+			      if(var == 0)
+                  {
+                     return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 1352);
+                  }
+               case 10002:
                   if(var == 2)
                   {
-                     qs.setQuestVarById(0, var + 1);
+				     qs.setQuestVarById(0, var + 1);
                      updateQuestStatus(player, qs);
-                     return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 1693);
+                     PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject()
+                        .getObjectId(), 10));
+                     return true;
                   }
                case 10005:
                   if(var == 7)
@@ -141,7 +148,6 @@ public class _1016SourceOfThePollution extends QuestHandler
                      updateQuestStatus(player, qs);
                      return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 2375);
                   }
-               case 10000:
                case 10001:
                   if(var == 0 || var == 8)
                   {
@@ -161,7 +167,6 @@ public class _1016SourceOfThePollution extends QuestHandler
                case 25:
                   if(var == 3)
                      return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 2034);
-               case 10000:
                case 10003:
                   if(var == 3)
                   {
@@ -181,15 +186,12 @@ public class _1016SourceOfThePollution extends QuestHandler
                case 25:
                   if(var == 4)
                      return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 2375);
-               case 10000:
                case 10004:
                   if(var == 4)
                   {
                      qs.setQuestVarById(0, var + 1);
                      updateQuestStatus(player, qs);
-                     PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject()
-                        .getObjectId(), 2376));
-                     return true;
+                     return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 2376);
                   }
             }
          }
@@ -201,15 +203,12 @@ public class _1016SourceOfThePollution extends QuestHandler
                case 25:
                   if(var == 5)
                      return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 2716);
-               case 10000:
                case 10005:
                   if(var == 5)
                   {
                      qs.setQuestVarById(0, var + 1);
                      updateQuestStatus(player, qs);
-                     PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject()
-                        .getObjectId(), 2717));
-                     return true;
+                     return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 2717);
                   }
             }
          }
@@ -221,15 +220,12 @@ public class _1016SourceOfThePollution extends QuestHandler
                case 25:
                   if(var == 6)
                      return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 2716);
-               case 10000:
                case 10005:
                   if(var == 6)
                   {
                      qs.setQuestVarById(0, var + 1);
                      updateQuestStatus(player, qs);
-                     PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject()
-                        .getObjectId(), 2717));
-                     return true;
+                     return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 2717);
                   }
             }
          }
@@ -241,15 +237,12 @@ public class _1016SourceOfThePollution extends QuestHandler
                case 25:
                   if(var == 9)
                      return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 2716);
-               case 10000:
                case 10005:
                   if(var == 9)
                   {
                      qs.setStatus(QuestStatus.REWARD);
                      updateQuestStatus(player, qs);
-                     PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject()
-                        .getObjectId(), 2717));
-                     return true;
+                     return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 2717);
                   }
             }
          }
@@ -261,15 +254,12 @@ public class _1016SourceOfThePollution extends QuestHandler
                case 25:
                   if(var == 10)
                      return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 2716);
-               case 10000:
                case 10005:
                   if(var == 10)
                   {
                      qs.setStatus(QuestStatus.REWARD);
                      updateQuestStatus(player, qs);
-                     PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject()
-                        .getObjectId(), 2717));
-                     return true;
+                     return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 2717);
                   }
             }
          }
@@ -299,7 +289,7 @@ public class _1016SourceOfThePollution extends QuestHandler
          case 210318:
             if(var >= 8 && var <= 9)
             {
-               qs.setQuestVarById(0, var + 1);
+	       qs.setQuestVar(9);
                updateQuestStatus(player, qs);
                return true;
             }
