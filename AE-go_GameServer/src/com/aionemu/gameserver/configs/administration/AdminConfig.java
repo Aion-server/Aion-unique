@@ -67,6 +67,9 @@ public class AdminConfig
 
 	@Property(key = "gameserver.administration.command.info", defaultValue = "3")
 	public static int	COMMAND_INFO;
+	
+	@Property(key = "gameserver.administration.command.invis", defaultValue = "3")
+	public static int	COMMAND_INVIS;
 
 	@Property(key = "gameserver.administration.command.invul", defaultValue = "3")
 	public static int	COMMAND_INVUL;
