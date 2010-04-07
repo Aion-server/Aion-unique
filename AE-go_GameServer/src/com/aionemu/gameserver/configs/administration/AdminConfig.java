@@ -23,6 +23,9 @@ import com.aionemu.commons.configuration.Property;
  */
 public class AdminConfig
 {
+	@Property(key = "gameserver.administration.gmlevel", defaultValue = "3")
+	public static int	GM_LEVEL;
+	
 	@Property(key = "gameserver.administration.command.add", defaultValue = "3")
 	public static int	COMMAND_ADD;
 

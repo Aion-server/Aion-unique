@@ -21,6 +21,7 @@ import javax.inject.Inject;
 import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.dataholders.loadingutils.XmlDataLoader;
+import com.aionemu.gameserver.utils.Util;
 
 /**
  * 
@@ -137,6 +138,7 @@ public final class DataManager
 	@Inject
 	public DataManager(XmlDataLoader xmlDataLoader)
 	{
+		Util.printSection("StaticDatas");
 		log.info("##### STATIC DATA [section beginning] #####");
 
 		this.loader = xmlDataLoader;
