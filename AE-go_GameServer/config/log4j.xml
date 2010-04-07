@@ -168,5 +168,4 @@
     -->
     <categoryFactory class="com.aionemu.commons.log4j.ThrowableAsMessageAwareFactory"/>
 
-
 </log4j:configuration>

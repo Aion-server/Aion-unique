@@ -23,6 +23,7 @@ import org.apache.log4j.Logger;
 import com.aionemu.commons.configuration.ConfigurableProcessor;
 import com.aionemu.commons.configuration.Property;
 import com.aionemu.commons.utils.PropertiesUtils;
+import com.aionemu.loginserver.utils.Util;
 
 /**
  * @author -Nemesiss-
@@ -96,8 +97,13 @@ public class Config
 	{
 		try
 		{
-			Properties[] props = PropertiesUtils.loadAllFromDirectory("./config");
+			Util.printSection("Network");
+			String network = "./config/network";
+			Properties[] props = PropertiesUtils.loadAllFromDirectory(network);
+			
 			ConfigurableProcessor.process(Config.class, props);
+			log.info("Loading: " + network + "/network.properties");
+			log.info("Loading: " + network + "/database.properties");
 		}
 		catch (Exception e)
 		{

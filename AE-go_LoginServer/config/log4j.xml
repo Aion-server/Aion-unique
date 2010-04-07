@@ -24,8 +24,9 @@
     <!-- This appender prints information to console -->
     <appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
         <layout class="org.apache.log4j.PatternLayout">
-            <param name="ConversionPattern" value="[%p %d{yyyy-MM-dd HH-mm-ss}] %c:%L - %m%n"/>
+            <param name="ConversionPattern" value="[%p] %d{yyyy-MM-dd HH:mm:ss} - %m%n"/>
         </layout>
+		<filter class="com.aionemu.commons.log4j.filters.ConsoleFilter"/>
     </appender>
 
     <!-- This appender prints all that is shown in console to file -->
@@ -36,8 +37,9 @@
         <!-- Windows systems doesn't support : char in file names -->
         <param name="backupDateFormat" value="yyyy-MM-dd HH-mm-ss"/>
         <layout class="org.apache.log4j.PatternLayout">
-            <param name="ConversionPattern" value="[%p %d{yyyy-MM-dd HH:mm:ss}] %c:%L - %m%n"/>
+            <param name="ConversionPattern" value="[%p] %d{yyyy-MM-dd HH:mm:ss} - %c:%L - %m%n"/>
         </layout>
+	  <filter class="com.aionemu.commons.log4j.filters.ConsoleFilter"/>
     </appender>
 
     <!-- This appender accepts only messages with exceptions and logs them to separate file -->
@@ -109,6 +111,5 @@
 
     -->
     <categoryFactory class="com.aionemu.commons.log4j.ThrowableAsMessageAwareFactory"/>
-
 
 </log4j:configuration>

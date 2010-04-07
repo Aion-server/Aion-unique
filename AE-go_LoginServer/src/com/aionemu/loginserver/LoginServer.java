@@ -16,14 +16,12 @@
  */
 package com.aionemu.loginserver;
 
-import java.lang.management.ManagementFactory;
-import java.lang.management.MemoryUsage;
-
 import org.apache.log4j.Logger;
 
 import com.aionemu.commons.database.DatabaseFactory;
 import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.commons.services.LoggingService;
+import com.aionemu.commons.utils.AEInfos;
 import com.aionemu.commons.utils.ExitCode;
 import com.aionemu.loginserver.configs.Config;
 import com.aionemu.loginserver.controller.BannedIpController;
@@ -31,6 +29,7 @@ import com.aionemu.loginserver.network.IOServer;
 import com.aionemu.loginserver.network.ncrypt.KeyGen;
 import com.aionemu.loginserver.utils.DeadLockDetector;
 import com.aionemu.loginserver.utils.ThreadPoolManager;
+import com.aionemu.loginserver.utils.Util;
 
 /**
  * @author -Nemesiss-
@@ -47,10 +46,13 @@ public class LoginServer
      */
     public static void main(String[] args)
     {
+    	long start = System.currentTimeMillis();
+    	
         LoggingService.init();
 
 		Config.load();
 
+		Util.printSection("DataBase");
 		DatabaseFactory.init();
 		DAOManager.init();
 
@@ -64,6 +66,7 @@ public class LoginServer
          */
         try
         {
+        	Util.printSection("KeyGen");
             KeyGen.init();
         }
         catch (Exception e)
@@ -72,19 +75,22 @@ public class LoginServer
             System.exit(ExitCode.CODE_ERROR);
         }
 
+        Util.printSection("GSTable");
         GameServerTable.load();
+        Util.printSection("BannedIP");
         BannedIpController.load();
 
         // TODO! flood protector
         // TODO! brute force protector
 
+        Util.printSection("IOServer");
         IOServer.getInstance().connect();
         Runtime.getRuntime().addShutdownHook(Shutdown.getInstance());
 
-        MemoryUsage	hm  = ManagementFactory.getMemoryMXBean().getHeapMemoryUsage();
-        MemoryUsage	nhm = ManagementFactory.getMemoryMXBean().getNonHeapMemoryUsage();
-
-        log.info("Heap Memory Usage: " + (hm.getUsed() / 1048576) + "/" + (hm.getMax() / 1048576) + " MB");
-        log.info("NonHeap Memory Usage: " + (nhm.getUsed() / 1048576) + "/" + (nhm.getMax() / 1048576) + " MB");
+        Util.printSection("System");
+        AEInfos.printAllInfos();
+        
+        Util.printSection("LoginServerLog");
+        log.info("AE Login Server started in " + (System.currentTimeMillis() - start) / 1000 + " seconds.");
     }
 }

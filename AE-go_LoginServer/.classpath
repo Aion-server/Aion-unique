@@ -3,6 +3,8 @@
 	<classpathentry kind="lib" path="lib/jsr166.jar"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="test"/>
+	<classpathentry kind="src" path="config/network"/>
+	<classpathentry excluding="network/" kind="src" path="config"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="lib/ae_commons.jar" sourcepath="/AE-go_Commons"/>
 	<classpathentry kind="lib" path="lib/commons-io-1.4.jar"/>
