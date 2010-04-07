@@ -46,6 +46,9 @@ public class AdminConfig
 
 	@Property(key = "gameserver.administration.command.announce", defaultValue = "3")
 	public static int	COMMAND_ANNOUNCE;
+	
+	@Property(key = "gameserver.administration.command.announce_faction", defaultValue = "3")
+	public static int	COMMAND_ANNOUNCE_FACTION;
 
 	@Property(key = "gameserver.administration.command.configure", defaultValue = "3")
 	public static int	COMMAND_CONFIGURE;
