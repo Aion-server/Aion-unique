@@ -72,12 +72,12 @@ public class SkillEngine
 	/**
 	 *  This method is used for not learned skills (item skills etc)
 	 *  
-	 * @param player
+	 * @param creature
 	 * @param skillId
 	 * @param skillLevel
 	 * @return Skill
 	 */
-	public Skill getSkill(Player player, int skillId, int skillLevel, VisibleObject firstTarget)
+	public Skill getSkill(Creature creature, int skillId, int skillLevel, VisibleObject firstTarget)
 	{
 		SkillTemplate template = DataManager.SKILL_DATA.getSkillTemplate(skillId);
 		
@@ -87,7 +87,7 @@ public class SkillEngine
 		Creature target = null;
 		if(firstTarget instanceof Creature)
 			target = (Creature) firstTarget;
-		return new Skill(template, player, skillLevel, target);
+		return new Skill(template, creature, skillLevel, target);
 	}
 
 	public static SkillEngine getInstance()

@@ -21,6 +21,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
+import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.skillengine.model.Skill;
 
 /**
@@ -38,6 +39,6 @@ public class DpCondition extends Condition
 	@Override
 	public boolean verify(Skill skill)
 	{
-		return skill.getEffector().getCommonData().getDp() >= value;
+		return ((Player)skill.getEffector()).getCommonData().getDp() >= value;
 	}
 }

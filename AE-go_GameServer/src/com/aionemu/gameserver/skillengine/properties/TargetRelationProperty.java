@@ -29,86 +29,126 @@ import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.skillengine.model.Skill;
 
-
 /**
  * @author ATracer
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TargetRelationProperty")
-public class TargetRelationProperty
-    extends Property
+public class TargetRelationProperty extends Property
 {
 
-    @XmlAttribute(required = true)
-    protected TargetRelationAttribute value;
+	@XmlAttribute(required = true)
+	protected TargetRelationAttribute	value;
 
-    /**
-     * Gets the value of the value property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TargetRelationAttribute }
-     *     
-     */
-    public TargetRelationAttribute getValue() {
-        return value;
-    }
-    
-    @Override
+	/**
+	 * Gets the value of the value property.
+	 * 
+	 * @return possible object is {@link TargetRelationAttribute }
+	 * 
+	 */
+	public TargetRelationAttribute getValue()
+	{
+		return value;
+	}
+
+	@Override
 	public boolean set(Skill skill)
 	{
 		List<Creature> effectedList = skill.getEffectedList();
-		Player effector = skill.getEffector();
+		Creature skillEffector = skill.getEffector();
 		
-		switch(value)
+		if(skillEffector instanceof Player)
 		{
-			case ALL:
-				break;
-			case ENEMY:			
-				for(Iterator<Creature> iter = effectedList.iterator(); iter.hasNext();)
-				{
-					Creature nextEffected = iter.next();
-					
-					if(nextEffected instanceof Npc && effector.getController().isEnemy((Npc) nextEffected))
-						continue;
-					
-					if(nextEffected instanceof Player 
-						&& ((Player) nextEffected).getController().isEnemy(skill.getEffector()))
-						continue;
-					
-					iter.remove();
-				}
-				break;
-			case FRIEND:
-				for(Iterator<Creature> iter = effectedList.iterator(); iter.hasNext();)
-				{
-					Creature nextEffected = iter.next();
-					
-					//TODO refactor here for duel support
-					if(nextEffected instanceof Player 
-						&& !((Player)nextEffected).getController().isEnemy(skill.getEffector()))
-						continue;
-					
-					if(nextEffected instanceof Npc && !effector.getController().isEnemy((Npc) nextEffected))
-						continue;
-					
-					iter.remove();			
-				}
-				
-				if(effectedList.size() == 0)
-				{
-					skill.setFirstTarget(skill.getEffector());
-					effectedList.add(skill.getEffector());
-				}
-				else
-				{
-					skill.setFirstTarget(effectedList.get(0));
-				}
-					
-				break;
-			
-			//TODO other enum values
+			Player effector = (Player) skillEffector;
+
+			switch(value)
+			{
+				case ALL:
+					break;
+				case ENEMY:
+					for(Iterator<Creature> iter = effectedList.iterator(); iter.hasNext();)
+					{
+						Creature nextEffected = iter.next();
+
+						if(nextEffected instanceof Npc && effector.getController().isEnemy((Npc) nextEffected))
+							continue;
+
+						if(nextEffected instanceof Player && ((Player) nextEffected).getController().isEnemy(effector))
+							continue;
+
+						iter.remove();
+					}
+					break;
+				case FRIEND:
+					for(Iterator<Creature> iter = effectedList.iterator(); iter.hasNext();)
+					{
+						Creature nextEffected = iter.next();
+
+						// TODO refactor here for duel support
+						if(nextEffected instanceof Player && !((Player) nextEffected).getController().isEnemy(effector))
+							continue;
+
+						if(nextEffected instanceof Npc && !effector.getController().isEnemy((Npc) nextEffected))
+							continue;
+
+						iter.remove();
+					}
+
+					if(effectedList.size() == 0)
+					{
+						skill.setFirstTarget(skill.getEffector());
+						effectedList.add(skill.getEffector());
+					}
+					else
+					{
+						skill.setFirstTarget(effectedList.get(0));
+					}
+					break;
+			}
 		}
+		else
+		{
+			switch(value)
+			{
+				case ALL:
+					break;
+				case ENEMY:
+					for(Iterator<Creature> iter = effectedList.iterator(); iter.hasNext();)
+					{
+						Creature nextEffected = iter.next();
+
+						if(nextEffected instanceof Player)
+							continue;
+
+						// todo npc have friends too
+						iter.remove();
+					}
+					break;
+				case FRIEND:
+					for(Iterator<Creature> iter = effectedList.iterator(); iter.hasNext();)
+					{
+						Creature nextEffected = iter.next();
+
+						if(!(nextEffected instanceof Player))
+							continue;
+
+						// todo enemy have friends too
+						iter.remove();
+					}
+
+					if(effectedList.size() == 0)
+					{
+						skill.setFirstTarget(skillEffector);
+						effectedList.add(skillEffector);
+					}
+					else
+					{
+						skill.setFirstTarget(effectedList.get(0));
+					}
+					break;
+			}
+		}
+
 		return true;
 	}
 }

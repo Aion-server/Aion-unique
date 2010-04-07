@@ -21,7 +21,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
-import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.skillengine.model.Skill;
 
 /**
@@ -42,7 +42,7 @@ public class MpUseAction extends Action
 	@Override
 	public void act(Skill skill)
 	{
-		Player effector = skill.getEffector();
+		Creature effector = skill.getEffector();
 		int valueWithDelta = value + delta * skill.getSkillLevel();
 		
 		effector.getLifeStats().reduceMp(valueWithDelta);

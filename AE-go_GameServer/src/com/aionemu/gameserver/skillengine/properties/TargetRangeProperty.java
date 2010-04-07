@@ -98,16 +98,20 @@ extends Property
 				break;
 			case PARTY:
 				effectedList.clear();//clear from first target
-				PlayerGroup group = skill.getEffector().getPlayerGroup();
 				Creature effector = skill.getEffector();
-				if(group == null)
-					return false;
-
-				for(Player member : group.getMembers())
-				{															
-					//TODO: here value +4 till better move controller developed
-					if(MathUtil.isInRange(effector, member, distance + 4))																				
-						effectedList.add(member);				
+				
+				if(effector instanceof Player)
+				{
+					PlayerGroup group = ((Player)effector).getPlayerGroup();
+					if(group == null)
+						return false;
+	
+					for(Player member : group.getMembers())
+					{
+						//TODO: here value +4 till better move controller developed
+						if(MathUtil.isInRange(effector, member, distance + 4))
+							effectedList.add(member);
+					}
 				}
 				break;
 			case NONE:

@@ -21,10 +21,13 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
+import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.skillengine.model.Skill;
 
 /**
  * @author ATracer
+ * 
+ * Effector: Player only
  *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -37,11 +40,12 @@ public class DpUseAction extends Action
 	@Override
 	public void act(Skill skill)
 	{
-		int currentDp = skill.getEffector().getCommonData().getDp();
+		Player effector = (Player) skill.getEffector();
+		int currentDp = effector.getCommonData().getDp();
 
 		if(currentDp <= 0 || currentDp < value)
 			return;
 
-		skill.getEffector().getCommonData().setDp(currentDp - value);
+		effector.getCommonData().setDp(currentDp - value);	
 	}
 }

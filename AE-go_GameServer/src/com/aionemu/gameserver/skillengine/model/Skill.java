@@ -33,6 +33,7 @@ import com.aionemu.gameserver.skillengine.action.Action;
 import com.aionemu.gameserver.skillengine.action.Actions;
 import com.aionemu.gameserver.skillengine.condition.Condition;
 import com.aionemu.gameserver.skillengine.condition.Conditions;
+import com.aionemu.gameserver.skillengine.effect.EffectId;
 import com.aionemu.gameserver.skillengine.properties.Properties;
 import com.aionemu.gameserver.skillengine.properties.Property;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -48,7 +49,7 @@ public class Skill
 	
 	private Creature firstTarget;
 	
-	private Player effector;
+	private Creature effector;
 	
 	private int skillLevel;
 	
@@ -86,16 +87,16 @@ public class Skill
 	{
 		this(skillTemplate, effector,
 			effector.getSkillList().getSkillLevel(skillTemplate.getSkillId()), firstTarget);
-	}
-	
+	}	
+
 	/**
 	 * 
 	 * @param skillTemplate
 	 * @param effector
-	 * @param world
+	 * @param skillLvl
+	 * @param firstTarget
 	 */
-	public Skill(SkillTemplate skillTemplate, Player effector, int skillLvl, Creature firstTarget)
-	{
+	public Skill(SkillTemplate skillTemplate, Creature effector, int skillLvl, Creature firstTarget) {
 		this.effectedList = new ArrayList<Creature>();
 		this.conditionChangeListener = new StartMovingListener();
 		this.firstTarget = firstTarget;
@@ -132,8 +133,17 @@ public class Skill
 		while(effectedIter.hasNext())
 		{
 			Creature effected = effectedIter.next();
-			if (!RestrictionsManager.canAffectBySkill(getEffector(), effected))
-				effectedIter.remove();
+
+			if(effector instanceof Player)
+			{
+				if (!RestrictionsManager.canAffectBySkill((Player)effector, effected))
+					effectedIter.remove();
+			}
+			else
+			{
+				if(effector.getEffectController().isAbnormalState(EffectId.CANT_ATTACK_STATE))					
+					effectedIter.remove();
+			}
 		}
 		
 		if(effectedList.size() == 0)
@@ -174,7 +184,7 @@ public class Skill
 		if(skillTemplate.getPenaltySkillId() == 0)
 			return;
 		
-		Skill skill = SkillEngine.getInstance().getSkill((Player) effector, skillTemplate.getPenaltySkillId(), 1, firstTarget); 
+		Skill skill = SkillEngine.getInstance().getSkill(effector, skillTemplate.getPenaltySkillId(), 1, firstTarget);
 		skill.useSkill();
 	}
 	
@@ -183,11 +193,11 @@ public class Skill
 	 */
 	private void startCast()
 	{
-		int targetObjId = firstTarget !=  null ? firstTarget.getObjectId() : 0;
+		int targetObjId = firstTarget != null ? firstTarget.getObjectId() : 0;
 		final int unk = 0;
-		PacketSendUtility.broadcastPacket(effector, 
-			new SM_CASTSPELL(effector.getObjectId(), skillTemplate.getSkillId(), skillLevel,
-				unk, targetObjId, this.duration), true);
+
+		PacketSendUtility.broadcastPacketAndReceive(effector, new SM_CASTSPELL(effector.getObjectId(), skillTemplate
+			.getSkillId(), skillLevel, unk, targetObjId, skillTemplate.getDuration()));
 	}
 	
 	/**
@@ -231,9 +241,8 @@ public class Skill
 		 */
 		if(skillTemplate.isActive() || skillTemplate.isToggle())
 		{
-			PacketSendUtility.broadcastPacket(effector,
-				new SM_CASTSPELL_END(effector, skillTemplate.getSkillId(), skillLevel,
-					firstTarget, effects, skillTemplate.getCooldown(), spellStatus), true);
+			PacketSendUtility.broadcastPacketAndReceive(effector, new SM_CASTSPELL_END(effector, skillTemplate
+				.getSkillId(), skillLevel, firstTarget, effects, skillTemplate.getCooldown(), spellStatus));
 		}
 		
 		/**
@@ -335,7 +344,7 @@ public class Skill
 	/**
 	 * @return the effector
 	 */
-	public Player getEffector()
+	public Creature getEffector()
 	{
 		return effector;
 	}

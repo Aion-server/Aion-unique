@@ -42,12 +42,13 @@ public class ItemUseAction extends Action
 	@Override
 	public void act(Skill skill)
 	{
-		Player player = skill.getEffector();
-		Storage inventory = player.getInventory();
+		if(skill.getEffector() instanceof Player)
+		{		
+			Player player = (Player) skill.getEffector();
+			Storage inventory = player.getInventory();
 
-		if(!inventory.removeFromBagByItemId(itemid, count))
-		{
-			return;
+			if(!inventory.removeFromBagByItemId(itemid, count))
+				return;			
 		}
 	}
 

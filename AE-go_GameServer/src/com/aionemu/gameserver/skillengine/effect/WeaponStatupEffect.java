@@ -47,6 +47,10 @@ public class WeaponStatupEffect extends BufEffect
 	@Override
 	public void startEffect(final Effect effect)
 	{
+		if(!(effect.getEffector() instanceof Player))
+			return;
+		
+		
 		final Player effected  = (Player) effect.getEffected();
 	
 		final SkillEffectId skillEffectId = getSkillEffectId(effect);

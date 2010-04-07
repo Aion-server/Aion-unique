@@ -29,7 +29,9 @@ import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOKATOBJECT;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MOVE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS.TYPE;
+import com.aionemu.gameserver.skillengine.SkillEngine;
 import com.aionemu.gameserver.skillengine.model.HealType;
+import com.aionemu.gameserver.skillengine.model.Skill;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
@@ -254,6 +256,20 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 		getOwner().getLifeStats().reduceHp(getOwner().getLifeStats().getCurrentHp() + 1, null);
 	}
 	
+	/**
+	 * 
+	 * @param skillId
+	 */
+	public void useSkill(int skillId)
+	{
+		Creature creature = getOwner();
+
+		Skill skill = SkillEngine.getInstance().getSkill(creature, skillId, 1, creature.getTarget());
+		if(skill != null)
+		{
+			skill.useSkill();
+		}
+	}
 	/**
 	 *  Notify hate value to all visible creatures
 	 *  
