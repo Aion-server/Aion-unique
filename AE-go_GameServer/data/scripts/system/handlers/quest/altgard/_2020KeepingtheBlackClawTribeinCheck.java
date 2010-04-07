@@ -26,7 +26,7 @@ import com.aionemu.gameserver.questEngine.model.QuestStatus;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
- * @author Mr. Poke + remode Dune11
+ * @author Mr. Poke
  *
  */
 public class _2020KeepingtheBlackClawTribeinCheck extends QuestHandler
@@ -44,22 +44,10 @@ public class _2020KeepingtheBlackClawTribeinCheck extends QuestHandler
 	{
 		qe.addQuestLvlUp(questId);
 		qe.setNpcQuestData(203665).addOnTalkEvent(questId);
-		qe.setNpcQuestData(210562).addOnKillEvent(questId);
 		qe.setNpcQuestData(203668).addOnTalkEvent(questId);
+		qe.setNpcQuestData(210562).addOnKillEvent(questId);
 	}
 
-	@Override
-	public boolean onLvlUpEvent(QuestEnv env)
-	{
-		Player player = env.getPlayer();
-		QuestState qs = player.getQuestStateList().getQuestState(questId);
-		if(qs == null || qs.getStatus() != QuestStatus.LOCKED || player.getLevel() < 14)
-			return false;
-		qs.setStatus(QuestStatus.START);
-		updateQuestStatus(player, qs);
-		return true;
-	}
-	
 	@Override
 	public boolean onDialogEvent(QuestEnv env)
 	{
@@ -75,86 +63,69 @@ public class _2020KeepingtheBlackClawTribeinCheck extends QuestHandler
 
 		if(qs.getStatus() == QuestStatus.START)
 		{
-			if(targetId == 203665)
+			switch (targetId)
 			{
-				switch(env.getDialogId())
-				{
-					case 25:
-						if(var == 0)
-							return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 1011);
-					case 10000:
-						if(var == 0)
-						{
-							qs.setQuestVarById(0, var + 1);
-							updateQuestStatus(player, qs);
-							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject()
-								.getObjectId(), 10));
-							return true;
-						}
-						return true;
-				}
-			}
-			else if(targetId == 203668)
-			{
-				switch(env.getDialogId())
-				{
-					case 25:
-						if(var == 1)
-							return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 1011);
-					case 10000:
-						if(var == 1)
-						{
-							qs.setQuestVarById(0, var + 1);
-							updateQuestStatus(player, qs);
-							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject()
-								.getObjectId(), 10));
-							return true;
-						}
-						else if(var == 5)
-							return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 1352);
-					case 10001:
-						if(var == 5)
-						{
-							qs.setQuestVarById(0, var + 1);
-							updateQuestStatus(player, qs);
-							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject()
-								.getObjectId(), 10));
-							return true;
-						}
-						else if(var == 6)
-						{
-							int itemCount = player.getInventory().getItemCountByItemId(182203025);
-							if(itemCount >= 1)
+				case 203665:
+					switch(env.getDialogId())
+					{
+						case 25:
+							if(var == 0)
+								return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 1011);
+							break;
+						case 10000:
+							if (var == 0)
 							{
-								if(env.getDialogId() == 33)
+								qs.setQuestVarById(0, var+1);
+								updateQuestStatus(player, qs);
+								PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(), 10));
+								return true;
+							}
+					}
+					break;
+				case 203668:
+					switch(env.getDialogId())
+					{
+						case 25:
+							if(var == 1)
+								return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 1352);
+							else if(var == 5)
+								return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 1693);
+							else if(var == 6)
+								return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 2034);
+							break;
+						case 10001:
+						case 10002:
+							if (var == 1 || var== 5)
+							{
+								qs.setQuestVarById(0, var+1);
+								updateQuestStatus(player, qs);
+								PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(), 10));
+								return true;
+							}
+						case 33:
+							if (var == 6)
+							{
+								if(collectItemCheck(env))
 								{
-									return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 1694);
-								}
-								else
-								{
-									player.getInventory().removeFromBagByItemId(182203025, itemCount);
 									qs.setStatus(QuestStatus.REWARD);
 									updateQuestStatus(player, qs);
-									PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject()
-										.getObjectId(), 10));
-									return true;
+									return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 5);
 								}
+								else
+									return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 2120);
 							}
-							else
-								return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 1779);
-						}
-						return true;
-				}
+					}
 			}
 		}
 		else if(qs.getStatus() == QuestStatus.REWARD)
 		{
 			if(targetId == 203668)
-				return defaultQuestEndDialog(env);
+					return defaultQuestEndDialog(env);
 		}
 		return false;
 	}
 
+	@Override
 	public boolean onKillEvent(QuestEnv env)
 	{
 		Player player = env.getPlayer();
@@ -162,23 +133,29 @@ public class _2020KeepingtheBlackClawTribeinCheck extends QuestHandler
 		if(qs == null || qs.getStatus() != QuestStatus.START)
 			return false;
 
-
+		int var = qs.getQuestVarById(0);
 		int targetId = 0;
-		int var = 0;
 		if(env.getVisibleObject() instanceof Npc)
 			targetId = ((Npc) env.getVisibleObject()).getNpcId();
-		env.setQuestId(questId);
-		switch(targetId)
+		
+		if (targetId == 210562 && var >= 2 && var < 5)
 		{
-			case 210562:
-				var = qs.getQuestVarById(0);
-				if (var < 5)
-				{
-					qs.setQuestVarById(0, var+1);
-					updateQuestStatus(player, qs);
-				}
-				break;
+			qs.setQuestVarById(0, var+1);
+			updateQuestStatus(player, qs);
+			return true;
 		}
 		return false;
+	}
+
+	@Override
+	public boolean onLvlUpEvent(QuestEnv env)
+	{
+		Player player = env.getPlayer();
+		QuestState qs = player.getQuestStateList().getQuestState(questId);
+		if(qs == null || qs.getStatus() != QuestStatus.LOCKED || player.getLevel() < 14)
+			return false;
+		qs.setStatus(QuestStatus.START);
+		updateQuestStatus(player, qs);
+		return true;
 	}
 }

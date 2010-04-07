@@ -109,6 +109,7 @@
 
 	<!-- The Mosbear Frenzy -->
 	<monster_hunt start_npc_id="204803" id="2524">
+		<monster_infos var_id="0" npc_id="213022" max_kill="15"/>
 		<monster_infos var_id="0" npc_id="213023" max_kill="15"/>
 		<monster_infos var_id="1" npc_id="213024" max_kill="3"/>
 	</monster_hunt>

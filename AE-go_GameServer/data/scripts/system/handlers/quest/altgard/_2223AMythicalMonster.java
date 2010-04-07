@@ -34,15 +34,15 @@ import com.google.inject.Inject;
  * @author Mr. Poke
  *
  */
-public class _2019SecuringtheSupplyRoute extends QuestHandler
+public class _2223AMythicalMonster extends QuestHandler
 {
 
 	@Inject
 	ItemService itemService;
 
-	private final static int	questId	= 2019;
+	private final static int	questId	= 2223;
 
-	public _2019SecuringtheSupplyRoute()
+	public _2223AMythicalMonster()
 	{
 		super(questId);
 	}
@@ -50,84 +50,63 @@ public class _2019SecuringtheSupplyRoute extends QuestHandler
 	@Override
 	public void register()
 	{
-		qe.addQuestLvlUp(questId);
-		qe.setNpcQuestData(798033).addOnTalkEvent(questId);
-		qe.setNpcQuestData(210492).addOnKillEvent(questId);
-		qe.setNpcQuestData(203673).addOnTalkEvent(questId);
+		qe.setNpcQuestData(203616).addOnQuestStart(questId);
+		qe.setNpcQuestData(203616).addOnTalkEvent(questId);
+		qe.setNpcQuestData(211621).addOnKillEvent(questId);
 	}
 
 	@Override
 	public boolean onDialogEvent(QuestEnv env)
 	{
 		final Player player = env.getPlayer();
-		final QuestState qs = player.getQuestStateList().getQuestState(questId);
-		if(qs == null)
-			return false;
-
-		final int var = qs.getQuestVarById(0);
 		int targetId = 0;
 		if(env.getVisibleObject() instanceof Npc)
 			targetId = ((Npc) env.getVisibleObject()).getNpcId();
+		QuestState qs = player.getQuestStateList().getQuestState(questId);
 
-		if(qs.getStatus() == QuestStatus.START)
+		if(qs == null || qs.getStatus() == QuestStatus.NONE)
 		{
+			if(targetId == 203616)
+			{
+				if(env.getDialogId() == 25)
+					return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 1011);
+				else
+					return defaultQuestStartDialog(env);
+			}
+		}
+		else if (qs.getStatus() == QuestStatus.START)
+		{
+			int var = qs.getQuestVarById(0);
 			switch (targetId)
 			{
-				case 798033:
-					switch(env.getDialogId())
+				case 203620:
+					switch (env.getDialogId())
 					{
 						case 25:
-							if(var == 0)
-								return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 1011);
-							else if (var == 4)
+							if (var == 0)
 								return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 1352);
 							break;
 						case 10000:
 							if (var == 0)
 							{
-								qs.setQuestVarById(0, var+1);
-								updateQuestStatus(player, qs);
-								PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(), 10));
-								return true;
-							}
-						case 10001:
-							if (var== 4)
-							{
-								if (!itemService.addItems(player, Collections.singletonList(new QuestItems(182203024, 1))))
+								if (!itemService.addItems(player, Collections.singletonList(new QuestItems(182203217, 1))))
 									return true;
-								qs.setQuestVarById(0, var+1);
+								qs.setQuestVarById(0, var + 1);
 								updateQuestStatus(player, qs);
 								PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(), 10));
 								return true;
 							}
 					}
-				case 203673:
-					switch(env.getDialogId())
-					{
-						case 25:
-							if(var == 5)
-								return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 1693);
-						case 1009:
-							if (var==5)
-							{
-								player.getInventory().removeFromBagByItemId(182203024, 1);
-								qs.setStatus(QuestStatus.REWARD);
-								updateQuestStatus(player, qs);
-								return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 5);
-							}
-					}
-					
 			}
 		}
-		else if(qs.getStatus() == QuestStatus.REWARD)
+		else if (qs.getStatus() == QuestStatus.REWARD)
 		{
-			if(targetId == 203673)
+			if (targetId == 203616)
 					return defaultQuestEndDialog(env);
 		}
 		return false;
 	}
-
-	@Override
+	
 	public boolean onKillEvent(QuestEnv env)
 	{
 		Player player = env.getPlayer();
@@ -135,30 +114,22 @@ public class _2019SecuringtheSupplyRoute extends QuestHandler
 		if(qs == null || qs.getStatus() != QuestStatus.START)
 			return false;
 
-		int var = qs.getQuestVarById(0);
+
 		int targetId = 0;
+		int var = 0;
 		if(env.getVisibleObject() instanceof Npc)
 			targetId = ((Npc) env.getVisibleObject()).getNpcId();
-		
-		if (targetId == 210492 && var >= 1 && var < 4)
+		switch(targetId)
 		{
-			qs.setQuestVarById(0, var+1);
-			updateQuestStatus(player, qs);
-			return true;
+			case 211621:
+				var = qs.getQuestVarById(0);
+				if (var == 1)
+				{
+					qs.setStatus(QuestStatus.REWARD);
+					updateQuestStatus(player, qs);
+				}
+				break;
 		}
 		return false;
 	}
-
-	@Override
-	public boolean onLvlUpEvent(QuestEnv env)
-	{
-		Player player = env.getPlayer();
-		QuestState qs = player.getQuestStateList().getQuestState(questId);
-		if(qs == null || qs.getStatus() != QuestStatus.LOCKED || player.getLevel() < 13)
-			return false;
-		qs.setStatus(QuestStatus.START);
-		updateQuestStatus(player, qs);
-		return true;
-	}
-
 }

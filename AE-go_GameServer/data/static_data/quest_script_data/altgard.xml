@@ -123,7 +123,7 @@
   	<!-- Report to Garuntat -->
   	<report_to start_npc_id="203639" end_npc_id="203617" id="2291"/>
   	
-  	<!-- TODO: A Mythical Monster -->
+  	<!-- A Mythical Monster handled by script -->
   	
   	<!-- TODO: A Thorn in Its Side -->
   	
@@ -188,8 +188,9 @@
   	<!-- Glowing Mushroom -->
   	<item_collecting start_npc_id="203630" id="2241"/>
   	
-  	<!-- TODO: Making a New Start -->
-  	
+  	<!-- Making a New Start -->
+  	<item_collecting start_npc_id="203625" id="2292"/>
+
   	<!-- TODO: Malodor Antidote -->
   	
   	<!-- TODO: Rampaging Mosbears -->
@@ -243,7 +244,7 @@
   	<!-- Kagorinerk's Gift -->
   	<report_to start_npc_id="798035" end_npc_id="798031" item_id="182203236" id="2253"/>
   	
-  	<!-- TODO: Know Your Enemy -->
+  	<!-- Know Your Enemy handled by script -->
   	
   	<!-- Ksellid Control -->
   	<monster_hunt start_npc_id="203643" id="2245">
@@ -258,7 +259,7 @@
   	<!-- The Gerger's Insignia -->
   	<item_collecting start_npc_id="203645" action_item_id="182203230" id="2246"/>
   	
-	<!-- TODO: Trespassers at the Observatory -->
+	<!-- Trespassers at the Observatory handled by script -->
   	
   	<!-- Urnir's Reasoning -->
   	<monster_hunt start_npc_id="203656" id="2268">
@@ -282,7 +283,7 @@
   	<report_to start_npc_id="203557" end_npc_id="203558" item_id="182203260" id="2287"/>
   	
   	<!-- Rebuilding the Pillar -->
-  	<item_collecting start_npc_id="203673" action_item_id="182203238" id="2257"/>
+  	<item_collecting start_npc_id="203673" action_item_id="700144" id="2257"/>
   	
   	<!-- TODO: Reconstructing Impetusium -->
   	
@@ -307,6 +308,7 @@
   	<!-- Turbulent Splash Spirits -->
   	<monster_hunt start_npc_id="203650" id="2256">
   		<monster_infos var_id="0" npc_id="210522" max_kill="5"/>
+  		<monster_infos var_id="0" npc_id="210577" max_kill="5"/>
   	</monster_hunt> 
   	
   	<!-- [Coin] Mutated Spirits -->
@@ -364,7 +366,7 @@
     	
   	<!-- TODO: Reconstructing Impetusium -->
   	
-  	<!-- TODO: Securing the Supply Route -->
+  	<!-- Securing the Supply Route handled by script -->
   	
   	<!-- TODO: Solid Proof -->
   	
@@ -374,21 +376,26 @@
   	<monster_hunt start_npc_id="203650" id="2255">
   		<monster_infos var_id="0" npc_id="210575" max_kill="3"/>
   	</monster_hunt>
-  	
-  	<!-- Turbulent Splash Spirits -->
-  	<monster_hunt start_npc_id="203650" id="2256">
-  		<monster_infos var_id="0" npc_id="210577" max_kill="5"/>
-  	</monster_hunt> 
   	  	
-  	<!-- TODO: [Group] A Lucrative Endeavor -->
-  	
-  	<!-- TODO: [Group] Finishing off Fighters -->
-  	
-  	<!-- TODO: [Group] Killing the Shamans -->
-  	
+  	<!-- [Group] A Lucrative Endeavor -->
+  	<item_collecting start_npc_id="203556" id="2277"/>
+
+  	<!-- [Group] Finishing off Fighters -->
+	<monster_hunt start_npc_id="203558" id="2281">
+  		<monster_infos var_id="0" npc_id="210560" max_kill="3"/>
+  		<monster_infos var_id="1" npc_id="210533" max_kill="5"/>
+  		<monster_infos var_id="2" npc_id="210535" max_kill="5"/>
+  	</monster_hunt>
+  	<!-- Killing the Shamans -->
+  	 <monster_hunt start_npc_id="203560" id="2280">
+  		<monster_infos var_id="0" npc_id="210508" max_kill="4"/>
+  	</monster_hunt>
   	<!-- TODO: Keeping the Black Claw Tribe in Check -->
   	
   	<!-- TODO: Crushing the Conspiracy -->
   	
-  	<!-- TODO: [Group] Killing Kumbaron's Followers -->
+  	<!-- [Group] Killing Kumbaron's Followers -->
+  	  <monster_hunt start_npc_id="203557" id="2282">
+  		<monster_infos var_id="0" npc_id="210538" max_kill="3"/>
+  	</monster_hunt>
 </quest_scripts>

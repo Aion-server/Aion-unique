@@ -166,6 +166,7 @@ public class _2014ScoutitOut extends QuestHandler
 		return false;
 	}
 
+	@Override
 	public boolean onKillEvent(QuestEnv env)
 	{
 		Player player = env.getPlayer();
@@ -186,6 +187,7 @@ public class _2014ScoutitOut extends QuestHandler
 		}
 		return false;
 	}
+
 	@Override
 	public boolean onLvlUpEvent(QuestEnv env)
 	{
