@@ -129,6 +129,8 @@ public final class DataManager
 	
 	public static ItemSetData			ITEM_SET_DATA;
 	
+	public NpcSkillData					NPC_SKILL_DATA;
+	
 	private XmlDataLoader loader;
 
 	/**
@@ -173,6 +175,7 @@ public final class DataManager
 		RECIPE_DATA = data.recipeData;
 		PORTAL_DATA = data.portalData;
 		ITEM_SET_DATA  = data.itemSetData;
+		NPC_SKILL_DATA = data.npcSkillData;
 		
 		// some sexy time message
 		long seconds = time / 1000;

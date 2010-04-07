@@ -109,6 +109,9 @@ public class StaticData
 	
 	@XmlElement(name = "item_sets")
 	public ItemSetData				itemSetData;
+	
+	@XmlElement(name = "npc_skills")
+	public NpcSkillData				npcSkillData;
 
 	// JAXB callback
 	@SuppressWarnings("unused")
@@ -139,5 +142,6 @@ public class StaticData
 		DataManager.log.info("Loaded " + recipeData.size() + " recipe entries");
 		DataManager.log.info("Loaded " + portalData.size() + " portal entries");
 		DataManager.log.info("Loaded " + itemSetData.size() + " item set entries");
+		DataManager.log.info("Loaded " + npcSkillData.size() + " npc skill list entries");
 	}
 }
