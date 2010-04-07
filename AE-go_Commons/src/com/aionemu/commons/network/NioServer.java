@@ -235,7 +235,7 @@ public class NioServer
 		/** Wait 5s */
 		try
 		{
-			Thread.sleep(5000);
+			Thread.sleep(1000);
 		}
 		catch(Throwable t)
 		{
@@ -254,7 +254,7 @@ public class NioServer
 		/** Wait 5s */
 		try
 		{
-			Thread.sleep(5000);
+			Thread.sleep(1000);
 		}
 		catch(Throwable t)
 		{

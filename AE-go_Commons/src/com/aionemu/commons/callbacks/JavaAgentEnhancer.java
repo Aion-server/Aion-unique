@@ -26,7 +26,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.locks.ReentrantLock;
 
 import javassist.CannotCompileException;
@@ -38,6 +37,7 @@ import javassist.LoaderClassPath;
 import javassist.NotFoundException;
 import javassist.bytecode.AnnotationsAttribute;
 import javassist.bytecode.annotation.Annotation;
+import javolution.util.FastMap;
 
 import org.apache.log4j.Logger;
 
@@ -394,7 +394,7 @@ public class JavaAgentEnhancer implements ClassFileTransformer
 		ClassPool cp = clazz.getClassPool();
 		CtField cbField = new CtField(cp.get(List.class.getName()), FIELD_NAME_CALLBACKS, clazz);
 		cbField.setModifiers(Modifier.PRIVATE);
-		clazz.addField(cbField, CtField.Initializer.byExpr("new " + ConcurrentHashMap.class.getName() + "();"));
+		clazz.addField(cbField, CtField.Initializer.byExpr("new " + FastMap.class.getName() + "();"));
 
 		CtField cblField = new CtField(cp.get(ReentrantLock.class.getName()), FIELD_NAME_CALLBACKS_LOCK, clazz);
 		cblField.setModifiers(Modifier.PRIVATE);

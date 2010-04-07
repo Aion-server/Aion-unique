@@ -21,7 +21,8 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.concurrent.ConcurrentHashMap;
+
+import javolution.util.FastMap;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
@@ -43,7 +44,7 @@ public class ScriptService
 	/**
 	 * Container for ScriptManagers, sorted by file
 	 */
-	private final Map<File, ScriptManager>	map	= new ConcurrentHashMap<File, ScriptManager>();
+	private final Map<File, ScriptManager>	map	= new FastMap<File, ScriptManager>().shared();
 
 	/**
 	 * Loads script descriptor from given directory or file
