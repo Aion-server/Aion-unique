@@ -26,7 +26,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "NpcSkillTemplate")
+@XmlType(name = "npcskill")
 public class NpcSkillTemplate
 {
 	@XmlAttribute(name = "id")

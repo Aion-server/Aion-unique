@@ -56,6 +56,10 @@ public class MoveController
 	
 	private boolean walking;
 	
+	/**
+	 * 
+	 * @param owner
+	 */
 	public MoveController(Creature owner)
 	{
 		this.owner = owner;
@@ -147,7 +151,10 @@ public class MoveController
 
 	private void move()
 	{
-		if(!owner.canPerformMove())
+		/**
+		 * Demo npc skills - prevent movement while casting
+		 */
+		if(!owner.canPerformMove() || owner.isCasting())
 		{
 			if(!isStopped)
 			{

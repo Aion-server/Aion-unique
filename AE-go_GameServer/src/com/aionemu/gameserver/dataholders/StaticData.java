@@ -39,16 +39,16 @@ public class StaticData
 	public TradeListData			tradeListData;
 
 	@XmlElement(name = "npc_teleporter")
-	public TeleporterData 			teleporterData;
+	public TeleporterData			teleporterData;
 
 	@XmlElement(name = "teleport_location")
-	public TeleLocationData 		teleLocationData;
+	public TeleLocationData			teleLocationData;
 
 	@XmlElement(name = "bind_points")
-	public BindPointData 			bindPointData;
+	public BindPointData			bindPointData;
 
 	@XmlElement(name = "quests")
-	public QuestsData			questData;
+	public QuestsData				questData;
 
 	@XmlElement(name = "quest_scripts")
 	public QuestScriptsData			questsScriptData;
@@ -66,7 +66,7 @@ public class StaticData
 	public NpcData					npcData;
 
 	@XmlElement(name = "player_initial_data")
-	public PlayerInitialData        playerInitialData;
+	public PlayerInitialData		playerInitialData;
 
 	@XmlElement(name = "skill_data")
 	public SkillData				skillData;
@@ -78,7 +78,7 @@ public class StaticData
 	public CubeExpandData			cubeExpandData;
 
 	@XmlElement(name = "warehouse_expander")
-	public WarehouseExpandData			warehouseExpandData;
+	public WarehouseExpandData		warehouseExpandData;
 
 	@XmlElement(name = "player_titles")
 	public TitleData				titleData;
@@ -100,17 +100,17 @@ public class StaticData
 
 	@XmlElement(name = "tribe_relations")
 	public TribeRelationsData		tribeRelationsData;
-	
+
 	@XmlElement(name = "recipe_templates")
 	public RecipeData				recipeData;
-	
+
 	@XmlElement(name = "portal_templates")
 	public PortalData				portalData;
-	
+
 	@XmlElement(name = "item_sets")
 	public ItemSetData				itemSetData;
-	
-	@XmlElement(name = "npc_skills")
+
+	@XmlElement(name = "npc_skill_templates")
 	public NpcSkillData				npcSkillData;
 
 	// JAXB callback
@@ -131,7 +131,7 @@ public class StaticData
 		DataManager.log.info("Loaded " + cubeExpandData.size() + " cube expand entries");
 		DataManager.log.info("Loaded " + warehouseExpandData.size() + " warehouse expand entries");
 		DataManager.log.info("Loaded " + bindPointData.size() + " bind point entries");
-		DataManager.log.info("Loaded " + questData.size() + " quest data entries");	
+		DataManager.log.info("Loaded " + questData.size() + " quest data entries");
 		DataManager.log.info("Loaded " + gatherableData.size() + " gatherable entries");
 		DataManager.log.info("Loaded " + titleData.size() + " title entries");
 		DataManager.log.info("Loaded " + walkerData.size() + " walker routes");

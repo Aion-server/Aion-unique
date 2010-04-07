@@ -29,14 +29,14 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "NpcSkillList")
+@XmlType(name = "npcskills")
 public class NpcSkillList
 {
 	@XmlAttribute(name = "npcid")
 	protected int				npcId;
 	@XmlAttribute(name = "skill_count")
 	protected int				count;
-	@XmlElement(name = "NpcSkillTemplate")
+	@XmlElement(name = "npcskill")
 	protected List<NpcSkillTemplate>	npcSkills;
 
 	/**

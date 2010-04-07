@@ -26,17 +26,19 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.apache.log4j.Logger;
+
 import com.aionemu.gameserver.model.templates.npcskill.NpcSkillList;
 
 /**
  * @author ATracer
  *
  */
-@XmlRootElement(name = "npc_skills")
+@XmlRootElement(name = "npc_skill_templates")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class NpcSkillData
 {
-	@XmlElement(name = "skills")
+	@XmlElement(name = "npcskills")
 	private List<NpcSkillList> npcSkills;
 	
 	/** A map containing all npc skill templates */
@@ -47,7 +49,11 @@ public class NpcSkillData
 		for(NpcSkillList npcSkill : npcSkills)
 		{
 			npcSkillData.put(npcSkill.getNpcId(), npcSkill);
+			
+			if(npcSkill.getNpcSkills() == null)
+				Logger.getLogger(NpcSkillData.class).error("NO SKILL");
 		}
+		
 	}
 	
 	public int size()

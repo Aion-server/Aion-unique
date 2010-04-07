@@ -62,7 +62,7 @@
 				<xs:element ref="recipe_templates" minOccurs="0" />
 				<xs:element ref="portal_templates" minOccurs="0" />
 				<xs:element ref="item_sets" minOccurs="0" />
-				<xs:element ref="npc_skills" minOccurs="0" />
+				<xs:element ref="npc_skill_templates" minOccurs="0" />
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>

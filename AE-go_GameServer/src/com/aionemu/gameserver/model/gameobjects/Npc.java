@@ -27,6 +27,7 @@ import com.aionemu.gameserver.model.gameobjects.stats.NpcGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.NpcLifeStats;
 import com.aionemu.gameserver.model.templates.NpcTemplate;
 import com.aionemu.gameserver.model.templates.VisibleObjectTemplate;
+import com.aionemu.gameserver.model.templates.npcskill.NpcSkillList;
 import com.aionemu.gameserver.model.templates.spawn.SpawnTemplate;
 import com.aionemu.gameserver.utils.MathUtil;
 import com.aionemu.gameserver.world.WorldPosition;
@@ -42,6 +43,8 @@ public class Npc extends Creature
 {
 
 	private AggroList aggroList;
+	
+	private NpcSkillList npcSkillList;
 	
 	/**
 	 * Constructor creating instance of Npc.
@@ -167,5 +170,21 @@ public class Npc extends Creature
 	public AggroList getAggroList()
 	{
 		return aggroList;
+	}
+
+	/**
+	 * @return the npcSkillList
+	 */
+	public NpcSkillList getNpcSkillList()
+	{
+		return npcSkillList;
+	}
+
+	/**
+	 * @param npcSkillList the npcSkillList to set
+	 */
+	public void setNpcSkillList(NpcSkillList npcSkillList)
+	{
+		this.npcSkillList = npcSkillList;
 	}
 }

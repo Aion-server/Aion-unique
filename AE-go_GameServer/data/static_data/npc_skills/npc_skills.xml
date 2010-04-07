@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<npc_skills xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+<npc_skill_templates xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
    xsi:noNamespaceSchemaLocation="npcs_skills.xsd">
-   <skills npcid="215280" skill_count="9">
-      <skill id="1" skillid="18217" skilllevel="1" probability="10" abouthp="false"/>
-      <skill id="2" skillid="18225" skilllevel="1" probability="10" abouthp="false"/>
-      <skill id="3" skillid="18229" skilllevel="1" probability="10" abouthp="false"/>
-      <skill id="4" skillid="18231" skilllevel="1" probability="10" abouthp="false"/>
-      <skill id="5" skillid="18232" skilllevel="1" probability="10" abouthp="false"/>
-      <skill id="6" skillid="18236" skilllevel="1" probability="10" abouthp="false"/>
-      <skill id="7" skillid="18239" skilllevel="1" probability="10" abouthp="false"/>
-      <skill id="8" skillid="18243" skilllevel="1" probability="10" abouthp="false"/>
-      <skill id="9" skillid="18240" skilllevel="1" probability="10" abouthp="false"/>
-   </skills>
-   <skills npcid="212008" skill_count="3">
-      <skill id="1" skillid="17848" skilllevel="1" probability="10" abouthp="false"/>
-      <skill id="2" skillid="17533" skilllevel="1" probability="10" abouthp="false"/>
-      <skill id="3" skillid="17861" skilllevel="1" probability="10" abouthp="false"/>
-   </skills>
-   <skills npcid="212314" skill_count="6">
-      <skill id="1" skillid="18366" skilllevel="1" probability="10" abouthp="false"/>
-      <skill id="2" skillid="17861" skilllevel="1" probability="10" abouthp="false"/>
-      <skill id="3" skillid="18025" skilllevel="1" probability="10" abouthp="false"/>
-      <skill id="4" skillid="17303" skilllevel="1" probability="10" abouthp="false"/>
-      <skill id="5" skillid="18034" skilllevel="1" probability="10" abouthp="false"/>
-      <skill id="6" skillid="18027" skilllevel="1" probability="10" abouthp="false"/>
-   </skills>
-   <skills npcid="212283" skill_count="3">
-      <skill id="1" skillid="8194" skilllevel="1" probability="10" abouthp="false"/><!--summon npcid:280760-->
-      <skill id="2" skillid="17965" skilllevel="1" probability="10" abouthp="false"/>
-      <skill id="3" skillid="18021" skilllevel="1" probability="10" abouthp="false"/>
-   </skills>
-</npc_skills>
+   <npcskills npcid="215280" skill_count="9">
+      <npcskill id="1" skillid="18217" skilllevel="1" probability="10" abouthp="false"/>
+      <npcskill id="2" skillid="18225" skilllevel="1" probability="10" abouthp="false"/>
+      <npcskill id="3" skillid="18229" skilllevel="1" probability="10" abouthp="false"/>
+      <npcskill id="4" skillid="18231" skilllevel="1" probability="10" abouthp="false"/>
+      <npcskill id="5" skillid="18232" skilllevel="1" probability="10" abouthp="false"/>
+      <npcskill id="6" skillid="18236" skilllevel="1" probability="10" abouthp="false"/>
+      <npcskill id="7" skillid="18239" skilllevel="1" probability="10" abouthp="false"/>
+      <npcskill id="8" skillid="18243" skilllevel="1" probability="10" abouthp="false"/>
+      <npcskill id="9" skillid="18240" skilllevel="1" probability="10" abouthp="false"/>
+   </npcskills>
+   <npcskills npcid="212008" skill_count="3">
+      <npcskill id="1" skillid="17848" skilllevel="1" probability="10" abouthp="false"/>
+      <npcskill id="2" skillid="17533" skilllevel="1" probability="10" abouthp="false"/>
+      <npcskill id="3" skillid="17861" skilllevel="1" probability="10" abouthp="false"/>
+   </npcskills>
+   <npcskills npcid="212314" skill_count="6">
+      <npcskill id="1" skillid="18366" skilllevel="1" probability="10" abouthp="false"/>
+      <npcskill id="2" skillid="17861" skilllevel="1" probability="10" abouthp="false"/>
+      <npcskill id="3" skillid="18025" skilllevel="1" probability="10" abouthp="false"/>
+      <npcskill id="4" skillid="17303" skilllevel="1" probability="10" abouthp="false"/>
+      <npcskill id="5" skillid="18034" skilllevel="1" probability="10" abouthp="false"/>
+      <npcskill id="6" skillid="18027" skilllevel="1" probability="10" abouthp="false"/>
+   </npcskills>
+   <npcskills npcid="212283" skill_count="3">
+      <npcskill id="1" skillid="8194" skilllevel="1" probability="10" abouthp="false"/><!--summon npcid:280760-->
+      <npcskill id="2" skillid="17965" skilllevel="1" probability="10" abouthp="false"/>
+      <npcskill id="3" skillid="18021" skilllevel="1" probability="10" abouthp="false"/>
+   </npcskills>
+</npc_skill_templates>

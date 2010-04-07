@@ -35,6 +35,7 @@ import com.aionemu.gameserver.controllers.effect.EffectController;
 import com.aionemu.gameserver.dataholders.BindPointData;
 import com.aionemu.gameserver.dataholders.GatherableData;
 import com.aionemu.gameserver.dataholders.NpcData;
+import com.aionemu.gameserver.dataholders.NpcSkillData;
 import com.aionemu.gameserver.dataholders.SpawnsData;
 import com.aionemu.gameserver.dataholders.WorldMapsData;
 import com.aionemu.gameserver.model.NpcType;
@@ -93,6 +94,8 @@ public class SpawnEngine
 	private WorldMapsData worldMapsData;
 	@Inject
 	private BindPointData bindPointData;
+	@Inject
+	private NpcSkillData npcSkillData;
 	
 	private Injector injector;
 
@@ -167,7 +170,8 @@ public class SpawnEngine
 						template);
 
 			}
-
+			
+			npc.setNpcSkillList(npcSkillData.getNpcSkillList(template.getTemplateId()));
 			npc.setKnownlist(new KnownList(npc));
 			npc.setEffectController(new EffectController(npc));
 			npc.getController().onRespawn();
