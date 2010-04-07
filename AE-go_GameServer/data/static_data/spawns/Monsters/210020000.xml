@@ -1885,7 +1885,7 @@ fixed duplicate spawns, added some missing monsters.
 		<object x="1786.558" y="2743.794" z="356.0" h="48"/>
 	</spawn>
 	<!-- Griffonix (Monster Elite lvl:34)-->
-	<spawn map="210020000" npcid="212057" pool="1" interval="300">
+	<spawn map="210020000" npcid="212057" pool="1" interval="300" time="NIGHT">
 		<object x="1872.033" y="2798.739" z="360.9212" h="21"/>
 	</spawn>
 	<!-- Foraging Kurin (Monster  lvl:25)-->
@@ -2698,7 +2698,7 @@ fixed duplicate spawns, added some missing monsters.
 		<object x="509.8539" y="1683.037" z="238.80557" h="104"/>
 	</spawn>
 	<!-- Moss Spirit (Monster  lvl:21)-->
-	<spawn map="210020000" npcid="210756" pool="18" interval="105">
+	<spawn map="210020000" npcid="210756" pool="18" interval="105" time="NIGHT">
 		<object x="434.2139" y="2042.894" z="243.3591" h="9"/>
 		<object x="445.0207" y="2044.625" z="244.00781" h="110"/>
 		<object x="526.7606" y="2136.639" z="218.56757" h="48"/>
@@ -3304,7 +3304,7 @@ fixed duplicate spawns, added some missing monsters.
 		<object x="444.0721" y="1882.625" z="225.5" h="110"/>
 	</spawn>
 	<!-- Speartail Skyray (Monster  lvl:33)-->
-	<spawn map="210020000" npcid="211843" pool="20" interval="105">
+	<spawn map="210020000" npcid="211843" pool="20" interval="105" time="DAY">
 		<object x="1482.92" y="491.78" z="359.27374" h="76"/>
 		<object x="1481.09" y="484.73" z="359.98877" h="107"/>
 		<object x="1502.6" y="459.45" z="360.6219" h="7"/>
@@ -3327,7 +3327,7 @@ fixed duplicate spawns, added some missing monsters.
 		<object x="1404.76" y="388.84" z="366.3025" h="42"/>
 	</spawn>
 	<!-- Raging Obscura (Monster  lvl:33)-->
-	<spawn map="210020000" npcid="211844" pool="14" interval="105">
+	<spawn map="210020000" npcid="211844" pool="14" interval="105" time="NIGHT">
 		<object x="1520.051" y="439.1868" z="360.92264" h="6"/>
 		<object x="1414.908" y="447.7085" z="364.2115" h="83"/>
 		<object x="1473.96" y="390.1295" z="367.1119" h="85"/>
