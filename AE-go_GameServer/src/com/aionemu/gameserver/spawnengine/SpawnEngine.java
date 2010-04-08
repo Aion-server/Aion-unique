@@ -35,6 +35,7 @@ import com.aionemu.gameserver.controllers.effect.EffectController;
 import com.aionemu.gameserver.dataholders.BindPointData;
 import com.aionemu.gameserver.dataholders.GatherableData;
 import com.aionemu.gameserver.dataholders.NpcData;
+import com.aionemu.gameserver.dataholders.NpcSkillData;
 import com.aionemu.gameserver.dataholders.SpawnsData;
 import com.aionemu.gameserver.dataholders.WorldMapsData;
 import com.aionemu.gameserver.model.NpcType;
@@ -55,6 +56,7 @@ import com.aionemu.gameserver.utils.gametime.GameTimeManager;
 import com.aionemu.gameserver.utils.gametime.listeners.DayTimeListener;
 import com.aionemu.gameserver.utils.idfactory.IDFactory;
 import com.aionemu.gameserver.utils.idfactory.IDFactoryAionObject;
+import com.aionemu.gameserver.world.KnownList;
 import com.aionemu.gameserver.world.StaticObjectKnownList;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
@@ -93,6 +95,8 @@ public class SpawnEngine
 	private WorldMapsData worldMapsData;
 	@Inject
 	private BindPointData bindPointData;
+	@Inject		
+	private NpcSkillData npcSkillData;
 	
 	private Injector injector;
 
@@ -173,7 +177,8 @@ public class SpawnEngine
 					npc.setKnownlist(new StaticObjectKnownList(npc));
 
 			}
-
+			
+			npc.setNpcSkillList(npcSkillData.getNpcSkillList(template.getTemplateId()));
 			npc.setEffectController(new EffectController(npc));
 			npc.getController().onRespawn();
 			bringIntoWorld(npc, spawn, instanceIndex);
