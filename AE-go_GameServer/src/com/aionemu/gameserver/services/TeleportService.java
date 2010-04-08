@@ -24,6 +24,7 @@ import com.aionemu.gameserver.dataholders.PortalData;
 import com.aionemu.gameserver.dataholders.TeleLocationData;
 import com.aionemu.gameserver.dataholders.TeleporterData;
 import com.aionemu.gameserver.dataholders.PlayerInitialData.LocationData;
+import com.aionemu.gameserver.model.Race;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.Storage;
@@ -213,7 +214,8 @@ public class TeleportService
 		}
 		
 		Npc object = (Npc) world.findAionObject(targetObjectId);
-		if(object.getObjectTemplate().getRace() != player.getCommonData().getRace())
+		Race npcRace = object.getObjectTemplate().getRace();
+		if(npcRace != null && npcRace != player.getCommonData().getRace())
 		{
 			PacketSendUtility.sendMessage(player, "You cannot use this teleport");//TODO retail message
 			return;
