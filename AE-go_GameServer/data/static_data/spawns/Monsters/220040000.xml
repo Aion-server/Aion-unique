@@ -7235,14 +7235,6 @@ Beluslan-->
 		<object x="2559.508" y="2917.195" z="687.8777" h="108"/>
 		<object x="2938.465" y="2609.844" z="682.125" h="108"/>
 	</spawn>
-	<!-- Water Energy (NPC Junk lvl:33)-->
-	<spawn map="220040000" npcid="749139" pool="5" interval="105">
-		<object x="399.66" y="473.46" z="226.38875" h="46"/>
-		<object x="405.98" y="505.74" z="219.895" h="39"/>
-		<object x="429.34" y="506.72" z="218.2975" h="82"/>
-		<object x="448.5" y="499.31" z="218.43437" h="107"/>
-		<object x="2758.59" y="2029.03" z="600.8075" h="60"/>
-	</spawn>
 	<!-- Weeping Banshee (Monster Normal lvl:37)-->
 	<spawn map="220040000" npcid="213153" pool="14" interval="105">
 		<object x="1050.751" y="1627.983" z="226.16982" h="95"/>

@@ -2962,10 +2962,6 @@ Brusthonin-->
 		<object x="1857.8142" y="2444.8738" z="14.210999" h="26"/>
 		<object x="1905.3002" y="2466.2676" z="17.25" h="59"/>
 	</spawn>
-	<!-- Ice Sheet (NPC Junk lvl:1)-->
-	<spawn map="220050000" npcid="749084" pool="1" interval="105">
-		<object x="2342.06" y="1323.33" z="33.666878" h="34"/>
-	</spawn>
 	<!-- Infected Kurin (Monster Normal lvl:20)-->
 	<spawn map="220050000" npcid="213853" pool="35" interval="105">
 		<object x="2736.429" y="2056.657" z="21.58754" h="117"/>
@@ -5253,10 +5249,6 @@ Brusthonin-->
 		<object x="2125.837" y="157.8873" z="224.35536" h="120"/>
 		<object x="2296.657" y="151.3198" z="246.44734" h="86"/>
 		<object x="2208.919" y="137.7923" z="246.25" h="105"/>
-	</spawn>
-	<!-- Stone Energy (NPC Junk lvl:30)-->
-	<spawn map="220050000" npcid="749046" pool="1" interval="105">
-		<object x="2260.19" y="1875.3" z="29.75" h="107"/>
 	</spawn>
 	<!-- Stone Scale Kalgolem (Monster Normal lvl:48)-->
 	<spawn map="220050000" npcid="214493" pool="71" interval="105">
