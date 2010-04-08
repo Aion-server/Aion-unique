@@ -32,6 +32,7 @@ import com.aionemu.gameserver.configs.main.PeriodicSaveConfig;
 import com.aionemu.gameserver.configs.main.RateConfig;
 import com.aionemu.gameserver.configs.main.ShutdownConfig;
 import com.aionemu.gameserver.configs.main.TaskManagerConfig;
+import com.aionemu.gameserver.configs.main.ThreadConfig;
 import com.aionemu.gameserver.configs.network.IPConfig;
 import com.aionemu.gameserver.configs.network.NetworkConfig;
 import com.aionemu.gameserver.utils.Util;
@@ -97,6 +98,9 @@ public class Config
 			
 			ConfigurableProcessor.process(PeriodicSaveConfig.class, mainProps);
 			log.info("Loading: " + main + "/periodicsave.properties");
+			
+			ConfigurableProcessor.process(ThreadConfig.class, mainProps);
+			log.info("Loading: " + main + "/thread.properties");
 
 			// Network
 			Util.printSection("Network");

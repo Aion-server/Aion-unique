@@ -27,6 +27,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.network.loginserver.LoginServer;
 import com.aionemu.gameserver.services.PeriodicSaveService;
 import com.aionemu.gameserver.services.PlayerService;
+import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.utils.gametime.GameTimeManager;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
@@ -176,6 +177,8 @@ public class ShutdownHook extends Thread
 		playerUpdateService.onShutdown();
 		// Save game time.
 		GameTimeManager.saveTime();
+		// ThreadPoolManager shutdown
+		ThreadPoolManager.getInstance().shutdown();
 
 		// Do system exit.
 		if(mode == ShutdownMode.RESTART)

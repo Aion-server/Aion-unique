@@ -35,7 +35,6 @@ import com.aionemu.gameserver.controllers.effect.EffectController;
 import com.aionemu.gameserver.dataholders.BindPointData;
 import com.aionemu.gameserver.dataholders.GatherableData;
 import com.aionemu.gameserver.dataholders.NpcData;
-import com.aionemu.gameserver.dataholders.NpcSkillData;
 import com.aionemu.gameserver.dataholders.SpawnsData;
 import com.aionemu.gameserver.dataholders.WorldMapsData;
 import com.aionemu.gameserver.model.NpcType;
@@ -56,7 +55,7 @@ import com.aionemu.gameserver.utils.gametime.GameTimeManager;
 import com.aionemu.gameserver.utils.gametime.listeners.DayTimeListener;
 import com.aionemu.gameserver.utils.idfactory.IDFactory;
 import com.aionemu.gameserver.utils.idfactory.IDFactoryAionObject;
-import com.aionemu.gameserver.world.KnownList;
+import com.aionemu.gameserver.world.StaticObjectKnownList;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
@@ -94,8 +93,6 @@ public class SpawnEngine
 	private WorldMapsData worldMapsData;
 	@Inject
 	private BindPointData bindPointData;
-	@Inject
-	private NpcSkillData npcSkillData;
 	
 	private Injector injector;
 
@@ -148,31 +145,35 @@ public class SpawnEngine
 				case AGGRESSIVE:
 				case ATTACKABLE:
 					npc = new Monster(aionObjectsIDFactory.nextId(), injector.getInstance(MonsterController.class), spawn, template);
+					npc.setKnownlist(new StaticObjectKnownList(npc));
 					break;
 				case POSTBOX:
 					npc = new Npc(aionObjectsIDFactory.nextId(), injector.getInstance(PostboxController.class), spawn, template);
+					npc.setKnownlist(new StaticObjectKnownList(npc));
 					break;
 				case RESURRECT:
 					BindpointController bindPointController = injector.getInstance(BindpointController.class);
 					bindPointController.setBindPointTemplate(bindPointData.getBindPointTemplate(objectId));
 					npc = new Npc(aionObjectsIDFactory.nextId(), bindPointController, spawn, template);
+					npc.setKnownlist(new StaticObjectKnownList(npc));
 					break;
 				case USEITEM:
 					npc = new Npc(aionObjectsIDFactory.nextId(), injector.getInstance(ActionitemController.class), spawn,
 						template);
+					npc.setKnownlist(new StaticObjectKnownList(npc));
 					break;
 				case PORTAL:
 					npc = new Npc(aionObjectsIDFactory.nextId(), injector.getInstance(PortalController.class), spawn,
 						template);
+					npc.setKnownlist(new StaticObjectKnownList(npc));
 					break;
 				default: //NON_ATTACKABLE
 					npc = new Npc(aionObjectsIDFactory.nextId(), injector.getInstance(NpcController.class), spawn,
 						template);
+					npc.setKnownlist(new StaticObjectKnownList(npc));
 
 			}
-			
-			npc.setNpcSkillList(npcSkillData.getNpcSkillList(template.getTemplateId()));
-			npc.setKnownlist(new KnownList(npc));
+
 			npc.setEffectController(new EffectController(npc));
 			npc.getController().onRespawn();
 			bringIntoWorld(npc, spawn, instanceIndex);
@@ -181,7 +182,7 @@ public class SpawnEngine
 		else if(template instanceof GatherableTemplate)
 		{
 			Gatherable gatherable = new Gatherable(spawn, template, aionObjectsIDFactory.nextId(), injector.getInstance(GatherableController.class));
-			gatherable.setKnownlist(new KnownList(gatherable));
+			gatherable.setKnownlist(new StaticObjectKnownList(gatherable));
 			bringIntoWorld(gatherable, spawn, instanceIndex);
 			return gatherable;
 		}

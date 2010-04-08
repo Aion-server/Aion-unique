@@ -29,6 +29,7 @@ import com.aionemu.commons.services.LoggingService;
 import com.aionemu.commons.utils.AEInfos;
 import com.aionemu.gameserver.configs.Config;
 import com.aionemu.gameserver.configs.main.TaskManagerConfig;
+import com.aionemu.gameserver.configs.main.ThreadConfig;
 import com.aionemu.gameserver.dao.PlayerDAO;
 import com.aionemu.gameserver.dataholders.loadingutils.XmlServiceProxy;
 import com.aionemu.gameserver.network.loginserver.LoginServer;
@@ -190,6 +191,8 @@ public class GameServer
 		// Initialize DAOs
 		DAOManager.init();
 		// Initialize thread pools
+		Util.printSection("Threads");
+		ThreadConfig.load();
 		ThreadPoolManager.getInstance();
 	}
 	
