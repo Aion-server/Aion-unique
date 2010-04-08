@@ -94,6 +94,9 @@ public class AggroList
 
 		AggroInfo ai = getAggroInfo(creature);
 		ai.hate += hate;
+
+		if(ai.hate < 1)
+			ai.hate = 1;
 		
 		if(owner.getAi() != null)
 			owner.getAi().handleEvent(Event.ATTACKED);
