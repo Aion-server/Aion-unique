@@ -190,7 +190,7 @@ public class WarehouseService
 		}
 
 		PacketSendUtility.sendPacket(player, new SM_WAREHOUSE_INFO(null, StorageType.REGULAR_WAREHOUSE
-			.getId(), whSize, firstPacket)); 
+			.getId(), whSize, false)); 
 		
 		if(sendAccountWh)
 		{
@@ -201,8 +201,9 @@ public class WarehouseService
 				.sendPacket(player, new SM_WAREHOUSE_INFO(player.getStorage(
 					StorageType.ACCOUNT_WAREHOUSE.getId()).getAllItems(),
 					StorageType.ACCOUNT_WAREHOUSE.getId(), 0, true));
-			PacketSendUtility.sendPacket(player, new SM_WAREHOUSE_INFO(null, StorageType.ACCOUNT_WAREHOUSE
-				.getId(), 0, false));
-		}	
+		}
+
+		PacketSendUtility.sendPacket(player, new SM_WAREHOUSE_INFO(null, StorageType.ACCOUNT_WAREHOUSE
+			.getId(), 0, false));
 	}
 }
