@@ -25,9 +25,9 @@ import org.apache.log4j.Logger;
 /**
  * @author NB4L1
  */
-public final class AERejectedExecutionHandler implements RejectedExecutionHandler
+public final class AionRejectedExecutionHandler implements RejectedExecutionHandler
 {
-	private static final Logger	log	= Logger.getLogger(AERejectedExecutionHandler.class);
+	private static final Logger	log	= Logger.getLogger(AionRejectedExecutionHandler.class);
 
 	@Override
 	public void rejectedExecution(Runnable r, ThreadPoolExecutor executor)
