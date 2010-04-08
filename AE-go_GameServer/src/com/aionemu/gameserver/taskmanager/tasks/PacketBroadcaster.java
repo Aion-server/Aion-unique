@@ -119,4 +119,13 @@ public final class PacketBroadcaster extends AbstractFIFOPeriodicTaskManager<Cre
 			}
 		}
 	}
+
+	/* (non-Javadoc)
+	 * @see com.aionemu.gameserver.taskmanager.AbstractFIFOPeriodicTaskManager#getCalledMethodName()
+	 */
+	@Override
+	protected String getCalledMethodName()
+	{
+		return "packetBroadcast()";
+	}
 }

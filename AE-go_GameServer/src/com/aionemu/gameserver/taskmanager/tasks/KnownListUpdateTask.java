@@ -98,4 +98,13 @@ public final class KnownListUpdateTask extends AbstractFIFOPeriodicTaskManager<V
 			}
 		}
 	}
+
+	/* (non-Javadoc)
+	 * @see com.aionemu.gameserver.taskmanager.AbstractFIFOPeriodicTaskManager#getCalledMethodName()
+	 */
+	@Override
+	protected String getCalledMethodName()
+	{
+		return "knowlistUpdate()";
+	}
 }

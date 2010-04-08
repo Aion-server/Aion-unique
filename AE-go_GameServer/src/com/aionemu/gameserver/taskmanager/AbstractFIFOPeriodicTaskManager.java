@@ -21,6 +21,7 @@ import org.apache.log4j.Logger;
 import com.aionemu.commons.taskmanager.AbstractLockManager;
 import com.aionemu.commons.utils.AEFastSet;
 import com.aionemu.commons.utils.Rnd;
+import com.aionemu.commons.utils.concurrent.RunnableStatsManager;
 import com.aionemu.gameserver.GameServer;
 import com.aionemu.gameserver.GameServer.StartupHook;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
@@ -95,6 +96,8 @@ public abstract class AbstractFIFOPeriodicTaskManager<T> extends AbstractLockMan
 	{
 		for(T task; (task = getFirst()) != null;)
 		{
+			final long begin = System.nanoTime();
+
 			try
 			{
 				callTask(task);
@@ -105,10 +108,14 @@ public abstract class AbstractFIFOPeriodicTaskManager<T> extends AbstractLockMan
 			}
 			finally
 			{
+				RunnableStatsManager.handleStats(task.getClass(), getCalledMethodName(), System.nanoTime() - begin);
+
 				remove(task);
 			}
 		}
 	}
 
 	protected abstract void callTask(T task);
+	
+	protected abstract String getCalledMethodName();
 }

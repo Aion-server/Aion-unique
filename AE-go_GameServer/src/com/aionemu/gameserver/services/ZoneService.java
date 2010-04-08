@@ -355,4 +355,14 @@ public final class ZoneService extends AbstractFIFOPeriodicTaskManager<Player>
 			}
 		}, 0, DROWN_PERIOD));
 	}
+
+
+	/* (non-Javadoc)
+	 * @see com.aionemu.gameserver.taskmanager.AbstractFIFOPeriodicTaskManager#getCalledMethodName()
+	 */
+	@Override
+	protected String getCalledMethodName()
+	{
+		return "zoneService()";
+	}
 }
