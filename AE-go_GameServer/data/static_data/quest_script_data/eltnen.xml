@@ -707,6 +707,7 @@
 	<!-- 1397 Lepharists Amok -->
 	<monster_hunt id="1397" start_npc_id="204042">
 		<monster_infos npc_id="211718"  var_id="0" max_kill="10"/>
+		<monster_infos npc_id="210788"  var_id="0" max_kill="10"/>		
 		<monster_infos npc_id="211723"  var_id="1" max_kill="10"/>
 	</monster_hunt>
 

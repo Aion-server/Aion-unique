@@ -185,6 +185,7 @@
 	<!-- Kerubiels on the Coast -->
 	<monster_hunt id="3033" start_npc_id="798155">
 		<monster_infos npc_id="214235"  var_id="0" max_kill="13"/>
+		<monster_infos npc_id="211056"  var_id="0" max_kill="13"/>
 		<monster_infos npc_id="214238"  var_id="1" max_kill="10"/>
 	</monster_hunt>
 

@@ -451,7 +451,7 @@
         </monster_hunt>
 
 	<!-- The Undutiful Daughter -->
-	<report_to id="1671" start_npc_id="78095" end_npc_id="798027" item_id="182201771"/>
+	<report_to id="1671" start_npc_id="798095" end_npc_id="798027" item_id="182201771"/>
 
 	<!-- TODO: [Coin Reward] 41Lv. Mage, Priest -->
 
