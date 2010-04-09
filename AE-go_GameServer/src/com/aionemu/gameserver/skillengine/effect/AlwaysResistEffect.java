@@ -63,13 +63,13 @@ public class AlwaysResistEffect extends EffectTemplate
 			
 		};
 		effect.getEffected().getObserveController().addAttackCalcObserver(acObserver);
-		effect.setAttackStatusObserver(acObserver);
+		effect.setAttackStatusObserver(acObserver, position);
 	}
 	
 	@Override
 	public void endEffect(Effect effect)
 	{
-		AttackCalcObserver acObserver = effect.getAttackStatusObserver();
+		AttackCalcObserver acObserver = effect.getAttackStatusObserver(position);
 		effect.getEffected().getObserveController().removeAttackCalcObserver(acObserver);
 	}
 }

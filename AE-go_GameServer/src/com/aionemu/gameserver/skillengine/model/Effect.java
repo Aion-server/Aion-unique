@@ -82,8 +82,9 @@ public class Effect
 	
 	private boolean addedToController;
 	private int successEffect;
-	private AttackCalcObserver attackStatusObserver;
-	private AttackCalcObserver attackShieldObserver;
+	private AttackCalcObserver[] attackStatusObserver;
+	
+	private AttackCalcObserver[] attackShieldObserver;
 	
 	private boolean launchSubEffect = true;
 	private Effect subEffect = null;
@@ -342,35 +343,41 @@ public class Effect
 	}
 
 	/**
-	 * @return the attackCalcObserver
+	 * @param i
+	 * @return attackStatusObserver for this effect template
 	 */
-	public AttackCalcObserver getAttackStatusObserver()
+	public AttackCalcObserver getAttackStatusObserver(int i)
 	{
-		return attackStatusObserver;
+		return attackStatusObserver[i];
 	}
 
 	/**
 	 * @param attackStatusObserver the attackCalcObserver to set
 	 */
-	public void setAttackStatusObserver(AttackCalcObserver attackStatusObserver)
+	public void setAttackStatusObserver(AttackCalcObserver attackStatusObserver, int i)
 	{
-		this.attackStatusObserver = attackStatusObserver;
+		if(this.attackStatusObserver == null)
+			this.attackStatusObserver = new AttackCalcObserver[4];
+		this.attackStatusObserver[i] = attackStatusObserver;
 	}
 
 	/**
-	 * @return the attackShieldObserver
+	 * @param i
+	 * @return attackShieldObserver for this effect template
 	 */
-	public AttackCalcObserver getAttackShieldObserver()
+	public AttackCalcObserver getAttackShieldObserver(int i)
 	{
-		return attackShieldObserver;
+		return attackShieldObserver[i];
 	}
 
 	/**
 	 * @param attackShieldObserver the attackShieldObserver to set
 	 */
-	public void setAttackShieldObserver(AttackCalcObserver attackShieldObserver)
+	public void setAttackShieldObserver(AttackCalcObserver attackShieldObserver, int i)
 	{
-		this.attackShieldObserver = attackShieldObserver;
+		if(this.attackShieldObserver == null)
+			this.attackShieldObserver = new AttackCalcObserver[4];
+		this.attackShieldObserver[i] = attackShieldObserver;
 	}
 
 	/**
@@ -678,7 +685,8 @@ public class Effect
 	}
 
 	/**
-	 * @return the actionObserver
+	 * @param i
+	 * @return actionObserver for this effect template
 	 */
 	public ActionObserver getActionObserver(int i)
 	{

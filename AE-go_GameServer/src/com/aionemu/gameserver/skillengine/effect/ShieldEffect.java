@@ -69,13 +69,13 @@ public class ShieldEffect extends EffectTemplate
 			effect.getReserved2(), percent, effect);
 		
 		effect.getEffected().getObserveController().addAttackCalcObserver(asObserver);
-		effect.setAttackShieldObserver(asObserver);
+		effect.setAttackShieldObserver(asObserver, position);
 	}
 
 	@Override
 	public void endEffect(Effect effect)
 	{
-		AttackCalcObserver acObserver = effect.getAttackShieldObserver();
+		AttackCalcObserver acObserver = effect.getAttackShieldObserver(position);
 		effect.getEffected().getObserveController().removeAttackCalcObserver(acObserver);
 	}
 
