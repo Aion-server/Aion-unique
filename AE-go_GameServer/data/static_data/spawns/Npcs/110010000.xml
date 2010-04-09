@@ -894,5 +894,9 @@ Sanctum -->
 	<!-- Alcyone -->
 	<spawn map="110010000" npcid="203387" pool="1" interval="105">
 		<object x="1877.7899" y="1538.2009" z="805.5718" h="90"/>
-	</spawn>		
+	</spawn>
+	<!-- Shoshinerk -->
+	<spawn map="110010000" npcid="798357" pool="1" interval="105">
+		<object x="1888.291" y="1495.893" z="591.1068" h="64"/>
+	</spawn>
 </spawns>
