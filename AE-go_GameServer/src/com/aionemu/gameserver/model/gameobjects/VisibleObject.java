@@ -184,6 +184,24 @@ public abstract class VisibleObject extends AionObject
 	{
 		return position.isInstanceMap();
 	}
+	
+	/**
+	 * Clear knownlist.
+	 * This is the broadcast sender.
+	 */
+	public void clearKnownlist()
+	{
+		addKnownListUpdateMask(KnownListUpdateMode.KNOWNLIST_CLEAR);
+	}
+	
+	/**
+	 * Clear knownlist Impl.
+	 * This is the function, what is broadcasted.
+	 */
+	public void clearKnownlistImpl()
+	{
+		getKnownList().clear();
+	}
 
 	/**
 	 * Update knownlist.
@@ -201,24 +219,6 @@ public abstract class VisibleObject extends AionObject
 	public void updateKnownlistImpl()
 	{
 		getKnownList().doUpdate();
-	}
-
-	/**
-	 * Clear knownlist.
-	 * This is the broadcast sender.
-	 */
-	public void clearKnownlist()
-	{
-		addKnownListUpdateMask(KnownListUpdateMode.KNOWNLIST_CLEAR);
-	}
-	
-	/**
-	 * Clear knownlist Impl.
-	 * This is the function, what is broadcasted.
-	 */
-	public void clearKnownlistImpl()
-	{
-		getKnownList().clear();
 	}
 
 	/**

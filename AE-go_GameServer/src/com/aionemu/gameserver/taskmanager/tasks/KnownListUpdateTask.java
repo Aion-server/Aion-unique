@@ -42,18 +42,18 @@ public final class KnownListUpdateTask extends AbstractFIFOPeriodicTaskManager<V
 
 	public static enum KnownListUpdateMode
 	{
-		KNOWNLIST_UPDATE {
-			@Override
-			public void knownListTask(VisibleObject visibleObject)
-			{
-				visibleObject.updateKnownlistImpl();
-			}
-		},
 		KNOWNLIST_CLEAR {
 			@Override
 			public void knownListTask(VisibleObject visibleObject)
 			{
 				visibleObject.clearKnownlistImpl();
+			}
+		},
+		KNOWNLIST_UPDATE {
+			@Override
+			public void knownListTask(VisibleObject visibleObject)
+			{
+				visibleObject.updateKnownlistImpl();
 			}
 		}
 		;
