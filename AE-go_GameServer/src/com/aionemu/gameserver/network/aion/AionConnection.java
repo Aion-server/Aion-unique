@@ -161,7 +161,6 @@ public class AionConnection extends AConnection
 		}
 		
 		AionClientPacket pck = aionPacketHandler.handle(data, this);
-		log.debug("recived packet: " + pck);
 
 		/**
 		 * Execute packet only if packet exist (!= null) and read was ok.
@@ -265,8 +264,6 @@ public class AionConnection extends AConnection
 			 */
 			if(isWriteDisabled())
 				return;
-
-			log.debug("sending packet: " + bp);
 
 			sendMsgQueue.addLast(bp);
 			enableWriteInterest();
