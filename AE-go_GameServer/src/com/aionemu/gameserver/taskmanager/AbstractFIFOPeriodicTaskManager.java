@@ -18,31 +18,21 @@ package com.aionemu.gameserver.taskmanager;
 
 import org.apache.log4j.Logger;
 
-import com.aionemu.commons.taskmanager.AbstractLockManager;
 import com.aionemu.commons.utils.AEFastSet;
-import com.aionemu.commons.utils.Rnd;
 import com.aionemu.commons.utils.concurrent.RunnableStatsManager;
-import com.aionemu.gameserver.GameServer;
-import com.aionemu.gameserver.GameServer.StartupHook;
-import com.aionemu.gameserver.utils.ThreadPoolManager;
 
 /**
- * @author lord_rex and MrPoke
+ * @author lord_rex and MrPoke 
  * 	based on l2j-free engines.
  */
-public abstract class AbstractFIFOPeriodicTaskManager<T> extends AbstractLockManager implements Runnable, StartupHook
+public abstract class AbstractFIFOPeriodicTaskManager<T> extends AbstractPeriodicTaskManager
 {
 	protected static final Logger	log		= Logger.getLogger(AbstractFIFOPeriodicTaskManager.class);
 	private final AEFastSet<T>		queue	= new AEFastSet<T>();
-	private final int				period;
 
 	public AbstractFIFOPeriodicTaskManager(int period)
 	{
-		this.period = period;
-
-		GameServer.addStartupHook(this);
-
-		log.info(getClass().getSimpleName() + ": Initialized.");
+		super(period);
 	}
 
 	public final void add(T t)
@@ -85,13 +75,6 @@ public abstract class AbstractFIFOPeriodicTaskManager<T> extends AbstractLockMan
 	}
 
 	@Override
-	public final void onStartup()
-	{
-		ThreadPoolManager.getInstance().scheduleAtFixedRate(this, 1000 + Rnd.get(period),
-			Rnd.get(period - 5, period + 5));
-	}
-
-	@Override
 	public final void run()
 	{
 		for(T task; (task = getFirst()) != null;)
@@ -116,6 +99,6 @@ public abstract class AbstractFIFOPeriodicTaskManager<T> extends AbstractLockMan
 	}
 
 	protected abstract void callTask(T task);
-	
+
 	protected abstract String getCalledMethodName();
 }
