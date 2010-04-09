@@ -129,7 +129,6 @@ public class SM_CASTSPELL_END extends AionServerPacket
 			 */
 			writeC(buf, this.spellStatus);
 
-			// TODO refactor skill engine
 			switch(this.spellStatus)
 			{
 				case 1:
@@ -138,7 +137,7 @@ public class SM_CASTSPELL_END extends AionServerPacket
 				case 8:
 					writeF(buf, target.getX());
 					writeF(buf, target.getY());
-					writeF(buf, target.getZ());
+					writeF(buf, target.getZ() + 0.4f);
 					break;
 				case 16:
 					writeC(buf, target.getHeading());
