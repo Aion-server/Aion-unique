@@ -40,12 +40,11 @@ import com.aionemu.gameserver.configs.main.ThreadConfig;
  */
 public final class ThreadPoolManager implements DisconnectionThreadPool
 {
+	private static final Logger					log				= Logger.getLogger(ThreadPoolManager.class);
 
 	public static final long					MAXIMUM_RUNTIME_IN_MILLISEC_WITHOUT_WARNING	= 5000;
 
 	private static final long					MAX_DELAY		= TimeUnit.NANOSECONDS.toMillis(Long.MAX_VALUE - System.nanoTime()) / 2;
-
-	private static final Logger					log				= Logger.getLogger(ThreadPoolManager.class);
 
 	private final ScheduledThreadPoolExecutor	scheduledPool;
 	private final ThreadPoolExecutor			instantPool;
