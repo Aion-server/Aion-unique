@@ -573,7 +573,7 @@ Beluslan -->
 		<object x="308.52606" y="267.1731" z="233.0" h="0"/>
 	</spawn>
 	<!-- Kistenian -->
-	<spawn map="220040000" npcid="204753" pool="1" interval="105">
+	<spawn map="220040000" npcid="295178" pool="1" interval="105">
 		<object x="1911.6976" y="485.8836" z="413.0" h="0"/>
 	</spawn>
 	<!-- Hikan -->

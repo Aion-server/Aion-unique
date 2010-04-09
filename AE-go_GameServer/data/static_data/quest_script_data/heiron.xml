@@ -27,7 +27,7 @@
 	<item_collecting id="1503" start_npc_id="204505" action_item_id="700189" />
 
 	<!-- Going For a Curry -->
-	<item_collecting id="1516" start_npc_id="212116" />
+	<item_collecting id="1516" start_npc_id="204611" />
 
 	<!-- A Message to Sakmis -->
 	<report_to id="1504" start_npc_id="204500" end_npc_id="278502" item_id="182201703" />

@@ -9,7 +9,7 @@ Eltnen -->
 		<object x="2185.2473" y="2555.4766" z="360.95294" h="0"/>
 	</spawn>
 	<!-- Dionera -->
-	<spawn map="210020000" npcid="203991" pool="1" interval="105">
+	<spawn map="210020000" npcid="285972" pool="1" interval="105">
 		<object x="1778.1188" y="880.5437" z="422.99512" h="0"/>
 	</spawn>
 	<!-- Arkel -->
