@@ -37,7 +37,6 @@ import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.services.ServiceProxy;
 import com.aionemu.gameserver.spawnengine.SpawnEngine;
 import com.aionemu.gameserver.taskmanager.tasks.GCTaskManager;
-import com.aionemu.gameserver.taskmanager.tasks.KnownListUpdateTask;
 import com.aionemu.gameserver.taskmanager.tasks.PacketBroadcaster;
 import com.aionemu.gameserver.utils.AEVersions;
 import com.aionemu.gameserver.utils.DeadlockDetector;
@@ -106,7 +105,6 @@ public class GameServer
 		
 		Util.printSection("TaskManagers");
 		PacketBroadcaster.getInstance();
-		KnownListUpdateTask.getInstance();
 		if(TaskManagerConfig.ALLOW_GC) 		
 			new Thread(new GCTaskManager(TaskManagerConfig.GC_INTERVAL)).start();
 		

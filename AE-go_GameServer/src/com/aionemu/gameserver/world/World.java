@@ -30,7 +30,6 @@ import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.templates.WorldMapTemplate;
-import com.aionemu.gameserver.taskmanager.tasks.KnownListUpdateTask.KnownListUpdateMode;
 import com.aionemu.gameserver.utils.idfactory.IDFactory;
 import com.aionemu.gameserver.utils.idfactory.IDFactoryAionObject;
 import com.aionemu.gameserver.world.container.PlayerContainer;
@@ -240,8 +239,7 @@ public class World
 		
 		if(updateKnownList)
 		{
-			//object.updateKnownlist();
-			object.addKnownListUpdateMask(KnownListUpdateMode.KNOWNLIST_UPDATE);
+			object.updateKnownlist();
 		}
 	}
 
