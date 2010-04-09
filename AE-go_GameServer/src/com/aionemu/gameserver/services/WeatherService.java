@@ -239,6 +239,10 @@ public class WeatherService
 			for(Iterator<Player> playerIterator = world.getPlayersIterator(); playerIterator.hasNext();)
 			{
 				Player currentPlayer = playerIterator.next();
+				
+				if(!currentPlayer.isSpawned())
+					continue;
+				
 				WorldMap currentPlayerWorldMap = currentPlayer.getActiveRegion().getParent().getParent();
 				if(currentPlayerWorldMap.equals(worldMap))
 				{
