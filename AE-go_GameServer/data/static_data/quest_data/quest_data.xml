@@ -8340,7 +8340,7 @@
         <rewards exp="18500" gold="900">
             <reward_item count="2" item_id="162000018"/>
         </rewards>
-        <quest_drop drop_each_member="false" chance="75" item_id="182203242" npc_id="210444"/>
+        <quest_drop drop_each_member="false" chance="75" item_id="182203242" npc_id="210443"/>
         <quest_drop drop_each_member="false" chance="75" item_id="182203242" npc_id="210500"/>
     </quest>
     <quest race_permitted="ASMODIANS" max_repeat_count="1" minlevel_permitted="15" nameId="2206729" name="The Sting of Poison" id="2264">
@@ -10527,7 +10527,7 @@
         <rewards exp="284900" gold="8700">
             <reward_item count="2" item_id="164000075"/>
         </rewards>
-        <quest_drop drop_each_member="false" chance="80" item_id="182204431" npc_id="213049"/>
+        <quest_drop drop_each_member="false" chance="80" item_id="182204431" npc_id="213047"/>
         <quest_drop drop_each_member="false" chance="80" item_id="182204431" npc_id="213058"/>
     </quest>
     <quest race_permitted="ASMODIANS" cannot_share="true" max_repeat_count="1" minlevel_permitted="33" nameId="2207693" name="A Gift in Return" id="2546">

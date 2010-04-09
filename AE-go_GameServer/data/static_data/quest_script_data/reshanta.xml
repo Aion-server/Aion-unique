@@ -42,15 +42,15 @@
 
 	<!-- Quest Id: 1741  Twilight Battlefield -->
 	<monster_hunt id="1741" start_npc_id="278591">
-        <monster_infos npc_id="252538" var_id="0" max_kill="7"/>
-     </monster_hunt>
+    	    <monster_infos npc_id="252537" var_id="0" max_kill="7"/>
+        </monster_hunt>
 
 	<!-- Quest Id: 1742  Immortal Soul -->
 	<monster_hunt id="1742" start_npc_id="278591">
         <monster_infos npc_id="252519" var_id="0" max_kill="10"/>
 		<monster_infos npc_id="252524" var_id="1" max_kill="3"/>
 		<monster_infos npc_id="252535" var_id="2" max_kill="3"/>
-     </monster_hunt>
+        </monster_hunt>
 	 
 	<!-- Quest Id: 1743  Undead Destroyer's Ring -->
 	<item_collecting id="1743" start_npc_id="279015" end_npc_id="279015" />

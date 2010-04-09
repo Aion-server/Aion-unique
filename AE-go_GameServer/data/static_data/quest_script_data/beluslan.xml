@@ -255,7 +255,7 @@
 	<!-- [Coin] Combat Miners -->
 	<monster_hunt start_npc_id="204809" id="2560">
 		<monster_infos var_id="0" npc_id="213259" max_kill="7"/>
-		<monster_infos var_id="1" npc_id="213285" max_kill="6"/>
+		<monster_infos var_id="1" npc_id="213268" max_kill="6"/>
 		<monster_infos var_id="2" npc_id="213261" max_kill="6"/>
 	</monster_hunt>
 
