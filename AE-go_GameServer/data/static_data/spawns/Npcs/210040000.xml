@@ -300,10 +300,6 @@ Heiron -->
 	<spawn map="210040000" npcid="204537" pool="1" interval="105">
 		<object x="1569.786" y="2673.1877" z="115.625" h="0"/>
 	</spawn>
-	<!-- Deshirung the Blimp -->
-	<spawn map="210040000" npcid="212164" pool="1" interval="105">
-		<object x="316.8312" y="323.9354" z="120.0" h="0"/>
-	</spawn>
 	<!-- Hokuma -->
 	<spawn map="210040000" npcid="204618" pool="1" interval="105">
 		<object x="2755.0" y="1401.0" z="269.0" h="0"/>
@@ -399,10 +395,6 @@ Heiron -->
 	<!-- Ephos -->
 	<spawn map="210040000" npcid="204522" pool="1" interval="105">
 		<object x="2484.7083" y="336.74014" z="412.0" h="0"/>
-	</spawn>
-	<!-- Bollvig the Black Heart -->
-	<spawn map="210040000" npcid="212314" pool="1" interval="105">
-		<object x="1001.488" y="2828.5364" z="236.0" h="0"/>
 	</spawn>
 	<!-- Maximus -->
 	<spawn map="210040000" npcid="204535" pool="1" interval="105">
