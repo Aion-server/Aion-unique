@@ -24,6 +24,8 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
+import org.apache.log4j.Logger;
+
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.dataholders.loadingutils.XmlServiceProxy;
 import com.aionemu.gameserver.model.SkillElement;
@@ -33,6 +35,7 @@ import com.aionemu.gameserver.skillengine.effect.modifier.ActionModifiers;
 import com.aionemu.gameserver.skillengine.model.Effect;
 import com.aionemu.gameserver.skillengine.model.HopType;
 import com.aionemu.gameserver.skillengine.model.SkillTemplate;
+import com.aionemu.gameserver.utils.stats.StatFunctions;
 
 /**
  * @author ATracer
@@ -200,14 +203,15 @@ public abstract class EffectTemplate
 		switch(hopType)
 		{
 			case DAMAGE:
-				effect.setEffectHate(currentHate + effect.getReserved1()); 
+				currentHate += effect.getReserved1(); 
 				break;
 			case SKILLLV:
 				int skillLvl = effect.getSkillLevel();
-				effect.setEffectHate(currentHate + (hopB + hopA * skillLvl)); 
+				currentHate += hopB + hopA * skillLvl; 
 			default:
 				break;
 		}
+		effect.setEffectHate(StatFunctions.calculateHate(effect.getEffector(), currentHate));
 	}
 	
 	/**

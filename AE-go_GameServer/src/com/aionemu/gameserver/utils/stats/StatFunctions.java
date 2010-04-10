@@ -118,6 +118,19 @@ public class StatFunctions
 
 		return (int) Math.floor(baseDP * xpPercentage * player.getRates().getGroupXpRate() / 100);
 	}	
+	
+	/**
+	 * Hate based on BOOST_HATE stat
+	 * Now used only from skills, probably need to use for regular attack
+	 * 
+	 * @param creature
+	 * @param value
+	 * @return
+	 */
+	public static int calculateHate(Creature creature, int value) 
+	{
+		return (int) Math.round(value * creature.getGameStats().getCurrentStat(StatEnum.BOOST_HATE) / 100f);
+	}
 
 	/**
 	 * 
