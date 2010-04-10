@@ -40,22 +40,78 @@ public class AbyssService
 	 * @param victim
 	 * @param winner
 	 */
-	public void doReward(Player victim, Player winner)
+	public void doReward(Player defeated, Player winner)
 	{
-		int pointsLost = Math.round(victim.getAbyssRank().getRank().getPointsLost() * victim.getRates().getApPlayerRate());
-		int pointsGained = Math.round(victim.getAbyssRank().getRank().getPointsGained() * winner.getRates().getApPlayerRate());
+		int pointsGained = Math.round(winner.getAbyssRank().getRank().getPointsGained() * winner.getRates().getApPlayerRate());
+		int pointsLost = Math.round(defeated.getAbyssRank().getRank().getPointsLost() * defeated.getRates().getApPlayerRate());
 		
-		victim.getAbyssRank().addAp(-pointsLost);
-		PacketSendUtility.broadcastPacket(victim, new SM_ABYSS_RANK_UPDATE(victim));
+		// Level penalty calc
+		int difference = winner.getLevel() - defeated.getLevel();
+		
+		switch(difference)
+		{
+			case 3:
+				pointsGained = Math.round(pointsGained * 0.85f);
+				pointsLost = Math.round(pointsLost * 0.85f);
+				break;
+			case 4:
+				pointsGained = Math.round(pointsGained * 0.65f);
+				pointsLost = Math.round(pointsLost * 0.65f);
+				break;
+			case -2:
+				pointsGained =  Math.round(pointsGained * 1.1f);
+				break;
+			case -3:
+				pointsGained =  Math.round(pointsGained * 1.2f);
+				break;
+		}
+		
+		if(difference > 4)
+		{
+			pointsGained = Math.round(pointsGained * 0.1f);
+			pointsLost = Math.round(pointsLost * 0.1f);
+		}
+		
+		if(difference < -3)
+		{
+			pointsGained = Math.round(pointsGained * 1.3f);
+		}
+		
+		// Abyss rank penalty calc
+		int winnerAbyssRank = winner.getAbyssRank().getRank().getId();
+		int defeatedAbyssRank = defeated.getAbyssRank().getRank().getId();
+		int abyssRankDifference = winnerAbyssRank - defeatedAbyssRank;
+		
+		if(winnerAbyssRank <= 7 && abyssRankDifference > 0)
+		{
+			float penaltyPercent = abyssRankDifference * 0.05f;			
+			
+			pointsGained -= Math.round(pointsGained * penaltyPercent);
+		}
+		
+		// AP farm protection
+		if(defeated.getAbyssRank().getAp() < pointsGained)
+			pointsGained = StatFunctions.calculateSoloAPReward(winner, defeated);
+		
+		int oldWinnerAbyssRank = winner.getAbyssRank().getRank().getId();
+		int oldDefeatedAbyssRank = defeated.getAbyssRank().getRank().getId();
+		
+		defeated.getAbyssRank().addAp(-pointsLost);
+		if(defeated.getAbyssRank().getRank().getId() != oldDefeatedAbyssRank)
+			PacketSendUtility.broadcastPacket(defeated, new SM_ABYSS_RANK_UPDATE(defeated));
+		
 		winner.getAbyssRank().addAp(pointsGained);
 		if(winner.isLegionMember())
 			legionService.addContributionPoints(winner.getLegion(), pointsGained);
-		PacketSendUtility.broadcastPacket(winner, new SM_ABYSS_RANK_UPDATE(winner));
+		
+		if(winner.getAbyssRank().getRank().getId() != oldWinnerAbyssRank)
+			PacketSendUtility.broadcastPacket(winner, new SM_ABYSS_RANK_UPDATE(winner));
+		
 		winner.getAbyssRank().setAllKill();
-		PacketSendUtility.sendPacket(victim, new SM_ABYSS_RANK(victim.getAbyssRank()));
+		PacketSendUtility.sendPacket(defeated, new SM_ABYSS_RANK(defeated.getAbyssRank()));
 		PacketSendUtility.sendPacket(winner, new SM_ABYSS_RANK(winner.getAbyssRank()));
 		PacketSendUtility.sendPacket(winner, SM_SYSTEM_MESSAGE.EARNED_ABYSS_POINT(String.valueOf(pointsGained)));
-		PacketSendUtility.sendPacket(victim, new SM_SYSTEM_MESSAGE(1340002, winner.getName()));
+		PacketSendUtility.sendPacket(defeated, new SM_SYSTEM_MESSAGE(1340002, winner.getName()));
 	}
 	
 	/**
@@ -67,10 +123,15 @@ public class AbyssService
 	{
 		int apReward = StatFunctions.calculateSoloAPReward(winner, victim);
 		
+		int oldWinnerAbyssRank = winner.getAbyssRank().getRank().getId();
+		
 		winner.getAbyssRank().addAp(apReward);
 		if(winner.isLegionMember())
 			legionService.addContributionPoints(winner.getLegion(), apReward);
-		PacketSendUtility.broadcastPacket(winner, new SM_ABYSS_RANK_UPDATE(winner));
+		
+		if(winner.getAbyssRank().getRank().getId() != oldWinnerAbyssRank)
+			PacketSendUtility.broadcastPacket(winner, new SM_ABYSS_RANK_UPDATE(winner));
+		
 		winner.getAbyssRank().setAllKill();
 		PacketSendUtility.sendPacket(winner, new SM_ABYSS_RANK(winner.getAbyssRank()));
 		PacketSendUtility.sendPacket(winner, SM_SYSTEM_MESSAGE.EARNED_ABYSS_POINT(String.valueOf(apReward)));
