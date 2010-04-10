@@ -94,7 +94,8 @@ public class AionConnection extends AConnection
 	 * active Player that owner of this connection is playing [entered game]
 	 */
 	private Player							activePlayer;
-
+	private String							lastPlayerName;
+	
 	private LoginServer						loginServer;
 	private AionPacketHandler				aionPacketHandler;
 	private PlayerService					playerService;
@@ -162,6 +163,12 @@ public class AionConnection extends AConnection
 		
 		AionClientPacket pck = aionPacketHandler.handle(data, this);
 
+		if(state == State.IN_GAME && activePlayer == null)
+		{
+			log.warn("CHECKPOINT: Skipping packet processing of " + pck.getPacketName() + " for player " + lastPlayerName);
+			return false;
+		}
+		
 		/**
 		 * Execute packet only if packet exist (!= null) and read was ok.
 		 */
@@ -355,7 +362,10 @@ public class AionConnection extends AConnection
 			state = State.AUTHED;
 		else
 			state = State.IN_GAME;
-
+		
+		if(activePlayer != null)
+			lastPlayerName = player.getName();
+		
 		return true;
 	}
 

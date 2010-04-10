@@ -393,6 +393,12 @@ public class PlayerService
 	{
 		log.info("Player logged out: " + player.getName());
 		
+		if(player.getClientConnection() == null)
+		{
+			log.warn("CHECKPOINT: Player already logged out " + player.getName());
+			return;
+		}
+		
 		player.onLoggedOut();
 		
 		player.getEffectController().removeAllEffects();
