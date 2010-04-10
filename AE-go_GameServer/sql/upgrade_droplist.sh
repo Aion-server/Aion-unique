@@ -29,7 +29,6 @@ mysql -u ${DBuser} -p${DBpass} -D ${DBname} -h ${DBhost}  -e 'delete from dropli
 
 if [ $? -ne 0 ]; then 
  show_err
- exit
 fi
 
 FILES=`ls ./drops/*.sql`
@@ -39,7 +38,6 @@ for FILE in $FILES; do
    mysql -u ${DBuser} -p${DBpass} -D ${DBname} -h ${DBhost} < $FILE
    if [ $? -ne 0 ]; then 
         show_err
-	exit
    fi
 done   
 
