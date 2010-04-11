@@ -5978,4 +5978,8 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="428.4905" y="3272.414" z="2838.7344" h="93"/>
 		<object x="471.0828" y="3075.212" z="2843.7068" h="89"/>
 	</spawn>
+	<!-- Naga Sorcerer (Monster Hero lvl:42)-->
+    <spawn map="400010000" npcid="290126" pool="1" interval="14400">
+        <object staticid="0" x="1612.2395" y="1827.3862" z="2884.5764" h="75" w="0" rw="0"/>
+    </spawn>
 </spawns>
