@@ -1612,7 +1612,7 @@ Verteron-->
 		<object x="1209.0" y="2728.66" z="206.2913" h="109"/>
 	</spawn>
 	<!-- Trandila (Named Mob Normal lvl:17)-->
-	<spawn map="210030000" npcid="210202" pool="1" interval="300">
+	<spawn map="210030000" npcid="210202" pool="1" interval="120">
 		<object x="1696.0" y="2336.0" z="136.25" h="111"/>
 		<object x="1691.44" y="2340.46" z="135.00375" h="34"/>
 		<object x="1679.07" y="2412.24" z="130.60126" h="14"/>
