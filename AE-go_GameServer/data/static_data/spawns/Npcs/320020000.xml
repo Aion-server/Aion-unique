@@ -5,7 +5,7 @@ object x y z h
  -->
 <spawns>
 	<!-- Hagen -->
-	<spawn map="320020000" npcid="205020" pool="1" interval="105">
+	<spawn map="320020000" npcid="205020" pool="1" interval="295">
 		<object x="434.75" y="399.5" z="235.0" h="0"/>
 	</spawn>
 </spawns>

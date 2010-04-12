@@ -5,7 +5,7 @@ object x y z h
 Verteron-->
 <spawns>
 	<!-- Abandoned Cargo (Monster Normal lvl:19)-->
-	<spawn map="210030000" npcid="210299" pool="17" interval="105">
+	<spawn map="210030000" npcid="210299" pool="17" interval="295">
 		<object x="2355.06" y="879.23" z="99.05875" h="117"/>
 		<object x="2337.67" y="855.69" z="98.66999" h="49"/>
 		<object x="2354.67" y="852.3" z="99.04187" h="59"/>
@@ -25,7 +25,7 @@ Verteron-->
 		<object x="2466.36" y="798.58" z="98.875" h="66"/>
 	</spawn>
 	<!-- Abandoned Cargo (Monster Normal lvl:19)-->
-	<spawn map="210030000" npcid="210085" pool="2" interval="105">
+	<spawn map="210030000" npcid="210085" pool="2" interval="295">
 		<object x="2213.66" y="628.93" z="98.82938" h="98"/>
 		<object x="2254.24" y="662.72" z="99.015" h="4"/>
 	</spawn>
@@ -38,7 +38,7 @@ Verteron-->
 		<object x="2267.229" y="1627.581" z="124.53281" h="65"/>
 	</spawn>
 	<!-- Ancient Elyos Spirit (Monster Normal lvl:17)-->
-	<spawn map="210030000" npcid="210343" pool="8" interval="105" time="NIGHT">
+	<spawn map="210030000" npcid="210343" pool="8" interval="295" time="NIGHT">
 		<object x="2163.387" y="2303.742" z="255.42944" h="109"/>
 		<object x="2100.644" y="2272.429" z="230.63837" h="108"/>
 		<object x="2044.534" y="2299.813" z="265.8867" h="4"/>
@@ -49,7 +49,7 @@ Verteron-->
 		<object x="2182.679" y="2379.918" z="258.76962" h="47"/>
 	</spawn>
 	<!-- Aqueous Spirit (Monster Normal lvl:18)-->
-	<spawn map="210030000" npcid="210080" pool="18" interval="105">
+	<spawn map="210030000" npcid="210080" pool="18" interval="295">
 		<object x="2358.846" y="1720.273" z="109.14206" h="112"/>
 		<object x="2282.183" y="1784.429" z="109.375" h="92"/>
 		<object x="2294.737" y="1887.677" z="108.875" h="117"/>
@@ -70,7 +70,7 @@ Verteron-->
 		<object x="2310.122" y="1727.225" z="109.42344" h="57"/>
 	</spawn>
 	<!-- Arachna (Monster Normal lvl:17)-->
-	<spawn map="210030000" npcid="210745" pool="15" interval="105">
+	<spawn map="210030000" npcid="210745" pool="15" interval="295">
 		<object x="1949.22" y="2663.166" z="296.07962" h="40"/>
 		<object x="2043.563" y="2641.642" z="300.0" h="55"/>
 		<object x="1867.044" y="2548.526" z="300.755" h="5"/>
@@ -92,7 +92,7 @@ Verteron-->
 		<object x="2021.42" y="1024.337" z="140.25" h="16"/>
 	</spawn>
 	<!-- Broken Rock Kalgolem (Monster Normal lvl:17)-->
-	<spawn map="210030000" npcid="210106" pool="36" interval="105">
+	<spawn map="210030000" npcid="210106" pool="36" interval="295">
 		<object x="1946.776" y="2765.416" z="281.8995" h="70"/>
 		<object x="1886.811" y="2744.067" z="271.05487" h="12"/>
 		<object x="2080.658" y="2142.35" z="202.062" h="13"/>
@@ -131,7 +131,7 @@ Verteron-->
 		<object x="2016.898" y="2651.866" z="299.56158" h="45"/>
 	</spawn>
 	<!-- Brownbeak Airon (Monster Normal lvl:9)-->
-	<spawn map="210030000" npcid="210203" pool="40" interval="105">
+	<spawn map="210030000" npcid="210203" pool="40" interval="295">
 		<object x="1910.305" y="1444.802" z="99.0" h="85"/>
 		<object x="1555.468" y="1282.82" z="99.09175" h="58"/>
 		<object x="1742.702" y="1723.738" z="99.73363" h="22"/>
@@ -174,7 +174,7 @@ Verteron-->
 		<object x="1509.647" y="1574.627" z="99.39212" h="15"/>
 	</spawn>
 	<!-- Captain Kinsgreen (Monster Normal lvl:21)-->
-	<spawn map="210030000" npcid="210075" pool="1" interval="105">
+	<spawn map="210030000" npcid="210075" pool="1" interval="295">
 		<object x="2116.237" y="634.439" z="100.12865" h="74"/>
 	</spawn>
 	<!-- Cavil (Named Mob Normal lvl:12)-->
@@ -186,7 +186,7 @@ Verteron-->
 		<object x="2617.029" y="1111.371" z="200.22067" h="18"/>
 	</spawn>
 	<!-- Contaminated Malodor (Monster Normal lvl:15)-->
-	<spawn map="210030000" npcid="210329" pool="12" interval="105">
+	<spawn map="210030000" npcid="210329" pool="12" interval="295">
 		<object x="1552.65" y="2488.51" z="138.81686" h="76"/>
 		<object x="1671.661" y="2469.225" z="134.77692" h="57"/>
 		<object x="1721.965" y="2419.68" z="142.31001" h="22"/>
@@ -201,7 +201,7 @@ Verteron-->
 		<object x="1734.0" y="2234.0" z="176.25" h="43"/>
 	</spawn>
 	<!-- Contaminated Pluma (Monster Normal lvl:17)-->
-	<spawn map="210030000" npcid="210344" pool="14" interval="105" time="DAY">
+	<spawn map="210030000" npcid="210344" pool="14" interval="295" time="DAY">
 		<object x="2179.912" y="2360.529" z="257.261" h="109"/>
 		<object x="1973.252" y="2738.188" z="302.578" h="98"/>
 		<object x="1997.899" y="2752.565" z="289.79175" h="111"/>
@@ -218,7 +218,7 @@ Verteron-->
 		<object x="2179.617" y="2328.235" z="253.35106" h="3"/>
 	</spawn>
 	<!-- Contaminated Slime (Monster Normal lvl:16)-->
-	<spawn map="210030000" npcid="210121" pool="37" interval="105">
+	<spawn map="210030000" npcid="210121" pool="37" interval="295">
 		<object x="1732.75" y="2729.28" z="267.52563" h="93"/>
 		<object x="1748.95" y="2731.51" z="268.0" h="117"/>
 		<object x="1761.43" y="2746.09" z="268.3319" h="54"/>
@@ -258,7 +258,7 @@ Verteron-->
 		<object x="1760.58" y="2492.28" z="152.53749" h="86"/>
 	</spawn>
 	<!-- Contaminated Sylphen (Monster Normal lvl:15)-->
-	<spawn map="210030000" npcid="210741" pool="22" interval="105">
+	<spawn map="210030000" npcid="210741" pool="22" interval="295">
 		<object x="1779.434" y="2444.372" z="152.09637" h="88"/>
 		<object x="1777.256" y="2409.31" z="147.92688" h="95"/>
 		<object x="1604.11" y="2341.89" z="133.01376" h="54"/>
@@ -283,7 +283,7 @@ Verteron-->
 		<object x="1638.0" y="2296.73" z="141.60126" h="106"/>
 	</spawn>
 	<!-- Crack Krall Tower Wallarm (Monster Normal lvl:18)-->
-	<spawn map="210030000" npcid="210694" pool="3" interval="105">
+	<spawn map="210030000" npcid="210694" pool="3" interval="295">
 		<object x="2305.433" y="1259.372" z="176.27916" h="91"/>
 		<object x="2418.171" y="1186.514" z="190.22095" h="33"/>
 		<object x="2293.53" y="1114.648" z="169.04613" h="3"/>
@@ -349,13 +349,13 @@ Verteron-->
 		<object x="2260.0" y="1296.0" z="168.25" h="115"/>
 	</spawn>
 	<!-- Crimson Malodor (Monster Normal lvl:16)-->
-	<spawn map="210030000" npcid="210070" pool="3" interval="105">
+	<spawn map="210030000" npcid="210070" pool="3" interval="295">
 		<object x="1603.194" y="1124.323" z="114.67962" h="99"/>
 		<object x="1579.281" y="1078.528" z="113.30475" h="108"/>
 		<object x="1609.14" y="1047.33" z="116.94125" h="82"/>
 	</spawn>
 	<!-- Dukaki Berserker (Monster Normal lvl:16)-->
-	<spawn map="210030000" npcid="210095" pool="11" interval="105">
+	<spawn map="210030000" npcid="210095" pool="11" interval="295">
 		<object x="1568.963" y="1115.089" z="113.694435" h="96"/>
 		<object x="1656.508" y="1076.771" z="117.56775" h="59"/>
 		<object x="1750.137" y="976.1392" z="129.99115" h="14"/>
@@ -369,7 +369,7 @@ Verteron-->
 		<object x="1608.655" y="1069.773" z="114.13919" h="9"/>
 	</spawn>
 	<!-- Dukaki Bruiser (Monster Normal lvl:13)-->
-	<spawn map="210030000" npcid="210098" pool="17" interval="105">
+	<spawn map="210030000" npcid="210098" pool="17" interval="295">
 		<object x="1013.31" y="2242.68" z="165.83937" h="96"/>
 		<object x="758.8752" y="2675.522" z="219.27483" h="75"/>
 		<object x="666.9243" y="2459.464" z="226.19199" h="26"/>
@@ -389,7 +389,7 @@ Verteron-->
 		<object x="704.1719" y="2642.633" z="227.47562" h="71"/>
 	</spawn>
 	<!-- Dukaki Champion (Monster Normal lvl:16)-->
-	<spawn map="210030000" npcid="210100" pool="6" interval="105">
+	<spawn map="210030000" npcid="210100" pool="6" interval="295">
 		<object x="1590.353" y="1125.689" z="112.65231" h="111"/>
 		<object x="1570.794" y="1113.284" z="113.40076" h="115"/>
 		<object x="1664.385" y="1063.79" z="117.473434" h="99"/>
@@ -398,7 +398,7 @@ Verteron-->
 		<object x="1860.923" y="1110.472" z="125.86669" h="90"/>
 	</spawn>
 	<!-- Dukaki Flagbearer (Monster Normal lvl:16)-->
-	<spawn map="210030000" npcid="210068" pool="9" interval="105">
+	<spawn map="210030000" npcid="210068" pool="9" interval="295">
 		<object x="1932.291" y="882.6061" z="130.91287" h="104"/>
 		<object x="2369.38" y="1312.92" z="186.12372" h="109"/>
 		<object x="2230.027" y="1317.77" z="170.97054" h="54"/>
@@ -410,7 +410,7 @@ Verteron-->
 		<object x="1674.398" y="1080.007" z="116.52531" h="61"/>
 	</spawn>
 	<!-- Dukaki Follower (Monster Normal lvl:17)-->
-	<spawn map="210030000" npcid="210695" pool="18" interval="105">
+	<spawn map="210030000" npcid="210695" pool="18" interval="295">
 		<object x="2303.113" y="1213.626" z="167.91307" h="68"/>
 		<object x="2286.006" y="1182.879" z="167.4864" h="24"/>
 		<object x="2319.199" y="1174.147" z="168.13655" h="63"/>
@@ -431,7 +431,7 @@ Verteron-->
 		<object x="2305.606" y="1212.332" z="168.19162" h="103"/>
 	</spawn>
 	<!-- Dukaki Miner (Monster Normal lvl:13)-->
-	<spawn map="210030000" npcid="210145" pool="39" interval="105">
+	<spawn map="210030000" npcid="210145" pool="39" interval="295">
 		<object x="898.8297" y="2296.188" z="182.30653" h="108"/>
 		<object x="836.524" y="2246.936" z="179.66052" h="54"/>
 		<object x="970.9409" y="2242.11" z="157.77115" h="112"/>
@@ -473,7 +473,7 @@ Verteron-->
 		<object x="930.0" y="2350.0" z="179.25" h="37"/>
 	</spawn>
 	<!-- Dukaki Peon (Monster Normal lvl:13)-->
-	<spawn map="210030000" npcid="210150" pool="38" interval="105">
+	<spawn map="210030000" npcid="210150" pool="38" interval="295">
 		<object x="972.3937" y="2256.07" z="159.95924" h="43"/>
 		<object x="868.0272" y="2034.889" z="157.29706" h="34"/>
 		<object x="960.5211" y="2198.081" z="152.85257" h="64"/>
@@ -514,14 +514,14 @@ Verteron-->
 		<object x="925.7675" y="2000.811" z="176.04724" h="96"/>
 	</spawn>
 	<!-- Dukaki Runner (Monster Normal lvl:13)-->
-	<spawn map="210030000" npcid="210067" pool="4" interval="105">
+	<spawn map="210030000" npcid="210067" pool="4" interval="295">
 		<object x="783.0096" y="2599.254" z="218.54544" h="15"/>
 		<object x="934.3871" y="2575.252" z="178.14755" h="78"/>
 		<object x="1042.92" y="2338.84" z="171.37" h="11"/>
 		<object x="778.5836" y="2530.95" z="217.96353" h="36"/>
 	</spawn>
 	<!-- Dukaki Scrapper (Monster Normal lvl:13)-->
-	<spawn map="210030000" npcid="210093" pool="11" interval="105">
+	<spawn map="210030000" npcid="210093" pool="11" interval="295">
 		<object x="992.85" y="2420.35" z="179.91563" h="43"/>
 		<object x="826.4129" y="2647.117" z="217.52162" h="25"/>
 		<object x="795.4747" y="2534.651" z="216.50296" h="78"/>
@@ -535,7 +535,7 @@ Verteron-->
 		<object x="662.05" y="2627.19" z="240.82124" h="68"/>
 	</spawn>
 	<!-- Dukaki Tracker (Monster Normal lvl:13)-->
-	<spawn map="210030000" npcid="210088" pool="34" interval="105">
+	<spawn map="210030000" npcid="210088" pool="34" interval="295">
 		<object x="1013.697" y="2267.815" z="169.03787" h="42"/>
 		<object x="882.59" y="2248.8" z="177.83688" h="5"/>
 		<object x="922.7325" y="2426.995" z="188.10919" h="4"/>
@@ -572,7 +572,7 @@ Verteron-->
 		<object x="1928.167" y="1096.331" z="137.18707" h="37"/>
 	</spawn>
 	<!-- Dukaki Watcher (Monster Normal lvl:7)-->
-	<spawn map="210030000" npcid="210090" pool="39" interval="105">
+	<spawn map="210030000" npcid="210090" pool="39" interval="295">
 		<object x="767.5037" y="2463.355" z="215.3978" h="71"/>
 		<object x="730.6373" y="2544.971" z="223.02084" h="27"/>
 		<object x="856.1831" y="2336.81" z="193.2663" h="51"/>
@@ -614,7 +614,7 @@ Verteron-->
 		<object x="362.6159" y="1867.962" z="149.69444" h="109"/>
 	</spawn>
 	<!-- Earth Spirit (Monster Normal lvl:17)-->
-	<spawn map="210030000" npcid="210709" pool="24" interval="105" time="NIGHT">
+	<spawn map="210030000" npcid="210709" pool="24" interval="295" time="NIGHT">
 		<object x="2125.93" y="2372.17" z="258.30814" h="0"/>
 		<object x="2150.9517" y="2358.9407" z="253.875" h="117"/>
 		<object x="2062.15" y="2336.03" z="260.96252" h="0"/>
@@ -641,7 +641,7 @@ Verteron-->
 		<object x="2156.59" y="2330.33" z="253.46501" h="0"/>
 	</spawn>
 	<!-- Elder Sparkle (Monster Normal lvl:17)-->
-	<spawn map="210030000" npcid="210746" pool="20" interval="105">
+	<spawn map="210030000" npcid="210746" pool="20" interval="295">
 		<object x="1982.67" y="2416.17" z="291.30246" h="0"/>
 		<object x="2049.505" y="2380.8452" z="267.65848" h="39"/>
 		<object x="2047.6" y="2337.26" z="264.875" h="0"/>
@@ -664,16 +664,16 @@ Verteron-->
 		<object x="1981.5112" y="2458.023" z="299.37787" h="88"/>
 	</spawn>
 	<!-- Elroco (Monster Normal lvl:1)-->
-	<spawn map="210030000" npcid="210338" pool="2" interval="105">
+	<spawn map="210030000" npcid="210338" pool="2" interval="295">
 		<object x="1637.965" y="2232.394" z="164.07092" h="0"/>
 		<object x="1643.56" y="2209.79" z="165.97585" h="0"/>
 	</spawn>
 	<!-- Eninte (Monster Normal lvl:18)-->
-	<spawn map="210030000" npcid="210743" pool="1" interval="105" time="NIGHT">
+	<spawn map="210030000" npcid="210743" pool="1" interval="295" time="NIGHT">
 		<object x="1977.17" y="2632.55" z="301.33624" h="0"/>
 	</spawn>
 	<!-- Ferocious Gryphu (Monster Normal lvl:15)-->
-	<spawn map="210030000" npcid="210271" pool="30" interval="105">
+	<spawn map="210030000" npcid="210271" pool="30" interval="295">
 		<object x="1283.5983" y="2717.5337" z="219.76614" h="24"/>
 		<object x="1270.9" y="2766.95" z="215.86876" h="0"/>
 		<object x="1231.56" y="2775.27" z="213.82" h="0"/>
@@ -706,7 +706,7 @@ Verteron-->
 		<object x="1171.71" y="2732.33" z="208.85687" h="0"/>
 	</spawn>
 	<!-- Fierce Waterworm (Monster Normal lvl:19)-->
-	<spawn map="210030000" npcid="210210" pool="5" interval="105">
+	<spawn map="210030000" npcid="210210" pool="5" interval="295">
 		<object x="2424.959" y="1804.265" z="109.14156" h="25"/>
 		<object x="2301.778" y="1867.134" z="109.375" h="117"/>
 		<object x="2360.932" y="1873.135" z="108.875" h="32"/>
@@ -714,7 +714,7 @@ Verteron-->
 		<object x="2284.714" y="1741.322" z="109.375" h="16"/>
 	</spawn>
 	<!-- Frillneck Hatchling (Monster Normal lvl:13)-->
-	<spawn map="210030000" npcid="210103" pool="16" interval="105">
+	<spawn map="210030000" npcid="210103" pool="16" interval="295">
 		<object x="1734.55" y="2192.73" z="177.79564" h="89"/>
 		<object x="1728.81" y="2195.71" z="175.92377" h="43"/>
 		<object x="1721.2" y="2188.26" z="176.80998" h="90"/>
@@ -733,7 +733,7 @@ Verteron-->
 		<object x="1506.25" y="1976.75" z="142.29688" h="7"/>
 	</spawn>
 	<!-- Frillneck Mother (Monster Normal lvl:14)-->
-	<spawn map="210030000" npcid="210127" pool="15" interval="105">
+	<spawn map="210030000" npcid="210127" pool="15" interval="295">
 		<object x="1735.31" y="2193.65" z="177.82816" h="86"/>
 		<object x="1721.36" y="2189.2" z="176.59001" h="32"/>
 		<object x="1729.52" y="2196.35" z="175.87436" h="93"/>
@@ -751,7 +751,7 @@ Verteron-->
 		<object x="1503.72" y="1978.12" z="142.4025" h="107"/>
 	</spawn>
 	<!-- Frost Wind Spirit (Monster Normal lvl:19)-->
-	<spawn map="210030000" npcid="210711" pool="22" interval="105">
+	<spawn map="210030000" npcid="210711" pool="22" interval="295">
 		<object x="2307.58" y="1607.38" z="123.362495" h="89"/>
 		<object x="2518.221" y="1632.079" z="132.74506" h="32"/>
 		<object x="2594.117" y="1651.874" z="134.0298" h="65"/>
@@ -776,14 +776,14 @@ Verteron-->
 		<object x="2523.503" y="1685.223" z="125.0318" h="35"/>
 	</spawn>
 	<!-- Giant Rakeclaw Frillneck (Monster Normal lvl:15)-->
-	<spawn map="210030000" npcid="210200" pool="4" interval="105">
+	<spawn map="210030000" npcid="210200" pool="4" interval="295">
 		<object x="1618.254" y="2380.767" z="132.2103" h="11"/>
 		<object x="1774.045" y="2390.472" z="142.41858" h="112"/>
 		<object x="1777.978" y="2424.433" z="149.36813" h="88"/>
 		<object x="1602.755" y="2362.237" z="131.74826" h="73"/>
 	</spawn>
 	<!-- Glade Pluma (Monster Normal lvl:15)-->
-	<spawn map="210030000" npcid="210194" pool="6" interval="105">
+	<spawn map="210030000" npcid="210194" pool="6" interval="295">
 		<object x="1540.013" y="2319.779" z="149.75977" h="87"/>
 		<object x="1583.03" y="2259.181" z="152.82602" h="25"/>
 		<object x="1581.892" y="2239.302" z="155.40512" h="31"/>
@@ -792,7 +792,7 @@ Verteron-->
 		<object x="1574.173" y="2297.383" z="148.22838" h="47"/>
 	</spawn>
 	<!-- Gumi (Monster Normal lvl:2)-->
-	<spawn map="210030000" npcid="210342" pool="11" interval="105">
+	<spawn map="210030000" npcid="210342" pool="11" interval="295">
 		<object x="1522.311" y="1109.959" z="101.094635" h="107"/>
 		<object x="1503.899" y="1232.95" z="100.90288" h="20"/>
 		<object x="1530.966" y="1238.911" z="110.311195" h="28"/>
@@ -810,7 +810,7 @@ Verteron-->
 		<object x="1926.228" y="1058.852" z="135.125" h="86"/>
 	</spawn>
 	<!-- Kobold Cook (Monster Normal lvl:14)-->
-	<spawn map="210030000" npcid="210332" pool="10" interval="105">
+	<spawn map="210030000" npcid="210332" pool="10" interval="295">
 		<object x="962.8401" y="2467.255" z="186.6975" h="29"/>
 		<object x="862.9846" y="2613.963" z="203.75" h="3"/>
 		<object x="790.4025" y="2556.034" z="215.625" h="98"/>
@@ -827,7 +827,7 @@ Verteron-->
 		<object x="2071.069" y="1114.798" z="129.125" h="117"/>
 	</spawn>
 	<!-- Laborer (Monster Normal lvl:10)-->
-	<spawn map="210030000" npcid="210706" pool="22" interval="105">
+	<spawn map="210030000" npcid="210706" pool="22" interval="295">
 		<object x="1484.455" y="1513.032" z="101.661064" h="109"/>
 		<object x="1496.304" y="1497.843" z="102.672806" h="109"/>
 		<object x="1888.687" y="1420.279" z="99.0" h="71"/>
@@ -858,7 +858,7 @@ Verteron-->
 		<object x="2475.02" y="865.48" z="102.49124" h="40"/>
 	</spawn>
 	<!-- Leaf Pluma (Monster Normal lvl:13)-->
-	<spawn map="210030000" npcid="210193" pool="29" interval="105">
+	<spawn map="210030000" npcid="210193" pool="29" interval="295">
 		<object x="1479.115" y="1909.416" z="139.13824" h="24"/>
 		<object x="1238.56" y="2074.837" z="144.0727" h="43"/>
 		<object x="1579.677" y="2171.914" z="157.43944" h="94"/>
@@ -890,18 +890,18 @@ Verteron-->
 		<object x="1435.605" y="1939.511" z="133.78056" h="65"/>
 	</spawn>
 	<!-- Lightningfoot Tuka (Monster Normal lvl:14)-->
-	<spawn map="210030000" npcid="210317" pool="1" interval="105">
+	<spawn map="210030000" npcid="210317" pool="1" interval="295">
 		<object x="1018.149" y="2260.303" z="168.25963" h="15"/>
 	</spawn>
 	<!-- Lonely Mepisto (Monster Normal lvl:18)-->
-	<spawn map="210030000" npcid="210345" pool="4" interval="105">
+	<spawn map="210030000" npcid="210345" pool="4" interval="295">
 		<object x="1947.493" y="2722.291" z="295.50763" h="73"/>
 		<object x="2041.4285" y="2587.7227" z="300.9643" h="57"/>
 		<object x="1833.0" y="2586.0" z="310.6875" h="0"/>
 		<object x="1971.2522" y="2730.068" z="303.98724" h="70"/>
 	</spawn>
 	<!-- Long-Legged Arachna (Monster Normal lvl:11)-->
-	<spawn map="210030000" npcid="210128" pool="26" interval="105">
+	<spawn map="210030000" npcid="210128" pool="26" interval="295">
 		<object x="972.72" y="2511.75" z="187.455" h="0"/>
 		<object x="1034.2485" y="2428.2534" z="179.93774" h="60"/>
 		<object x="1003.47" y="2462.01" z="184.90375" h="0"/>
@@ -930,23 +930,23 @@ Verteron-->
 		<object x="982.74" y="2497.15" z="186.5" h="0"/>
 	</spawn>
 	<!-- Mimiti (Monster Normal lvl:13)-->
-	<spawn map="210030000" npcid="210319" pool="1" interval="105">
+	<spawn map="210030000" npcid="210319" pool="1" interval="295">
 		<object x="907.0966" y="2103.942" z="150.625" h="0"/>
 	</spawn>
 	<!-- Miraju Gargoyle (Monster Normal lvl:18)-->
-	<spawn map="210030000" npcid="210347" pool="4" interval="105">
+	<spawn map="210030000" npcid="210347" pool="4" interval="295">
 		<object x="2342.107" y="1800.8965" z="204.35565" h="89"/>
 		<object x="2368.7026" y="1824.7231" z="204.35565" h="0"/>
 		<object x="2344.4397" y="1850.7151" z="204.35565" h="29"/>
 		<object x="2318.752" y="1826.2539" z="204.35565" h="59"/>
 	</spawn>
 	<!-- Mountain Abex (Monster Normal lvl:15)-->
-	<spawn map="210030000" npcid="210270" pool="2" interval="105">
+	<spawn map="210030000" npcid="210270" pool="2" interval="295">
 		<object x="1218.821" y="2657.974" z="205.25162" h="99"/>
 		<object x="1209.221" y="2713.019" z="205.25238" h="34"/>
 	</spawn>
 	<!-- Mud Potcrab (Monster Normal lvl:9)-->
-	<spawn map="210030000" npcid="210268" pool="37" interval="105">
+	<spawn map="210030000" npcid="210268" pool="37" interval="295">
 		<object x="1724.397" y="1685.626" z="101.373566" h="2"/>
 		<object x="1470.021" y="1376.833" z="103.69269" h="48"/>
 		<object x="1760.342" y="1622.653" z="103.0" h="15"/>
@@ -986,7 +986,7 @@ Verteron-->
 		<object x="1480.195" y="1413.829" z="101.375" h="8"/>
 	</spawn>
 	<!-- Mud Ribbit (Monster Normal lvl:16)-->
-	<spawn map="210030000" npcid="210273" pool="15" interval="105">
+	<spawn map="210030000" npcid="210273" pool="15" interval="295">
 		<object x="1555.07" y="2760.01" z="232.05063" h="13"/>
 		<object x="1573.35" y="2748.68" z="233.25064" h="107"/>
 		<object x="1581.79" y="2762.92" z="232.66937" h="29"/>
@@ -1004,7 +1004,7 @@ Verteron-->
 		<object x="1756.92" y="2757.55" z="270.0675" h="81"/>
 	</spawn>
 	<!-- Overseer Redtum (Monster Normal lvl:14)-->
-	<spawn map="210030000" npcid="210739" pool="9" interval="105">
+	<spawn map="210030000" npcid="210739" pool="9" interval="295">
 		<object x="734.43" y="2462.07" z="218.44626" h="67"/>
 		<object x="754.63" y="2470.23" z="217.78188" h="58"/>
 		<object x="760.06" y="2470.9" z="216.92" h="104"/>
@@ -1020,7 +1020,7 @@ Verteron-->
 		<object x="1540.603" y="1442.253" z="105.54157" h="74"/>
 	</spawn>
 	<!-- Peon (Monster Normal lvl:11)-->
-	<spawn map="210030000" npcid="210077" pool="17" interval="105">
+	<spawn map="210030000" npcid="210077" pool="17" interval="295">
 		<object x="1245.637" y="1843.109" z="120.81931" h="103"/>
 		<object x="1289.545" y="1784.12" z="115.2425" h="85"/>
 		<object x="1246.336" y="1915.557" z="125.04869" h="116"/>
@@ -1040,7 +1040,7 @@ Verteron-->
 		<object x="1291.374" y="1918.983" z="123.5" h="60"/>
 	</spawn>
 	<!-- Peon (Monster Normal lvl:12)-->
-	<spawn map="210030000" npcid="210698" pool="13" interval="105">
+	<spawn map="210030000" npcid="210698" pool="13" interval="295">
 		<object x="1175.861" y="1780.385" z="102.792114" h="69"/>
 		<object x="1165.333" y="1828.935" z="101.80844" h="11"/>
 		<object x="1183.033" y="1723.714" z="103.35443" h="8"/>
@@ -1056,7 +1056,7 @@ Verteron-->
 		<object x="1171.973" y="1848.495" z="102.15594" h="97"/>
 	</spawn>
 	<!-- Poisonous Bubblegut (Monster Normal lvl:18)-->
-	<spawn map="210030000" npcid="210318" pool="6" interval="105">
+	<spawn map="210030000" npcid="210318" pool="6" interval="295">
 		<object x="1633.2" y="2792.18" z="234.96376" h="45"/>
 		<object x="1631.2" y="2766.15" z="235.88753" h="3"/>
 		<object x="1661.33" y="2740.79" z="233.25" h="21"/>
@@ -1065,7 +1065,7 @@ Verteron-->
 		<object x="1657.79" y="2742.36" z="233.13812" h="83"/>
 	</spawn>
 	<!-- Porgus (Monster Junk lvl:1)-->
-	<spawn map="210030000" npcid="210337" pool="6" interval="105">
+	<spawn map="210030000" npcid="210337" pool="6" interval="295">
 		<object x="1255.8" y="2232.64" z="144.875" h="40"/>
 		<object x="1308.673" y="2092.341" z="138.04031" h="107"/>
 		<object x="1317.81" y="2103.72" z="138.11374" h="104"/>
@@ -1074,7 +1074,7 @@ Verteron-->
 		<object x="1297.04" y="2086.58" z="138.58875" h="12"/>
 	</spawn>
 	<!-- Porgus (NPC Normal lvl:10)-->
-	<spawn map="210030000" npcid="203192" pool="13" interval="105">
+	<spawn map="210030000" npcid="203192" pool="13" interval="295">
 		<object x="1353.8888" y="2102.7654" z="139.91354" h="81"/>
 		<object x="1355.7195" y="2158.417" z="147.366" h="78"/>
 		<object x="1360.25" y="2082.75" z="138.15625" h="0"/>
@@ -1090,7 +1090,7 @@ Verteron-->
 		<object x="1310.1898" y="2131.0398" z="139.80313" h="86"/>
 	</spawn>
 	<!-- Rakeclaw Frillneck (Monster Normal lvl:13)-->
-	<spawn map="210030000" npcid="210126" pool="26" interval="105">
+	<spawn map="210030000" npcid="210126" pool="26" interval="295">
 		<object x="1643.032" y="2114.84" z="171.15352" h="85"/>
 		<object x="1658.686" y="2003.025" z="159.81769" h="15"/>
 		<object x="1464.157" y="2152.119" z="147.00743" h="37"/>
@@ -1119,7 +1119,7 @@ Verteron-->
 		<object x="1455.789" y="2179.252" z="146.28357" h="101"/>
 	</spawn>
 	<!-- Sand Potcrab (Monster Normal lvl:18)-->
-	<spawn map="210030000" npcid="210275" pool="32" interval="105">
+	<spawn map="210030000" npcid="210275" pool="32" interval="295">
 		<object x="2367.8" y="902.87" z="100.9875" h="11"/>
 		<object x="2372.09" y="883.55" z="99.44375" h="57"/>
 		<object x="2332.46" y="885.15" z="99.740005" h="104"/>
@@ -1166,7 +1166,7 @@ Verteron-->
 		<object x="1855.611" y="757.2479" z="143.82744" h="31"/>
 	</spawn>
 	<!-- Sea Starturtle (Monster Normal lvl:19)-->
-	<spawn map="210030000" npcid="210112" pool="16" interval="105">
+	<spawn map="210030000" npcid="210112" pool="16" interval="295">
 		<object x="2284.651" y="916.4804" z="106.81301" h="79"/>
 		<object x="2318.3943" y="894.1895" z="101.79833" h="112"/>
 		<object x="2340.673" y="914.4756" z="102.47531" h="29"/>
@@ -1205,7 +1205,7 @@ Verteron-->
 		<object x="2247.05" y="1315.262" z="170.23662" h="114"/>
 	</spawn>
 	<!-- Shaman (Monster Normal lvl:11)-->
-	<spawn map="210030000" npcid="210699" pool="9" interval="105">
+	<spawn map="210030000" npcid="210699" pool="9" interval="295">
 		<object x="1257.108" y="1902.402" z="125.46326" h="69"/>
 		<object x="1274.657" y="1793.611" z="115.125" h="99"/>
 		<object x="1255.93" y="1852.478" z="120.875" h="40"/>
@@ -1217,14 +1217,14 @@ Verteron-->
 		<object x="1203.736" y="1838.715" z="112.20955" h="118"/>
 	</spawn>
 	<!-- Shaman Chankaki (Monster Normal lvl:16)-->
-	<spawn map="210030000" npcid="210296" pool="4" interval="105">
+	<spawn map="210030000" npcid="210296" pool="4" interval="295">
 		<object x="645.19" y="2653.58" z="240.875" h="60"/>
 		<object x="658.31" y="2560.33" z="226.75" h="77"/>
 		<object x="726.62" y="2587.04" z="222.375" h="96"/>
 		<object x="811.92" y="2653.49" z="218.875" h="1"/>
 	</spawn>
 	<!-- Sharphorn Starcrab (Monster Normal lvl:10)-->
-	<spawn map="210030000" npcid="210269" pool="37" interval="105">
+	<spawn map="210030000" npcid="210269" pool="37" interval="295">
 		<object x="1766.067" y="1350.805" z="104.27595" h="112"/>
 		<object x="1733.915" y="1640.74" z="103.63562" h="63"/>
 		<object x="1820.756" y="1389.96" z="100.38251" h="80"/>
@@ -1264,7 +1264,7 @@ Verteron-->
 		<object x="1824.644" y="1394.362" z="100.68788" h="4"/>
 	</spawn>
 	<!-- Shipwrecked Crewmember (Monster Normal lvl:19)-->
-	<spawn map="210030000" npcid="210074" pool="15" interval="105">
+	<spawn map="210030000" npcid="210074" pool="15" interval="295">
 		<object x="2172.03" y="684.1404" z="100.51253" h="26"/>
 		<object x="2127.518" y="688.8533" z="100.32167" h="15"/>
 		<object x="2104.123" y="691.0961" z="100.81418" h="58"/>
@@ -1282,7 +1282,7 @@ Verteron-->
 		<object x="2146.245" y="702.0981" z="101.478546" h="68"/>
 	</spawn>
 	<!-- Shipwrecked Deckhand (Monster Normal lvl:20)-->
-	<spawn map="210030000" npcid="210073" pool="11" interval="105">
+	<spawn map="210030000" npcid="210073" pool="11" interval="295">
 		<object x="2099.35" y="634.19" z="110.890564" h="19"/>
 		<object x="2116.18" y="642.26" z="114.34592" h="4"/>
 		<object x="2116.38" y="630.41" z="114.45298" h="32"/>
@@ -1300,7 +1300,7 @@ Verteron-->
 		<object x="2418.79" y="1176.97" z="182.28876" h="7"/>
 	</spawn>
 	<!-- Spiral Lobnite (Monster Normal lvl:9)-->
-	<spawn map="210030000" npcid="210264" pool="37" interval="105">
+	<spawn map="210030000" npcid="210264" pool="37" interval="295">
 		<object x="1534.813" y="1508.223" z="103.5" h="14"/>
 		<object x="1518.666" y="1459.384" z="103.74988" h="91"/>
 		<object x="1548.131" y="1455.84" z="107.52456" h="54"/>
@@ -1340,7 +1340,7 @@ Verteron-->
 		<object x="1847.099" y="1590.585" z="102.100815" h="87"/>
 	</spawn>
 	<!-- Spy (Monster Normal lvl:9)-->
-	<spawn map="210030000" npcid="210076" pool="12" interval="105">
+	<spawn map="210030000" npcid="210076" pool="12" interval="295">
 		<object x="1475.93" y="1531.78" z="104.125" h="59"/>
 		<object x="1499.549" y="1523.945" z="100.875" h="76"/>
 		<object x="1612.878" y="1281.966" z="100.41676" h="74"/>
@@ -1355,7 +1355,7 @@ Verteron-->
 		<object x="1844.26" y="1387.878" z="101.00101" h="78"/>
 	</spawn>
 	<!-- Starving Worg (Monster Normal lvl:10)-->
-	<spawn map="210030000" npcid="210138" pool="23" interval="105">
+	<spawn map="210030000" npcid="210138" pool="23" interval="295">
 		<object x="1398.796" y="1829.714" z="124.47825" h="40"/>
 		<object x="1529.911" y="1666.94" z="106.75362" h="37"/>
 		<object x="1491.114" y="1703.844" z="113.930374" h="19"/>
@@ -1381,15 +1381,15 @@ Verteron-->
 		<object x="1461.442" y="1915.172" z="134.64539" h="119"/>
 	</spawn>
 	<!-- Stumptail Tog (Monster Normal lvl:17)-->
-	<spawn map="210030000" npcid="210747" pool="1" interval="105">
+	<spawn map="210030000" npcid="210747" pool="1" interval="295">
 		<object x="2075.018" y="2179.22" z="207.4025" h="93"/>
 	</spawn>
 	<!-- Suspicious Box (Monster Normal lvl:50)-->
-	<spawn map="210030000" npcid="211823" pool="1" interval="105">
+	<spawn map="210030000" npcid="211823" pool="1" interval="295">
 		<object x="1738.9" y="2538.0" z="155.97403" h="44"/>
 	</spawn>
 	<!-- Swamp Slink (Monster Normal lvl:9)-->
-	<spawn map="210030000" npcid="210063" pool="70" interval="105">
+	<spawn map="210030000" npcid="210063" pool="70" interval="295">
 		<object x="1647.334" y="1601.728" z="112.325745" h="67"/>
 		<object x="1765.971" y="1554.221" z="107.340836" h="86"/>
 		<object x="1564.607" y="1494.452" z="109.651764" h="61"/>
@@ -1462,7 +1462,7 @@ Verteron-->
 		<object x="1772.394" y="1709.129" z="101.52463" h="36"/>
 	</spawn>
 	<!-- Swamp Starturtle (Monster Normal lvl:10)-->
-	<spawn map="210030000" npcid="210266" pool="22" interval="105">
+	<spawn map="210030000" npcid="210266" pool="22" interval="295">
 		<object x="1454.644" y="1423.66" z="100.1865" h="49"/>
 		<object x="1431.29" y="1379.39" z="99.0" h="3"/>
 		<object x="1497.694" y="1311.222" z="99.21001" h="58"/>
@@ -1487,7 +1487,7 @@ Verteron-->
 		<object x="1479.781" y="1242.117" z="98.854935" h="53"/>
 	</spawn>
 	<!-- Tempest Spirit (Monster Normal lvl:18)-->
-	<spawn map="210030000" npcid="210086" pool="67" interval="105">
+	<spawn map="210030000" npcid="210086" pool="67" interval="295">
 		<object x="2411.997" y="1585.926" z="128.12962" h="116"/>
 		<object x="2566.706" y="1863.541" z="131.13239" h="24"/>
 		<object x="2479.018" y="1863.537" z="118.66544" h="36"/>
@@ -1557,7 +1557,7 @@ Verteron-->
 		<object x="2580.701" y="1683.771" z="130.9045" h="119"/>
 	</spawn>
 	<!-- Thief (Monster Normal lvl:11)-->
-	<spawn map="210030000" npcid="210688" pool="27" interval="105">
+	<spawn map="210030000" npcid="210688" pool="27" interval="295">
 		<object x="1275.211" y="1917.469" z="124.95655" h="67"/>
 		<object x="1240.699" y="1819.477" z="113.678894" h="50"/>
 		<object x="1181.252" y="1815.299" z="103.23474" h="15"/>
@@ -1587,7 +1587,7 @@ Verteron-->
 		<object x="1226.454" y="1941.781" z="134.98413" h="3"/>
 	</spawn>
 	<!-- Tiny Arachna (Monster Normal lvl:16)-->
-	<spawn map="210030000" npcid="210689" pool="6" interval="105">
+	<spawn map="210030000" npcid="210689" pool="6" interval="295">
 		<object x="1587.95" y="2456.55" z="133.65625" h="71"/>
 		<object x="1607.03" y="2428.05" z="133.75" h="112"/>
 		<object x="1574.14" y="2394.3" z="135.6325" h="111"/>
@@ -1596,7 +1596,7 @@ Verteron-->
 		<object x="1584.72" y="2360.01" z="134.87563" h="17"/>
 	</spawn>
 	<!-- Tiny Cave Arachna (Monster Normal lvl:14)-->
-	<spawn map="210030000" npcid="210744" pool="13" interval="105">
+	<spawn map="210030000" npcid="210744" pool="13" interval="295">
 		<object x="1242.63" y="2629.75" z="204.305" h="65"/>
 		<object x="1238.47" y="2627.95" z="204.38438" h="81"/>
 		<object x="1216.34" y="2655.0" z="205.52344" h="51"/>
@@ -1634,7 +1634,7 @@ Verteron-->
 		<object x="1693.19" y="2339.45" z="135.37688" h="107"/>
 	</spawn>
 	<!-- Tursin Bigmouth (Monster Normal lvl:15)-->
-	<spawn map="210030000" npcid="210174" pool="7" interval="105">
+	<spawn map="210030000" npcid="210174" pool="7" interval="295">
 		<object x="875.2961" y="2573.1" z="195.23103" h="22"/>
 		<object x="803.257" y="2428.965" z="202.99606" h="51"/>
 		<object x="720.461" y="2592.709" z="222.375" h="102"/>
@@ -1661,14 +1661,14 @@ Verteron-->
 		<object x="2239.953" y="1187.557" z="159.32304" h="0"/>
 	</spawn>
 	<!-- Tursin Gateblocker (Monster Normal lvl:15)-->
-	<spawn map="210030000" npcid="210691" pool="4" interval="105">
+	<spawn map="210030000" npcid="210691" pool="4" interval="295">
 		<object x="881.8981" y="2586.104" z="204.02402" h="16"/>
 		<object x="919.287" y="2151.996" z="157.81439" h="16"/>
 		<object x="701.0814" y="2591.513" z="231.8392" h="28"/>
 		<object x="902.9831" y="2350.741" z="197.59163" h="104"/>
 	</spawn>
 	<!-- Tursin Loudmouth (Monster Normal lvl:8)-->
-	<spawn map="210030000" npcid="210157" pool="25" interval="105">
+	<spawn map="210030000" npcid="210157" pool="25" interval="295">
 		<object x="801.87506" y="2635.7573" z="217.47748" h="110"/>
 		<object x="982.1212" y="2270.7544" z="176.04457" h="112"/>
 		<object x="898.73804" y="2392.4426" z="182.82887" h="61"/>
@@ -1696,7 +1696,7 @@ Verteron-->
 		<object x="918.6734" y="2368.6907" z="184.53525" h="7"/>
 	</spawn>
 	<!-- Tursin Loudmouth (Monster Normal lvl:14)-->
-	<spawn map="210030000" npcid="210164" pool="24" interval="105">
+	<spawn map="210030000" npcid="210164" pool="24" interval="295">
 		<object x="997.3069" y="2154.8638" z="149.20097" h="54"/>
 		<object x="876.6881" y="2078.3022" z="150.50925" h="12"/>
 		<object x="967.06683" y="2198.801" z="152.1501" h="6"/>
@@ -1728,7 +1728,7 @@ Verteron-->
 		<object x="1657.431" y="1074.423" z="116.98074" h="101"/>
 	</spawn>
 	<!-- Tursin Loudmouth Boss (Monster Normal lvl:17)-->
-	<spawn map="210030000" npcid="210158" pool="2" interval="105">
+	<spawn map="210030000" npcid="210158" pool="2" interval="295">
 		<object x="1640.888" y="1051.688" z="118.274994" h="101"/>
 		<object x="1640.348" y="1080.239" z="116.10326" h="2"/>
 	</spawn>
@@ -1781,7 +1781,7 @@ Verteron-->
 		<object x="2609.781" y="1122.795" z="194.83725" h="115"/>
 	</spawn>
 	<!-- Venomous Arachna (Monster Normal lvl:15)-->
-	<spawn map="210030000" npcid="210130" pool="9" interval="105">
+	<spawn map="210030000" npcid="210130" pool="9" interval="295">
 		<object x="1657.4" y="2462.79" z="134.27562" h="51"/>
 		<object x="1672.01" y="2457.16" z="132.89374" h="48"/>
 		<object x="1669.07" y="2455.76" z="132.97626" h="115"/>
@@ -1823,7 +1823,7 @@ Verteron-->
 		<object x="1932.347" y="907.2643" z="130.75" h="50"/>
 	</spawn>
 	<!-- Veteran Tursin Gateblocker (Monster Normal lvl:16)-->
-	<spawn map="210030000" npcid="210692" pool="10" interval="105">
+	<spawn map="210030000" npcid="210692" pool="10" interval="295">
 		<object x="2126.947" y="1074.268" z="151.6158" h="118"/>
 		<object x="2106.277" y="1014.363" z="147.58923" h="0"/>
 		<object x="2051.587" y="1020.665" z="146.5124" h="94"/>
@@ -2036,7 +2036,7 @@ Verteron-->
 		<object x="1887.255" y="1108.666" z="142.9485" h="113"/>
 	</spawn>
 	<!-- Violent Worg (Monster Normal lvl:12)-->
-	<spawn map="210030000" npcid="210140" pool="34" interval="105">
+	<spawn map="210030000" npcid="210140" pool="34" interval="295">
 		<object x="1110.849" y="2343.006" z="164.39693" h="58"/>
 		<object x="1138.768" y="2329.869" z="165.99442" h="98"/>
 		<object x="1155.952" y="2356.056" z="174.26648" h="105"/>
@@ -2073,7 +2073,7 @@ Verteron-->
 		<object x="1546.8539" y="1920.6396" z="151.72849" h="39"/>
 	</spawn>
 	<!-- Violent Wriggot (Monster Normal lvl:18)-->
-	<spawn map="210030000" npcid="210274" pool="26" interval="105">
+	<spawn map="210030000" npcid="210274" pool="26" interval="295">
 		<object x="2219.636" y="1980.288" z="134.0095" h="93"/>
 		<object x="2262.719" y="1967.686" z="125.50157" h="57"/>
 		<object x="2272.153" y="1958.986" z="123.93662" h="97"/>
@@ -2102,7 +2102,7 @@ Verteron-->
 		<object x="2219.164" y="1888.122" z="124.67198" h="23"/>
 	</spawn>
 	<!-- Whirlpool Spirit (Monster Normal lvl:19)-->
-	<spawn map="210030000" npcid="210713" pool="6" interval="105">
+	<spawn map="210030000" npcid="210713" pool="6" interval="295">
 		<object x="2279.483" y="1824.478" z="109.375" h="36"/>
 		<object x="2299.85" y="1843.03" z="109.375" h="80"/>
 		<object x="2358.75" y="1842.1" z="109.375" h="111"/>
@@ -2111,7 +2111,7 @@ Verteron-->
 		<object x="2293.941" y="1784.41" z="109.375" h="110"/>
 	</spawn>
 	<!-- Wild Spotted Tog (Monster Normal lvl:12)-->
-	<spawn map="210030000" npcid="210325" pool="5" interval="105">
+	<spawn map="210030000" npcid="210325" pool="5" interval="295">
 		<object x="1320.446" y="2026.399" z="144.94131" h="75"/>
 		<object x="1339.185" y="2023.887" z="145.04387" h="35"/>
 		<object x="1398.359" y="2033.445" z="144.11275" h="108"/>
@@ -2119,7 +2119,7 @@ Verteron-->
 		<object x="1557.812" y="1927.352" z="153.017" h="109"/>
 	</spawn>
 	<!-- Wild Striped Tog (Monster Normal lvl:12)-->
-	<spawn map="210030000" npcid="210188" pool="37" interval="105">
+	<spawn map="210030000" npcid="210188" pool="37" interval="295">
 		<object x="1250.963" y="2063.801" z="144.71469" h="111"/>
 		<object x="1271.682" y="2086.452" z="138.76099" h="61"/>
 		<object x="1279.002" y="2053.287" z="142.94604" h="77"/>
@@ -2159,7 +2159,7 @@ Verteron-->
 		<object x="1586.723" y="1922.659" z="156.9242" h="61"/>
 	</spawn>
 	<!-- Wind Spirit Shalph (Monster Normal lvl:19)-->
-	<spawn map="210030000" npcid="210298" pool="16" interval="105">
+	<spawn map="210030000" npcid="210298" pool="16" interval="295">
 		<object x="2296.15" y="1924.02" z="116.12875" h="7"/>
 		<object x="2281.29" y="1921.36" z="116.62937" h="10"/>
 		<object x="2284.7" y="1916.46" z="115.97" h="55"/>

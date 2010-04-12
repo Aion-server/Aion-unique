@@ -5,7 +5,7 @@ object x y z h
 Poeta-->
 <spawns>
 	<!-- Adult Sparkie (Monster Normal lvl:5)-->
-	<spawn map="210010000" npcid="210119" pool="28" interval="105">
+	<spawn map="210010000" npcid="210119" pool="28" interval="295">
 		<object x="592.68" y="1544.7" z="116.63124" h="0"/>
 		<object x="507.0" y="1400.0" z="108.1875" h="50"/>
 		<object x="492.95" y="1648.86" z="123.29813" h="0"/>
@@ -36,7 +36,7 @@ Poeta-->
 		<object x="541.77" y="1542.66" z="112.15499" h="0"/>
 	</spawn>
 	<!-- Bigfoot Kerubar (Monster Normal lvl:4)-->
-	<spawn map="210010000" npcid="210671" pool="8" interval="105">
+	<spawn map="210010000" npcid="210671" pool="8" interval="295">
 		<object x="690.1714" y="960.8758" z="104.26198" h="39"/>
 		<object x="675.8479" y="947.6268" z="104.5" h="33"/>
 		<object x="627.22894" y="929.14996" z="102.606255" h="117"/>
@@ -47,7 +47,7 @@ Poeta-->
 		<object x="653.0187" y="938.4149" z="102.875" h="17"/>
 	</spawn>
 	<!-- Brownbristle Brax (Monster Normal lvl:3)-->
-	<spawn map="210010000" npcid="210259" pool="16" interval="105">
+	<spawn map="210010000" npcid="210259" pool="16" interval="295">
 		<object x="738.55005" y="1077.8384" z="99.375" h="17"/>
 		<object x="708.0" y="1027.0" z="99.875" h="15"/>
 		<object x="677.2587" y="1126.1064" z="100.92065" h="10"/>
@@ -66,12 +66,12 @@ Poeta-->
 		<object x="699.0" y="1037.0" z="99.375" h="18"/>
 	</spawn>
 	<!-- Brownbristle Braxie (Monster Normal lvl:3)-->
-	<spawn map="210010000" npcid="210672" pool="2" interval="105">
+	<spawn map="210010000" npcid="210672" pool="2" interval="295">
 		<object x="689.1116" y="1061.3191" z="99.375" h="31"/>
 		<object x="721.3728" y="1080.8972" z="99.68315" h="13"/>
 	</spawn>
 	<!-- Digging Kerub (Monster Normal lvl:2)-->
-	<spawn map="210010000" npcid="210664" pool="11" interval="105">
+	<spawn map="210010000" npcid="210664" pool="11" interval="295">
 		<object x="924.1846" y="1115.4253" z="103.238464" h="47"/>
 		<object x="1025.0585" y="1171.2032" z="113.73466" h="112"/>
 		<object x="949.7078" y="1092.0751" z="107.611435" h="39"/>
@@ -85,7 +85,7 @@ Poeta-->
 		<object x="917.5888" y="1102.1654" z="103.025696" h="26"/>
 	</spawn>
 	<!-- Dukaki Brawler (Monster Normal lvl:7)-->
-	<spawn map="210010000" npcid="210096" pool="35" interval="105">
+	<spawn map="210010000" npcid="210096" pool="35" interval="295">
 		<object x="278.34872" y="2099.8176" z="159.46619" h="57"/>
 		<object x="375.42477" y="1867.3162" z="146.9625" h="65"/>
 		<object x="286.27914" y="2084.5088" z="170.85379" h="3"/>
@@ -123,7 +123,7 @@ Poeta-->
 		<object x="228.60344" y="1873.2231" z="169.97313" h="79"/>
 	</spawn>
 	<!-- Dukaki Digger (Monster Normal lvl:7)-->
-	<spawn map="210010000" npcid="210149" pool="35" interval="105">
+	<spawn map="210010000" npcid="210149" pool="35" interval="295">
 		<object x="342.47852" y="1896.3185" z="158.97018" h="114"/>
 		<object x="330.05103" y="2019.3683" z="156.29922" h="24"/>
 		<object x="229.38586" y="2020.3154" z="151.63696" h="38"/>
@@ -161,7 +161,7 @@ Poeta-->
 		<object x="342.8265" y="1874.7507" z="153.14905" h="114"/>
 	</spawn>
 	<!-- Dukaki Lumberjack (Monster Normal lvl:6)-->
-	<spawn map="210010000" npcid="210679" pool="13" interval="105">
+	<spawn map="210010000" npcid="210679" pool="13" interval="295">
 		<object x="538.8628" y="1839.3375" z="134.96402" h="81"/>
 		<object x="507.69678" y="1839.4967" z="134.24274" h="64"/>
 		<object x="449.1793" y="1824.8718" z="133.07375" h="91"/>
@@ -177,7 +177,7 @@ Poeta-->
 		<object x="439.0" y="1845.0" z="137.375" h="100"/>
 	</spawn>
 	<!-- Dukaki Patrol (Monster Normal lvl:8)-->
-	<spawn map="210010000" npcid="210101" pool="24" interval="105">
+	<spawn map="210010000" npcid="210101" pool="24" interval="295">
 		<object x="244.23537" y="1035.8759" z="121.45659" h="64"/>
 		<object x="178.37137" y="1156.347" z="120.22808" h="78"/>
 		<object x="235.0426" y="1007.5315" z="120.76322" h="23"/>
@@ -204,7 +204,7 @@ Poeta-->
 		<object x="249.28627" y="1118.2701" z="104.37198" h="60"/>
 	</spawn>
 	<!-- Dukaki Smacker (Monster Normal lvl:7)-->
-	<spawn map="210010000" npcid="210092" pool="25" interval="105">
+	<spawn map="210010000" npcid="210092" pool="25" interval="295">
 		<object x="279.0" y="1970.0" z="152.75" h="13"/>
 		<object x="277.94177" y="2075.9563" z="170.50728" h="76"/>
 		<object x="296.64313" y="2076.2578" z="169.76611" h="38"/>
@@ -232,7 +232,7 @@ Poeta-->
 		<object x="224.27075" y="1899.695" z="170.73308" h="13"/>
 	</spawn>
 	<!-- Dukaki Thug (Monster Normal lvl:8)-->
-	<spawn map="210010000" npcid="210097" pool="18" interval="105">
+	<spawn map="210010000" npcid="210097" pool="18" interval="295">
 		<object x="172.3593" y="1097.4337" z="128.77663" h="118"/>
 		<object x="188.1191" y="1149.5986" z="120.01255" h="23"/>
 		<object x="244.40471" y="1128.846" z="103.57541" h="76"/>
@@ -253,7 +253,7 @@ Poeta-->
 		<object x="212.1914" y="1228.9059" z="109.67842" h="19"/>
 	</spawn>
 	<!-- Dukaki Thug (Monster Normal lvl:8)-->
-	<spawn map="210010000" npcid="210686" pool="10" interval="105">
+	<spawn map="210010000" npcid="210686" pool="10" interval="295">
 		<object x="243.80623" y="1053.7516" z="121.193855" h="96"/>
 		<object x="214.10968" y="1054.0906" z="121.63557" h="14"/>
 		<object x="172.37465" y="1138.8665" z="116.649315" h="116"/>
@@ -266,13 +266,13 @@ Poeta-->
 		<object x="245.99724" y="1119.3541" z="104.27541" h="59"/>
 	</spawn>
 	<!-- Dukaki Watcher (Monster Normal lvl:13)-->
-	<spawn map="210010000" npcid="214098" pool="3" interval="105">
+	<spawn map="210010000" npcid="214098" pool="3" interval="295">
 		<object x="362.515" y="1867.8702" z="157.15013" h="71"/>
 		<object x="300.58643" y="2063.0266" z="176.89111" h="83"/>
 		<object x="251.4656" y="1822.3364" z="156.9425" h="80"/>
 	</spawn>
 	<!-- Dukaki Woodcutter (Monster Normal lvl:6)-->
-	<spawn map="210010000" npcid="210677" pool="49" interval="105">
+	<spawn map="210010000" npcid="210677" pool="49" interval="295">
 		<object x="579.6509" y="1692.477" z="124.904816" h="80"/>
 		<object x="478.51" y="1755.72" z="121.2" h="0"/>
 		<object x="492.17413" y="1775.8018" z="126.88287" h="0"/>
@@ -324,7 +324,7 @@ Poeta-->
 		<object x="244.84824" y="1746.4916" z="131.35481" h="28"/>
 	</spawn>
 	<!-- Dukaki Worker (Monster Normal lvl:7)-->
-	<spawn map="210010000" npcid="210154" pool="15" interval="105">
+	<spawn map="210010000" npcid="210154" pool="15" interval="295">
 		<object x="325.90482" y="1949.2452" z="155.88913" h="26"/>
 		<object x="354.22424" y="2108.6736" z="150.65303" h="90"/>
 		<object x="238.51973" y="2074.7302" z="153.68997" h="67"/>
@@ -342,7 +342,7 @@ Poeta-->
 		<object x="308.447" y="1994.2562" z="155.34706" h="33"/>
 	</spawn>
 	<!-- Elder Sparkie (Monster Normal lvl:7)-->
-	<spawn map="210010000" npcid="210120" pool="28" interval="105">
+	<spawn map="210010000" npcid="210120" pool="28" interval="295">
 		<object x="431.72632" y="1789.6809" z="124.87216" h="100"/>
 		<object x="206.81958" y="1388.8984" z="106.360214" h="42"/>
 		<object x="287.84" y="1667.96" z="106.965" h="0"/>
@@ -373,7 +373,7 @@ Poeta-->
 		<object x="244.3522" y="1633.0665" z="100.52139" h="69"/>
 	</spawn>
 	<!-- Everglade Sylphen (Monster Normal lvl:5)-->
-	<spawn map="210010000" npcid="210261" pool="53" interval="105">
+	<spawn map="210010000" npcid="210261" pool="53" interval="295">
 		<object x="549.64" y="1562.55" z="110.98686" h="0"/>
 		<object x="482.46" y="1401.88" z="109.67875" h="0"/>
 		<object x="535.33" y="1445.77" z="106.818756" h="0"/>
@@ -439,7 +439,7 @@ Poeta-->
 		<object x="674.7339" y="1548.9575" z="125.70439" h="58"/>
 	</spawn>
 	<!-- Fearless Fungie (Monster Normal lvl:7)-->
-	<spawn map="210010000" npcid="210192" pool="30" interval="105">
+	<spawn map="210010000" npcid="210192" pool="30" interval="295">
 		<object x="222.74" y="1345.12" z="105.8725" h="0"/>
 		<object x="265.81" y="1662.6" z="106.723114" h="0"/>
 		<object x="178.53307" y="1583.3721" z="102.03332" h="88"/>
@@ -472,7 +472,7 @@ Poeta-->
 		<object x="256.7636" y="1460.3345" z="102.931366" h="32"/>
 	</spawn>
 	<!-- Fierce Gray Worg (Monster Normal lvl:6)-->
-	<spawn map="210010000" npcid="210683" pool="5" interval="105">
+	<spawn map="210010000" npcid="210683" pool="5" interval="295">
 		<object x="643.17285" y="1842.6523" z="144.06238" h="66"/>
 		<object x="631.56714" y="1860.5841" z="142.98239" h="76"/>
 		<object x="598.05" y="1853.8727" z="140.74033" h="119"/>
@@ -484,7 +484,7 @@ Poeta-->
 		<object x="280.0" y="1451.0" z="99.25" h="0"/>
 	</spawn>
 	<!-- Grain Snuffler (Monster Normal lvl:2)-->
-	<spawn map="210010000" npcid="210079" pool="14" interval="105">
+	<spawn map="210010000" npcid="210079" pool="14" interval="295">
 		<object x="946.0" y="1066.0" z="107.25" h="6"/>
 		<object x="1028.143" y="1160.9504" z="113.44953" h="78"/>
 		<object x="1020.4008" y="1137.1322" z="110.72081" h="62"/>
@@ -501,7 +501,7 @@ Poeta-->
 		<object x="922.1649" y="1106.5094" z="103.042145" h="71"/>
 	</spawn>
 	<!-- Gray Worg (Monster Normal lvl:6)-->
-	<spawn map="210010000" npcid="210142" pool="19" interval="105">
+	<spawn map="210010000" npcid="210142" pool="19" interval="295">
 		<object x="474.31122" y="1670.0107" z="126.14311" h="81"/>
 		<object x="507.1496" y="1658.863" z="124.91182" h="6"/>
 		<object x="619.14026" y="1850.5046" z="142.625" h="59"/>
@@ -523,7 +523,7 @@ Poeta-->
 		<object x="571.85315" y="1888.886" z="137.85156" h="50"/>
 	</spawn>
 	<!-- Gray Worg (Monster Normal lvl:7)-->
-	<spawn map="210010000" npcid="210143" pool="8" interval="105">
+	<spawn map="210010000" npcid="210143" pool="8" interval="295">
 		<object x="516.88586" y="1650.8064" z="122.502" h="118"/>
 		<object x="505.5857" y="1666.674" z="124.79076" h="9"/>
 		<object x="491.68323" y="1717.6389" z="121.48297" h="86"/>
@@ -534,7 +534,7 @@ Poeta-->
 		<object x="501.21335" y="1700.4707" z="124.24725" h="71"/>
 	</spawn>
 	<!-- Grove Abex (Monster Normal lvl:5)-->
-	<spawn map="210010000" npcid="210195" pool="59" interval="105">
+	<spawn map="210010000" npcid="210195" pool="59" interval="295">
 		<object x="609.94543" y="1490.5718" z="118.235466" h="119"/>
 		<object x="648.5801" y="1486.9904" z="121.053696" h="76"/>
 		<object x="683.1493" y="1617.2075" z="124.25" h="73"/>
@@ -596,7 +596,7 @@ Poeta-->
 		<object x="683.3557" y="1593.0593" z="126.51433" h="74"/>
 	</spawn>
 	<!-- Juvenile Sparkie (Monster Normal lvl:1)-->
-	<spawn map="210010000" npcid="210663" pool="10" interval="105">
+	<spawn map="210010000" npcid="210663" pool="10" interval="295">
 		<object x="1148.7056" y="1020.56085" z="131.04234" h="84"/>
 		<object x="1146.1749" y="994.48956" z="134.80466" h="102"/>
 		<object x="1210.5848" y="1083.4032" z="138.75" h="12"/>
@@ -609,7 +609,7 @@ Poeta-->
 		<object x="1199.5431" y="1099.6384" z="138.21548" h="66"/>
 	</spawn>
 	<!-- Juvenile Sparkie (Monster Normal lvl:1)-->
-	<spawn map="210010000" npcid="210115" pool="25" interval="105">
+	<spawn map="210010000" npcid="210115" pool="25" interval="295">
 		<object x="1185.332" y="1095.525" z="136.24976" h="25"/>
 		<object x="1169.788" y="1139.827" z="132.37012" h="111"/>
 		<object x="1201.38" y="1106.579" z="138.4514" h="37"/>
@@ -637,7 +637,7 @@ Poeta-->
 		<object x="882.91" y="1077.12" z="107.161255" h="76"/>
 	</spawn>
 	<!-- Kerub Fighter (Monster Normal lvl:2)-->
-	<spawn map="210010000" npcid="210705" pool="11" interval="105">
+	<spawn map="210010000" npcid="210705" pool="11" interval="295">
 		<object x="1184.5454" y="1168.8237" z="136.875" h="119"/>
 		<object x="1048.0287" y="1199.3809" z="109.95239" h="29"/>
 		<object x="1025.6967" y="983.20557" z="129.58035" h="100"/>
@@ -651,7 +651,7 @@ Poeta-->
 		<object x="1122.1831" y="981.2818" z="131.79489" h="26"/>
 	</spawn>
 	<!-- Longnosed Snuffler (Monster Normal lvl:1)-->
-	<spawn map="210010000" npcid="210078" pool="14" interval="105">
+	<spawn map="210010000" npcid="210078" pool="14" interval="295">
 		<object x="1144.1351" y="1016.4289" z="130.71329" h="12"/>
 		<object x="1129.1233" y="1010.4944" z="129.42972" h="25"/>
 		<object x="1108.6157" y="1011.11194" z="126.16348" h="90"/>
@@ -668,7 +668,7 @@ Poeta-->
 		<object x="1043.2035" y="1056.3818" z="119.32727" h="70"/>
 	</spawn>
 	<!-- Methu (Monster Junk lvl:1)-->
-	<spawn map="210010000" npcid="210336" pool="18" interval="105">
+	<spawn map="210010000" npcid="210336" pool="18" interval="295">
 		<object x="952.39" y="1178.04" z="108.23313" h="83"/>
 		<object x="952.85" y="1175.49" z="107.883125" h="19"/>
 		<object x="957.51" y="1176.49" z="107.81125" h="16"/>
@@ -693,7 +693,7 @@ Poeta-->
 		<object x="647.9125" y="891.6571" z="103.625" h="83"/>
 	</spawn>
 	<!-- Pincerhead Sparkle (Monster Normal lvl:8)-->
-	<spawn map="210010000" npcid="210114" pool="20" interval="105">
+	<spawn map="210010000" npcid="210114" pool="20" interval="295">
 		<object x="262.27" y="1461.8" z="102.52813" h="0"/>
 		<object x="237.58212" y="1450.2303" z="101.831024" h="10"/>
 		<object x="193.52" y="1344.72" z="102.405" h="0"/>
@@ -716,7 +716,7 @@ Poeta-->
 		<object x="172.61925" y="1563.5629" z="102.336296" h="84"/>
 	</spawn>
 	<!-- Pinkbeak Airon (Monster Normal lvl:3)-->
-	<spawn map="210010000" npcid="210668" pool="25" interval="105">
+	<spawn map="210010000" npcid="210668" pool="25" interval="295">
 		<object x="644.109" y="977.9987" z="99.375244" h="82"/>
 		<object x="756.16516" y="1108.2054" z="99.375" h="12"/>
 		<object x="659.4625" y="1019.62415" z="99.375" h="6"/>
@@ -744,7 +744,7 @@ Poeta-->
 		<object x="613.262" y="1017.8937" z="99.375" h="2"/>
 	</spawn>
 	<!-- Pinkbeak Airon (Monster Normal lvl:3)-->
-	<spawn map="210010000" npcid="210205" pool="9" interval="105">
+	<spawn map="210010000" npcid="210205" pool="9" interval="295">
 		<object x="728.5946" y="1078.249" z="99.375" h="80"/>
 		<object x="644.75" y="1126.82" z="99.42625" h="96"/>
 		<object x="645.78" y="1031.23" z="99.375" h="13"/>
@@ -756,11 +756,11 @@ Poeta-->
 		<object x="622.3582" y="1075.318" z="99.44217" h="70"/>
 	</spawn>
 	<!-- Porgus (NPC Normal lvl:10)-->
-	<spawn map="210010000" npcid="203192" pool="1" interval="105">
+	<spawn map="210010000" npcid="203192" pool="1" interval="295">
 		<object x="1043.9404" y="1140.8762" z="119.220215" h="86"/>
 	</spawn>
 	<!-- Qooqoo (Monster Junk lvl:1)-->
-	<spawn map="210010000" npcid="210340" pool="8" interval="105">
+	<spawn map="210010000" npcid="210340" pool="8" interval="295">
 		<object x="828.21094" y="1220.3718" z="118.38818" h="7"/>
 		<object x="850.3926" y="1234.2955" z="119.100464" h="51"/>
 		<object x="862.36426" y="1224.3661" z="118.875" h="25"/>
@@ -771,7 +771,7 @@ Poeta-->
 		<object x="816.17896" y="1230.9375" z="118.75" h="83"/>
 	</spawn>
 	<!-- Rakelaw Slink (Monster Normal lvl:3)-->
-	<spawn map="210010000" npcid="210066" pool="6" interval="105">
+	<spawn map="210010000" npcid="210066" pool="6" interval="295">
 		<object x="581.54565" y="1074.6995" z="99.375" h="115"/>
 		<object x="596.414" y="1027.6122" z="99.375" h="25"/>
 		<object x="565.4412" y="1068.898" z="99.375" h="16"/>
@@ -780,7 +780,7 @@ Poeta-->
 		<object x="561.1707" y="1063.6488" z="99.27195" h="0"/>
 	</spawn>
 	<!-- Rakelaw Slink (Monster Normal lvl:3)-->
-	<spawn map="210010000" npcid="210065" pool="15" interval="105">
+	<spawn map="210010000" npcid="210065" pool="15" interval="295">
 		<object x="629.19" y="953.53" z="99.66249" h="0"/>
 		<object x="613.88" y="954.35" z="99.375" h="0"/>
 		<object x="605.6021" y="1130.6833" z="99.77553" h="94"/>
@@ -802,7 +802,7 @@ Poeta-->
 		<object x="679.1218" y="1896.6045" z="143.74635" h="87"/>
 	</spawn>
 	<!-- Shade Fungen (Monster Normal lvl:8)-->
-	<spawn map="210010000" npcid="210191" pool="10" interval="105">
+	<spawn map="210010000" npcid="210191" pool="10" interval="295">
 		<object x="220.93661" y="1538.7538" z="100.44146" h="115"/>
 		<object x="275.75937" y="1458.5219" z="100.556046" h="104"/>
 		<object x="180.9007" y="1572.4246" z="101.88912" h="102"/>
@@ -815,7 +815,7 @@ Poeta-->
 		<object x="189.9761" y="1608.6562" z="103.873505" h="86"/>
 	</spawn>
 	<!-- Shortbristle Bellepig (Monster Normal lvl:5)-->
-	<spawn map="210010000" npcid="210262" pool="30" interval="105">
+	<spawn map="210010000" npcid="210262" pool="30" interval="295">
 		<object x="476.111" y="1516.6946" z="105.25523" h="45"/>
 		<object x="488.7771" y="1520.6133" z="104.892624" h="101"/>
 		<object x="484.17" y="1494.62" z="105.896255" h="0"/>
@@ -848,7 +848,7 @@ Poeta-->
 		<object x="549.2595" y="1598.7404" z="113.935074" h="35"/>
 	</spawn>
 	<!-- Smallfoot Kerub (Monster Normal lvl:2)-->
-	<spawn map="210010000" npcid="210665" pool="12" interval="105">
+	<spawn map="210010000" npcid="210665" pool="12" interval="295">
 		<object x="1044.95" y="1104.25" z="114.6375" h="0"/>
 		<object x="959.42334" y="1184.1526" z="108.23102" h="2"/>
 		<object x="1041.13" y="1121.99" z="118.765625" h="0"/>
@@ -863,7 +863,7 @@ Poeta-->
 		<object x="1031.9803" y="1135.0216" z="115.28905" h="82"/>
 	</spawn>
 	<!-- Smallhorn Kerub (Monster Normal lvl:3)-->
-	<spawn map="210010000" npcid="210670" pool="15" interval="105">
+	<spawn map="210010000" npcid="210670" pool="15" interval="295">
 		<object x="725.92914" y="1207.7913" z="111.879425" h="86"/>
 		<object x="733.6589" y="1229.6312" z="110.02132" h="114"/>
 		<object x="716.39795" y="1014.7018" z="103.71272" h="60"/>
@@ -881,7 +881,7 @@ Poeta-->
 		<object x="653.90564" y="913.6256" z="102.9473" h="34"/>
 	</spawn>
 	<!-- Spore Forest Sylphen (Monster Normal lvl:7)-->
-	<spawn map="210010000" npcid="210084" pool="16" interval="105">
+	<spawn map="210010000" npcid="210084" pool="16" interval="295">
 		<object x="275.1208" y="1648.8162" z="103.19111" h="2"/>
 		<object x="404.66647" y="1706.2972" z="109.33781" h="62"/>
 		<object x="352.18" y="1704.34" z="109.86624" h="0"/>
@@ -900,11 +900,11 @@ Poeta-->
 		<object x="285.83984" y="1683.7227" z="109.96094" h="44"/>
 	</spawn>
 	<!-- Start (NPC Normal lvl:3)-->
-	<spawn map="210010000" npcid="206002" pool="1" interval="105">
+	<spawn map="210010000" npcid="206002" pool="1" interval="295">
 		<object x="1214.911" y="1050.575" z="140.70294" h="15"/>
 	</spawn>
 	<!-- Striped Kerub (Monster Normal lvl:1)-->
-	<spawn map="210010000" npcid="210133" pool="18" interval="105">
+	<spawn map="210010000" npcid="210133" pool="18" interval="295">
 		<object x="1064.2896" y="951.27246" z="135.64523" h="37"/>
 		<object x="1144.7008" y="1005.68677" z="133.68549" h="38"/>
 		<object x="1110.5095" y="999.2959" z="127.01454" h="19"/>
@@ -925,11 +925,11 @@ Poeta-->
 		<object x="1134.409" y="1014.66705" z="129.68558" h="22"/>
 	</spawn>
 	<!-- Supervisor Duaguru (Monster Normal lvl:10)-->
-	<spawn map="210010000" npcid="210162" pool="1" interval="105">
+	<spawn map="210010000" npcid="210162" pool="1" interval="295">
 		<object x="288.70972" y="1019.3659" z="131.96373" h="0"/>
 	</spawn>
 	<!-- Tamed Griffon (NPC Elite lvl:20)-->
-	<spawn map="210010000" npcid="203351" pool="1" interval="105">
+	<spawn map="210010000" npcid="203351" pool="1" interval="295">
 		<object x="819.722" y="1240.3114" z="118.625" h="104"/>
 	</spawn>
 	<!-- Tirratirra (Named Mob Normal lvl:4)-->
@@ -937,7 +937,7 @@ Poeta-->
 		<object x="649.0" y="1069.0" z="100.6875" h="0"/>
 	</spawn>
 	<!-- Tursin Big Boss (Monster Normal lvl:8)-->
-	<spawn map="210010000" npcid="210160" pool="18" interval="105">
+	<spawn map="210010000" npcid="210160" pool="18" interval="295">
 		<object x="266.45877" y="1872.9489" z="152.39923" h="19"/>
 		<object x="334.0" y="2085.0" z="157.375" h="88"/>
 		<object x="353.0" y="2094.0" z="154.6875" h="88"/>
@@ -958,7 +958,7 @@ Poeta-->
 		<object x="238.0" y="1766.0" z="131.75" h="88"/>
 	</spawn>
 	<!-- Tursin Loudmouth (Monster Normal lvl:8)-->
-	<spawn map="210010000" npcid="210157" pool="20" interval="105">
+	<spawn map="210010000" npcid="210157" pool="20" interval="295">
 		<object x="229.07533" y="1021.5934" z="121.80803" h="28"/>
 		<object x="231.47893" y="1193.0651" z="111.6456" h="33"/>
 		<object x="206.76799" y="1089.7312" z="110.3937" h="10"/>
@@ -981,7 +981,7 @@ Poeta-->
 		<object x="269.0054" y="1051.155" z="122.083855" h="0"/>
 	</spawn>
 	<!-- Tursin Outlaw (Monster Normal lvl:8)-->
-	<spawn map="210010000" npcid="210181" pool="16" interval="105">
+	<spawn map="210010000" npcid="210181" pool="16" interval="295">
 		<object x="299.8626" y="1899.6705" z="154.71565" h="113"/>
 		<object x="340.0" y="1902.0" z="159.0" h="57"/>
 		<object x="215.36143" y="1873.5308" z="171.09041" h="4"/>
@@ -1000,7 +1000,7 @@ Poeta-->
 		<object x="282.3359" y="2012.8594" z="161.17871" h="83"/>
 	</spawn>
 	<!-- Wandering Kerub (Monster Normal lvl:3)-->
-	<spawn map="210010000" npcid="210666" pool="35" interval="105">
+	<spawn map="210010000" npcid="210666" pool="35" interval="295">
 		<object x="612.68774" y="916.547" z="103.082016" h="117"/>
 		<object x="642.47955" y="888.77954" z="103.57628" h="57"/>
 		<object x="716.3374" y="1199.2018" z="107.78446" h="90"/>
@@ -1038,19 +1038,19 @@ Poeta-->
 		<object x="590.89954" y="933.16974" z="106.13756" h="55"/>
 	</spawn>
 	<!-- Wandering Kerub (Monster Normal lvl:3)-->
-	<spawn map="210010000" npcid="210135" pool="4" interval="105">
+	<spawn map="210010000" npcid="210135" pool="4" interval="295">
 		<object x="872.1003" y="1141.914" z="105.28227" h="41"/>
 		<object x="872.803" y="1143.096" z="105.11301" h="43"/>
 		<object x="488.1769" y="1077.746" z="116.443405" h="107"/>
 		<object x="486.449" y="1082.118" z="117.09694" h="46"/>
 	</spawn>
 	<!-- Wandering Kerub (Monster Normal lvl:3)-->
-	<spawn map="210010000" npcid="210669" pool="2" interval="105">
+	<spawn map="210010000" npcid="210669" pool="2" interval="295">
 		<object x="711.28033" y="1160.734" z="106.53415" h="88"/>
 		<object x="670.45996" y="1164.2509" z="106.292244" h="42"/>
 	</spawn>
 	<!-- Water Spirit (NPC Normal lvl:19)-->
-	<spawn map="210010000" npcid="201024" pool="1" interval="105">
+	<spawn map="210010000" npcid="201024" pool="1" interval="295">
 		<object x="844.08" y="1217.13" z="118.945625" h="28"/>
 	</spawn>
 </spawns>

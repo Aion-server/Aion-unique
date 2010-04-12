@@ -19,11 +19,11 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="1736.01" y="2372.19" z="2940.2053" h="85"/>
 	</spawn>
 	<!-- Acetlar (NPC Normal lvl:50)-->
-	<spawn map="400010000" npcid="271052" pool="1" interval="105">
+	<spawn map="400010000" npcid="271052" pool="1" interval="295">
 		<object x="721.91" y="2915.62" z="2883.9634" h="5"/>
 	</spawn>
 	<!-- Aether's Defender (Monster Normal lvl:50)-->
-	<spawn map="400010000" npcid="251002" pool="9" interval="105">
+	<spawn map="400010000" npcid="251002" pool="9" interval="295">
 		<object x="2033.03" y="2017.37" z="2278.2056" h="50"/>
 		<object x="2068.62" y="2060.92" z="2274.1128" h="104"/>
 		<object x="2052.49" y="2101.28" z="2273.447" h="95"/>
@@ -47,7 +47,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="2804.74" y="818.77" z="2869.9075" h="36"/>
 	</spawn>
 	<!-- Ancient Balaur (Monster Normal lvl:38)-->
-	<spawn map="400010000" npcid="256200" pool="11" interval="105">
+	<spawn map="400010000" npcid="256200" pool="11" interval="295">
 		<object x="1606.727" y="2217.929" z="2920.9285" h="75"/>
 		<object x="1563.314" y="2309.85" z="2915.1384" h="78"/>
 		<object x="1551.725" y="2267.751" z="2918.683" h="31"/>
@@ -61,7 +61,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="1577.013" y="2282.737" z="2917.683" h="84"/>
 	</spawn>
 	<!-- Ancient Defender (Monster Normal lvl:50)-->
-	<spawn map="400010000" npcid="251018" pool="14" interval="105">
+	<spawn map="400010000" npcid="251018" pool="14" interval="295">
 		<object x="2266.09" y="1828.24" z="2282.692" h="118"/>
 		<object x="2300.62" y="1801.05" z="2237.033" h="29"/>
 		<object x="2324.33" y="1846.37" z="2236.7544" h="64"/>
@@ -78,7 +78,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="2285.47" y="1863.89" z="2235.9536" h="46"/>
 	</spawn>
 	<!-- Ancient Drake (Monster Normal lvl:40)-->
-	<spawn map="400010000" npcid="255704" pool="19" interval="105">
+	<spawn map="400010000" npcid="255704" pool="19" interval="295">
 		<object x="2203.25" y="2244.5" z="2869.4062" h="36"/>
 		<object x="2107.375" y="2642.5" z="2902.2744" h="114"/>
 		<object x="2132.0" y="2221.875" z="2876.5278" h="118"/>
@@ -100,7 +100,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="2157.2" y="2174.258" z="2873.4746" h="109"/>
 	</spawn>
 	<!-- Ancient Garcikhan (Monster Normal lvl:30)-->
-	<spawn map="400010000" npcid="254529" pool="7" interval="105">
+	<spawn map="400010000" npcid="254529" pool="7" interval="295">
 		<object x="2634.151" y="669.4632" z="2915.6804" h="31"/>
 		<object x="2575.315" y="674.044" z="2897.3901" h="95"/>
 		<object x="2644.179" y="683.2178" z="2926.6333" h="45"/>
@@ -110,7 +110,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="2692.542" y="657.884" z="2941.2332" h="75"/>
 	</spawn>
 	<!-- Ancient Golem (Monster Normal lvl:31)-->
-	<spawn map="400010000" npcid="254510" pool="14" interval="105">
+	<spawn map="400010000" npcid="254510" pool="14" interval="295">
 		<object x="3142.727" y="876.6916" z="2821.2708" h="51"/>
 		<object x="2888.467" y="1071.246" z="2829.1216" h="11"/>
 		<object x="2872.984" y="975.8666" z="2794.1514" h="67"/>
@@ -127,7 +127,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="2799.02" y="1134.719" z="2806.9338" h="56"/>
 	</spawn>
 	<!-- Ancient Guardstone (Monster Normal lvl:30)-->
-	<spawn map="400010000" npcid="254550" pool="9" interval="105">
+	<spawn map="400010000" npcid="254550" pool="9" interval="295">
 		<object x="2942.233" y="617.287" z="2879.9485" h="42"/>
 		<object x="2766.246" y="1419.09" z="2825.0898" h="48"/>
 		<object x="2944.543" y="508.9323" z="2884.7498" h="32"/>
@@ -144,7 +144,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="622.8976" y="2035.834" z="2736.4043" h="74"/>
 	</spawn>
 	<!-- Ashikar Apprentice (Monster Normal lvl:28)-->
-	<spawn map="400010000" npcid="253731" pool="8" interval="105">
+	<spawn map="400010000" npcid="253731" pool="8" interval="295">
 		<object x="1071.082" y="1624.247" z="1591.5801" h="59"/>
 		<object x="918.2682" y="1670.552" z="1596.1598" h="18"/>
 		<object x="928.6378" y="1594.777" z="1600.8278" h="57"/>
@@ -155,7 +155,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="678.5" y="918.375" z="1676.8716" h="113"/>
 	</spawn>
 	<!-- Ashikar Assaulter (Monster Normal lvl:27)-->
-	<spawn map="400010000" npcid="253610" pool="29" interval="105">
+	<spawn map="400010000" npcid="253610" pool="29" interval="295">
 		<object x="941.1474" y="1787.246" z="1589.6803" h="79"/>
 		<object x="1197.732" y="1811.421" z="1585.2349" h="61"/>
 		<object x="908.1034" y="1804.9" z="1588.3673" h="47"/>
@@ -187,7 +187,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="1215.535" y="1743.971" z="1580.4683" h="64"/>
 	</spawn>
 	<!-- Ashikar Churl (Monster Normal lvl:28)-->
-	<spawn map="400010000" npcid="253619" pool="20" interval="105">
+	<spawn map="400010000" npcid="253619" pool="20" interval="295">
 		<object x="1213.396" y="1687.823" z="1585.4294" h="10"/>
 		<object x="941.931" y="1465.743" z="1612.8632" h="91"/>
 		<object x="1196.755" y="1565.855" z="1591.1387" h="48"/>
@@ -210,7 +210,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="583.0" y="986.375" z="1693.6051" h="10"/>
 	</spawn>
 	<!-- Ashikar Infantry (Monster Normal lvl:29)-->
-	<spawn map="400010000" npcid="253612" pool="24" interval="105">
+	<spawn map="400010000" npcid="253612" pool="24" interval="295">
 		<object x="735.0723" y="1075.911" z="1683.2598" h="3"/>
 		<object x="623.4855" y="972.6536" z="1688.5747" h="39"/>
 		<object x="714.6743" y="1070.576" z="1683.6426" h="95"/>
@@ -237,7 +237,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="684.4009" y="1002.1318" z="1682.6821" h="75"/>
 	</spawn>
 	<!-- Ashikar Vanguard (Monster Normal lvl:27)-->
-	<spawn map="400010000" npcid="253614" pool="25" interval="105">
+	<spawn map="400010000" npcid="253614" pool="25" interval="295">
 		<object x="1109.401" y="1790.168" z="1581.701" h="42"/>
 		<object x="1081.831" y="1790.94" z="1586.7549" h="18"/>
 		<object x="874.5405" y="1821.266" z="1591.2183" h="58"/>
@@ -265,7 +265,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="1099.196" y="1629.464" z="1587.5746" h="98"/>
 	</spawn>
 	<!-- Asteria Trico (Monster Normal lvl:31)-->
-	<spawn map="400010000" npcid="256602" pool="12" interval="105">
+	<spawn map="400010000" npcid="256602" pool="12" interval="295">
 		<object x="426.4394" y="3228.881" z="2839.338" h="65"/>
 		<object x="520.6361" y="3163.534" z="2827.3127" h="51"/>
 		<object x="785.184" y="3212.125" z="2873.01" h="61"/>
@@ -284,7 +284,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="616.5165" y="2003.78" z="2726.5874" h="19"/>
 	</spawn>
 	<!-- Big Horn Granker (Monster Normal lvl:31)-->
-	<spawn map="400010000" npcid="256659" pool="19" interval="105">
+	<spawn map="400010000" npcid="256659" pool="19" interval="295">
 		<object x="1012.418" y="3035.793" z="2928.163" h="64"/>
 		<object x="1031.962" y="2942.445" z="2926.1633" h="27"/>
 		<object x="1022.717" y="3005.656" z="2929.0645" h="70"/>
@@ -306,7 +306,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="1015.866" y="2973.773" z="2926.4712" h="45"/>
 	</spawn>
 	<!-- Black Blaze Spirit (Monster Normal lvl:40)-->
-	<spawn map="400010000" npcid="255160" pool="28" interval="105">
+	<spawn map="400010000" npcid="255160" pool="28" interval="295">
 		<object x="2485.219" y="1617.519" z="2883.666" h="56"/>
 		<object x="2435.353" y="1587.16" z="2879.9114" h="14"/>
 		<object x="2439.65" y="1564.858" z="2881.3174" h="13"/>
@@ -337,7 +337,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="2510.051" y="1581.083" z="2880.3013" h="33"/>
 	</spawn>
 	<!-- Bloody Flame Spirit (Monster Normal lvl:39)-->
-	<spawn map="400010000" npcid="255664" pool="14" interval="105">
+	<spawn map="400010000" npcid="255664" pool="14" interval="295">
 		<object x="2196.875" y="2358.125" z="2878.9426" h="43"/>
 		<object x="2178.5" y="2373.5" z="2883.3513" h="52"/>
 		<object x="2183.0" y="2408.875" z="2885.03" h="114"/>
@@ -354,7 +354,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="2292.75" y="2521.0" z="2874.1738" h="117"/>
 	</spawn>
 	<!-- Blue Crystal Golem (Monster Normal lvl:25)-->
-	<spawn map="400010000" npcid="253044" pool="60" interval="105">
+	<spawn map="400010000" npcid="253044" pool="60" interval="295">
 		<object x="2075.005" y="3256.283" z="1661.9285" h="26"/>
 		<object x="2352.875" y="3383.0" z="1656.9198" h="45"/>
 		<object x="2249.079" y="3397.09" z="1645.4615" h="47"/>
@@ -441,7 +441,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="2334.47" y="3004.09" z="1686.0446" h="105"/>
 	</spawn>
 	<!-- Bronze Garcikhan (Monster Normal lvl:32)-->
-	<spawn map="400010000" npcid="254535" pool="8" interval="105">
+	<spawn map="400010000" npcid="254535" pool="8" interval="295">
 		<object x="3272.249" y="961.8443" z="2647.9421" h="70"/>
 		<object x="3265.333" y="995.7932" z="2972.669" h="112"/>
 		<object x="3291.516" y="951.6599" z="3012.187" h="62"/>
@@ -452,7 +452,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="3295.523" y="836.9677" z="2820.0771" h="21"/>
 	</spawn>
 	<!-- Cadet Archer (Monster Normal lvl:40)-->
-	<spawn map="400010000" npcid="260160" pool="68" interval="105">
+	<spawn map="400010000" npcid="260160" pool="68" interval="295">
 		<object x="2283.9" y="1864.53" z="2306.4028" h="41"/>
 		<object x="2287.39" y="1867.64" z="2305.7563" h="0"/>
 		<object x="2207.36" y="1790.14" z="2301.0134" h="89"/>
@@ -523,7 +523,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="1771.66" y="2217.84" z="2948.3708" h="107"/>
 	</spawn>
 	<!-- Cadet Fighter (Monster Normal lvl:40)-->
-	<spawn map="400010000" npcid="260145" pool="142" interval="105">
+	<spawn map="400010000" npcid="260145" pool="142" interval="295">
 		<object x="2221.49" y="1841.68" z="2306.5576" h="99"/>
 		<object x="2246.16" y="1879.84" z="2312.7625" h="21"/>
 		<object x="2181.35" y="1880.76" z="2320.1484" h="13"/>
@@ -674,7 +674,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="1986.7" y="1284.74" z="2963.5957" h="97"/>
 	</spawn>
 	<!-- Cadet Mage (Monster Normal lvl:50)-->
-	<spawn map="400010000" npcid="260175" pool="44" interval="105">
+	<spawn map="400010000" npcid="260175" pool="44" interval="295">
 		<object x="2265.4" y="1914.77" z="2311.5923" h="70"/>
 		<object x="2536.48" y="755.24" z="2869.5269" h="16"/>
 		<object x="2547.04" y="787.39" z="2869.527" h="7"/>
@@ -770,7 +770,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="634.18" y="3028.91" z="2762.132" h="24"/>
 	</spawn>
 	<!-- Cadet Priest (Monster Normal lvl:50)-->
-	<spawn map="400010000" npcid="260190" pool="5" interval="105">
+	<spawn map="400010000" npcid="260190" pool="5" interval="295">
 		<object x="2238.71" y="1904.52" z="2316.921" h="3"/>
 		<object x="2038.58" y="1898.24" z="2317.1748" h="38"/>
 		<object x="2041.76" y="1932.35" z="2317.7644" h="16"/>
@@ -996,7 +996,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="2270.81" y="3222.0" z="1668.3356" h="4"/>
 	</spawn>
 	<!-- Colossal Garcikhan (Monster Normal lvl:33)-->
-	<spawn map="400010000" npcid="254539" pool="28" interval="105">
+	<spawn map="400010000" npcid="254539" pool="28" interval="295">
 		<object x="3230.558" y="1410.596" z="2660.5327" h="56"/>
 		<object x="3357.807" y="1104.479" z="2741.4316" h="7"/>
 		<object x="3292.749" y="1097.194" z="2763.7944" h="55"/>
@@ -1027,7 +1027,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="3185.35" y="1499.634" z="2834.3008" h="5"/>
 	</spawn>
 	<!-- Corrupt Ancient Mage (Monster Normal lvl:27)-->
-	<spawn map="400010000" npcid="253052" pool="7" interval="105">
+	<spawn map="400010000" npcid="253052" pool="7" interval="295">
 		<object x="3225.001" y="3438.73" z="1540.9651" h="83"/>
 		<object x="3231.674" y="3468.558" z="1546.6732" h="102"/>
 		<object x="3154.503" y="3477.107" z="1533.136" h="62"/>
@@ -1037,12 +1037,12 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="3217.891" y="3498.878" z="1549.673" h="8"/>
 	</spawn>
 	<!-- Crushed Soul (Monster Normal lvl:25)-->
-	<spawn map="400010000" npcid="252504" pool="2" interval="105">
+	<spawn map="400010000" npcid="252504" pool="2" interval="295">
 		<object x="3073.239" y="1555.206" z="1405.3372" h="75"/>
 		<object x="3065.781" y="1542.144" z="1407.6333" h="39"/>
 	</spawn>
 	<!-- Cursed Centurion (Monster Normal lvl:32)-->
-	<spawn map="400010000" npcid="254564" pool="17" interval="105">
+	<spawn map="400010000" npcid="254564" pool="17" interval="295">
 		<object x="2981.676" y="1353.527" z="2696.0984" h="33"/>
 		<object x="2817.776" y="1505.503" z="2842.5066" h="82"/>
 		<object x="2782.118" y="1332.735" z="2695.8108" h="48"/>
@@ -1062,12 +1062,12 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="2837.912" y="1475.799" z="2664.8281" h="36"/>
 	</spawn>
 	<!-- Dakaer Apprentice (Monster Normal lvl:33)-->
-	<spawn map="400010000" npcid="256616" pool="2" interval="105">
+	<spawn map="400010000" npcid="256616" pool="2" interval="295">
 		<object x="612.3861" y="2043.807" z="2736.1157" h="27"/>
 		<object x="622.4116" y="2084.036" z="2734.053" h="115"/>
 	</spawn>
 	<!-- Dakaer Churl (Monster Normal lvl:33)-->
-	<spawn map="400010000" npcid="256650" pool="12" interval="105">
+	<spawn map="400010000" npcid="256650" pool="12" interval="295">
 		<object x="618.1" y="1972.64" z="2721.7742" h="22"/>
 		<object x="659.85" y="1896.18" z="2716.322" h="50"/>
 		<object x="594.75" y="2104.59" z="2732.541" h="43"/>
@@ -1082,7 +1082,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="527.7" y="2034.49" z="2737.2126" h="87"/>
 	</spawn>
 	<!-- Dakaer Grunt (Monster Normal lvl:33)-->
-	<spawn map="400010000" npcid="256647" pool="16" interval="105">
+	<spawn map="400010000" npcid="256647" pool="16" interval="295">
 		<object x="665.07" y="2079.92" z="2724.6833" h="29"/>
 		<object x="622.3" y="1957.55" z="2721.9858" h="114"/>
 		<object x="592.74" y="1985.21" z="2722.5603" h="56"/>
@@ -1101,7 +1101,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="730.28" y="1897.46" z="2723.5544" h="66"/>
 	</spawn>
 	<!-- Dakaer Medic (Monster Normal lvl:33)-->
-	<spawn map="400010000" npcid="256652" pool="11" interval="105">
+	<spawn map="400010000" npcid="256652" pool="11" interval="295">
 		<object x="676.66" y="2109.73" z="2726.4956" h="115"/>
 		<object x="649.54" y="1932.99" z="2717.1213" h="27"/>
 		<object x="659.07" y="1983.3" z="2722.9753" h="41"/>
@@ -1115,7 +1115,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="664.81" y="2022.42" z="2730.4053" h="100"/>
 	</spawn>
 	<!-- Dakaer Raider (Monster Normal lvl:33)-->
-	<spawn map="400010000" npcid="256636" pool="8" interval="105">
+	<spawn map="400010000" npcid="256636" pool="8" interval="295">
 		<object x="699.18" y="1909.64" z="2720.3313" h="99"/>
 		<object x="638.61" y="1962.94" z="2720.9739" h="120"/>
 		<object x="689.95" y="2143.71" z="2733.5967" h="28"/>
@@ -1126,7 +1126,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="563.37" y="2033.58" z="2733.8618" h="6"/>
 	</spawn>
 	<!-- Degenerated Drake (Monster Normal lvl:38)-->
-	<spawn map="400010000" npcid="255702" pool="31" interval="105">
+	<spawn map="400010000" npcid="255702" pool="31" interval="295">
 		<object x="2138.375" y="2641.25" z="2894.0542" h="106"/>
 		<object x="2111.625" y="2687.0" z="2903.141" h="19"/>
 		<object x="2146.625" y="2235.5" z="2876.5403" h="30"/>
@@ -1160,7 +1160,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="1562.497" y="2194.917" z="2926.103" h="105"/>
 	</spawn>
 	<!-- Degenerated Golem (Monster Normal lvl:30)-->
-	<spawn map="400010000" npcid="254501" pool="24" interval="105">
+	<spawn map="400010000" npcid="254501" pool="24" interval="295">
 		<object x="2595.148" y="520.1283" z="2885.045" h="119"/>
 		<object x="2657.284" y="514.1466" z="2890.7402" h="32"/>
 		<object x="2633.028" y="483.5511" z="2883.735" h="56"/>
@@ -1234,7 +1234,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="2219.78" y="3098.11" z="1667.2396" h="37"/>
 	</spawn>
 	<!-- Dire Acheron Drake (Monster Normal lvl:33)-->
-	<spawn map="400010000" npcid="254527" pool="39" interval="105">
+	<spawn map="400010000" npcid="254527" pool="39" interval="295">
 		<object x="3325.441" y="1084.047" z="2765.8447" h="56"/>
 		<object x="3068.328" y="1241.071" z="2648.8428" h="108"/>
 		<object x="3301.692" y="1123.144" z="2764.5415" h="104"/>
@@ -1276,7 +1276,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="3112.326" y="1370.365" z="2662.1033" h="100"/>
 	</spawn>
 	<!-- Disturbed Resident (Monster Normal lvl:30)-->
-	<spawn map="400010000" npcid="254513" pool="48" interval="105">
+	<spawn map="400010000" npcid="254513" pool="48" interval="295">
 		<object x="2649.929" y="688.5394" z="2901.4585" h="37"/>
 		<object x="2727.632" y="667.8629" z="2915.9915" h="117"/>
 		<object x="2663.739" y="648.708" z="2906.3428" h="48"/>
@@ -1327,7 +1327,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="2638.188" y="676.4786" z="2932.2134" h="66"/>
 	</spawn>
 	<!-- Draconute Flamecrest (Monster Normal lvl:26)-->
-	<spawn map="400010000" npcid="253740" pool="20" interval="105">
+	<spawn map="400010000" npcid="253740" pool="20" interval="295">
 		<object x="960.34" y="2461.33" z="1494.3922" h="45"/>
 		<object x="1005.24" y="2472.24" z="1488.8864" h="17"/>
 		<object x="1051.22" y="2427.37" z="1493.6045" h="88"/>
@@ -1350,7 +1350,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="982.11" y="2387.75" z="1486.9899" h="76"/>
 	</spawn>
 	<!-- Draconute Flamehorn (Monster Normal lvl:26)-->
-	<spawn map="400010000" npcid="253739" pool="20" interval="105">
+	<spawn map="400010000" npcid="253739" pool="20" interval="295">
 		<object x="967.21" y="2431.62" z="1492.7189" h="19"/>
 		<object x="948.4" y="2481.47" z="1495.7299" h="109"/>
 		<object x="974.52" y="2478.03" z="1493.6124" h="44"/>
@@ -1415,7 +1415,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="2626.65" y="2865.08" z="1506.3636" h="49"/>
 	</spawn>
 	<!-- Dry Ember (Monster Normal lvl:29)-->
-	<spawn map="400010000" npcid="253700" pool="36" interval="105">
+	<spawn map="400010000" npcid="253700" pool="36" interval="295">
 		<object x="958.8469" y="811.5784" z="1666.8783" h="85"/>
 		<object x="692.6581" y="862.8898" z="1669.973" h="45"/>
 		<object x="895.3652" y="944.2194" z="1657.7784" h="46"/>
@@ -1454,7 +1454,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="780.7037" y="650.1319" z="1681.1815" h="18"/>
 	</spawn>
 	<!-- Dry Root Scout (Monster Normal lvl:28)-->
-	<spawn map="400010000" npcid="253711" pool="14" interval="105">
+	<spawn map="400010000" npcid="253711" pool="14" interval="295">
 		<object x="1328.922" y="1624.461" z="1605.6216" h="95"/>
 		<object x="1126.794" y="1635.192" z="1583.9502" h="51"/>
 		<object x="1323.532" y="1602.021" z="1608.1869" h="65"/>
@@ -1471,7 +1471,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="1083.909" y="1300.329" z="1502.2246" h="108"/>
 	</spawn>
 	<!-- Enduring Garcikhan (Monster Normal lvl:32)-->
-	<spawn map="400010000" npcid="254568" pool="23" interval="105">
+	<spawn map="400010000" npcid="254568" pool="23" interval="295">
 		<object x="2901.358" y="1598.985" z="2798.7234" h="20"/>
 		<object x="2946.931" y="1523.981" z="2872.82" h="99"/>
 		<object x="2813.777" y="1504.724" z="2842.5066" h="78"/>
@@ -1497,7 +1497,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="2905.534" y="1507.181" z="2845.2854" h="50"/>
 	</spawn>
 	<!-- Eternal Assailant (Monster Normal lvl:25)-->
-	<spawn map="400010000" npcid="252514" pool="18" interval="105">
+	<spawn map="400010000" npcid="252514" pool="18" interval="295">
 		<object x="3087.21" y="2667.0" z="1459.745" h="72"/>
 		<object x="3052.75" y="2667.68" z="1463.082" h="22"/>
 		<object x="3072.69" y="2663.71" z="1461.18" h="114"/>
@@ -1518,7 +1518,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="3110.84" y="2686.82" z="1457.9392" h="109"/>
 	</spawn>
 	<!-- Eternal Guard (Monster Normal lvl:26)-->
-	<spawn map="400010000" npcid="253022" pool="7" interval="105">
+	<spawn map="400010000" npcid="253022" pool="7" interval="295">
 		<object x="2256.5" y="2969.125" z="1687.3435" h="31"/>
 		<object x="2192.375" y="3046.125" z="1679.4642" h="93"/>
 		<object x="2249.5" y="3007.5" z="1682.0757" h="91"/>
@@ -1528,7 +1528,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="2205.0" y="3009.125" z="1635.1309" h="14"/>
 	</spawn>
 	<!-- Eternal Priest (Monster Normal lvl:26)-->
-	<spawn map="400010000" npcid="253026" pool="6" interval="105">
+	<spawn map="400010000" npcid="253026" pool="6" interval="295">
 		<object x="2219.0" y="3041.625" z="1676.9124" h="32"/>
 		<object x="2214.0" y="3064.5" z="1675.5787" h="103"/>
 		<object x="2179.25" y="3086.25" z="1668.8855" h="80"/>
@@ -1537,7 +1537,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="2249.75" y="3068.5" z="1675.1932" h="28"/>
 	</spawn>
 	<!-- Eternal Soldier (Monster Normal lvl:25)-->
-	<spawn map="400010000" npcid="252515" pool="34" interval="105">
+	<spawn map="400010000" npcid="252515" pool="34" interval="295">
 		<object x="3188.375" y="1924.685" z="1460.0238" h="1"/>
 		<object x="3189.125" y="1948.935" z="1459.0533" h="30"/>
 		<object x="3200.101" y="1910.357" z="1459.8269" h="115"/>
@@ -1574,7 +1574,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="2228.81" y="3010.9" z="1677.4296" h="47"/>
 	</spawn>
 	<!-- Eternal Swordfighter (Monster Normal lvl:26)-->
-	<spawn map="400010000" npcid="253004" pool="6" interval="105">
+	<spawn map="400010000" npcid="253004" pool="6" interval="295">
 		<object x="2165.125" y="3031.125" z="1682.1066" h="11"/>
 		<object x="2316.25" y="2987.625" z="1688.8301" h="74"/>
 		<object x="2315.834" y="3016.432" z="1684.4597" h="13"/>
@@ -1583,7 +1583,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="2157.257" y="3059.5" z="1676.5514" h="10"/>
 	</spawn>
 	<!-- Eternal Warrior (Monster Normal lvl:25)-->
-	<spawn map="400010000" npcid="252511" pool="36" interval="105">
+	<spawn map="400010000" npcid="252511" pool="36" interval="295">
 		<object x="3181.685" y="1901.925" z="1459.9377" h="76"/>
 		<object x="3224.353" y="1903.554" z="1456.971" h="66"/>
 		<object x="3215.5" y="1921.706" z="1457.3829" h="70"/>
@@ -1622,7 +1622,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="3188.192" y="2576.75" z="1489.6542" h="5"/>
 	</spawn>
 	<!-- Evolved Golem (Monster Normal lvl:25)-->
-	<spawn map="400010000" npcid="253047" pool="20" interval="105">
+	<spawn map="400010000" npcid="253047" pool="20" interval="295">
 		<object x="2254.18" y="3352.909" z="1649.466" h="114"/>
 		<object x="2202.5" y="3363.25" z="1653.1907" h="33"/>
 		<object x="2218.5" y="3333.875" z="1652.226" h="81"/>
@@ -1645,7 +1645,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="2425.375" y="3317.25" z="1670.7229" h="34"/>
 	</spawn>
 	<!-- Fallen Warrior (Monster Normal lvl:25)-->
-	<spawn map="400010000" npcid="253001" pool="42" interval="105">
+	<spawn map="400010000" npcid="253001" pool="42" interval="295">
 		<object x="2091.125" y="3157.375" z="1651.866" h="38"/>
 		<object x="2097.375" y="3293.125" z="1662.9027" h="18"/>
 		<object x="2102.625" y="3402.25" z="1669.7133" h="39"/>
@@ -1690,7 +1690,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="2368.654" y="3313.12" z="1663.4656" h="22"/>
 	</spawn>
 	<!-- Fearful Spirit (Monster Normal lvl:34)-->
-	<spawn map="400010000" npcid="256668" pool="20" interval="105">
+	<spawn map="400010000" npcid="256668" pool="20" interval="295">
 		<object x="1267.67" y="2052.75" z="2883.7314" h="116"/>
 		<object x="1207.96" y="2095.68" z="2876.024" h="98"/>
 		<object x="1206.11" y="2155.19" z="2879.9304" h="79"/>
@@ -1713,7 +1713,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="1066.67" y="2092.44" z="2869.9502" h="79"/>
 	</spawn>
 	<!-- Field Generator (Monster Normal lvl:5)-->
-	<spawn map="400010000" npcid="263208" pool="3" interval="105">
+	<spawn map="400010000" npcid="263208" pool="3" interval="295">
 		<object x="2986.06" y="2578.14" z="1489.0995" h="83"/>
 		<object x="2614.88" y="2860.25" z="1499.2722" h="114"/>
 		<object x="1379.93" y="1189.16" z="1536.0299" h="93"/>
@@ -1731,7 +1731,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="768.90906" y="2955.1409" z="2856.6658" h="30"/>
 	</spawn>
 	<!-- Fierce Golem (Monster Normal lvl:26)-->
-	<spawn map="400010000" npcid="252547" pool="22" interval="105">
+	<spawn map="400010000" npcid="252547" pool="22" interval="295">
 		<object x="2988.449" y="2168.972" z="1469.7996" h="115"/>
 		<object x="3435.913" y="2101.592" z="1467.382" h="115"/>
 		<object x="2971.799" y="2166.386" z="1470.2029" h="102"/>
@@ -1756,7 +1756,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="3207.423" y="2950.614" z="1430.5431" h="8"/>
 	</spawn>
 	<!-- Fire's Defender (Monster Normal lvl:50)-->
-	<spawn map="400010000" npcid="251021" pool="6" interval="105">
+	<spawn map="400010000" npcid="251021" pool="6" interval="295">
 		<object x="2010.69" y="1993.71" z="2275.5115" h="101"/>
 		<object x="1974.36" y="1953.21" z="2277.4036" h="24"/>
 		<object x="1965.56" y="1978.4" z="2275.692" h="93"/>
@@ -1765,7 +1765,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="1969.82" y="1914.91" z="2278.1648" h="58"/>
 	</spawn>
 	<!-- Flame Hoverstone (Monster Normal lvl:27)-->
-	<spawn map="400010000" npcid="253714" pool="22" interval="105">
+	<spawn map="400010000" npcid="253714" pool="22" interval="295">
 		<object x="1006.49" y="1936.07" z="1604.7625" h="82"/>
 		<object x="1039.62" y="1951.42" z="1605.8335" h="33"/>
 		<object x="1066.18" y="1969.69" z="1606.9922" h="9"/>
@@ -1795,7 +1795,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="2141.29" y="2162.15" z="2268.2312" h="113"/>
 	</spawn>
 	<!-- Fortress Arcanist (Monster Normal lvl:40)-->
-	<spawn map="400010000" npcid="260260" pool="132" interval="105">
+	<spawn map="400010000" npcid="260260" pool="132" interval="295">
 		<object x="2265.22" y="1898.72" z="2311.377" h="119"/>
 		<object x="2263.61" y="1900.85" z="2311.7998" h="90"/>
 		<object x="2264.02" y="1898.98" z="2311.6704" h="34"/>
@@ -1930,7 +1930,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="626.19" y="3050.31" z="2720.2651" h="43"/>
 	</spawn>
 	<!-- Fortress Defender (Monster Normal lvl:40)-->
-	<spawn map="400010000" npcid="260254" pool="77" interval="105">
+	<spawn map="400010000" npcid="260254" pool="77" interval="295">
 		<object x="2137.646" y="1810.188" z="2307.3564" h="36"/>
 		<object x="2966.56" y="2590.293" z="1474.748" h="31"/>
 		<object x="2968.049" y="2580.432" z="1300.1788" h="28"/>
@@ -2093,7 +2093,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="734.1" y="2981.65" z="2892.6348" h="120"/>
 	</spawn>
 	<!-- Fortress Initiate (Monster Normal lvl:50)-->
-	<spawn map="400010000" npcid="260263" pool="10" interval="105">
+	<spawn map="400010000" npcid="260263" pool="10" interval="295">
 		<object x="2138.16" y="2048.935" z="2309.2163" h="54"/>
 		<object x="2022.44" y="1217.64" z="2959.9873" h="112"/>
 		<object x="2099.11" y="1336.66" z="2964.9001" h="53"/>
@@ -2185,7 +2185,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="1776.822" y="2293.636" z="2942.411" h="64"/>
 	</spawn>
 	<!-- Fortress Ranger (Monster Normal lvl:40)-->
-	<spawn map="400010000" npcid="260257" pool="119" interval="105">
+	<spawn map="400010000" npcid="260257" pool="119" interval="295">
 		<object x="2237.98" y="1838.81" z="2305.6118" h="83"/>
 		<object x="2239.31" y="1836.99" z="2305.1638" h="7"/>
 		<object x="2237.01" y="1839.16" z="2305.7356" h="37"/>
@@ -2431,7 +2431,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="782.5948" y="2951.836" z="2907.4785" h="98"/>
 	</spawn>
 	<!-- Furious Storm Spirit (Monster Normal lvl:32)-->
-	<spawn map="400010000" npcid="256631" pool="20" interval="105">
+	<spawn map="400010000" npcid="256631" pool="20" interval="295">
 		<object x="848.72" y="2054.42" z="2866.9915" h="77"/>
 		<object x="933.04" y="1949.02" z="2899.937" h="29"/>
 		<object x="933.9" y="1935.55" z="2899.1294" h="50"/>
@@ -2478,7 +2478,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="2265.84" y="3252.95" z="1664.1215" h="8"/>
 	</spawn>
 	<!-- Ghost of Oblivion (Monster Normal lvl:30)-->
-	<spawn map="400010000" npcid="254541" pool="31" interval="105">
+	<spawn map="400010000" npcid="254541" pool="31" interval="295">
 		<object x="2588.177" y="545.9279" z="2886.1592" h="9"/>
 		<object x="2621.517" y="506.8496" z="2886.6987" h="102"/>
 		<object x="2578.225" y="601.7251" z="2883.16" h="5"/>
@@ -2520,7 +2520,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="2143.0857" y="1900.1971" z="2274.8872" h="100"/>
 	</spawn>
 	<!-- Greedy Pretor (Monster Normal lvl:38)-->
-	<spawn map="400010000" npcid="255694" pool="30" interval="105">
+	<spawn map="400010000" npcid="255694" pool="30" interval="295">
 		<object x="2419.125" y="2135.75" z="3000.811" h="67"/>
 		<object x="2679.915" y="2151.883" z="3000.6462" h="73"/>
 		<object x="2562.625" y="2151.375" z="2998.9802" h="20"/>
@@ -2553,7 +2553,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="2637.0" y="2111.25" z="3001.627" h="74"/>
 	</spawn>
 	<!-- Gudharten (Monster Normal lvl:40)-->
-	<spawn map="400010000" npcid="264769" pool="1" interval="105">
+	<spawn map="400010000" npcid="264769" pool="1" interval="295">
 		<object x="1354.06" y="1170.359" z="1507.4271" h="56"/>
 	</spawn>
 	<!-- Healing Aura Artifact Core (Monster Elite lvl:10)-->
@@ -2563,7 +2563,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="1433.45" y="1150.16" z="1512.9406" h="52"/>
 	</spawn>
 	<!-- Hemera (Monster Normal lvl:50)-->
-	<spawn map="400010000" npcid="266553" pool="1" interval="105">
+	<spawn map="400010000" npcid="266553" pool="1" interval="295">
 		<object x="2705.621" y="797.0386" z="2865.1409" h="43"/>
 	</spawn>
 	<!-- Henchman Ladun (Named Mob Hero lvl:41)-->
@@ -2571,19 +2571,19 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="2145.64" y="2486.65" z="2891.3315" h="0"/>
 	</spawn>
 	<!-- Herat (Monster Normal lvl:50)-->
-	<spawn map="400010000" npcid="266554" pool="1" interval="105">
+	<spawn map="400010000" npcid="266554" pool="1" interval="295">
 		<object x="2705.621" y="797.0386" z="2865.1409" h="29"/>
 	</spawn>
 	<!-- Herder (Monster Normal lvl:50)-->
-	<spawn map="400010000" npcid="270166" pool="1" interval="105">
+	<spawn map="400010000" npcid="270166" pool="1" interval="295">
 		<object x="1817.465" y="2321.328" z="2931.5413" h="31"/>
 	</spawn>
 	<!-- Herona (Monster Normal lvl:50)-->
-	<spawn map="400010000" npcid="268017" pool="1" interval="105">
+	<spawn map="400010000" npcid="268017" pool="1" interval="295">
 		<object x="2084.07" y="1249.34" z="2963.5488" h="17"/>
 	</spawn>
 	<!-- Hespheria (Monster Normal lvl:5)-->
-	<spawn map="400010000" npcid="268016" pool="1" interval="105">
+	<spawn map="400010000" npcid="268016" pool="1" interval="295">
 		<object x="1996.37" y="1259.09" z="2945.788" h="106"/>
 	</spawn>
 	<!-- Highmage Nobris (Named Mob Normal lvl:26)-->
@@ -2635,23 +2635,23 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="2146.17" y="3143.89" z="1654.8877" h="79"/>
 	</spawn>
 	<!-- Hildebrant (Monster Normal lvl:50)-->
-	<spawn map="400010000" npcid="268052" pool="1" interval="105">
+	<spawn map="400010000" npcid="268052" pool="1" interval="295">
 		<object x="2057.733" y="1245.032" z="2956.286" h="120"/>
 	</spawn>
 	<!-- Himir (Monster Normal lvl:50)-->
-	<spawn map="400010000" npcid="271018" pool="1" interval="105">
+	<spawn map="400010000" npcid="271018" pool="1" interval="295">
 		<object x="740.64" y="2952.3" z="2884.2969" h="50"/>
 	</spawn>
 	<!-- Hippodamia (Monster Normal lvl:40)-->
-	<spawn map="400010000" npcid="263295" pool="1" interval="105">
+	<spawn map="400010000" npcid="263295" pool="1" interval="295">
 		<object x="2785.47" y="2660.21" z="1485.9814" h="93"/>
 	</spawn>
 	<!-- Hohen (Monster Normal lvl:40)-->
-	<spawn map="400010000" npcid="263217" pool="1" interval="105">
+	<spawn map="400010000" npcid="263217" pool="1" interval="295">
 		<object x="2764.12" y="2582.75" z="1504.068" h="1"/>
 	</spawn>
 	<!-- Horrid Ancient Mage (Monster Normal lvl:27)-->
-	<spawn map="400010000" npcid="252552" pool="9" interval="105">
+	<spawn map="400010000" npcid="252552" pool="9" interval="295">
 		<object x="3450.533" y="3092.656" z="1544.7281" h="93"/>
 		<object x="3525.748" y="3050.052" z="1528.113" h="89"/>
 		<object x="3407.656" y="3062.378" z="1543.5521" h="8"/>
@@ -2663,7 +2663,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="3496.208" y="3077.229" z="1537.4281" h="15"/>
 	</spawn>
 	<!-- Huge Fire Spirit (Monster Normal lvl:40)-->
-	<spawn map="400010000" npcid="256165" pool="7" interval="105">
+	<spawn map="400010000" npcid="256165" pool="7" interval="295">
 		<object x="1786.373" y="1902.108" z="2887.6426" h="6"/>
 		<object x="1591.956" y="1731.437" z="2882.8647" h="59"/>
 		<object x="1762.017" y="1872.777" z="2888.0938" h="85"/>
@@ -2673,12 +2673,12 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="1791.478" y="1871.556" z="2885.7388" h="28"/>
 	</spawn>
 	<!-- Immortal Assailant (Monster Normal lvl:27)-->
-	<spawn map="400010000" npcid="253015" pool="2" interval="105">
+	<spawn map="400010000" npcid="253015" pool="2" interval="295">
 		<object x="2727.625" y="3278.0" z="1476.6632" h="30"/>
 		<object x="2680.625" y="3250.125" z="1496.4883" h="107"/>
 	</spawn>
 	<!-- Immortal Fencer (Monster Normal lvl:25)-->
-	<spawn map="400010000" npcid="253012" pool="52" interval="105">
+	<spawn map="400010000" npcid="253012" pool="52" interval="295">
 		<object x="2161.625" y="3246.75" z="1665.7067" h="104"/>
 		<object x="2103.25" y="3217.875" z="1660.2457" h="56"/>
 		<object x="2137.125" y="3213.0" z="1669.2037" h="59"/>
@@ -2733,7 +2733,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="2606.25" y="3152.875" z="1487.6396" h="25"/>
 	</spawn>
 	<!-- Immortal Guard (Monster Normal lvl:25)-->
-	<spawn map="400010000" npcid="253029" pool="41" interval="105">
+	<spawn map="400010000" npcid="253029" pool="41" interval="295">
 		<object x="2151.375" y="3264.5" z="1658.2776" h="39"/>
 		<object x="2188.25" y="3185.0" z="1662.6887" h="6"/>
 		<object x="2106.625" y="3191.5" z="1657.9271" h="8"/>
@@ -2777,7 +2777,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="2950.625" y="3277.625" z="1451.1746" h="110"/>
 	</spawn>
 	<!-- Immortal Healer (Monster Normal lvl:26)-->
-	<spawn map="400010000" npcid="252535" pool="10" interval="105">
+	<spawn map="400010000" npcid="252535" pool="10" interval="295">
 		<object x="3179.762" y="2179.948" z="1450.108" h="102"/>
 		<object x="3098.564" y="2173.503" z="1459.3684" h="22"/>
 		<object x="3102.089" y="2190.625" z="1454.7151" h="86"/>
@@ -2790,7 +2790,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="3169.227" y="2237.073" z="1445.3588" h="59"/>
 	</spawn>
 	<!-- Immortal Mage (Monster Normal lvl:25)-->
-	<spawn map="400010000" npcid="253017" pool="12" interval="105">
+	<spawn map="400010000" npcid="253017" pool="12" interval="295">
 		<object x="2247.125" y="3267.125" z="1660.619" h="105"/>
 		<object x="2240.25" y="3221.375" z="1668.4896" h="54"/>
 		<object x="2205.25" y="3252.625" z="1661.1141" h="120"/>
@@ -2805,7 +2805,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="3032.25" y="3221.875" z="1429.6173" h="108"/>
 	</spawn>
 	<!-- Immortal Medic (Monster Normal lvl:26)-->
-	<spawn map="400010000" npcid="253034" pool="10" interval="105">
+	<spawn map="400010000" npcid="253034" pool="10" interval="295">
 		<object x="2295.211" y="3245.972" z="166.1521" h="19"/>
 		<object x="2242.875" y="3164.25" z="1667.5441" h="105"/>
 		<object x="2312.375" y="3186.75" z="1666.7814" h="82"/>
@@ -2818,7 +2818,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="2899.5" y="3279.625" z="1457.047" h="36"/>
 	</spawn>
 	<!-- Immortal Pluma (Monster Normal lvl:31)-->
-	<spawn map="400010000" npcid="256655" pool="31" interval="105">
+	<spawn map="400010000" npcid="256655" pool="31" interval="295">
 		<object x="446.7207" y="2937.496" z="2837.5103" h="49"/>
 		<object x="557.6602" y="2692.402" z="2889.065" h="42"/>
 		<object x="494.9255" y="2842.038" z="2838.111" h="77"/>
@@ -2852,7 +2852,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="693.4889" y="2669.765" z="2901.1091" h="40"/>
 	</spawn>
 	<!-- Immortal Soldier (Monster Normal lvl:25)-->
-	<spawn map="400010000" npcid="252522" pool="15" interval="105">
+	<spawn map="400010000" npcid="252522" pool="15" interval="295">
 		<object x="3245.649" y="2006.623" z="1444.7881" h="62"/>
 		<object x="3062.865" y="2122.543" z="1461.5311" h="86"/>
 		<object x="3161.359" y="1909.264" z="1460.4231" h="67"/>
@@ -2870,7 +2870,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="2994.25" y="2141.323" z="1472.5854" h="22"/>
 	</spawn>
 	<!-- Immortal Warrior (Monster Normal lvl:25)-->
-	<spawn map="400010000" npcid="252518" pool="37" interval="105">
+	<spawn map="400010000" npcid="252518" pool="37" interval="295">
 		<object x="3146.162" y="1916.793" z="1458.1796" h="93"/>
 		<object x="3038.865" y="2121.168" z="1467.1188" h="10"/>
 		<object x="3083.297" y="2100.314" z="1458.7937" h="40"/>
@@ -2948,11 +2948,11 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="635.21" y="2881.19" z="2686.6943" h="0"/>
 	</spawn>
 	<!-- Ipimedea (Monster Normal lvl:40)-->
-	<spawn map="400010000" npcid="263515" pool="1" interval="105">
+	<spawn map="400010000" npcid="263515" pool="1" interval="295">
 		<object x="2636.39" y="2870.73" z="1506.5194" h="80"/>
 	</spawn>
 	<!-- Iron Explosive Mine (NPC Elite lvl:50)-->
-	<spawn map="400010000" npcid="275047" pool="34" interval="105">
+	<spawn map="400010000" npcid="275047" pool="34" interval="295">
 		<object x="2137.828" y="1873.133" z="2335.9946" h="66"/>
 		<object x="2115.418" y="1978.2689" z="2334.4412" h="51"/>
 		<object x="2179.3" y="1931.897" z="2339.5273" h="50"/>
@@ -2993,11 +2993,11 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="2712.33" y="771.37" z="2872.3818" h="101"/>
 	</spawn>
 	<!-- Keabarah (Monster Normal lvl:50)-->
-	<spawn map="400010000" npcid="271067" pool="1" interval="105">
+	<spawn map="400010000" npcid="271067" pool="1" interval="295">
 		<object x="707.67" y="2923.97" z="2877.5059" h="106"/>
 	</spawn>
 	<!-- Kercopes (NPC Normal lvl:40)-->
-	<spawn map="400010000" npcid="263264" pool="1" interval="105">
+	<spawn map="400010000" npcid="263264" pool="1" interval="295">
 		<object x="2763.37" y="2635.57" z="1504.068" h="22"/>
 	</spawn>
 	<!-- Kerubic Metamorphosis Artifact Core (Monster Elite lvl:40)-->
@@ -3012,11 +3012,11 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="1383.39" y="1220.97" z="1514.6681" h="93"/>
 	</spawn>
 	<!-- Klaw Combat Prime (Monster Normal lvl:40)-->
-	<spawn map="400010000" npcid="255154" pool="1" interval="105">
+	<spawn map="400010000" npcid="255154" pool="1" interval="295">
 		<object x="2414.642" y="1708.775" z="2879.7202" h="41"/>
 	</spawn>
 	<!-- Krotan Flame Tribe (Monster Normal lvl:38)-->
-	<spawn map="400010000" npcid="255172" pool="26" interval="105">
+	<spawn map="400010000" npcid="255172" pool="26" interval="295">
 		<object x="1946.283" y="1425.746" z="2937.398" h="61"/>
 		<object x="1929.084" y="1435.853" z="2937.7563" h="40"/>
 		<object x="2152.601" y="1443.235" z="2953.5522" h="8"/>
@@ -3045,7 +3045,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="1891.576" y="1478.106" z="2939.3757" h="52"/>
 	</spawn>
 	<!-- Krotan Klaw Bodyguard (Monster Normal lvl:38)-->
-	<spawn map="400010000" npcid="255148" pool="13" interval="105">
+	<spawn map="400010000" npcid="255148" pool="13" interval="295">
 		<object x="2141.875" y="1613.0" z="2969.7976" h="72"/>
 		<object x="2002.023" y="1624.808" z="2957.6208" h="9"/>
 		<object x="2119.903" y="1645.826" z="2971.305" h="46"/>
@@ -3061,7 +3061,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="2161.488" y="1685.901" z="2982.0984" h="25"/>
 	</spawn>
 	<!-- Krotan Klaw Fighter (Monster Normal lvl:39)-->
-	<spawn map="400010000" npcid="255149" pool="18" interval="105">
+	<spawn map="400010000" npcid="255149" pool="18" interval="295">
 		<object x="2118.415" y="1735.552" z="2985.8062" h="85"/>
 		<object x="2034.741" y="1680.142" z="2969.1292" h="104"/>
 		<object x="2154.885" y="1733.885" z="2991.2441" h="45"/>
@@ -3082,7 +3082,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="2527.665" y="1454.809" z="2904.0715" h="91"/>
 	</spawn>
 	<!-- Krotan Klaw Looker (Monster Normal lvl:38)-->
-	<spawn map="400010000" npcid="255128" pool="11" interval="105">
+	<spawn map="400010000" npcid="255128" pool="11" interval="295">
 		<object x="2008.648" y="1596.933" z="2956.0547" h="78"/>
 		<object x="2123.903" y="1621.451" z="2968.1987" h="46"/>
 		<object x="1969.388" y="1651.678" z="2959.2112" h="49"/>
@@ -3096,7 +3096,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="2152.701" y="1704.809" z="2985.7788" h="45"/>
 	</spawn>
 	<!-- Krotan Klaw Searcher (Monster Normal lvl:39)-->
-	<spawn map="400010000" npcid="255119" pool="25" interval="105">
+	<spawn map="400010000" npcid="255119" pool="25" interval="295">
 		<object x="1807.446" y="1552.612" z="2933.7463" h="47"/>
 		<object x="1849.432" y="1540.241" z="2937.197" h="120"/>
 		<object x="1729.274" y="1515.803" z="2941.3066" h="51"/>
@@ -3124,7 +3124,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="2554.96" y="1662.811" z="2882.3147" h="106"/>
 	</spawn>
 	<!-- Krotan Klaw Seeker (Monster Normal lvl:39)-->
-	<spawn map="400010000" npcid="255129" pool="15" interval="105">
+	<spawn map="400010000" npcid="255129" pool="15" interval="295">
 		<object x="2043.392" y="1647.736" z="2242.2256" h="26"/>
 		<object x="2133.545" y="1691.402" z="2976.7102" h="23"/>
 		<object x="2107.226" y="1666.998" z="2971.7546" h="86"/>
@@ -3142,7 +3142,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="2351.386" y="1708.235" z="2881.5552" h="105"/>
 	</spawn>
 	<!-- Krotan Klaw Sentinel (Monster Normal lvl:39)-->
-	<spawn map="400010000" npcid="255139" pool="27" interval="105">
+	<spawn map="400010000" npcid="255139" pool="27" interval="295">
 		<object x="1833.125" y="1516.5" z="2935.2483" h="29"/>
 		<object x="1729.535" y="1586.643" z="2949.2876" h="109"/>
 		<object x="1758.185" y="1572.736" z="2942.6492" h="92"/>
@@ -3172,7 +3172,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="2470.319" y="1472.201" z="2901.1675" h="100"/>
 	</spawn>
 	<!-- Kysis Flame Tribe (Monster Normal lvl:38)-->
-	<spawn map="400010000" npcid="255670" pool="33" interval="105">
+	<spawn map="400010000" npcid="255670" pool="33" interval="295">
 		<object x="2540.625" y="1935.75" z="3012.5867" h="111"/>
 		<object x="2625.375" y="1994.625" z="3014.6965" h="0"/>
 		<object x="2586.5" y="2005.25" z="3010.6255" h="76"/>
@@ -3208,7 +3208,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="2721.538" y="2054.385" z="3011.7622" h="112"/>
 	</spawn>
 	<!-- Larva (Monster Normal lvl:41)-->
-	<spawn map="400010000" npcid="290119" pool="17" interval="105">
+	<spawn map="400010000" npcid="290119" pool="17" interval="295">
 		<object x="2434.14" y="1476.11" z="2899.0571" h="46"/>
 		<object x="2463.55" y="1473.46" z="2900.9153" h="27"/>
 		<object x="2439.22" y="1465.34" z="2902.0977" h="98"/>
@@ -3228,7 +3228,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="2358.53" y="1628.36" z="2880.3198" h="114"/>
 	</spawn>
 	<!-- Lava Hoverstone (Monster Normal lvl:29)-->
-	<spawn map="400010000" npcid="253720" pool="56" interval="105">
+	<spawn map="400010000" npcid="253720" pool="56" interval="295">
 		<object x="850.8183" y="939.7627" z="1658.1134" h="8"/>
 		<object x="1121.643" y="1351.172" z="1503.2983" h="35"/>
 		<object x="880.355" y="853.1675" z="1674.4045" h="0"/>
@@ -3287,15 +3287,15 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="613.4609" y="710.7952" z="1676.3572" h="4"/>
 	</spawn>
 	<!-- Lead Klaw Searcher (Monster Normal lvl:40)-->
-	<spawn map="400010000" npcid="255125" pool="1" interval="105">
+	<spawn map="400010000" npcid="255125" pool="1" interval="295">
 		<object x="2361.857" y="1798.373" z="2873.5942" h="87"/>
 	</spawn>
 	<!-- Lead Klaw Seeker (Monster Normal lvl:40)-->
-	<spawn map="400010000" npcid="255135" pool="1" interval="105">
+	<spawn map="400010000" npcid="255135" pool="1" interval="295">
 		<object x="2366.413" y="1700.061" z="2880.5576" h="4"/>
 	</spawn>
 	<!-- Lead Klaw Sentinel (Monster Normal lvl:40)-->
-	<spawn map="400010000" npcid="255145" pool="1" interval="105">
+	<spawn map="400010000" npcid="255145" pool="1" interval="295">
 		<object x="2345.137" y="1770.682" z="2875.8853" h="15"/>
 	</spawn>
 	<!-- Lienhart (Monster Elite lvl:45)-->
@@ -3303,7 +3303,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="2811.38" y="2635.25" z="1504.068" h="25"/>
 	</spawn>
 	<!-- Life Reaper (Monster Normal lvl:27)-->
-	<spawn map="400010000" npcid="253039" pool="19" interval="105">
+	<spawn map="400010000" npcid="253039" pool="19" interval="295">
 		<object x="3200.57" y="3335.648" z="1531.9489" h="70"/>
 		<object x="3083.191" y="3406.293" z="1526.1798" h="66"/>
 		<object x="3225.962" y="3300.533" z="1537.714" h="70"/>
@@ -3325,11 +3325,11 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="3237.842" y="3282.055" z="1540.443" h="62"/>
 	</spawn>
 	<!-- Lifton (Monster Normal lvl:50)-->
-	<spawn map="400010000" npcid="268081" pool="1" interval="105">
+	<spawn map="400010000" npcid="268081" pool="1" interval="295">
 		<object x="2008.964" y="1252.901" z="2945.4092" h="34"/>
 	</spawn>
 	<!-- Light's Defender (Monster Normal lvl:50)-->
-	<spawn map="400010000" npcid="251033" pool="6" interval="105">
+	<spawn map="400010000" npcid="251033" pool="6" interval="295">
 		<object x="2265.08" y="1828.4" z="2264.4392" h="109"/>
 		<object x="2292.9" y="1833.63" z="2257.1384" h="26"/>
 		<object x="2306.8" y="1875.31" z="2257.0518" h="112"/>
@@ -3338,11 +3338,11 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="2336.56" y="1813.31" z="2225.3337" h="1"/>
 	</spawn>
 	<!-- Lirhel (Monster Normal lvl:40)-->
-	<spawn map="400010000" npcid="263267" pool="1" interval="105">
+	<spawn map="400010000" npcid="263267" pool="1" interval="295">
 		<object x="2760.24" y="2609.366" z="1489.6635" h="16"/>
 	</spawn>
 	<!-- Lote (NPC Normal lvl:40)-->
-	<spawn map="400010000" npcid="263265" pool="1" interval="105">
+	<spawn map="400010000" npcid="263265" pool="1" interval="295">
 		<object x="2763.37" y="2635.57" z="1504.068" h="11"/>
 	</spawn>
 	<!-- Lumion (Named Mob Normal lvl:26)-->
@@ -3370,7 +3370,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="2347.76" y="2977.46" z="1692.1294" h="60"/>
 	</spawn>
 	<!-- Magma Hoverstone (Monster Normal lvl:27)-->
-	<spawn map="400010000" npcid="253718" pool="25" interval="105">
+	<spawn map="400010000" npcid="253718" pool="25" interval="295">
 		<object x="984.3702" y="1756.182" z="1592.8691" h="26"/>
 		<object x="936.3964" y="1758.421" z="1589.7836" h="14"/>
 		<object x="981.3995" y="1771.98" z="1590.0922" h="76"/>
@@ -3398,11 +3398,11 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="923.2958" y="1504.918" z="1608.4525" h="110"/>
 	</spawn>
 	<!-- Mahd (Monster Normal lvl:50)-->
-	<spawn map="400010000" npcid="266517" pool="1" interval="105">
+	<spawn map="400010000" npcid="266517" pool="1" interval="295">
 		<object x="2705.98" y="824.08" z="2872.3818" h="97"/>
 	</spawn>
 	<!-- Memory Reaper (Monster Normal lvl:27)-->
-	<spawn map="400010000" npcid="252539" pool="21" interval="105">
+	<spawn map="400010000" npcid="252539" pool="21" interval="295">
 		<object x="3611.083" y="2971.702" z="1542.873" h="87"/>
 		<object x="3582.917" y="2968.605" z="1534.7943" h="107"/>
 		<object x="3424.567" y="3077.412" z="1545.9587" h="73"/>
@@ -3448,7 +3448,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="3033.24" y="1486.51" z="2629.9827" h="101"/>
 	</spawn>
 	<!-- Mind Reaper (Monster Normal lvl:25)-->
-	<spawn map="400010000" npcid="252537" pool="26" interval="105">
+	<spawn map="400010000" npcid="252537" pool="26" interval="295">
 		<object x="3122.884" y="2013.163" z="1460.0048" h="85"/>
 		<object x="3164.785" y="2029.327" z="1461.3966" h="64"/>
 		<object x="3118.217" y="2032.122" z="1459.7926" h="70"/>
@@ -3477,7 +3477,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="3159.028" y="2173.374" z="1449.4785" h="36"/>
 	</spawn>
 	<!-- Miren Flame Tribe (Monster Normal lvl:38)-->
-	<spawn map="400010000" npcid="256167" pool="9" interval="105">
+	<spawn map="400010000" npcid="256167" pool="9" interval="295">
 		<object x="1882.869" y="2183.872" z="2944.2988" h="75"/>
 		<object x="1899.442" y="2173.485" z="2947.6204" h="78"/>
 		<object x="1911.807" y="2390.521" z="2951.2156" h="31"/>
@@ -3489,7 +3489,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="1882.329" y="2166.565" z="2944.3462" h="110"/>
 	</spawn>
 	<!-- Miren Klaw Looker (Monster Normal lvl:40)-->
-	<spawn map="400010000" npcid="256120" pool="10" interval="105">
+	<spawn map="400010000" npcid="256120" pool="10" interval="295">
 		<object x="1612.308" y="1611.983" z="2878.7334" h="27"/>
 		<object x="1597.005" y="1667.838" z="2884.5508" h="84"/>
 		<object x="1627.484" y="1584.151" z="2873.5684" h="118"/>
@@ -3502,7 +3502,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="1632.296" y="1735.421" z="2884.3992" h="69"/>
 	</spawn>
 	<!-- Miren Klaw Sentinel (Monster Normal lvl:40)-->
-	<spawn map="400010000" npcid="256140" pool="9" interval="105">
+	<spawn map="400010000" npcid="256140" pool="9" interval="295">
 		<object x="1606.424" y="1641.782" z="2884.3008" h="12"/>
 		<object x="1614.638" y="1693.596" z="2884.7886" h="12"/>
 		<object x="1622.424" y="1712.359" z="2884.6128" h="96"/>
@@ -3514,7 +3514,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="1579.04" y="1611.515" z="2880.152" h="114"/>
 	</spawn>
 	<!-- Mirrorglass Waterworm (Monster Normal lvl:30)-->
-	<spawn map="400010000" npcid="256637" pool="42" interval="105">
+	<spawn map="400010000" npcid="256637" pool="42" interval="295">
 		<object x="1369.93" y="2893.92" z="2957.8655" h="118"/>
 		<object x="1336.96" y="2928.19" z="2930.2456" h="48"/>
 		<object x="1341.11" y="2966.41" z="2966.8054" h="33"/>
@@ -3559,7 +3559,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="1040.86" y="1909.74" z="2921.5232" h="6"/>
 	</spawn>
 	<!-- Nature's Defender (Monster Normal lvl:50)-->
-	<spawn map="400010000" npcid="251039" pool="4" interval="105">
+	<spawn map="400010000" npcid="251039" pool="4" interval="295">
 		<object x="2307.27" y="1770.29" z="2240.3228" h="29"/>
 		<object x="2271.0" y="1800.26" z="2238.5757" h="118"/>
 		<object x="2240.66" y="1766.86" z="2232.071" h="7"/>
@@ -3573,11 +3573,11 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="3327.61" y="2152.951" z="1459.9506" h="92"/>
 	</spawn>
 	<!-- Nightmare Reaper (Monster Normal lvl:27)-->
-	<spawn map="400010000" npcid="252543" pool="1" interval="105">
+	<spawn map="400010000" npcid="252543" pool="1" interval="295">
 		<object x="3114.25" y="2700.375" z="1458.3188" h="44"/>
 	</spawn>
 	<!-- Odium Golem (Monster Normal lvl:25)-->
-	<spawn map="400010000" npcid="252544" pool="39" interval="105">
+	<spawn map="400010000" npcid="252544" pool="39" interval="295">
 		<object x="3269.239" y="1914.354" z="1450.1436" h="59"/>
 		<object x="3092.783" y="2049.696" z="1460.8351" h="18"/>
 		<object x="3256.653" y="1915.27" z="1450.539" h="57"/>
@@ -3619,7 +3619,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="3255.239" y="2784.448" z="1449.8152" h="91"/>
 	</spawn>
 	<!-- Old Golem (Monster Normal lvl:31)-->
-	<spawn map="400010000" npcid="254506" pool="10" interval="105">
+	<spawn map="400010000" npcid="254506" pool="10" interval="295">
 		<object x="2724.051" y="555.5538" z="2891.8174" h="48"/>
 		<object x="2752.749" y="538.1038" z="2890.6719" h="55"/>
 		<object x="2667.23" y="570.7172" z="2887.671" h="59"/>
@@ -3660,7 +3660,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="1984.37" y="1286.19" z="2963.2314" h="31"/>
 	</spawn>
 	<!-- Prison Camp Asmodian Search Squad (Monster Normal lvl:28)-->
-	<spawn map="400010000" npcid="253641" pool="20" interval="105">
+	<spawn map="400010000" npcid="253641" pool="20" interval="295">
 		<object x="1336.99" y="1509.27" z="1566.2858" h="10"/>
 		<object x="1317.24" y="1485.26" z="1570.7906" h="3"/>
 		<object x="1362.37" y="1510.81" z="1562.7068" h="39"/>
@@ -3683,7 +3683,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="1412.67" y="1433.91" z="1554.3428" h="76"/>
 	</spawn>
 	<!-- Prison Camp Elyos Search Squad (Monster Normal lvl:28)-->
-	<spawn map="400010000" npcid="253635" pool="20" interval="105">
+	<spawn map="400010000" npcid="253635" pool="20" interval="295">
 		<object x="1337.95" y="1508.18" z="1566.353" h="49"/>
 		<object x="1315.39" y="1483.27" z="1571.1168" h="116"/>
 		<object x="1318.0" y="1485.88" z="1570.6791" h="13"/>
@@ -3706,7 +3706,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="1404.26" y="1521.49" z="1555.6323" h="81"/>
 	</spawn>
 	<!-- Prison Guard (Monster Normal lvl:28)-->
-	<spawn map="400010000" npcid="253653" pool="18" interval="105">
+	<spawn map="400010000" npcid="253653" pool="18" interval="295">
 		<object x="1545.625" y="1407.0" z="1537.8447" h="87"/>
 		<object x="1552.125" y="1400.0" z="1537.8156" h="120"/>
 		<object x="1599.0" y="1454.125" z="1537.4148" h="41"/>
@@ -3727,7 +3727,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="1588.014" y="1392.873" z="1536.7596" h="64"/>
 	</spawn>
 	<!-- Prison Sentinel (Monster Normal lvl:28)-->
-	<spawn map="400010000" npcid="253662" pool="7" interval="105">
+	<spawn map="400010000" npcid="253662" pool="7" interval="295">
 		<object x="1581.25" y="1473.75" z="1532.3976" h="27"/>
 		<object x="1514.338" y="1510.847" z="1544.4263" h="70"/>
 		<object x="1511.375" y="1609.375" z="1552.1493" h="43"/>
@@ -3789,14 +3789,14 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="2712.0393" y="671.14624" z="2920.2502" h="10"/>
 	</spawn>
 	<!-- Ranx Archer (Monster Normal lvl:36)-->
-	<spawn map="400010000" npcid="214102" pool="4" interval="105">
+	<spawn map="400010000" npcid="214102" pool="4" interval="295">
 		<object x="2340.21" y="1792.64" z="2258.8762" h="76"/>
 		<object x="2344.32" y="1789.96" z="2258.8767" h="86"/>
 		<object x="2339.86" y="1789.08" z="2258.881" h="1"/>
 		<object x="2344.51" y="1786.01" z="2258.8809" h="52"/>
 	</spawn>
 	<!-- Ranx Assault (Monster Normal lvl:40)-->
-	<spawn map="400010000" npcid="255177" pool="12" interval="105">
+	<spawn map="400010000" npcid="255177" pool="12" interval="295">
 		<object x="2725.508" y="1623.478" z="2887.7395" h="33"/>
 		<object x="2712.155" y="1608.879" z="2890.1426" h="119"/>
 		<object x="2652.922" y="1621.482" z="2883.5093" h="97"/>
@@ -3811,7 +3811,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="2487.199" y="1734.27" z="2871.7012" h="78"/>
 	</spawn>
 	<!-- Ranx Chandala Scaleguard (Monster Normal lvl:39)-->
-	<spawn map="400010000" npcid="255604" pool="22" interval="105">
+	<spawn map="400010000" npcid="255604" pool="22" interval="295">
 		<object x="2708.716" y="2242.168" z="2988.9902" h="42"/>
 		<object x="2689.375" y="2393.125" z="2978.8298" h="12"/>
 		<object x="2689.779" y="2291.35" z="2982.2637" h="22"/>
@@ -3836,7 +3836,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="2313.0" y="2492.125" z="2870.6838" h="83"/>
 	</spawn>
 	<!-- Ranx Churl (Monster Normal lvl:40)-->
-	<spawn map="400010000" npcid="256185" pool="19" interval="105">
+	<spawn map="400010000" npcid="256185" pool="19" interval="295">
 		<object x="1565.28" y="1974.44" z="2900.3296" h="7"/>
 		<object x="1460.0" y="1878.72" z="2897.4473" h="91"/>
 		<object x="1791.49" y="1837.48" z="2887.3086" h="84"/>
@@ -3862,7 +3862,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="1561.125" y="1898.625" z="2889.0708" h="115"/>
 	</spawn>
 	<!-- Ranx Dark Mage (Monster Normal lvl:39)-->
-	<spawn map="400010000" npcid="255614" pool="15" interval="105">
+	<spawn map="400010000" npcid="255614" pool="15" interval="295">
 		<object x="2639.396" y="2355.918" z="2980.9712" h="96"/>
 		<object x="2674.513" y="2354.227" z="2977.3862" h="84"/>
 		<object x="2650.699" y="2295.463" z="2981.9038" h="48"/>
@@ -3880,7 +3880,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="2082.75" y="2410.0" z="2899.4546" h="108"/>
 	</spawn>
 	<!-- Ranx Dark Warrior (Monster Normal lvl:40)-->
-	<spawn map="400010000" npcid="255610" pool="10" interval="105">
+	<spawn map="400010000" npcid="255610" pool="10" interval="295">
 		<object x="2204.375" y="2563.375" z="2882.55" h="45"/>
 		<object x="2269.543" y="2569.148" z="2878.3037" h="39"/>
 		<object x="2061.205" y="2446.0" z="2901.143" h="93"/>
@@ -3893,7 +3893,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="2256.5" y="2464.625" z="2881.1306" h="47"/>
 	</spawn>
 	<!-- Ranx Destructor (Monster Normal lvl:40)-->
-	<spawn map="400010000" npcid="256114" pool="20" interval="105">
+	<spawn map="400010000" npcid="256114" pool="20" interval="295">
 		<object x="1834.85" y="1834.44" z="2887.5278" h="104"/>
 		<object x="1688.85" y="1829.79" z="2885.4263" h="70"/>
 		<object x="1492.07" y="1962.68" z="2911.9565" h="112"/>
@@ -3916,7 +3916,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="1836.22" y="1838.81" z="2887.7236" h="9"/>
 	</spawn>
 	<!-- Ranx Grunt (Monster Normal lvl:39)-->
-	<spawn map="400010000" npcid="255679" pool="11" interval="105">
+	<spawn map="400010000" npcid="255679" pool="11" interval="295">
 		<object x="2282.733" y="2042.032" z="3033.3716" h="49"/>
 		<object x="2345.75" y="2002.375" z="3030.854" h="41"/>
 		<object x="2388.5" y="2042.375" z="3020.143" h="85"/>
@@ -3937,7 +3937,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="2091.625" y="2395.125" z="2897.531" h="109"/>
 	</spawn>
 	<!-- Ranx Infantry (Monster Normal lvl:40)-->
-	<spawn map="400010000" npcid="256177" pool="20" interval="105">
+	<spawn map="400010000" npcid="256177" pool="20" interval="295">
 		<object x="1517.8" y="2011.01" z="2912.5947" h="69"/>
 		<object x="1502.64" y="1985.37" z="2914.2852" h="29"/>
 		<object x="1540.8" y="1992.29" z="2906.7588" h="104"/>
@@ -3960,13 +3960,13 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="1540.75" y="1770.21" z="2886.19" h="114"/>
 	</spawn>
 	<!-- Ranx Mage (Monster Normal lvl:40)-->
-	<spawn map="400010000" npcid="255115" pool="3" interval="105">
+	<spawn map="400010000" npcid="255115" pool="3" interval="295">
 		<object x="2575.198" y="1548.868" z="2909.9382" h="102"/>
 		<object x="2489.866" y="1655.128" z="2879.8096" h="53"/>
 		<object x="2571.757" y="1526.013" z="2907.4275" h="59"/>
 	</spawn>
 	<!-- Ranx Sentry (Monster Normal lvl:39)-->
-	<spawn map="400010000" npcid="255687" pool="7" interval="105">
+	<spawn map="400010000" npcid="255687" pool="7" interval="295">
 		<object x="2254.625" y="2079.75" z="3034.0444" h="93"/>
 		<object x="2318.875" y="2131.75" z="3021.9941" h="101"/>
 		<object x="2400.125" y="2148.75" z="3006.3792" h="46"/>
@@ -3976,7 +3976,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="2322.625" y="2054.25" z="3029.7212" h="18"/>
 	</spawn>
 	<!-- Ranx Vanguard (Monster Normal lvl:40)-->
-	<spawn map="400010000" npcid="256181" pool="20" interval="105">
+	<spawn map="400010000" npcid="256181" pool="20" interval="295">
 		<object x="1576.88" y="2003.65" z="2907.6865" h="74"/>
 		<object x="1521.24" y="1802.65" z="2888.8152" h="12"/>
 		<object x="1485.42" y="1885.67" z="2895.801" h="24"/>
@@ -3999,7 +3999,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="1849.09" y="1815.27" z="2887.8333" h="22"/>
 	</spawn>
 	<!-- Ravenous Pretor (Monster Normal lvl:38)-->
-	<spawn map="400010000" npcid="255169" pool="31" interval="105">
+	<spawn map="400010000" npcid="255169" pool="31" interval="295">
 		<object x="1964.423" y="1423.491" z="2939.0613" h="118"/>
 		<object x="1999.958" y="1415.191" z="2939.9294" h="105"/>
 		<object x="2121.641" y="1448.515" z="2951.1536" h="70"/>
@@ -4033,7 +4033,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="1855.241" y="2189.403" z="2943.096" h="49"/>
 	</spawn>
 	<!-- Reshanta's Eye Guard Tower (NPC Elite lvl:14)-->
-	<spawn map="400010000" npcid="275050" pool="8" interval="105">
+	<spawn map="400010000" npcid="275050" pool="8" interval="295">
 		<object x="2069.296" y="2004.503" z="2313.4944" h="97"/>
 		<object x="2089.465" y="1824.326" z="2309.5574" h="119"/>
 		<object x="2185.313" y="2037.642" z="2309.777" h="31"/>
@@ -4044,7 +4044,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="2209.826" y="1998.743" z="2311.511" h="83"/>
 	</spawn>
 	<!-- Restless Skeleton (Monster Normal lvl:34)-->
-	<spawn map="400010000" npcid="256669" pool="20" interval="105">
+	<spawn map="400010000" npcid="256669" pool="20" interval="295">
 		<object x="1257.7" y="2043.49" z="2880.6409" h="13"/>
 		<object x="1214.57" y="2107.84" z="2876.8853" h="13"/>
 		<object x="1215.21" y="2073.44" z="2873.517" h="35"/>
@@ -4067,7 +4067,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="1070.17" y="2058.23" z="2866.2964" h="27"/>
 	</spawn>
 	<!-- Root Scout (Monster Normal lvl:27)-->
-	<spawn map="400010000" npcid="253706" pool="43" interval="105">
+	<spawn map="400010000" npcid="253706" pool="43" interval="295">
 		<object x="1639.784" y="1188.977" z="1500.008" h="70"/>
 		<object x="1709.105" y="1172.458" z="1497.478" h="90"/>
 		<object x="1667.645" y="985.8779" z="1494.6775" h="55"/>
@@ -4113,7 +4113,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="1311.53" y="882.8796" z="1474.3136" h="49"/>
 	</spawn>
 	<!-- Root Scout (Monster Normal lvl:27)-->
-	<spawn map="400010000" npcid="290026" pool="20" interval="105">
+	<spawn map="400010000" npcid="290026" pool="20" interval="295">
 		<object x="1596.0" y="1066.0" z="1492.9281" h="7"/>
 		<object x="1122.09" y="1695.91" z="1588.6201" h="37"/>
 		<object x="1609.5" y="1159.15" z="1501.2369" h="72"/>
@@ -4136,7 +4136,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="1701.42" y="1071.57" z="1492.0135" h="96"/>
 	</spawn>
 	<!-- Screaming Treegard (Monster Normal lvl:29)-->
-	<spawn map="400010000" npcid="253728" pool="12" interval="105">
+	<spawn map="400010000" npcid="253728" pool="12" interval="295">
 		<object x="769.4731" y="916.001" z="1669.2899" h="58"/>
 		<object x="974.75" y="775.5" z="1672.4877" h="24"/>
 		<object x="960.875" y="797.75" z="1668.9886" h="72"/>
@@ -4151,7 +4151,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="762.1593" y="658.1395" z="1682.2686" h="35"/>
 	</spawn>
 	<!-- Seal Sentinel (Monster Normal lvl:29)-->
-	<spawn map="400010000" npcid="253703" pool="8" interval="105">
+	<spawn map="400010000" npcid="253703" pool="8" interval="295">
 		<object x="947.25" y="935.0" z="1667.356" h="70"/>
 		<object x="666.875" y="1032.5" z="1687.9" h="97"/>
 		<object x="668.375" y="1017.625" z="1688.4464" h="4"/>
@@ -4234,7 +4234,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="1793.22" y="2264.28" z="2902.2832" h="61"/>
 	</spawn>
 	<!-- Seasoned Fighter (Monster Normal lvl:50)-->
-	<spawn map="400010000" npcid="260147" pool="43" interval="105">
+	<spawn map="400010000" npcid="260147" pool="43" interval="295">
 		<object x="2136.46" y="2008.01" z="2318.333" h="20"/>
 		<object x="2070.81" y="2021.76" z="2313.0989" h="33"/>
 		<object x="2091.85" y="1979.35" z="2320.1443" h="10"/>
@@ -4324,7 +4324,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="1792.85" y="2304.21" z="2949.3608" h="39"/>
 	</spawn>
 	<!-- Seasoned Priest (Monster Normal lvl:50)-->
-	<spawn map="400010000" npcid="260192" pool="6" interval="105">
+	<spawn map="400010000" npcid="260192" pool="6" interval="295">
 		<object x="2038.79" y="1935.7" z="2317.7644" h="25"/>
 		<object x="2036.7" y="1898.32" z="2317.1423" h="25"/>
 		<object x="2096.0" y="1367.09" z="2960.6655" h="51"/>
@@ -4483,7 +4483,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="695.0087" y="2982.9067" z="2757.625" h="75"/>
 	</spawn>
 	<!-- Secret Laboratory Instructor (Monster Normal lvl:40)-->
-	<spawn map="400010000" npcid="256676" pool="20" interval="105">
+	<spawn map="400010000" npcid="256676" pool="20" interval="295">
 		<object x="476.8751" y="2760.896" z="2617.141" h="96"/>
 		<object x="547.6177" y="2762.426" z="2608.7976" h="119"/>
 		<object x="464.5976" y="2792.285" z="2619.8523" h="63"/>
@@ -4506,7 +4506,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="504.2848" y="2770.841" z="2612.748" h="0"/>
 	</spawn>
 	<!-- Shadow's Defender (Monster Normal lvl:50)-->
-	<spawn map="400010000" npcid="251036" pool="11" interval="105">
+	<spawn map="400010000" npcid="251036" pool="11" interval="295">
 		<object x="2265.42" y="1828.56" z="2264.464" h="94"/>
 		<object x="2293.75" y="1834.29" z="2257.1816" h="111"/>
 		<object x="2305.69" y="1875.03" z="2257.0334" h="36"/>
@@ -4520,7 +4520,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="2220.72" y="1704.86" z="2226.5754" h="70"/>
 	</spawn>
 	<!-- Skeletal Miscreant (Monster Normal lvl:30)-->
-	<spawn map="400010000" npcid="254558" pool="55" interval="105">
+	<spawn map="400010000" npcid="254558" pool="55" interval="295">
 		<object x="2885.54" y="514.52" z="2887.2812" h="63"/>
 		<object x="2976.95" y="585.35" z="2879.2715" h="16"/>
 		<object x="2986.07" y="576.44" z="2879.1694" h="108"/>
@@ -4578,7 +4578,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="3056.278" y="991.5287" z="3032.4219" h="53"/>
 	</spawn>
 	<!-- Small Blaze Spirit (Monster Normal lvl:40)-->
-	<spawn map="400010000" npcid="256160" pool="6" interval="105">
+	<spawn map="400010000" npcid="256160" pool="6" interval="295">
 		<object x="1579.975" y="1776.424" z="2882.2966" h="5"/>
 		<object x="1851.816" y="1881.566" z="2887.7026" h="4"/>
 		<object x="1588.029" y="1696.117" z="2882.8652" h="43"/>
@@ -4587,7 +4587,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="1768.314" y="1917.396" z="2889.294" h="76"/>
 	</spawn>
 	<!-- Smoking Ember (Monster Normal lvl:29)-->
-	<spawn map="400010000" npcid="253696" pool="14" interval="105">
+	<spawn map="400010000" npcid="253696" pool="14" interval="295">
 		<object x="1222.75" y="1372.0" z="1508.6826" h="21"/>
 		<object x="1079.204" y="1164.125" z="1489.2897" h="52"/>
 		<object x="1161.043" y="1117.083" z="1497.6654" h="18"/>
@@ -4604,7 +4604,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="1178.875" y="1289.375" z="1496.8606" h="56"/>
 	</spawn>
 	<!-- Smoldering Ember (Monster Normal lvl:27)-->
-	<spawn map="400010000" npcid="253694" pool="33" interval="105">
+	<spawn map="400010000" npcid="253694" pool="33" interval="295">
 		<object x="1667.43" y="1051.587" z="1495.7079" h="110"/>
 		<object x="1697.853" y="1044.776" z="1493.9213" h="111"/>
 		<object x="1603.072" y="1186.976" z="1502.5399" h="60"/>
@@ -4662,7 +4662,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="1546.71" y="1819.1" z="2885.6335" h="70"/>
 	</spawn>
 	<!-- Soul Reaper (Monster Normal lvl:25)-->
-	<spawn map="400010000" npcid="253037" pool="31" interval="105">
+	<spawn map="400010000" npcid="253037" pool="31" interval="295">
 		<object x="2035.427" y="3152.448" z="1653.7863" h="103"/>
 		<object x="2127.267" y="3064.695" z="1654.4525" h="10"/>
 		<object x="2108.75" y="3471.0" z="1675.6033" h="24"/>
@@ -4696,7 +4696,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="2388.5" y="3140.75" z="1668.7694" h="4"/>
 	</spawn>
 	<!-- Sticky Sulfur Worm (Monster Normal lvl:29)-->
-	<spawn map="400010000" npcid="253692" pool="12" interval="105">
+	<spawn map="400010000" npcid="253692" pool="12" interval="295">
 		<object x="1093.125" y="1215.375" z="1495.4235" h="16"/>
 		<object x="1130.125" y="1172.5" z="1492.8208" h="80"/>
 		<object x="722.1" y="803.96" z="1663.5154" h="31"/>
@@ -4711,7 +4711,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="738.16" y="806.25" z="1664.4695" h="46"/>
 	</spawn>
 	<!-- Strange Lake Spirit (Monster Normal lvl:30)-->
-	<spawn map="400010000" npcid="256617" pool="21" interval="105">
+	<spawn map="400010000" npcid="256617" pool="21" interval="295">
 		<object x="1923.0" y="2762.0" z="2810.9014" h="42"/>
 		<object x="1604.8" y="2880.68" z="2936.5344" h="4"/>
 		<object x="1698.63" y="2905.52" z="2934.47" h="107"/>
@@ -4735,7 +4735,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="1307.9985" y="2952.523" z="2904.9517" h="14"/>
 	</spawn>
 	<!-- Sulfur Oculazen (Monster Normal lvl:27)-->
-	<spawn map="400010000" npcid="253682" pool="39" interval="105">
+	<spawn map="400010000" npcid="253682" pool="39" interval="295">
 		<object x="1101.397" y="1964.909" z="1601.7947" h="52"/>
 		<object x="1090.034" y="1823.445" z="1583.8214" h="99"/>
 		<object x="1019.948" y="1771.699" z="1591.7549" h="69"/>
@@ -4777,7 +4777,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="809.5" y="697.875" z="1677.6475" h="18"/>
 	</spawn>
 	<!-- Sulfur Worm (Monster Normal lvl:28)-->
-	<spawn map="400010000" npcid="253687" pool="6" interval="105">
+	<spawn map="400010000" npcid="253687" pool="6" interval="295">
 		<object x="1432.135" y="958.988" z="1468.2368" h="32"/>
 		<object x="1409.487" y="907.3116" z="1470.624" h="3"/>
 		<object x="1432.714" y="883.6509" z="1471.2085" h="39"/>
@@ -4786,7 +4786,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="1207.875" y="1341.375" z="1503.1355" h="84"/>
 	</spawn>
 	<!-- Tainted Guard Stone (Monster Normal lvl:32)-->
-	<spawn map="400010000" npcid="254556" pool="13" interval="105">
+	<spawn map="400010000" npcid="254556" pool="13" interval="295">
 		<object x="2960.132" y="1389.701" z="2696.0984" h="100"/>
 		<object x="2843.301" y="1466.02" z="2663.4626" h="10"/>
 		<object x="2960.25" y="1372.711" z="2720.5115" h="99"/>
@@ -4821,7 +4821,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="1299.9" y="1184.44" z="1481.2083" h="115"/>
 	</spawn>
 	<!-- Tevenaz (Monster Normal lvl:40)-->
-	<spawn map="400010000" npcid="263598" pool="1" interval="105">
+	<spawn map="400010000" npcid="263598" pool="1" interval="295">
 		<object x="2543.069" y="2854.181" z="1488.8108" h="85"/>
 	</spawn>
 	<!-- The Everwatcher (Named Mob Normal lvl:30)-->
@@ -4847,7 +4847,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="662.85" y="1026.28" z="1688.9636" h="8"/>
 	</spawn>
 	<!-- Transparent Wriggot (Monster Normal lvl:31)-->
-	<spawn map="400010000" npcid="256642" pool="10" interval="105">
+	<spawn map="400010000" npcid="256642" pool="10" interval="295">
 		<object x="1013.178" y="2825.767" z="2920.4932" h="45"/>
 		<object x="997.11" y="2917.82" z="2914.199" h="46"/>
 		<object x="1008.274" y="2841.573" z="2918.3364" h="28"/>
@@ -4860,7 +4860,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="985.009" y="2839.27" z="2916.6587" h="120"/>
 	</spawn>
 	<!-- Treegard (Monster Normal lvl:28)-->
-	<spawn map="400010000" npcid="253723" pool="8" interval="105">
+	<spawn map="400010000" npcid="253723" pool="8" interval="295">
 		<object x="1395.957" y="862.2097" z="1471.6755" h="84"/>
 		<object x="1431.146" y="944.2534" z="1469.7542" h="59"/>
 		<object x="1238.687" y="809.5193" z="1488.3535" h="100"/>
@@ -4885,7 +4885,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="693.88" y="2984.2" z="2765.6382" h="63"/>
 	</spawn>
 	<!-- Undead Destroyer (Monster Normal lvl:25)-->
-	<spawn map="400010000" npcid="252501" pool="30" interval="105">
+	<spawn map="400010000" npcid="252501" pool="30" interval="295">
 		<object x="3271.982" y="2116.207" z="1448.3218" h="74"/>
 		<object x="3113.175" y="1919.784" z="1453.947" h="41"/>
 		<object x="3065.678" y="1972.317" z="1459.5422" h="116"/>
@@ -4918,7 +4918,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="3224.153" y="2234.681" z="1448.5968" h="108"/>
 	</spawn>
 	<!-- Veteran Crusader (Monster Normal lvl:40)-->
-	<spawn map="400010000" npcid="260324" pool="194" interval="105">
+	<spawn map="400010000" npcid="260324" pool="194" interval="295">
 		<object x="2160.29" y="2198.64" z="2393.9946" h="33"/>
 		<object x="2139.15" y="2175.78" z="2392.587" h="105"/>
 		<object x="2175.29" y="2191.31" z="2394.6433" h="88"/>
@@ -5115,7 +5115,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="642.61" y="2863.1" z="2688.3608" h="3"/>
 	</spawn>
 	<!-- Veteran Crusader (Monster Normal lvl:40)-->
-	<spawn map="400010000" npcid="260329" pool="87" interval="105">
+	<spawn map="400010000" npcid="260329" pool="87" interval="295">
 		<object x="2160.289" y="2198.637" z="2393.995" h="20"/>
 		<object x="2146.408" y="2185.508" z="2393.082" h="99"/>
 		<object x="2178.634" y="2186.812" z="2394.4397" h="78"/>
@@ -5218,7 +5218,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="1297.56" y="1182.77" z="1481.0365" h="24"/>
 	</spawn>
 	<!-- Veteran Magus (Monster Normal lvl:40)-->
-	<spawn map="400010000" npcid="260359" pool="60" interval="105">
+	<spawn map="400010000" npcid="260359" pool="60" interval="295">
 		<object x="2175.872" y="2182.044" z="2394.3281" h="116"/>
 		<object x="2153.38" y="2174.086" z="2392.6172" h="22"/>
 		<object x="2167.373" y="2198.81" z="2394.4033" h="79"/>
@@ -5295,7 +5295,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="1407.825" y="1207.373" z="1514.247" h="11"/>
 	</spawn>
 	<!-- Veteran Magus (Monster Normal lvl:40)-->
-	<spawn map="400010000" npcid="260354" pool="213" interval="105">
+	<spawn map="400010000" npcid="260354" pool="213" interval="295">
 		<object x="2175.87" y="2182.04" z="2394.3281" h="84"/>
 		<object x="2153.38" y="2174.09" z="2392.6177" h="26"/>
 		<object x="2167.37" y="2198.81" z="2394.403" h="44"/>
@@ -5560,7 +5560,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="645.51794" y="2879.811" z="2682.5513" h="86"/>
 	</spawn>
 	<!-- Veteran Strongbow (Monster Normal lvl:40)-->
-	<spawn map="400010000" npcid="260344" pool="61" interval="105">
+	<spawn map="400010000" npcid="260344" pool="61" interval="295">
 		<object x="2164.486" y="2172.987" z="2393.504" h="15"/>
 		<object x="2157.609" y="2200.751" z="2393.592" h="28"/>
 		<object x="2362.931" y="2064.062" z="2279.9534" h="10"/>
@@ -5624,7 +5624,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="629.6246" y="2867.836" z="2687.2756" h="89"/>
 	</spawn>
 	<!-- Veteran Strongbow (Monster Normal lvl:40)-->
-	<spawn map="400010000" npcid="260339" pool="102" interval="105">
+	<spawn map="400010000" npcid="260339" pool="102" interval="295">
 		<object x="2164.49" y="2172.99" z="2393.5046" h="7"/>
 		<object x="2168.67" y="2201.93" z="2393.9302" h="40"/>
 		<object x="2370.25" y="2034.9" z="2275.3176" h="28"/>
@@ -5867,7 +5867,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="1308.1674" y="1178.3584" z="1478.7487" h="60"/>
 	</spawn>
 	<!-- Vile Acheron Drake (Monster Normal lvl:32)-->
-	<spawn map="400010000" npcid="254526" pool="5" interval="105">
+	<spawn map="400010000" npcid="254526" pool="5" interval="295">
 		<object x="2891.361" y="1525.842" z="2845.2854" h="90"/>
 		<object x="2900.417" y="1582.235" z="2795.9983" h="114"/>
 		<object x="2909.897" y="1573.983" z="2795.9983" h="98"/>
@@ -5875,7 +5875,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="2908.312" y="1532.068" z="2845.2854" h="57"/>
 	</spawn>
 	<!-- Virago Ghost (Monster Normal lvl:32)-->
-	<spawn map="400010000" npcid="254547" pool="31" interval="105">
+	<spawn map="400010000" npcid="254547" pool="31" interval="295">
 		<object x="3283.975" y="967.566" z="3012.187" h="18"/>
 		<object x="3331.838" y="789.3399" z="2821.8875" h="42"/>
 		<object x="3360.19" y="874.2318" z="2716.1038" h="117"/>
@@ -5909,7 +5909,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="3059.98" y="1227.64" z="2632.0652" h="9"/>
 	</spawn>
 	<!-- Volcanic Hoverstone (Monster Normal lvl:30)-->
-	<spawn map="400010000" npcid="253717" pool="17" interval="105">
+	<spawn map="400010000" npcid="253717" pool="17" interval="295">
 		<object x="868.0" y="948.0" z="1656.6721" h="12"/>
 		<object x="956.17" y="985.18" z="1663.2417" h="55"/>
 		<object x="954.46" y="985.32" z="1663.088" h="95"/>
@@ -5929,7 +5929,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="905.41" y="849.57" z="1670.0033" h="115"/>
 	</spawn>
 	<!-- Volcanic Hoverstone (Monster Normal lvl:29)-->
-	<spawn map="400010000" npcid="253716" pool="1" interval="105">
+	<spawn map="400010000" npcid="253716" pool="1" interval="295">
 		<object x="868.0" y="948.0" z="1656.6721" h="118"/>
 	</spawn>
 	<!-- Wandering Gazan (Named Mob Normal lvl:32)-->
@@ -5962,7 +5962,7 @@ TODO: Split Sieges Mobs in another file, don't delete same coord mobs! -->
 		<object x="1386.7" y="1216.24" z="1466.7925" h="56"/>
 	</spawn>
 	<!-- Young Asteria Trico (Monster Normal lvl:31)-->
-	<spawn map="400010000" npcid="256606" pool="14" interval="105">
+	<spawn map="400010000" npcid="256606" pool="14" interval="295">
 		<object x="815.6012" y="3202.171" z="2880.216" h="89"/>
 		<object x="424.4528" y="3193.94" z="2841.8032" h="12"/>
 		<object x="493.1853" y="3119.886" z="2833.716" h="52"/>

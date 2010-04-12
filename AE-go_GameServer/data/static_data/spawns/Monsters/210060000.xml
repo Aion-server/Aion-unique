@@ -5,7 +5,7 @@ object x y z h
 Theobomos-->
 <spawns>
 	<!-- Angry Nagolem (Monster Normal lvl:49)-->
-	<spawn map="210060000" npcid="214337" pool="47" interval="105">
+	<spawn map="210060000" npcid="214337" pool="47" interval="295">
 		<object x="2445.6926" y="278.84103" z="164.375" h="88"/>
 		<object x="2575.1904" y="282.53726" z="176.54807" h="109"/>
 		<object x="2569.273" y="393.52847" z="160.0" h="25"/>
@@ -55,7 +55,7 @@ Theobomos-->
 		<object x="2780.591" y="1007.44946" z="97.84816" h="20"/>
 	</spawn>
 	<!-- Angry Wind Spirit (Monster Normal lvl:50)-->
-	<spawn map="210060000" npcid="214613" pool="16" interval="105">
+	<spawn map="210060000" npcid="214613" pool="16" interval="295">
 		<object x="689.32745" y="912.0489" z="155.6261" h="34"/>
 		<object x="650.9123" y="906.6394" z="161.77704" h="116"/>
 		<object x="623.76654" y="906.937" z="164.86829" h="33"/>
@@ -74,7 +74,7 @@ Theobomos-->
 		<object x="812.99506" y="967.3629" z="179.32901" h="45"/>
 	</spawn>
 	<!-- Anubite Seeker (Monster Normal lvl:24)-->
-	<spawn map="210060000" npcid="213830" pool="49" interval="105">
+	<spawn map="210060000" npcid="213830" pool="49" interval="295">
 		<object x="2045.7357" y="901.60345" z="26.825432" h="89"/>
 		<object x="1926.8212" y="1241.2961" z="20.1613" h="33"/>
 		<object x="2057.1506" y="1310.5087" z="22.156792" h="12"/>
@@ -126,7 +126,7 @@ Theobomos-->
 		<object x="1971.5623" y="1055.008" z="19.751007" h="95"/>
 	</spawn>
 	<!-- Armor Wing Sparkie (Monster Normal lvl:45)-->
-	<spawn map="210060000" npcid="214165" pool="139" interval="105">
+	<spawn map="210060000" npcid="214165" pool="139" interval="295">
 		<object x="1201.9443" y="2395.8435" z="89.47978" h="101"/>
 		<object x="1923.3777" y="1958.6487" z="32.803955" h="17"/>
 		<object x="1963.7037" y="2087.2246" z="26.05555" h="27"/>
@@ -268,7 +268,7 @@ Theobomos-->
 		<object x="1829.8002" y="2489.4597" z="47.24872" h="107"/>
 	</spawn>
 	<!-- Aukwi (Monster Junk lvl:1)-->
-	<spawn map="210060000" npcid="210351" pool="19" interval="105">
+	<spawn map="210060000" npcid="210351" pool="19" interval="295">
 		<object x="2118.16" y="2673.1" z="66.036255" h="47"/>
 		<object x="2215.46" y="2703.08" z="64.327515" h="15"/>
 		<object x="2331.08" y="2659.22" z="47.087494" h="119"/>
@@ -290,7 +290,7 @@ Theobomos-->
 		<object x="2671.03" y="2186.51" z="57.77562" h="105"/>
 	</spawn>
 	<!-- Avaricious Zombie (Monster Normal lvl:24)-->
-	<spawn map="210060000" npcid="213832" pool="47" interval="105">
+	<spawn map="210060000" npcid="213832" pool="47" interval="295">
 		<object x="2035.5676" y="1268.6649" z="20.791557" h="65"/>
 		<object x="2025.7113" y="1247.0707" z="20.606956" h="83"/>
 		<object x="2047.3939" y="1238.6249" z="27.92424" h="9"/>
@@ -340,7 +340,7 @@ Theobomos-->
 		<object x="1914.1559" y="796.3734" z="36.963066" h="10"/>
 	</spawn>
 	<!-- Bab-el-Madeb Flonpi (Monster Normal lvl:47)-->
-	<spawn map="210060000" npcid="214255" pool="22" interval="105">
+	<spawn map="210060000" npcid="214255" pool="22" interval="295">
 		<object x="2742.111" y="1628.4019" z="46.63623" h="6"/>
 		<object x="2749.7625" y="1644.6296" z="46.125" h="43"/>
 		<object x="2727.4915" y="1579.9763" z="53.230057" h="32"/>
@@ -365,7 +365,7 @@ Theobomos-->
 		<object x="2720.8489" y="1693.9966" z="54.874573" h="68"/>
 	</spawn>
 	<!-- Barnacled Starcrab (Monster Normal lvl:45)-->
-	<spawn map="210060000" npcid="214191" pool="53" interval="105">
+	<spawn map="210060000" npcid="214191" pool="53" interval="295">
 		<object x="2464.5486" y="2831.3323" z="65.242355" h="115"/>
 		<object x="2450.909" y="2928.5288" z="70.17972" h="42"/>
 		<object x="2465.1912" y="2943.9124" z="71.532135" h="97"/>
@@ -421,7 +421,7 @@ Theobomos-->
 		<object x="2801.316" y="2562.3386" z="47.145737" h="78"/>
 	</spawn>
 	<!-- Birdhead Sparkle (Monster Normal lvl:46)-->
-	<spawn map="210060000" npcid="214309" pool="26" interval="105">
+	<spawn map="210060000" npcid="214309" pool="26" interval="295">
 		<object x="871.55" y="2418.96" z="79.53061" h="76"/>
 		<object x="739.8" y="2477.97" z="70.98311" h="34"/>
 		<object x="753.04" y="2501.89" z="84.07683" h="23"/>
@@ -450,7 +450,7 @@ Theobomos-->
 		<object x="254.23381" y="1789.6785" z="80.688934" h="84"/>
 	</spawn>
 	<!-- Black Mane Karnif (Monster Normal lvl:45)-->
-	<spawn map="210060000" npcid="214202" pool="35" interval="105">
+	<spawn map="210060000" npcid="214202" pool="35" interval="295">
 		<object x="1962.4642" y="2914.8782" z="77.4236" h="45"/>
 		<object x="1970.7642" y="2933.1284" z="79.0683" h="79"/>
 		<object x="1976.2849" y="2899.2573" z="72.200134" h="22"/>
@@ -493,7 +493,7 @@ Theobomos-->
 		<object x="2205.441" y="1649.594" z="17.86876" h="18"/>
 	</spawn>
 	<!-- Burning Agrint (Monster Normal lvl:48)-->
-	<spawn map="210060000" npcid="214291" pool="19" interval="105">
+	<spawn map="210060000" npcid="214291" pool="19" interval="295">
 		<object x="1019.15" y="1155.17" z="76.264366" h="86"/>
 		<object x="994.87" y="1171.74" z="73.679375" h="106"/>
 		<object x="991.18" y="1129.95" z="76.0225" h="38"/>
@@ -515,7 +515,7 @@ Theobomos-->
 		<object x="992.01" y="1159.09" z="72.68313" h="115"/>
 	</spawn>
 	<!-- Burnt Branch Agrint (Monster Normal lvl:46)-->
-	<spawn map="210060000" npcid="214289" pool="40" interval="105">
+	<spawn map="210060000" npcid="214289" pool="40" interval="295">
 		<object x="529.25" y="2582.73" z="62.648743" h="96"/>
 		<object x="485.94" y="2586.93" z="60.286854" h="47"/>
 		<object x="419.72" y="2665.15" z="68.608765" h="118"/>
@@ -558,7 +558,7 @@ Theobomos-->
 		<object x="430.44" y="1940.27" z="71.42812" h="103"/>
 	</spawn>
 	<!-- Burnt Branch Rotron (Monster Normal lvl:23)-->
-	<spawn map="210060000" npcid="213820" pool="46" interval="105">
+	<spawn map="210060000" npcid="213820" pool="46" interval="295">
 		<object x="1953.5338" y="1744.0216" z="35.844513" h="86"/>
 		<object x="1876.8452" y="1780.236" z="34.78808" h="20"/>
 		<object x="1901.2845" y="1551.6584" z="25.896347" h="100"/>
@@ -607,7 +607,7 @@ Theobomos-->
 		<object x="2032.6108" y="1832.0427" z="18.0" h="62"/>
 	</spawn>
 	<!-- Burnt Zombie (Monster Normal lvl:46)-->
-	<spawn map="210060000" npcid="214552" pool="16" interval="105">
+	<spawn map="210060000" npcid="214552" pool="16" interval="295">
 		<object x="651.91" y="1905.47" z="64.18201" h="66"/>
 		<object x="650.7" y="1902.28" z="64.22303" h="0"/>
 		<object x="428.11" y="1960.54" z="69.808464" h="107"/>
@@ -626,7 +626,7 @@ Theobomos-->
 		<object x="759.67" y="2130.08" z="53.2008" h="45"/>
 	</spawn>
 	<!-- Calydon Assassin (Monster Normal lvl:48)-->
-	<spawn map="210060000" npcid="214301" pool="33" interval="105">
+	<spawn map="210060000" npcid="214301" pool="33" interval="295">
 		<object x="1108.0686" y="845.81464" z="163.12929" h="66"/>
 		<object x="1004.81976" y="747.6007" z="147.5011" h="13"/>
 		<object x="982.8668" y="789.3527" z="147.51009" h="27"/>
@@ -662,7 +662,7 @@ Theobomos-->
 		<object x="623.54834" y="467.4614" z="145.36292" h="119"/>
 	</spawn>
 	<!-- Calydon Assassin (Monster Normal lvl:48)-->
-	<spawn map="210060000" npcid="214702" pool="17" interval="105">
+	<spawn map="210060000" npcid="214702" pool="17" interval="295">
 		<object x="906.6295" y="601.16956" z="167.08566" h="114"/>
 		<object x="687.6538" y="288.51965" z="155.71806" h="76"/>
 		<object x="696.0716" y="285.79224" z="155.65744" h="102"/>
@@ -682,7 +682,7 @@ Theobomos-->
 		<object x="160.49348" y="501.4543" z="173.5" h="52"/>
 	</spawn>
 	<!-- Calydon Bandit (Monster Normal lvl:47)-->
-	<spawn map="210060000" npcid="214298" pool="170" interval="105">
+	<spawn map="210060000" npcid="214298" pool="170" interval="295">
 		<object x="638.7351" y="1631.9844" z="90.82649" h="65"/>
 		<object x="1137.4381" y="1202.9421" z="74.25" h="84"/>
 		<object x="1142.9678" y="1193.0659" z="74.25" h="29"/>
@@ -855,7 +855,7 @@ Theobomos-->
 		<object x="873.52527" y="1404.9601" z="70.02601" h="70"/>
 	</spawn>
 	<!-- Calydon Chaser (Monster Normal lvl:49)-->
-	<spawn map="210060000" npcid="214300" pool="166" interval="105">
+	<spawn map="210060000" npcid="214300" pool="166" interval="295">
 		<object x="1222.9987" y="866.9281" z="149.50916" h="21"/>
 		<object x="1231.7631" y="846.8584" z="149.66943" h="32"/>
 		<object x="1215.0739" y="850.1136" z="150.875" h="47"/>
@@ -1024,11 +1024,11 @@ Theobomos-->
 		<object x="776.8112" y="755.4994" z="169.37903" h="51"/>
 	</spawn>
 	<!-- Calydon Dark Mage (Monster Normal lvl:46)-->
-	<spawn map="210060000" npcid="214303" pool="1" interval="105">
+	<spawn map="210060000" npcid="214303" pool="1" interval="295">
 		<object x="839.97577" y="1814.313" z="72.58739" h="1"/>
 	</spawn>
 	<!-- Calydon Fortuneteller (Monster Normal lvl:48)-->
-	<spawn map="210060000" npcid="214307" pool="45" interval="105">
+	<spawn map="210060000" npcid="214307" pool="45" interval="295">
 		<object x="1090.3027" y="774.5825" z="163.53613" h="56"/>
 		<object x="1071.1194" y="745.2613" z="171.4109" h="42"/>
 		<object x="1007.0863" y="802.5686" z="147.23923" h="96"/>
@@ -1076,7 +1076,7 @@ Theobomos-->
 		<object x="761.8582" y="781.7323" z="170.11143" h="25"/>
 	</spawn>
 	<!-- Calydon Shaman (Monster Normal lvl:49)-->
-	<spawn map="210060000" npcid="214306" pool="110" interval="105">
+	<spawn map="210060000" npcid="214306" pool="110" interval="295">
 		<object x="1197.3915" y="861.87134" z="150.875" h="48"/>
 		<object x="1147.0165" y="874.50006" z="165.56253" h="31"/>
 		<object x="1183.439" y="856.2865" z="151.24811" h="7"/>
@@ -1189,7 +1189,7 @@ Theobomos-->
 		<object x="763.24384" y="774.78394" z="170.0" h="104"/>
 	</spawn>
 	<!-- Calydon Sorcerer (Monster Normal lvl:47)-->
-	<spawn map="210060000" npcid="214304" pool="156" interval="105">
+	<spawn map="210060000" npcid="214304" pool="156" interval="295">
 		<object x="515.43555" y="1561.1566" z="62.25" h="14"/>
 		<object x="522.91376" y="1561.109" z="62.194313" h="10"/>
 		<object x="645.1574" y="1608.5709" z="93.557304" h="110"/>
@@ -1348,16 +1348,16 @@ Theobomos-->
 		<object x="881.12384" y="1397.599" z="69.965355" h="106"/>
 	</spawn>
 	<!-- Calydon Thief (Monster Normal lvl:46)-->
-	<spawn map="210060000" npcid="214297" pool="1" interval="105">
+	<spawn map="210060000" npcid="214297" pool="1" interval="295">
 		<object x="791.25" y="1836.1294" z="71.45682" h="15"/>
 	</spawn>
 	<!-- Cautious Ashulagen (Monster Normal lvl:48)-->
-	<spawn map="210060000" npcid="214242" pool="2" interval="105">
+	<spawn map="210060000" npcid="214242" pool="2" interval="295">
 		<object x="744.7589" y="1324.166" z="43.725304" h="60"/>
 		<object x="679.0288" y="1505.1294" z="62.991425" h="118"/>
 	</spawn>
 	<!-- Cave Bloodwing (Monster Normal lvl:49)-->
-	<spawn map="210060000" npcid="214547" pool="101" interval="105">
+	<spawn map="210060000" npcid="214547" pool="101" interval="295">
 		<object x="1786.0281" y="524.7711" z="80.862434" h="13"/>
 		<object x="1805.3087" y="535.8373" z="82.727135" h="73"/>
 		<object x="1795.4133" y="553.8866" z="84.162895" h="28"/>
@@ -1469,7 +1469,7 @@ Theobomos-->
 		<object x="350.0" y="103.0" z="165.0" h="0"/>
 	</spawn>
 	<!-- Coastal Lobsek (Monster Normal lvl:45)-->
-	<spawn map="210060000" npcid="214214" pool="63" interval="105">
+	<spawn map="210060000" npcid="214214" pool="63" interval="295">
 		<object x="2454.0308" y="2904.9329" z="68.11661" h="80"/>
 		<object x="2004.4313" y="2831.7173" z="68.84853" h="85"/>
 		<object x="2017.9281" y="2638.847" z="71.21287" h="115"/>
@@ -1535,7 +1535,7 @@ Theobomos-->
 		<object x="2719.947" y="2466.7302" z="47.494705" h="68"/>
 	</spawn>
 	<!-- Coral Reef Tipolid (Monster Normal lvl:45)-->
-	<spawn map="210060000" npcid="214187" pool="24" interval="105">
+	<spawn map="210060000" npcid="214187" pool="24" interval="295">
 		<object x="1901.7722" y="2659.5315" z="70.806946" h="21"/>
 		<object x="1932.4095" y="2661.466" z="64.180984" h="49"/>
 		<object x="2193.545" y="2833.5222" z="62.19867" h="110"/>
@@ -1567,11 +1567,11 @@ Theobomos-->
 		<object x="2065.271" y="843.0522" z="25.599636" h="34"/>
 	</spawn>
 	<!-- Cursed Zirius (Monster Normal lvl:50)-->
-	<spawn map="210060000" npcid="214576" pool="1" interval="105" time="NIGHT">
+	<spawn map="210060000" npcid="214576" pool="1" interval="295" time="NIGHT">
 		<object x="1531.681" y="279.7333" z="157.40215" h="70"/>
 	</spawn>
 	<!-- Cyst Baku (Monster Normal lvl:48)-->
-	<spawn map="210060000" npcid="214177" pool="85" interval="105">
+	<spawn map="210060000" npcid="214177" pool="85" interval="295">
 		<object x="342.96835" y="799.0395" z="14.314478" h="6"/>
 		<object x="317.00702" y="808.0866" z="14.25" h="31"/>
 		<object x="270.63593" y="722.853" z="14.125" h="115"/>
@@ -1664,11 +1664,11 @@ Theobomos-->
 		<object x="2685.04" y="2935.32" z="19.59165" h="35"/>
 	</spawn>
 	<!-- Dauntless Protector (Monster Normal lvl:24)-->
-	<spawn map="210060000" npcid="280722" pool="1" interval="105">
+	<spawn map="210060000" npcid="280722" pool="1" interval="295">
 		<object x="1892.83" y="977.43" z="33.537502" h="50"/>
 	</spawn>
 	<!-- Death's Head Spiner (Monster Normal lvl:49)-->
-	<spawn map="210060000" npcid="214602" pool="18" interval="105">
+	<spawn map="210060000" npcid="214602" pool="18" interval="295">
 		<object x="2987.0325" y="871.26135" z="109.43334" h="41"/>
 		<object x="2966.0298" y="830.6083" z="105.76653" h="41"/>
 		<object x="2968.2366" y="804.32434" z="108.149086" h="89"/>
@@ -1689,11 +1689,11 @@ Theobomos-->
 		<object x="2490.5435" y="923.1276" z="110.461426" h="23"/>
 	</spawn>
 	<!-- Deatheater Mabolo (Monster Normal lvl:50)-->
-	<spawn map="210060000" npcid="214578" pool="1" interval="105">
+	<spawn map="210060000" npcid="214578" pool="1" interval="295">
 		<object x="2028.7513" y="444.5267" z="192.3011" h="43"/>
 	</spawn>
 	<!-- Deep Sea Mudthorn (Monster Normal lvl:45)-->
-	<spawn map="210060000" npcid="214206" pool="70" interval="105">
+	<spawn map="210060000" npcid="214206" pool="70" interval="295">
 		<object x="2452.8816" y="2835.4531" z="65.07756" h="28"/>
 		<object x="2460.8252" y="2839.755" z="66.520935" h="113"/>
 		<object x="2444.6833" y="2842.7961" z="65.102646" h="117"/>
@@ -1766,7 +1766,7 @@ Theobomos-->
 		<object x="2936.4963" y="2449.108" z="33.27382" h="115"/>
 	</spawn>
 	<!-- Desert Baku (Monster Normal lvl:45)-->
-	<spawn map="210060000" npcid="214175" pool="44" interval="105">
+	<spawn map="210060000" npcid="214175" pool="44" interval="295">
 		<object x="2070.3447" y="2298.2825" z="29.591782" h="22"/>
 		<object x="2077.0247" y="2329.447" z="31.496918" h="95"/>
 		<object x="2089.3325" y="2355.8875" z="33.17311" h="22"/>
@@ -1813,7 +1813,7 @@ Theobomos-->
 		<object x="1463.4183" y="2204.5972" z="74.174385" h="60"/>
 	</spawn>
 	<!-- Desert Gryphu (Monster Normal lvl:47)-->
-	<spawn map="210060000" npcid="214706" pool="49" interval="105">
+	<spawn map="210060000" npcid="214706" pool="49" interval="295">
 		<object x="2490.1143" y="2232.9038" z="78.15845" h="77"/>
 		<object x="2500.4001" y="2188.0735" z="68.82953" h="116"/>
 		<object x="2509.2007" y="2149.8809" z="59.59247" h="109"/>
@@ -1865,7 +1865,7 @@ Theobomos-->
 		<object x="2902.0898" y="2008.6886" z="76.211075" h="62"/>
 	</spawn>
 	<!-- Desert Slink (Monster Normal lvl:47)-->
-	<spawn map="210060000" npcid="214171" pool="26" interval="105">
+	<spawn map="210060000" npcid="214171" pool="26" interval="295">
 		<object x="2521.3787" y="2287.1934" z="69.026245" h="56"/>
 		<object x="2539.7502" y="2311.9822" z="64.238846" h="80"/>
 		<object x="2358.8198" y="2377.29" z="48.625" h="108"/>
@@ -1894,7 +1894,7 @@ Theobomos-->
 		<object x="2815.0674" y="2557.7021" z="48.43994" h="36"/>
 	</spawn>
 	<!-- Dirmoi Gargoyle (Monster Normal lvl:46)-->
-	<spawn map="210060000" npcid="214340" pool="60" interval="105">
+	<spawn map="210060000" npcid="214340" pool="60" interval="295">
 		<object x="859.56995" y="2851.9424" z="53.0" h="93"/>
 		<object x="835.1578" y="2872.8176" z="53.0" h="66"/>
 		<object x="830.334" y="2807.6555" z="62.56328" h="113"/>
@@ -1957,7 +1957,7 @@ Theobomos-->
 		<object x="923.3497" y="2850.5745" z="53.0" h="40"/>
 	</spawn>
 	<!-- Dust Fur Ettin (Monster Normal lvl:46)-->
-	<spawn map="210060000" npcid="214280" pool="82" interval="105">
+	<spawn map="210060000" npcid="214280" pool="82" interval="295">
 		<object x="998.6922" y="2710.8823" z="70.41826" h="57"/>
 		<object x="1054.3079" y="2713.8413" z="66.74008" h="83"/>
 		<object x="1042.7241" y="2791.769" z="71.1886" h="19"/>
@@ -2046,7 +2046,7 @@ Theobomos-->
 		<object x="2844.963" y="2643.174" z="55.05162" h="28"/>
 	</spawn>
 	<!-- Fierce Gryphu (Monster Normal lvl:47)-->
-	<spawn map="210060000" npcid="214313" pool="27" interval="105">
+	<spawn map="210060000" npcid="214313" pool="27" interval="295">
 		<object x="1021.9853" y="1594.4252" z="62.730373" h="27"/>
 		<object x="205.89973" y="2096.418" z="92.764244" h="119"/>
 		<object x="147.47849" y="2083.1562" z="85.54028" h="40"/>
@@ -2076,7 +2076,7 @@ Theobomos-->
 		<object x="895.8345" y="2151.621" z="69.95862" h="78"/>
 	</spawn>
 	<!-- Fin Vespine (Monster Normal lvl:47)-->
-	<spawn map="210060000" npcid="214200" pool="17" interval="105">
+	<spawn map="210060000" npcid="214200" pool="17" interval="295">
 		<object x="2595.7966" y="3011.6667" z="63.76271" h="5"/>
 		<object x="2616.353" y="2985.267" z="55.658966" h="83"/>
 		<object x="2979.755" y="2480.96" z="45.183716" h="43"/>
@@ -2100,7 +2100,7 @@ Theobomos-->
 		<object x="2569.23" y="228.4574" z="191.26953" h="39"/>
 	</spawn>
 	<!-- Flame Basilisk (Monster Normal lvl:23)-->
-	<spawn map="210060000" npcid="213824" pool="45" interval="105">
+	<spawn map="210060000" npcid="213824" pool="45" interval="295">
 		<object x="1915.8826" y="1814.7975" z="34.799843" h="91"/>
 		<object x="1979.1965" y="1740.9369" z="35.125" h="72"/>
 		<object x="1853.9883" y="1838.1034" z="33.75" h="44"/>
@@ -2148,7 +2148,7 @@ Theobomos-->
 		<object x="2021.0449" y="1821.27" z="20.042206" h="49"/>
 	</spawn>
 	<!-- Flame Leaf Agrint (Monster Normal lvl:23)-->
-	<spawn map="210060000" npcid="213818" pool="38" interval="105">
+	<spawn map="210060000" npcid="213818" pool="38" interval="295">
 		<object x="1933.7325" y="1781.9355" z="35.44126" h="113"/>
 		<object x="1938.778" y="1765.9366" z="37.092216" h="27"/>
 		<object x="1995.4913" y="1464.8987" z="20.955544" h="84"/>
@@ -2194,7 +2194,7 @@ Theobomos-->
 		<object x="615.78" y="2547.0" z="75.32001" h="118"/>
 	</spawn>
 	<!-- Florescent Hornskull (Monster Normal lvl:47)-->
-	<spawn map="210060000" npcid="214226" pool="70" interval="105">
+	<spawn map="210060000" npcid="214226" pool="70" interval="295">
 		<object x="2992.1716" y="845.4359" z="110.66791" h="78"/>
 		<object x="2947.249" y="747.6327" z="107.25" h="115"/>
 		<object x="2928.4033" y="657.8088" z="107.65929" h="7"/>
@@ -2272,7 +2272,7 @@ Theobomos-->
 		<object x="1608.649" y="730.8842" z="63.665565" h="70"/>
 	</spawn>
 	<!-- Forktail Sylphen (Monster Normal lvl:48)-->
-	<spawn map="210060000" npcid="214329" pool="82" interval="105">
+	<spawn map="210060000" npcid="214329" pool="82" interval="295">
 		<object x="397.97205" y="980.21326" z="13.75" h="35"/>
 		<object x="372.42743" y="943.1406" z="14.598286" h="45"/>
 		<object x="374.3741" y="919.26135" z="14.375" h="21"/>
@@ -2357,7 +2357,7 @@ Theobomos-->
 		<object x="1009.8505" y="450.9387" z="27.126678" h="26"/>
 	</spawn>
 	<!-- Foul Wind Spirit (Monster Normal lvl:50)-->
-	<spawn map="210060000" npcid="214612" pool="23" interval="105">
+	<spawn map="210060000" npcid="214612" pool="23" interval="295">
 		<object x="638.6895" y="906.5509" z="164.25" h="91"/>
 		<object x="590.2517" y="906.3148" z="164.23427" h="35"/>
 		<object x="533.70795" y="942.02014" z="181.21878" h="3"/>
@@ -2387,7 +2387,7 @@ Theobomos-->
 		<object x="2916.572" y="233.4299" z="170.19812" h="60"/>
 	</spawn>
 	<!-- Fragmented Ancient Caryatid (Monster Normal lvl:46)-->
-	<spawn map="210060000" npcid="214286" pool="96" interval="105">
+	<spawn map="210060000" npcid="214286" pool="96" interval="295">
 		<object x="801.9657" y="2863.3904" z="61.347435" h="18"/>
 		<object x="844.95874" y="2849.9102" z="53.0" h="55"/>
 		<object x="835.95135" y="2861.1306" z="53.0" h="119"/>
@@ -2486,12 +2486,12 @@ Theobomos-->
 		<object x="931.85895" y="3020.8245" z="95.24867" h="103"/>
 	</spawn>
 	<!-- Fugitive Scopind (Monster Normal lvl:50)-->
-	<spawn map="210060000" npcid="214575" pool="2" interval="105">
+	<spawn map="210060000" npcid="214575" pool="2" interval="295">
 		<object x="1693.0" y="361.0" z="188.70184" h="62"/>
 		<object x="1299.8901" y="138.65977" z="89.1396" h="70"/>
 	</spawn>
 	<!-- Glowing Hornskull (Monster Normal lvl:49)-->
-	<spawn map="210060000" npcid="214228" pool="15" interval="105">
+	<spawn map="210060000" npcid="214228" pool="15" interval="295">
 		<object x="2906.9858" y="713.66943" z="102.806305" h="98"/>
 		<object x="2973.103" y="668.34674" z="106.45666" h="65"/>
 		<object x="2975.6313" y="569.7433" z="131.44693" h="11"/>
@@ -2513,7 +2513,7 @@ Theobomos-->
 		<object x="912.1088" y="1735.235" z="64.47476" h="36"/>
 	</spawn>
 	<!-- Guardian Stone Kalgolem (Monster Normal lvl:49)-->
-	<spawn map="210060000" npcid="214557" pool="6" interval="105">
+	<spawn map="210060000" npcid="214557" pool="6" interval="295">
 		<object x="2269.1587" y="672.2403" z="127.27736" h="103"/>
 		<object x="2197.621" y="574.5053" z="162.78159" h="28"/>
 		<object x="2164.3274" y="573.46356" z="163.125" h="86"/>
@@ -2522,7 +2522,7 @@ Theobomos-->
 		<object x="2154.4734" y="328.96152" z="228.28716" h="57"/>
 	</spawn>
 	<!-- Gumi (Monster Normal lvl:2)-->
-	<spawn map="210060000" npcid="210342" pool="6" interval="105">
+	<spawn map="210060000" npcid="210342" pool="6" interval="295">
 		<object x="451.5594" y="724.2626" z="14.511127" h="100"/>
 		<object x="700.0988" y="542.20734" z="14.375" h="69"/>
 		<object x="484.04715" y="369.93326" z="14.247053" h="74"/>
@@ -2558,7 +2558,7 @@ Theobomos-->
 		<object x="2722.84" y="1687.92" z="54.037514" h="25"/>
 	</spawn>
 	<!-- Hill Crestlich (Monster Normal lvl:48)-->
-	<spawn map="210060000" npcid="214321" pool="81" interval="105">
+	<spawn map="210060000" npcid="214321" pool="81" interval="295">
 		<object x="870.56085" y="1027.9412" z="92.53505" h="109"/>
 		<object x="882.6683" y="1026.3434" z="93.125" h="43"/>
 		<object x="866.6391" y="1064.3209" z="97.730286" h="39"/>
@@ -2642,7 +2642,7 @@ Theobomos-->
 		<object x="940.4739" y="242.4455" z="210.86847" h="46"/>
 	</spawn>
 	<!-- Hillock Abex (Monster Normal lvl:48)-->
-	<spawn map="210060000" npcid="214318" pool="97" interval="105">
+	<spawn map="210060000" npcid="214318" pool="97" interval="295">
 		<object x="885.9147" y="1049.7509" z="93.135666" h="114"/>
 		<object x="934.677" y="1027.2357" z="97.382645" h="65"/>
 		<object x="913.3978" y="962.21564" z="89.536224" h="80"/>
@@ -2742,7 +2742,7 @@ Theobomos-->
 		<object x="899.71063" y="278.26178" z="205.90945" h="7"/>
 	</spawn>
 	<!-- Horned Caltrops (Monster Normal lvl:47)-->
-	<spawn map="210060000" npcid="214212" pool="8" interval="105">
+	<spawn map="210060000" npcid="214212" pool="8" interval="295">
 		<object x="2452.113" y="2365.1492" z="16.60429" h="20"/>
 		<object x="2468.7651" y="2362.1106" z="16.722876" h="97"/>
 		<object x="2679.1555" y="2934.5774" z="20.145935" h="45"/>
@@ -2753,7 +2753,7 @@ Theobomos-->
 		<object x="2859.387" y="2470.0508" z="40.376442" h="22"/>
 	</spawn>
 	<!-- Howling Gust Spirit (Monster Normal lvl:50)-->
-	<spawn map="210060000" npcid="214614" pool="22" interval="105">
+	<spawn map="210060000" npcid="214614" pool="22" interval="295">
 		<object x="663.1287" y="902.3977" z="160.73392" h="94"/>
 		<object x="621.6611" y="918.57605" z="165.69917" h="63"/>
 		<object x="599.95044" y="948.0061" z="162.25581" h="94"/>
@@ -2778,7 +2778,7 @@ Theobomos-->
 		<object x="548.1007" y="966.0117" z="168.98932" h="80"/>
 	</spawn>
 	<!-- Hungry Starcrab (Monster Normal lvl:47)-->
-	<spawn map="210060000" npcid="214193" pool="47" interval="105">
+	<spawn map="210060000" npcid="214193" pool="47" interval="295">
 		<object x="2535.473" y="2289.0889" z="68.79584" h="78"/>
 		<object x="2524.948" y="2300.0505" z="66.737366" h="12"/>
 		<object x="2545.6355" y="2323.41" z="61.85196" h="8"/>
@@ -2828,7 +2828,7 @@ Theobomos-->
 		<object x="2530.4946" y="2606.2766" z="49.36003" h="74"/>
 	</spawn>
 	<!-- Impassive Nagolem (Monster Normal lvl:49)-->
-	<spawn map="210060000" npcid="214287" pool="23" interval="105">
+	<spawn map="210060000" npcid="214287" pool="23" interval="295">
 		<object x="2301.4304" y="189.29004" z="216.46552" h="102"/>
 		<object x="2301.7068" y="234.87462" z="216.4211" h="23"/>
 		<object x="2264.9365" y="271.0243" z="215.94147" h="45"/>
@@ -2859,7 +2859,7 @@ Theobomos-->
 		<object x="2757.38" y="1596.18" z="51.72991" h="41"/>
 	</spawn>
 	<!-- Ironback Kirrin (Monster Normal lvl:49)-->
-	<spawn map="210060000" npcid="214283" pool="7" interval="105">
+	<spawn map="210060000" npcid="214283" pool="7" interval="295">
 		<object x="2579.484" y="452.94986" z="166.25" h="85"/>
 		<object x="2317.9646" y="485.43207" z="164.70995" h="109"/>
 		<object x="2417.633" y="359.02866" z="161.875" h="115"/>
@@ -2869,7 +2869,7 @@ Theobomos-->
 		<object x="2519.8953" y="344.78323" z="168.08481" h="28"/>
 	</spawn>
 	<!-- Kalgolem of Sorcery (Monster Normal lvl:48)-->
-	<spawn map="210060000" npcid="214269" pool="43" interval="105">
+	<spawn map="210060000" npcid="214269" pool="43" interval="295">
 		<object x="2812.826" y="735.0813" z="106.321075" h="117"/>
 		<object x="2841.819" y="711.90204" z="102.325836" h="114"/>
 		<object x="2891.0708" y="567.80316" z="126.16536" h="117"/>
@@ -2915,7 +2915,7 @@ Theobomos-->
 		<object x="2763.419" y="575.097" z="158.52026" h="83"/>
 	</spawn>
 	<!-- Kerubar Loot Grabber (Monster Normal lvl:24)-->
-	<spawn map="210060000" npcid="213838" pool="54" interval="105">
+	<spawn map="210060000" npcid="213838" pool="54" interval="295">
 		<object x="2072.2976" y="1377.3475" z="24.8378" h="28"/>
 		<object x="2077.1133" y="1387.666" z="24.826294" h="113"/>
 		<object x="2096.886" y="1391.6459" z="26.738976" h="56"/>
@@ -2972,7 +2972,7 @@ Theobomos-->
 		<object x="2207.5532" y="1004.0136" z="24.123299" h="48"/>
 	</spawn>
 	<!-- Kerubar Worker (Monster Normal lvl:21)-->
-	<spawn map="210060000" npcid="213814" pool="20" interval="105">
+	<spawn map="210060000" npcid="213814" pool="20" interval="295">
 		<object x="1813.4742" y="1424.5555" z="23.659721" h="28"/>
 		<object x="1801.6664" y="1425.636" z="23.270851" h="20"/>
 		<object x="1797.5254" y="1426.776" z="23.559326" h="5"/>
@@ -2995,7 +2995,7 @@ Theobomos-->
 		<object x="1522.4849" y="1303.2345" z="29.994232" h="117"/>
 	</spawn>
 	<!-- Kerubian Bandit (Monster Normal lvl:21)-->
-	<spawn map="210060000" npcid="213816" pool="27" interval="105">
+	<spawn map="210060000" npcid="213816" pool="27" interval="295">
 		<object x="1797.4624" y="1413.8309" z="23.364433" h="117"/>
 		<object x="1804.3899" y="1414.0138" z="23.375" h="23"/>
 		<object x="1808.2184" y="1422.305" z="23.625" h="6"/>
@@ -3025,7 +3025,7 @@ Theobomos-->
 		<object x="1542.206" y="1266.3971" z="29.700363" h="5"/>
 	</spawn>
 	<!-- Kerubian Sentinel (Monster Normal lvl:24)-->
-	<spawn map="210060000" npcid="213840" pool="51" interval="105">
+	<spawn map="210060000" npcid="213840" pool="51" interval="295">
 		<object x="2153.767" y="1011.908" z="26.630749" h="72"/>
 		<object x="1927.266" y="938.9187" z="36.193665" h="46"/>
 		<object x="2095.14" y="1375.627" z="24.851685" h="73"/>
@@ -3079,7 +3079,7 @@ Theobomos-->
 		<object x="2097.562" y="1357.017" z="25.784065" h="52"/>
 	</spawn>
 	<!-- Kerubiel Centurion (Monster Normal lvl:46)-->
-	<spawn map="210060000" npcid="214238" pool="27" interval="105">
+	<spawn map="210060000" npcid="214238" pool="27" interval="295">
 		<object x="2850.751" y="2622.29" z="55.981873" h="91"/>
 		<object x="2835.079" y="2589.932" z="55.009888" h="66"/>
 		<object x="2827.928" y="2733.689" z="61.16388" h="3"/>
@@ -3109,7 +3109,7 @@ Theobomos-->
 		<object x="2840.231" y="2754.703" z="58.228775" h="117"/>
 	</spawn>
 	<!-- Kerubiel Sentinel (Monster Normal lvl:32)-->
-	<spawn map="210060000" npcid="211056" pool="35" interval="105">
+	<spawn map="210060000" npcid="211056" pool="35" interval="295">
 		<object x="2886.481" y="2640.61" z="56.576263" h="91"/>
 		<object x="2904.718" y="2692.165" z="56.5" h="64"/>
 		<object x="2772.135" y="2746.6" z="57.125" h="112"/>
@@ -3147,7 +3147,7 @@ Theobomos-->
 		<object x="2822.696" y="2613.099" z="54.07599" h="109"/>
 	</spawn>
 	<!-- Krahumus Sailor (Monster Normal lvl:46)-->
-	<spawn map="210060000" npcid="214219" pool="29" interval="105">
+	<spawn map="210060000" npcid="214219" pool="29" interval="295">
 		<object x="2505.026" y="2653.54" z="50.179108" h="69"/>
 		<object x="2581.523" y="2564.706" z="52.132385" h="20"/>
 		<object x="2604.649" y="2537.302" z="50.08751" h="65"/>
@@ -3179,7 +3179,7 @@ Theobomos-->
 		<object x="2596.362" y="2600.108" z="62.307114" h="105"/>
 	</spawn>
 	<!-- Kranuum Sailor (Monster Normal lvl:46)-->
-	<spawn map="210060000" npcid="214222" pool="27" interval="105">
+	<spawn map="210060000" npcid="214222" pool="27" interval="295">
 		<object x="2619.375" y="2665.426" z="51.617188" h="55"/>
 		<object x="2542.228" y="2753.788" z="46.77649" h="54"/>
 		<object x="2590.294" y="2740.327" z="46.209137" h="67"/>
@@ -3209,14 +3209,14 @@ Theobomos-->
 		<object x="2566.5" y="2508.466" z="44.55261" h="40"/>
 	</spawn>
 	<!-- Lava Mudthorn (Monster Normal lvl:46)-->
-	<spawn map="210060000" npcid="214243" pool="4" interval="105">
+	<spawn map="210060000" npcid="214243" pool="4" interval="295">
 		<object x="305.3312" y="2802.737" z="61.237198" h="84"/>
 		<object x="291.1819" y="2819.866" z="64.65666" h="28"/>
 		<object x="349.6821" y="2425.26" z="50.132236" h="46"/>
 		<object x="314.5471" y="2330.633" z="62.823563" h="40"/>
 	</spawn>
 	<!-- Lava Petrahulk (Monster Normal lvl:46)-->
-	<spawn map="210060000" npcid="214295" pool="56" interval="105">
+	<spawn map="210060000" npcid="214295" pool="56" interval="295">
 		<object x="475.8596" y="2636.066" z="65.13073" h="0"/>
 		<object x="239.0839" y="2910.81" z="78.55726" h="117"/>
 		<object x="460.8559" y="2873.535" z="74.52907" h="76"/>
@@ -3275,7 +3275,7 @@ Theobomos-->
 		<object x="398.9765" y="1883.603" z="68.73566" h="2"/>
 	</spawn>
 	<!-- Long Tongue Puror (Monster Normal lvl:46)-->
-	<spawn map="210060000" npcid="214572" pool="1" interval="105">
+	<spawn map="210060000" npcid="214572" pool="1" interval="295">
 		<object x="1754.883" y="2289.407" z="57.95296" h="79"/>
 	</spawn>
 	<!-- Lost Balor (Named Mob Hero lvl:50)-->
@@ -3288,7 +3288,7 @@ Theobomos-->
 		<object x="2579.0" y="2459.0" z="45.122215" h="96"/>
 	</spawn>
 	<!-- Molten Blade Spirit (Monster Normal lvl:23)-->
-	<spawn map="210060000" npcid="213822" pool="40" interval="105">
+	<spawn map="210060000" npcid="213822" pool="40" interval="295">
 		<object x="2268.831" y="1668.024" z="27.987976" h="47"/>
 		<object x="1926.713" y="1610.532" z="35.856506" h="120"/>
 		<object x="1945.818" y="1712.932" z="38.277" h="47"/>
@@ -3331,7 +3331,7 @@ Theobomos-->
 		<object x="2270.735" y="1656.498" z="29.04396" h="93"/>
 	</spawn>
 	<!-- Nagolem Sentry (Monster Normal lvl:49)-->
-	<spawn map="210060000" npcid="214267" pool="27" interval="105">
+	<spawn map="210060000" npcid="214267" pool="27" interval="295">
 		<object x="2301.571" y="213.3062" z="216.3932" h="55"/>
 		<object x="2530.359" y="259.7043" z="175.7446" h="53"/>
 		<object x="2428.3" y="473.0389" z="166.6891" h="24"/>
@@ -3361,7 +3361,7 @@ Theobomos-->
 		<object x="2622.098" y="399.0001" z="189.51851" h="116"/>
 	</spawn>
 	<!-- Obscura of Hatred (Monster Normal lvl:46)-->
-	<spawn map="210060000" npcid="214292" pool="38" interval="105">
+	<spawn map="210060000" npcid="214292" pool="38" interval="295">
 		<object x="450.11" y="2510.05" z="40.911263" h="42"/>
 		<object x="430.18" y="2509.05" z="42.378124" h="100"/>
 		<object x="387.97" y="2492.65" z="62.046906" h="57"/>
@@ -3402,7 +3402,7 @@ Theobomos-->
 		<object x="681.67" y="1898.34" z="60.395626" h="107"/>
 	</spawn>
 	<!-- Obscura of Wrath (Monster Normal lvl:48)-->
-	<spawn map="210060000" npcid="214294" pool="20" interval="105">
+	<spawn map="210060000" npcid="214294" pool="20" interval="295">
 		<object x="632.78" y="1419.48" z="43.211258" h="22"/>
 		<object x="731.01" y="1353.08" z="52.17813" h="94"/>
 		<object x="751.54" y="1358.56" z="53.506252" h="41"/>
@@ -3425,7 +3425,7 @@ Theobomos-->
 		<object x="512.92" y="1407.79" z="43.702503" h="79"/>
 	</spawn>
 	<!-- Octacide (Monster Junk lvl:1)-->
-	<spawn map="210060000" npcid="212360" pool="13" interval="105">
+	<spawn map="210060000" npcid="212360" pool="13" interval="295">
 		<object x="1137.625" y="339.875" z="22.1576" h="112"/>
 		<object x="1351.625" y="469.625" z="87.35983" h="42"/>
 		<object x="1905.5" y="483.125" z="107.875" h="73"/>
@@ -3445,11 +3445,11 @@ Theobomos-->
 		<object x="1092.0" y="2907.0" z="82.43346" h="14"/>
 	</spawn>
 	<!-- Pippi's Footprint (NPC Normal lvl:3)-->
-	<spawn map="210060000" npcid="206085" pool="1" interval="105">
+	<spawn map="210060000" npcid="206085" pool="1" interval="295">
 		<object x="208.0214" y="1346.699" z="63.0" h="47"/>
 	</spawn>
 	<!-- Poison Tail Scolopen (Monster Normal lvl:45)-->
-	<spawn map="210060000" npcid="214194" pool="57" interval="105">
+	<spawn map="210060000" npcid="214194" pool="57" interval="295">
 		<object x="2141.636" y="2817.281" z="56.70455" h="93"/>
 		<object x="2056.21" y="2731.927" z="63.64325" h="116"/>
 		<object x="2174.822" y="2854.456" z="59.69925" h="98"/>
@@ -3509,7 +3509,7 @@ Theobomos-->
 		<object x="2662.946" y="2783.577" z="35.756187" h="38"/>
 	</spawn>
 	<!-- Port Caryatid (Monster Normal lvl:48)-->
-	<spawn map="210060000" npcid="214265" pool="58" interval="105">
+	<spawn map="210060000" npcid="214265" pool="58" interval="295">
 		<object x="2643.476" y="848.7527" z="153.23962" h="45"/>
 		<object x="2722.979" y="827.5045" z="126.222404" h="94"/>
 		<object x="2873.212" y="935.9232" z="97.9524" h="73"/>
@@ -3611,7 +3611,7 @@ Theobomos-->
 		<object x="1755.97" y="623.51" z="87.002396" h="77"/>
 	</spawn>
 	<!-- Red Stone Kalgolem (Monster Normal lvl:22)-->
-	<spawn map="210060000" npcid="213809" pool="15" interval="105">
+	<spawn map="210060000" npcid="213809" pool="15" interval="295">
 		<object x="1862.283" y="1321.409" z="22.961502" h="22"/>
 		<object x="1865.505" y="1242.952" z="22.286934" h="0"/>
 		<object x="1730.632" y="1173.022" z="29.832756" h="114"/>
@@ -3629,7 +3629,7 @@ Theobomos-->
 		<object x="1802.642" y="1076.544" z="25.864014" h="76"/>
 	</spawn>
 	<!-- Red Thorn Sparkle (Monster Normal lvl:48)-->
-	<spawn map="210060000" npcid="214311" pool="19" interval="105">
+	<spawn map="210060000" npcid="214311" pool="19" interval="295">
 		<object x="1168.1" y="1388.96" z="69.74375" h="106"/>
 		<object x="1138.46" y="1350.7" z="66.687485" h="110"/>
 		<object x="746.08" y="1198.22" z="58.218758" h="28"/>
@@ -3651,13 +3651,13 @@ Theobomos-->
 		<object x="707.87" y="1172.45" z="63.471878" h="76"/>
 	</spawn>
 	<!-- Relic Guardian (Monster Normal lvl:47)-->
-	<spawn map="210060000" npcid="214553" pool="3" interval="105">
+	<spawn map="210060000" npcid="214553" pool="3" interval="295">
 		<object x="449.19742" y="508.02582" z="119.6578" h="40"/>
 		<object x="470.99753" y="631.14874" z="132.375" h="42"/>
 		<object x="561.3942" y="570.06885" z="121.0" h="61"/>
 	</spawn>
 	<!-- Runt-in-training (Monster Normal lvl:25)-->
-	<spawn map="210060000" npcid="280718" pool="18" interval="105">
+	<spawn map="210060000" npcid="280718" pool="18" interval="295">
 		<object x="2266.73" y="942.56" z="32.481247" h="97"/>
 		<object x="2261.31" y="945.2" z="32.481247" h="18"/>
 		<object x="2278.2" y="946.41" z="32.481247" h="94"/>
@@ -3678,7 +3678,7 @@ Theobomos-->
 		<object x="2261.24" y="944.75" z="32.481247" h="31"/>
 	</spawn>
 	<!-- Salt Desert Mudthorn (Monster Normal lvl:47)-->
-	<spawn map="210060000" npcid="214208" pool="14" interval="105">
+	<spawn map="210060000" npcid="214208" pool="14" interval="295">
 		<object x="2784.367" y="2331.982" z="45.860573" h="23"/>
 		<object x="2616.056" y="3002.206" z="60.919525" h="1"/>
 		<object x="2770.7" y="2244.405" z="67.43718" h="96"/>
@@ -3695,7 +3695,7 @@ Theobomos-->
 		<object x="2885.638" y="2370.42" z="39.39502" h="54"/>
 	</spawn>
 	<!-- Salt Fin Cellatu (Monster Normal lvl:47)-->
-	<spawn map="210060000" npcid="214252" pool="84" interval="105">
+	<spawn map="210060000" npcid="214252" pool="84" interval="295">
 		<object x="2905.2" y="1715.59" z="61.45125" h="103"/>
 		<object x="2698.36" y="1681.882" z="56.225773" h="113"/>
 		<object x="2653.252" y="1420.315" z="50.620575" h="34"/>
@@ -3782,7 +3782,7 @@ Theobomos-->
 		<object x="2669.632" y="1873.135" z="63.126953" h="15"/>
 	</spawn>
 	<!-- Sand Slink (Monster Normal lvl:45)-->
-	<spawn map="210060000" npcid="214169" pool="65" interval="105">
+	<spawn map="210060000" npcid="214169" pool="65" interval="295">
 		<object x="2036.225" y="2844.019" z="64.77062" h="117"/>
 		<object x="1883.681" y="2711.536" z="66.96202" h="6"/>
 		<object x="2167.158" y="2539.874" z="83.5" h="120"/>
@@ -3850,7 +3850,7 @@ Theobomos-->
 		<object x="2222.952" y="2573.989" z="76.81825" h="104"/>
 	</spawn>
 	<!-- Sand Tongue Hornskull (Monster Normal lvl:49)-->
-	<spawn map="210060000" npcid="214233" pool="61" interval="105">
+	<spawn map="210060000" npcid="214233" pool="61" interval="295">
 		<object x="77.86041" y="559.8254" z="162.37062" h="115"/>
 		<object x="153.349" y="462.1037" z="170.79716" h="57"/>
 		<object x="716.8423" y="291.6821" z="161.875" h="30"/>
@@ -3914,7 +3914,7 @@ Theobomos-->
 		<object x="925.0221" y="816.5635" z="143.99344" h="70"/>
 	</spawn>
 	<!-- Sandstone Kalgolem (Monster Normal lvl:20)-->
-	<spawn map="210060000" npcid="213807" pool="20" interval="105">
+	<spawn map="210060000" npcid="213807" pool="20" interval="295">
 		<object x="1526.436" y="1478.325" z="23.037994" h="85"/>
 		<object x="1567.728" y="1514.771" z="23.781189" h="119"/>
 		<object x="1565.869" y="1376.263" z="26.991753" h="73"/>
@@ -3937,7 +3937,7 @@ Theobomos-->
 		<object x="1750.711" y="1177.273" z="27.752998" h="44"/>
 	</spawn>
 	<!-- Sea Lobsek (Monster Normal lvl:47)-->
-	<spawn map="210060000" npcid="214216" pool="33" interval="105">
+	<spawn map="210060000" npcid="214216" pool="33" interval="295">
 		<object x="2890.032" y="2591.328" z="59.75" h="58"/>
 		<object x="2376.967" y="2497.669" z="45.837738" h="95"/>
 		<object x="2635.639" y="2375.091" z="59.659042" h="50"/>
@@ -3973,7 +3973,7 @@ Theobomos-->
 		<object x="2871.972" y="2423.226" z="35.78177" h="37"/>
 	</spawn>
 	<!-- Sea Rynoce (Monster Normal lvl:48)-->
-	<spawn map="210060000" npcid="214257" pool="77" interval="105">
+	<spawn map="210060000" npcid="214257" pool="77" interval="295">
 		<object x="2917.419" y="1332.904" z="69.495865" h="104"/>
 		<object x="2635.007" y="1136.288" z="95.49007" h="27"/>
 		<object x="2171.083" y="1371.542" z="85.075356" h="30"/>
@@ -4061,7 +4061,7 @@ Theobomos-->
 		<object x="2876.0" y="845.0" z="96.0" h="46"/>
 	</spawn>
 	<!-- Sharp Tail Scolopen (Monster Normal lvl:47)-->
-	<spawn map="210060000" npcid="214196" pool="45" interval="105">
+	<spawn map="210060000" npcid="214196" pool="45" interval="295">
 		<object x="2596.783" y="2262.289" z="68.183" h="36"/>
 		<object x="2478.359" y="2504.788" z="38.772766" h="0"/>
 		<object x="2456.236" y="1944.954" z="71.048294" h="47"/>
@@ -4118,7 +4118,7 @@ Theobomos-->
 		<object x="1276.014" y="689.4952" z="104.15567" h="32"/>
 	</spawn>
 	<!-- Skullmask Spiner (Monster Normal lvl:47)-->
-	<spawn map="210060000" npcid="214600" pool="71" interval="105">
+	<spawn map="210060000" npcid="214600" pool="71" interval="295">
 		<object x="2434.854" y="2287.445" z="59.740967" h="10"/>
 		<object x="2904.621" y="2758.896" z="47.84295" h="30"/>
 		<object x="2920.542" y="2807.025" z="38.16626" h="37"/>
@@ -4192,7 +4192,7 @@ Theobomos-->
 		<object x="2398.942" y="1384.874" z="99.57764" h="112"/>
 	</spawn>
 	<!-- Spinegut Cellatu (Monster Normal lvl:49)-->
-	<spawn map="210060000" npcid="214254" pool="89" interval="105">
+	<spawn map="210060000" npcid="214254" pool="89" interval="295">
 		<object x="350.869" y="695.113" z="13.9977455" h="86"/>
 		<object x="612.5427" y="751.4181" z="13.875" h="21"/>
 		<object x="1211.544" y="326.4671" z="201.875" h="73"/>
@@ -4284,7 +4284,7 @@ Theobomos-->
 		<object x="1613.463" y="338.1947" z="72.625" h="106"/>
 	</spawn>
 	<!-- Spying Ashulagen (Monster Normal lvl:46)-->
-	<spawn map="210060000" npcid="214240" pool="36" interval="105">
+	<spawn map="210060000" npcid="214240" pool="36" interval="295">
 		<object x="260.4411" y="2713.948" z="68.20618" h="27"/>
 		<object x="379.8674" y="2859.308" z="70.3945" h="63"/>
 		<object x="524.176" y="2505.331" z="58.204285" h="38"/>
@@ -4323,7 +4323,7 @@ Theobomos-->
 		<object x="233.1349" y="2228.26" z="75.33534" h="72"/>
 	</spawn>
 	<!-- Starved Gryphu (Monster Normal lvl:46)-->
-	<spawn map="210060000" npcid="214312" pool="17" interval="105">
+	<spawn map="210060000" npcid="214312" pool="17" interval="295">
 		<object x="119.6145" y="2532.74" z="81.13875" h="90"/>
 		<object x="239.1466" y="2458.264" z="59.233505" h="79"/>
 		<object x="121.6182" y="2449.674" z="84.73733" h="95"/>
@@ -4343,7 +4343,7 @@ Theobomos-->
 		<object x="262.5023" y="2413.946" z="54.43384" h="9"/>
 	</spawn>
 	<!-- Starved Kirrin (Monster Normal lvl:46)-->
-	<spawn map="210060000" npcid="214282" pool="32" interval="105">
+	<spawn map="210060000" npcid="214282" pool="32" interval="295">
 		<object x="921.8403" y="2668.885" z="77.82089" h="105"/>
 		<object x="929.4831" y="2751.704" z="67.81461" h="59"/>
 		<object x="829.1873" y="2891.175" z="52.76" h="99"/>
@@ -4378,7 +4378,7 @@ Theobomos-->
 		<object x="975.0148" y="2866.228" z="53.65992" h="95"/>
 	</spawn>
 	<!-- Starved Maeki (Monster Normal lvl:45)-->
-	<spawn map="210060000" npcid="214179" pool="99" interval="105">
+	<spawn map="210060000" npcid="214179" pool="99" interval="295">
 		<object x="1536.366" y="2719.834" z="82.11262" h="12"/>
 		<object x="1510.521" y="2550.648" z="104.00351" h="85"/>
 		<object x="2103.867" y="2451.622" z="52.44435" h="51"/>
@@ -4480,7 +4480,7 @@ Theobomos-->
 		<object x="1560.682" y="2675.825" z="81.91603" h="97"/>
 	</spawn>
 	<!-- Steel Beak Griffo (Monster Normal lvl:45)-->
-	<spawn map="210060000" npcid="214271" pool="73" interval="105">
+	<spawn map="210060000" npcid="214271" pool="73" interval="295">
 		<object x="1452.269" y="2071.611" z="136.08891" h="58"/>
 		<object x="1393.132" y="1955.948" z="148.62419" h="98"/>
 		<object x="1500.205" y="1968.668" z="146.10704" h="94"/>
@@ -4556,7 +4556,7 @@ Theobomos-->
 		<object x="1199.954" y="2095.49" z="153.31412" h="27"/>
 	</spawn>
 	<!-- Steel Beak Griffon (Monster Normal lvl:45)-->
-	<spawn map="210060000" npcid="214273" pool="133" interval="105">
+	<spawn map="210060000" npcid="214273" pool="133" interval="295">
 		<object x="1347.481" y="1982.974" z="147.03418" h="115"/>
 		<object x="1415.113" y="2135.442" z="136.89595" h="57"/>
 		<object x="1381.85" y="2030.243" z="144.125" h="85"/>
@@ -4692,7 +4692,7 @@ Theobomos-->
 		<object x="1522.302" y="1944.995" z="171.6055" h="99"/>
 	</spawn>
 	<!-- Stinking Clodworm (Monster Normal lvl:21)-->
-	<spawn map="210060000" npcid="213810" pool="40" interval="105">
+	<spawn map="210060000" npcid="213810" pool="40" interval="295">
 		<object x="1517.269" y="1083.297" z="41.969864" h="63"/>
 		<object x="1636.468" y="936.5395" z="51.477665" h="69"/>
 		<object x="1651.269" y="987.4127" z="51.347275" h="77"/>
@@ -4735,7 +4735,7 @@ Theobomos-->
 		<object x="1519.515" y="1073.724" z="41.340935" h="6"/>
 	</spawn>
 	<!-- Stone Fist Petrahulk (Monster Normal lvl:48)-->
-	<spawn map="210060000" npcid="214263" pool="71" interval="105">
+	<spawn map="210060000" npcid="214263" pool="71" interval="295">
 		<object x="2816.006" y="1021.424" z="91.74657" h="27"/>
 		<object x="2719.61" y="890.8003" z="125.875" h="11"/>
 		<object x="2699.412" y="765.6699" z="154.25586" h="7"/>
@@ -4809,7 +4809,7 @@ Theobomos-->
 		<object x="2785.915" y="919.9646" z="107.759995" h="40"/>
 	</spawn>
 	<!-- Stony Caltrops (Monster Normal lvl:45)-->
-	<spawn map="210060000" npcid="214210" pool="11" interval="105">
+	<spawn map="210060000" npcid="214210" pool="11" interval="295">
 		<object x="2283.06" y="2826.167" z="41.18828" h="101"/>
 		<object x="1986.442" y="2690.859" z="45.830032" h="2"/>
 		<object x="2261.033" y="2826.926" z="41.364536" h="70"/>
@@ -4823,7 +4823,7 @@ Theobomos-->
 		<object x="2846.186" y="2470.065" z="23.52607" h="12"/>
 	</spawn>
 	<!-- Strange Object (Monster Normal lvl:45)-->
-	<spawn map="210060000" npcid="280934" pool="19" interval="105">
+	<spawn map="210060000" npcid="280934" pool="19" interval="295">
 		<object x="2161.72" y="2634.43" z="68.30376" h="105"/>
 		<object x="2072.49" y="2695.6" z="68.39436" h="3"/>
 		<object x="2060.05" y="2699.52" z="68.03313" h="21"/>
@@ -4845,7 +4845,7 @@ Theobomos-->
 		<object x="2104.76" y="2725.96" z="62.955" h="93"/>
 	</spawn>
 	<!-- Striped Basilisk (Monster Normal lvl:45)-->
-	<spawn map="210060000" npcid="214173" pool="62" interval="105">
+	<spawn map="210060000" npcid="214173" pool="62" interval="295">
 		<object x="2120.429" y="1950.672" z="32.67862" h="54"/>
 		<object x="1735.144" y="1982.513" z="63.63582" h="64"/>
 		<object x="1972.788" y="2128.373" z="26.916306" h="98"/>
@@ -4910,7 +4910,7 @@ Theobomos-->
 		<object x="2051.404" y="1975.581" z="30.024323" h="58"/>
 	</spawn>
 	<!-- Swamp Ribbit (Monster Normal lvl:48)-->
-	<spawn map="210060000" npcid="214333" pool="18" interval="105">
+	<spawn map="210060000" npcid="214333" pool="18" interval="295">
 		<object x="348.2146" y="809.3509" z="13.665569" h="106"/>
 		<object x="313.6647" y="485.2537" z="13.875" h="28"/>
 		<object x="319.4677" y="851.2366" z="13.783268" h="104"/>
@@ -4931,7 +4931,7 @@ Theobomos-->
 		<object x="414.7526" y="320.5877" z="13.407232" h="74"/>
 	</spawn>
 	<!-- Tail Eye Scolopen (Monster Normal lvl:45)-->
-	<spawn map="210060000" npcid="214606" pool="13" interval="105">
+	<spawn map="210060000" npcid="214606" pool="13" interval="295">
 		<object x="1987.655" y="2686.982" z="45.42058" h="117"/>
 		<object x="2000.148" y="2687.954" z="45.476704" h="80"/>
 		<object x="1995.544" y="2677.92" z="45.408543" h="6"/>
@@ -4947,7 +4947,7 @@ Theobomos-->
 		<object x="2276.976" y="2820.614" z="40.402935" h="69"/>
 	</spawn>
 	<!-- Tamed Bellepig (Monster Junk lvl:1)-->
-	<spawn map="210060000" npcid="214635" pool="22" interval="105">
+	<spawn map="210060000" npcid="214635" pool="22" interval="295">
 		<object x="631.986" y="312.7365" z="174.98691" h="84"/>
 		<object x="865.6285" y="637.6114" z="159.87607" h="62"/>
 		<object x="609.736" y="321.9865" z="174.125" h="11"/>
@@ -4972,7 +4972,7 @@ Theobomos-->
 		<object x="402.1109" y="73.11151" z="161.86807" h="45"/>
 	</spawn>
 	<!-- Tamed Tipolid (NPC Normal lvl:20)-->
-	<spawn map="210060000" npcid="798148" pool="12" interval="105">
+	<spawn map="210060000" npcid="798148" pool="12" interval="295">
 		<object x="1368.556" y="1579.914" z="35.375" h="45"/>
 		<object x="1419.058" y="1582.82" z="30.875" h="98"/>
 		<object x="2196.528" y="2159.844" z="53.875" h="100"/>
@@ -4991,7 +4991,7 @@ Theobomos-->
 		<object x="2772.201" y="105.5423" z="225.26813" h="89"/>
 	</spawn>
 	<!-- Thorn Hand Dionae (Monster Normal lvl:47)-->
-	<spawn map="210060000" npcid="214184" pool="39" interval="105">
+	<spawn map="210060000" npcid="214184" pool="39" interval="295">
 		<object x="474.7169" y="2920.974" z="78.31909" h="24"/>
 		<object x="687.8217" y="2798.955" z="92.98877" h="83"/>
 		<object x="505.0119" y="2291.896" z="46.819744" h="39"/>
@@ -5033,7 +5033,7 @@ Theobomos-->
 		<object x="685.7154" y="839.0041" z="20.294968" h="63"/>
 	</spawn>
 	<!-- Thorn Leaf Dionae (Monster Normal lvl:45)-->
-	<spawn map="210060000" npcid="214182" pool="85" interval="105">
+	<spawn map="210060000" npcid="214182" pool="85" interval="295">
 		<object x="2143.1" y="2179.406" z="28.563263" h="31"/>
 		<object x="1819.654" y="2356.458" z="43.671127" h="32"/>
 		<object x="1701.097" y="2517.267" z="37.634125" h="107"/>
@@ -5121,7 +5121,7 @@ Theobomos-->
 		<object x="763.3746" y="2851.457" z="74.481964" h="34"/>
 	</spawn>
 	<!-- Thornback Hornskull (Monster Normal lvl:47)-->
-	<spawn map="210060000" npcid="214231" pool="36" interval="105">
+	<spawn map="210060000" npcid="214231" pool="36" interval="295">
 		<object x="966.8561" y="1771.049" z="71.517525" h="102"/>
 		<object x="492.6024" y="1897.465" z="65.833145" h="39"/>
 		<object x="827.7286" y="1875.781" z="68.73959" h="33"/>
@@ -5160,7 +5160,7 @@ Theobomos-->
 		<object x="301.3032" y="206.6505" z="169.79341" h="81"/>
 	</spawn>
 	<!-- Tiger Arachna (Monster Normal lvl:49)-->
-	<spawn map="210060000" npcid="214543" pool="52" interval="105">
+	<spawn map="210060000" npcid="214543" pool="52" interval="295">
 		<object x="1415.541" y="345.8497" z="75.0" h="97"/>
 		<object x="1744.967" y="625.9445" z="87.01279" h="27"/>
 		<object x="1771.031" y="609.9019" z="90.03444" h="40"/>
@@ -5215,7 +5215,7 @@ Theobomos-->
 		<object x="1819.948" y="147.4243" z="109.16151" h="50"/>
 	</spawn>
 	<!-- Tigric Sea Hunter (Monster Normal lvl:47)-->
-	<spawn map="210060000" npcid="214250" pool="50" interval="105">
+	<spawn map="210060000" npcid="214250" pool="50" interval="295">
 		<object x="2836.232" y="1118.87" z="94.54885" h="33"/>
 		<object x="2791.6" y="1135.941" z="85.57213" h="101"/>
 		<object x="2883.465" y="1046.697" z="98.2267" h="110"/>
@@ -5268,15 +5268,15 @@ Theobomos-->
 		<object x="2814.615" y="1174.367" z="77.19444" h="44"/>
 	</spawn>
 	<!-- Titanium Sentinel (Monster Normal lvl:50)-->
-	<spawn map="210060000" npcid="214559" pool="1" interval="105">
+	<spawn map="210060000" npcid="214559" pool="1" interval="295">
 		<object x="2462.764" y="400.1735" z="163.76915" h="53"/>
 	</spawn>
 	<!-- Titirunerk the Two Faced (Monster Normal lvl:50)-->
-	<spawn map="210060000" npcid="214577" pool="1" interval="105">
+	<spawn map="210060000" npcid="214577" pool="1" interval="295">
 		<object x="1761.914" y="208.8889" z="78.37275" h="6"/>
 	</spawn>
 	<!-- Top Shell Lobnite (Monster Normal lvl:48)-->
-	<spawn map="210060000" npcid="214259" pool="48" interval="105">
+	<spawn map="210060000" npcid="214259" pool="48" interval="295">
 		<object x="2742.612" y="1463.6" z="45.13674" h="52"/>
 		<object x="2727.535" y="1488.986" z="53.15056" h="75"/>
 		<object x="2925.232" y="1954.824" z="65.43698" h="114"/>
@@ -5327,7 +5327,7 @@ Theobomos-->
 		<object x="2965.64" y="742.882" z="107.39758" h="15"/>
 	</spawn>
 	<!-- Toxic Mudthorn (Monster Normal lvl:48)-->
-	<spawn map="210060000" npcid="214245" pool="18" interval="105">
+	<spawn map="210060000" npcid="214245" pool="18" interval="295">
 		<object x="161.49" y="1836.22" z="85.9275" h="60"/>
 		<object x="152.15" y="1859.99" z="72.75438" h="84"/>
 		<object x="163.76" y="1884.04" z="71.0" h="3"/>
@@ -5348,7 +5348,7 @@ Theobomos-->
 		<object x="160.2" y="1832.77" z="85.22251" h="35"/>
 	</spawn>
 	<!-- Toxic Ribbit (Monster Normal lvl:40)-->
-	<spawn map="210060000" npcid="212147" pool="19" interval="105">
+	<spawn map="210060000" npcid="212147" pool="19" interval="295">
 		<object x="314.8466" y="827.7667" z="13.875" h="49"/>
 		<object x="683.6754" y="440.5851" z="13.858717" h="118"/>
 		<object x="1093.738" y="361.617" z="13.75" h="87"/>
@@ -5370,7 +5370,7 @@ Theobomos-->
 		<object x="337.3841" y="886.3062" z="13.875" h="107"/>
 	</spawn>
 	<!-- Unfest Sentinel (Monster Normal lvl:24)-->
-	<spawn map="210060000" npcid="213834" pool="33" interval="105">
+	<spawn map="210060000" npcid="213834" pool="33" interval="295">
 		<object x="1980.082" y="943.1439" z="22.971756" h="15"/>
 		<object x="1984.525" y="1261.506" z="20.594124" h="28"/>
 		<object x="2002.544" y="1356.437" z="20.875" h="70"/>
@@ -5406,7 +5406,7 @@ Theobomos-->
 		<object x="2132.568" y="1056.143" z="21.526573" h="82"/>
 	</spawn>
 	<!-- Valley Ribbit (Monster Normal lvl:48)-->
-	<spawn map="210060000" npcid="214331" pool="18" interval="105">
+	<spawn map="210060000" npcid="214331" pool="18" interval="295">
 		<object x="317.5901" y="770.144" z="14.388523" h="52"/>
 		<object x="289.0647" y="806.4642" z="14.145489" h="78"/>
 		<object x="345.7672" y="888.1896" z="13.875" h="66"/>
@@ -5427,7 +5427,7 @@ Theobomos-->
 		<object x="517.0359" y="403.0309" z="13.695162" h="79"/>
 	</spawn>
 	<!-- Venomthorn Laupede (Monster Normal lvl:49)-->
-	<spawn map="210060000" npcid="214545" pool="91" interval="105">
+	<spawn map="210060000" npcid="214545" pool="91" interval="295">
 		<object x="1419.934" y="386.8225" z="78.366745" h="88"/>
 		<object x="1198.291" y="341.0234" z="31.842466" h="94"/>
 		<object x="1192.44" y="327.6119" z="28.788713" h="66"/>
@@ -5521,7 +5521,7 @@ Theobomos-->
 		<object x="1917.19" y="440.787" z="117.326996" h="10"/>
 	</spawn>
 	<!-- Virago Poacher (Monster Normal lvl:45)-->
-	<spawn map="210060000" npcid="214277" pool="34" interval="105">
+	<spawn map="210060000" npcid="214277" pool="34" interval="295">
 		<object x="1652.523" y="2857.06" z="89.94125" h="101"/>
 		<object x="1637.044" y="2929.023" z="98.0123" h="70"/>
 		<object x="1485.44" y="2929.388" z="93.74675" h="61"/>
@@ -5558,7 +5558,7 @@ Theobomos-->
 		<object x="1618.026" y="2964.77" z="96.59625" h="58"/>
 	</spawn>
 	<!-- Virago Shaman (Monster Normal lvl:23)-->
-	<spawn map="210060000" npcid="213828" pool="22" interval="105">
+	<spawn map="210060000" npcid="213828" pool="22" interval="295">
 		<object x="1575.987" y="774.7971" z="65.22383" h="117"/>
 		<object x="1186.18" y="674.3575" z="104.29639" h="70"/>
 		<object x="1650.831" y="740.3904" z="68.5" h="5"/>
@@ -5583,7 +5583,7 @@ Theobomos-->
 		<object x="1257.974" y="564.6298" z="95.28937" h="95"/>
 	</spawn>
 	<!-- Virago Warrior (Monster Normal lvl:36)-->
-	<spawn map="210060000" npcid="213826" pool="47" interval="105">
+	<spawn map="210060000" npcid="213826" pool="47" interval="295">
 		<object x="1423.948" y="831.033" z="67.37263" h="109"/>
 		<object x="1541.338" y="825.535" z="58.52994" h="71"/>
 		<object x="1405.879" y="660.8989" z="72.63256" h="71"/>
@@ -5638,7 +5638,7 @@ Theobomos-->
 		<object x="1629.66" y="630.74" z="95.94149" h="111"/>
 	</spawn>
 	<!-- Virago Trapper (Monster Normal lvl:45)-->
-	<spawn map="210060000" npcid="214275" pool="65" interval="105">
+	<spawn map="210060000" npcid="214275" pool="65" interval="295">
 		<object x="1548.0801" y="2799.3848" z="109.55188" h="54"/>
 		<object x="1536.2646" y="2831.0168" z="103.90126" h="85"/>
 		<object x="1640.72" y="2764.1455" z="83.59729" h="116"/>
@@ -5706,7 +5706,7 @@ Theobomos-->
 		<object x="1564.0619" y="2951.5068" z="104.55949" h="19"/>
 	</spawn>
 	<!-- Wasteland Abex (Monster Normal lvl:46)-->
-	<spawn map="210060000" npcid="214316" pool="8" interval="105">
+	<spawn map="210060000" npcid="214316" pool="8" interval="295">
 		<object x="770.5867" y="2827.832" z="74.077835" h="68"/>
 		<object x="737.8564" y="2824.816" z="78.89476" h="19"/>
 		<object x="689.64" y="2719.83" z="88.06938" h="5"/>
@@ -5717,7 +5717,7 @@ Theobomos-->
 		<object x="115.4" y="2340.57" z="83.653145" h="52"/>
 	</spawn>
 	<!-- Wasteland Gorgon (Monster Normal lvl:21)-->
-	<spawn map="210060000" npcid="213812" pool="21" interval="105">
+	<spawn map="210060000" npcid="213812" pool="21" interval="295">
 		<object x="1801.399" y="1166.808" z="28.074501" h="68"/>
 		<object x="1776.421" y="1331.659" z="21.271309" h="18"/>
 		<object x="1700.087" y="1192.622" z="32.70025" h="60"/>
@@ -5741,7 +5741,7 @@ Theobomos-->
 		<object x="1857.091" y="1370.842" z="24.765556" h="95"/>
 	</spawn>
 	<!-- Wasteland Hornskull (Monster Normal lvl:45)-->
-	<spawn map="210060000" npcid="214229" pool="83" interval="105">
+	<spawn map="210060000" npcid="214229" pool="83" interval="295">
 		<object x="1949.326" y="2309.046" z="39.274612" h="21"/>
 		<object x="1927.474" y="2092.93" z="34.30534" h="110"/>
 		<object x="1986.8945" y="2292.5715" z="34.29425" h="63"/>
@@ -5827,7 +5827,7 @@ Theobomos-->
 		<object x="1176.378" y="2027.164" z="125.67226" h="18"/>
 	</spawn>
 	<!-- Wasteland Spiner (Monster Normal lvl:20)-->
-	<spawn map="210060000" npcid="213803" pool="22" interval="105">
+	<spawn map="210060000" npcid="213803" pool="22" interval="295">
 		<object x="1555.03" y="1402.339" z="24.790253" h="104"/>
 		<object x="1598.091" y="1379.797" z="26.213257" h="33"/>
 		<object x="1662.987" y="1335.373" z="27.126617" h="18"/>
@@ -5852,7 +5852,7 @@ Theobomos-->
 		<object x="1602.735" y="1217.788" z="35.82244" h="32"/>
 	</spawn>
 	<!-- Wasteland Vespine (Monster Normal lvl:20)-->
-	<spawn map="210060000" npcid="213805" pool="24" interval="105">
+	<spawn map="210060000" npcid="213805" pool="24" interval="295">
 		<object x="1536.917" y="1456.276" z="22.364624" h="46"/>
 		<object x="1498.568" y="1556.818" z="27.913376" h="10"/>
 		<object x="1623.422" y="1344.093" z="27.369186" h="83"/>
@@ -5879,7 +5879,7 @@ Theobomos-->
 		<object x="1652.234" y="1375.01" z="24.185623" h="94"/>
 	</spawn>
 	<!-- Wasteland Waterworm (Monster Normal lvl:21)-->
-	<spawn map="210060000" npcid="213892" pool="39" interval="105">
+	<spawn map="210060000" npcid="213892" pool="39" interval="295">
 		<object x="1489.102" y="1102.51" z="43.669632" h="66"/>
 		<object x="1701.422" y="1390.046" z="24.136505" h="115"/>
 		<object x="1574.636" y="1247.334" z="32.753754" h="19"/>
@@ -5921,7 +5921,7 @@ Theobomos-->
 		<object x="1709.338" y="1209.757" z="28.51519" h="86"/>
 	</spawn>
 	<!-- Web Hand Dionae (Monster Normal lvl:49)-->
-	<spawn map="210060000" npcid="214186" pool="37" interval="105">
+	<spawn map="210060000" npcid="214186" pool="37" interval="295">
 		<object x="1160.151" y="326.4425" z="28.757057" h="8"/>
 		<object x="668.0421" y="558.9969" z="15.747368" h="55"/>
 		<object x="1431.424" y="272.5395" z="82.99784" h="90"/>
@@ -5961,7 +5961,7 @@ Theobomos-->
 		<object x="1951.297" y="356.62" z="139.3518" h="109"/>
 	</spawn>
 	<!-- Web Vespine (Monster Normal lvl:45)-->
-	<spawn map="210060000" npcid="214198" pool="44" interval="105">
+	<spawn map="210060000" npcid="214198" pool="44" interval="295">
 		<object x="2107.939" y="2681.387" z="66.58807" h="31"/>
 		<object x="2382.367" y="2882.815" z="58.8752" h="10"/>
 		<object x="1930.046" y="2731.723" z="59.921204" h="72"/>
@@ -6012,7 +6012,7 @@ Theobomos-->
 		<object x="1222.198" y="719.4722" z="111.545364" h="32"/>
 	</spawn>
 	<!-- Wounded Ghost (Monster Normal lvl:24)-->
-	<spawn map="210060000" npcid="213836" pool="43" interval="105">
+	<spawn map="210060000" npcid="213836" pool="43" interval="295">
 		<object x="1906.655" y="1000.1" z="33.33406" h="56"/>
 		<object x="2049.412" y="965.0467" z="24.611095" h="1"/>
 		<object x="1846.497" y="917.3768" z="50.141037" h="118"/>

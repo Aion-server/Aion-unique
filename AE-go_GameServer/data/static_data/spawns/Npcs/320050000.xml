@@ -5,7 +5,7 @@ object x y z h
  -->
 <spawns>
 	<!-- Hyuirinerk -->
-	<spawn map="320050000" npcid="798107" pool="1" interval="105">
+	<spawn map="320050000" npcid="798107" pool="1" interval="295">
 		<object x="206.21582" y="305.68588" z="555.0" h="0"/>
 	</spawn>
 </spawns>

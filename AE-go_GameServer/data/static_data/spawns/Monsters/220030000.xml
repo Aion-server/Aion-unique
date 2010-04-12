@@ -5,7 +5,7 @@ object x y z h
 Altgard-->
 <spawns>
 	<!-- Angolem Frangment (Monster Normal lvl:18)-->
-	<spawn map="220030000" npcid="280100" pool="18" interval="105">
+	<spawn map="220030000" npcid="280100" pool="18" interval="295">
 		<object x="2414.88" y="784.12" z="310.485" h="85"/>
 		<object x="2411.66" y="790.04" z="309.9975" h="64"/>
 		<object x="2525.39" y="785.6" z="309.625" h="70"/>
@@ -26,7 +26,7 @@ Altgard-->
 		<object x="2429.2" y="771.12" z="312.21002" h="114"/>
 	</spawn>
 	<!-- Angry Karnif (Monster Normal lvl:11)-->
-	<spawn map="220030000" npcid="210554" pool="8" interval="105">
+	<spawn map="220030000" npcid="210554" pool="8" interval="295">
 		<object x="1524.187" y="1315.593" z="271.6367" h="94"/>
 		<object x="1522.375" y="1296.458" z="273.64056" h="73"/>
 		<object x="1408.501" y="1285.734" z="275.3268" h="114"/>
@@ -37,7 +37,7 @@ Altgard-->
 		<object x="1477.664" y="1311.188" z="269.792" h="81"/>
 	</spawn>
 	<!-- Angry Mosbear (Monster Normal lvl:17)-->
-	<spawn map="220030000" npcid="210566" pool="11" interval="105">
+	<spawn map="220030000" npcid="210566" pool="11" interval="295">
 		<object x="1353.25" y="808.26" z="263.3119" h="78"/>
 		<object x="1270.05" y="845.8" z="253.49686" h="31"/>
 		<object x="1302.26" y="813.34" z="256.29877" h="33"/>
@@ -51,7 +51,7 @@ Altgard-->
 		<object x="1145.36" y="873.77" z="280.625" h="118"/>
 	</spawn>
 	<!-- Bearded Ksellid (Monster Normal lvl:14)-->
-	<spawn map="220030000" npcid="210718" pool="5" interval="105">
+	<spawn map="220030000" npcid="210718" pool="5" interval="295">
 		<object x="1688.8" y="486.2611" z="247.90103" h="87"/>
 		<object x="1714.943" y="468.835" z="247.5" h="72"/>
 		<object x="1785.867" y="439.7815" z="247.5" h="80"/>
@@ -59,7 +59,7 @@ Altgard-->
 		<object x="1675.987" y="522.0734" z="247.5" h="86"/>
 	</spawn>
 	<!-- Big Cargo Box (Monster Normal lvl:17)-->
-	<spawn map="220030000" npcid="210524" pool="9" interval="105">
+	<spawn map="220030000" npcid="210524" pool="9" interval="295">
 		<object x="1464.245" y="2440.817" z="247.375" h="1"/>
 		<object x="1470.712" y="2414.532" z="247.25" h="12"/>
 		<object x="1552.599" y="2204.3" z="247.375" h="96"/>
@@ -71,7 +71,7 @@ Altgard-->
 		<object x="480.399" y="2458.693" z="267.37598" h="48"/>
 	</spawn>
 	<!-- Big Cargo Box (Monster Normal lvl:17)-->
-	<spawn map="220030000" npcid="210525" pool="9" interval="105">
+	<spawn map="220030000" npcid="210525" pool="9" interval="295">
 		<object x="1518.68" y="2437.67" z="247.375" h="49"/>
 		<object x="1490.85" y="2495.56" z="247.375" h="86"/>
 		<object x="1480.21" y="2458.69" z="247.375" h="76"/>
@@ -83,7 +83,7 @@ Altgard-->
 		<object x="1492.49" y="2432.44" z="247.48499" h="45"/>
 	</spawn>
 	<!-- Bigfoot Mosbear (Monster Normal lvl:16)-->
-	<spawn map="220030000" npcid="210441" pool="15" interval="105">
+	<spawn map="220030000" npcid="210441" pool="15" interval="295">
 		<object x="1277.683" y="1003.989" z="248.17006" h="63"/>
 		<object x="1312.09" y="992.3493" z="252.44049" h="51"/>
 		<object x="1348.792" y="893.0922" z="251.11732" h="108"/>
@@ -101,7 +101,7 @@ Altgard-->
 		<object x="1320.525" y="997.8484" z="253.07324" h="17"/>
 	</spawn>
 	<!-- Black Claw Patrol (Monster Normal lvl:11)-->
-	<spawn map="220030000" npcid="210473" pool="7" interval="105">
+	<spawn map="220030000" npcid="210473" pool="7" interval="295">
 		<object x="1768.181" y="1397.71" z="291.96143" h="77"/>
 		<object x="1705.743" y="1254.955" z="275.875" h="93"/>
 		<object x="1773.79" y="1316.15" z="280.96063" h="58"/>
@@ -111,14 +111,14 @@ Altgard-->
 		<object x="1773.72" y="1206.703" z="273.985" h="56"/>
 	</spawn>
 	<!-- Black Claw Searcher (Monster Normal lvl:16)-->
-	<spawn map="220030000" npcid="214032" pool="4" interval="105">
+	<spawn map="220030000" npcid="214032" pool="4" interval="295">
 		<object x="1508.837" y="308.8251" z="286.94693" h="118"/>
 		<object x="1404.32" y="213.5494" z="302.2945" h="7"/>
 		<object x="1483.053" y="314.0699" z="290.00436" h="47"/>
 		<object x="1659.425" y="183.3971" z="295.73474" h="44"/>
 	</spawn>
 	<!-- Black Claw Secret Patrol (Monster Normal lvl:17)-->
-	<spawn map="220030000" npcid="210717" pool="19" interval="105">
+	<spawn map="220030000" npcid="210717" pool="19" interval="295">
 		<object x="1719.75" y="2051.16" z="248.89626" h="17"/>
 		<object x="1746.25" y="2047.75" z="249.85938" h="39"/>
 		<object x="1708.78" y="2036.5" z="248.295" h="61"/>
@@ -140,7 +140,7 @@ Altgard-->
 		<object x="1746.87" y="2005.37" z="248.265" h="95"/>
 	</spawn>
 	<!-- Black Claw Sharpeye (Monster Normal lvl:15)-->
-	<spawn map="220030000" npcid="210455" pool="11" interval="105">
+	<spawn map="220030000" npcid="210455" pool="11" interval="295">
 		<object x="1550.157" y="316.8311" z="281.0015" h="67"/>
 		<object x="1611.286" y="177.2066" z="286.3403" h="33"/>
 		<object x="1543.7" y="145.0236" z="288.68604" h="88"/>
@@ -154,7 +154,7 @@ Altgard-->
 		<object x="1362.477" y="162.105" z="314.57193" h="87"/>
 	</spawn>
 	<!-- Black Claw Sleekpaw (Monster Normal lvl:16)-->
-	<spawn map="220030000" npcid="210502" pool="6" interval="105">
+	<spawn map="220030000" npcid="210502" pool="6" interval="295">
 		<object x="1781.097" y="2200.615" z="271.14926" h="94"/>
 		<object x="1699.34" y="2173.068" z="253.37625" h="55"/>
 		<object x="1681.44" y="2198.229" z="251.39569" h="91"/>
@@ -163,11 +163,11 @@ Altgard-->
 		<object x="1743.763" y="2223.592" z="249.94081" h="2"/>
 	</spawn>
 	<!-- Black Claw Tower Guard (Monster Normal lvl:17)-->
-	<spawn map="220030000" npcid="210612" pool="1" interval="105">
+	<spawn map="220030000" npcid="210612" pool="1" interval="295">
 		<object x="1735.64" y="2208.53" z="260.6165" h="25"/>
 	</spawn>
 	<!-- Black Claw Warrior (Monster Normal lvl:15)-->
-	<spawn map="220030000" npcid="210458" pool="14" interval="105">
+	<spawn map="220030000" npcid="210458" pool="14" interval="295">
 		<object x="1485.684" y="270.2148" z="289.61157" h="100"/>
 		<object x="1570.825" y="369.1075" z="280.97812" h="85"/>
 		<object x="1556.499" y="352.8188" z="281.00125" h="60"/>
@@ -184,7 +184,7 @@ Altgard-->
 		<object x="1411.9" y="224.6841" z="299.95398" h="41"/>
 	</spawn>
 	<!-- Blackened Angolem (Monster Normal lvl:16)-->
-	<spawn map="220030000" npcid="210486" pool="18" interval="105">
+	<spawn map="220030000" npcid="210486" pool="18" interval="295">
 		<object x="2449.632" y="702.1512" z="311.95276" h="106"/>
 		<object x="2457.691" y="764.0283" z="309.625" h="57"/>
 		<object x="2504.944" y="710.9749" z="310.06598" h="1"/>
@@ -205,7 +205,7 @@ Altgard-->
 		<object x="2627.942" y="1062.728" z="305.57596" h="74"/>
 	</spawn>
 	<!-- Blackened Angolem Shardling (Monster Normal lvl:16)-->
-	<spawn map="220030000" npcid="210488" pool="24" interval="105">
+	<spawn map="220030000" npcid="210488" pool="24" interval="295">
 		<object x="2483.0" y="771.0" z="309.75" h="78"/>
 		<object x="2435.68" y="843.96" z="309.75" h="75"/>
 		<object x="2536.66" y="678.37" z="324.99872" h="41"/>
@@ -232,7 +232,7 @@ Altgard-->
 		<object x="2665.896" y="1108.638" z="301.0526" h="46"/>
 	</spawn>
 	<!-- Blackpaw Karnif (Monster Normal lvl:12)-->
-	<spawn map="220030000" npcid="210423" pool="18" interval="105">
+	<spawn map="220030000" npcid="210423" pool="18" interval="295">
 		<object x="1382.669" y="1378.689" z="279.42984" h="40"/>
 		<object x="1431.061" y="1421.037" z="278.44592" h="65"/>
 		<object x="1476.813" y="1424.55" z="277.989" h="9"/>
@@ -253,7 +253,7 @@ Altgard-->
 		<object x="1400.981" y="1413.468" z="283.77008" h="66"/>
 	</spawn>
 	<!-- Bladestorm Spirit (Monster Normal lvl:18)-->
-	<spawn map="220030000" npcid="210576" pool="18" interval="105">
+	<spawn map="220030000" npcid="210576" pool="18" interval="295">
 		<object x="2865.594" y="1575.871" z="249.25" h="111"/>
 		<object x="2569.92" y="1493.039" z="253.33496" h="65"/>
 		<object x="2466.725" y="1550.151" z="251.17032" h="49"/>
@@ -279,7 +279,7 @@ Altgard-->
 		<object x="1647.33" y="2696.41" z="286.45123" h="27"/>
 	</spawn>
 	<!-- Brownbristle Mosbear (Monster Normal lvl:15)-->
-	<spawn map="220030000" npcid="210440" pool="19" interval="105">
+	<spawn map="220030000" npcid="210440" pool="19" interval="295">
 		<object x="1406.29" y="858.16" z="247.42499" h="84"/>
 		<object x="1380.68" y="656.13" z="279.14874" h="62"/>
 		<object x="1403.7" y="812.32" z="248.33499" h="35"/>
@@ -301,7 +301,7 @@ Altgard-->
 		<object x="1383.73" y="767.64" z="264.05624" h="84"/>
 	</spawn>
 	<!-- Brownbristle Mosbear Cub (Monster Normal lvl:15)-->
-	<spawn map="220030000" npcid="210503" pool="13" interval="105">
+	<spawn map="220030000" npcid="210503" pool="13" interval="295">
 		<object x="1403.37" y="858.43" z="247.37" h="27"/>
 		<object x="1431.3" y="826.7" z="248.6625" h="70"/>
 		<object x="1403.82" y="846.79" z="247.75375" h="43"/>
@@ -625,12 +625,12 @@ Altgard-->
 		<object x="2524.67" y="2634.92" z="317.8952" h="84"/>
 	</spawn>
 	<!-- Brutal Black Claw Tower Guard (Monster Normal lvl:17)-->
-	<spawn map="220030000" npcid="210613" pool="2" interval="105">
+	<spawn map="220030000" npcid="210613" pool="2" interval="295">
 		<object x="1969.878" y="2552.051" z="345.4615" h="60"/>
 		<object x="1824.009" y="2295.587" z="293.1879" h="49"/>
 	</spawn>
 	<!-- Brutal Black Claw Tower Stalker (Monster Normal lvl:18)-->
-	<spawn map="220030000" npcid="210614" pool="5" interval="105">
+	<spawn map="220030000" npcid="210614" pool="5" interval="295">
 		<object x="2206.884" y="2419.342" z="326.67236" h="114"/>
 		<object x="2332.22" y="2290.497" z="288.0113" h="119"/>
 		<object x="2131.188" y="2511.526" z="351.0781" h="71"/>
@@ -719,23 +719,23 @@ Altgard-->
 		<object x="2459.979" y="2596.775" z="316.56256" h="23"/>
 	</spawn>
 	<!-- Chieftain Manumumu (Monster Normal lvl:17)-->
-	<spawn map="220030000" npcid="210598" pool="1" interval="105">
+	<spawn map="220030000" npcid="210598" pool="1" interval="295">
 		<object x="1581.898" y="217.534" z="284.2209" h="93"/>
 	</spawn>
 	<!-- Commander Gattban (Monster Normal lvl:18)-->
-	<spawn map="220030000" npcid="210532" pool="1" interval="105">
+	<spawn map="220030000" npcid="210532" pool="1" interval="295">
 		<object x="1721.046" y="2636.01" z="291.18463" h="8"/>
 	</spawn>
 	<!-- Commander Mohen (Monster Normal lvl:13)-->
-	<spawn map="220030000" npcid="210431" pool="1" interval="105">
+	<spawn map="220030000" npcid="210431" pool="1" interval="295">
 		<object x="1268.302" y="1114.032" z="254.15196" h="30"/>
 	</spawn>
 	<!-- Comrade Sumarhon (Monster Normal lvl:15)-->
-	<spawn map="220030000" npcid="210510" pool="1" interval="105">
+	<spawn map="220030000" npcid="210510" pool="1" interval="295">
 		<object x="1305.47" y="482.58" z="333.38162" h="115"/>
 	</spawn>
 	<!-- Crested Pluma (Monster Normal lvl:15)-->
-	<spawn map="220030000" npcid="210587" pool="16" interval="105">
+	<spawn map="220030000" npcid="210587" pool="16" interval="295">
 		<object x="1368.742" y="914.272" z="255.12848" h="99"/>
 		<object x="1333.746" y="919.2037" z="252.67477" h="26"/>
 		<object x="1267.59" y="834.9113" z="254.30664" h="22"/>
@@ -754,7 +754,7 @@ Altgard-->
 		<object x="1360.873" y="902.5871" z="253.05551" h="26"/>
 	</spawn>
 	<!-- Crimsontail Ampha (Monster Normal lvl:17)-->
-	<spawn map="220030000" npcid="210493" pool="7" interval="105">
+	<spawn map="220030000" npcid="210493" pool="7" interval="295">
 		<object x="2602.566" y="1144.007" z="289.8405" h="85"/>
 		<object x="2459.888" y="1105.318" z="281.12787" h="117"/>
 		<object x="2493.53" y="1111.173" z="285.22064" h="60"/>
@@ -764,7 +764,7 @@ Altgard-->
 		<object x="2535.298" y="1119.342" z="286.66724" h="104"/>
 	</spawn>
 	<!-- Crimsontail Ampha (Monster Normal lvl:18)-->
-	<spawn map="220030000" npcid="210492" pool="10" interval="105">
+	<spawn map="220030000" npcid="210492" pool="10" interval="295">
 		<object x="2449.007" y="1170.313" z="269.85367" h="14"/>
 		<object x="2457.2722" y="1373.101" z="261.40738" h="79"/>
 		<object x="2567.71" y="1158.839" z="287.28232" h="95"/>
@@ -777,7 +777,7 @@ Altgard-->
 		<object x="2494.979" y="1344.072" z="257.99548" h="11"/>
 	</spawn>
 	<!-- Cyclone Spirit (Monster Normal lvl:18)-->
-	<spawn map="220030000" npcid="210523" pool="49" interval="105">
+	<spawn map="220030000" npcid="210523" pool="49" interval="295">
 		<object x="2530.678" y="1827.349" z="252.83513" h="58"/>
 		<object x="2469.554" y="1655.654" z="251.92075" h="66"/>
 		<object x="2888.671" y="1520.568" z="250.77986" h="81"/>
@@ -837,7 +837,7 @@ Altgard-->
 		<object x="2943.581" y="1725.109" z="248.57855" h="61"/>
 	</spawn>
 	<!-- Dune Potcrab (Monster Normal lvl:18)-->
-	<spawn map="220030000" npcid="210579" pool="18" interval="105">
+	<spawn map="220030000" npcid="210579" pool="18" interval="295">
 		<object x="2493.249" y="2242.567" z="250.01532" h="68"/>
 		<object x="2486.669" y="2275.474" z="248.46713" h="34"/>
 		<object x="2508.723" y="2300.94" z="247.71088" h="50"/>
@@ -858,7 +858,7 @@ Altgard-->
 		<object x="2517.662" y="2332.524" z="247.71161" h="84"/>
 	</spawn>
 	<!-- Elroco (Monster Junk lvl:1)-->
-	<spawn map="220030000" npcid="210376" pool="29" interval="105">
+	<spawn map="220030000" npcid="210376" pool="29" interval="295">
 		<object x="1517.8823" y="663.85046" z="257.58456" h="53"/>
 		<object x="1581.9066" y="701.10333" z="247.375" h="50"/>
 		<object x="1584.609" y="651.5218" z="266.26907" h="40"/>
@@ -890,7 +890,7 @@ Altgard-->
 		<object x="1548.087" y="668.4044" z="256.96576" h="33"/>
 	</spawn>
 	<!-- Feral Black Claw Hunter (Monster Normal lvl:17)-->
-	<spawn map="220030000" npcid="210463" pool="20" interval="105">
+	<spawn map="220030000" npcid="210463" pool="20" interval="295">
 		<object x="1706.8" y="2236.24" z="249.205" h="52"/>
 		<object x="1686.96" y="2243.35" z="249.04562" h="82"/>
 		<object x="1709.6" y="2228.28" z="249.10501" h="65"/>
@@ -913,7 +913,7 @@ Altgard-->
 		<object x="1671.25" y="2249.75" z="250.01562" h="86"/>
 	</spawn>
 	<!-- Feral Black Claw Patrol (Monster Normal lvl:13)-->
-	<spawn map="220030000" npcid="210475" pool="7" interval="105">
+	<spawn map="220030000" npcid="210475" pool="7" interval="295">
 		<object x="1887.06" y="965.6" z="256.3825" h="111"/>
 		<object x="1870.85" y="1113.98" z="263.92813" h="40"/>
 		<object x="1843.383" y="1028.961" z="258.84863" h="71"/>
@@ -923,7 +923,7 @@ Altgard-->
 		<object x="1860.56" y="1001.802" z="255.10237" h="15"/>
 	</spawn>
 	<!-- Feral Black Claw Sharpeye (Monster Normal lvl:17)-->
-	<spawn map="220030000" npcid="210457" pool="18" interval="105">
+	<spawn map="220030000" npcid="210457" pool="18" interval="295">
 		<object x="1657.28" y="208.31" z="286.0" h="4"/>
 		<object x="1656.55" y="201.59" z="287.68314" h="47"/>
 		<object x="1707.3" y="238.15" z="285.93124" h="26"/>
@@ -944,7 +944,7 @@ Altgard-->
 		<object x="1638.59" y="203.26" z="290.51877" h="39"/>
 	</spawn>
 	<!-- Feral Black Claw Warrior (Monster Normal lvl:16)-->
-	<spawn map="220030000" npcid="210459" pool="14" interval="105">
+	<spawn map="220030000" npcid="210459" pool="14" interval="295">
 		<object x="1703.96" y="2032.244" z="249.97427" h="45"/>
 		<object x="1704.022" y="2034.443" z="249.48383" h="33"/>
 		<object x="1710.508" y="2201.146" z="251.74188" h="95"/>
@@ -961,7 +961,7 @@ Altgard-->
 		<object x="1640.963" y="2236.541" z="250.42957" h="97"/>
 	</spawn>
 	<!-- Fierce Mosbear (Monster Normal lvl:14)-->
-	<spawn map="220030000" npcid="210584" pool="21" interval="105">
+	<spawn map="220030000" npcid="210584" pool="21" interval="295">
 		<object x="1875.031" y="408.6287" z="266.875" h="101"/>
 		<object x="1619.984" y="515.1827" z="268.9946" h="26"/>
 		<object x="1921.05" y="372.2985" z="269.45303" h="88"/>
@@ -985,7 +985,7 @@ Altgard-->
 		<object x="1913.1" y="396.2684" z="269.19376" h="54"/>
 	</spawn>
 	<!-- Fierce Tayga (Monster Normal lvl:19)-->
-	<spawn map="220030000" npcid="210545" pool="38" interval="105">
+	<spawn map="220030000" npcid="210545" pool="38" interval="295">
 		<object x="2354.79" y="2141.6" z="274.20187" h="48"/>
 		<object x="2430.17" y="2184.09" z="262.3806" h="58"/>
 		<object x="2387.95" y="2178.12" z="270.4956" h="108"/>
@@ -1026,7 +1026,7 @@ Altgard-->
 		<object x="2575.75" y="2576.26" z="248.49937" h="51"/>
 	</spawn>
 	<!-- Fierce Tog (Monster Normal lvl:11)-->
-	<spawn map="220030000" npcid="210556" pool="9" interval="105">
+	<spawn map="220030000" npcid="210556" pool="9" interval="295">
 		<object x="1531.908" y="1300.141" z="271.27032" h="54"/>
 		<object x="1537.205" y="1287.883" z="269.46707" h="92"/>
 		<object x="1540.209" y="1308.506" z="273.2013" h="24"/>
@@ -1042,11 +1042,11 @@ Altgard-->
 		<object x="2027.252" y="2314.472" z="328.84552" h="78"/>
 	</spawn>
 	<!-- Frightcorn Monster (Monster Normal lvl:12)-->
-	<spawn map="220030000" npcid="210633" pool="1" interval="105">
+	<spawn map="220030000" npcid="210633" pool="1" interval="295">
 		<object x="1657.27" y="1282.53" z="276.69812" h="89"/>
 	</spawn>
 	<!-- Frost Slink (Monster Normal lvl:9)-->
-	<spawn map="220030000" npcid="210416" pool="38" interval="105">
+	<spawn map="220030000" npcid="210416" pool="38" interval="295">
 		<object x="1653.492" y="1990.343" z="248.96825" h="94"/>
 		<object x="1796.486" y="1682.836" z="248.82413" h="52"/>
 		<object x="1539.269" y="1749.863" z="259.5241" h="10"/>
@@ -1087,11 +1087,11 @@ Altgard-->
 		<object x="1572.649" y="1923.897" z="257.875" h="17"/>
 	</spawn>
 	<!-- Gigantic Box (Monster Normal lvl:50)-->
-	<spawn map="220030000" npcid="210582" pool="1" interval="105">
+	<spawn map="220030000" npcid="210582" pool="1" interval="295">
 		<object x="1743.523" y="508.5595" z="247.375" h="91"/>
 	</spawn>
 	<!-- Goon (Monster Normal lvl:10)-->
-	<spawn map="220030000" npcid="210715" pool="16" interval="105">
+	<spawn map="220030000" npcid="210715" pool="16" interval="295">
 		<object x="1463.609" y="2041.012" z="247.6293" h="108"/>
 		<object x="1889.747" y="2012.607" z="250.2167" h="89"/>
 		<object x="1492.004" y="2048.678" z="248.7495" h="49"/>
@@ -1110,7 +1110,7 @@ Altgard-->
 		<object x="1412.237" y="1788.636" z="248.61018" h="34"/>
 	</spawn>
 	<!-- Grave Robbing Duellist (Monster Normal lvl:12)-->
-	<spawn map="220030000" npcid="210430" pool="14" interval="105">
+	<spawn map="220030000" npcid="210430" pool="14" interval="295">
 		<object x="1313.3" y="1257.982" z="252.625" h="24"/>
 		<object x="1296.85" y="1136.123" z="251.19687" h="105"/>
 		<object x="1349.919" y="1142.644" z="251.97247" h="18"/>
@@ -1127,7 +1127,7 @@ Altgard-->
 		<object x="1354.197" y="1174.688" z="248.63731" h="27"/>
 	</spawn>
 	<!-- Grave Robbing Fencer (Monster Normal lvl:13)-->
-	<spawn map="220030000" npcid="210506" pool="31" interval="105">
+	<spawn map="220030000" npcid="210506" pool="31" interval="295">
 		<object x="1475.18" y="477.2751" z="287.3637" h="115"/>
 		<object x="1446.048" y="505.2328" z="303.0548" h="22"/>
 		<object x="1480.792" y="448.0865" z="286.9765" h="50"/>
@@ -1161,7 +1161,7 @@ Altgard-->
 		<object x="1199.254" y="1229.332" z="251.1765" h="27"/>
 	</spawn>
 	<!-- Grave Robbing Sentry (Monster Normal lvl:14)-->
-	<spawn map="220030000" npcid="210504" pool="22" interval="105">
+	<spawn map="220030000" npcid="210504" pool="22" interval="295">
 		<object x="1484.167" y="475.6939" z="285.0261" h="41"/>
 		<object x="1456.886" y="452.6646" z="291.69464" h="107"/>
 		<object x="1441.317" y="465.8633" z="293.2988" h="58"/>
@@ -1186,7 +1186,7 @@ Altgard-->
 		<object x="1463.944" y="508.7177" z="294.8133" h="44"/>
 	</spawn>
 	<!-- Grave Robbing Smuggler (Monster Normal lvl:12)-->
-	<spawn map="220030000" npcid="210428" pool="11" interval="105">
+	<spawn map="220030000" npcid="210428" pool="11" interval="295">
 		<object x="1324.435" y="1218.273" z="248.91687" h="64"/>
 		<object x="1249.578" y="1128.369" z="255.17113" h="111"/>
 		<object x="1361.99" y="1184.349" z="249.16737" h="66"/>
@@ -1200,7 +1200,7 @@ Altgard-->
 		<object x="1281.689" y="1137.353" z="251.25" h="4"/>
 	</spawn>
 	<!-- Green Ribbit (Monster Normal lvl:16)-->
-	<spawn map="220030000" npcid="210573" pool="13" interval="105">
+	<spawn map="220030000" npcid="210573" pool="13" interval="295">
 		<object x="2376.886" y="800.3063" z="309.75" h="50"/>
 		<object x="2495.662" y="892.5456" z="309.75" h="44"/>
 		<object x="2458.808" y="828.4461" z="310.86975" h="76"/>
@@ -1216,7 +1216,7 @@ Altgard-->
 		<object x="2475.054" y="751.5482" z="310.02823" h="95"/>
 	</spawn>
 	<!-- Grove Malodor (Monster Normal lvl:15)-->
-	<spawn map="220030000" npcid="210443" pool="29" interval="105">
+	<spawn map="220030000" npcid="210443" pool="29" interval="295">
 		<object x="1301.451" y="930.0095" z="251.62321" h="39"/>
 		<object x="1319.709" y="869.0826" z="249.06458" h="60"/>
 		<object x="1270.71" y="888.8952" z="248.81407" h="19"/>
@@ -1248,7 +1248,7 @@ Altgard-->
 		<object x="1716.403" y="2057.62" z="248.25433" h="44"/>
 	</spawn>
 	<!-- Grove Pluma (Monster Normal lvl:10)-->
-	<spawn map="220030000" npcid="210656" pool="33" interval="105">
+	<spawn map="220030000" npcid="210656" pool="33" interval="295">
 		<object x="1525.818" y="1502.687" z="267.27158" h="119"/>
 		<object x="1658.822" y="1459.153" z="251.95395" h="54"/>
 		<object x="1608.142" y="1442.321" z="256.26544" h="94"/>
@@ -1288,7 +1288,7 @@ Altgard-->
 		<object x="1844.78" y="1716.613" z="247.375" h="37"/>
 	</spawn>
 	<!-- Hero Spirit (Monster Normal lvl:18)-->
-	<spawn map="220030000" npcid="210588" pool="31" interval="105">
+	<spawn map="220030000" npcid="210588" pool="31" interval="295">
 		<object x="2586.152" y="1550.338" z="249.8845" h="117"/>
 		<object x="2688.393" y="1618.794" z="249.3237" h="48"/>
 		<object x="2545.463" y="1739.633" z="250.10207" h="95"/>
@@ -1326,7 +1326,7 @@ Altgard-->
 		<object x="1931.903" y="2389.264" z="301.06686" h="64"/>
 	</spawn>
 	<!-- Ice Airon (Monster Normal lvl:9)-->
-	<spawn map="220030000" npcid="210418" pool="53" interval="105">
+	<spawn map="220030000" npcid="210418" pool="53" interval="295">
 		<object x="1887.861" y="1947.34" z="247.375" h="12"/>
 		<object x="1437.811" y="1788.716" z="247.375" h="114"/>
 		<object x="1867.589" y="1835.791" z="247.375" h="46"/>
@@ -1382,7 +1382,7 @@ Altgard-->
 		<object x="1506.905" y="1642.358" z="247.375" h="5"/>
 	</spawn>
 	<!-- Ice Crasaur (Monster Normal lvl:10)-->
-	<spawn map="220030000" npcid="210414" pool="35" interval="105">
+	<spawn map="220030000" npcid="210414" pool="35" interval="295">
 		<object x="1573.464" y="1645.856" z="247.25" h="116"/>
 		<object x="1427.56" y="1819.489" z="247.375" h="120"/>
 		<object x="1494.673" y="1763.06" z="248.42575" h="83"/>
@@ -1420,7 +1420,7 @@ Altgard-->
 		<object x="1620.501" y="1982.49" z="248.37569" h="0"/>
 	</spawn>
 	<!-- Ice Lake Sparkie (Monster Normal lvl:9)-->
-	<spawn map="220030000" npcid="210411" pool="21" interval="105">
+	<spawn map="220030000" npcid="210411" pool="21" interval="295">
 		<object x="1898.635" y="1767.362" z="247.375" h="115"/>
 		<object x="1866.165" y="1955.038" z="247.375" h="88"/>
 		<object x="1531.925" y="2006.33" z="247.125" h="51"/>
@@ -1444,14 +1444,14 @@ Altgard-->
 		<object x="1833.727" y="1590.966" z="247.375" h="100"/>
 	</spawn>
 	<!-- Impetusium Gargoyle (Monster Normal lvl:18)-->
-	<spawn map="220030000" npcid="210520" pool="4" interval="105">
+	<spawn map="220030000" npcid="210520" pool="4" interval="295">
 		<object x="2621.226" y="1678.833" z="324.74176" h="41"/>
 		<object x="2624.522" y="1631.733" z="324.74176" h="18"/>
 		<object x="2634.346" y="1656.44" z="335.81763" h="109"/>
 		<object x="2612.958" y="1653.649" z="335.81763" h="61"/>
 	</spawn>
 	<!-- Infernus (Monster Normal lvl:13)-->
-	<spawn map="220030000" npcid="211621" pool="1" interval="105">
+	<spawn map="220030000" npcid="211621" pool="1" interval="295">
 		<object x="1546.1" y="886.05" z="248.61563" h="95"/>
 	</spawn>
 	<!-- Jahama the Ruthless (Named Mob Elite lvl:18)-->
@@ -1466,7 +1466,7 @@ Altgard-->
 		<object x="2063.321" y="443.9871" z="286.7469" h="36"/>
 	</spawn>
 	<!-- Kirca (Monster Junk lvl:1)-->
-	<spawn map="220030000" npcid="210580" pool="20" interval="105">
+	<spawn map="220030000" npcid="210580" pool="20" interval="295">
 		<object x="2716.4" y="1087.34" z="307.86624" h="26"/>
 		<object x="2720.13" y="1056.94" z="312.20688" h="93"/>
 		<object x="2725.29" y="1055.62" z="312.5475" h="108"/>
@@ -1512,7 +1512,7 @@ Altgard-->
 		<object x="1308.85" y="896.98" z="252.65936" h="47"/>
 	</spawn>
 	<!-- Lake Ksellid (Monster Normal lvl:13)-->
-	<spawn map="220030000" npcid="211293" pool="12" interval="105">
+	<spawn map="220030000" npcid="211293" pool="12" interval="295">
 		<object x="1731.142" y="556.2773" z="247.5" h="115"/>
 		<object x="1746.467" y="567.2297" z="247.40419" h="14"/>
 		<object x="1701.433" y="544.1029" z="247.35571" h="46"/>
@@ -1527,7 +1527,7 @@ Altgard-->
 		<object x="1766.77" y="644.6652" z="247.54813" h="59"/>
 	</spawn>
 	<!-- Lake Spirit (Monster Normal lvl:13)-->
-	<spawn map="220030000" npcid="210660" pool="22" interval="105">
+	<spawn map="220030000" npcid="210660" pool="22" interval="295">
 		<object x="1763.721" y="542.3634" z="247.5" h="81"/>
 		<object x="1694.966" y="506.4454" z="247.5" h="7"/>
 		<object x="1741.089" y="483.1982" z="247.5" h="1"/>
@@ -1552,7 +1552,7 @@ Altgard-->
 		<object x="1705.498" y="508.8222" z="247.5" h="38"/>
 	</spawn>
 	<!-- Longnecked Pecku (Monster Normal lvl:17)-->
-	<spawn map="220030000" npcid="210526" pool="17" interval="105">
+	<spawn map="220030000" npcid="210526" pool="17" interval="295">
 		<object x="1629.346" y="2442.376" z="269.29324" h="72"/>
 		<object x="1598.016" y="2392.073" z="260.5167" h="45"/>
 		<object x="1664.721" y="2545.055" z="279.35413" h="77"/>
@@ -1572,18 +1572,18 @@ Altgard-->
 		<object x="1624.767" y="2673.279" z="282.6148" h="91"/>
 	</spawn>
 	<!-- Minusha's Spirit (Monster Normal lvl:18)-->
-	<spawn map="220030000" npcid="210634" pool="1" interval="105">
+	<spawn map="220030000" npcid="210634" pool="1" interval="295">
 		<object x="2407.5469" y="1267.0181" z="257.3397" h="47"/>
 	</spawn>
 	<!-- Minushan Drakie (Monster Normal lvl:17)-->
-	<spawn map="220030000" npcid="210635" pool="4" interval="105">
+	<spawn map="220030000" npcid="210635" pool="4" interval="295">
 		<object x="2411.9" y="1269.2" z="257.05" h="69"/>
 		<object x="2403.8225" y="1268.7501" z="257.29233" h="14"/>
 		<object x="2405.176" y="1261.3658" z="257.5" h="32"/>
 		<object x="2406.5479" y="1272.5782" z="256.91113" h="103"/>
 	</spawn>
 	<!-- Mist Spirit (Monster Normal lvl:18)-->
-	<spawn map="220030000" npcid="210575" pool="20" interval="105">
+	<spawn map="220030000" npcid="210575" pool="20" interval="295">
 		<object x="2737.969" y="1523.907" z="247.375" h="80"/>
 		<object x="2739.039" y="1502.477" z="247.375" h="56"/>
 		<object x="2677.866" y="1735.582" z="247.375" h="68"/>
@@ -1606,15 +1606,15 @@ Altgard-->
 		<object x="2744.177" y="1589.111" z="247.6723" h="99"/>
 	</spawn>
 	<!-- MuMu Ang (Monster Normal lvl:16)-->
-	<spawn map="220030000" npcid="210623" pool="1" interval="105" time="DAY">
+	<spawn map="220030000" npcid="210623" pool="1" interval="295" time="DAY">
 		<object x="1363.68" y="153.05" z="314.16498" h="8"/>
 	</spawn>
 	<!-- MuMu Di (Monster Normal lvl:16)-->
-	<spawn map="220030000" npcid="210624" pool="1" interval="105" time="NIGHT">
+	<spawn map="220030000" npcid="210624" pool="1" interval="295" time="NIGHT">
 		<object x="1473.55" y="206.2" z="292.7375" h="70"/>
 	</spawn>
 	<!-- MuMu Farmer (Monster Normal lvl:11)-->
-	<spawn map="220030000" npcid="210467" pool="30" interval="105">
+	<spawn map="220030000" npcid="210467" pool="30" interval="295">
 		<object x="1789.097" y="1364.627" z="287.7547" h="10"/>
 		<object x="1793.21" y="1392.989" z="293.6388" h="16"/>
 		<object x="1723.311" y="1333.21" z="290.32135" h="73"/>
@@ -1647,7 +1647,7 @@ Altgard-->
 		<object x="1919.041" y="1004.659" z="260.5205" h="71"/>
 	</spawn>
 	<!-- MuMu Gatherer (Monster Normal lvl:11)-->
-	<spawn map="220030000" npcid="210570" pool="5" interval="105">
+	<spawn map="220030000" npcid="210570" pool="5" interval="295">
 		<object x="1821.327" y="1184.068" z="283.70795" h="86"/>
 		<object x="1680.9" y="1186.163" z="277.2757" h="98"/>
 		<object x="1732.834" y="1150.582" z="272.98425" h="38"/>
@@ -1655,7 +1655,7 @@ Altgard-->
 		<object x="1729.533" y="1317.595" z="284.6576" h="94"/>
 	</spawn>
 	<!-- MuMu Herb Gatherer (Monster Normal lvl:15)-->
-	<spawn map="220030000" npcid="210567" pool="15" interval="105">
+	<spawn map="220030000" npcid="210567" pool="15" interval="295">
 		<object x="1632.044" y="282.9952" z="287.81555" h="46"/>
 		<object x="1635.61" y="181.8591" z="291.81433" h="70"/>
 		<object x="1633.015" y="178.4407" z="291.8942" h="44"/>
@@ -1673,7 +1673,7 @@ Altgard-->
 		<object x="1603.578" y="136.5654" z="291.25" h="21"/>
 	</spawn>
 	<!-- MuMu Highsitter (Monster Normal lvl:13)-->
-	<spawn map="220030000" npcid="210610" pool="8" interval="105">
+	<spawn map="220030000" npcid="210610" pool="8" interval="295">
 		<object x="1781.175" y="1318.415" z="288.73102" h="63"/>
 		<object x="1879.419" y="1111.16" z="271.03485" h="116"/>
 		<object x="1733.805" y="1177.098" z="277.20972" h="47"/>
@@ -1684,7 +1684,7 @@ Altgard-->
 		<object x="1436.748" y="178.8536" z="315.3355" h="39"/>
 	</spawn>
 	<!-- MuMu Looklook (Monster Normal lvl:15)-->
-	<spawn map="220030000" npcid="210451" pool="44" interval="105">
+	<spawn map="220030000" npcid="210451" pool="44" interval="295">
 		<object x="1621.574" y="251.9051" z="292.9949" h="32"/>
 		<object x="1634.746" y="264.4936" z="290.78156" h="28"/>
 		<object x="1526.602" y="150.2708" z="288.875" h="54"/>
@@ -1731,7 +1731,7 @@ Altgard-->
 		<object x="1717.916" y="2222.703" z="250.43993" h="72"/>
 	</spawn>
 	<!-- MuMu Looklook (Monster Normal lvl:16)-->
-	<spawn map="220030000" npcid="210452" pool="34" interval="105">
+	<spawn map="220030000" npcid="210452" pool="34" interval="295">
 		<object x="1352.749" y="340.0584" z="306.82004" h="92"/>
 		<object x="1529.697" y="228.0503" z="285.37814" h="49"/>
 		<object x="1386.552" y="129.0698" z="311.82965" h="58"/>
@@ -1768,7 +1768,7 @@ Altgard-->
 		<object x="1481.9609" y="192.18056" z="293.47986" h="111"/>
 	</spawn>
 	<!-- MuMu Lookout (Monster Normal lvl:15)-->
-	<spawn map="220030000" npcid="210453" pool="17" interval="105">
+	<spawn map="220030000" npcid="210453" pool="17" interval="295">
 		<object x="1586.871" y="284.8197" z="285.11243" h="1"/>
 		<object x="1493.331" y="196.9529" z="292.69632" h="105"/>
 		<object x="1610.789" y="271.4719" z="286.7997" h="72"/>
@@ -1788,11 +1788,11 @@ Altgard-->
 		<object x="1694.486" y="2228.443" z="250.18575" h="107"/>
 	</spawn>
 	<!-- MuMu Lu (Monster Normal lvl:16)-->
-	<spawn map="220030000" npcid="210599" pool="1" interval="105" time="DAY">
+	<spawn map="220030000" npcid="210599" pool="1" interval="295" time="DAY">
 		<object x="1646.75" y="182.25" z="291.35938" h="102"/>
 	</spawn>
 	<!-- MuMu Patrol (Monster Normal lvl:11)-->
-	<spawn map="220030000" npcid="210470" pool="27" interval="105">
+	<spawn map="220030000" npcid="210470" pool="27" interval="295">
 		<object x="1706.229" y="1411.807" z="270.30273" h="65"/>
 		<object x="1662.103" y="1287.533" z="277.94806" h="57"/>
 		<object x="1747.962" y="1316.843" z="279.4875" h="118"/>
@@ -1822,11 +1822,11 @@ Altgard-->
 		<object x="1792.98" y="1304.56" z="280.035" h="85"/>
 	</spawn>
 	<!-- MuMu Ring (Monster Normal lvl:16)-->
-	<spawn map="220030000" npcid="210620" pool="1" interval="105" time="NIGHT">
+	<spawn map="220030000" npcid="210620" pool="1" interval="295" time="NIGHT">
 		<object x="1533.89" y="233.51" z="285.625" h="9"/>
 	</spawn>
 	<!-- MuMu Secret Patrol (Monster Normal lvl:16)-->
-	<spawn map="220030000" npcid="210716" pool="15" interval="105">
+	<spawn map="220030000" npcid="210716" pool="15" interval="295">
 		<object x="1753.06" y="2024.72" z="248.43375" h="102"/>
 		<object x="1750.29" y="2028.69" z="248.56375" h="69"/>
 		<object x="1727.1" y="2054.13" z="249.14561" h="84"/>
@@ -1844,7 +1844,7 @@ Altgard-->
 		<object x="1751.95" y="2021.21" z="248.45375" h="65"/>
 	</spawn>
 	<!-- MuMu Worker (Monster Normal lvl:15)-->
-	<spawn map="220030000" npcid="210449" pool="32" interval="105">
+	<spawn map="220030000" npcid="210449" pool="32" interval="295">
 		<object x="1475.413" y="202.6159" z="292.7482" h="29"/>
 		<object x="1461.405" y="224.101" z="291.08783" h="40"/>
 		<object x="2498.517" y="2172.038" z="278.12738" h="8"/>
@@ -1879,15 +1879,15 @@ Altgard-->
 		<object x="2453.082" y="2096.686" z="277.66788" h="66"/>
 	</spawn>
 	<!-- MuMu Zen (Monster Normal lvl:16)-->
-	<spawn map="220030000" npcid="210622" pool="1" interval="105" time="DAY">
+	<spawn map="220030000" npcid="210622" pool="1" interval="295" time="DAY">
 		<object x="1371.4861" y="376.81433" z="307.90753" h="3"/>
 	</spawn>
 	<!-- MuMu Zoo (Monster Normal lvl:16)-->
-	<spawn map="220030000" npcid="210621" pool="1" interval="105" time="NIGHT">
+	<spawn map="220030000" npcid="210621" pool="1" interval="295" time="NIGHT">
 		<object x="1642.57" y="269.93" z="294.4281" h="117"/>
 	</spawn>
 	<!-- Needletail Karnif (Monster Normal lvl:10)-->
-	<spawn map="220030000" npcid="210421" pool="23" interval="105">
+	<spawn map="220030000" npcid="210421" pool="23" interval="295">
 		<object x="1637.292" y="1397.443" z="264.7234" h="102"/>
 		<object x="1544.627" y="1495.794" z="264.36377" h="34"/>
 		<object x="1547.292" y="1410.727" z="266.1238" h="24"/>
@@ -1913,7 +1913,7 @@ Altgard-->
 		<object x="1477.628" y="1491.397" z="275.70038" h="74"/>
 	</spawn>
 	<!-- Nimble Arachna (Monster Normal lvl:15)-->
-	<spawn map="220030000" npcid="210445" pool="21" interval="105">
+	<spawn map="220030000" npcid="210445" pool="21" interval="295">
 		<object x="1268.168" y="840.0557" z="253.93701" h="99"/>
 		<object x="1288.556" y="831.5786" z="252.21243" h="66"/>
 		<object x="1272.474" y="851.7635" z="252.91113" h="15"/>
@@ -1937,7 +1937,7 @@ Altgard-->
 		<object x="1272.014" y="824.1257" z="254.0061" h="26"/>
 	</spawn>
 	<!-- Nimble Arachnaling (Monster Normal lvl:15)-->
-	<spawn map="220030000" npcid="210659" pool="10" interval="105">
+	<spawn map="220030000" npcid="210659" pool="10" interval="295">
 		<object x="1184.383" y="864.5195" z="278.46063" h="8"/>
 		<object x="1156.249" y="866.2678" z="281.6154" h="14"/>
 		<object x="1148.7" y="877.6064" z="280.6496" h="114"/>
@@ -1954,7 +1954,7 @@ Altgard-->
 		<object x="1986.767" y="2687.804" z="352.96326" h="5"/>
 	</spawn>
 	<!-- Pecku (Monster Normal lvl:18)-->
-	<spawn map="220030000" npcid="212345" pool="34" interval="105">
+	<spawn map="220030000" npcid="212345" pool="34" interval="295">
 		<object x="2494.365" y="1190.473" z="268.83447" h="54"/>
 		<object x="2449.751" y="1307.284" z="256.45526" h="39"/>
 		<object x="2667.577" y="1079.058" z="305.53244" h="75"/>
@@ -1991,7 +1991,7 @@ Altgard-->
 		<object x="2622.196" y="1138.228" z="292.21277" h="56"/>
 	</spawn>
 	<!-- Poison Arachna (Monster Normal lvl:16)-->
-	<spawn map="220030000" npcid="210447" pool="23" interval="105">
+	<spawn map="220030000" npcid="210447" pool="23" interval="295">
 		<object x="1703.725" y="2140.692" z="248.97343" h="64"/>
 		<object x="1593.45" y="2130.286" z="255.28845" h="23"/>
 		<object x="1619.055" y="2264.578" z="254.54182" h="15"/>
@@ -2017,7 +2017,7 @@ Altgard-->
 		<object x="1703.38" y="2052.347" z="248.01245" h="35"/>
 	</spawn>
 	<!-- Poisonsac Ampha (Monster Normal lvl:15)-->
-	<spawn map="220030000" npcid="210482" pool="29" interval="105">
+	<spawn map="220030000" npcid="210482" pool="29" interval="295">
 		<object x="1949.44" y="631.1946" z="265.65662" h="115"/>
 		<object x="1991.389" y="613.8688" z="267.34503" h="9"/>
 		<object x="2027.854" y="485.8348" z="280.65598" h="82"/>
@@ -2049,7 +2049,7 @@ Altgard-->
 		<object x="2342.931" y="672.9529" z="330.9259" h="23"/>
 	</spawn>
 	<!-- Rainbow Slime (Monster Normal lvl:14)-->
-	<spawn map="220030000" npcid="210435" pool="11" interval="105">
+	<spawn map="220030000" npcid="210435" pool="11" interval="295">
 		<object x="1523.6" y="878.1553" z="247.67499" h="88"/>
 		<object x="1515.009" y="834.4077" z="247.5" h="50"/>
 		<object x="1461.667" y="864.2053" z="247.375" h="40"/>
@@ -2063,7 +2063,7 @@ Altgard-->
 		<object x="1492.137" y="829.665" z="247.65833" h="18"/>
 	</spawn>
 	<!-- Rooty (Monster Junk lvl:1)-->
-	<spawn map="220030000" npcid="210595" pool="6" interval="105">
+	<spawn map="220030000" npcid="210595" pool="6" interval="295">
 		<object x="1453.969" y="166.6872" z="310.7032" h="56"/>
 		<object x="1338.768" y="288.2308" z="307.8126" h="40"/>
 		<object x="1342.198" y="296.4374" z="307.1126" h="101"/>
@@ -2072,7 +2072,7 @@ Altgard-->
 		<object x="1416.263" y="253.369" z="297.98358" h="25"/>
 	</spawn>
 	<!-- Ruthless Mosbear (Monster Normal lvl:15)-->
-	<spawn map="220030000" npcid="210581" pool="19" interval="105">
+	<spawn map="220030000" npcid="210581" pool="19" interval="295">
 		<object x="1298.516" y="987.655" z="250.23244" h="13"/>
 		<object x="1334.162" y="935.6092" z="251.03455" h="56"/>
 		<object x="1365.466" y="802.9613" z="263.375" h="15"/>
@@ -2098,7 +2098,7 @@ Altgard-->
 		<object x="2150.469" y="2385.644" z="341.375" h="47"/>
 	</spawn>
 	<!-- Secret Agent (Monster Normal lvl:9)-->
-	<spawn map="220030000" npcid="210714" pool="14" interval="105">
+	<spawn map="220030000" npcid="210714" pool="14" interval="295">
 		<object x="1914.035" y="2031.652" z="251.3315" h="59"/>
 		<object x="1434.668" y="1667.129" z="253.52881" h="60"/>
 		<object x="1573.27" y="1966.257" z="248.48395" h="34"/>
@@ -2115,7 +2115,7 @@ Altgard-->
 		<object x="1486.024" y="2037.001" z="248.37212" h="93"/>
 	</spawn>
 	<!-- Shade Tog (Monster Normal lvl:14)-->
-	<spawn map="220030000" npcid="210432" pool="7" interval="105">
+	<spawn map="220030000" npcid="210432" pool="7" interval="295">
 		<object x="1399.758" y="698.819" z="272.95633" h="72"/>
 		<object x="1379.446" y="691.0595" z="274.51672" h="75"/>
 		<object x="1496.613" y="675.5959" z="257.46167" h="82"/>
@@ -2131,7 +2131,7 @@ Altgard-->
 		<object x="1478.06" y="928.95" z="260.49127" h="109"/>
 	</spawn>
 	<!-- Soil Spirit (Monster Normal lvl:13)-->
-	<spawn map="220030000" npcid="211292" pool="17" interval="105">
+	<spawn map="220030000" npcid="211292" pool="17" interval="295">
 		<object x="1561.055" y="530.9235" z="272.2198" h="63"/>
 		<object x="1519.383" y="497.276" z="281.28998" h="56"/>
 		<object x="1524.106" y="513.2025" z="280.11176" h="22"/>
@@ -2151,7 +2151,7 @@ Altgard-->
 		<object x="1507.802" y="450.2209" z="284.74857" h="40"/>
 	</spawn>
 	<!-- Sorcerer Spirit (Monster Normal lvl:18)-->
-	<spawn map="220030000" npcid="210723" pool="21" interval="105">
+	<spawn map="220030000" npcid="210723" pool="21" interval="295">
 		<object x="2561.175" y="1761.902" z="249.02802" h="73"/>
 		<object x="2562.969" y="1691.725" z="250.13788" h="27"/>
 		<object x="2556.142" y="1620.434" z="249.32248" h="21"/>
@@ -2175,7 +2175,7 @@ Altgard-->
 		<object x="2422.846" y="1649.704" z="290.73804" h="53"/>
 	</spawn>
 	<!-- Splash Spirit (Monster Normal lvl:18)-->
-	<spawn map="220030000" npcid="210522" pool="20" interval="105">
+	<spawn map="220030000" npcid="210522" pool="20" interval="295">
 		<object x="2918.427" y="1598.206" z="247.99463" h="29"/>
 		<object x="2952.372" y="1547.139" z="249.02469" h="13"/>
 		<object x="2716.743" y="1707.552" z="247.375" h="82"/>
@@ -2198,7 +2198,7 @@ Altgard-->
 		<object x="2830.069" y="1618.129" z="247.375" h="18"/>
 	</spawn>
 	<!-- Sprigg Outlaw (Monster Normal lvl:16)-->
-	<spawn map="220030000" npcid="210485" pool="17" interval="105">
+	<spawn map="220030000" npcid="210485" pool="17" interval="295">
 		<object x="2284.527" y="658.177" z="327.90143" h="103"/>
 		<object x="2305.821" y="553.4556" z="316.77283" h="39"/>
 		<object x="2271.47" y="497.7783" z="316.0" h="18"/>
@@ -2218,7 +2218,7 @@ Altgard-->
 		<object x="2379.198" y="642.1196" z="335.92743" h="44"/>
 	</spawn>
 	<!-- Sprigg Outlaw (Monster Normal lvl:15)-->
-	<spawn map="220030000" npcid="210484" pool="26" interval="105">
+	<spawn map="220030000" npcid="210484" pool="26" interval="295">
 		<object x="1949.266" y="618.3027" z="260.5487" h="114"/>
 		<object x="1902.001" y="609.4971" z="250.06293" h="4"/>
 		<object x="2067.249" y="505.1967" z="284.99298" h="97"/>
@@ -2247,7 +2247,7 @@ Altgard-->
 		<object x="2045.509" y="509.8528" z="279.37726" h="41"/>
 	</spawn>
 	<!-- Star Metal Ksellid (Monster Normal lvl:16)-->
-	<spawn map="220030000" npcid="210490" pool="27" interval="105">
+	<spawn map="220030000" npcid="210490" pool="27" interval="295">
 		<object x="2369.524" y="840.8736" z="321.1954" h="104"/>
 		<object x="2412.606" y="843.2819" z="312.30362" h="38"/>
 		<object x="2455.944" y="857.3287" z="309.9126" h="26"/>
@@ -2277,7 +2277,7 @@ Altgard-->
 		<object x="2533.04" y="742.4436" z="322.9077" h="90"/>
 	</spawn>
 	<!-- Starved Mosbear (Monster Normal lvl:13)-->
-	<spawn map="220030000" npcid="210564" pool="21" interval="105">
+	<spawn map="220030000" npcid="210564" pool="21" interval="295">
 		<object x="1769.649" y="380.9413" z="255.47806" h="9"/>
 		<object x="1652.244" y="730.8069" z="259.83093" h="44"/>
 		<object x="1849.427" y="485.8385" z="261.42285" h="92"/>
@@ -2309,7 +2309,7 @@ Altgard-->
 		<object x="2426.63" y="766.37" z="312.9928" h="102"/>
 	</spawn>
 	<!-- Striped Gumi (Monster Junk lvl:2)-->
-	<spawn map="220030000" npcid="210658" pool="13" interval="105">
+	<spawn map="220030000" npcid="210658" pool="13" interval="295">
 		<object x="1405.899" y="855.7341" z="247.375" h="120"/>
 		<object x="1770.5414" y="820.3124" z="248.53772" h="16"/>
 		<object x="1758.859" y="829.729" z="248.14262" h="40"/>
@@ -2325,7 +2325,7 @@ Altgard-->
 		<object x="1666.536" y="834.4788" z="248.80972" h="66"/>
 	</spawn>
 	<!-- Summoned Black Claw Patrol (Monster Normal lvl:11)-->
-	<spawn map="220030000" npcid="210627" pool="56" interval="105">
+	<spawn map="220030000" npcid="210627" pool="56" interval="295">
 		<object x="1674.33" y="1262.63" z="274.185" h="56"/>
 		<object x="1682.59" y="1262.56" z="274.48376" h="42"/>
 		<object x="1676.63" y="1255.01" z="273.89188" h="10"/>
@@ -2384,7 +2384,7 @@ Altgard-->
 		<object x="1469.75" y="228.03" z="291.5" h="67"/>
 	</spawn>
 	<!-- Swamp Malodor (Monster Normal lvl:17)-->
-	<spawn map="220030000" npcid="210500" pool="6" interval="105">
+	<spawn map="220030000" npcid="210500" pool="6" interval="295">
 		<object x="1627.74" y="2177.853" z="259.04593" h="54"/>
 		<object x="1623.627" y="2225.769" z="250.32532" h="49"/>
 		<object x="1619.485" y="2201.505" z="255.09283" h="96"/>
@@ -2393,7 +2393,7 @@ Altgard-->
 		<object x="1602.114" y="2262.1" z="259.37067" h="44"/>
 	</spawn>
 	<!-- Swamp Mosbear (Monster Normal lvl:13)-->
-	<spawn map="220030000" npcid="210436" pool="20" interval="105">
+	<spawn map="220030000" npcid="210436" pool="20" interval="295">
 		<object x="1625.82" y="615.91" z="277.3806" h="68"/>
 		<object x="1585.06" y="586.81" z="274.1675" h="111"/>
 		<object x="1611.71" y="662.72" z="266.56876" h="15"/>
@@ -2416,7 +2416,7 @@ Altgard-->
 		<object x="1585.02" y="578.06" z="273.5" h="46"/>
 	</spawn>
 	<!-- Swamp Mosbear Cub (Monster Normal lvl:13)-->
-	<spawn map="220030000" npcid="210438" pool="21" interval="105">
+	<spawn map="220030000" npcid="210438" pool="21" interval="295">
 		<object x="1624.0" y="615.0" z="277.375" h="110"/>
 		<object x="1591.13" y="585.98" z="274.17563" h="78"/>
 		<object x="1623.81" y="615.64" z="277.28314" h="2"/>
@@ -2440,7 +2440,7 @@ Altgard-->
 		<object x="1570.89" y="689.91" z="248.38063" h="58"/>
 	</spawn>
 	<!-- Swift Tayga (Monster Normal lvl:18)-->
-	<spawn map="220030000" npcid="210514" pool="15" interval="105">
+	<spawn map="220030000" npcid="210514" pool="15" interval="295">
 		<object x="2314.39" y="2227.64" z="276.05753" h="101"/>
 		<object x="2295.77" y="2157.13" z="275.165" h="44"/>
 		<object x="2511.56" y="2147.71" z="278.32" h="11"/>
@@ -2458,7 +2458,7 @@ Altgard-->
 		<object x="2050.3" y="2475.59" z="321.75" h="18"/>
 	</spawn>
 	<!-- Tamed Tayga (Monster Normal lvl:16)-->
-	<spawn map="220030000" npcid="210465" pool="39" interval="105">
+	<spawn map="220030000" npcid="210465" pool="39" interval="295">
 		<object x="1720.16" y="2192.79" z="253.72063" h="75"/>
 		<object x="1684.17" y="2186.65" z="251.57376" h="16"/>
 		<object x="1720.08" y="2168.07" z="256.4" h="4"/>
@@ -2500,7 +2500,7 @@ Altgard-->
 		<object x="1942.49" y="2416.97" z="303.14874" h="12"/>
 	</spawn>
 	<!-- Tentacled Lobnite (Monster Normal lvl:9)-->
-	<spawn map="220030000" npcid="210413" pool="28" interval="105">
+	<spawn map="220030000" npcid="210413" pool="28" interval="295">
 		<object x="1762.438" y="1655.987" z="247.34763" h="84"/>
 		<object x="1667.174" y="1963.047" z="258.6927" h="82"/>
 		<object x="1805.895" y="1807.782" z="258.00708" h="29"/>
@@ -2535,7 +2535,7 @@ Altgard-->
 		<object x="2112.585" y="2556.748" z="342.7083" h="89"/>
 	</spawn>
 	<!-- Transparent Waterworm (Monster Normal lvl:18)-->
-	<spawn map="220030000" npcid="210516" pool="29" interval="105">
+	<spawn map="220030000" npcid="210516" pool="29" interval="295">
 		<object x="2827.047" y="1783.066" z="247.25" h="7"/>
 		<object x="2813.988" y="1494.682" z="247.33313" h="40"/>
 		<object x="2839.24" y="1760.409" z="247.375" h="28"/>
@@ -2567,7 +2567,7 @@ Altgard-->
 		<object x="2529.474" y="1781.611" z="247.28287" h="88"/>
 	</spawn>
 	<!-- Tusked Mosbear (Monster Normal lvl:14)-->
-	<spawn map="220030000" npcid="210437" pool="20" interval="105">
+	<spawn map="220030000" npcid="210437" pool="20" interval="295">
 		<object x="1477.43" y="759.07" z="266.47314" h="61"/>
 		<object x="1358.9" y="655.74" z="286.34375" h="112"/>
 		<object x="1423.07" y="861.8" z="247.375" h="36"/>
@@ -2590,7 +2590,7 @@ Altgard-->
 		<object x="1473.69" y="765.32" z="266.15186" h="36"/>
 	</spawn>
 	<!-- Tusked Mosbear Cub (Monster Normal lvl:14)-->
-	<spawn map="220030000" npcid="210439" pool="20" interval="105">
+	<spawn map="220030000" npcid="210439" pool="20" interval="295">
 		<object x="1339.0" y="716.0" z="278.1875" h="7"/>
 		<object x="1479.33" y="760.89" z="266.68063" h="39"/>
 		<object x="1360.08" y="653.71" z="285.95688" h="54"/>
@@ -2613,7 +2613,7 @@ Altgard-->
 		<object x="1471.69" y="764.32" z="265.8631" h="102"/>
 	</spawn>
 	<!-- Umkata the Restless (Monster Normal lvl:18)-->
-	<spawn map="220030000" npcid="210752" pool="17" interval="105">
+	<spawn map="220030000" npcid="210752" pool="17" interval="295">
 		<object x="2891.62" y="1738.52" z="254.75" h="33"/>
 		<object x="2900.98" y="1745.07" z="254.74689" h="56"/>
 		<object x="2894.23" y="1737.73" z="254.61063" h="79"/>
@@ -2633,13 +2633,13 @@ Altgard-->
 		<object x="2897.49" y="1740.93" z="254.75" h="15"/>
 	</spawn>
 	<!-- Veteran MuMu Gatherer (Monster Normal lvl:13)-->
-	<spawn map="220030000" npcid="210572" pool="3" interval="105">
+	<spawn map="220030000" npcid="210572" pool="3" interval="295">
 		<object x="1957.136" y="1086.828" z="271.5725" h="25"/>
 		<object x="1851.97" y="1079.218" z="265.9981" h="82"/>
 		<object x="1923.133" y="979.7052" z="261.01773" h="49"/>
 	</spawn>
 	<!-- Veteran MuMu Looklook (Monster Normal lvl:17)-->
-	<spawn map="220030000" npcid="210498" pool="13" interval="105">
+	<spawn map="220030000" npcid="210498" pool="13" interval="295">
 		<object x="2406.879" y="2104.391" z="282.0575" h="24"/>
 		<object x="2383.737" y="2216.881" z="268.79196" h="74"/>
 		<object x="2462.629" y="2059.076" z="285.5293" h="113"/>
@@ -2655,7 +2655,7 @@ Altgard-->
 		<object x="2147.8" y="2386.157" z="341.3429" h="12"/>
 	</spawn>
 	<!-- Veteran MuMu Lookout (Monster Normal lvl:17)-->
-	<spawn map="220030000" npcid="210499" pool="11" interval="105">
+	<spawn map="220030000" npcid="210499" pool="11" interval="295">
 		<object x="2267.88" y="2178.11" z="276.015" h="52"/>
 		<object x="2360.92" y="2244.09" z="270.02002" h="79"/>
 		<object x="2269.91" y="2179.28" z="275.76126" h="62"/>
@@ -2669,7 +2669,7 @@ Altgard-->
 		<object x="2302.75" y="2268.25" z="280.9375" h="32"/>
 	</spawn>
 	<!-- Veteran MuMu Patrol (Monster Normal lvl:13)-->
-	<spawn map="220030000" npcid="210472" pool="15" interval="105">
+	<spawn map="220030000" npcid="210472" pool="15" interval="295">
 		<object x="1862.38" y="1089.43" z="264.5475" h="64"/>
 		<object x="1912.204" y="1053.876" z="261.6965" h="35"/>
 		<object x="1936.853" y="1004.383" z="265.43387" h="98"/>
@@ -2687,7 +2687,7 @@ Altgard-->
 		<object x="1851.693" y="1028.252" z="257.90994" h="104"/>
 	</spawn>
 	<!-- Watch Assaulter (Monster Normal lvl:17)-->
-	<spawn map="220030000" npcid="210720" pool="16" interval="105">
+	<spawn map="220030000" npcid="210720" pool="16" interval="295">
 		<object x="1609.78" y="2586.85" z="280.51373" h="117"/>
 		<object x="1618.29" y="2587.38" z="280.125" h="115"/>
 		<object x="1618.21" y="2585.97" z="280.1231" h="37"/>
@@ -2706,7 +2706,7 @@ Altgard-->
 		<object x="1577.97" y="2565.62" z="285.2775" h="5"/>
 	</spawn>
 	<!-- Watch Bodyguard (Monster Normal lvl:17)-->
-	<spawn map="220030000" npcid="210528" pool="19" interval="105">
+	<spawn map="220030000" npcid="210528" pool="19" interval="295">
 		<object x="1672.846" y="2510.255" z="283.35242" h="3"/>
 		<object x="1691.176" y="2536.885" z="283.84167" h="47"/>
 		<object x="1679.896" y="2481.334" z="280.5" h="16"/>
@@ -2728,11 +2728,11 @@ Altgard-->
 		<object x="1719.126" y="2609.939" z="287.44537" h="85"/>
 	</spawn>
 	<!-- Watch Commander (Monster Normal lvl:17)-->
-	<spawn map="220030000" npcid="211296" pool="1" interval="105">
+	<spawn map="220030000" npcid="211296" pool="1" interval="295">
 		<object x="1621.349" y="2593.662" z="279.77115" h="43"/>
 	</spawn>
 	<!-- Watch Mage (Monster Normal lvl:17)-->
-	<spawn map="220030000" npcid="210721" pool="16" interval="105">
+	<spawn map="220030000" npcid="210721" pool="16" interval="295">
 		<object x="1619.7" y="2587.31" z="280.1881" h="19"/>
 		<object x="1619.95" y="2591.54" z="279.77875" h="100"/>
 		<object x="1619.09" y="2592.66" z="279.70874" h="46"/>
@@ -2751,7 +2751,7 @@ Altgard-->
 		<object x="1591.25" y="2568.25" z="284.54688" h="11"/>
 	</spawn>
 	<!-- Watch Shaman (Monster Normal lvl:17)-->
-	<spawn map="220030000" npcid="210530" pool="11" interval="105">
+	<spawn map="220030000" npcid="210530" pool="11" interval="295">
 		<object x="1735.794" y="2506.424" z="288.7765" h="94"/>
 		<object x="1681.155" y="2486.38" z="280.5" h="112"/>
 		<object x="1690.17" y="2551.454" z="282.98712" h="35"/>
@@ -2765,7 +2765,7 @@ Altgard-->
 		<object x="1678.43" y="2655.492" z="290.395" h="70"/>
 	</spawn>
 	<!-- Wild Tayga (Monster Normal lvl:18)-->
-	<spawn map="220030000" npcid="210547" pool="10" interval="105">
+	<spawn map="220030000" npcid="210547" pool="10" interval="295">
 		<object x="2607.04" y="2172.518" z="283.2334" h="90"/>
 		<object x="2440.668" y="2043.677" z="295.29013" h="46"/>
 		<object x="2552.278" y="2147.358" z="282.1825" h="36"/>
@@ -2778,7 +2778,7 @@ Altgard-->
 		<object x="2603.278" y="2209.684" z="287.3806" h="99"/>
 	</spawn>
 	<!-- Wild Tog (Monster Normal lvl:11)-->
-	<spawn map="220030000" npcid="210425" pool="46" interval="105">
+	<spawn map="220030000" npcid="210425" pool="46" interval="295">
 		<object x="1573.158" y="1116.514" z="258.5526" h="99"/>
 		<object x="1568.012" y="1149.386" z="260.04376" h="79"/>
 		<object x="1520.136" y="1231.436" z="259.60574" h="27"/>

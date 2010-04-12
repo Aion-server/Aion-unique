@@ -5,7 +5,7 @@ object x y z h
 Heiron-->
 <spawns>
 	<!-- Algae-Covered Box (Monster Normal lvl:33)-->
-	<spawn map="210040000" npcid="211066" pool="12" interval="105">
+	<spawn map="210040000" npcid="211066" pool="12" interval="295">
 		<object x="519.2592" y="2069.784" z="103.25" h="85"/>
 		<object x="1221.951" y="1388.166" z="104.625" h="64"/>
 		<object x="574.8069" y="2118.567" z="103.375" h="70"/>
@@ -20,7 +20,7 @@ Heiron-->
 		<object x="1171.272" y="1327.714" z="104.8295" h="50"/>
 	</spawn>
 	<!-- Algae-Covered Box (Monster Normal lvl:39)-->
-	<spawn map="210040000" npcid="212356" pool="9" interval="105">
+	<spawn map="210040000" npcid="212356" pool="9" interval="295">
 		<object x="511.38522" y="1696.7104" z="103.375" h="104"/>
 		<object x="615.2864" y="1843.0922" z="104.625" h="95"/>
 		<object x="640.6488" y="1860.0138" z="104.625" h="45"/>
@@ -32,7 +32,7 @@ Heiron-->
 		<object x="524.1919" y="2130.3438" z="103.25" h="63"/>
 	</spawn>
 	<!-- Altar Caryatid (Monster Normal lvl:43)-->
-	<spawn map="210040000" npcid="212002" pool="13" interval="105">
+	<spawn map="210040000" npcid="212002" pool="13" interval="295">
 		<object x="648.9574" y="2612.827" z="141.63315" h="92"/>
 		<object x="663.8233" y="2596.253" z="141.82607" h="6"/>
 		<object x="651.1139" y="2493.1836" z="141.17082" h="71"/>
@@ -48,7 +48,7 @@ Heiron-->
 		<object x="491.82068" y="2599.9758" z="149.3847" h="119"/>
 	</spawn>
 	<!-- Ancient Dark Spirit (Monster Normal lvl:43)-->
-	<spawn map="210040000" npcid="211232" pool="12" interval="105">
+	<spawn map="210040000" npcid="211232" pool="12" interval="295">
 		<object x="665.73773" y="2837.7908" z="107.66754" h="110"/>
 		<object x="666.94324" y="2838.098" z="107.49486" h="27"/>
 		<object x="722.6607" y="2865.7537" z="105.40579" h="84"/>
@@ -63,7 +63,7 @@ Heiron-->
 		<object x="425.16162" y="2874.739" z="105.77641" h="12"/>
 	</spawn>
 	<!-- Anubite Fighter (Monster Normal lvl:43)-->
-	<spawn map="210040000" npcid="212000" pool="90" interval="105">
+	<spawn map="210040000" npcid="212000" pool="90" interval="295">
 		<object x="765.10583" y="2831.7744" z="126.15356" h="12"/>
 		<object x="705.72675" y="2818.1707" z="126.857925" h="96"/>
 		<object x="692.20123" y="2780.614" z="122.63822" h="34"/>
@@ -156,7 +156,7 @@ Heiron-->
 		<object x="238.98286" y="2800.728" z="107.625" h="85"/>
 	</spawn>
 	<!-- Anubite Looter (Monster Normal lvl:37)-->
-	<spawn map="210040000" npcid="211133" pool="27" interval="105">
+	<spawn map="210040000" npcid="211133" pool="27" interval="295">
 		<object x="1021.736" y="2106.272" z="131.7505" h="112"/>
 		<object x="1018.425" y="2084.948" z="130.0735" h="64"/>
 		<object x="1009.814" y="2121.119" z="132.83298" h="10"/>
@@ -186,7 +186,7 @@ Heiron-->
 		<object x="1018" y="2084" z="130.375" h="28"/>
 	</spawn>
 	<!-- Anubite Patrol (Monster Normal lvl:39)-->
-	<spawn map="210040000" npcid="211958" pool="10" interval="105">
+	<spawn map="210040000" npcid="211958" pool="10" interval="295">
 		<object x="346.1606" y="1597.291" z="114.86496" h="58"/>
 		<object x="652.9898" y="1766.158" z="110.9341" h="30"/>
 		<object x="343.1591" y="1672.129" z="110.54825" h="41"/>
@@ -199,7 +199,7 @@ Heiron-->
 		<object x="344.7522" y="1772.596" z="112.0" h="112"/>
 	</spawn>
 	<!-- Anubite Sentinel (Monster Normal lvl:35)-->
-	<spawn map="210040000" npcid="211094" pool="40" interval="105">
+	<spawn map="210040000" npcid="211094" pool="40" interval="295">
 		<object x="1288.258" y="2034.122" z="114.203384" h="40"/>
 		<object x="1127.0392" y="2001.0393" z="120.00498" h="65"/>
 		<object x="1224.681" y="2054.709" z="118.24381" h="9"/>
@@ -242,7 +242,7 @@ Heiron-->
 		<object x="1076.186" y="2406.162" z="136.63364" h="59"/>
 	</spawn>
 	<!-- Anubite Warrior (Monster Normal lvl:41)-->
-	<spawn map="210040000" npcid="211977" pool="56" interval="105">
+	<spawn map="210040000" npcid="211977" pool="56" interval="295">
 		<object x="346.4799" y="2279.9287" z="138.71555" h="82"/>
 		<object x="405.97165" y="2313.6267" z="138.53603" h="107"/>
 		<object x="324.49643" y="2224.9106" z="137.06294" h="44"/>
@@ -305,7 +305,7 @@ Heiron-->
 		<object x="2899.492" y="2350.565" z="130.0" h="14"/>
 	</spawn>
 	<!-- Baby Flamehide Monitor (Monster Normal lvl:44)-->
-	<spawn map="210040000" npcid="212276" pool="7" interval="105">
+	<spawn map="210040000" npcid="212276" pool="7" interval="295">
 		<object x="2889.8586" y="2198.7715" z="146.59172" h="78"/>
 		<object x="2893.1907" y="2204.307" z="147.41745" h="42"/>
 		<object x="2869.5396" y="2200.672" z="143.91367" h="12"/>
@@ -315,7 +315,7 @@ Heiron-->
 		<object x="2860.769" y="2222.014" z="144.67828" h="116"/>
 	</spawn>
 	<!-- Black Spotted Clodworm (Monster Normal lvl:33)-->
-	<spawn map="210040000" npcid="211060" pool="57" interval="105">
+	<spawn map="210040000" npcid="211060" pool="57" interval="295">
 		<object x="1601.6075" y="1452.0837" z="104.39829" h="65"/>
 		<object x="1640.8541" y="1448.5684" z="103.928955" h="59"/>
 		<object x="1641.6431" y="1444.8041" z="104.324745" h="117"/>
@@ -375,7 +375,7 @@ Heiron-->
 		<object x="2030.6582" y="1561.0928" z="110.832275" h="54"/>
 	</spawn>
 	<!-- Blackfog Bloodfang  (Monster Normal lvl:40)-->
-	<spawn map="210040000" npcid="211964" pool="24" interval="105">
+	<spawn map="210040000" npcid="211964" pool="24" interval="295">
 		<object x="343.54965" y="1954.5458" z="112.625" h="28"/>
 		<object x="333.60693" y="1956.5552" z="112.32651" h="106"/>
 		<object x="319.36023" y="1946.5125" z="112.625" h="73"/>
@@ -402,7 +402,7 @@ Heiron-->
 		<object x="638.17487" y="2030.1405" z="110.2018" h="52"/>
 	</spawn>
 	<!-- Blacksnout Porgus (Monster Normal lvl:40)-->
-	<spawn map="210040000" npcid="212108" pool="26" interval="105">
+	<spawn map="210040000" npcid="212108" pool="26" interval="295">
 		<object x="331.4769" y="2011.9905" z="106.625" h="9"/>
 		<object x="324.99396" y="2019.5071" z="106.625" h="49"/>
 		<object x="338.56372" y="2019.4735" z="106.625" h="41"/>
@@ -431,7 +431,7 @@ Heiron-->
 		<object x="220.56544" y="2102.805" z="111.625" h="63"/>
 	</spawn>
 	<!-- Blacktooth Karnif (Monster Normal lvl:30)-->
-	<spawn map="210040000" npcid="211875" pool="12" interval="105">
+	<spawn map="210040000" npcid="211875" pool="12" interval="295">
 		<object x="2205.8284" y="776.624" z="271.02164" h="32"/>
 		<object x="2134.946" y="616.9746" z="267.61963" h="70"/>
 		<object x="2137.2317" y="650.8827" z="267.41074" h="25"/>
@@ -446,7 +446,7 @@ Heiron-->
 		<object x="2102.9377" y="634.4323" z="216.57095" h="53"/>
 	</spawn>
 	<!-- Blind Keraton (Monster Normal lvl:34)-->
-	<spawn map="210040000" npcid="211926" pool="33" interval="105">
+	<spawn map="210040000" npcid="211926" pool="33" interval="295">
 		<object x="1227.4097" y="1469.5475" z="110.113945" h="59"/>
 		<object x="1269.7415" y="1487.6359" z="112.23845" h="93"/>
 		<object x="1239.0396" y="1504.5339" z="114.01343" h="101"/>
@@ -482,12 +482,12 @@ Heiron-->
 		<object x="1133.4594" y="1495.5332" z="128.65324" h="17"/>
 	</spawn>
 	<!-- Bonepicker Bloodwing (NPC Normal lvl:36)-->
-	<spawn map="210040000" npcid="212344" pool="2" interval="105">
+	<spawn map="210040000" npcid="212344" pool="2" interval="295">
 		<object x="1006.912" y="2138.031" z="134.98914" h="31"/>
 		<object x="1013.197" y="2149.087" z="136.25581" h="3"/>
 	</spawn>
 	<!-- Branchling Agrint (Monster Normal lvl:35)-->
-	<spawn map="210040000" npcid="212104" pool="47" interval="105">
+	<spawn map="210040000" npcid="212104" pool="47" interval="295">
 		<object x="602.7507" y="1345.0986" z="108.46541" h="100"/>
 		<object x="519.93" y="1395.43" z="114.68749" h="94"/>
 		<object x="531.89825" y="1408.4858" z="114.05791" h="95"/>
@@ -541,7 +541,7 @@ Heiron-->
 		<object x="2301.849" y="2432.139" z="119.187706" h="49"/>
 	</spawn>
 	<!-- Bred Drake (Monster Normal lvl:42)-->
-	<spawn map="210040000" npcid="213976" pool="3" interval="105">
+	<spawn map="210040000" npcid="213976" pool="3" interval="295">
 		<object x="2190.8706" y="1930.389" z="139.17941" h="114"/>
 		<object x="2666.3862" y="1978.4094" z="146.52414" h="78"/>
 		<object x="2664.1404" y="1987.8428" z="146.5" h="62"/>
@@ -559,7 +559,7 @@ Heiron-->
 		<object x="3015.456" y="2128.802" z="166.8735" h="90"/>
 	</spawn>
 	<!-- Captured Ghost (Monster Normal lvl:43)-->
-	<spawn map="210040000" npcid="211233" pool="8" interval="105">
+	<spawn map="210040000" npcid="211233" pool="8" interval="295">
 		<object x="622.8123" y="2855.586" z="110.60154" h="55"/>
 		<object x="574.1366" y="2886.162" z="103.35314" h="109"/>
 		<object x="576.0405" y="2865.023" z="105.62213" h="34"/>
@@ -570,7 +570,7 @@ Heiron-->
 		<object x="560.0709" y="2870.222" z="105.2117" h="1"/>
 	</spawn>
 	<!-- Clayfoot Mudthorn (Monster Normal lvl:36)-->
-	<spawn map="210040000" npcid="211948" pool="18" interval="105">
+	<spawn map="210040000" npcid="211948" pool="18" interval="295">
 		<object x="554.4913" y="1478.195" z="103.29289" h="35"/>
 		<object x="965.9856" y="1924.852" z="102.39349" h="119"/>
 		<object x="918.0" y="1695.0" z="102.875" h="92"/>
@@ -591,7 +591,7 @@ Heiron-->
 		<object x="805.9068" y="1768.0" z="102.375" h="114"/>
 	</spawn>
 	<!-- Clone (Monster Normal lvl:44)-->
-	<spawn map="210040000" npcid="280625" pool="16" interval="105">
+	<spawn map="210040000" npcid="280625" pool="16" interval="295">
 		<object x="2530.54" y="2824.18" z="139.58" h="119"/>
 		<object x="2545.82" y="2276.51" z="135.06" h="71"/>
 		<object x="2548.04" y="2295.94" z="134.25" h="64"/>
@@ -610,7 +610,7 @@ Heiron-->
 		<object x="2476.77" y="2726.1" z="153.37" h="7"/>
 	</spawn>
 	<!-- Cobalt Starturtle (Monster Normal lvl:40)-->
-	<spawn map="210040000" npcid="212361" pool="23" interval="105">
+	<spawn map="210040000" npcid="212361" pool="23" interval="295">
 		<object x="1573.9752" y="2606.6768" z="103.16386" h="37"/>
 		<object x="1565.4873" y="2578.7463" z="104.21796" h="72"/>
 		<object x="1599.1122" y="2565.4817" z="104.80549" h="62"/>
@@ -640,7 +640,7 @@ Heiron-->
 		<object x="2216.498" y="2317.949" z="132.39543" h="109"/>
 	</spawn>
 	<!-- Contaminated Terra Spirit (Monster Normal lvl:35)-->
-	<spawn map="210040000" npcid="211091" pool="5" interval="105">
+	<spawn map="210040000" npcid="211091" pool="5" interval="295">
 		<object x="1787.991" y="2062.133" z="141.52495" h="114"/>
 		<object x="1856.345" y="1948.727" z="128.84988" h="79"/>
 		<object x="1802.695" y="2053.552" z="136.07626" h="1"/>
@@ -648,7 +648,7 @@ Heiron-->
 		<object x="1829.255" y="2055.635" z="132.48532" h="116"/>
 	</spawn>
 	<!-- Contaminated Water Spirit (Monster Normal lvl:43)-->
-	<spawn map="210040000" npcid="212114" pool="10" interval="105">
+	<spawn map="210040000" npcid="212114" pool="10" interval="295">
 		<object x="668.5394" y="2890.594" z="100.25" h="1"/>
 		<object x="779.4584" y="2926.1465" z="100.25" h="115"/>
 		<object x="748.2482" y="2928.7656" z="100.31163" h="8"/>
@@ -908,7 +908,7 @@ Heiron-->
 		<object x="2383.965" y="1503.7328" z="130.98111" h="100"/>
 	</spawn>
 	<!-- Cracktooth Ettin (Monster Normal lvl:31)-->
-	<spawn map="210040000" npcid="211049" pool="36" interval="105">
+	<spawn map="210040000" npcid="211049" pool="36" interval="295">
 		<object x="2020.575" y="567.5412" z="208.79016" h="52"/>
 		<object x="2152.937" y="513.2894" z="236.60889" h="101"/>
 		<object x="2248.476" y="768.9823" z="285.59402" h="26"/>
@@ -947,7 +947,7 @@ Heiron-->
 		<object x="2258.802" y="726.7051" z="294.01147" h="42"/>
 	</spawn>
 	<!-- Crowned Drynac (Monster Normal lvl:40)-->
-	<spawn map="210040000" npcid="211192" pool="14" interval="105">
+	<spawn map="210040000" npcid="211192" pool="14" interval="295">
 		<object x="478.5315" y="2189.6975" z="137.75934" h="28"/>
 		<object x="423.80225" y="2127.218" z="123.0" h="71"/>
 		<object x="431.75403" y="2050.0273" z="115.111336" h="84"/>
@@ -964,7 +964,7 @@ Heiron-->
 		<object x="396.66498" y="2191.7593" z="137.0" h="59"/>
 	</spawn>
 	<!-- Cruel Specter (Monster Normal lvl:44)-->
-	<spawn map="210040000" npcid="211247" pool="69" interval="105">
+	<spawn map="210040000" npcid="211247" pool="69" interval="295">
 		<object x="692.49347" y="2796.9314" z="123.49653" h="60"/>
 		<object x="709.5287" y="2720.1782" z="124.14332" h="16"/>
 		<object x="661.34454" y="2766.6572" z="123.70705" h="117"/>
@@ -1036,7 +1036,7 @@ Heiron-->
 		<object x="220.3658" y="2837.5454" z="107.94318" h="73"/>
 	</spawn>
 	<!-- Crying Banshee (Monster Normal lvl:39)-->
-	<spawn map="210040000" npcid="211965" pool="6" interval="105">
+	<spawn map="210040000" npcid="211965" pool="6" interval="295">
 		<object x="413.3255" y="1555.5127" z="118.56409" h="66"/>
 		<object x="414.4709" y="1570.1277" z="118.875" h="88"/>
 		<object x="499.05396" y="1896.347" z="123.824875" h="14"/>
@@ -1045,7 +1045,7 @@ Heiron-->
 		<object x="519.6717" y="1936.971" z="117.190186" h="94"/>
 	</spawn>
 	<!-- Crynac (Monster Junk lvl:1)-->
-	<spawn map="210040000" npcid="211837" pool="57" interval="105">
+	<spawn map="210040000" npcid="211837" pool="57" interval="295">
 		<object x="2061.933" y="1819.467" z="370.2999" h="111"/>
 		<object x="1089.081" y="2393.014" z="147" h="36"/>
 		<object x="614.1531" y="1985.756" z="117" h="27"/>
@@ -1151,7 +1151,7 @@ Heiron-->
 		<object x="971.4858" y="2822.952" z="159.79372" h="108"/>
 	</spawn>
 	<!-- Cursed Sailor (Monster Normal lvl:45)-->
-	<spawn map="210040000" npcid="280749" pool="13" interval="105">
+	<spawn map="210040000" npcid="280749" pool="13" interval="295">
 		<object x="365.56" y="2819.79" z="105.73" h="18"/>
 		<object x="364.33" y="2823.79" z="105.99" h="93"/>
 		<object x="368.62" y="2821.34" z="105.93" h="80"/>
@@ -1197,7 +1197,7 @@ Heiron-->
 		<object x="937.8686" y="2845.75" z="117.50902" h="25"/>
 	</spawn>
 	<!-- Dark Bloodwing (Monster Normal lvl:44)-->
-	<spawn map="210040000" npcid="212321" pool="17" interval="105">
+	<spawn map="210040000" npcid="212321" pool="17" interval="295">
 		<object x="174.04462" y="2659.7085" z="116.7191" h="24"/>
 		<object x="171.0832" y="2656.954" z="116.7191" h="15"/>
 		<object x="226.73502" y="2695.3713" z="116.7191" h="73"/>
@@ -1222,14 +1222,14 @@ Heiron-->
 		<object x="1029.3981" y="2783.0142" z="207.49004" h="70"/>
 	</spawn>
 	<!-- Decayed Clodworm (Monster Normal lvl:41)-->
-	<spawn map="210040000" npcid="211984" pool="4" interval="105">
+	<spawn map="210040000" npcid="211984" pool="4" interval="295">
 		<object x="367.79163" y="2053.5415" z="110.84899" h="79"/>
 		<object x="372.95157" y="2053.84" z="111.17842" h="70"/>
 		<object x="286.20648" y="2061.8892" z="107.99307" h="7"/>
 		<object x="284.54156" y="2055.165" z="107.75" h="101"/>
 	</spawn>
 	<!-- Decayed Earth Spirit (Monster Normal lvl:38)-->
-	<spawn map="210040000" npcid="211144" pool="40" interval="105">
+	<spawn map="210040000" npcid="211144" pool="40" interval="295">
 		<object x="1832.07" y="469.51" z="182.71" h="7"/>
 		<object x="1802.07" y="428.1" z="173.78" h="18"/>
 		<object x="1706.42" y="274.37" z="136.21" h="38"/>
@@ -1272,7 +1272,7 @@ Heiron-->
 		<object x="1705.96" y="244.82" z="131.8" h="26"/>
 	</spawn>
 	<!-- Decayed Terra Spirit (Monster Normal lvl:40)-->
-	<spawn map="210040000" npcid="211905" pool="34" interval="105">
+	<spawn map="210040000" npcid="211905" pool="34" interval="295">
 		<object x="330.7" y="912.61" z="133.4" h="25"/>
 		<object x="317.43" y="942.45" z="127.94" h="39"/>
 		<object x="304.39" y="936.19" z="129.09" h="51"/>
@@ -1309,14 +1309,14 @@ Heiron-->
 		<object x="281.76" y="907.72" z="134.23" h="5"/>
 	</spawn>
 	<!-- Deckhand's Spirit (Monster Normal lvl:44)-->
-	<spawn map="210040000" npcid="212349" pool="4" interval="105">
+	<spawn map="210040000" npcid="212349" pool="4" interval="295">
 		<object x="461.6499" y="2913.645" z="101.5" h="116"/>
 		<object x="489.49023" y="2967.6052" z="111.85886" h="120"/>
 		<object x="491.00824" y="2978.6575" z="111.84678" h="83"/>
 		<object x="468.57004" y="2971.1594" z="101.0538" h="83"/>
 	</spawn>
 	<!-- Dedrun Fragment (Monster Normal lvl:43)-->
-	<spawn map="210040000" npcid="280780" pool="20" interval="105">
+	<spawn map="210040000" npcid="280780" pool="20" interval="295">
 		<object x="1528.34" y="1941.5" z="108.47" h="21"/>
 		<object x="1529.56" y="1955.51" z="109.89" h="21"/>
 		<object x="1520.82" y="1941.03" z="108.31" h="116"/>
@@ -1339,14 +1339,14 @@ Heiron-->
 		<object x="1550.12" y="1966.43" z="114.11" h="75"/>
 	</spawn>
 	<!-- Defiant Water Spirit (Monster Normal lvl:45)-->
-	<spawn map="210040000" npcid="211260" pool="4" interval="105">
+	<spawn map="210040000" npcid="211260" pool="4" interval="295">
 		<object x="317.79282" y="2914.1165" z="100.25" h="9"/>
 		<object x="318.20453" y="2914.3108" z="100.25" h="75"/>
 		<object x="358.5827" y="2907.2053" z="100.28642" h="55"/>
 		<object x="342.13306" y="2915.208" z="100.25" h="114"/>
 	</spawn>
 	<!-- Dirty Cargo Box (Monster Normal lvl:35)-->
-	<spawn map="210040000" npcid="211084" pool="10" interval="105">
+	<spawn map="210040000" npcid="211084" pool="10" interval="295">
 		<object x="1218.998" y="1622.086" z="104.75" h="23"/>
 		<object x="1221.095" y="1414.658" z="105.25" h="36"/>
 		<object x="1297.461" y="1598.571" z="105.30362" h="73"/>
@@ -1379,7 +1379,7 @@ Heiron-->
 		<object x="2919.94" y="2566.07" z="181.89" h="50"/>
 	</spawn>
 	<!-- Divine Sea Spirit (Monster Normal lvl:44)-->
-	<spawn map="210040000" npcid="211642" pool="13" interval="105">
+	<spawn map="210040000" npcid="211642" pool="13" interval="295">
 		<object x="672.0806" y="2911.1123" z="100.25" h="120"/>
 		<object x="778.6407" y="2939.5278" z="99.9846" h="84"/>
 		<object x="759.554" y="2936.8518" z="100.25" h="59"/>
@@ -1395,13 +1395,13 @@ Heiron-->
 		<object x="294.4382" y="2910.6387" z="100.25" h="44"/>
 	</spawn>
 	<!-- Divine Terra Spirit (Monster Normal lvl:42)-->
-	<spawn map="210040000" npcid="211225" pool="3" interval="105">
+	<spawn map="210040000" npcid="211225" pool="3" interval="295">
 		<object x="877.5422" y="2290.6836" z="164.35074" h="36"/>
 		<object x="862.61084" y="2351.402" z="165.87177" h="26"/>
 		<object x="840.09155" y="2383.6807" z="162.01457" h="93"/>
 	</spawn>
 	<!-- Drifting Wooden Box (Monster Normal lvl:33)-->
-	<spawn map="210040000" npcid="211067" pool="18" interval="105">
+	<spawn map="210040000" npcid="211067" pool="18" interval="295">
 		<object x="1171.2479" y="1327.71" z="104.827995" h="108"/>
 		<object x="1275.34" y="1629.76" z="104.763756" h="13"/>
 		<object x="1240.49" y="1429.25" z="104.625" h="109"/>
@@ -1459,7 +1459,7 @@ Heiron-->
 		<object x="124.17652" y="2730.79" z="123.625" h="22"/>
 	</spawn>
 	<!-- Ethereal Windwisp (Monster Normal lvl:41)-->
-	<spawn map="210040000" npcid="211198" pool="19" interval="105">
+	<spawn map="210040000" npcid="211198" pool="19" interval="295">
 		<object x="1112.3064" y="2462.324" z="138.64525" h="114"/>
 		<object x="1128.0138" y="2553.3135" z="141.36783" h="31"/>
 		<object x="1092.4219" y="2537.5913" z="144.25" h="2"/>
@@ -1485,26 +1485,26 @@ Heiron-->
 		<object x="957.96704" y="2803.126" z="158.933" h="93"/>
 	</spawn>
 	<!-- Faithful Subordinate (Monster Normal lvl:49)-->
-	<spawn map="210040000" npcid="280806" pool="3" interval="105">
+	<spawn map="210040000" npcid="280806" pool="3" interval="295">
 		<object x="1058.17" y="2808.61" z="210.62" h="14"/>
 		<object x="1060.18" y="2805.81" z="210.5" h="32"/>
 		<object x="1056.91" y="2822.32" z="210.91" h="103"/>
 	</spawn>
 	<!-- Faithful Subordinate (Monster Normal lvl:49)-->
-	<spawn map="210040000" npcid="280807" pool="3" interval="105">
+	<spawn map="210040000" npcid="280807" pool="3" interval="295">
 		<object x="1065.53" y="2807.54" z="210.97" h="80"/>
 		<object x="1054.57" y="2822.72" z="211.02" h="56"/>
 		<object x="1064.95" y="2814.29" z="211.29" h="68"/>
 	</spawn>
 	<!-- Faithful Subordinate (Monster Normal lvl:43)-->
-	<spawn map="210040000" npcid="280813" pool="4" interval="105">
+	<spawn map="210040000" npcid="280813" pool="4" interval="295">
 		<object x="685.21" y="2114.04" z="118.77" h="91"/>
 		<object x="695.46" y="2101.05" z="119.65" h="47"/>
 		<object x="672.36" y="2114.09" z="118.4" h="18"/>
 		<object x="682.5" y="2121.65" z="118.51" h="69"/>
 	</spawn>
 	<!-- Faithful Underling (Monster Normal lvl:44)-->
-	<spawn map="210040000" npcid="280645" pool="19" interval="105">
+	<spawn map="210040000" npcid="280645" pool="19" interval="295">
 		<object x="2216.93" y="2504.33" z="130.95" h="28"/>
 		<object x="2214.11" y="2502.97" z="130.95" h="1"/>
 		<object x="2192.53" y="2517.93" z="130.32" h="30"/>
@@ -1526,7 +1526,7 @@ Heiron-->
 		<object x="2201.62" y="2681.75" z="111.38" h="70"/>
 	</spawn>
 	<!-- Fanged Worg (Monster Normal lvl:30)-->
-	<spawn map="210040000" npcid="211871" pool="5" interval="105">
+	<spawn map="210040000" npcid="211871" pool="5" interval="295">
 		<object x="2513.358" y="619.3758" z="334.42087" h="61"/>
 		<object x="2332.6663" y="561.3539" z="299.24103" h="95"/>
 		<object x="2485.4058" y="591.7307" z="330.23315" h="52"/>
@@ -1534,7 +1534,7 @@ Heiron-->
 		<object x="2328.9565" y="608.7295" z="289.27386" h="17"/>
 	</spawn>
 	<!-- Fat Porgus (Monster Normal lvl:38)-->
-	<spawn map="210040000" npcid="211973" pool="15" interval="105">
+	<spawn map="210040000" npcid="211973" pool="15" interval="295">
 		<object x="448.12448" y="1981.6202" z="115.125" h="81"/>
 		<object x="437.81497" y="1976.5193" z="115.125" h="83"/>
 		<object x="432.69287" y="1967.8302" z="114.90769" h="88"/>
@@ -1552,7 +1552,7 @@ Heiron-->
 		<object x="830.6044" y="2071.3591" z="115.665054" h="13"/>
 	</spawn>
 	<!-- Fatalian Laupede (Monster Normal lvl:39)-->
-	<spawn map="210040000" npcid="211166" pool="14" interval="105">
+	<spawn map="210040000" npcid="211166" pool="14" interval="295">
 		<object x="1087.372" y="1008.1477" z="124.78925" h="81"/>
 		<object x="1096.0902" y="993.55554" z="122.583336" h="37"/>
 		<object x="978.2757" y="1132.1066" z="128.06665" h="10"/>
@@ -1569,7 +1569,7 @@ Heiron-->
 		<object x="966.3349" y="880.6309" z="130.37743" h="102"/>
 	</spawn>
 	<!-- Ferocious Kirrin (Monster Normal lvl:40)-->
-	<spawn map="210040000" npcid="211920" pool="14" interval="105">
+	<spawn map="210040000" npcid="211920" pool="14" interval="295">
 		<object x="458.1223" y="634.3701" z="130.55391" h="94"/>
 		<object x="456.19827" y="598.13654" z="130.31827" h="46"/>
 		<object x="445.69217" y="342.23682" z="116.5" h="70"/>
@@ -1586,7 +1586,7 @@ Heiron-->
 		<object x="437.8585" y="990.7325" z="122.213066" h="19"/>
 	</spawn>
 	<!-- Fetid Malodor (Monster Normal lvl:39)-->
-	<spawn map="210040000" npcid="211903" pool="21" interval="105">
+	<spawn map="210040000" npcid="211903" pool="21" interval="295">
 		<object x="904.5466" y="479.0177" z="106.370285" h="29"/>
 		<object x="832.3662" y="524.6734" z="105.82796" h="21"/>
 		<object x="798.245" y="519.2782" z="107.016136" h="63"/>
@@ -1610,7 +1610,7 @@ Heiron-->
 		<object x="832.1595" y="791.9592" z="122.81242" h="105"/>
 	</spawn>
 	<!-- Fierce Humpback Worg (Monster Normal lvl:33)-->
-	<spawn map="210040000" npcid="212081" pool="8" interval="105">
+	<spawn map="210040000" npcid="212081" pool="8" interval="295">
 		<object x="1741.9517" y="888.76135" z="223.4913" h="94"/>
 		<object x="1739.6624" y="914.4791" z="213.39429" h="56"/>
 		<object x="1764.5233" y="937.98334" z="208.375" h="15"/>
@@ -1621,7 +1621,7 @@ Heiron-->
 		<object x="1763.7032" y="868.7322" z="226.69437" h="39"/>
 	</spawn>
 	<!-- Fierce Sylphen (Monster Normal lvl:39)-->
-	<spawn map="210040000" npcid="211901" pool="43" interval="105">
+	<spawn map="210040000" npcid="211901" pool="43" interval="295">
 		<object x="890.51404" y="518.7871" z="110.98897" h="86"/>
 		<object x="852.82935" y="506.2014" z="109.676834" h="34"/>
 		<object x="864.4123" y="480.06625" z="108.82853" h="38"/>
@@ -1667,7 +1667,7 @@ Heiron-->
 		<object x="798.94366" y="777.4038" z="112.24296" h="73"/>
 	</spawn>
 	<!-- Fighter (Monster Normal lvl:38)-->
-	<spawn map="210040000" npcid="212157" pool="13" interval="105">
+	<spawn map="210040000" npcid="212157" pool="13" interval="295">
 		<object x="224.43315" y="582.4376" z="146.04219" h="22"/>
 		<object x="222.28683" y="601.9356" z="146.17517" h="116"/>
 		<object x="282.1612" y="520.8179" z="121.399956" h="98"/>
@@ -1683,7 +1683,7 @@ Heiron-->
 		<object x="375.21686" y="667.7969" z="140.20262" h="74"/>
 	</spawn>
 	<!-- Finned Basilisk (Monster Normal lvl:41)-->
-	<spawn map="210040000" npcid="211195" pool="26" interval="105">
+	<spawn map="210040000" npcid="211195" pool="26" interval="295">
 		<object x="1284.1892" y="2517.9744" z="137.22635" h="104"/>
 		<object x="1262.9829" y="2505.3994" z="137.75" h="38"/>
 		<object x="1162.0962" y="2484.1594" z="138.38496" h="33"/>
@@ -1712,13 +1712,13 @@ Heiron-->
 		<object x="1085.0469" y="2362.6128" z="139.88086" h="88"/>
 	</spawn>
 	<!-- Flamehide Monitor (Monster Normal lvl:44)-->
-	<spawn map="210040000" npcid="212275" pool="3" interval="105">
+	<spawn map="210040000" npcid="212275" pool="3" interval="295">
 		<object x="2886.8477" y="2204.6711" z="144.80298" h="112"/>
 		<object x="2863.6274" y="2201.505" z="142.6492" h="55"/>
 		<object x="2870.989" y="2234.0254" z="146.56975" h="109"/>
 	</spawn>
 	<!-- Fluttering Mudthorn (Monster Normal lvl:41)-->
-	<spawn map="210040000" npcid="211992" pool="18" interval="105">
+	<spawn map="210040000" npcid="211992" pool="18" interval="295">
 		<object x="975.179" y="2482.5679" z="136.0" h="20"/>
 		<object x="1229.7955" y="2482.239" z="136.11006" h="60"/>
 		<object x="1207.417" y="2487.698" z="136.39388" h="45"/>
@@ -1739,7 +1739,7 @@ Heiron-->
 		<object x="1123.2836" y="2510.5657" z="136.21455" h="33"/>
 	</spawn>
 	<!-- Fog Slime (Monster Normal lvl:36)-->
-	<spawn map="210040000" npcid="211112" pool="16" interval="105">
+	<spawn map="210040000" npcid="211112" pool="16" interval="295">
 		<object x="876.3198" y="1426.7616" z="102.30741" h="9"/>
 		<object x="882.7423" y="1526.2887" z="102.25" h="41"/>
 		<object x="921.15076" y="1501.2526" z="102.40021" h="29"/>
@@ -1758,7 +1758,7 @@ Heiron-->
 		<object x="1028.0029" y="1592.78" z="102.24982" h="6"/>
 	</spawn>
 	<!-- Frillneck Hatchling (Monster Normal lvl:37)-->
-	<spawn map="210040000" npcid="211878" pool="2" interval="105">
+	<spawn map="210040000" npcid="211878" pool="2" interval="295">
 		<object x="1608.0845" y="253.0909" z="118.827934" h="73"/>
 		<object x="1639.6699" y="559.8601" z="109.69125" h="20"/>
 	</spawn>
@@ -1785,7 +1785,7 @@ Heiron-->
 		<object x="249.27716" y="537.18365" z="157.72119" h="3"/>
 	</spawn>
 	<!-- Geschphalt's Minion (Monster Normal lvl:43)-->
-	<spawn map="210040000" npcid="280814" pool="11" interval="105">
+	<spawn map="210040000" npcid="280814" pool="11" interval="295">
 		<object x="408.14" y="2035.2" z="113.88" h="117"/>
 		<object x="407.83" y="2048" z="115" h="102"/>
 		<object x="386.5043" y="2103.5159" z="120.70209" h="34"/>
@@ -1799,7 +1799,7 @@ Heiron-->
 		<object x="412.2" y="2044.78" z="114.81" h="6"/>
 	</spawn>
 	<!-- Giant Rakeclaw Frillneck (Monster Normal lvl:37)-->
-	<spawn map="210040000" npcid="212139" pool="34" interval="105">
+	<spawn map="210040000" npcid="212139" pool="34" interval="295">
 		<object x="1517.7068" y="354.1932" z="106.04587" h="105"/>
 		<object x="1505.1008" y="351.28165" z="105.1024" h="6"/>
 		<object x="1509.5" y="355.81" z="104.96" h="58"/>
@@ -1836,7 +1836,7 @@ Heiron-->
 		<object x="1539.75" y="375.75" z="108.1" h="71"/>
 	</spawn>
 	<!-- Gladiator Spirit (Monster Normal lvl:41)-->
-	<spawn map="210040000" npcid="211979" pool="32" interval="105">
+	<spawn map="210040000" npcid="211979" pool="32" interval="295">
 		<object x="588.99524" y="2823.5757" z="110.60608" h="8"/>
 		<object x="661.9359" y="2862.1208" z="104.61081" h="14"/>
 		<object x="644.16486" y="2835.0273" z="108.36812" h="114"/>
@@ -1875,7 +1875,7 @@ Heiron-->
 		<object x="804.5604" y="1042.2964" z="122.43057" h="11"/>
 	</spawn>
 	<!-- Goldenback Arachna (Monster Normal lvl:35)-->
-	<spawn map="210040000" npcid="211953" pool="46" interval="105">
+	<spawn map="210040000" npcid="211953" pool="46" interval="295">
 		<object x="236.89941" y="1362.5782" z="105.532646" h="84"/>
 		<object x="232.79802" y="1321.2626" z="105.84596" h="26"/>
 		<object x="395.14114" y="1182.5298" z="109.86973" h="44"/>
@@ -1958,7 +1958,7 @@ Heiron-->
 		<object x="235.98044" y="2516.145" z="115.00122" h="40"/>
 	</spawn>
 	<!-- Graveknight Fighter (Monster Normal lvl:44)-->
-	<spawn map="210040000" npcid="211254" pool="102" interval="105">
+	<spawn map="210040000" npcid="211254" pool="102" interval="295">
 		<object x="752.3673" y="2807.248" z="127.930046" h="101"/>
 		<object x="759.5457" y="2804.2183" z="128.17957" h="85"/>
 		<object x="686.5243" y="2810.4492" z="123.84361" h="107"/>
@@ -2063,7 +2063,7 @@ Heiron-->
 		<object x="239.75932" y="2798.4727" z="107.625" h="56"/>
 	</spawn>
 	<!-- Graveknight Warrior (Monster Normal lvl:42)-->
-	<spawn map="210040000" npcid="211226" pool="14" interval="105">
+	<spawn map="210040000" npcid="211226" pool="14" interval="295">
 		<object x="374.74982" y="2286.459" z="133.88551" h="23"/>
 		<object x="350.05887" y="1921.0356" z="112.693405" h="94"/>
 		<object x="371.5653" y="2064.9749" z="112.37186" h="21"/>
@@ -2080,7 +2080,7 @@ Heiron-->
 		<object x="347.14816" y="2171.686" z="130.34865" h="84"/>
 	</spawn>
 	<!-- Grayback Bloodwing (Monster Normal lvl:38)-->
-	<spawn map="210040000" npcid="211929" pool="12" interval="105">
+	<spawn map="210040000" npcid="211929" pool="12" interval="295">
 		<object x="681.0111" y="1809.507" z="110.06007" h="77"/>
 		<object x="607.64233" y="1755.107" z="110.29927" h="107"/>
 		<object x="444.09387" y="1746.8002" z="110.25" h="98"/>
@@ -2099,7 +2099,7 @@ Heiron-->
 		<object x="2460.3762" y="2840.7485" z="158.13895" h="72"/>
 	</spawn>
 	<!-- Greenclaw Rotron (Monster Normal lvl:34)-->
-	<spawn map="210040000" npcid="211079" pool="40" interval="105">
+	<spawn map="210040000" npcid="211079" pool="40" interval="295">
 		<object x="1755.2805" y="1938.4424" z="118.84778" h="60"/>
 		<object x="1749.4951" y="1963.2858" z="115.16964" h="35"/>
 		<object x="1667.1349" y="2010.4211" z="116.114746" h="73"/>
@@ -2158,7 +2158,7 @@ Heiron-->
 		<object x="2855.477" y="2503.974" z="145.13977" h="25"/>
 	</spawn>
 	<!-- Gumi (Monster Normal lvl:2)-->
-	<spawn map="210040000" npcid="210342" pool="55" interval="105">
+	<spawn map="210040000" npcid="210342" pool="55" interval="295">
 		<object x="1547.1345" y="1512.7596" z="103.44755" h="9"/>
 		<object x="923.5615" y="478.17728" z="103.79432" h="44"/>
 		<object x="1795.4116" y="1485.6101" z="104.10063" h="92"/>
@@ -2220,7 +2220,7 @@ Heiron-->
 		<object x="1019.73706" y="2880.7827" z="182.11472" h="81"/>
 	</spawn>
 	<!-- Harvested Soul (Monster Normal lvl:43)-->
-	<spawn map="210040000" npcid="280747" pool="16" interval="105">
+	<spawn map="210040000" npcid="280747" pool="16" interval="295">
 		<object x="1675.75" y="2255.51" z="157.75" h="88"/>
 		<object x="1686.86" y="2258.13" z="158.77" h="100"/>
 		<object x="1684.69" y="2271.68" z="157.18" h="77"/>
@@ -2259,7 +2259,7 @@ Heiron-->
 		<object x="2452.275" y="1626.7135" z="132.0" h="11"/>
 	</spawn>
 	<!-- Horned Abex (Monster Normal lvl:30)-->
-	<spawn map="210040000" npcid="211869" pool="49" interval="105">
+	<spawn map="210040000" npcid="211869" pool="49" interval="295">
 		<object x="2100.872" y="615.76166" z="216.0705" h="79"/>
 		<object x="2029.5305" y="606.10095" z="239.05957" h="79"/>
 		<object x="2235.7861" y="584.726" z="274.37756" h="94"/>
@@ -2311,7 +2311,7 @@ Heiron-->
 		<object x="2091.9639" y="587.0889" z="218.25" h="84"/>
 	</spawn>
 	<!-- Huge Frillneck (Monster Normal lvl:37)-->
-	<spawn map="210040000" npcid="211881" pool="6" interval="105">
+	<spawn map="210040000" npcid="211881" pool="6" interval="295">
 		<object x="1197.4863" y="960.80035" z="133.16788" h="82"/>
 		<object x="1482.02" y="341.53137" z="103.881256" h="29"/>
 		<object x="1197.9583" y="960.18976" z="133.23553" h="56"/>
@@ -2320,7 +2320,7 @@ Heiron-->
 		<object x="1446.3982" y="593.5812" z="121.875" h="108"/>
 	</spawn>
 	<!-- Huge Moonflower (Monster Normal lvl:39)-->
-	<spawn map="210040000" npcid="211895" pool="50" interval="105">
+	<spawn map="210040000" npcid="211895" pool="50" interval="295">
 		<object x="1150.3785" y="1006.55963" z="130.19495" h="54"/>
 		<object x="1105.2672" y="950.82324" z="129.61935" h="30"/>
 		<object x="1175.4968" y="948.2973" z="133.35641" h="41"/>
@@ -2373,7 +2373,7 @@ Heiron-->
 		<object x="726.68195" y="1052.792" z="123.96712" h="27"/>
 	</spawn>
 	<!-- Hulking Ettin (Monster Normal lvl:32)-->
-	<spawn map="210040000" npcid="211874" pool="18" interval="105">
+	<spawn map="210040000" npcid="211874" pool="18" interval="295">
 		<object x="2120.6345" y="875.70294" z="248.16466" h="88"/>
 		<object x="2066.929" y="892.6875" z="239.07582" h="80"/>
 		<object x="2073.2424" y="899.29285" z="238.00314" h="119"/>
@@ -2394,11 +2394,11 @@ Heiron-->
 		<object x="1744.5499" y="1058.9722" z="169.37425" h="95"/>
 	</spawn>
 	<!-- Human Test Subject (Monster Normal lvl:41)-->
-	<spawn map="210040000" npcid="212610" pool="1" interval="105">
+	<spawn map="210040000" npcid="212610" pool="1" interval="295">
 		<object x="396.89056" y="736.7204" z="128.93951" h="79"/>
 	</spawn>
 	<!-- Humpback Worg (Monster Normal lvl:31)-->
-	<spawn map="210040000" npcid="211051" pool="10" interval="105">
+	<spawn map="210040000" npcid="211051" pool="10" interval="295">
 		<object x="2185.781" y="794.1752" z="260.38504" h="22"/>
 		<object x="2184.7822" y="793.73004" z="260.11084" h="18"/>
 		<object x="2171.1084" y="805.0994" z="252.93297" h="97"/>
@@ -2411,7 +2411,7 @@ Heiron-->
 		<object x="2231.8298" y="646.76544" z="268.89642" h="40"/>
 	</spawn>
 	<!-- Indigo Arachna (Monster Normal lvl:34)-->
-	<spawn map="210040000" npcid="212090" pool="9" interval="105">
+	<spawn map="210040000" npcid="212090" pool="9" interval="295">
 		<object x="1492.1953" y="1998.8865" z="121.48779" h="92"/>
 		<object x="1582.3507" y="1951.0499" z="108.73432" h="91"/>
 		<object x="1536.137" y="1809.6136" z="108.49727" h="75"/>
@@ -3019,7 +3019,7 @@ Heiron-->
 		<object x="2495.223" y="2081.641" z="150.95705" h="90"/>
 	</spawn>
 	<!-- Klaw Patrol (Monster Normal lvl:37)-->
-	<spawn map="210040000" npcid="211503" pool="26" interval="105">
+	<spawn map="210040000" npcid="211503" pool="26" interval="295">
 		<object x="1505.73" y="275.1721" z="115.24648" h="82"/>
 		<object x="1252.164" y="189.1378" z="116.01617" h="67"/>
 		<object x="1199.555" y="239.3815" z="108.574394" h="107"/>
