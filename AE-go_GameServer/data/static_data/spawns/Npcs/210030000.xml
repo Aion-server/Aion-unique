@@ -209,7 +209,8 @@ Verteron -->
 		<object x="1916.96" y="1752.31" z="246.44818" h="0"/>
 	</spawn>
 	<!-- Frillneck Egg (Object Normal lvl:1)-->
-	<spawn map="210030000" npcid="700031" pool="8" interval="105">
+	<spawn map="210030000" npcid="700031" pool="10" interval="105">
+		<object x="1724.6" y="2186.01" z="177.3897" h="0"/>
 		<object x="1725.06" y="2186.89" z="177.37323" h="0"/>
 		<object x="1621.86" y="2155.07" z="179.33598" h="0"/>
 		<object x="1622.54" y="2156.01" z="179.62767" h="0"/>
@@ -217,6 +218,7 @@ Verteron -->
 		<object x="1623.99" y="2101.3" z="167.36667" h="0"/>
 		<object x="1641.55" y="1950.01" z="166.35681" h="0"/>
 		<object x="1640.55" y="1950.61" z="164.62515" h="0"/>
+		<object x="1502.9" y="1969.12" z="143.0394" h="0"/>
 		<object x="1502.02" y="1968.82" z="143" h="0"/>
 	</spawn>
 	<!-- Gaione (NPC Normal lvl:17)-->
@@ -321,7 +323,7 @@ Verteron -->
 	<spawn map="210030000" npcid="203109" pool="1" interval="105">
 		<object x="1629.47" y="1521.53" z="120.0625" h="0"/>
 	</spawn>
-	<!-- Kato (NPC Normal lvl:20) (Walking NPC, need to code its route via those coords)--->
+	<!-- Kato (NPC Normal lvl:20)  (Walking NPC, need to code its route via those coords)-->
 	<spawn map="210030000" npcid="203195" pool="1" interval="105" time="NIGHT">
 		<object x="1667.65" y="2736.25" z="233.38" h="85"/>
 		<object x="1647.26" y="2772.54" z="236.35" h="64"/>
@@ -605,14 +607,16 @@ Verteron -->
 		<object x="1722.8463" y="1451.2164" z="123.52807" h="0"/>
 	</spawn>
 	<!-- Small Frillneck Egg (Object Normal lvl:1)-->
-	<spawn map="210030000" npcid="700032" pool="8" interval="105">
+	<spawn map="210030000" npcid="700032" pool="10" interval="105">
 		<object x="1724.3" y="2186.85" z="177.41953" h="0"/>
 		<object x="1724.37" y="2185.3" z="177.7129" h="0"/>
 		<object x="1622.55" y="2155.26" z="179.4757" h="0"/>
+		<object x="1621.43" y="2155.64" z="179.49748" h="0"/>
 		<object x="1623.98" y="2099.64" z="167.09212" h="0"/>
 		<object x="1624.65" y="2100.14" z="1697.09303" h="0"/>
 		<object x="1640.29" y="1949.87" z="164.85423" h="0"/>
 		<object x="1642.18" y="1950.59" z="164.61829" h="0"/>
+		<object x="1502.95" y="1968.46" z="142.8698" h="0"/>
 		<object x="1502.58" y="1969.22" z="143" h="0"/>
 	</spawn>
 	<!-- Soporific Mushroom (Object Normal lvl:1)-->

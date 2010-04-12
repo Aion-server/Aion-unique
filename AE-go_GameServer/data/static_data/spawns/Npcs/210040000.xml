@@ -177,11 +177,12 @@ Heiron -->
 		<object x="1123.7731" y="1701.7726" z="110.10001" h="0"/>
 	</spawn>
 	<!-- Bio Experiment Device (Monster Normal lvl:1)-->
-	<spawn map="210040000" npcid="700197" pool="13" interval="105">
+	<spawn map="210040000" npcid="700197" pool="14" interval="105">
 		<object x="463.78" y="1056.25" z="123.67" h="0"/>
 		<object x="479.98" y="1056.12" z="123.67" h="0"/>
 		<object x="471.33" y="1056.12" z="123.67" h="0"/>
 		<object x="270.48" y="521.7" z="122.79" h="0"/>
+		<object x="270.51" y="512.97" z="122.79" h="0"/>
 		<object x="246.91" y="582.89" z="147.58" h="0"/>
 		<object x="232.03" y="579.05" z="147.58" h="0"/>
 		<object x="239.73" y="580.97" z="147.58" h="0"/>
@@ -590,25 +591,25 @@ Heiron -->
 	<spawn map="210040000" npcid="204532" pool="1" interval="105">
 		<object x="1636.0527" y="2692.6404" z="117.0" h="0"/>
 	</spawn>
-	<!-- Obelisk (Object Normal lvl:3)-->
-	<spawn map="210040000" npcid="700026" pool="1" interval="105">
-		<object x="1450.8402" y="1346.6393" z="175.43262" h="0"/>
+	<!-- Obelisk (Object Normal lvl:1)-->
+	<spawn map="210040000" npcid="250093" pool="1" interval="105">
+		<object x="865.0934" y="2874.9392" z="147.11494" h="0"/>
 	</spawn>
 	<!-- Obelisk (Object Normal lvl:3)-->
 	<spawn map="210040000" npcid="700399" pool="1" interval="105">
 		<object x="153.92722" y="1613.0404" z="121.800125" h="0"/>
 	</spawn>
-	<!-- Obelisk (Object Normal lvl:1)-->
-	<spawn map="210040000" npcid="250093" pool="1" interval="105">
-		<object x="865.0934" y="2874.9392" z="147.11494" h="0"/>
+	<!-- Obelisk (Object Normal lvl:3)-->
+	<spawn map="210040000" npcid="700027" pool="1" interval="105">
+		<object x="1620.6666" y="2740.5083" z="123.6084" h="0"/>
 	</spawn>
 	<!-- Obelisk (Object Normal lvl:3)-->
 	<spawn map="210040000" npcid="700025" pool="1" interval="105">
 		<object x="2468.5186" y="300.03873" z="416.21384" h="25"/>
 	</spawn>
 	<!-- Obelisk (Object Normal lvl:3)-->
-	<spawn map="210040000" npcid="700027" pool="1" interval="105">
-		<object x="1620.6666" y="2740.5083" z="123.6084" h="0"/>
+	<spawn map="210040000" npcid="700026" pool="1" interval="105">
+		<object x="1450.8402" y="1346.6393" z="175.43262" h="0"/>
 	</spawn>
 	<!-- Okonus (NPC Normal lvl:50)-->
 	<spawn map="210040000" npcid="204585" pool="1" interval="105">
