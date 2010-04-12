@@ -33,7 +33,7 @@ import com.google.inject.Inject;
  */
 public class RespawnService
 {
-	private static final int DECAY_DEFAULT_DELAY = 20000;
+	private static final int DECAY_DEFAULT_DELAY = 240000;
 	
 	@Inject
 	private InstanceService instanceService;

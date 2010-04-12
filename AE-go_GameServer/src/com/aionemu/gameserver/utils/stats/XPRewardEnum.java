@@ -24,6 +24,7 @@ import java.util.NoSuchElementException;
  */
 public enum XPRewardEnum
 {
+	MINUS_11(-11, 0),
 	MINUS_10(-10, 1),
 	MINUS_9(-9, 10),
 	MINUS_8(-8, 20),
@@ -63,9 +64,9 @@ public enum XPRewardEnum
 	 */
 	public static int xpRewardFrom(int levelDifference)
 	{
-		if(levelDifference < MINUS_10.levelDifference)
+		if(levelDifference < MINUS_11.levelDifference)
 		{
-			return MINUS_10.xpRewardPercent;
+			return MINUS_11.xpRewardPercent;
 		}
 		if(levelDifference > PLUS_4.levelDifference)
 		{
