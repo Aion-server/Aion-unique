@@ -5,53 +5,53 @@ object x y z h
 Altgard -->
 <spawns>
 	<!-- Abyss Fungus (Monster Normal lvl:1)-->
-	<spawn map="220030000" npcid="700092" pool="2" interval="105">
+	<spawn map="220030000" npcid="700092" pool="2" interval="295">
 		<object x="1700.173" y="1820.279" z="390" h="0"/>
 		<object x="1688.178" y="1767.196" z="400" h="0"/>
 	</spawn>
 	<!-- Abyss Gate Guardian Stone (Object Normal lvl:1)-->
-	<spawn map="220030000" npcid="700140" pool="1" interval="105">
+	<spawn map="220030000" npcid="700140" pool="1" interval="295">
 		<object x="2451.8828" y="2546.5891" z="316.12195" h="0"/>
 	</spawn>
 	<!-- Altgard Abyss Gate (Object Normal lvl:1)-->
-	<spawn map="220030000" npcid="700089" pool="2" interval="105">
+	<spawn map="220030000" npcid="700089" pool="2" interval="295">
 		<object x="2451.53" y="2546.45" z="317.13" h="25"/>
 		<object x="1658.61" y="1812.1" z="365.50943" h="25"/>
 	</spawn>
 	<!-- Amitnir (NPC Normal lvl:10)-->
-	<spawn map="220030000" npcid="203614" pool="1" interval="105">
+	<spawn map="220030000" npcid="203614" pool="1" interval="295">
 		<object x="1926.5443" y="760.7837" z="262.0" h="0"/>
 	</spawn>
 	<!-- Andgar (NPC Elite lvl:45)-->
-	<spawn map="220030000" npcid="203651" pool="1" interval="105">
+	<spawn map="220030000" npcid="203651" pool="1" interval="295">
 		<object x="2646.4058" y="1662.223" z="325.0" h="0"/>
 	</spawn>
 	<!-- Arekedil (NPC Normal lvl:20)-->
-	<spawn map="220030000" npcid="203574" pool="1" interval="105">
+	<spawn map="220030000" npcid="203574" pool="1" interval="295">
 		<object x="1607.3651" y="1719.1361" z="252.1933" h="0"/>
 	</spawn>
 	<!-- Atir (NPC Normal lvl:16)-->
-	<spawn map="220030000" npcid="203666" pool="1" interval="105">
+	<spawn map="220030000" npcid="203666" pool="1" interval="295">
 		<object x="1754.5342" y="2017.6588" z="250.0" h="0"/>
 	</spawn>
 	<!-- Aurtri (NPC Normal lvl:27)-->
-	<spawn map="220030000" npcid="203654" pool="1" interval="105">
+	<spawn map="220030000" npcid="203654" pool="1" interval="295">
 		<object x="1459.94" y="2540.22" z="306.00162" h="0"/>
 	</spawn>
 	<!-- Babarunerk (NPC Normal lvl:15)-->
-	<spawn map="220030000" npcid="798034" pool="1" interval="105">
+	<spawn map="220030000" npcid="798034" pool="1" interval="295">
 		<object x="2686.0" y="1048.0" z="309.3889" h="0"/>
 	</spawn>
 	<!-- Banatisai (NPC Normal lvl:20)-->
-	<spawn map="220030000" npcid="203673" pool="1" interval="105">
+	<spawn map="220030000" npcid="203673" pool="1" interval="295">
 		<object x="2614.5894" y="1642.2904" z="254.0" h="0"/>
 	</spawn>
 	<!-- Barneinerk (NPC Normal lvl:10)-->
-	<spawn map="220030000" npcid="798043" pool="1" interval="105">
+	<spawn map="220030000" npcid="798043" pool="1" interval="295">
 		<object x="1691.542" y="1830.6364" z="202.59415" h="0"/>
 	</spawn>
 	<!-- Beehive (Object Normal lvl:1)-->
-	<spawn map="220030000" npcid="700061" pool="20" interval="105">
+	<spawn map="220030000" npcid="700061" pool="20" interval="295">
 		<object x="1226.34" y="939.5" z="259.15" h="0"/>
 		<object x="1233.85" y="922.54" z="259.82" h="0"/>
 		<object x="1362.1" y="913.95" z="254.85" h="0"/>
@@ -74,38 +74,38 @@ Altgard -->
 		<object x="1277.93" y="849.19" z="251.89" h="0"/>
 	</spawn>
 	<!-- Bergard (NPC Normal lvl:10)-->
-	<spawn map="220030000" npcid="203615" pool="1" interval="105">
+	<spawn map="220030000" npcid="203615" pool="1" interval="295">
 		<object x="1914.658" y="701.8868" z="262.0" h="0"/>
 	</spawn>
 	<!-- Bone of Minusha (Object Normal lvl:1)-->
-	<spawn map="220030000" npcid="700060" pool="1" interval="105">
+	<spawn map="220030000" npcid="700060" pool="1" interval="295">
 		<object x="2407" y="1268" z="257.31" h="0"/>
 	</spawn>
 	<!-- Borender (NPC Normal lvl:20)-->
-	<spawn map="220030000" npcid="203572" pool="1" interval="105">
+	<spawn map="220030000" npcid="203572" pool="1" interval="295">
 		<object x="1620.6917" y="1806.6564" z="406.0" h="0"/>
 	</spawn>
 	<!-- Building Debris (Object Normal lvl:1)-->
-	<spawn map="220030000" npcid="700144" pool="4" interval="105">
+	<spawn map="220030000" npcid="700144" pool="4" interval="295">
 		<object x="2585.832" y="1623.071" z="249.625" h="0"/>
 		<object x="2580.087" y="1612.695" z="249.17386" h="0"/>
 		<object x="2569.527" y="1591.426" z="248.25" h="0"/>
 		<object x="2561.676" y="1559.744" z="249.47975" h="0"/>
 	</spawn>
 	<!-- Chagarinerk (NPC Normal lvl:15)-->
-	<spawn map="220030000" npcid="798031" pool="1" interval="105">
+	<spawn map="220030000" npcid="798031" pool="1" interval="295">
 		<object x="1558.4985" y="1865.048" z="272.60922" h="0"/>
 	</spawn>
 	<!-- Chauminerk (NPC Normal lvl:15)-->
-	<spawn map="220030000" npcid="798029" pool="1" interval="105">
+	<spawn map="220030000" npcid="798029" pool="1" interval="295">
 		<object x="1758.2866" y="1839.8529" z="257.58505" h="0"/>
 	</spawn>
 	<!-- Chida (NPC Normal lvl:20)-->
-	<spawn map="220030000" npcid="203624" pool="1" interval="105">
+	<spawn map="220030000" npcid="203624" pool="1" interval="295">
 		<object x="1864.8462" y="764.2981" z="255.14423" h="0"/>
 	</spawn>
 	<!-- Crystal Stone (Object Normal lvl:1)-->
-	<spawn map="220030000" npcid="700055" pool="20" interval="105">
+	<spawn map="220030000" npcid="700055" pool="20" interval="295">
 		<object x="1554.42" y="1945.73" z="248.16" h="0"/>
 		<object x="1847.44" y="1644.55" z="247.38" h="0"/>
 		<object x="1851.79" y="1602.88" z="247.38" h="0"/>
@@ -128,31 +128,31 @@ Altgard -->
 		<object x="1621.99" y="1623.88" z="247.25" h="0"/>
 	</spawn>
 	<!-- Daike (NPC Normal lvl:10)-->
-	<spawn map="220030000" npcid="203629" pool="1" interval="105">
+	<spawn map="220030000" npcid="203629" pool="1" interval="295">
 		<object x="1928.3054" y="757.99304" z="261.5" h="0"/>
 	</spawn>
 	<!-- Dellalont (NPC Normal lvl:20)-->
-	<spawn map="220030000" npcid="203665" pool="1" interval="105">
+	<spawn map="220030000" npcid="203665" pool="1" interval="295">
 		<object x="1751.5259" y="2006.9524" z="250.0" h="0"/>
 	</spawn>
 	<!-- Deriona (NPC Normal lvl:40)-->
-	<spawn map="220030000" npcid="203691" pool="1" interval="105">
+	<spawn map="220030000" npcid="203691" pool="1" interval="295">
 		<object x="1896.369" y="727.1661" z="259.0" h="0"/>
 	</spawn>
 	<!-- Disguised Germir (NPC Normal lvl:0)-->
-	<spawn map="220030000" npcid="798041" pool="1" interval="105">
+	<spawn map="220030000" npcid="798041" pool="1" interval="295">
 		<object x="2588.0" y="953.0" z="307.0" h="0"/>
 	</spawn>
 	<!-- Disguised Germir (NPC Normal lvl:17)-->
-	<spawn map="220030000" npcid="798040" pool="1" interval="105">
+	<spawn map="220030000" npcid="798040" pool="1" interval="295">
 		<object x="2330.0" y="791.0" z="323.0" h="0"/>
 	</spawn>
 	<!-- Donabe (NPC Normal lvl:10)-->
-	<spawn map="220030000" npcid="203579" pool="1" interval="105">
+	<spawn map="220030000" npcid="203579" pool="1" interval="295">
 		<object x="1758.0698" y="1779.1129" z="256.1737" h="0"/>
 	</spawn>
 	<!-- Donat (NPC Normal lvl:3)-->
-	<spawn map="220030000" npcid="203627" pool="1" interval="105">
+	<spawn map="220030000" npcid="203627" pool="1" interval="295">
 		<object x="1875.37" y="695.48" z="257.12686" h="0"/>
 	</spawn>
 	<!-- Dortos (NPC Normal lvl:10)-->
