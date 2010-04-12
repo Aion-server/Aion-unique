@@ -701,7 +701,7 @@ Pandaemonium -->
 		<object x="1216.6207" y="1194.537" z="207.97894" h="20"/>
 	</spawn>
 	<!-- Micorunerk (NPC Normal lvl:15)-->
-	<spawn map="120010000" npcid="798063" pool="1" interval="105">
+	<spawn map="120010000" npcid="798063" pool="2" interval="105">
 		<object x="1393.72" y="1335.51" z="202.03029" h="0"/>
 		<object x="1380.5038" y="1225.282" z="208.18553" h="110"/>
 	</spawn>
