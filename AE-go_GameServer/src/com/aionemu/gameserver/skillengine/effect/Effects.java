@@ -107,7 +107,8 @@ public class Effects
 		@XmlElement(name = "onetimeboostskillattack", type = OneTimeBoostSkillAttackEffect.class),
 		@XmlElement(name = "armormastery", type = ArmorMasteryEffect.class),
 		@XmlElement(name = "weaponstatup", type = WeaponStatupEffect.class),
-		@XmlElement(name = "boostskillcastingtime", type = BoostSkillCastingTimeEffect.class)
+		@XmlElement(name = "boostskillcastingtime", type = BoostSkillCastingTimeEffect.class),
+		@XmlElement(name = "summontrap", type = SummonTrapEffect.class)
 	})
 	protected List<EffectTemplate> effects;
 	

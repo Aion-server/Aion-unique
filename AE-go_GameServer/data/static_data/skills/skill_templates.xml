@@ -8396,6 +8396,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <summontrap skill_id="18501" time="60" npc_id="749167" e="1" hoptype="SKILLLV" hopb="1565"/>
+        </effects>
         <actions>
             <itemuse itemid="169300008" count="3"/>
         </actions>
@@ -8407,6 +8410,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <summontrap skill_id="18502" time="60" npc_id="749168" e="1" hoptype="SKILLLV" hopb="1753"/>
+        </effects>
         <actions>
             <itemuse itemid="169300008" count="5"/>
         </actions>
@@ -8418,6 +8424,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <summontrap skill_id="18503" time="60" npc_id="749169" e="1" hoptype="SKILLLV" hopb="1915"/>
+        </effects>
         <actions>
             <itemuse itemid="169300008" count="7"/>
         </actions>
@@ -8429,6 +8438,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <summontrap skill_id="18501" time="60" npc_id="749170" e="1" hoptype="SKILLLV" hopb="1565"/>
+        </effects>
         <actions>
             <itemuse itemid="169300008" count="3"/>
         </actions>
@@ -8440,6 +8452,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <summontrap skill_id="18502" time="60" npc_id="749171" e="1" hoptype="SKILLLV" hopb="1753"/>
+        </effects>
         <actions>
             <itemuse itemid="169300008" count="5"/>
         </actions>
@@ -8451,6 +8466,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <summontrap skill_id="18503" time="60" npc_id="749172" e="1" hoptype="SKILLLV" hopb="1915"/>
+        </effects>
         <actions>
             <itemuse itemid="169300008" count="7"/>
         </actions>
@@ -8960,6 +8978,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summontrap skill_id="17501" time="60" npc_id="749019" e="1" hoptype="SKILLLV" hopb="1279"/>
+        </effects>
         <actions>
             <itemuse itemid="169300009" count="1"/>
         </actions>
@@ -8974,6 +8995,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summontrap skill_id="17502" time="60" npc_id="749021" e="1" hoptype="SKILLLV" hopb="1761"/>
+        </effects>
         <actions>
             <itemuse itemid="169300009" count="3"/>
         </actions>
@@ -8988,6 +9012,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summontrap skill_id="17503" time="60" npc_id="749035" e="1" hoptype="SKILLLV" hopb="1884"/>
+        </effects>
         <actions>
             <itemuse itemid="169300009" count="3"/>
         </actions>
@@ -9026,6 +9053,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summontrap skill_id="17511" time="60" npc_id="749071" e="1" hoptype="SKILLLV" hopb="1761"/>
+        </effects>
         <actions>
             <itemuse itemid="169300009" count="3"/>
         </actions>
@@ -9040,6 +9070,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summontrap skill_id="17512" time="60" npc_id="749072" e="1" hoptype="SKILLLV" hopb="873"/>
+        </effects>
         <actions>
             <itemuse itemid="169300008" count="1"/>
         </actions>
@@ -9054,6 +9087,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summontrap skill_id="17513" time="60" npc_id="749073" e="1" hoptype="SKILLLV" hopb="1278"/>
+        </effects>
         <actions>
             <itemuse itemid="169300008" count="3"/>
         </actions>
@@ -9068,6 +9104,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summontrap skill_id="17514" time="60" npc_id="749074" e="1" hoptype="SKILLLV" hopb="1760"/>
+        </effects>
         <actions>
             <itemuse itemid="169300008" count="5"/>
         </actions>
@@ -9307,6 +9346,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summontrap skill_id="17501" time="60" npc_id="749018" e="1" hoptype="SKILLLV" hopb="1279"/>
+        </effects>
         <actions>
             <itemuse itemid="169300009" count="1"/>
         </actions>
@@ -9321,6 +9363,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summontrap skill_id="17502" time="60" npc_id="749020" e="1" hoptype="SKILLLV" hopb="1761"/>
+        </effects>
         <actions>
             <itemuse itemid="169300009" count="3"/>
         </actions>
@@ -9335,6 +9380,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summontrap skill_id="17503" time="60" npc_id="749034" e="1" hoptype="SKILLLV" hopb="1884"/>
+        </effects>
         <actions>
             <itemuse itemid="169300009" count="3"/>
         </actions>
@@ -9374,6 +9422,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summontrap skill_id="17511" time="60" npc_id="749077" e="1" hoptype="SKILLLV" hopb="1761"/>
+        </effects>
         <actions>
             <itemuse itemid="169300009" count="3"/>
         </actions>
@@ -9388,6 +9439,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summontrap skill_id="17512" time="60" npc_id="749078" e="1" hoptype="SKILLLV" hopb="873"/>
+        </effects>
         <actions>
             <itemuse itemid="169300008" count="1"/>
         </actions>
@@ -9402,6 +9456,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summontrap skill_id="17513" time="60" npc_id="749079" e="1" hoptype="SKILLLV" hopb="1278"/>
+        </effects>
         <actions>
             <itemuse itemid="169300008" count="3"/>
         </actions>
@@ -9416,6 +9473,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summontrap skill_id="17514" time="60" npc_id="749080" e="1" hoptype="SKILLLV" hopb="1760"/>
+        </effects>
         <actions>
             <itemuse itemid="169300008" count="5"/>
         </actions>
@@ -9615,6 +9675,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summontrap skill_id="18258" time="60" npc_id="749158" e="1" hoptype="SKILLLV" hopb="2142"/>
+        </effects>
         <actions>
             <itemuse itemid="169300008" count="5"/>
         </actions>
@@ -9648,6 +9711,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summontrap skill_id="18258" time="60" npc_id="749157" e="1" hoptype="SKILLLV" hopb="2142"/>
+        </effects>
         <actions>
             <itemuse itemid="169300008" count="5"/>
         </actions>
@@ -9770,6 +9836,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summontrap skill_id="17508" time="60" npc_id="749086" e="1" hoptype="SKILLLV" hopb="1400"/>
+        </effects>
         <actions>
             <itemuse itemid="169300008" count="3"/>
         </actions>
@@ -9784,6 +9853,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summontrap skill_id="17509" time="60" npc_id="749087" e="1" hoptype="SKILLLV" hopb="1666"/>
+        </effects>
         <actions>
             <itemuse itemid="169300008" count="5"/>
         </actions>
@@ -9798,6 +9870,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summontrap skill_id="17508" time="60" npc_id="749088" e="1" hoptype="SKILLLV" hopb="1400"/>
+        </effects>
         <actions>
             <itemuse itemid="169300008" count="3"/>
         </actions>
@@ -9812,6 +9887,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summontrap skill_id="17509" time="60" npc_id="749089" e="1" hoptype="SKILLLV" hopb="1666"/>
+        </effects>
         <actions>
             <itemuse itemid="169300008" count="5"/>
         </actions>
@@ -9826,6 +9904,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summontrap skill_id="17584" time="60" npc_id="749032" e="1" hoptype="SKILLLV" hopb="2199"/>
+        </effects>
         <actions>
             <itemuse itemid="169300009" count="11"/>
         </actions>
@@ -9840,6 +9921,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summontrap skill_id="17584" time="60" npc_id="749033" e="1" hoptype="SKILLLV" hopb="2199"/>
+        </effects>
         <actions>
             <itemuse itemid="169300009" count="11"/>
         </actions>
@@ -9889,6 +9973,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summontrap skill_id="17585" time="60" npc_id="749036" e="1"/>
+        </effects>
         <actions>
             <itemuse itemid="169300015" count="12"/>
         </actions>
@@ -9903,6 +9990,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summontrap skill_id="17585" time="60" npc_id="749037" e="1"/>
+        </effects>
         <actions>
             <itemuse itemid="169300015" count="12"/>
         </actions>
@@ -10113,6 +10203,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summontrap skill_id="17587" time="60" npc_id="749092" e="1" hoptype="SKILLLV" hopb="2155"/>
+        </effects>
         <actions>
             <itemuse itemid="169300008" count="7"/>
         </actions>
@@ -10127,6 +10220,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summontrap skill_id="17587" time="60" npc_id="749093" e="1" hoptype="SKILLLV" hopb="2155"/>
+        </effects>
         <actions>
             <itemuse itemid="169300008" count="7"/>
         </actions>
@@ -10212,6 +10308,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summontrap skill_id="17589" time="60" npc_id="749096" e="1" hoptype="SKILLLV" hopb="2227"/>
+        </effects>
         <actions>
             <itemuse itemid="169300009" count="9"/>
         </actions>
@@ -10226,6 +10325,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summontrap skill_id="17589" time="60" npc_id="749097" e="1" hoptype="SKILLLV" hopb="2227"/>
+        </effects>
         <actions>
             <itemuse itemid="169300009" count="9"/>
         </actions>
@@ -10266,6 +10368,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summontrap skill_id="18261" time="60" npc_id="749164" e="1" hoptype="SKILLLV" hopb="2016"/>
+        </effects>
         <actions>
             <dpuse value="3000"/>
         </actions>
@@ -10390,6 +10495,9 @@
             <targetrange value="POINT"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <summontrap skill_id="17611" time="60" npc_id="749115" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="742" name="STR_SKILL_RA_ArrowRain_G1" nameId="574413" stack="SKILL_RA_ARROWRAIN" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="DEBUFF" activation="ACTIVE" cooldown="300" duration="0">
         <initproperties>
@@ -10428,6 +10536,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summontrap skill_id="17612" time="60" npc_id="749116" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="744" name="STR_SKILL_RA_SniperMode_G1" nameId="574521" stack="SKILL_RA_SNIPERMODE" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="NOSHOW" activation="TOGGLE" cooldown="600" duration="0">
         <initproperties>
@@ -10507,6 +10618,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summontrap skill_id="17613" time="60" npc_id="749117" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="748" name="STR_SKILL_RA_PowerBow_G1" nameId="576819" stack="SKILL_RA_POWERBOW" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="10" duration="0">
         <setproperties>
@@ -10809,6 +10923,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summontrap skill_id="17806" time="60" npc_id="749141" e="1" hoptype="SKILLLV" hopb="1884"/>
+        </effects>
         <actions>
             <itemuse itemid="169300008" count="5"/>
         </actions>
@@ -10823,6 +10940,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summontrap skill_id="17806" time="60" npc_id="749142" e="1" hoptype="SKILLLV" hopb="1884"/>
+        </effects>
         <actions>
             <itemuse itemid="169300008" count="5"/>
         </actions>
@@ -10837,6 +10957,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summontrap skill_id="17807" time="60" npc_id="749143" e="1" hoptype="SKILLLV" hopb="983"/>
+        </effects>
         <actions>
             <itemuse itemid="169300008" count="1"/>
         </actions>
@@ -10851,6 +10974,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summontrap skill_id="17808" time="60" npc_id="749144" e="1" hoptype="SKILLLV" hopb="1400"/>
+        </effects>
         <actions>
             <itemuse itemid="169300008" count="3"/>
         </actions>
@@ -10865,6 +10991,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summontrap skill_id="17809" time="60" npc_id="749145" e="1" hoptype="SKILLLV" hopb="1884"/>
+        </effects>
         <actions>
             <itemuse itemid="169300008" count="5"/>
         </actions>
@@ -10879,6 +11008,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summontrap skill_id="17807" time="60" npc_id="749146" e="1" hoptype="SKILLLV" hopb="983"/>
+        </effects>
         <actions>
             <itemuse itemid="169300008" count="1"/>
         </actions>
@@ -10893,6 +11025,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summontrap skill_id="17808" time="60" npc_id="749147" e="1" hoptype="SKILLLV" hopb="1400"/>
+        </effects>
         <actions>
             <itemuse itemid="169300008" count="3"/>
         </actions>
@@ -10907,6 +11042,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summontrap skill_id="17809" time="60" npc_id="749148" e="1" hoptype="SKILLLV" hopb="1884"/>
+        </effects>
         <actions>
             <itemuse itemid="169300008" count="5"/>
         </actions>
@@ -11314,6 +11452,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summontrap skill_id="17810" time="60" npc_id="749149" e="1" hoptype="SKILLLV"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="794" name="STR_SKILL_RA_Light_FairyFlare_G1" nameId="582713" stack="SKILL_RA_LIGHT_FAIRYFLARE" lvl="1" skilltype="MAGICAL" skillsubtype="SUMMONTRAP" tslot="NONE" activation="ACTIVE" cooldown="18000" duration="0">
         <setproperties>
@@ -11325,6 +11466,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summontrap skill_id="17810" time="60" npc_id="749150" e="1" hoptype="SKILLLV"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="795" name="STR_SKILL_P_StatBoostHitAccuracy_G4" nameId="584357" stack="SKILL_P_STATBOOSTHITACCURACY" lvl="4" skilltype="PHYSICAL" skillsubtype="NONE" tslot="NOSHOW" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -11388,6 +11532,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summontrap skill_id="18260" time="60" npc_id="749161" e="1" hoptype="SKILLLV" hopb="1536"/>
+        </effects>
         <actions>
             <dpuse value="3000"/>
         </actions>
@@ -11405,6 +11552,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summontrap skill_id="18260" time="60" npc_id="749163" e="1" hoptype="SKILLLV" hopb="1536"/>
+        </effects>
         <actions>
             <dpuse value="3000"/>
         </actions>
@@ -11422,6 +11572,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summontrap skill_id="18261" time="60" npc_id="749162" e="1" hoptype="SKILLLV" hopb="2016"/>
+        </effects>
         <actions>
             <dpuse value="3000"/>
         </actions>
@@ -26590,6 +26743,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summontrap skill_id="17593" time="60" npc_id="201044" e="1"/>
+        </effects>
         <actions>
             <mpuse value="553" delta="6"/>
         </actions>
@@ -26607,6 +26763,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summontrap skill_id="17593" time="60" npc_id="201045" e="1"/>
+        </effects>
         <actions>
             <mpuse value="553" delta="6"/>
         </actions>
@@ -27131,6 +27290,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summontrap skill_id="17782" time="60" npc_id="749120" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="1742" name="STR_SKILL_EL_EQUIP_Book_G2" nameId="578593" stack="SKILL_EL_EQUIP_BOOK" lvl="2" skilltype="PHYSICAL" skillsubtype="NONE" tslot="NOSHOW" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -29776,6 +29938,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summontrap skill_id="17501" time="60" npc_id="749018" e="1" hoptype="SKILLLV" hopb="1279"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="1958" name="STR_SKILL_Test_PvPCancelBonus500" nameId="586197" stack="SKILL_TEST_PVPCANCELBONUS500" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="1000">
         <setproperties>
@@ -44961,6 +45126,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summontrap skill_id="17508" time="60" npc_id="749086" e="1" hoptype="SKILLLV" hopb="2733"/>
+        </effects>
         <actions>
             <mpuse value="130" delta="0"/>
             <itemuse itemid="169300009" count="3"/>
@@ -44979,6 +45147,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summontrap skill_id="17508" time="60" npc_id="749088" e="1" hoptype="SKILLLV" hopb="2733"/>
+        </effects>
         <actions>
             <mpuse value="130" delta="0"/>
             <itemuse itemid="169300009" count="3"/>

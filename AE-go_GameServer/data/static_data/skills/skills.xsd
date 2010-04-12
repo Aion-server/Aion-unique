@@ -193,6 +193,8 @@
 				minOccurs="0" maxOccurs="1" />
 			<xs:element name="boostskillcastingtime" type="BoostSkillCastingTimeEffect"
 				minOccurs="0" maxOccurs="1" />
+			<xs:element name="summontrap" type="SummonTrapEffect"
+				minOccurs="0" maxOccurs="1" />
 		</xs:sequence>
 		<xs:attribute name="food" type="xs:boolean"/>
 	</xs:complexType>
@@ -900,6 +902,15 @@
 		<xs:complexContent>
 			<xs:extension base="Effect">
 				<xs:attribute name="npc_id" type="xs:int" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="SummonTrapEffect">
+		<xs:complexContent>
+			<xs:extension base="SummonEffect">
+				<xs:attribute name="skill_id" type="xs:int" />
+				<xs:attribute name="time" type="xs:int" />
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
