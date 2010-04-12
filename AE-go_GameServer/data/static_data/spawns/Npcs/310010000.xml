@@ -5,7 +5,7 @@ object x y z h
  -->
 <spawns>
 	<!-- Belpartan -->
-	<spawn map="310010000" npcid="205000" pool="1" interval="295"
+	<spawn map="310010000" npcid="205000" pool="1" interval="295">
 		<object x="85.0" y="191.0" z="232.0" h="0"/>
 	</spawn>
 </spawns>
