@@ -23,7 +23,6 @@ import org.apache.log4j.Logger;
 
 import com.aionemu.commons.callbacks.EnhancedObject;
 import com.aionemu.gameserver.ai.events.Event;
-import com.aionemu.gameserver.ai.npcai.NpcAi;
 import com.aionemu.gameserver.controllers.ActionitemController;
 import com.aionemu.gameserver.controllers.BindpointController;
 import com.aionemu.gameserver.controllers.GatherableController;
@@ -40,9 +39,11 @@ import com.aionemu.gameserver.dataholders.SpawnsData;
 import com.aionemu.gameserver.dataholders.WorldMapsData;
 import com.aionemu.gameserver.model.NpcType;
 import com.aionemu.gameserver.model.gameobjects.AionObject;
+import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Gatherable;
 import com.aionemu.gameserver.model.gameobjects.Monster;
 import com.aionemu.gameserver.model.gameobjects.Npc;
+import com.aionemu.gameserver.model.gameobjects.Trap;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.templates.GatherableTemplate;
 import com.aionemu.gameserver.model.templates.NpcTemplate;
@@ -56,6 +57,7 @@ import com.aionemu.gameserver.utils.gametime.GameTimeManager;
 import com.aionemu.gameserver.utils.gametime.listeners.DayTimeListener;
 import com.aionemu.gameserver.utils.idfactory.IDFactory;
 import com.aionemu.gameserver.utils.idfactory.IDFactoryAionObject;
+import com.aionemu.gameserver.world.KnownList;
 import com.aionemu.gameserver.world.StaticObjectKnownList;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
@@ -68,50 +70,51 @@ import com.google.inject.Injector;
  * 
  * @author Luno
  * 
- * modified by ATracer
+ *         modified by ATracer
  * 
  */
 public class SpawnEngine
 {
-	private static Logger log = Logger.getLogger(SpawnEngine.class);
+	private static Logger				log					= Logger.getLogger(SpawnEngine.class);
 
 	@Inject
-	private World	world;
+	private World						world;
 	@IDFactoryAionObject
 	@Inject
-	private IDFactory aionObjectsIDFactory;
+	private IDFactory					aionObjectsIDFactory;
 	@Inject
-	private SpawnsData spawnsData;
+	private SpawnsData					spawnsData;
 	@Inject
-	private GatherableData gatherableData;
+	private GatherableData				gatherableData;
 	@Inject
-	private NpcData npcData;
+	private NpcData						npcData;
 	@Inject
-	private RiftSpawnManager riftSpawnManager;
+	private RiftSpawnManager			riftSpawnManager;
 	@Inject
-	private StaticObjectSpawnManager staticObjectSpawnManager;
+	private StaticObjectSpawnManager	staticObjectSpawnManager;
 	@Inject
-	private WorldMapsData worldMapsData;
+	private WorldMapsData				worldMapsData;
 	@Inject
-	private BindPointData bindPointData;
-	@Inject		
-	private NpcSkillData npcSkillData;
-	
-	private Injector injector;
+	private BindPointData				bindPointData;
+	@Inject
+	private NpcSkillData				npcSkillData;
+
+	private Injector					injector;
 
 	/** Counter counting number of npc spawns */
-	private int npcCounter		= 0;
+	private int							npcCounter			= 0;
 	/** Counter counting number of gatherable spawns */
-	private int gatherableCounter		= 0;
+	private int							gatherableCounter	= 0;
 
 	/**
-	 * @param injector the injector to set
+	 * @param injector
+	 *            the injector to set
 	 */
 	public void setInjector(Injector injector)
 	{
 		this.injector = injector;
 	}
-	
+
 	/**
 	 * Creates VisibleObject instance and spawns it using given {@link SpawnTemplate} instance.
 	 * 
@@ -130,7 +133,8 @@ public class SpawnEngine
 				return null;
 			gatherableCounter++;
 		}
-		else // npc
+		else
+		// npc
 		{
 			template = npcData.getNpcTemplate(objectId);
 			if(template == null)
@@ -140,18 +144,20 @@ public class SpawnEngine
 
 		if(template instanceof NpcTemplate)
 		{
-			NpcType npcType = ((NpcTemplate)template).getNpcType();	
+			NpcType npcType = ((NpcTemplate) template).getNpcType();
 			Npc npc = null;
 
 			switch(npcType)
 			{
 				case AGGRESSIVE:
 				case ATTACKABLE:
-					npc = new Monster(aionObjectsIDFactory.nextId(), injector.getInstance(MonsterController.class), spawn, template);
-					npc.setKnownlist(new StaticObjectKnownList(npc));
+					npc = new Monster(aionObjectsIDFactory.nextId(), injector.getInstance(MonsterController.class),
+						spawn, template);
+					npc.setKnownlist(new KnownList(npc));
 					break;
 				case POSTBOX:
-					npc = new Npc(aionObjectsIDFactory.nextId(), injector.getInstance(PostboxController.class), spawn, template);
+					npc = new Npc(aionObjectsIDFactory.nextId(), injector.getInstance(PostboxController.class), spawn,
+						template);
 					npc.setKnownlist(new StaticObjectKnownList(npc));
 					break;
 				case RESURRECT:
@@ -161,8 +167,8 @@ public class SpawnEngine
 					npc.setKnownlist(new StaticObjectKnownList(npc));
 					break;
 				case USEITEM:
-					npc = new Npc(aionObjectsIDFactory.nextId(), injector.getInstance(ActionitemController.class), spawn,
-						template);
+					npc = new Npc(aionObjectsIDFactory.nextId(), injector.getInstance(ActionitemController.class),
+						spawn, template);
 					npc.setKnownlist(new StaticObjectKnownList(npc));
 					break;
 				case PORTAL:
@@ -170,13 +176,13 @@ public class SpawnEngine
 						template);
 					npc.setKnownlist(new StaticObjectKnownList(npc));
 					break;
-				default: //NON_ATTACKABLE
+				default: // NON_ATTACKABLE
 					npc = new Npc(aionObjectsIDFactory.nextId(), injector.getInstance(NpcController.class), spawn,
 						template);
 					npc.setKnownlist(new StaticObjectKnownList(npc));
 
 			}
-			
+
 			npc.setNpcSkillList(npcSkillData.getNpcSkillList(template.getTemplateId()));
 			npc.setEffectController(new EffectController(npc));
 			npc.getController().onRespawn();
@@ -185,12 +191,35 @@ public class SpawnEngine
 		}
 		else if(template instanceof GatherableTemplate)
 		{
-			Gatherable gatherable = new Gatherable(spawn, template, aionObjectsIDFactory.nextId(), injector.getInstance(GatherableController.class));
+			Gatherable gatherable = new Gatherable(spawn, template, aionObjectsIDFactory.nextId(), injector
+				.getInstance(GatherableController.class));
 			gatherable.setKnownlist(new StaticObjectKnownList(gatherable));
 			bringIntoWorld(gatherable, spawn, instanceIndex);
 			return gatherable;
 		}
 		return null;
+	}
+
+	/**
+	 * 
+	 * @param spawn
+	 * @param instanceIndex
+	 * @param creator
+	 * @return
+	 */
+	public Trap spawnTrap(SpawnTemplate spawn, int instanceIndex, Creature creator, int skillId)
+	{
+		int objectId = spawn.getSpawnGroup().getNpcid();
+		NpcTemplate npcTemplate = npcData.getNpcTemplate(objectId);
+		Trap trap = new Trap(aionObjectsIDFactory.nextId(), injector.getInstance(NpcController.class), spawn,
+			npcTemplate);
+		trap.setKnownlist(new KnownList(trap));
+		trap.setEffectController(new EffectController(trap));
+		trap.setCreator(creator);
+		trap.setSkillId(skillId);
+		trap.getController().onRespawn();
+		bringIntoWorld(trap, spawn, instanceIndex);
+		return trap;
 	}
 
 	/**
@@ -205,9 +234,10 @@ public class SpawnEngine
 	 * @param randomwalk
 	 * @return
 	 */
-	private SpawnTemplate createSpawnTemplate(int worldId, int objectId, float x, float y, float z, byte heading, int walkerid, int randomwalk)
+	private SpawnTemplate createSpawnTemplate(int worldId, int objectId, float x, float y, float z, byte heading,
+		int walkerid, int randomwalk)
 	{
-		SpawnTemplate spawnTemplate = new SpawnTemplate(x, y, z, heading, walkerid, randomwalk);		
+		SpawnTemplate spawnTemplate = new SpawnTemplate(x, y, z, heading, walkerid, randomwalk);
 
 		SpawnGroup spawnGroup = new SpawnGroup(worldId, objectId, 105, 1);
 		spawnTemplate.setSpawnGroup(spawnGroup);
@@ -217,9 +247,9 @@ public class SpawnEngine
 	}
 
 	/**
-	 *  Should be used when need to define whether spawn will be deleted after death
-	 *  Using this method spawns will not be saved with //save_spawn command
-	 *  
+	 * Should be used when need to define whether spawn will be deleted after death Using this method spawns will not be
+	 * saved with //save_spawn command
+	 * 
 	 * @param worldId
 	 * @param objectId
 	 * @param x
@@ -231,9 +261,11 @@ public class SpawnEngine
 	 * @param noRespawn
 	 * @return SpawnTemplate
 	 */
-	public SpawnTemplate addNewSpawn(int worldId, int instanceId, int objectId, float x, float y, float z, byte heading, int walkerid, int randomwalk, boolean noRespawn)
+	public SpawnTemplate addNewSpawn(int worldId, int instanceId, int objectId, float x, float y, float z,
+		byte heading, int walkerid, int randomwalk, boolean noRespawn)
 	{
-		return this.addNewSpawn(worldId, instanceId, objectId, x, y, z, heading, walkerid, randomwalk, noRespawn, false);
+		return this
+			.addNewSpawn(worldId, instanceId, objectId, x, y, z, heading, walkerid, randomwalk, noRespawn, false);
 	}
 
 	/**
@@ -251,9 +283,8 @@ public class SpawnEngine
 	 * @param isNewSpawn
 	 * @return SpawnTemplate
 	 */
-	public SpawnTemplate addNewSpawn(int worldId, int instanceId, int objectId, 
-		float x, float y, float z, byte heading, int walkerid, int randomwalk,
-		boolean noRespawn, boolean isNewSpawn)
+	public SpawnTemplate addNewSpawn(int worldId, int instanceId, int objectId, float x, float y, float z,
+		byte heading, int walkerid, int randomwalk, boolean noRespawn, boolean isNewSpawn)
 	{
 		SpawnTemplate spawnTemplate = createSpawnTemplate(worldId, objectId, x, y, z, heading, walkerid, randomwalk);
 
@@ -268,16 +299,16 @@ public class SpawnEngine
 			spawnsData.addNewSpawnGroup(spawnTemplate.getSpawnGroup(), worldId, objectId, isNewSpawn);
 		}
 
-		spawnTemplate.setNoRespawn(noRespawn, instanceId);	
+		spawnTemplate.setNoRespawn(noRespawn, instanceId);
 
 		return spawnTemplate;
 	}
 
-
 	private void bringIntoWorld(VisibleObject visibleObject, SpawnTemplate spawn, int instanceIndex)
 	{
 		world.storeObject(visibleObject);
-		world.setPosition(visibleObject, spawn.getWorldId(), instanceIndex, spawn.getX(), spawn.getY(), spawn.getZ(), spawn.getHeading());
+		world.setPosition(visibleObject, spawn.getWorldId(), instanceIndex, spawn.getX(), spawn.getY(), spawn.getZ(),
+			spawn.getHeading());
 		world.spawn(visibleObject);
 	}
 
@@ -285,11 +316,11 @@ public class SpawnEngine
 	{
 		for(WorldMapTemplate worldMapTemplate : worldMapsData)
 		{
-			if (worldMapTemplate.isInstance())
+			if(worldMapTemplate.isInstance())
 				continue;
 			int maxTwin = worldMapTemplate.getTwinCount();
 			final int mapId = worldMapTemplate.getMapId();
-			int numberToSpawn = maxTwin > 0 ? maxTwin : 1;				
+			int numberToSpawn = maxTwin > 0 ? maxTwin : 1;
 
 			for(int i = 1; i <= numberToSpawn; i++)
 			{
@@ -302,7 +333,7 @@ public class SpawnEngine
 
 		riftSpawnManager.startRiftPool();
 
-		((EnhancedObject)GameTimeManager.getGameTime()).addCallback(new DayTimeListener(){
+		((EnhancedObject) GameTimeManager.getGameTime()).addCallback(new DayTimeListener(){
 			@Override
 			protected void onDayTimeChange(GameTime gameTime)
 			{
@@ -318,7 +349,7 @@ public class SpawnEngine
 	 * @param instanceIndex
 	 */
 	public void spawnInstance(int worldId, int instanceIndex)
-	{	
+	{
 
 		List<SpawnGroup> worldSpawns = spawnsData.getSpawnsForWorld(worldId);
 
@@ -353,7 +384,7 @@ public class SpawnEngine
 				}
 			}
 		}
-		log.info("Spawned " + worldId + " [" + instanceIndex + "] : " + instanceSpawnCounter); 
+		log.info("Spawned " + worldId + " [" + instanceIndex + "] : " + instanceSpawnCounter);
 	}
 
 	/**
@@ -363,23 +394,20 @@ public class SpawnEngine
 	{
 		spawnsData.clear();
 	}
-	
+
 	/**
 	 * 
 	 * @param dayTime
 	 */
 	private void sendDayTimeChangeEvents(DayTime dayTime)
 	{
-		Iterator<AionObject> it = world.getObjectsIterator(); 
+		Iterator<AionObject> it = world.getObjectsIterator();
 		while(it.hasNext())
 		{
 			AionObject obj = it.next();
 			if(obj instanceof Npc)
 			{
-				NpcAi ai = (NpcAi) ((Npc) obj).getAi();
-
-				if(ai != null)
-					ai.handleEvent(Event.DAYTIME_CHANGE);
+				((Npc) obj).getAi().handleEvent(Event.DAYTIME_CHANGE);
 			}
 		}
 	}

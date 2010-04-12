@@ -27,6 +27,7 @@ import javax.xml.bind.annotation.XmlType;
 import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
+import com.aionemu.gameserver.model.gameobjects.Trap;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.group.PlayerGroup;
@@ -86,6 +87,10 @@ extends Property
 
 					//firstTarget is already added, look: FirstTargetProperty
 					if(firstTarget == nextCreature)
+						continue;
+					
+					//TODO this is a temporary hack for traps
+					if(skill.getEffector() instanceof Trap && ((Trap) skill.getEffector()).getCreator() == nextCreature)
 						continue;
 					
 					if(nextCreature instanceof Creature 

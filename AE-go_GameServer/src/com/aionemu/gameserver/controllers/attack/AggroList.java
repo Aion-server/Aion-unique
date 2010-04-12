@@ -77,8 +77,7 @@ public class AggroList
 		 */
 		ai.hate += damage;
 		
-		if(owner.getAi() != null)
-			owner.getAi().handleEvent(Event.ATTACKED);
+		owner.getAi().handleEvent(Event.ATTACKED);
 	}
 
 	/**
@@ -98,8 +97,7 @@ public class AggroList
 		if(ai.hate < 1)
 			ai.hate = 1;
 		
-		if(owner.getAi() != null)
-			owner.getAi().handleEvent(Event.ATTACKED);
+		owner.getAi().handleEvent(Event.ATTACKED);
 	}
 	
 	/**

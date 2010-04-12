@@ -21,6 +21,7 @@ import javax.xml.bind.annotation.adapters.XmlAdapter;
 import com.aionemu.gameserver.services.ItemService;
 import com.aionemu.gameserver.services.ServiceProxy;
 import com.aionemu.gameserver.services.TeleportService;
+import com.aionemu.gameserver.spawnengine.SpawnEngine;
 
 /**
  * @author ATracer
@@ -55,6 +56,11 @@ public class XmlServiceProxy extends XmlAdapter<Object, Object>
 	{
 		return serviceProxy.getTeleportService();
 	}	
+	
+	public SpawnEngine getSpawnEngine()
+	{
+		return serviceProxy.getSpawnEngine();
+	}
 	
 	@Override
 	public Object marshal(Object v) throws Exception

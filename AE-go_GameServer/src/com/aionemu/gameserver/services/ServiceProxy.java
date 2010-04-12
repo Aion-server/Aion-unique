@@ -17,6 +17,7 @@
 package com.aionemu.gameserver.services;
 
 import com.aionemu.gameserver.questEngine.QuestEngine;
+import com.aionemu.gameserver.spawnengine.SpawnEngine;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
 
@@ -70,6 +71,8 @@ public class ServiceProxy
 	private QuestService			questService;
 	@Inject
 	private QuestEngine				questEngine;
+	@Inject
+	private SpawnEngine				spawnEngine;
 
 	/**
 	 * @return the world
@@ -238,5 +241,13 @@ public class ServiceProxy
 	public QuestEngine getQuestEngine()
 	{
 		return questEngine;
+	}
+
+	/**
+	 * @return the spawnEngine
+	 */
+	public SpawnEngine getSpawnEngine()
+	{
+		return spawnEngine;
 	}
 }

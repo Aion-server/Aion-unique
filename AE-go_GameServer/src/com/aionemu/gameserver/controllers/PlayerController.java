@@ -24,7 +24,6 @@ import com.aionemu.gameserver.controllers.attack.AttackUtil;
 import com.aionemu.gameserver.model.TaskId;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Gatherable;
-import com.aionemu.gameserver.model.gameobjects.Monster;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.StaticObject;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
@@ -88,7 +87,7 @@ public class PlayerController extends CreatureController<Player>
 		super.see(object);
 		if(object instanceof Player)
 		{
-			PacketSendUtility.sendPacket(getOwner(), new SM_PLAYER_INFO((Player) object, isEnemy((Player) object)));
+			PacketSendUtility.sendPacket(getOwner(), new SM_PLAYER_INFO((Player) object, getOwner().isEnemyPlayer((Player)object)));
 			getOwner().getEffectController().sendEffectIconsTo((Player) object);
 		}
 		else if(object instanceof Npc)
@@ -382,32 +381,7 @@ public class PlayerController extends CreatureController<Player>
 		}
 	}
 	
-	/**
-	 * Player enemies:<br>
-	 * - different race<br>
-	 * - duel partner<br>
-	 * 
-	 * @param player
-	 * @return
-	 */
-	public boolean isEnemy(Player player)
-	{
-		return player.getCommonData().getRace() != getOwner().getCommonData().getRace()
-			|| isDueling(player);
-	}
 	
-	/**
-	 * Player-player friends:<br>
-	 * - not in duel<br>
-	 * - same race<br>
-	 * 
-	 * @param player
-	 * @return
-	 */
-	public boolean isFriend(Player player)
-	{
-		return player.getCommonData().getRace() == getOwner().getCommonData().getRace() && !isDueling(player);
-	}
 	
 	/**
 	 * 
@@ -417,18 +391,6 @@ public class PlayerController extends CreatureController<Player>
 	public boolean isDueling(Player player)
 	{
 		return sp.getDuelService().isDueling(player.getObjectId(), getOwner().getObjectId());
-	}
-
-	/**
-	 * Npc enemies:<br>
-	 * - monsters<br>
-	 * - aggressive npcs<br>
-	 * @param npc
-	 * @return
-	 */
-	public boolean isEnemy(Npc npc)
-	{
-		return npc instanceof Monster || npc.isAggressiveTo(getOwner().getCommonData().getRace());
 	}
 
 	public void updateNearbyQuestList()

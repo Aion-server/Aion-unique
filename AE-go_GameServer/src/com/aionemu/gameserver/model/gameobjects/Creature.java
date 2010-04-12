@@ -153,7 +153,7 @@ public abstract class Creature extends VisibleObject
 	 */
 	public AI<? extends Creature> getAi()
 	{
-		return ai;
+		return ai != null ? ai : AI.dummyAi();
 	}
 
 	/**
@@ -385,5 +385,38 @@ public abstract class Creature extends VisibleObject
 	public ObserveController getObserveController()
 	{
 		return observeController;
+	}
+	
+	/**
+	 * 
+	 * @param visibleObject
+	 * @return
+	 */
+	public boolean isEnemy(VisibleObject visibleObject)
+	{
+		if(visibleObject instanceof Npc)
+			return isEnemyNpc((Npc) visibleObject);
+		else if(visibleObject instanceof Player)
+			return isEnemyPlayer((Player) visibleObject);
+		
+		return false;
+	}
+
+	/**
+	 * @param visibleObject
+	 * @return
+	 */
+	protected boolean isEnemyPlayer(Player visibleObject)
+	{
+		return false;
+	}
+
+	/**
+	 * @param visibleObject
+	 * @return
+	 */
+	protected boolean isEnemyNpc(Npc visibleObject)
+	{
+		return false;
 	}
 }

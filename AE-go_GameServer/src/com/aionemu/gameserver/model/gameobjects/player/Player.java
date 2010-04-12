@@ -29,6 +29,8 @@ import com.aionemu.gameserver.model.Gender;
 import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Item;
+import com.aionemu.gameserver.model.gameobjects.Monster;
+import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.PersistentState;
 import com.aionemu.gameserver.model.gameobjects.player.listeners.PlayerLoggedInListener;
 import com.aionemu.gameserver.model.gameobjects.player.listeners.PlayerLoggedOutListener;
@@ -937,5 +939,46 @@ public class Player extends Creature
 	public boolean isGM()
 	{
 		return getAccessLevel() == AdminConfig.GM_LEVEL;
+	}
+	
+	/**
+	 * Npc enemies:<br>
+	 * - monsters<br>
+	 * - aggressive npcs<br>
+	 * @param npc
+	 * @return
+	 */
+	@Override
+	public boolean isEnemyNpc(Npc npc)
+	{
+		return npc instanceof Monster || npc.isAggressiveTo(getCommonData().getRace());
+	}
+	
+	/**
+	 * Player enemies:<br>
+	 * - different race<br>
+	 * - duel partner<br>
+	 * 
+	 * @param player
+	 * @return
+	 */
+	@Override
+	public boolean isEnemyPlayer(Player player)
+	{
+		return player.getCommonData().getRace() != getCommonData().getRace()
+			|| getController().isDueling(player);
+	}
+	
+	/**
+	 * Player-player friends:<br>
+	 * - not in duel<br>
+	 * - same race<br>
+	 * 
+	 * @param player
+	 * @return
+	 */
+	public boolean isFriend(Player player)
+	{
+		return player.getCommonData().getRace() == getCommonData().getRace() && !getController().isDueling(player);
 	}
 }

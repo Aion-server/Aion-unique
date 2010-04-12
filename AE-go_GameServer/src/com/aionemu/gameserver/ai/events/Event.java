@@ -55,9 +55,17 @@ public enum Event
 	 */
 	SEE_PLAYER,
 	/**
-	 * Player removed from known list
+	 * Player removed from knownlist
 	 */
 	NOT_SEE_PLAYER,
+	/**
+	 * Any creature is in the visible radius
+	 */
+	SEE_CREATURE,
+	/**
+	 * Creature removed from knownlist
+	 */
+	NOT_SEE_CREATURE,
 	/**
 	 * Talk request
 	 */

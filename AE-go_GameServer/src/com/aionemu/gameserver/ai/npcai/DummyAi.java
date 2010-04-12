@@ -14,18 +14,23 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.model;
+package com.aionemu.gameserver.ai.npcai;
+
+import com.aionemu.gameserver.ai.AI;
+import com.aionemu.gameserver.model.gameobjects.Creature;
 
 /**
  * @author ATracer
  *
  */
-public enum TaskId
+public class DummyAi extends AI<Creature>
 {
-	DECAY,
-	RESPAWN,
-	PRISON,
-	PROTECTION_ACTIVE,
-	DROWN,
-	DESPAWN
+
+	public DummyAi()
+	{
+		/**
+		 * This AI has no any event/state handlers
+		 */
+	}
+	
 }

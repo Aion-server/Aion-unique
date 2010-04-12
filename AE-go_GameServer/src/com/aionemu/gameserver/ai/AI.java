@@ -26,6 +26,7 @@ import com.aionemu.gameserver.ai.desires.impl.CounterBasedDesireFilter;
 import com.aionemu.gameserver.ai.desires.impl.GeneralDesireIteratorHandler;
 import com.aionemu.gameserver.ai.events.Event;
 import com.aionemu.gameserver.ai.events.handler.EventHandler;
+import com.aionemu.gameserver.ai.npcai.DummyAi;
 import com.aionemu.gameserver.ai.state.AIState;
 import com.aionemu.gameserver.ai.state.handler.StateHandler;
 import com.aionemu.gameserver.model.gameobjects.Creature;
@@ -34,6 +35,11 @@ import com.aionemu.gameserver.utils.ThreadPoolManager;
 
 public abstract class AI<T extends Creature> implements Runnable
 {	
+	/**
+	 * Dummy ai that has no any event handlers
+	 */
+	private static final DummyAi dummyAi = new DummyAi();
+	
 	protected Map<Event, EventHandler> eventHandlers = new HashMap<Event, EventHandler>();
 	protected Map<AIState, StateHandler> stateHandlers = new HashMap<AIState, StateHandler>();
 	
@@ -182,5 +188,13 @@ public abstract class AI<T extends Creature> implements Runnable
 	public int desireQueueSize()
 	{
 		return desireQueue.isEmpty() ? 0 : desireQueue.size();
+	}
+
+	/**
+	 * @return the dummyai
+	 */
+	public static DummyAi dummyAi()
+	{
+		return dummyAi;
 	}
 }

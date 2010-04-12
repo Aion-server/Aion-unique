@@ -23,6 +23,7 @@ import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.ai.AI;
 import com.aionemu.gameserver.ai.events.Event;
+import com.aionemu.gameserver.ai.npcai.DummyAi;
 import com.aionemu.gameserver.ai.state.AIState;
 import com.aionemu.gameserver.controllers.attack.AttackResult;
 import com.aionemu.gameserver.controllers.attack.AttackUtil;
@@ -68,7 +69,7 @@ public class NpcController extends CreatureController<Npc>
 		super.notSee(object, isOutOfRange);
 		if(object instanceof Creature)
 			getOwner().getAggroList().remove((Creature) object);
-		if(object instanceof Player && getOwner().getAi() != null)
+		if(object instanceof Player)
 			getOwner().getAi().handleEvent(Event.NOT_SEE_PLAYER);
 	}
 
@@ -77,7 +78,8 @@ public class NpcController extends CreatureController<Npc>
 	{
 		super.see(object);
 		Npc owner = getOwner();
-		if(object instanceof Player && owner.getAi() != null)
+		owner.getAi().handleEvent(Event.SEE_CREATURE);
+		if(object instanceof Player)
 		{
 			owner.getAi().handleEvent(Event.SEE_PLAYER);
 			//TODO check on retail how walking npc is presented, probably need replace emotion
@@ -97,9 +99,7 @@ public class NpcController extends CreatureController<Npc>
 		owner.setState(CreatureState.NPC_IDLE);
 		owner.getLifeStats().setCurrentHpPercent(100);
 		owner.getAggroList().clear();
-
-		if(owner.getAi() != null)
-			owner.getAi().handleEvent(Event.RESPAWNED);
+		owner.getAi().handleEvent(Event.RESPAWNED);
 	}
 
 	public void onDespawn(boolean forced)
@@ -111,8 +111,7 @@ public class NpcController extends CreatureController<Npc>
 		if(owner == null || !owner.isSpawned())
 			return;
 
-		if(owner.getAi() != null)
-			owner.getAi().handleEvent(Event.DESPAWN);
+		owner.getAi().handleEvent(Event.DESPAWN);
 		sp.getWorld().despawn(owner);
 		decayTask = null;
 	}
@@ -140,8 +139,8 @@ public class NpcController extends CreatureController<Npc>
 		{
 			this.doDrop((Player) lastAttacker);
 		}
-		if(owner.getAi() != null)
-			owner.getAi().handleEvent(Event.DIED);
+		
+		owner.getAi().handleEvent(Event.DIED);
 
 		// deselect target at the end
 		owner.setTarget(null);
@@ -157,8 +156,7 @@ public class NpcController extends CreatureController<Npc>
 	@Override
 	public void onDialogRequest(Player player)
 	{
-		if(getOwner().getAi() != null)
-			getOwner().getAi().handleEvent(Event.TALK);
+		getOwner().getAi().handleEvent(Event.TALK);
 		
 		if(sp.getQuestEngine().onDialog(new QuestEnv(getOwner(), player, 0, -1)))
 			return;
@@ -363,7 +361,7 @@ public class NpcController extends CreatureController<Npc>
 				return;
 
 		AI<?> ai = npc.getAi();
-		if(ai == null)
+		if(ai instanceof DummyAi)
 		{
 			log.warn("CHECKPOINT: npc attacked without ai " + npc.getObjectTemplate().getTemplateId());
 			return;
@@ -438,5 +436,4 @@ public class NpcController extends CreatureController<Npc>
 			addTask(TaskId.RESPAWN.ordinal(), respawnTask);
 		}
 	}
-
 }

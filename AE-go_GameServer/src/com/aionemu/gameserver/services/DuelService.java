@@ -58,7 +58,7 @@ public class DuelService
 		/**
 		 * Check if requester isn't already in a duel and responder is same race
 		 */
-		if(requester.getController().isEnemy(responder) || isDueling(requester.getObjectId()))
+		if(requester.isEnemyPlayer(responder) || isDueling(requester.getObjectId()))
 			return;
 
 		RequestResponseHandler rrh = new RequestResponseHandler(requester){
@@ -93,7 +93,7 @@ public class DuelService
 		/**
 		 * Check if requester isn't already in a duel and responder is same race
 		 */
-		if(requester.getController().isEnemy(responder))
+		if(requester.isEnemyPlayer(responder))
 			return;
 
 		RequestResponseHandler rrh = new RequestResponseHandler(responder){

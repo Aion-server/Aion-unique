@@ -87,7 +87,7 @@ public class PlayerEffectController extends EffectController
 		Creature creature = effect.getEffector();
 		if(creature instanceof Player)
 		{
-			if(getOwner().getController().isFriend((Player) creature) && effect.getTargetSlot() == SkillTargetSlot.DEBUFF.ordinal())
+			if(getOwner().isFriend((Player) creature) && effect.getTargetSlot() == SkillTargetSlot.DEBUFF.ordinal())
 				return true;
 		}
 		
