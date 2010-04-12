@@ -900,10 +900,6 @@ Pandaemonium -->
 	<spawn map="120010000" npcid="798062" pool="1" interval="105">
 		<object x="1014.6828" y="1167.1262" z="200.04756" h="84"/>
 	</spawn>
-	<!-- Mima -->
-	<spawn map="120010000" npcid="204105" pool="1" interval="105">
-		<object x="1187.0" y="1605.0" z="214.03738" h="91"/>
-	</spawn>
 	<!-- Araison -->
 	<spawn map="120010000" npcid="204192" pool="1" interval="105">
 		<object x="1320.8217" y="1325.0298" z="208.54315" h="0"/>
