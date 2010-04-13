@@ -478,7 +478,7 @@ public class PlayerController extends CreatureController<Player>
 				stopProtectionActiveTask();
 			}
 		}, 60000);
-		addTask(TaskId.PROTECTION_ACTIVE.ordinal(), task);
+		addTask(TaskId.PROTECTION_ACTIVE, task);
 	}
 
 	/**
@@ -486,7 +486,7 @@ public class PlayerController extends CreatureController<Player>
 	 */
 	public void stopProtectionActiveTask()
 	{
-		cancelTask(TaskId.PROTECTION_ACTIVE.ordinal());
+		cancelTask(TaskId.PROTECTION_ACTIVE);
 		Player player = getOwner();
 		if(player != null && player.isSpawned())
 		{

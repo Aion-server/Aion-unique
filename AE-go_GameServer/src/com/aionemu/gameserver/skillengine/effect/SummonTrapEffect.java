@@ -69,7 +69,7 @@ public class SummonTrapEffect extends SummonEffect
 				trap.getController().onDespawn(true);
 			}
 		}, time * 1000);
-		trap.getController().addTask(TaskId.DESPAWN.ordinal(), task);
+		trap.getController().addTask(TaskId.DESPAWN, task);
 	}
 
 	@Override

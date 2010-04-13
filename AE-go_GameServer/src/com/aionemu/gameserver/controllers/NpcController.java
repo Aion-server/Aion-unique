@@ -61,8 +61,6 @@ public class NpcController extends CreatureController<Npc>
 {
 	private static final Logger	log	= Logger.getLogger(NpcController.class);
 
-	protected Future<?>			decayTask;
-
 	@Override
 	public void notSee(VisibleObject object, boolean isOutOfRange)
 	{
@@ -86,14 +84,13 @@ public class NpcController extends CreatureController<Npc>
 			// with some state etc.
 			if(owner.getMoveController().isWalking())
 				PacketSendUtility.sendPacket((Player) object, new SM_EMOTION(owner, 21));
-		}
-			
+		}		
 	}
 
 	@Override
 	public void onRespawn()
 	{
-		this.decayTask = null;
+		cancelTask(TaskId.DECAY);
 		Npc owner = getOwner();
 		owner.unsetState(CreatureState.DEAD);
 		owner.setState(CreatureState.NPC_IDLE);
@@ -104,8 +101,8 @@ public class NpcController extends CreatureController<Npc>
 
 	public void onDespawn(boolean forced)
 	{
-		if(forced && decayTask != null)
-			decayTask.cancel(true);
+		if(forced)
+			cancelTask(TaskId.DECAY);
 
 		Npc owner = getOwner();
 		if(owner == null || !owner.isSpawned())
@@ -113,7 +110,6 @@ public class NpcController extends CreatureController<Npc>
 
 		owner.getAi().handleEvent(Event.DESPAWN);
 		sp.getWorld().despawn(owner);
-		decayTask = null;
 	}
 
 	@Override
@@ -122,9 +118,7 @@ public class NpcController extends CreatureController<Npc>
 		super.onDie(lastAttacker);
 		Npc owner = getOwner();
 
-		if(decayTask == null)
-			decayTask = sp.getRespawnService().scheduleDecayTask(this.getOwner());
-
+		addTask(TaskId.DECAY, sp.getRespawnService().scheduleDecayTask(this.getOwner()));
 		scheduleRespawn();
 
 		PacketSendUtility.broadcastPacket(owner,
@@ -433,7 +427,7 @@ public class NpcController extends CreatureController<Npc>
 		if(!getOwner().getSpawn().isNoRespawn(instanceId))
 		{
 			Future<?> respawnTask = sp.getRespawnService().scheduleRespawnTask(getOwner());
-			addTask(TaskId.RESPAWN.ordinal(), respawnTask);
+			addTask(TaskId.RESPAWN, respawnTask);
 		}
 	}
 }

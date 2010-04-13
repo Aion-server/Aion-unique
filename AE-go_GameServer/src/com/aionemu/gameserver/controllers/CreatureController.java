@@ -21,6 +21,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.Future;
 
 import com.aionemu.gameserver.controllers.movement.MovementType;
+import com.aionemu.gameserver.model.TaskId;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
@@ -199,18 +200,28 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 	 * @param taskId
 	 * @return
 	 */
-	public Future<?> getTask(int taskId)
+	public Future<?> getTask(TaskId taskId)
 	{
-		return tasks.get(taskId);
+		return tasks.get(taskId.ordinal());
+	}
+	
+	/**
+	 * 
+	 * @param taskId
+	 * @return
+	 */
+	public boolean hasTask(TaskId taskId)
+	{
+		return tasks.containsKey(taskId.ordinal());
 	}
 
 	/**
 	 * 
 	 * @param taskId
 	 */
-	public void cancelTask(int taskId)
+	public void cancelTask(TaskId taskId)
 	{
-		Future<?> task = tasks.remove(taskId);
+		Future<?> task = tasks.remove(taskId.ordinal());
 		if(task != null)
 		{
 			task.cancel(false);
@@ -222,10 +233,10 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 	 * @param taskId
 	 * @param task
 	 */
-	public void addTask(int taskId, Future<?> task)
+	public void addTask(TaskId taskId, Future<?> task)
 	{
 		cancelTask(taskId);
-		tasks.put(taskId, task);
+		tasks.put(taskId.ordinal(), task);
 	}
 
 	/**
