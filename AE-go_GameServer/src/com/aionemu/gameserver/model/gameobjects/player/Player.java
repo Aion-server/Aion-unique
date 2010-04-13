@@ -981,4 +981,16 @@ public class Player extends Creature
 	{
 		return player.getCommonData().getRace() == getCommonData().getRace() && !getController().isDueling(player);
 	}
+
+	@Override
+	protected boolean canSeeNpc(Npc npc)
+	{
+		return true; //TODO
+	}
+
+	@Override
+	protected boolean canSeePlayer(Player player)
+	{
+		return player.getVisualState() <= getSeeState();
+	}
 }

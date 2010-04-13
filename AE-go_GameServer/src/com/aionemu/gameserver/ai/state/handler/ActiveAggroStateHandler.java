@@ -62,7 +62,8 @@ public class ActiveAggroStateHandler extends StateHandler
 				Race playerRace = ((Player) visibleObject).getCommonData().getRace();
 				int playerLevel = ((Player) visibleObject).getCommonData().getLevel();
 				
-				if(owner.isAggressiveTo(playerRace) && (owner.getLevel() + 10 > playerLevel))
+				if(owner.isAggressiveTo(playerRace) 
+					&& (owner.getLevel() + 10 > playerLevel))
 					playerCount++;
 			}
 		}

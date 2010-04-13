@@ -419,4 +419,37 @@ public abstract class Creature extends VisibleObject
 	{
 		return false;
 	}
+	
+	/**
+	 * 
+	 * @param visibleObject
+	 * @return
+	 */
+	public boolean canSee(VisibleObject visibleObject)
+	{
+		if(visibleObject instanceof Npc)
+			return canSeeNpc((Npc) visibleObject);
+		else if(visibleObject instanceof Player)
+			return canSeePlayer((Player) visibleObject);
+		
+		return true;
+	}
+	
+	/**
+	 * @param visibleObject
+	 * @return
+	 */
+	protected boolean canSeePlayer(Player visibleObject)
+	{
+		return true;
+	}
+
+	/**
+	 * @param visibleObject
+	 * @return
+	 */
+	protected boolean canSeeNpc(Npc visibleObject)
+	{
+		return true;
+	}
 }

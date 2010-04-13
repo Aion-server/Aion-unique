@@ -62,6 +62,9 @@ public final class AggressionDesire extends AbstractDesire
 					&& (Math.abs(player.getZ() - npc.getZ()) < 30))
 				{
 
+					if(!npc.canSee(visibleObject))
+						continue;
+					
 					if(!npc.isAggressiveTo(player.getCommonData().getRace()))
 						continue;
 
