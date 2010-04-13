@@ -65,12 +65,13 @@
 
 	<!-- TODO: Quest Id: 2722  The Comforts of Home -->
 
-   <!-- Quest Id: 2743  Fallen Warrior -->
+        <!-- Quest Id: 2743  Fallen Warrior -->
 	<monster_hunt id="2743" start_npc_id="278089">
 		<monster_infos npc_id="253001" var_id="0" max_kill="10" />
 	</monster_hunt>
 		
-	<!-- TODO: Quest Id: 2741  Eerie Undead -->
+	<!-- 2741  Eerie Undead -->
+	<item_collecting id="2741" start_npc_id="278090" />
 
 	<!-- TODO: Quest Id: 3701  [Group] Teach Them a Lesson -->
 
@@ -88,23 +89,36 @@
 
 	<!-- TODO: Quest Id: 4704  [Group] Prototype Weapon -->
 
-	<!-- TODO: Quest Id: 2742  Disrupting the Guardians -->
+	<!-- 2742  Disrupting the Guardians -->
+	<monster_hunt id="2742" start_npc_id="278089">
+		<monster_infos npc_id="253004" var_id="0" max_kill="8" />
+		<monster_infos npc_id="253022" var_id="1" max_kill="6" />
+		<monster_infos npc_id="253026" var_id="2" max_kill="3" />
+	</monster_hunt>
 
-	<!-- TODO: Quest Id: 2744  Crystal Blue Persuasion -->
+	<!-- 2744  Crystal Blue Persuasion -->
+	<item_collecting id="2744" start_npc_id="278090" />
 
-	<!-- TODO: Quest Id: 2729  Mokkurkalfi's Supplies -->
+	<!-- 2729  Mokkurkalfi's Supplies -->
+	<report_to id="2729" start_npc_id="278057" end_npc_id="278091" item_id="182205601"/>
 
-	<!-- TODO: Quest Id: 2730  Slaughter the Draconutes -->
+	<!-- 2730  Slaughter the Draconutes -->
+	<monster_hunt id="2730" start_npc_id="278091">
+		<monster_infos npc_id="253739" var_id="0" max_kill="5" />
+		<monster_infos npc_id="253740" var_id="1" max_kill="5" />
+	</monster_hunt>
 
-	<!-- TODO: Quest Id: 2733  Gems From the Vortex -->
+	<!-- 2733  Gems From the Vortex -->
+	<item_collecting id="2733" start_npc_id="278056" />
 
 	<!-- TODO: Quest Id: 2724  Missing In Action -->
 
-	<!-- TODO: Quest Id: 2702  Defeat 9th Rank Elyos Soldiers -->
+	<!-- TODO: 2702  Defeat 9th Rank Elyos Soldiers -->
 
 	<!-- TODO: Quest Id: 1818  The Nightmare Ghosts -->
 
-	<!-- TODO: Quest Id: 1744  Earning Some Green -->
+	<!-- 1744  Earning Some Green -->
+	<item_collecting id="1744" start_npc_id="279015" />
 
 	<!-- TODO: Quest Id: 1732  Dagger of Love -->
 
@@ -130,23 +144,34 @@
 
 	<!-- TODO: Quest Id: 2725  Gone Native -->
 
-	<!-- TODO: Quest Id: 2731  Recovered Documents -->
+	<!-- 2731  Recovered Documents -->
+	<report_to id="2731" start_npc_id="278091" end_npc_id="278088" item_id="182205602"/>
 
 	<!-- TODO: Quest Id: 2071  Speaking Balaur -->
 
-	<!-- TODO: Quest Id: 2747  Don't Fear the Reapers -->
+	<!-- 2747  Don't Fear the Reapers -->
+	<monster_hunt id="2747" start_npc_id="278098">
+		<monster_infos npc_id="253039" var_id="0" max_kill="9" />
+	</monster_hunt>
 
-	<!-- TODO: Quest Id: 2750  Supporting the Red Hasia Legion -->
+	<!--  TODO: 2750  Supporting the Red Hasia Legion -->
 
-	<!-- TODO: Quest Id: 2751  Lumping It -->
+	<!-- 2751  Lumping It -->
+	<item_collecting id="2751" start_npc_id="278088" />
 
-	<!-- TODO: Quest Id: 2753  Neutralizing the Draconutes -->
+	<!-- 2753  Neutralizing the Draconutes -->
+	<monster_hunt id="2753" start_npc_id="278086">
+		<monster_infos npc_id="253614" var_id="0" max_kill="5" />
+		<monster_infos npc_id="253619" var_id="1" max_kill="5" />
+	</monster_hunt>
 
-	<!-- TODO: Quest Id: 2754  Reductions in Staff -->
+	<!-- 2754  Reductions in Staff -->
+	<item_collecting id="2754" start_npc_id="278086" />
 
 	<!-- TODO: Quest Id: 2073  Captured Comrades -->
 
-	<!-- TODO: Quest Id: 2728  [Group] Killing Ladacus -->
+	<!-- 2728  [Group] Killing Ladacus -->
+	<item_collecting id="2728" start_npc_id="278000" />
 
 	<!-- TODO: Quest Id: 2704  Defeat 7th Rank Elyos Soldiers -->
 
@@ -156,15 +181,28 @@
 
 	<!-- TODO: Quest Id: 1705  Defeat 6th Rank Asmodian Soldiers -->
 
-	<!-- TODO: Quest Id: 1735  High-Grade Aether -->
+	<!-- 1735  High-Grade Aether -->
+	<item_collecting id="1735" start_npc_id="278556" />
 
-	<!-- TODO: Quest Id: 1751  Nemea's Research Sample -->
+	<!-- 1751  Nemea's Research Sample -->
+	<item_collecting id="1751" start_npc_id="278588" />
 
-	<!-- TODO: Quest Id: 1752  Daeva of Flame's Request -->
+	<!-- 1752  Daeva of Flame's Request -->
+	<monster_hunt id="1752" start_npc_id="278588">
+		<monster_infos npc_id="253711" var_id="0" max_kill="6" />
+		<monster_infos npc_id="253728" var_id="1" max_kill="14" />
+	</monster_hunt>
 
-	<!-- TODO: Quest Id: 1753  [Coin] The Interfering Embers -->
+	<!-- 1753  [Coin] The Interfering Embers -->
+	<monster_hunt id="1753" start_npc_id="278589">
+		<monster_infos npc_id="253700" var_id="0" max_kill="25" />
+	</monster_hunt>
 
-	<!-- TODO: Quest Id: 1754  Stop the Unavarun Legion -->
+	<!-- 1754  Stop the Unavarun Legion -->
+	<monster_hunt id="1754" start_npc_id="278589">
+		<monster_infos npc_id="253612" var_id="0" max_kill="10" />
+		<monster_infos npc_id="253619" var_id="1" max_kill="5" />
+	</monster_hunt>
 
 	<!-- TODO: Quest Id: 2705  Defeat 6th Rank Elyos Soldiers -->
 
@@ -172,21 +210,37 @@
 
 	<!-- TODO: Quest Id: 2819  Mind the Sap -->
 
-	<!-- TODO: Quest Id: 2734  Aether, Aether, Burning Bright -->
+	<!-- 2734  Aether, Aether, Burning Bright -->
+	<item_collecting id="2734" start_npc_id="278056" />
 
-	<!-- TODO: Quest Id: 2755  Helping a Rescue Mission -->
+	<!-- 2755  Helping a Rescue Mission -->
+	<monster_hunt id="2755" start_npc_id="278589">
+		<monster_infos npc_id="253700" var_id="0" max_kill="5" />
+		<monster_infos npc_id="253696" var_id="1" max_kill="5" />
+	</monster_hunt>
 
-	<!-- TODO: Quest Id: 2756  How to Beat Fried Worms -->
+	<!-- 2756  How to Beat Fried Worms -->
+	<monster_hunt id="2756" start_npc_id="278087">
+		<monster_infos npc_id="253687" var_id="0" max_kill="5" />
+		<monster_infos npc_id="253692" var_id="1" max_kill="3" />
+	</monster_hunt>
 
-	<!-- TODO: Quest Id: 2757  An Elim in Exile -->
+	<!-- 2757  An Elim in Exile -->
+	<report_to id="2757" start_npc_id="790016" end_npc_id="279000"/>
 
-	<!-- TODO: Quest Id: 2752  Picking Crimson Irises -->
+	<!-- 2752  Picking Crimson Irises -->
+	<item_collecting id="2752" start_npc_id="278088" />
 
-	<!-- TODO: Quest Id: 2771  [Coin] Putting the Past to Rest -->
+	<!-- 2771  [Coin] Putting the Past to Rest -->
+	<monster_hunt id="2771" start_npc_id="278104">
+		<monster_infos npc_id="254513" var_id="0" max_kill="20" />
+		<monster_infos npc_id="254541" var_id="1" max_kill="13" />
+	</monster_hunt>
 
 	<!-- TODO: Quest Id: 2758  Carry the Flame -->
 
-	<!-- TODO: Quest Id: 2761  Rich Man, Ore Man -->
+	<!-- 2761  Rich Man, Ore Man -->
+	<item_collecting id="2761" start_npc_id="278105" />
 
 	<!-- TODO: Quest Id: 2726  Staking a Claim -->
 
@@ -196,7 +250,8 @@
 
 	<!-- TODO: Quest Id: 1761  Sohonerk's Wish -->
 
-	<!-- TODO: Quest Id: 1762  Junjunbinerk's Goodwill -->
+	<!-- 1762  Junjunbinerk's Goodwill -->
+	<item_collecting id="1762" start_npc_id="279018" end_npc_id="279014" />
 
 	<!-- TODO: Quest Id: 1821  Ending the Ancients -->
 
@@ -291,16 +346,16 @@
 	<!-- TODO: Quest Id: 1837  Clean the Nest -->
 
 	<!-- Left Wing Attack -->
-   <monster_hunt start_npc_id="263295" id="1838">
-      <monster_infos var_id="0" npc_id="214741" max_kill="40"/>
-      <monster_infos var_id="0" npc_id="214740" max_kill="40"/>
-      <monster_infos var_id="0" npc_id="214826" max_kill="40"/>
-      <monster_infos var_id="0" npc_id="214743" max_kill="40"/>
-      <monster_infos var_id="0" npc_id="214824" max_kill="40"/>
-      <monster_infos var_id="0" npc_id="214825" max_kill="40"/>
-      <monster_infos var_id="0" npc_id="214742" max_kill="40"/>
-      <monster_infos var_id="1" npc_id="215424" max_kill="1"/>
-   </monster_hunt>
+	<monster_hunt start_npc_id="263295" id="1838">
+    	    <monster_infos var_id="0" npc_id="214741" max_kill="40"/>
+    	    <monster_infos var_id="0" npc_id="214740" max_kill="40"/>
+    	    <monster_infos var_id="0" npc_id="214826" max_kill="40"/>
+    	    <monster_infos var_id="0" npc_id="214743" max_kill="40"/>
+    	    <monster_infos var_id="0" npc_id="214824" max_kill="40"/>
+    	    <monster_infos var_id="0" npc_id="214825" max_kill="40"/>
+    	    <monster_infos var_id="0" npc_id="214742" max_kill="40"/>
+    	    <monster_infos var_id="1" npc_id="215424" max_kill="1"/>
+	</monster_hunt>
 
 	<!-- TODO: Quest Id: 1839  A Deal with Silvius -->
 
