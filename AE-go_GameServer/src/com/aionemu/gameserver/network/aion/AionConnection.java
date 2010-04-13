@@ -94,11 +94,12 @@ public class AionConnection extends AConnection
 	 * active Player that owner of this connection is playing [entered game]
 	 */
 	private Player							activePlayer;
-	private String							lastPlayerName;
+	private String							lastPlayerName = "";
 	
 	private LoginServer						loginServer;
 	private AionPacketHandler				aionPacketHandler;
 	private PlayerService					playerService;
+	private long                     		lastPingTimeMS;
 
 	/**
 	 * Constructor
@@ -377,5 +378,21 @@ public class AionConnection extends AConnection
 	public Player getActivePlayer()
 	{
 		return activePlayer;
+	}
+
+	/**
+	 * @return the lastPingTimeMS
+	 */
+	public long getLastPingTimeMS()
+	{
+		return lastPingTimeMS;
+	}
+
+	/**
+	 * @param lastPingTimeMS the lastPingTimeMS to set
+	 */
+	public void setLastPingTimeMS(long lastPingTimeMS)
+	{
+		this.lastPingTimeMS = lastPingTimeMS;
 	}
 }

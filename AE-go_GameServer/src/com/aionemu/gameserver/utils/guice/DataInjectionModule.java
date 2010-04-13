@@ -50,6 +50,7 @@ import com.aionemu.gameserver.services.AccountService;
 import com.aionemu.gameserver.services.CraftService;
 import com.aionemu.gameserver.services.CraftSkillUpdateService;
 import com.aionemu.gameserver.services.CubeExpandService;
+import com.aionemu.gameserver.services.DebugService;
 import com.aionemu.gameserver.services.DropService;
 import com.aionemu.gameserver.services.DuelService;
 import com.aionemu.gameserver.services.ExchangeService;
@@ -136,6 +137,7 @@ public class DataInjectionModule extends AbstractModule
 		bind(QuestService.class).in(Scopes.SINGLETON);
 		bind(MailService.class).in(Scopes.SINGLETON);
 		bind(InstanceService.class).in(Scopes.SINGLETON);
+		bind(DebugService.class).asEagerSingleton();
 	}
 	
 	@Provides

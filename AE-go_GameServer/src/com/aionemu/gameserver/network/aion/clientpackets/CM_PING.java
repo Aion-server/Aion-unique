@@ -16,8 +16,12 @@
  */
 package com.aionemu.gameserver.network.aion.clientpackets;
 
+import org.apache.log4j.Logger;
+
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PONG;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_QUIT_RESPONSE;
+import com.aionemu.gameserver.services.DebugService;
 
 /**
  * I have no idea wtf is this
@@ -27,8 +31,11 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_PONG;
  */
 public class CM_PING extends AionClientPacket
 {
+	private static final Logger	log	= Logger.getLogger(CM_PING.class);
+
 	/**
 	 * Constructs new instance of <tt>CM_PING </tt> packet
+	 * 
 	 * @param opcode
 	 */
 	public CM_PING(int opcode)
@@ -51,6 +58,19 @@ public class CM_PING extends AionClientPacket
 	@Override
 	protected void runImpl()
 	{
+		long lastMS = getConnection().getLastPingTimeMS();
+		if(lastMS > 0)
+		{
+			long pingInterval = System.currentTimeMillis() - lastMS;
+			// PingInterval should be 3min (180000ms)
+			if(pingInterval < 175000)// client timer cheat
+			{
+				log.info("[AUDIT] Closing connection with player because of client timer cheat: " + pingInterval);
+				getConnection().close(new SM_QUIT_RESPONSE(), true);
+			}
+
+		}
+		getConnection().setLastPingTimeMS(System.currentTimeMillis());
 		sendPacket(new SM_PONG());
 	}
 }
