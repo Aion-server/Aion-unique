@@ -33,8 +33,6 @@ import com.google.inject.Inject;
  */
 public class RespawnService
 {
-	private static final int DECAY_DEFAULT_DELAY = 240000;
-	
 	@Inject
 	private InstanceService instanceService;
 
@@ -45,6 +43,11 @@ public class RespawnService
 	 */
 	public Future<?> scheduleDecayTask(final Npc npc)
 	{
+		int respawnInterval = npc.getSpawn().getSpawnGroup().getInterval();
+		int decayInterval = Math.round(respawnInterval * 0.8f);
+		if(decayInterval > 240)
+			decayInterval = 240;
+		
 		return ThreadPoolManager.getInstance().schedule(new Runnable()
 		{
 			@Override
@@ -52,7 +55,7 @@ public class RespawnService
 			{
 				npc.getController().onDespawn(false);
 			}
-		}, DECAY_DEFAULT_DELAY);
+		}, decayInterval * 1000);
 	}
 	/**
 	 * 

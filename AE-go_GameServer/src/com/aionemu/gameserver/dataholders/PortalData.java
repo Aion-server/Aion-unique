@@ -141,6 +141,4 @@ public class PortalData
 		this.portals = portals;
 		afterUnmarshal(null, null);
 	}
-	
-	
 }

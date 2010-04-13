@@ -32,6 +32,7 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.world.WorldMapInstance;
 import com.google.inject.Inject;
 import com.google.inject.assistedinject.Assisted;
+import com.google.inject.internal.Nullable;
 
 /**
  * @author ATracer
@@ -52,28 +53,24 @@ public class RiftController extends NpcController
 	private RiftEnum riftTemplate;
 	
 	/**
-	 * Used to create slave rifts
-	 */
-	public RiftController(RiftEnum riftTemplate)
-	{
-		this.riftTemplate = riftTemplate;
-	}
-	
-	/**
-	 * Used to create master rifts
+	 * Used to create master rifts or slave rifts (slave == null)
 	 * 
 	 * @param slaveSpawnTemplate
 	 */
 	@Inject
-	public RiftController(@Assisted Npc slave, @Assisted RiftEnum riftTemplate)
+	public RiftController(@Assisted @Nullable Npc slave, @Assisted RiftEnum riftTemplate)
 	{
-		this.slave = slave;
-		this.slaveSpawnTemplate = slave.getSpawn();
-		this.maxEntries = riftTemplate.getEntries();
-		this.maxLevel = riftTemplate.getMaxLevel();
 		this.riftTemplate = riftTemplate;
-		isMaster = true;
-		isAccepting = true;
+		if(slave != null)//master rift should be created
+		{
+			this.slave = slave;
+			this.slaveSpawnTemplate = slave.getSpawn();
+			this.maxEntries = riftTemplate.getEntries();
+			this.maxLevel = riftTemplate.getMaxLevel();
+			
+			isMaster = true;
+			isAccepting = true;
+		}	
 	}
 
 	@Override

@@ -312,8 +312,14 @@ public class SpawnEngine
 		world.spawn(visibleObject);
 	}
 
+	/**
+	 * Spawn all NPC's from templates
+	 */
 	public void spawnAll()
 	{
+		this.npcCounter = 0;
+		this.gatherableCounter = 0;
+		
 		for(WorldMapTemplate worldMapTemplate : worldMapsData)
 		{
 			if(worldMapTemplate.isInstance())
@@ -332,15 +338,6 @@ public class SpawnEngine
 		log.info("Loaded " + gatherableCounter + " gatherable spawns");
 
 		riftSpawnManager.startRiftPool();
-
-		((EnhancedObject) GameTimeManager.getGameTime()).addCallback(new DayTimeListener(){
-			@Override
-			protected void onDayTimeChange(GameTime gameTime)
-			{
-				sendDayTimeChangeEvents(gameTime.getDayTime());
-			}
-
-		});
 	}
 
 	/**
@@ -389,14 +386,6 @@ public class SpawnEngine
 
 	/**
 	 * 
-	 */
-	public void clearAll()
-	{
-		spawnsData.clear();
-	}
-
-	/**
-	 * 
 	 * @param dayTime
 	 */
 	private void sendDayTimeChangeEvents(DayTime dayTime)
@@ -410,5 +399,20 @@ public class SpawnEngine
 				((Npc) obj).getAi().handleEvent(Event.DAYTIME_CHANGE);
 			}
 		}
+	}
+
+	/**
+	 * Called only once when game server starts
+	 */
+	public void addGameTimeHook()
+	{
+		((EnhancedObject) GameTimeManager.getGameTime()).addCallback(new DayTimeListener(){
+			@Override
+			protected void onDayTimeChange(GameTime gameTime)
+			{
+				sendDayTimeChangeEvents(gameTime.getDayTime());
+			}
+
+		});
 	}
 }

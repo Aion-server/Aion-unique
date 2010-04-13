@@ -35,7 +35,6 @@ public interface ObjectControllerFactory
 	public PlayerController playerController();
 	
 	/**
-	 * 
 	 * @param slave
 	 * @param riftTemplate
 	 * @return

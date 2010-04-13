@@ -16,11 +16,10 @@
  */
 package com.aionemu.gameserver.dataholders;
 
+import gnu.trove.TIntObjectHashMap;
+
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -31,7 +30,6 @@ import javax.xml.bind.annotation.XmlTransient;
 
 import com.aionemu.gameserver.model.templates.spawn.SpawnGroup;
 import com.aionemu.gameserver.model.templates.spawn.SpawnTemplate;
-import com.aionemu.gameserver.utils.collections.IteratorIterator;
 
 /**
  * @author ATracer
@@ -39,25 +37,29 @@ import com.aionemu.gameserver.utils.collections.IteratorIterator;
  */
 @XmlRootElement(name = "spawns")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class SpawnsData implements Iterable<SpawnGroup>
+public class SpawnsData
 {
 	@XmlElement(name = "spawn")
 	protected List<SpawnGroup> spawnGroups;
 	
 	//key is mapid
 	@XmlTransient
-	private Map<Integer, ArrayList<SpawnGroup>> spawnsByMapId = new HashMap<Integer, ArrayList<SpawnGroup>>();
+	private TIntObjectHashMap<ArrayList<SpawnGroup>> spawnsByMapId = new TIntObjectHashMap<ArrayList<SpawnGroup>>();
 	//key is npcid
 	@XmlTransient
-	private Map<Integer, ArrayList<SpawnGroup>> spawnsByNpcID = new HashMap<Integer, ArrayList<SpawnGroup>>();
+	private TIntObjectHashMap<ArrayList<SpawnGroup>> spawnsByNpcID = new TIntObjectHashMap<ArrayList<SpawnGroup>>();
 	//key is mapid
 	@XmlTransient
-	private Map<Integer, ArrayList<SpawnGroup>> spawnsByMapIdNew = new HashMap<Integer, ArrayList<SpawnGroup>>();
+	private TIntObjectHashMap<ArrayList<SpawnGroup>> spawnsByMapIdNew = new TIntObjectHashMap<ArrayList<SpawnGroup>>();
 	@XmlTransient
 	private int counter = 0;
 	
 	void afterUnmarshal(Unmarshaller u, Object parent)
 	{
+		spawnsByMapId.clear();
+		spawnsByMapIdNew.clear();
+		spawnsByNpcID.clear();
+		
 		for(SpawnGroup spawnGroup : spawnGroups)
 		{
 			//set parent spawnGroup for each spawn object
@@ -94,12 +96,6 @@ public class SpawnsData implements Iterable<SpawnGroup>
 			}
 		}
 		return null;
-	}
-
-	@Override
-	public Iterator<SpawnGroup> iterator()
-	{	
-		return new IteratorIterator<SpawnGroup>(spawnsByNpcID.values());
 	}
 	
 	public List<SpawnGroup> getSpawnsForWorld(int worldId)
@@ -161,12 +157,6 @@ public class SpawnsData implements Iterable<SpawnGroup>
 		}
 	}
 
-	public void clear()
-	{
-		spawnsByMapId.clear();
-		spawnsByNpcID.clear();
-	}
-
 	/**
 	 * @param spawn
 	 */
@@ -211,4 +201,14 @@ public class SpawnsData implements Iterable<SpawnGroup>
 		return spawnGroups;
 	}
 	
+	/**
+	 * Used while reloadin of spawns from XML
+	 * 
+	 * @param spawns
+	 */
+	public void setSpawns(List<SpawnGroup> spawns)
+	{
+		this.spawnGroups = spawns;
+		afterUnmarshal(null, null);
+	}
 }

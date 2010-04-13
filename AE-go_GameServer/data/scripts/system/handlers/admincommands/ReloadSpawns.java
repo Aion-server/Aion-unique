@@ -20,7 +20,10 @@ import java.util.Iterator;
 
 import com.aionemu.gameserver.configs.administration.AdminConfig;
 import com.aionemu.gameserver.model.gameobjects.AionObject;
+import com.aionemu.gameserver.model.gameobjects.Gatherable;
 import com.aionemu.gameserver.model.gameobjects.Npc;
+import com.aionemu.gameserver.model.gameobjects.StaticObject;
+import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.spawnengine.SpawnEngine;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -62,14 +65,13 @@ public class ReloadSpawns extends AdminCommand
 		while(it.hasNext())
 		{
 			AionObject obj = it.next();
-			if(obj instanceof Npc)
+			if(obj instanceof Npc || obj instanceof Gatherable || obj instanceof StaticObject)
 			{
-				((Npc) obj).getController().delete();
+				((VisibleObject) obj).getController().delete();
 			}
 		}
 		
 		// spawn all;
-		spawnEngine.clearAll();
 		spawnEngine.spawnAll(); 
 	}
 }

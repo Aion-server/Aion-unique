@@ -115,7 +115,7 @@ public class RiftSpawnManager
 		
 		for(int i = 1; i <= instanceCount; i++)
 		{
-			Npc slave = spawnInstance(i, masterGroup, slaveTemplate, new RiftController(rift));
+			Npc slave = spawnInstance(i, masterGroup, slaveTemplate, objectControllerFactory.riftController(null, rift));
 			spawnInstance(i, masterGroup, masterTemplate, objectControllerFactory.riftController(slave, rift));
 		}		
 	}
