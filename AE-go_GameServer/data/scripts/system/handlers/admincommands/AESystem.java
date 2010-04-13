@@ -16,6 +16,8 @@
  */
 package admincommands;
 
+import java.util.List;
+
 import com.aionemu.commons.utils.AEInfos;
 import com.aionemu.gameserver.ShutdownHook;
 import com.aionemu.gameserver.ShutdownHook.ShutdownMode;
@@ -23,6 +25,7 @@ import com.aionemu.gameserver.configs.administration.AdminConfig;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.utils.AEVersions;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
 import com.google.inject.Inject;
 
@@ -34,6 +37,7 @@ import com.google.inject.Inject;
  * //sys gc - Garbage Collector
  * //sys shutdown <seconds> <announceInterval> - Shutdowner
  * //sys restart <seconds> <announceInterval> - Restarter
+ * //sys threadpool - Thread pools info
  */
 public class AESystem extends AdminCommand
 {
@@ -141,6 +145,14 @@ public class AESystem extends AdminCommand
 			catch(NumberFormatException e)
 			{
 				PacketSendUtility.sendMessage(admin, "Numbers only!");
+			}
+		}
+		else if(params[0].equals("threadpool"))
+		{
+			List<String> stats = ThreadPoolManager.getInstance().getStats();
+			for(String stat : stats)
+			{
+				PacketSendUtility.sendMessage(admin, stat.replaceAll("\t", ""));
 			}
 		}
 	}
