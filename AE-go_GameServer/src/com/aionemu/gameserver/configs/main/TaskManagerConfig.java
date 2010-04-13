@@ -31,10 +31,4 @@ public class TaskManagerConfig
 	 */
 	@Property(key = "gameserver.deadlock.enable", defaultValue = "true")
 	public static boolean	DEADLOCK_DETECTOR_ENABLED;
-
-	@Property(key = "gameserver.taskmanager.allowgc", defaultValue = "false")
-	public static boolean	ALLOW_GC;
-
-	@Property(key = "gameserver.taskmanager.gcinterval", defaultValue = "3600000")
-	public static int		GC_INTERVAL;
 }
