@@ -16,13 +16,19 @@
  */
 package com.aionemu.gameserver.skillengine.effect;
 
+import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
+import com.aionemu.gameserver.dataholders.loadingutils.XmlServiceProxy;
+import com.aionemu.gameserver.model.gameobjects.Summon;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_SUMMON_PANEL;
 import com.aionemu.gameserver.skillengine.model.Effect;
+import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
  * @author Simple
@@ -38,16 +44,27 @@ public class SummonEffect extends EffectTemplate
 	public void applyEffect(Effect effect)
 	{
 		effect.addToEffectedController();
-		@SuppressWarnings("unused")
-		final Player effected = (Player) effect.getEffected();
-		//if(!effected.hasSummon())
-		//	effected.addSummon(npcId);
+		final Player effected = (Player) effect.getEffected();		
+		Summon summon = xsp.getSpawnEngine().spawnSummon(effected, npcId);
+		effected.setSummon(summon);
+		PacketSendUtility.sendPacket(effected, new SM_SUMMON_PANEL(summon));
+		PacketSendUtility.broadcastPacket(effected, new SM_EMOTION(summon, 30));
 	}
 
 	@Override
 	public void calculate(Effect effect)
 	{
 		effect.increaseSuccessEffect();
+	}
+	
+	/**
+	 * 
+	 * @param u
+	 * @param parent
+	 */
+	void afterUnmarshal(Unmarshaller u, Object parent)
+	{
+		xsp = u.getAdapter(XmlServiceProxy.class);
 	}
 
 }

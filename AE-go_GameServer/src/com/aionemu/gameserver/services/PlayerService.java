@@ -409,6 +409,10 @@ public class PlayerService
 
 		if(duelService.isDueling(player.getObjectId()))
 			duelService.loseDuel(player);
+		
+		//temp
+		if(player.getSummon() != null)
+			player.getSummon().getController().release();
 
 		punishmentService.stopPrisonTask(player, true);
 

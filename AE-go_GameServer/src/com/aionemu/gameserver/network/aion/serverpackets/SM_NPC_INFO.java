@@ -20,8 +20,11 @@ import java.nio.ByteBuffer;
 import java.util.Map.Entry;
 
 import com.aionemu.gameserver.model.NpcType;
+import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Npc;
+import com.aionemu.gameserver.model.gameobjects.Summon;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.gameobjects.stats.StatEnum;
 import com.aionemu.gameserver.model.items.ItemSlot;
 import com.aionemu.gameserver.model.items.NpcEquippedGear;
 import com.aionemu.gameserver.model.templates.NpcTemplate;
@@ -41,8 +44,12 @@ public class SM_NPC_INFO extends AionServerPacket
 	/**
 	 * Visible npc
 	 */
-	private final Npc		npc;
-
+	private Creature npc;
+	private NpcTemplate npcTemplate;
+	private int npcId;
+	private int masterObjId;
+	private String masterName = "";
+	private float speed = 0.3f;
 	private final boolean isAggressive;
 
 	/**
@@ -56,7 +63,32 @@ public class SM_NPC_INFO extends AionServerPacket
 	{
 		this.npc = npc;
 		isAggressive = npc.isAggressiveTo(player.getCommonData().getRace());
+		npcTemplate = npc.getObjectTemplate();
+		npcId = npc.getNpcId();
 		
+	}
+	
+	/**
+	 * 
+	 * @param summon
+	 */
+	public SM_NPC_INFO(Summon summon)
+	{
+		this.npc = summon;
+		isAggressive = false;
+		npcTemplate = summon.getObjectTemplate();
+		npcId = summon.getNpcId();
+		Player owner = summon.getMaster();
+		if(owner != null)
+		{
+			masterObjId = owner.getObjectId();
+			masterName = owner.getName();
+			speed = owner.getGameStats().getCurrentStat(StatEnum.SPEED) / 1000f;
+		}
+		else
+		{
+			masterName = "LOST";
+		}
 	}
 
 	/**
@@ -65,13 +97,12 @@ public class SM_NPC_INFO extends AionServerPacket
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
-		NpcTemplate npcTemplate = npc.getObjectTemplate();
 		writeF(buf, npc.getX());// x
 		writeF(buf, npc.getY());// y
 		writeF(buf, npc.getZ());// z
 		writeD(buf, npc.getObjectId());
-		writeD(buf, npc.getNpcId());
-		writeD(buf, npc.getNpcId());
+		writeD(buf, npcId);
+		writeD(buf, npcId);
 
 		if(isAggressive)
 			writeC(buf, NpcType.AGGRESSIVE.getId());
@@ -97,13 +128,13 @@ public class SM_NPC_INFO extends AionServerPacket
 		/*
 		 * Master Info (Summon, Kisk, Etc)
 		 */
-		writeD(buf, 0);// masterObjectId
-		writeS(buf, "");// masterName
+		writeD(buf, masterObjId);// masterObjectId
+		writeS(buf, masterName);// masterName
 
 		int maxHp = npc.getLifeStats().getMaxHp();
 		int currHp = npc.getLifeStats().getCurrentHp();
 		writeC(buf, 100 * currHp / maxHp);// %hp
-		writeD(buf, npc.getObjectTemplate().getStatsTemplate().getMaxHp());
+		writeD(buf, npc.getGameStats().getCurrentStat(StatEnum.MAXHP));
 		writeC(buf, npc.getLevel());// lvl
 
 		NpcEquippedGear gear = npcTemplate.getEquipment();
@@ -122,7 +153,7 @@ public class SM_NPC_INFO extends AionServerPacket
 
 		writeF(buf, 1.5f);// unk
 		writeF(buf, npcTemplate.getHeight());
-		writeF(buf, 0.3f);// speed
+		writeF(buf, speed);// speed
 
 		writeH(buf, 2000);// 0x834 (depends on speed ? )
 		writeH(buf, 2000);// 0x834
@@ -157,7 +188,7 @@ public class SM_NPC_INFO extends AionServerPacket
 		 * 32 : trap
 		 * 1024 : holy servant, noble energy
 		 */
-		writeH(buf, 1);
+		writeH(buf, npc.getNpcObjectType().getId());
 		writeC(buf, 0x00);// unk
 		writeD(buf, npc.getTarget() == null ? 0 : npc.getTarget().getObjectId());
 	}

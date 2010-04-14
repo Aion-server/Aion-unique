@@ -32,6 +32,7 @@ import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.Monster;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.PersistentState;
+import com.aionemu.gameserver.model.gameobjects.Summon;
 import com.aionemu.gameserver.model.gameobjects.player.listeners.PlayerLoggedInListener;
 import com.aionemu.gameserver.model.gameobjects.player.listeners.PlayerLoggedOutListener;
 import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
@@ -92,7 +93,7 @@ public class Player extends Creature
 	private CraftingTask		craftingTask;
 	private int					flightTeleportId;
 	private int					flightDistance;
-
+	private Summon				summon;
 	/**
 	 * Static information for players
 	 */
@@ -992,5 +993,21 @@ public class Player extends Creature
 	protected boolean canSeePlayer(Player player)
 	{
 		return player.getVisualState() <= getSeeState();
+	}
+
+	/**
+	 * @return the summon
+	 */
+	public Summon getSummon()
+	{
+		return summon;
+	}
+
+	/**
+	 * @param summon the summon to set
+	 */
+	public void setSummon(Summon summon)
+	{
+		this.summon = summon;
 	}
 }

@@ -30,6 +30,7 @@ import com.aionemu.gameserver.controllers.MonsterController;
 import com.aionemu.gameserver.controllers.NpcController;
 import com.aionemu.gameserver.controllers.PortalController;
 import com.aionemu.gameserver.controllers.PostboxController;
+import com.aionemu.gameserver.controllers.SummonController;
 import com.aionemu.gameserver.controllers.effect.EffectController;
 import com.aionemu.gameserver.dataholders.BindPointData;
 import com.aionemu.gameserver.dataholders.GatherableData;
@@ -43,8 +44,10 @@ import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Gatherable;
 import com.aionemu.gameserver.model.gameobjects.Monster;
 import com.aionemu.gameserver.model.gameobjects.Npc;
+import com.aionemu.gameserver.model.gameobjects.Summon;
 import com.aionemu.gameserver.model.gameobjects.Trap;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.templates.GatherableTemplate;
 import com.aionemu.gameserver.model.templates.NpcTemplate;
 import com.aionemu.gameserver.model.templates.VisibleObjectTemplate;
@@ -220,6 +223,34 @@ public class SpawnEngine
 		trap.getController().onRespawn();
 		bringIntoWorld(trap, spawn, instanceIndex);
 		return trap;
+	}
+	
+	/**
+	 * 
+	 * @param creator
+	 * @param npcId
+	 * @return
+	 */
+	public Summon spawnSummon(Player creator, int npcId)
+	{	
+		float x = creator.getX();
+		float y = creator.getY();
+		float z = creator.getZ();
+		byte heading = creator.getHeading();
+		int worldId = creator.getWorldId();
+		int instanceId = creator.getInstanceId();
+		
+		SpawnTemplate spawn = createSpawnTemplate(worldId, npcId, x, y, z, heading, 0, 0);
+		NpcTemplate npcTemplate = npcData.getNpcTemplate(npcId);
+		
+		Summon summon = new Summon(aionObjectsIDFactory.nextId(), injector.getInstance(SummonController.class), spawn,
+			npcTemplate);
+		summon.setKnownlist(new KnownList(summon));
+		summon.setEffectController(new EffectController(summon));
+		summon.setMaster(creator);
+
+		bringIntoWorld(summon, spawn, instanceId);
+		return summon;
 	}
 
 	/**

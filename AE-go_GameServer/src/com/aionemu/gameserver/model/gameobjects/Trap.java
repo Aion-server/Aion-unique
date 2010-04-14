@@ -99,4 +99,12 @@ public class Trap extends Npc
 	{
 		return this.creator.isEnemyPlayer(visibleObject);
 	}
+	
+	/**
+	 * @return NpcObjectType.TRAP
+	 */
+	public NpcObjectType getNpcObjectType()
+	{
+		return NpcObjectType.TRAP;
+	}
 }

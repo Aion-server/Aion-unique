@@ -26,6 +26,7 @@ import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Gatherable;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.StaticObject;
+import com.aionemu.gameserver.model.gameobjects.Summon;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.SkillListEntry;
@@ -110,6 +111,11 @@ public class PlayerController extends CreatureController<Player>
 			}
 			if(update)
 				updateNearbyQuestList();
+		}
+		else if(object instanceof Summon)
+		{
+			Summon npc = ((Summon) object);		
+			PacketSendUtility.sendPacket(getOwner(), new SM_NPC_INFO(npc));
 		}
 		else if(object instanceof Gatherable || object instanceof StaticObject)
 		{
