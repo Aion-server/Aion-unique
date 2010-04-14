@@ -54,7 +54,7 @@ import com.google.inject.Inject;
  */
 public class MailService
 {
-	private static final Logger	log	= Logger.getLogger(MailService.class);
+	private static final Logger	log			= Logger.getLogger(MailService.class);
 
 	private IDFactory			aionObjectsIDFactory;
 	private World				world;
@@ -68,15 +68,6 @@ public class MailService
 		this.aionObjectsIDFactory = aionObjectsIDFactory;
 		this.world = world;
 		this.itemService = itemService;
-		
-		ThreadPoolManager.getInstance().scheduleAtFixedRate(new Runnable(){
-			
-			@Override
-			public void run()
-			{
-				checkPlayersMail();
-			}
-		}, 10000, 10000);
 	}
 
 	/**
@@ -107,11 +98,11 @@ public class MailService
 
 		if(!DAOManager.getDAO(PlayerDAO.class).isNameUsed(recipientName))
 		{
-			//TODO retail message
+			// TODO retail message
 			PacketSendUtility.sendMessage(sender, "Incorrect recipient name");
 			return;
 		}
-		
+
 		PlayerCommonData recipientCommonData = DAOManager.getDAO(PlayerDAO.class).loadPlayerCommonDataByName(
 			recipientName, world);
 		Player onlineRecipient;
@@ -391,28 +382,23 @@ public class MailService
 
 		return false;
 	}
-	
+
 	/**
 	 * 
 	 * @param player
 	 */
-	public void onPlayerLogin(Player player)
+	public void onPlayerLogin(final Player player)
 	{
-		newPlayers.add(player);
-	}
-	
-	/**
-	 * Check all players in queue for available mail
-	 */
-	public void checkPlayersMail()
-	{
-		while(!newPlayers.isEmpty())
-		{
-			Player player = newPlayers.poll();
-			player.setMailbox(DAOManager.getDAO(MailDAO.class).loadPlayerMailbox(player));
-			PacketSendUtility.sendPacket(player, new SM_MAIL_SERVICE(player, player.getMailbox().getLetters()));
-			if(player.getMailbox().haveUnread())
-				PacketSendUtility.sendPacket(player, new SM_MAIL_SERVICE(true, true));
-		}		
+		ThreadPoolManager.getInstance().schedule(new Runnable(){
+
+			@Override
+			public void run()
+			{
+				player.setMailbox(DAOManager.getDAO(MailDAO.class).loadPlayerMailbox(player));
+				PacketSendUtility.sendPacket(player, new SM_MAIL_SERVICE(player, player.getMailbox().getLetters()));
+				if(player.getMailbox().haveUnread())
+					PacketSendUtility.sendPacket(player, new SM_MAIL_SERVICE(true, true));
+			}
+		}, 10000);
 	}
 }

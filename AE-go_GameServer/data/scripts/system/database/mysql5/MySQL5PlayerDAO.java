@@ -37,6 +37,7 @@ import com.aionemu.gameserver.model.Gender;
 import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.model.Race;
 import com.aionemu.gameserver.model.account.PlayerAccountData;
+import com.aionemu.gameserver.model.gameobjects.player.Mailbox;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerCommonData;
 import com.aionemu.gameserver.utils.collections.cachemap.CacheMap;
@@ -111,7 +112,11 @@ public class MySQL5PlayerDAO extends PlayerDAO
 				stmt.setString(13,player.getCommonData().getNote());
 				stmt.setInt(14, player.getCommonData().getBindPoint());
 				stmt.setInt(15, player.getCommonData().getTitleId());
-				stmt.setInt(16, player.getMailbox().size());
+				
+				Mailbox mailBox = player.getMailbox();
+				int mails = mailBox != null ? mailBox.size() : player.getCommonData().getMailboxLetters();
+				stmt.setInt(16, mails);
+				
 				stmt.setInt(17, player.getObjectId());
 				stmt.execute();
 			}
