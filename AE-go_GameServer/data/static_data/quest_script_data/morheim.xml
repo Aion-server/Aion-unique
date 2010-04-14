@@ -633,7 +633,13 @@
 
         <!-- TODO: [Group] Legendary Armor -->
 
-        <!-- TODO: [Group] Never to Rise Again -->
+        <!-- 2439 Never to Rise Again -->
+        <monster_hunt id="2439" start_npc_id="204400">
+    	    <monster_infos npc_id="211598"  var_id="0" max_kill="9"/>
+    	    <monster_infos npc_id="212732"  var_id="1" max_kill="9"/>
+    	    <monster_infos npc_id="212734"  var_id="2" max_kill="9"/>
+    	    <monster_infos npc_id="211596"  var_id="3" max_kill="9"/>
+        </monster_hunt>
 
         <!-- TODO: [Group] Strange Brew -->
 

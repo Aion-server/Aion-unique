@@ -86,11 +86,9 @@
 	<!-- Belbua is Missing -->
 	<item_collecting start_npc_id="203125" id="1151"/>
 	
-	<!-- Belbua's Treasure -->
-	<report_to start_npc_id="730001" end_npc_id="204645" id="1141"/>
+	<!-- TODO: Belbua's Treasure script -->
 	
-	<!-- Delicate Mandrake -->
-	<report_to start_npc_id="203123" end_npc_id="203139" item_id="182200519" id="1146"/>
+	<!-- Delicate Mandrake script. TODO: Needed timer.-->
 	
 	<!-- TODO: Masked Loiterers -->
 	

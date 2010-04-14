@@ -405,7 +405,7 @@
 	<!-- Dignity and Bluster -->
 	<monster_hunt id="1570" start_npc_id="204557">
            <monster_infos npc_id="211933" var_id="0" max_kill="7" />
-	   <monster_infos npc_id="211930" var_id="1" max_kill="1" />
+	   <monster_infos npc_id="211930" var_id="1" max_kill="10" />
         </monster_hunt>
 
 	<!-- Give Me Some Skin -->

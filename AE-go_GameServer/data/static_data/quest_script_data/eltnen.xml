@@ -120,10 +120,10 @@
 	<!-- A Feast for Phomona -->
         <item_collecting id="1478" start_npc_id="730019" />
 
-	<!-- Balaur Bones -->
-	<item_collecting id="1487" start_npc_id="798126" action_item_id="182201407" />
-	<item_collecting id="1487" start_npc_id="798126" action_item_id="182201408" />
-	<item_collecting id="1487" start_npc_id="798126" action_item_id="182201409" />
+	<!-- 1487 Balaur Bones -->
+	<item_collecting id="1487" start_npc_id="798126" action_item_id="700313" />
+	<item_collecting id="1487" start_npc_id="798126" action_item_id="700314" />
+	<item_collecting id="1487" start_npc_id="798126" action_item_id="700315" />
 
 	<!-- Killing Crestliches -->
 	<monster_hunt id="1326" start_npc_id="203940">
@@ -735,7 +735,8 @@
 
 	<!-- TODO: 1474 [Group] Blood Feud -->
 
-	<!-- TODO: 1415 [Group] Reducing Kaidan Strength -->
+	<!-- 1415 [Group] Reducing Kaidan Strength -->
+	<item_collecting start_npc_id="203989" id="1415"/>
 
 	<!-- TODO: 1424 [Group] Raiding The Raiders -->
 
