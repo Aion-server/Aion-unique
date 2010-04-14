@@ -21,7 +21,6 @@ import org.apache.log4j.Logger;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PONG;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUIT_RESPONSE;
-import com.aionemu.gameserver.services.DebugService;
 
 /**
  * I have no idea wtf is this
