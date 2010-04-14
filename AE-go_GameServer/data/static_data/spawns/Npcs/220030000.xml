@@ -11,7 +11,7 @@ Altgard -->
 	</spawn>
 	<!-- Abyss Gate Guardian Stone (Object Normal lvl:1)-->
 	<spawn map="220030000" npcid="700140" pool="1" interval="295">
-		<object x="2451.8828" y="2546.5891" z="316.12195" h="0"/>
+		<object staticid="571" x="2451.8828" y="2546.5891" z="316.12195" h="0"/>
 	</spawn>
 	<!-- Altgard Abyss Gate (Object Normal lvl:1)-->
 	<spawn map="220030000" npcid="700089" pool="2" interval="295">

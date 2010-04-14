@@ -38,7 +38,7 @@ Poeta -->
 	</spawn>
 	<!-- Blue Power Generator (Object Normal lvl:20)-->
 	<spawn map="210010000" npcid="700082" pool="1" interval="295">
-		<object x="226.31" y="1011.86" z="121.18792" h="0"/>
+		<object staticid="2" x="226.31" y="1011.86" z="121.18792" h="0"/>
 	</spawn>
 	<!-- Brutus (NPC Normal lvl:3)-->
 	<spawn map="210010000" npcid="203068" pool="1" interval="295">
@@ -87,7 +87,7 @@ Poeta -->
 	</spawn>
 	<!-- Green Power Generator (Object Normal lvl:20)-->
 	<spawn map="210010000" npcid="700081" pool="1" interval="295">
-		<object x="254.15" y="1065.97" z="120.79" h="0"/>
+		<object staticid="3" x="254.15" y="1065.97" z="120.79" h="0"/>
 	</spawn>
 	<!-- Ino (NPC Normal lvl:20)-->
 	<spawn map="210010000" npcid="203086" pool="1" interval="295">
@@ -313,7 +313,7 @@ Poeta -->
 	</spawn>
 	<!-- Violet Power Generator (Object Normal lvl:20)-->
 	<spawn map="210010000" npcid="700083" pool="1" interval="295">
-		<object x="289.65" y="1017.06" z="132.03" h="0"/>
+		<object  staticid="1" x="289.65" y="1017.06" z="132.03" h="0"/>
 	</spawn>
 	<!-- Wine Barrel (Object Normal lvl:1)-->
 	<spawn map="210010000" npcid="700106" pool="12" interval="295">
