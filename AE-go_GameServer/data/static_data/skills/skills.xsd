@@ -195,6 +195,8 @@
 				minOccurs="0" maxOccurs="1" />
 			<xs:element name="summontrap" type="SummonTrapEffect"
 				minOccurs="0" maxOccurs="1" />
+			<xs:element name="summonservant" type="SummonServantEffect"
+				minOccurs="0" maxOccurs="1" />
 		</xs:sequence>
 		<xs:attribute name="food" type="xs:boolean"/>
 	</xs:complexType>
@@ -911,6 +913,15 @@
 			<xs:extension base="SummonEffect">
 				<xs:attribute name="skill_id" type="xs:int" />
 				<xs:attribute name="time" type="xs:int" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="SummonServantEffect">
+		<xs:complexContent>
+			<xs:extension base="SummonEffect">
+				<xs:attribute name="skill_id" type="xs:int" />
+				<xs:attribute name="hp_ratio" type="xs:int" />
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>

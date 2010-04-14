@@ -30,6 +30,7 @@ import com.aionemu.gameserver.controllers.MonsterController;
 import com.aionemu.gameserver.controllers.NpcController;
 import com.aionemu.gameserver.controllers.PortalController;
 import com.aionemu.gameserver.controllers.PostboxController;
+import com.aionemu.gameserver.controllers.ServantController;
 import com.aionemu.gameserver.controllers.SummonController;
 import com.aionemu.gameserver.controllers.effect.EffectController;
 import com.aionemu.gameserver.dataholders.BindPointData;
@@ -44,6 +45,7 @@ import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Gatherable;
 import com.aionemu.gameserver.model.gameobjects.Monster;
 import com.aionemu.gameserver.model.gameobjects.Npc;
+import com.aionemu.gameserver.model.gameobjects.Servant;
 import com.aionemu.gameserver.model.gameobjects.Summon;
 import com.aionemu.gameserver.model.gameobjects.Trap;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
@@ -223,6 +225,31 @@ public class SpawnEngine
 		trap.getController().onRespawn();
 		bringIntoWorld(trap, spawn, instanceIndex);
 		return trap;
+	}
+	
+	/**
+	 * 
+	 * @param spawn
+	 * @param instanceIndex
+	 * @param creator
+	 * @param skillId
+	 * @return
+	 */
+	public Servant spawnServant(SpawnTemplate spawn, int instanceIndex, Creature creator, int skillId, int hpRatio)
+	{
+		int objectId = spawn.getSpawnGroup().getNpcid();
+		NpcTemplate npcTemplate = npcData.getNpcTemplate(objectId);
+		Servant servant = new Servant(aionObjectsIDFactory.nextId(), injector.getInstance(ServantController.class), spawn,
+			npcTemplate);
+		servant.setKnownlist(new KnownList(servant));
+		servant.setEffectController(new EffectController(servant));
+		servant.setCreator(creator);
+		servant.setSkillId(skillId);
+		servant.setTarget(creator.getTarget());
+		servant.setHpRatio(hpRatio);
+		servant.getController().onRespawn();
+		bringIntoWorld(servant, spawn, instanceIndex);
+		return servant;
 	}
 	
 	/**

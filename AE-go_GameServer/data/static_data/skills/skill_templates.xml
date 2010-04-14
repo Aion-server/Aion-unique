@@ -15355,6 +15355,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <summonservant skill_id="18504" hp_ratio="17" npc_id="749173" e="1" element="FIRE" hoptype="SKILLLV" hopb="1949"/>
+        </effects>
         <actions>
             <mpuse value="200" delta="2"/>
         </actions>
@@ -15369,6 +15372,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <summonservant skill_id="18504" hp_ratio="17" npc_id="749174" e="1" element="FIRE" hoptype="SKILLLV" hopb="1949"/>
+        </effects>
         <actions>
             <mpuse value="200" delta="2"/>
         </actions>
@@ -15764,6 +15770,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summonservant skill_id="17615" hp_ratio="10" npc_id="749060" e="1" element="FIRE" hoptype="SKILLLV" hopb="19700"/>
+        </effects>
         <actions>
             <mpuse value="520" delta="2"/>
         </actions>
@@ -15778,6 +15787,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <summonservant skill_id="17515" hp_ratio="17" npc_id="749062" e="1" element="FIRE" hoptype="SKILLLV" hopb="982"/>
+        </effects>
         <actions>
             <mpuse value="63" delta="2"/>
         </actions>
@@ -15792,6 +15804,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <summonservant skill_id="17516" hp_ratio="17" npc_id="749063" e="1" element="FIRE" hoptype="SKILLLV" hopb="1400"/>
+        </effects>
         <actions>
             <mpuse value="90" delta="3"/>
         </actions>
@@ -15806,6 +15821,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <summonservant skill_id="17517" hp_ratio="17" npc_id="749064" e="1" element="FIRE" hoptype="SKILLLV" hopb="1884"/>
+        </effects>
         <actions>
             <mpuse value="130" delta="2"/>
         </actions>
@@ -16070,6 +16088,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <summonservant skill_id="17615" hp_ratio="10" npc_id="749061" e="1" element="FIRE" hoptype="SKILLLV" hopb="19700"/>
+        </effects>
         <actions>
             <mpuse value="520" delta="2"/>
         </actions>
@@ -16084,6 +16105,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <summonservant skill_id="17515" hp_ratio="17" npc_id="749065" e="1" element="FIRE" hoptype="SKILLLV" hopb="982"/>
+        </effects>
         <actions>
             <mpuse value="63" delta="2"/>
         </actions>
@@ -16098,6 +16122,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <summonservant skill_id="17516" hp_ratio="17" npc_id="749066" e="1" element="FIRE" hoptype="SKILLLV" hopb="1400"/>
+        </effects>
         <actions>
             <mpuse value="90" delta="3"/>
         </actions>
@@ -16112,6 +16139,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <summonservant skill_id="17517" hp_ratio="17" npc_id="749067" e="1" element="FIRE" hoptype="SKILLLV" hopb="1884"/>
+        </effects>
         <actions>
             <mpuse value="130" delta="2"/>
         </actions>
@@ -16982,6 +17012,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <summonservant skill_id="17590" hp_ratio="17" npc_id="749098" e="1" element="FIRE"/>
+        </effects>
         <actions>
             <mpuse value="602" delta="28"/>
         </actions>
@@ -16996,6 +17029,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <summonservant skill_id="17590" hp_ratio="17" npc_id="749099" e="1" element="FIRE"/>
+        </effects>
         <actions>
             <mpuse value="602" delta="28"/>
         </actions>
@@ -17134,6 +17170,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summonservant skill_id="17614" hp_ratio="30" npc_id="749114" e="1" element="FIRE"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="1141" name="STR_SKILL_PR_ImmortalBlessing_G1" nameId="574349" stack="SKILL_PR_IMMORTALBLESSING" lvl="1" skilltype="MAGICAL" skillsubtype="HEAL" tslot="NONE" activation="ACTIVE" cooldown="18000" duration="3000" penalty_skill_id="8434">
         <startconditions>
@@ -29919,6 +29958,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <summonservant skill_id="17515" hp_ratio="17" npc_id="749065" e="1" element="FIRE" hoptype="SKILLLV" hopb="982"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="1956" name="STR_SKILL_Test_SummonSkillArea" nameId="585949" stack="SKILL_TEST_SUMMONSKILLAREA" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="100" duration="0">
         <setproperties>

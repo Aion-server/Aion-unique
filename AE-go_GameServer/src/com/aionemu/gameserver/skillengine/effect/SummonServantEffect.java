@@ -27,7 +27,7 @@ import javax.xml.bind.annotation.XmlType;
 import com.aionemu.gameserver.dataholders.loadingutils.XmlServiceProxy;
 import com.aionemu.gameserver.model.TaskId;
 import com.aionemu.gameserver.model.gameobjects.Creature;
-import com.aionemu.gameserver.model.gameobjects.Trap;
+import com.aionemu.gameserver.model.gameobjects.Servant;
 import com.aionemu.gameserver.model.templates.spawn.SpawnTemplate;
 import com.aionemu.gameserver.skillengine.model.Effect;
 import com.aionemu.gameserver.spawnengine.SpawnEngine;
@@ -35,16 +35,17 @@ import com.aionemu.gameserver.utils.ThreadPoolManager;
 
 /**
  * @author ATracer
- * 
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "SummonTrapEffect")
-public class SummonTrapEffect extends SummonEffect
+@XmlType(name = "SummonServantEffect")
+public class SummonServantEffect extends SummonEffect
 {
+
 	@XmlAttribute(name = "skill_id", required = true)
 	protected int	skillId;
-	@XmlAttribute(name = "time", required = true)
-	protected int	time;
+	@XmlAttribute(name = "hp_ratio", required = true)
+	protected int	hpRatio;
 
 	@Override
 	public void applyEffect(Effect effect)
@@ -59,17 +60,17 @@ public class SummonTrapEffect extends SummonEffect
 		int instanceId = effector.getInstanceId();
 
 		SpawnTemplate spawn = spawnEngine.addNewSpawn(worldId, instanceId, npcId, x, y, z, heading, 0, 0, true, true);
-		final Trap trap = spawnEngine.spawnTrap(spawn, instanceId, effector, skillId);
-
+		final Servant servant = spawnEngine.spawnServant(spawn, instanceId, effector, skillId, hpRatio);
+		
 		Future<?> task = ThreadPoolManager.getInstance().schedule(new Runnable(){
 
 			@Override
 			public void run()
 			{
-				trap.getController().onDespawn(true);
+				servant.getController().onDespawn(true);
 			}
-		}, time * 1000);
-		trap.getController().addTask(TaskId.DESPAWN, task);
+		}, 60 * 1000);
+		servant.getController().addTask(TaskId.DESPAWN, task);
 	}
 
 	@Override
@@ -87,4 +88,5 @@ public class SummonTrapEffect extends SummonEffect
 	{
 		xsp = u.getAdapter(XmlServiceProxy.class);
 	}
+
 }
