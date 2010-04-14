@@ -106,6 +106,7 @@ import com.aionemu.gameserver.network.aion.clientpackets.CM_SHOW_MAP;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_SKILL_DEACTIVATE;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_SPLIT_ITEM;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_START_LOOT;
+import com.aionemu.gameserver.network.aion.clientpackets.CM_SUMMON_COMMAND;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_SUMMON_MOVE;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_TARGET_SELECT;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_TELEPORT_SELECT;
@@ -235,6 +236,7 @@ public class AionPacketHandlerFactory
 		addPacket(new CM_ENTER_WORLD(0xFE), State.AUTHED);
 		addPacket(new CM_LEVEL_READY(0xFF), State.IN_GAME);
 		addPacket(new CM_SUMMON_MOVE(0x3F), State.IN_GAME);
+		addPacket(new CM_SUMMON_COMMAND(0x6F), State.IN_GAME);
 	}
 
 	public AionPacketHandler getPacketHandler()

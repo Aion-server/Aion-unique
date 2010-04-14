@@ -34,7 +34,30 @@ public class Summon extends Creature
 {
 
 	private Player	master;
+	private SummonMode mode;
 
+	public static enum SummonMode
+	{
+		ATTACK(0),
+		GUARD(1),
+		REST(2),
+		RELEASE(3);
+		
+		private int id;
+		
+		private SummonMode(int id)
+		{
+			this.id = id;
+		}
+
+		/**
+		 * @return the id
+		 */
+		public int getId()
+		{
+			return id;
+		}	
+	}
 	/**
 	 * 
 	 * @param objId
@@ -52,6 +75,8 @@ public class Summon extends Creature
 
 		super.setGameStats(new SummonGameStats(this));
 		super.setLifeStats(new SummonLifeStats(this));
+		
+		this.mode = SummonMode.GUARD;
 	}
 
 	/**
@@ -80,8 +105,7 @@ public class Summon extends Creature
 	@Override
 	public byte getLevel()
 	{
-		// TODO Auto-generated method stub
-		return 1;
+		return getObjectTemplate().getLevel();
 	}
 
 	@Override
@@ -100,6 +124,11 @@ public class Summon extends Creature
 	{
 		return getObjectTemplate().getTemplateId();
 	}
+	
+	public int getNameId()
+	{
+		return getObjectTemplate().getNameId();
+	}
 
 	/**
 	 * @return NpcObjectType.SUMMON
@@ -115,4 +144,19 @@ public class Summon extends Creature
 		return (SummonController) super.getController();
 	}
 
+	/**
+	 * @return the mode
+	 */
+	public SummonMode getMode()
+	{
+		return mode;
+	}
+
+	/**
+	 * @param mode the mode to set
+	 */
+	public void setMode(SummonMode mode)
+	{
+		this.mode = mode;
+	}
 }
