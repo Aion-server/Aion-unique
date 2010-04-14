@@ -20,7 +20,6 @@ import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PONG;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_QUIT_RESPONSE;
 
 /**
  * I have no idea wtf is this
@@ -58,14 +57,16 @@ public class CM_PING extends AionClientPacket
 	protected void runImpl()
 	{
 		long lastMS = getConnection().getLastPingTimeMS();
+		
 		if(lastMS > 0)
 		{
 			long pingInterval = System.currentTimeMillis() - lastMS;
 			// PingInterval should be 3min (180000ms)
-			if(pingInterval < 175000)// client timer cheat
+			if(pingInterval < 100000)// client timer cheat
 			{
-				log.info("[AUDIT] Closing connection with player because of client timer cheat: " + pingInterval);
-				getConnection().close(new SM_QUIT_RESPONSE(), true);
+				String name = getConnection().getActivePlayer().getName();
+				log.info("[AUDIT] possible client timer cheat: " + pingInterval + " " + name);
+				//getConnection().close(new SM_QUIT_RESPONSE(), true);
 			}
 
 		}
