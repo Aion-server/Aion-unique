@@ -21,6 +21,7 @@ import com.aionemu.gameserver.model.gameobjects.Summon;
 import com.aionemu.gameserver.model.gameobjects.Summon.SummonMode;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SUMMON_OWNER_REMOVE;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_SUMMON_PANEL_REMOVE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SUMMON_UPDATE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -61,6 +62,8 @@ public class SummonController extends CreatureController<Summon>
 				owner.getController().delete();
 				PacketSendUtility.sendPacket(master, SM_SYSTEM_MESSAGE.SUMMON_DISMISSED(getOwner().getNameId()));
 				PacketSendUtility.sendPacket(master, new SM_SUMMON_OWNER_REMOVE(summonObjId));
+				//TODO temp till found on retail
+				PacketSendUtility.sendPacket(master, new SM_SUMMON_PANEL_REMOVE());
 			}
 		}, 5000);
 	}
