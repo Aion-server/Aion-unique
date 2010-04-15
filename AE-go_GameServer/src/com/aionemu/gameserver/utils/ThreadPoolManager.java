@@ -42,8 +42,6 @@ public final class ThreadPoolManager implements DisconnectionThreadPool
 {
 	private static final Logger					log				= Logger.getLogger(ThreadPoolManager.class);
 
-	public static final long					MAXIMUM_RUNTIME_IN_MILLISEC_WITHOUT_WARNING	= 15000;
-
 	private static final long					MAX_DELAY		= TimeUnit.NANOSECONDS.toMillis(Long.MAX_VALUE - System.nanoTime()) / 2;
 
 	private final ScheduledThreadPoolExecutor	scheduledPool;
@@ -121,7 +119,7 @@ public final class ThreadPoolManager implements DisconnectionThreadPool
 		@Override
 		protected long getMaximumRuntimeInMillisecWithoutWarning()
 		{
-			return MAXIMUM_RUNTIME_IN_MILLISEC_WITHOUT_WARNING;
+			return ThreadConfig.MAXIMUM_RUNTIME_IN_MILLISEC_WITHOUT_WARNING;
 		}
 	}
 

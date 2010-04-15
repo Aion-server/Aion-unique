@@ -30,6 +30,9 @@ public class ThreadConfig
 	@Property(key = "thread.threadpercore", defaultValue = "4")
 	public static int EXTRA_THREAD_PER_CORE;
 	
+	@Property(key = "thread.runtime", defaultValue = "5000")
+	public static long MAXIMUM_RUNTIME_IN_MILLISEC_WITHOUT_WARNING;
+	
 	public static int THREAD_POOL_SIZE;
 	
 	public static void load()
