@@ -192,7 +192,7 @@ Altgard -->
 		<object x="1736.0" y="1691.0" z="256.75" h="0"/>
 	</spawn>
 	<!-- Fertilizer Sack (Object Normal lvl:1)-->
-	<spawn map="220030000" npcid="700051" pool="18" interval="295">
+	<spawn map="220030000" npcid="700145" pool="18" interval="295">
 		<object x="1561.821" y="275.3291" z="289.6781" h="57"/>
 		<object x="1590.4271" y="283.5871" z="285.22913" h="32"/>
 		<object x="1629.8604" y="283.66635" z="287.86154" h="27"/>
