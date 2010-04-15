@@ -6500,6 +6500,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+	<effects>
+            <spellatkdraininstant heal_type="HP" percent="50" value="738" delta="2" e="1" element="FIRE" hoptype="DAMAGE"/>
+        </effects>
         <actions>
             <mpuse value="124" delta="0"/>
         </actions>
@@ -7773,6 +7776,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+	<effects>
+            <spellatkdraininstant heal_type="HP" percent="50" value="738" delta="2" e="1" element="FIRE" hoptype="DAMAGE"/>
+        </effects>
         <actions>
             <mpuse value="124" delta="0"/>
         </actions>
