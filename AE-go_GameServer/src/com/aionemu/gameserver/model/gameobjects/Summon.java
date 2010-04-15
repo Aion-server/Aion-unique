@@ -159,4 +159,22 @@ public class Summon extends Creature
 	{
 		this.mode = mode;
 	}
+
+	@Override
+	protected boolean isEnemyNpc(Npc visibleObject)
+	{
+		return master.isEnemyNpc(visibleObject);
+	}
+
+	@Override
+	protected boolean isEnemyPlayer(Player visibleObject)
+	{
+		return master.isEnemyPlayer(visibleObject);
+	}
+
+	@Override
+	protected boolean isEnemySummon(Summon summon)
+	{
+		return master.isEnemySummon(summon);
+	}
 }

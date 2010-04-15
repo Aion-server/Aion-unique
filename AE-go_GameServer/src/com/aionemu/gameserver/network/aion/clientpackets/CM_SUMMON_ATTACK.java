@@ -16,8 +16,6 @@
  */
 package com.aionemu.gameserver.network.aion.clientpackets;
 
-import com.aionemu.gameserver.controllers.SummonController.UnsummonType;
-import com.aionemu.gameserver.model.gameobjects.AionObject;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Summon;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -29,16 +27,22 @@ import com.google.inject.Inject;
  * @author ATracer
  *
  */
-public class CM_SUMMON_COMMAND extends AionClientPacket
+public class CM_SUMMON_ATTACK extends AionClientPacket
 {
-
-	private int mode;
+	@SuppressWarnings("unused")
+	private int summonObjId;
 	private int targetObjId;
+	@SuppressWarnings("unused")
+	private int unk1;
+	@SuppressWarnings("unused")
+	private int unk2;
+	@SuppressWarnings("unused")
+	private int unk3;
 	
 	@Inject
 	private World world;
 	
-	public CM_SUMMON_COMMAND(int opcode)
+	public CM_SUMMON_ATTACK(int opcode)
 	{
 		super(opcode);
 	}
@@ -46,10 +50,11 @@ public class CM_SUMMON_COMMAND extends AionClientPacket
 	@Override
 	protected void readImpl()
 	{
-		mode = readC();
-		readD();
-		readD();
+		summonObjId = readD();
 		targetObjId = readD();
+		unk1 = readC();
+		unk2 = readH();
+		unk3 = readC();
 	}
 
 	@Override
@@ -57,29 +62,8 @@ public class CM_SUMMON_COMMAND extends AionClientPacket
 	{
 		Player activePlayer = getConnection().getActivePlayer();
 		Summon summon = activePlayer.getSummon();
-		if(summon != null)
-		{
-			switch(mode)
-			{
-				case 0:
-					AionObject target = world.findAionObject(targetObjId);
-					if(target != null && target instanceof Creature)
-					{
-						summon.getController().attackMode();
-					}
-					break;
-				case 1:
-					summon.getController().guardMode();
-					break;
-				case 2:
-					summon.getController().restMode();
-					break;
-				case 3:
-					summon.getController().release(UnsummonType.COMMAND);
-					break;
-					
-			}
-		}
+		
+		Creature creature = (Creature) world.findAionObject(targetObjId);
+		summon.getController().attackTarget(creature);
 	}
-
 }

@@ -30,8 +30,10 @@ public class SummonGameStats extends CreatureGameStats<Summon>
 		super(owner);
 		initStat(StatEnum.MAXHP, 1000);
 		initStat(StatEnum.MAXMP, 1000);
-		initStat(StatEnum.PHYSICAL_ATTACK, 82);
+		initStat(StatEnum.MAIN_HAND_POWER, 82);
 		initStat(StatEnum.PHYSICAL_DEFENSE, 285);
 		initStat(StatEnum.MAGICAL_RESIST, 252);
+		initStat(StatEnum.ATTACK_SPEED, 2000);
+		initStat(StatEnum.SPEED, 6000);
 	}
 }

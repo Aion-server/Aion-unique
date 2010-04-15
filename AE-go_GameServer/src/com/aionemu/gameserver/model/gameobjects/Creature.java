@@ -398,24 +398,35 @@ public abstract class Creature extends VisibleObject
 			return isEnemyNpc((Npc) visibleObject);
 		else if(visibleObject instanceof Player)
 			return isEnemyPlayer((Player) visibleObject);
+		else if(visibleObject instanceof Summon)
+			return isEnemySummon((Summon) visibleObject);
 		
 		return false;
 	}
 
 	/**
-	 * @param visibleObject
+	 * @param summon
 	 * @return
 	 */
-	protected boolean isEnemyPlayer(Player visibleObject)
+	protected boolean isEnemySummon(Summon summon)
 	{
 		return false;
 	}
 
 	/**
-	 * @param visibleObject
+	 * @param player
 	 * @return
 	 */
-	protected boolean isEnemyNpc(Npc visibleObject)
+	protected boolean isEnemyPlayer(Player player)
+	{
+		return false;
+	}
+
+	/**
+	 * @param npc
+	 * @return
+	 */
+	protected boolean isEnemyNpc(Npc npc)
 	{
 		return false;
 	}

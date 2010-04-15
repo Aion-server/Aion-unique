@@ -16,29 +16,29 @@
  */
 package com.aionemu.gameserver.network.aion.clientpackets;
 
-import com.aionemu.gameserver.controllers.SummonController.UnsummonType;
-import com.aionemu.gameserver.model.gameobjects.AionObject;
-import com.aionemu.gameserver.model.gameobjects.Creature;
+import org.apache.log4j.Logger;
+
 import com.aionemu.gameserver.model.gameobjects.Summon;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
-import com.aionemu.gameserver.world.World;
-import com.google.inject.Inject;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
+import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
  * @author ATracer
  *
  */
-public class CM_SUMMON_COMMAND extends AionClientPacket
+public class CM_SUMMON_EMOTION extends AionClientPacket
 {
-
-	private int mode;
-	private int targetObjId;
+	@SuppressWarnings("unused")
+	private static final Logger	log	= Logger.getLogger(CM_SUMMON_EMOTION.class);
 	
-	@Inject
-	private World world;
+	@SuppressWarnings("unused")
+	private int objId;
+	private int emotionType;
 	
-	public CM_SUMMON_COMMAND(int opcode)
+	public CM_SUMMON_EMOTION(int opcode)
 	{
 		super(opcode);
 	}
@@ -46,10 +46,10 @@ public class CM_SUMMON_COMMAND extends AionClientPacket
 	@Override
 	protected void readImpl()
 	{
-		mode = readC();
-		readD();
-		readD();
-		targetObjId = readD();
+		objId = readD();
+		emotionType = readC();
+		
+		//log.info("Emotion Type: " + emotionType);
 	}
 
 	@Override
@@ -57,29 +57,20 @@ public class CM_SUMMON_COMMAND extends AionClientPacket
 	{
 		Player activePlayer = getConnection().getActivePlayer();
 		Summon summon = activePlayer.getSummon();
-		if(summon != null)
+		
+		switch(emotionType)
 		{
-			switch(mode)
-			{
-				case 0:
-					AionObject target = world.findAionObject(targetObjId);
-					if(target != null && target instanceof Creature)
-					{
-						summon.getController().attackMode();
-					}
-					break;
-				case 1:
-					summon.getController().guardMode();
-					break;
-				case 2:
-					summon.getController().restMode();
-					break;
-				case 3:
-					summon.getController().release(UnsummonType.COMMAND);
-					break;
-					
-			}
-		}
+			case 0x08: //start gliding
+			case 0x09: //start gliding
+				PacketSendUtility.broadcastPacket(summon, new SM_EMOTION(summon, emotionType));
+				break;
+			case 0x13: //start attacking
+				summon.setState(CreatureState.WEAPON_EQUIPPED);
+				PacketSendUtility.broadcastPacket(summon, new SM_EMOTION(summon, emotionType));
+			case 0x14: //stop attacking
+				summon.unsetState(CreatureState.WEAPON_EQUIPPED);
+				PacketSendUtility.broadcastPacket(summon, new SM_EMOTION(summon, emotionType));
+				break;			
+		}	
 	}
-
 }

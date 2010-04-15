@@ -971,6 +971,16 @@ public class Player extends Creature
 	}
 	
 	/**
+	 * Summon enemies:<br>
+	 * - master not null and master is enemy<br>
+	 */
+	@Override
+	public boolean isEnemySummon(Summon summon)
+	{
+		return  summon.getMaster() != null && isEnemyPlayer(summon.getMaster());
+	}
+
+	/**
 	 * Player-player friends:<br>
 	 * - not in duel<br>
 	 * - same race<br>
