@@ -48,6 +48,8 @@ public class Item extends AionObject
 	private GodStone godStone;
 
 	private int itemLocation;
+	
+	private int echantLevel;
 
 	/**
 	 * @param objId
@@ -79,7 +81,7 @@ public class Item extends AionObject
 	 * 
 	 * This constructor should be called only from DAO while loading from DB
 	 */
-	public Item(int objId, int itemId, int itemCount, int itemColor, boolean isEquipped, int equipmentSlot, int itemLocation)
+	public Item(int objId, int itemId, int itemCount, int itemColor, boolean isEquipped, int equipmentSlot, int itemLocation, int enchant)
 	{
 		super(objId);
 
@@ -89,6 +91,7 @@ public class Item extends AionObject
 		this.isEquipped = isEquipped;
 		this.equipmentSlot = equipmentSlot;
 		this.itemLocation = itemLocation;
+		this.echantLevel = enchant;
 	}
 
 	@Override
@@ -281,6 +284,23 @@ public class Item extends AionObject
 	public void setGoodStone(GodStone goodStone)
 	{
 		this.godStone = goodStone;
+	}
+
+	/**
+	 * @return the echantLevel
+	 */
+	public int getEchantLevel()
+	{
+		return echantLevel;
+	}
+
+	/**
+	 * @param echantLevel the echantLevel to set
+	 */
+	public void setEchantLevel(int echantLevel)
+	{
+		this.echantLevel = echantLevel;
+		setPersistentState(PersistentState.UPDATE_REQUIRED);
 	}
 
 	/**

@@ -107,6 +107,8 @@
 				minOccurs="0" maxOccurs="1" />
 			<xs:element name="craftlearn" type="CraftLearnAction"
 				minOccurs="0" maxOccurs="1" />
+			<xs:element name="extract" type="ExtractAction"
+				minOccurs="0" maxOccurs="1" />
 		</xs:sequence>
 	</xs:complexType>
 
@@ -131,6 +133,14 @@
 	</xs:complexType>
 
 	<xs:complexType name="EnchantItemAction">
+		<xs:complexContent>
+			<xs:extension base="AbstractItemAction">
+
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="ExtractAction">
 		<xs:complexContent>
 			<xs:extension base="AbstractItemAction">
 

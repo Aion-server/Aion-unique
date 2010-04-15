@@ -1,0 +1,1 @@
+ALTER TABLE `inventory` ADD `enchant` TINYINT(1) DEFAULT '0' NOT NULL AFTER `itemUniqueId`;

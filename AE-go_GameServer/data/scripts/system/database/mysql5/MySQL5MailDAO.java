@@ -121,7 +121,8 @@ public class MySQL5MailDAO extends MailDAO
 					int itemColor = rset.getInt("itemColor");
 					int isEquiped = rset.getInt("isEquiped");
 					int slot = rset.getInt("slot");
-					Item item = new Item(itemUniqueId, itemId, itemCount, itemColor, isEquiped == 1, slot, StorageType.MAILBOX.getId());
+					int enchant = rset.getInt("enchant");
+					Item item = new Item(itemUniqueId, itemId, itemCount, itemColor, isEquiped == 1, slot, StorageType.MAILBOX.getId(), enchant);
 					item.setPersistentState(PersistentState.UPDATED);
 					mailboxItems.add(item);
 				}

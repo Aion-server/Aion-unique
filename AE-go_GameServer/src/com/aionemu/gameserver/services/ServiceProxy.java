@@ -73,6 +73,8 @@ public class ServiceProxy
 	private QuestEngine				questEngine;
 	@Inject
 	private SpawnEngine				spawnEngine;
+	@Inject
+	private EnchantService			enchantService;
 
 	/**
 	 * @return the world
@@ -249,5 +251,13 @@ public class ServiceProxy
 	public SpawnEngine getSpawnEngine()
 	{
 		return spawnEngine;
+	}
+
+	/**
+	 * @return the enchantService
+	 */
+	public EnchantService getEnchantService()
+	{
+		return enchantService;
 	}
 }

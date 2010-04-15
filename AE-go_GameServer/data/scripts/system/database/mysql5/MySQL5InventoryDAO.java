@@ -43,9 +43,9 @@ public class MySQL5InventoryDAO extends InventoryDAO
 {
 	private static final Logger log = Logger.getLogger(MySQL5InventoryDAO.class);
 
-	public static final String SELECT_QUERY = "SELECT `itemUniqueId`, `itemId`, `itemCount`, `itemColor`, `isEquiped`, `slot` FROM `inventory` WHERE `itemOwner`=? AND `itemLocation`=? AND `isEquiped`=?";
-	public static final String INSERT_QUERY = "INSERT INTO `inventory` (`itemUniqueId`, `itemId`, `itemCount`, `itemColor`, `itemOwner`, `isEquiped`, `slot`, `itemLocation`) VALUES(?,?,?,?,?,?,?,?)";
-	public static final String UPDATE_QUERY = "UPDATE inventory SET  itemCount=?, itemColor=?, itemOwner=?, isEquiped=?, slot=?, itemLocation=? WHERE itemUniqueId=?";
+	public static final String SELECT_QUERY = "SELECT `itemUniqueId`, `itemId`, `itemCount`, `itemColor`, `isEquiped`, `slot`, `enchant` FROM `inventory` WHERE `itemOwner`=? AND `itemLocation`=? AND `isEquiped`=?";
+	public static final String INSERT_QUERY = "INSERT INTO `inventory` (`itemUniqueId`, `itemId`, `itemCount`, `itemColor`, `itemOwner`, `isEquiped`, `slot`, `itemLocation`, `enchant`) VALUES(?,?,?,?,?,?,?,?,?)";
+	public static final String UPDATE_QUERY = "UPDATE inventory SET  itemCount=?, itemColor=?, itemOwner=?, isEquiped=?, slot=?, itemLocation=?, enchant=? WHERE itemUniqueId=?";
 	public static final String DELETE_QUERY = "DELETE FROM inventory WHERE itemUniqueId=?";
 	public static final String DELETE_CLEAN_QUERY = "DELETE FROM inventory WHERE itemOwner=? AND (itemLocation=0 OR itemLocation=1)";
 	public static final String SELECT_ACCOUNT_QUERY = "SELECT `account_id` FROM `players` WHERE `id`=?";
@@ -86,7 +86,8 @@ public class MySQL5InventoryDAO extends InventoryDAO
 					int itemColor = rset.getInt("itemColor");
 					int isEquiped = rset.getInt("isEquiped");
 					int slot = rset.getInt("slot");
-					Item item = new Item(itemUniqueId, itemId, itemCount, itemColor, isEquiped == 1, slot, storage);
+					int enchant = rset.getInt("enchant");
+					Item item = new Item(itemUniqueId, itemId, itemCount, itemColor, isEquiped == 1, slot, storage, enchant);
 					item.setPersistentState(PersistentState.UPDATED);
 					inventory.onLoadHandler(item);
 				}
@@ -125,7 +126,8 @@ public class MySQL5InventoryDAO extends InventoryDAO
 					int itemCount = rset.getInt("itemCount");
 					int itemColor = rset.getInt("itemColor");
 					int slot = rset.getInt("slot");
-					Item item = new Item(itemUniqueId, itemId, itemCount, itemColor, true, slot, storage);
+					int enchant = rset.getInt("enchant");
+					Item item = new Item(itemUniqueId, itemId, itemCount, itemColor, true, slot, storage, enchant);
 					item.setPersistentState(PersistentState.UPDATED);
 					equipment.onLoadHandler(item);
 				}
@@ -223,6 +225,7 @@ public class MySQL5InventoryDAO extends InventoryDAO
 				stmt.setBoolean(6, item.isEquipped());
 				stmt.setInt(7, item.getEquipmentSlot());
 				stmt.setInt(8, item.getItemLocation());
+				stmt.setInt(9, item.getEchantLevel());
 				stmt.execute();
 			}
 		});
@@ -244,7 +247,8 @@ public class MySQL5InventoryDAO extends InventoryDAO
 				stmt.setBoolean(4, item.isEquipped());
 				stmt.setInt(5, item.getEquipmentSlot());
 				stmt.setInt(6, item.getItemLocation());
-				stmt.setInt(7, item.getObjectId());
+				stmt.setInt(7, item.getEchantLevel());
+				stmt.setInt(8, item.getObjectId());
 				stmt.execute();
 			}
 		});

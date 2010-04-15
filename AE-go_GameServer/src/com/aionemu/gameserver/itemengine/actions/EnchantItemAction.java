@@ -63,8 +63,31 @@ public class EnchantItemAction extends AbstractItemAction
 			@Override
 			public void run()
 			{
-				PacketSendUtility.sendPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), parentItem
-					.getObjectId(), parentItem.getItemTemplate().getTemplateId(), 0, 1, 0));
+				
+				
+				int itemId = parentItem.getItemTemplate().getTemplateId();
+				if(itemId > 166000000 && itemId < 167000000)
+				{
+					boolean result = enchant(player, parentItem, targetItem);
+					PacketSendUtility.sendPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), parentItem
+						.getObjectId(), parentItem.getItemTemplate().getTemplateId(), 0, result ? 1 : 2, 0));
+				}
+				else
+				{
+					PacketSendUtility.sendPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), parentItem
+						.getObjectId(), parentItem.getItemTemplate().getTemplateId(), 0, 1, 0));
+					
+					manastone(player, parentItem, targetItem);
+				}
+			}
+
+			private boolean enchant(Player player, Item parentItem, Item targetItem)
+			{
+				return xsp.getEnchantService().enchantItem(player, parentItem, targetItem);
+			}
+
+			private void manastone(final Player player, final Item parentItem, final Item targetItem)
+			{
 				PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_GIVE_ITEM_OPTION_SUCCEED(new DescriptionId(
 					Integer.parseInt(targetItem.getName()))));
 
