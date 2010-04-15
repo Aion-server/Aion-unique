@@ -18,6 +18,7 @@ package com.aionemu.gameserver.controllers;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Summon;
+import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.Summon.SummonMode;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SUMMON_OWNER_REMOVE;
@@ -33,7 +34,16 @@ import com.aionemu.gameserver.utils.ThreadPoolManager;
  */
 public class SummonController extends CreatureController<Summon>
 {
-
+	@Override
+	public void notSee(VisibleObject object, boolean isOutOfRange)
+	{
+		super.notSee(object, isOutOfRange);
+		if(object.getObjectId() == getOwner().getMaster().getObjectId())
+		{
+			release(UnsummonType.DISTANCE);
+		}
+	}
+	
 	@Override
 	public Summon getOwner()
 	{
@@ -43,14 +53,31 @@ public class SummonController extends CreatureController<Summon>
 	/**
 	 * Release summon
 	 */
-	public void release()
+	public void release(final UnsummonType unsummonType)
 	{
 		final Summon owner = getOwner();
+		
+		if(owner.getMode() == SummonMode.RELEASE)
+			return;
+		owner.setMode(SummonMode.RELEASE);
+		
 		final Player master = owner.getMaster();
 		final int summonObjId = owner.getObjectId();
-		owner.setMode(SummonMode.RELEASE);
-		PacketSendUtility.sendPacket(master, SM_SYSTEM_MESSAGE.SUMMON_UNSUMMON(getOwner().getNameId()));
-		PacketSendUtility.sendPacket(master, new SM_SUMMON_UPDATE(getOwner()));
+
+		switch(unsummonType)
+		{
+			case COMMAND:
+				PacketSendUtility.sendPacket(master, SM_SYSTEM_MESSAGE.SUMMON_UNSUMMON(getOwner().getNameId()));
+				PacketSendUtility.sendPacket(master, new SM_SUMMON_UPDATE(getOwner()));
+				break;
+			case DISTANCE:
+				PacketSendUtility.sendPacket(getOwner().getMaster(), SM_SYSTEM_MESSAGE.SUMMON_UNSUMMON_BY_TOO_DISTANCE());
+				PacketSendUtility.sendPacket(master, new SM_SUMMON_UPDATE(getOwner()));
+				break;
+			case LOGOUT:
+			case UNSPECIFIED:
+				break;
+		}		
 		
 		ThreadPoolManager.getInstance().schedule(new Runnable(){
 			
@@ -60,10 +87,21 @@ public class SummonController extends CreatureController<Summon>
 				owner.setMaster(null);
 				master.setSummon(null);
 				owner.getController().delete();
-				PacketSendUtility.sendPacket(master, SM_SYSTEM_MESSAGE.SUMMON_DISMISSED(getOwner().getNameId()));
-				PacketSendUtility.sendPacket(master, new SM_SUMMON_OWNER_REMOVE(summonObjId));
-				//TODO temp till found on retail
-				PacketSendUtility.sendPacket(master, new SM_SUMMON_PANEL_REMOVE());
+				
+				switch(unsummonType)
+				{
+					case COMMAND:
+					case DISTANCE:
+						PacketSendUtility.sendPacket(master, SM_SYSTEM_MESSAGE.SUMMON_DISMISSED(getOwner().getNameId()));
+						PacketSendUtility.sendPacket(master, new SM_SUMMON_OWNER_REMOVE(summonObjId));
+						
+						//TODO temp till found on retail
+						PacketSendUtility.sendPacket(master, new SM_SUMMON_PANEL_REMOVE());
+						break;
+					case LOGOUT:
+					case UNSPECIFIED:
+						break;
+				}	
 			}
 		}, 5000);
 	}
@@ -97,5 +135,13 @@ public class SummonController extends CreatureController<Summon>
 		Player master = getOwner().getMaster();
 		PacketSendUtility.sendPacket(master, SM_SYSTEM_MESSAGE.SUMMON_ATTACKMODE(getOwner().getNameId()));
 		PacketSendUtility.sendPacket(master, new SM_SUMMON_UPDATE(getOwner()));
+	}
+	
+	public static enum UnsummonType
+	{
+		LOGOUT,
+		DISTANCE,
+		COMMAND,
+		UNSPECIFIED
 	}
 }

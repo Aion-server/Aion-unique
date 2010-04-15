@@ -296,4 +296,13 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 			}
 		}
 	}
+
+	/**
+	 * @param npcId
+	 */
+	public void createSummon(int npcId)
+	{
+		// TODO Auto-generated method stub
+		
+	}
 }

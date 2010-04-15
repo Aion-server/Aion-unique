@@ -25,6 +25,7 @@ import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.gameserver.configs.main.CacheConfig;
 import com.aionemu.gameserver.configs.main.GSConfig;
 import com.aionemu.gameserver.controllers.FlyController;
+import com.aionemu.gameserver.controllers.SummonController.UnsummonType;
 import com.aionemu.gameserver.controllers.effect.PlayerEffectController;
 import com.aionemu.gameserver.controllers.factory.ObjectControllerFactory;
 import com.aionemu.gameserver.dao.AbyssRankDAO;
@@ -412,7 +413,7 @@ public class PlayerService
 		
 		//temp
 		if(player.getSummon() != null)
-			player.getSummon().getController().release();
+			player.getSummon().getController().release(UnsummonType.LOGOUT);
 
 		punishmentService.stopPrisonTask(player, true);
 

@@ -16,6 +16,7 @@
  */
 package com.aionemu.gameserver.network.aion.clientpackets;
 
+import com.aionemu.gameserver.controllers.SummonController.UnsummonType;
 import com.aionemu.gameserver.model.gameobjects.AionObject;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Summon;
@@ -74,7 +75,7 @@ public class CM_SUMMON_COMMAND extends AionClientPacket
 					summon.getController().restMode();
 					break;
 				case 3:
-					summon.getController().release();
+					summon.getController().release(UnsummonType.COMMAND);
 					break;
 					
 			}

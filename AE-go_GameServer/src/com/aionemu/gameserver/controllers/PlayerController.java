@@ -49,6 +49,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_PRIVATE_STORE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SKILL_CANCEL;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SKILL_LIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_STATS_INFO;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_SUMMON_PANEL;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS.TYPE;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
@@ -588,4 +589,16 @@ public class PlayerController extends CreatureController<Player>
 		else
 			sp.getZoneService().stopDrowning(player);
 	}
+
+	@Override
+	public void createSummon(int npcId)
+	{
+		Player master = getOwner();
+		Summon summon = sp.getSpawnEngine().spawnSummon(master, npcId);
+		master.setSummon(summon);
+		PacketSendUtility.sendPacket(master, new SM_SUMMON_PANEL(summon));
+		PacketSendUtility.broadcastPacket(master, new SM_EMOTION(summon, 30));
+	}
+	
+	
 }
