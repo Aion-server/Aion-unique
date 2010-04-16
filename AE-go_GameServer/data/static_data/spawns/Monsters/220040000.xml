@@ -2035,7 +2035,7 @@ Beluslan-->
 		<object x="1248.98" y="740.0" z="228.5" h="46"/>
 	</spawn>
 	<!-- Clone (Monster Normal lvl:44)-->
-	<spawn map="210040000" npcid="280625" pool="2" interval="295">
+	<spawn map="220040000" npcid="280625" pool="2" interval="295">
 		<object x="1878.88" y="1901.33" z="595.32" h="72"/>
 		<object x="1755.08" y="2090.92" z="588.01" h="66"/>
 	</spawn>
