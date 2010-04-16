@@ -22,7 +22,9 @@ import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.model.Race;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.SkillList;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_SKILL_LIST;
 import com.aionemu.gameserver.skillengine.model.learn.SkillLearnTemplate;
+import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.google.inject.Inject;
 
 /**
@@ -76,7 +78,14 @@ public class SkillLearnService
 			{
 				addSkills(player, i, startinClass, playerRace, false);
 			}
-			player.getSkillList().removeSkill(30001);
+
+			if (player.getSkillList().getSkillEntry(30001) != null)
+			{
+				int skillLevel = player.getSkillList().getSkillLevel(30001);
+				player.getSkillList().removeSkill(30001);
+				PacketSendUtility.sendPacket(player, new SM_SKILL_LIST(player));
+				player.getSkillList().addSkill(player, 30002, skillLevel, true);
+			}
 		}	
 		
 	}

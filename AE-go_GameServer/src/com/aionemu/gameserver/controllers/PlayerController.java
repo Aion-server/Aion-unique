@@ -456,13 +456,15 @@ public class PlayerController extends CreatureController<Player>
 		
 		PacketSendUtility.sendPacket(player, new SM_STATS_INFO(player));
 
-		// add new skills
-		sp.getSkillLearnService().addNewSkills(player, false);
-		if(level == 10)
+		if(level == 10 && player.getSkillList().getSkillEntry(30001) != null)
 		{
+			int skillLevel = player.getSkillList().getSkillLevel(30001);
 			player.getSkillList().removeSkill(30001);
 			PacketSendUtility.sendPacket(player, new SM_SKILL_LIST(player));
+			player.getSkillList().addSkill(player, 30002, skillLevel, true);
 		}
+		// add new skills
+		sp.getSkillLearnService().addNewSkills(player, false);
 
 		/** update member list packet if player is legion member **/
 		if(player.isLegionMember())
