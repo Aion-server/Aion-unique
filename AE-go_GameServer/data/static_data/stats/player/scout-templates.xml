@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<stats_templates xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="stats.xsd">
+<stats_templates xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../stats.xsd">
 
 	<!-- Checked By Kamui 10/2009 at US Retail -->
 	<player_stats class="SCOUT" level="1">

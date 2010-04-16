@@ -119,7 +119,8 @@ public class StaticData
 	{
 		DataManager.log.info("Loaded world maps data: " + worldMapsData.size() + " maps");
 		DataManager.log.info("Loaded player exp table: " + playerExperienceTable.getMaxLevel() + " levels");
-		DataManager.log.info("Loaded " + statsData.size() + " stat templates");
+		DataManager.log.info("Loaded " + statsData.size() + " player stat templates");
+		DataManager.log.info("Loaded " + statsData.size2() + " summon stat templates");
 		DataManager.log.info("Loaded " + itemData.size() + " item templates");
 		DataManager.log.info("Loaded " + npcData.size() + " npc templates");
 		DataManager.log.info("Loaded " + playerInitialData.size() + " initial player templates");

@@ -33,6 +33,7 @@ import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.templates.stats.CalculatedPlayerStatsTemplate;
 import com.aionemu.gameserver.model.templates.stats.PlayerStatsTemplate;
+import com.aionemu.gameserver.model.templates.stats.SummonStatsTemplate;
 
 /**
  * Created on: 31.07.2009 14:20:03
@@ -45,31 +46,40 @@ public class PlayerStatsData
 {
 	@XmlElement(name = "player_stats", required = true)
 	private List<PlayerStatsType> templatesList = new ArrayList<PlayerStatsType>();
+	
+	@XmlElement(name = "summon_stats", required = true)
+	private List<SummonStatsType> summonTemplatesList = new ArrayList<SummonStatsType>();
 
-	private final TIntObjectHashMap<PlayerStatsTemplate> templates = new TIntObjectHashMap<PlayerStatsTemplate>();
+	private final TIntObjectHashMap<PlayerStatsTemplate> playerTemplates = new TIntObjectHashMap<PlayerStatsTemplate>();
+	private final TIntObjectHashMap<SummonStatsTemplate> summonTemplates = new TIntObjectHashMap<SummonStatsTemplate>();
 
 	void afterUnmarshal(Unmarshaller u, Object parent)
 	{
 		for (PlayerStatsType pt : templatesList)
 		{
 			int code = makeHash(pt.getRequiredPlayerClass(), pt.getRequiredLevel());
-
-			templates.put(code, pt.getTemplate());
+			playerTemplates.put(code, pt.getTemplate());
+		}
+		
+		for (SummonStatsType st : summonTemplatesList)
+		{
+			int code = makeHash2(st.getNpcId(), st.getRequiredLevel());
+			summonTemplates.put(code, st.getTemplate());
 		}
 		
 		/** for unknown templates **/
-		templates.put(makeHash(PlayerClass.WARRIOR, 0), new CalculatedPlayerStatsTemplate(PlayerClass.WARRIOR));
-		templates.put(makeHash(PlayerClass.ASSASSIN, 0), new CalculatedPlayerStatsTemplate(PlayerClass.ASSASSIN));
-		templates.put(makeHash(PlayerClass.CHANTER, 0), new CalculatedPlayerStatsTemplate(PlayerClass.CHANTER));
-		templates.put(makeHash(PlayerClass.CLERIC, 0), new CalculatedPlayerStatsTemplate(PlayerClass.CLERIC));
-		templates.put(makeHash(PlayerClass.GLADIATOR, 0), new CalculatedPlayerStatsTemplate(PlayerClass.GLADIATOR));
-		templates.put(makeHash(PlayerClass.MAGE, 0), new CalculatedPlayerStatsTemplate(PlayerClass.MAGE));
-		templates.put(makeHash(PlayerClass.PRIEST, 0), new CalculatedPlayerStatsTemplate(PlayerClass.PRIEST));
-		templates.put(makeHash(PlayerClass.RANGER, 0), new CalculatedPlayerStatsTemplate(PlayerClass.RANGER));
-		templates.put(makeHash(PlayerClass.SCOUT, 0), new CalculatedPlayerStatsTemplate(PlayerClass.SCOUT));
-		templates.put(makeHash(PlayerClass.SORCERER, 0), new CalculatedPlayerStatsTemplate(PlayerClass.SORCERER));
-		templates.put(makeHash(PlayerClass.SPIRIT_MASTER, 0), new CalculatedPlayerStatsTemplate(PlayerClass.SPIRIT_MASTER));
-		templates.put(makeHash(PlayerClass.TEMPLAR, 0), new CalculatedPlayerStatsTemplate(PlayerClass.TEMPLAR));
+		playerTemplates.put(makeHash(PlayerClass.WARRIOR, 0), new CalculatedPlayerStatsTemplate(PlayerClass.WARRIOR));
+		playerTemplates.put(makeHash(PlayerClass.ASSASSIN, 0), new CalculatedPlayerStatsTemplate(PlayerClass.ASSASSIN));
+		playerTemplates.put(makeHash(PlayerClass.CHANTER, 0), new CalculatedPlayerStatsTemplate(PlayerClass.CHANTER));
+		playerTemplates.put(makeHash(PlayerClass.CLERIC, 0), new CalculatedPlayerStatsTemplate(PlayerClass.CLERIC));
+		playerTemplates.put(makeHash(PlayerClass.GLADIATOR, 0), new CalculatedPlayerStatsTemplate(PlayerClass.GLADIATOR));
+		playerTemplates.put(makeHash(PlayerClass.MAGE, 0), new CalculatedPlayerStatsTemplate(PlayerClass.MAGE));
+		playerTemplates.put(makeHash(PlayerClass.PRIEST, 0), new CalculatedPlayerStatsTemplate(PlayerClass.PRIEST));
+		playerTemplates.put(makeHash(PlayerClass.RANGER, 0), new CalculatedPlayerStatsTemplate(PlayerClass.RANGER));
+		playerTemplates.put(makeHash(PlayerClass.SCOUT, 0), new CalculatedPlayerStatsTemplate(PlayerClass.SCOUT));
+		playerTemplates.put(makeHash(PlayerClass.SORCERER, 0), new CalculatedPlayerStatsTemplate(PlayerClass.SORCERER));
+		playerTemplates.put(makeHash(PlayerClass.SPIRIT_MASTER, 0), new CalculatedPlayerStatsTemplate(PlayerClass.SPIRIT_MASTER));
+		playerTemplates.put(makeHash(PlayerClass.TEMPLAR, 0), new CalculatedPlayerStatsTemplate(PlayerClass.TEMPLAR));
 		
 		templatesList.clear();
 		templatesList = null;
@@ -85,18 +95,33 @@ public class PlayerStatsData
 
 	public PlayerStatsTemplate getTemplate(PlayerClass playerClass, int level)
 	{
-		PlayerStatsTemplate template =  templates.get(makeHash(playerClass, level));
+		PlayerStatsTemplate template =  playerTemplates.get(makeHash(playerClass, level));
 		if(template == null)
 			template = getTemplate(playerClass, 0);
 		return template;
 	}
 
+	/**
+	 * Size of player templates
+	 * 
+	 * @return
+	 */
 	public int size()
 	{
-		return templates.size();
+		return playerTemplates.size();
+	}
+	
+	/**
+	 * Size of summon templates
+	 * 
+	 * @return
+	 */
+	public int size2()
+	{
+		return summonTemplates.size();
 	}
 
-	@XmlRootElement(name="player_stats")
+	@XmlRootElement(name="playerStatsTemplateType")
 	private static class PlayerStatsType
 	{
 		@XmlAttribute(name = "class", required = true)
@@ -122,9 +147,67 @@ public class PlayerStatsData
 			return template;
 		}
 	}
+	
+	@XmlRootElement(name="summonStatsTemplateType")
+	private static class SummonStatsType
+	{
+		@XmlAttribute(name = "npc_id", required = true)
+		private int npcId;
+		@XmlAttribute(name = "level", required = true)
+		private int requiredLevel;
 
+		@XmlElement(name="stats_template")
+		private SummonStatsTemplate template;
+
+		
+		/**
+		 * @return the npcId
+		 */
+		public int getNpcId()
+		{
+			return npcId;
+		}
+
+		/**
+		 * 
+		 * @return requiredLevel
+		 */
+		public int getRequiredLevel()
+		{
+			return requiredLevel;
+		}
+
+		/**
+		 * 
+		 * @return template
+		 */
+		public SummonStatsTemplate getTemplate()
+		{
+			return template;
+		}
+	}
+
+	/**
+	 * 
+	 * @param playerClass
+	 * @param level
+	 * @return
+	 */
 	private static int makeHash(PlayerClass playerClass, int level)
 	{
 		return level << 8 | playerClass.ordinal();
+	}
+	
+	/**
+	 *  Note:<br>
+	 *  max level is 255
+	 *  
+	 * @param npcId
+	 * @param level
+	 * @return
+	 */
+	private static int makeHash2(int npcId, int level)
+	{
+		return npcId << 8 | level;
 	}
 }

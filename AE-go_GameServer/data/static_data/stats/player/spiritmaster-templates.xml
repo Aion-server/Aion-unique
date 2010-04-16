@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<stats_templates xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="stats.xsd">
+<stats_templates xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../stats.xsd">
 
 	<!-- Checked By Kamui 10/2009 at US Retail -->
-	<player_stats class="SORCERER" level="9">
-		<stats_template maxHp="416" maxMp="1215"
-		                power="90" health="90" agility="100" accuracy="100" knowledge="120" will="110"
+	<player_stats class="SPIRIT_MASTER" level="9">
+		<stats_template maxHp="448" maxMp="1245"
+		                power="90" health="90" agility="100" accuracy="100" knowledge="115" will="115"
 		                walk_speed="1.5" run_speed="6" fly_speed="9"
 		                attack_speed="1.5"
 		                evasion="173" block="173" parry="173"
@@ -13,9 +13,9 @@
 	</player_stats>
 
 	<!-- Checked By Kamui 10/2009 at US Retail -->
-	<player_stats class="SORCERER" level="10">
-		<stats_template maxHp="458" maxMp="1320"
-		                power="90" health="90" agility="100" accuracy="100" knowledge="120" will="110"
+	<player_stats class="SPIRIT_MASTER" level="10">
+		<stats_template maxHp="493" maxMp="1350"
+		                power="90" health="90" agility="100" accuracy="100" knowledge="115" will="115"
 		                walk_speed="1.5" run_speed="6" fly_speed="9"
 		                attack_speed="1.5"
 		                evasion="186" block="186" parry="186"
@@ -24,9 +24,9 @@
 	</player_stats>
 
 	<!-- Checked By Kamui 10/2009 at US Retail -->
-	<player_stats class="SORCERER" level="11">
-		<stats_template maxHp="501" maxMp="1425"
-		                power="90" health="90" agility="100" accuracy="100" knowledge="120" will="110"
+	<player_stats class="SPIRIT_MASTER" level="11">
+		<stats_template maxHp="540" maxMp="1455"
+		                power="90" health="90" agility="100" accuracy="100" knowledge="115" will="115"
 		                walk_speed="1.5" run_speed="6" fly_speed="9"
 		                attack_speed="1.5"
 		                evasion="198" block="198" parry="198"
@@ -35,9 +35,9 @@
 	</player_stats>
 
 	<!-- Checked By Kamui 10/2009 at US Retail -->
-	<player_stats class="SORCERER" level="12">
-		<stats_template maxHp="547" maxMp="1531"
-		                power="90" health="90" agility="100" accuracy="100" knowledge="120" will="110"
+	<player_stats class="SPIRIT_MASTER" level="12">
+		<stats_template maxHp="589" maxMp="1561"
+		                power="90" health="90" agility="100" accuracy="100" knowledge="115" will="115"
 		                walk_speed="1.5" run_speed="6" fly_speed="9"
 		                attack_speed="1.5"
 		                evasion="210" block="210" parry="210"
@@ -46,9 +46,9 @@
 	</player_stats>
 
 	<!-- Checked By Kamui 10/2009 at US Retail -->
-	<player_stats class="SORCERER" level="13">
-		<stats_template maxHp="593" maxMp="1636"
-		                power="90" health="90" agility="100" accuracy="100" knowledge="120" will="110"
+	<player_stats class="SPIRIT_MASTER" level="13">
+		<stats_template maxHp="639" maxMp="1666"
+		                power="90" health="90" agility="100" accuracy="100" knowledge="115" will="115"
 		                walk_speed="1.5" run_speed="6" fly_speed="9"
 		                attack_speed="1.5"
 		                evasion="223" block="223" parry="223"
@@ -57,9 +57,9 @@
 	</player_stats>
 
 	<!-- Checked By Kamui 10/2009 at US Retail -->
-	<player_stats class="SORCERER" level="14">
-		<stats_template maxHp="641" maxMp="1741"
-		                power="90" health="90" agility="100" accuracy="100" knowledge="120" will="110"
+	<player_stats class="SPIRIT_MASTER" level="14">
+		<stats_template maxHp="691" maxMp="1771"
+		                power="90" health="90" agility="100" accuracy="100" knowledge="115" will="115"
 		                walk_speed="1.5" run_speed="6" fly_speed="9"
 		                attack_speed="1.5"
 		                evasion="235" block="235" parry="235"
@@ -68,9 +68,9 @@
 	</player_stats>
 
 	<!-- Checked By Kamui 10/2009 at US Retail -->
-	<player_stats class="SORCERER" level="15">
-		<stats_template maxHp="691" maxMp="1846"
-		                power="90" health="90" agility="100" accuracy="100" knowledge="120" will="110"
+	<player_stats class="SPIRIT_MASTER" level="15">
+		<stats_template maxHp="744" maxMp="1876"
+		                power="90" health="90" agility="100" accuracy="100" knowledge="115" will="115"
 		                walk_speed="1.5" run_speed="6" fly_speed="9"
 		                attack_speed="1.5"
 		                evasion="248" block="248" parry="248"
@@ -79,9 +79,9 @@
 	</player_stats>
 
 	<!-- Checked By Kamui 10/2009 at US Retail -->
-	<player_stats class="SORCERER" level="16">
-		<stats_template maxHp="742" maxMp="1951"
-		                power="90" health="90" agility="100" accuracy="100" knowledge="120" will="110"
+	<player_stats class="SPIRIT_MASTER" level="16">
+		<stats_template maxHp="799" maxMp="1981"
+		                power="90" health="90" agility="100" accuracy="100" knowledge="115" will="115"
 		                walk_speed="1.5" run_speed="6" fly_speed="9"
 		                attack_speed="1.5"
 		                evasion="260" block="260" parry="260"
@@ -90,9 +90,9 @@
 	</player_stats>
 
 	<!-- Checked By Kamui 10/2009 at US Retail -->
-	<player_stats class="SORCERER" level="17">
-		<stats_template maxHp="795" maxMp="2057"
-		                power="90" health="90" agility="100" accuracy="100" knowledge="120" will="110"
+	<player_stats class="SPIRIT_MASTER" level="17">
+		<stats_template maxHp="856" maxMp="2087"
+		                power="90" health="90" agility="100" accuracy="100" knowledge="115" will="115"
 		                walk_speed="1.5" run_speed="6" fly_speed="9"
 		                attack_speed="1.5"
 		                evasion="272" block="272" parry="272"
@@ -101,9 +101,9 @@
 	</player_stats>
 
 	<!-- Checked By Kamui 10/2009 at US Retail -->
-	<player_stats class="SORCERER" level="18">
-		<stats_template maxHp="849" maxMp="2162"
-		                power="90" health="90" agility="100" accuracy="100" knowledge="120" will="110"
+	<player_stats class="SPIRIT_MASTER" level="18">
+		<stats_template maxHp="914" maxMp="2192"
+		                power="90" health="90" agility="100" accuracy="100" knowledge="115" will="115"
 		                walk_speed="1.5" run_speed="6" fly_speed="9"
 		                attack_speed="1.5"
 		                evasion="285" block="285" parry="285"
@@ -112,9 +112,9 @@
 	</player_stats>
 
 	<!-- Checked By Kamui 10/2009 at US Retail -->
-	<player_stats class="SORCERER" level="19">
-		<stats_template maxHp="904" maxMp="2267"
-		                power="90" health="90" agility="100" accuracy="100" knowledge="120" will="110"
+	<player_stats class="SPIRIT_MASTER" level="19">
+		<stats_template maxHp="974" maxMp="2297"
+		                power="90" health="90" agility="100" accuracy="100" knowledge="115" will="115"
 		                walk_speed="1.5" run_speed="6" fly_speed="9"
 		                attack_speed="1.5"
 		                evasion="297" block="297" parry="297"
@@ -123,9 +123,9 @@
 	</player_stats>
 
 	<!-- Checked By Kamui 11/2009 at US Retail -->
-	<player_stats class="SORCERER" level="20">
-		<stats_template maxHp="961" maxMp="2373"
-		                power="90" health="90" agility="100" accuracy="100" knowledge="120" will="110"
+	<player_stats class="SPIRIT_MASTER" level="20">
+		<stats_template maxHp="1036" maxMp="2403"
+		                power="90" health="90" agility="100" accuracy="100" knowledge="115" will="115"
 		                walk_speed="1.5" run_speed="6" fly_speed="9"
 		                attack_speed="1.5"
 		                evasion="310" block="310" parry="310"
@@ -134,9 +134,9 @@
 	</player_stats>
 
 	<!-- Checked By Kamui 11/2009 at US Retail -->
-	<player_stats class="SORCERER" level="21">
-		<stats_template maxHp="1020" maxMp="2478"
-		                power="90" health="90" agility="100" accuracy="100" knowledge="120" will="110"
+	<player_stats class="SPIRIT_MASTER" level="21">
+		<stats_template maxHp="1099" maxMp="2508"
+		                power="90" health="90" agility="100" accuracy="100" knowledge="115" will="115"
 		                walk_speed="1.5" run_speed="6" fly_speed="9"
 		                attack_speed="1.5"
 		                evasion="322" block="322" parry="322"
@@ -145,9 +145,9 @@
 	</player_stats>
 
 	<!-- Checked By Kamui 11/2009 at US Retail -->
-	<player_stats class="SORCERER" level="22">
-		<stats_template maxHp="1080" maxMp="2583"
-		                power="90" health="90" agility="100" accuracy="100" knowledge="120" will="110"
+	<player_stats class="SPIRIT_MASTER" level="22">
+		<stats_template maxHp="1163" maxMp="2613"
+		                power="90" health="90" agility="100" accuracy="100" knowledge="115" will="115"
 		                walk_speed="1.5" run_speed="6" fly_speed="9"
 		                attack_speed="1.5"
 		                evasion="334" block="334" parry="334"
@@ -156,9 +156,9 @@
 	</player_stats>
 
 	<!-- Checked By Kamui 11/2009 at US Retail -->
-	<player_stats class="SORCERER" level="23">
-		<stats_template maxHp="1142" maxMp="2688"
-		                power="90" health="90" agility="100" accuracy="100" knowledge="120" will="110"
+	<player_stats class="SPIRIT_MASTER" level="23">
+		<stats_template maxHp="1230" maxMp="2718"
+		                power="90" health="90" agility="100" accuracy="100" knowledge="115" will="115"
 		                walk_speed="1.5" run_speed="6" fly_speed="9"
 		                attack_speed="1.5"
 		                evasion="347" block="347" parry="347"
@@ -167,9 +167,9 @@
 	</player_stats>
 
 	<!-- Checked By Kamui 11/2009 at US Retail -->
-	<player_stats class="SORCERER" level="24">
-		<stats_template maxHp="1205" maxMp="2794"
-		                power="90" health="90" agility="100" accuracy="100" knowledge="120" will="110"
+	<player_stats class="SPIRIT_MASTER" level="24">
+		<stats_template maxHp="1298" maxMp="2824"
+		                power="90" health="90" agility="100" accuracy="100" knowledge="115" will="115"
 		                walk_speed="1.5" run_speed="6" fly_speed="9"
 		                attack_speed="1.5"
 		                evasion="359" block="359" parry="359"
@@ -178,9 +178,9 @@
 	</player_stats>
 
 	<!-- Checked By Kamui 11/2009 at US Retail -->
-	<player_stats class="SORCERER" level="25">
-		<stats_template maxHp="1269" maxMp="2899"
-		                power="90" health="90" agility="100" accuracy="100" knowledge="120" will="110"
+	<player_stats class="SPIRIT_MASTER" level="25">
+		<stats_template maxHp="1367" maxMp="2929"
+		                power="90" health="90" agility="100" accuracy="100" knowledge="115" will="115"
 		                walk_speed="1.5" run_speed="6" fly_speed="9"
 		                attack_speed="1.5"
 		                evasion="372" block="372" parry="372"
@@ -189,9 +189,9 @@
 	</player_stats>
 
 	<!-- Checked By Kamui 11/2009 at US Retail -->
-	<player_stats class="SORCERER" level="26">
-		<stats_template maxHp="1336" maxMp="3005"
-		                power="90" health="90" agility="100" accuracy="100" knowledge="120" will="110"
+	<player_stats class="SPIRIT_MASTER" level="26">
+		<stats_template maxHp="1438" maxMp="3035"
+		                power="90" health="90" agility="100" accuracy="100" knowledge="115" will="115"
 		                walk_speed="1.5" run_speed="6" fly_speed="9"
 		                attack_speed="1.5"
 		                evasion="384" block="384" parry="384"
@@ -200,9 +200,9 @@
 	</player_stats>
 
 	<!-- Checked By Kamui 11/2009 at US Retail -->
-	<player_stats class="SORCERER" level="27">
-		<stats_template maxHp="1403" maxMp="3110"
-		                power="90" health="90" agility="100" accuracy="100" knowledge="120" will="110"
+	<player_stats class="SPIRIT_MASTER" level="27">
+		<stats_template maxHp="1511" maxMp="3140"
+		                power="90" health="90" agility="100" accuracy="100" knowledge="115" will="115"
 		                walk_speed="1.5" run_speed="6" fly_speed="9"
 		                attack_speed="1.5"
 		                evasion="396" block="396" parry="396"
@@ -211,9 +211,9 @@
 	</player_stats>
 
 	<!-- Checked By Kamui 11/2009 at US Retail -->
-	<player_stats class="SORCERER" level="28">
-		<stats_template maxHp="1472" maxMp="3215"
-		                power="90" health="90" agility="100" accuracy="100" knowledge="120" will="110"
+	<player_stats class="SPIRIT_MASTER" level="28">
+		<stats_template maxHp="1585" maxMp="3245"
+		                power="90" health="90" agility="100" accuracy="100" knowledge="115" will="115"
 		                walk_speed="1.5" run_speed="6" fly_speed="9"
 		                attack_speed="1.5"
 		                evasion="409" block="409" parry="409"
@@ -222,9 +222,9 @@
 	</player_stats>
 
 	<!-- Checked By Kamui 11/2009 at US Retail -->
-	<player_stats class="SORCERER" level="29">
-		<stats_template maxHp="1543" maxMp="3321"
-		                power="90" health="90" agility="100" accuracy="100" knowledge="120" will="110"
+	<player_stats class="SPIRIT_MASTER" level="29">
+		<stats_template maxHp="1661" maxMp="3351"
+		                power="90" health="90" agility="100" accuracy="100" knowledge="115" will="115"
 		                walk_speed="1.5" run_speed="6" fly_speed="9"
 		                attack_speed="1.5"
 		                evasion="421" block="421" parry="421"
@@ -233,9 +233,9 @@
 	</player_stats>
 
 	<!-- Checked By Kamui 11/2009 at US Retail -->
-	<player_stats class="SORCERER" level="30">
-		<stats_template maxHp="1615" maxMp="3426"
-		                power="90" health="90" agility="100" accuracy="100" knowledge="120" will="110"
+	<player_stats class="SPIRIT_MASTER" level="30">
+		<stats_template maxHp="1739" maxMp="3456"
+		                power="90" health="90" agility="100" accuracy="100" knowledge="115" will="115"
 		                walk_speed="1.5" run_speed="6" fly_speed="9"
 		                attack_speed="1.5"
 		                evasion="434" block="434" parry="434"
@@ -244,9 +244,9 @@
 	</player_stats>
 
 	<!-- Checked By Kamui 11/2009 at US Retail -->
-	<player_stats class="SORCERER" level="31">
-		<stats_template maxHp="1688" maxMp="3532"
-		                power="90" health="90" agility="100" accuracy="100" knowledge="120" will="110"
+	<player_stats class="SPIRIT_MASTER" level="31">
+		<stats_template maxHp="1818" maxMp="3562"
+		                power="90" health="90" agility="100" accuracy="100" knowledge="115" will="115"
 		                walk_speed="1.5" run_speed="6" fly_speed="9"
 		                attack_speed="1.5"
 		                evasion="446" block="446" parry="446"
@@ -255,9 +255,9 @@
 	</player_stats>
 
 	<!-- Checked By Kamui 11/2009 at US Retail -->
-	<player_stats class="SORCERER" level="32">
-		<stats_template maxHp="1763" maxMp="3637"
-		                power="90" health="90" agility="100" accuracy="100" knowledge="120" will="110"
+	<player_stats class="SPIRIT_MASTER" level="32">
+		<stats_template maxHp="1899" maxMp="3667"
+		                power="90" health="90" agility="100" accuracy="100" knowledge="115" will="115"
 		                walk_speed="1.5" run_speed="6" fly_speed="9"
 		                attack_speed="1.5"
 		                evasion="458" block="458" parry="458"
@@ -266,9 +266,9 @@
 	</player_stats>
 
 	<!-- Checked By Kamui 11/2009 at US Retail -->
-	<player_stats class="SORCERER" level="33">
-		<stats_template maxHp="1840" maxMp="3743"
-		                power="90" health="90" agility="100" accuracy="100" knowledge="120" will="110"
+	<player_stats class="SPIRIT_MASTER" level="33">
+		<stats_template maxHp="1981" maxMp="3773"
+		                power="90" health="90" agility="100" accuracy="100" knowledge="115" will="115"
 		                walk_speed="1.5" run_speed="6" fly_speed="9"
 		                attack_speed="1.5"
 		                evasion="471" block="471" parry="471"
@@ -277,9 +277,9 @@
 	</player_stats>
 
 	<!-- Checked By Kamui 11/2009 at US Retail -->
-	<player_stats class="SORCERER" level="34">
-		<stats_template maxHp="1918" maxMp="3848"
-		                power="90" health="90" agility="100" accuracy="100" knowledge="120" will="110"
+	<player_stats class="SPIRIT_MASTER" level="34">
+		<stats_template maxHp="2065" maxMp="3878"
+		                power="90" health="90" agility="100" accuracy="100" knowledge="115" will="115"
 		                walk_speed="1.5" run_speed="6" fly_speed="9"
 		                attack_speed="1.5"
 		                evasion="483" block="483" parry="483"
@@ -288,9 +288,9 @@
 	</player_stats>
 
 	<!-- Checked By Kamui 11/2009 at US Retail -->
-	<player_stats class="SORCERER" level="35">
-		<stats_template maxHp="1997" maxMp="3654"
-		                power="90" health="90" agility="100" accuracy="100" knowledge="120" will="110"
+	<player_stats class="SPIRIT_MASTER" level="35">
+		<stats_template maxHp="2151" maxMp="3984"
+		                power="90" health="90" agility="100" accuracy="100" knowledge="115" will="115"
 		                walk_speed="1.5" run_speed="6" fly_speed="9"
 		                attack_speed="1.5"
 		                evasion="496" block="496" parry="496"
@@ -299,9 +299,9 @@
 	</player_stats>
 
 	<!-- Checked By Kamui 11/2009 at US Retail -->
-	<player_stats class="SORCERER" level="36">
-		<stats_template maxHp="2078" maxMp="4059"
-		                power="90" health="90" agility="100" accuracy="100" knowledge="120" will="110"
+	<player_stats class="SPIRIT_MASTER" level="36">
+		<stats_template maxHp="2238" maxMp="4089"
+		                power="90" health="90" agility="100" accuracy="100" knowledge="115" will="115"
 		                walk_speed="1.5" run_speed="6" fly_speed="9"
 		                attack_speed="1.5"
 		                evasion="508" block="508" parry="508"
@@ -310,9 +310,9 @@
 	</player_stats>
 
 	<!-- Checked By Kamui 11/2009 at US Retail -->
-	<player_stats class="SORCERER" level="37">
-		<stats_template maxHp="2161" maxMp="4165"
-		                power="90" health="90" agility="100" accuracy="100" knowledge="120" will="110"
+	<player_stats class="SPIRIT_MASTER" level="37">
+		<stats_template maxHp="2327" maxMp="4195"
+		                power="90" health="90" agility="100" accuracy="100" knowledge="115" will="115"
 		                walk_speed="1.5" run_speed="6" fly_speed="9"
 		                attack_speed="1.5"
 		                evasion="520" block="520" parry="520"
@@ -321,9 +321,9 @@
 	</player_stats>
 
 	<!-- Checked By Kamui 11/2009 at US Retail -->
-	<player_stats class="SORCERER" level="38">
-		<stats_template maxHp="2245" maxMp="4270"
-		                power="90" health="90" agility="100" accuracy="100" knowledge="120" will="110"
+	<player_stats class="SPIRIT_MASTER" level="38">
+		<stats_template maxHp="2418" maxMp="4300"
+		                power="90" health="90" agility="100" accuracy="100" knowledge="115" will="115"
 		                walk_speed="1.5" run_speed="6" fly_speed="9"
 		                attack_speed="1.5"
 		                evasion="533" block="533" parry="533"
@@ -332,9 +332,9 @@
 	</player_stats>
 
 	<!-- Checked By Kamui 11/2009 at US Retail -->
-	<player_stats class="SORCERER" level="39">
-		<stats_template maxHp="2330" maxMp="4376"
-		                power="90" health="90" agility="100" accuracy="100" knowledge="120" will="110"
+	<player_stats class="SPIRIT_MASTER" level="39">
+		<stats_template maxHp="2510" maxMp="4406"
+		                power="90" health="90" agility="100" accuracy="100" knowledge="115" will="115"
 		                walk_speed="1.5" run_speed="6" fly_speed="9"
 		                attack_speed="1.5"
 		                evasion="545" block="545" parry="545"
@@ -343,9 +343,9 @@
 	</player_stats>
 
 	<!-- Checked By Kamui 11/2009 at US Retail -->
-	<player_stats class="SORCERER" level="40">
-		<stats_template maxHp="2418" maxMp="4482"
-		                power="90" health="90" agility="100" accuracy="100" knowledge="120" will="110"
+	<player_stats class="SPIRIT_MASTER" level="40">
+		<stats_template maxHp="2604" maxMp="4512"
+		                power="90" health="90" agility="100" accuracy="100" knowledge="115" will="115"
 		                walk_speed="1.5" run_speed="6" fly_speed="9"
 		                attack_speed="1.5"
 		                evasion="558" block="558" parry="558"
@@ -354,9 +354,9 @@
 	</player_stats>
 
 	<!-- Checked By Kamui 11/2009 at US Retail -->
-	<player_stats class="SORCERER" level="41">
-		<stats_template maxHp="2506" maxMp="4587"
-		                power="90" health="90" agility="100" accuracy="100" knowledge="120" will="110"
+	<player_stats class="SPIRIT_MASTER" level="41">
+		<stats_template maxHp="2699" maxMp="4617"
+		                power="90" health="90" agility="100" accuracy="100" knowledge="115" will="115"
 		                walk_speed="1.5" run_speed="6" fly_speed="9"
 		                attack_speed="1.5"
 		                evasion="570" block="570" parry="570"
@@ -365,9 +365,9 @@
 	</player_stats>
 
 	<!-- Checked By Kamui 11/2009 at US Retail -->
-	<player_stats class="SORCERER" level="42">
-		<stats_template maxHp="2596" maxMp="4693"
-		                power="90" health="90" agility="100" accuracy="100" knowledge="120" will="110"
+	<player_stats class="SPIRIT_MASTER" level="42">
+		<stats_template maxHp="2796" maxMp="4723"
+		                power="90" health="90" agility="100" accuracy="100" knowledge="115" will="115"
 		                walk_speed="1.5" run_speed="6" fly_speed="9"
 		                attack_speed="1.5"
 		                evasion="582" block="582" parry="582"
@@ -376,9 +376,9 @@
 	</player_stats>
 
 	<!-- Checked By Kamui 11/2009 at US Retail -->
-	<player_stats class="SORCERER" level="43">
-		<stats_template maxHp="2687" maxMp="4798"
-		                power="90" health="90" agility="100" accuracy="100" knowledge="120" will="110"
+	<player_stats class="SPIRIT_MASTER" level="43">
+		<stats_template maxHp="2894" maxMp="4828"
+		                power="90" health="90" agility="100" accuracy="100" knowledge="115" will="115"
 		                walk_speed="1.5" run_speed="6" fly_speed="9"
 		                attack_speed="1.5"
 		                evasion="595" block="595" parry="595"
@@ -387,9 +387,9 @@
 	</player_stats>
 
 	<!-- Checked By Kamui 11/2009 at US Retail -->
-	<player_stats class="SORCERER" level="44">
-		<stats_template maxHp="2780" maxMp="4904"
-		                power="90" health="90" agility="100" accuracy="100" knowledge="120" will="110"
+	<player_stats class="SPIRIT_MASTER" level="44">
+		<stats_template maxHp="2994" maxMp="4934"
+		                power="90" health="90" agility="100" accuracy="100" knowledge="115" will="115"
 		                walk_speed="1.5" run_speed="6" fly_speed="9"
 		                attack_speed="1.5"
 		                evasion="607" block="607" parry="607"
@@ -398,9 +398,9 @@
 	</player_stats>
 
 	<!-- Checked By Kamui 11/2009 at US Retail -->
-	<player_stats class="SORCERER" level="45">
-		<stats_template maxHp="2875" maxMp="5010"
-		                power="90" health="90" agility="100" accuracy="100" knowledge="120" will="110"
+	<player_stats class="SPIRIT_MASTER" level="45">
+		<stats_template maxHp="3096" maxMp="5040"
+		                power="90" health="90" agility="100" accuracy="100" knowledge="115" will="115"
 		                walk_speed="1.5" run_speed="6" fly_speed="9"
 		                attack_speed="1.5"
 		                evasion="620" block="620" parry="620"
@@ -409,9 +409,9 @@
 	</player_stats>
 
 	<!-- Checked By Kamui 11/2009 at US Retail -->
-	<player_stats class="SORCERER" level="46">
-		<stats_template maxHp="2971" maxMp="5115"
-		                power="90" health="90" agility="100" accuracy="100" knowledge="120" will="110"
+	<player_stats class="SPIRIT_MASTER" level="46">
+		<stats_template maxHp="3199" maxMp="5145"
+		                power="90" health="90" agility="100" accuracy="100" knowledge="115" will="115"
 		                walk_speed="1.5" run_speed="6" fly_speed="9"
 		                attack_speed="1.5"
 		                evasion="632" block="632" parry="632"
@@ -420,9 +420,9 @@
 	</player_stats>
 
 	<!-- Checked By Kamui 11/2009 at US Retail -->
-	<player_stats class="SORCERER" level="47">
-		<stats_template maxHp="3068" maxMp="5221"
-		                power="90" health="90" agility="100" accuracy="100" knowledge="120" will="110"
+	<player_stats class="SPIRIT_MASTER" level="47">
+		<stats_template maxHp="3304" maxMp="5251"
+		                power="90" health="90" agility="100" accuracy="100" knowledge="115" will="115"
 		                walk_speed="1.5" run_speed="6" fly_speed="9"
 		                attack_speed="1.5"
 		                evasion="644" block="644" parry="644"
@@ -431,9 +431,9 @@
 	</player_stats>
 
 	<!-- Checked By Kamui 11/2009 at US Retail -->
-	<player_stats class="SORCERER" level="48">
-		<stats_template maxHp="3167" maxMp="5327"
-		                power="90" health="90" agility="100" accuracy="100" knowledge="120" will="110"
+	<player_stats class="SPIRIT_MASTER" level="48">
+		<stats_template maxHp="3411" maxMp="5357"
+		                power="90" health="90" agility="100" accuracy="100" knowledge="115" will="115"
 		                walk_speed="1.5" run_speed="6" fly_speed="9"
 		                attack_speed="1.5"
 		                evasion="657" block="657" parry="657"
@@ -442,9 +442,9 @@
 	</player_stats>
 
 	<!-- Checked By Kamui 11/2009 at US Retail -->
-	<player_stats class="SORCERER" level="49">
-		<stats_template maxHp="3268" maxMp="5433"
-		                power="90" health="90" agility="100" accuracy="100" knowledge="120" will="110"
+	<player_stats class="SPIRIT_MASTER" level="49">
+		<stats_template maxHp="3519" maxMp="5463"
+		                power="90" health="90" agility="100" accuracy="100" knowledge="115" will="115"
 		                walk_speed="1.5" run_speed="6" fly_speed="9"
 		                attack_speed="1.5"
 		                evasion="669" block="669" parry="669"
@@ -453,9 +453,9 @@
 	</player_stats>
 
 	<!-- Checked By Kamui 11/2009 at US Retail -->
-	<player_stats class="SORCERER" level="50">
-		<stats_template maxHp="3370" maxMp="5538"
-		                power="90" health="90" agility="100" accuracy="100" knowledge="120" will="110"
+	<player_stats class="SPIRIT_MASTER" level="50">
+		<stats_template maxHp="3629" maxMp="5568"
+		                power="90" health="90" agility="100" accuracy="100" knowledge="115" will="115"
 		                walk_speed="1.5" run_speed="6" fly_speed="9"
 		                attack_speed="1.5"
 		                evasion="682" block="682" parry="682"
