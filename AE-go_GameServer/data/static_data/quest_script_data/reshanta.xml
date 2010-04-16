@@ -305,37 +305,65 @@
 
 	<!-- TODO: Quest Id: 2773  Signed, Sealed, Delivered -->
 
-	<!-- TODO: Quest Id: 1771  Collecting Ancient Swords -->
+	<!-- 1771  Collecting Ancient Swords -->
+	<item_collecting id="1771" start_npc_id="279019"/>
 
-	<!-- TODO: Quest Id: 2708  Defeat 3rd Rank Elyos Soldiers -->
+	<!-- 2708  Defeat 3rd Rank Elyos Soldiers -->
+	<monster_hunt id="2708" start_npc_id="278017">
+		<monster_infos npc_id="207724" var_id="0" max_kill="10" />
+	</monster_hunt>
 
-	<!-- TODO: Quest Id: 1763  Minonerk's Alternative -->
+	<!-- 1763  Minonerk's Alternative -->
+	<item_collecting id="1763" start_npc_id="279017" end_npc_id="279014"/>
 
-	<!-- TODO: Quest Id: 1773  Demolition Derby -->
+	<!-- 1773  Demolition Derby -->
+	<monster_hunt id="1773" start_npc_id="278604">
+		<monster_infos npc_id="254547" var_id="0" max_kill="20" />
+	</monster_hunt>
 
-	<!-- TODO: Quest Id: 1774  The Drakes Keep Us Awake -->
+	<!-- 1774  The Drakes Keep Us Awake -->
+	<monster_hunt id="1774" start_npc_id="278605">
+		<monster_infos npc_id="254523" var_id="0" max_kill="15" />
+		<monster_infos npc_id="254527" var_id="1" max_kill="20" />
+	</monster_hunt>
 
 	<!-- TODO: Quest Id: 1708  Defeat 3rd Rank Asmodian Soldiers -->
 
 	<!-- TODO: Quest Id: 1709  Defeat 2nd Rank Asmodian Soldiers -->
 
-	<!-- TODO: Quest Id: 1775  Culling the Garcikhans -->
+	<!-- 1775  Culling the Garcikhans -->
+	<monster_hunt id="1775" start_npc_id="278605">
+		<monster_infos npc_id="254535" var_id="0" max_kill="5" />
+		<monster_infos npc_id="254539" var_id="1" max_kill="5" />
+	</monster_hunt>
 
 	<!-- TODO: Quest Id: 1765  Legend of the Sword's Edge -->
 
-	<!-- TODO: Quest Id: 1766  Basrash Must Die -->
+	<!-- 1766  Basrash Must Die -->
+	<monster_hunt id="1766" start_npc_id="278608">
+		<monster_infos npc_id="256674" var_id="0" max_kill="1" />
+	</monster_hunt>
 
 	<!-- TODO: Quest Id: 2709  Defeat 2nd Rank Elyos Soldiers -->
 
-	<!-- TODO: Quest Id: 2775  Smashing the Stones -->
+	<!-- 2775  Smashing the Stones -->
+	<item_collecting id="2775" start_npc_id="278103"/>
 
 	<!-- TODO: Quest Id: 2776  Delivering Research Results -->
 
-	<!-- TODO: Quest Id: 2764  Avenging the Family -->
+	<!-- 2764  Avenging the Family -->
+	<monster_hunt id="2764" start_npc_id="278107">
+		<monster_infos npc_id="256647" var_id="0" max_kill="7" />
+		<monster_infos npc_id="256636" var_id="1" max_kill="3" />
+		<monster_infos npc_id="215447" var_id="2" max_kill="3" />
+		<monster_infos npc_id="256652" var_id="3" max_kill="3" />
+	</monster_hunt>
 
-	<!-- TODO: Quest Id: 2765  Fragments for a Necklace -->
+	<!-- 2765  Fragments for a Necklace -->
+	<item_collecting id="2765" start_npc_id="278108"/>
 
-	<!-- TODO: Quest Id: 2766  Buckles Under Pressure -->
+	<!-- 2766  Buckles Under Pressure -->
+	<item_collecting id="2766" start_npc_id="278108"/>
 
 	<!-- TODO: Quest Id: 2710  Defeat 1st Rank Elyos Soldiers -->
 
