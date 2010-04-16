@@ -426,7 +426,7 @@ Altgard -->
 		<object x="1563.795" y="1830.471" z="275.0" h="0"/>
 	</spawn>
 	<!-- Mailbox (Object Normal lvl:1)-->
-	<spawn map="210030000" npcid="700000" pool="2" interval="295">
+	<spawn map="220030000" npcid="700000" pool="2" interval="295">
 		<object x="1659.5906" y="1802.9327" z="253.61357" h="0"/>
 		<object x="1802.9363" y="696.93896" z="263.625" h="0"/>
 	</spawn>
