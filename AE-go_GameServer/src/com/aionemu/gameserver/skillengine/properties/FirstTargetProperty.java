@@ -22,6 +22,9 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
+import com.aionemu.gameserver.model.gameobjects.Creature;
+import com.aionemu.gameserver.model.gameobjects.Summon;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.skillengine.model.Skill;
 
 
@@ -67,12 +70,23 @@ public class FirstTargetProperty
 					return false;
 				break;
 			case MYPET:
-				//after pet implementation
+				Creature effector = skill.getEffector();
+				if(effector instanceof Player)
+				{
+					Summon summon = ((Player)effector).getSummon();
+					if(summon != null)
+						skill.setFirstTarget(summon);
+					else
+						return false;
+				}
+				else
+				{
+					return false;
+				}
 				break;
 			case PASSIVE:
 				skill.setFirstTarget(skill.getEffector());
 				break;
-			//TODO other enum values
 		}
 
 		if(skill.getFirstTarget() != null)
