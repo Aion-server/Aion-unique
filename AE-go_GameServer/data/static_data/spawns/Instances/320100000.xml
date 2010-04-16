@@ -302,8 +302,4 @@ Fire Temple / walker by formatme -->
 	<spawn map="320100000" npcid="212839" pool="1" interval="105">
 		<object x="153.20758" y="161.87619" z="101.83779" h="32"/>
 	</spawn>
-	<!-- Hagen -->
-	<spawn map="320010000" npcid="205020" pool="1" interval="105">
-		<object x="434.75" y="399.5" z="235.0" h="0"/>
-	</spawn>
 </spawns>
