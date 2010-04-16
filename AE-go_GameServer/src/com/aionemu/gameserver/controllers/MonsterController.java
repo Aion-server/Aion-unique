@@ -44,9 +44,10 @@ public class MonsterController extends NpcController
 	{
 		super.doReward(creature);
 
-		if(creature instanceof Player)
+		Creature master = creature.getMaster();
+		if(master instanceof Player)
 		{
-			Player player = (Player) creature;
+			Player player = (Player) master;
 			if(player.getPlayerGroup() == null) //solo
 			{
 				long xpReward = StatFunctions.calculateSoloExperienceReward(player, getOwner());

@@ -129,9 +129,10 @@ public class NpcController extends CreatureController<Npc>
 
 		this.doReward(lastAttacker);
 		
-		if(lastAttacker instanceof Player)
+		Creature master = lastAttacker.getMaster();
+		if(master instanceof Player)
 		{
-			this.doDrop((Player) lastAttacker);
+			this.doDrop((Player) master);
 		}
 		
 		owner.getAi().handleEvent(Event.DIED);

@@ -82,6 +82,7 @@ public class Summon extends Creature
 	/**
 	 * @return the owner
 	 */
+	@Override
 	public Player getMaster()
 	{
 		return master;

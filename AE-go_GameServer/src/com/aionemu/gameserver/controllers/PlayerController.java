@@ -212,25 +212,24 @@ public class PlayerController extends CreatureController<Player>
 	public void onDie(Creature lastAttacker)
 	{		
 		Player player = this.getOwner();
-
-
-		if(lastAttacker instanceof Player)
+		
+		Creature master = lastAttacker.getMaster();
+		if(master instanceof Player)
 		{
-
-			if(sp.getDuelService().isDueling(lastAttacker.getObjectId()))
+			if(isDueling((Player) master))
 			{
-				sp.getDuelService().onDie(player, (Player) lastAttacker);
+				sp.getDuelService().onDie(player);
 				return;
 			}
 			else
 			{
-				doReward(lastAttacker);
+				doReward(master);
 			}
 		}
 
 		super.onDie(lastAttacker);
 		
-		if(lastAttacker instanceof Npc)
+		if(master instanceof Npc)
 		{
 			if(player.getLevel() > 4)
 				player.getCommonData().calculateExpLoss();
