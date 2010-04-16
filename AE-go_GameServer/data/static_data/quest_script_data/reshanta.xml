@@ -17,7 +17,7 @@
   -->
 
 <!--
- * @author alikasfreak, Nephis,Ares
+ * @author Hilgert, alikasfreak, Nephis, Ares
  *  -->
 
 
@@ -291,13 +291,17 @@
 
 	<!-- TODO: Quest Id: 2712  [Spend Coin] Gold/Silver (Mage/Priest) -->
 
-	<!-- TODO: Quest Id: 2762  Vindachinerk's Pupils -->
+	<!-- 2762  Vindachinerk's Pupils -->
+	<item_collecting id="2762" start_npc_id="279018" end_npc_id="279017"/>
 
-	<!-- TODO: Quest Id: 2763  Minonerk's Heart -->
+	<!-- 2763  Minonerk's Heart -->
+	<report_to id="2763" start_npc_id="279017" end_npc_id="279018" item_id="182205603"/>
 
-	<!-- TODO: Quest Id: 2772  Treasure of the Ancient City -->
+	<!-- 2772  Treasure of the Ancient City -->
+	<item_collecting id="2772" start_npc_id="279019"/>
 
-	<!-- TODO: Quest Id: 2774  Seeking the Crystals -->
+	<!-- 2774  Seeking the Crystals -->
+	<item_collecting id="2774" start_npc_id="278103"/>
 
 	<!-- TODO: Quest Id: 2773  Signed, Sealed, Delivered -->
 
