@@ -49,6 +49,7 @@ public class SM_NPC_INFO extends AionServerPacket
 	private int npcId;
 	private int masterObjId;
 	private String masterName = "";
+	@SuppressWarnings("unused")
 	private float speed = 0.3f;
 	private final boolean isAggressive;
 
