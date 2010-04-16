@@ -217,7 +217,7 @@ public class TeleportService
 		Race npcRace = object.getObjectTemplate().getRace();
 		if(npcRace != null && npcRace != player.getCommonData().getRace())
 		{
-			PacketSendUtility.sendMessage(player, "You cannot use this teleport");//TODO retail message
+			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_CANNOT_MOVE_TO_AIRPORT_WRONG_NPC);//TODO retail message
 			return;
 		}
 		

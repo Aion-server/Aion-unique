@@ -23,15 +23,9 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
 import com.aionemu.gameserver.dataholders.loadingutils.XmlServiceProxy;
-import com.aionemu.gameserver.model.DescriptionId;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.model.gameobjects.stats.listeners.ItemEquipmentListener;
-import com.aionemu.gameserver.model.items.ManaStone;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ITEM_USAGE_ANIMATION;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_STATS_INFO;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_ITEM;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 
@@ -63,12 +57,10 @@ public class EnchantItemAction extends AbstractItemAction
 			@Override
 			public void run()
 			{
-				
-				
 				int itemId = parentItem.getItemTemplate().getTemplateId();
 				if(itemId > 166000000 && itemId < 167000000)
 				{
-					boolean result = enchant(player, parentItem, targetItem);
+					boolean result = xsp.getEnchantService().enchantItem(player, parentItem, targetItem);
 					PacketSendUtility.sendPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), parentItem
 						.getObjectId(), parentItem.getItemTemplate().getTemplateId(), 0, result ? 1 : 2, 0));
 				}
@@ -77,35 +69,9 @@ public class EnchantItemAction extends AbstractItemAction
 					PacketSendUtility.sendPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), parentItem
 						.getObjectId(), parentItem.getItemTemplate().getTemplateId(), 0, 1, 0));
 					
-					manastone(player, parentItem, targetItem);
+					xsp.getEnchantService().socketManastone(player, parentItem, targetItem);;
 				}
-			}
-
-			private boolean enchant(Player player, Item parentItem, Item targetItem)
-			{
-				return xsp.getEnchantService().enchantItem(player, parentItem, targetItem);
-			}
-
-			private void manastone(final Player player, final Item parentItem, final Item targetItem)
-			{
-				PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_GIVE_ITEM_OPTION_SUCCEED(new DescriptionId(
-					Integer.parseInt(targetItem.getName()))));
-
-				ManaStone manaStone = xsp.getItemService().addManaStone(targetItem,
-					parentItem.getItemTemplate().getTemplateId());
-				if(manaStone == null)
-					return;
-
-				if(targetItem.isEquipped())
-				{
-					ItemEquipmentListener.addStoneStats(manaStone, player.getGameStats());
-					PacketSendUtility.sendPacket(player, new SM_STATS_INFO(player));
-				}
-				PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(targetItem));
 			}
 		}, 5000);
-
-		player.getInventory().removeFromBagByObjectId(parentItem.getObjectId(), 1);
-
 	}
 }

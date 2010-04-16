@@ -21,13 +21,18 @@ import javax.inject.Inject;
 import org.apache.log4j.Logger;
 
 import com.aionemu.commons.utils.Rnd;
+import com.aionemu.gameserver.model.DescriptionId;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.PersistentState;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.Storage;
+import com.aionemu.gameserver.model.gameobjects.stats.listeners.ItemEquipmentListener;
+import com.aionemu.gameserver.model.items.ManaStone;
 import com.aionemu.gameserver.model.templates.item.ItemQuality;
 import com.aionemu.gameserver.model.templates.item.ItemTemplate;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE_ITEM;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_STATS_INFO;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_ITEM;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
@@ -165,6 +170,40 @@ public class EnchantService
 		else
 			player.getInventory().setPersistentState(PersistentState.UPDATE_REQUIRED);
 		
+		if (result)
+		{
+			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_ENCHANT_ITEM_SUCCEED(new DescriptionId(Integer.parseInt(targetItem.getName()))));
+		}
+		else
+		{
+			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_ENCHANT_ITEM_FAILED(new DescriptionId(Integer.parseInt(targetItem.getName()))));
+		}
+		player.getInventory().removeFromBagByObjectId(parentItem.getObjectId(), 1);
+		
 		return result;
+	}
+
+	/**
+	 * @param player
+	 * @param parentItem
+	 * @param targetItem
+	 */
+	public void socketManastone(Player player, Item parentItem, Item targetItem)
+	{
+		PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_GIVE_ITEM_OPTION_SUCCEED(new DescriptionId(
+			Integer.parseInt(targetItem.getName()))));
+
+		ManaStone manaStone = itemService.addManaStone(targetItem,
+			parentItem.getItemTemplate().getTemplateId());
+		if(manaStone == null)
+			return;
+
+		if(targetItem.isEquipped())
+		{
+			ItemEquipmentListener.addStoneStats(manaStone, player.getGameStats());
+			PacketSendUtility.sendPacket(player, new SM_STATS_INFO(player));
+		}
+		PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(targetItem));
+		player.getInventory().removeFromBagByObjectId(parentItem.getObjectId(), 1);
 	}
 }

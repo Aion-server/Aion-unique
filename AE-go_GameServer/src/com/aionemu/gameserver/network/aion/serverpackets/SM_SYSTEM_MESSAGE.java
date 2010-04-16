@@ -671,6 +671,16 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	public static SM_SYSTEM_MESSAGE	STR_CANNOT_USE_AIRPORT_WHEN_FLYING	= new SM_SYSTEM_MESSAGE(1300696);
 
 	/**
+	 * The NPC you selected does not have the ability to teleport you.
+	 */
+	public static SM_SYSTEM_MESSAGE	STR_CANNOT_MOVE_TO_AIRPORT_WRONG_NPC	= new SM_SYSTEM_MESSAGE(1300692);
+
+	/**
+	 * You cannot move to that destination.
+	 */
+	public static SM_SYSTEM_MESSAGE	STR_CANNOT_MOVE_TO_AIRPORT_NO_ROUTE	= new SM_SYSTEM_MESSAGE(1300691);
+
+	/**
 	 * Binding Point Messages
 	 */
 	public static SM_SYSTEM_MESSAGE STR_CANNOT_REGISTER_RESURRECT_POINT_NOT_ENOUGH_FEE()
@@ -761,6 +771,24 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	public static SM_SYSTEM_MESSAGE STR_GIVE_ITEM_OPTION_SUCCEED(DescriptionId itemDescId)
 	{
 		return new SM_SYSTEM_MESSAGE(1300462, itemDescId);
+	}
+
+	public static SM_SYSTEM_MESSAGE STR_GIVE_ITEM_OPTION_FAILED(DescriptionId itemDescId)
+	{
+		return new SM_SYSTEM_MESSAGE(1300463, itemDescId);
+	}
+
+	/**
+	 * Enchant Messages
+	 */
+	public static SM_SYSTEM_MESSAGE STR_ENCHANT_ITEM_SUCCEED(DescriptionId itemDescId)
+	{
+		return new SM_SYSTEM_MESSAGE(1300455, itemDescId);
+	}
+
+	public static SM_SYSTEM_MESSAGE STR_ENCHANT_ITEM_FAILED(DescriptionId itemDescId)
+	{
+		return new SM_SYSTEM_MESSAGE(1300456, itemDescId);
 	}
 
 	/**
