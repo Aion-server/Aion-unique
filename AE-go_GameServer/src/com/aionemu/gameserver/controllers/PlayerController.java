@@ -64,6 +64,7 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.world.World;
 import com.aionemu.gameserver.world.zone.ZoneInstance;
+import com.google.inject.internal.Nullable;
 
 /**
  * This class is for controlling players.
@@ -209,11 +210,14 @@ public class PlayerController extends CreatureController<Player>
 	 * Should only be triggered from one place (life stats)
 	 */
 	@Override
-	public void onDie(Creature lastAttacker)
+	public void onDie(@Nullable Creature lastAttacker)
 	{		
 		Player player = this.getOwner();
 		
-		Creature master = lastAttacker.getMaster();
+		Creature master = null;
+		if(lastAttacker != null)
+			master = lastAttacker.getMaster();
+		
 		if(master instanceof Player)
 		{
 			if(isDueling((Player) master))

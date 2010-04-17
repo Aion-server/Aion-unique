@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<stats_templates xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../stats.xsd">
+	<!-- (Retail Like) Earth spirit I -->
+	<summon_stats npc_id_light="201010" npc_id_dark="201011" level="16">
+		<stats_template maxHp="1740" pdefense="604" mresist="357" main_hand_attack="88" run_speed="7.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201010" npc_id_dark="201011" level="17">
+		<stats_template maxHp="1905" pdefense="633" mresist="374" main_hand_attack="91" run_speed="7.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201010" npc_id_dark="201011" level="18">
+		<stats_template maxHp="2070" pdefense="662" mresist="391" main_hand_attack="94" run_speed="7.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201010" npc_id_dark="201011" level="19">
+		<stats_template maxHp="2235" pdefense="691" mresist="408" main_hand_attack="97" run_speed="7.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201010" npc_id_dark="201011" level="20">
+		<stats_template maxHp="2400" pdefense="720" mresist="425" main_hand_attack="100" run_speed="7.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201010" npc_id_dark="201011" level="21">
+		<stats_template maxHp="2565" pdefense="749" mresist="442" main_hand_attack="103" run_speed="7.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201010" npc_id_dark="201011" level="22">
+		<stats_template maxHp="2730" pdefense="778" mresist="459" main_hand_attack="106" run_speed="7.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201010" npc_id_dark="201011" level="23">
+		<stats_template maxHp="2895" pdefense="807" mresist="476" main_hand_attack="109" run_speed="7.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201010" npc_id_dark="201011" level="24">
+		<stats_template maxHp="3060" pdefense="836" mresist="493" main_hand_attack="112" run_speed="7.0"/>
+	</summon_stats>
+	<!-- (TODO) Earth spirit II -->
+	<summon_stats npc_id_light="201014" npc_id_dark="201015" level="28">
+		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="7.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201014" npc_id_dark="201015" level="29">
+		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="7.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201014" npc_id_dark="201015" level="30">
+		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="7.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201014" npc_id_dark="201015" level="31">
+		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="7.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201014" npc_id_dark="201015" level="32">
+		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="7.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201014" npc_id_dark="201015" level="33">
+		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="7.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201014" npc_id_dark="201015" level="34">
+		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="7.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201014" npc_id_dark="201015" level="35">
+		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="7.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201014" npc_id_dark="201015" level="36">
+		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="7.0"/>
+	</summon_stats>
+	<!-- (TODO) Earth spirit III -->
+	<summon_stats npc_id_light="201018" npc_id_dark="201019" level="40">
+		<stats_template maxHp="6638" pdefense="1313" mresist="777" main_hand_attack="195" run_speed="7.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201018" npc_id_dark="201019" level="41">
+		<stats_template maxHp="6890" pdefense="1342" mresist="794" main_hand_attack="82" run_speed="7.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201018" npc_id_dark="201019" level="42">
+		<stats_template maxHp="7142" pdefense="1371" mresist="811" main_hand_attack="82" run_speed="7.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201018" npc_id_dark="201019" level="43">
+		<stats_template maxHp="7394" pdefense="1400" mresist="828" main_hand_attack="82" run_speed="7.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201018" npc_id_dark="201019" level="44">
+		<stats_template maxHp="7646" pdefense="1429" mresist="845" main_hand_attack="82" run_speed="7.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201018" npc_id_dark="201019" level="45">
+		<stats_template maxHp="7898" pdefense="1458" mresist="862" main_hand_attack="82" run_speed="7.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201018" npc_id_dark="201019" level="46">
+		<stats_template maxHp="8150" pdefense="1487" mresist="879" main_hand_attack="82" run_speed="7.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201018" npc_id_dark="201019" level="47">
+		<stats_template maxHp="8402" pdefense="1516" mresist="896" main_hand_attack="82" run_speed="7.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201018" npc_id_dark="201019" level="48">
+		<stats_template maxHp="8654" pdefense="1545" mresist="913" main_hand_attack="82" run_speed="7.0"/>
+	</summon_stats>
+</stats_templates>

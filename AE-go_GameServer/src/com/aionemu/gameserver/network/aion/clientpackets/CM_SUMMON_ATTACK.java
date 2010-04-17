@@ -63,6 +63,9 @@ public class CM_SUMMON_ATTACK extends AionClientPacket
 		Player activePlayer = getConnection().getActivePlayer();
 		Summon summon = activePlayer.getSummon();
 		
+		if(summon == null)//TODO log here?
+			return;
+		
 		Creature creature = (Creature) world.findAionObject(targetObjId);
 		summon.getController().attackTarget(creature);
 	}

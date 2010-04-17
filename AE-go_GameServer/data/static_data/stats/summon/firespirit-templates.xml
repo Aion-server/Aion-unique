@@ -1,51 +1,109 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <stats_templates xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../stats.xsd">
-
-	<!-- Fire Spirit I -->
-	
-	<!-- [ATracer] not confirmed, just for test -->
-	<summon_stats npc_id_light="201010" npc_id_dark="201011" level="10">
-		<stats_template maxHp="724" pdefense="285" mresist="252" main_hand_attack="82" run_speed="6.0"/>
+	<!-- (TODO) Fire spirit I -->
+	<summon_stats npc_id_light="201022" npc_id_dark="201023" level="9">
+		<stats_template maxHp="1000" pdefense="37" mresist="252" main_hand_attack="82" run_speed="8.0"/>
 	</summon_stats>
-	
-	<!-- [ATracer] not confirmed, just for test -->
-	<summon_stats npc_id_light="201010" npc_id_dark="201011" level="11">
-		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="6.0"/>
+	<summon_stats npc_id_light="201022" npc_id_dark="201023" level="10">
+		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="8.0"/>
 	</summon_stats>
-	
-	<!-- [ATracer] not confirmed, just for test -->
-	<summon_stats npc_id_light="201010" npc_id_dark="201011" level="12">
-		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="6.0"/>
+	<summon_stats npc_id_light="201022" npc_id_dark="201023" level="11">
+		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="8.0"/>
 	</summon_stats>
-	
-	<!-- [ATracer] not confirmed, just for test -->
-	<summon_stats npc_id_light="201010" npc_id_dark="201011" level="13">
-		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="6.0"/>
+	<summon_stats npc_id_light="201022" npc_id_dark="201023" level="12">
+		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="8.0"/>
 	</summon_stats>
-	
-	<!-- [ATracer] not confirmed, just for test -->
-	<summon_stats npc_id_light="201010" npc_id_dark="201011" level="14">
-		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="6.0"/>
+	<summon_stats npc_id_light="201022" npc_id_dark="201023" level="13">
+		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="8.0"/>
 	</summon_stats>
-	
-	<!-- [ATracer] not confirmed, just for test -->
-	<summon_stats npc_id_light="201010" npc_id_dark="201011" level="15">
-		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="6.0"/>
+	<summon_stats npc_id_light="201022" npc_id_dark="201023" level="14">
+		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="8.0"/>
 	</summon_stats>
-	
-	<!-- [ATracer] not confirmed, just for test -->
-	<summon_stats npc_id_light="201010" npc_id_dark="201011" level="16">
-		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="6.0"/>
+	<summon_stats npc_id_light="201022" npc_id_dark="201023" level="15">
+		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="8.0"/>
 	</summon_stats>
-	
-	<!-- [ATracer] not confirmed, just for test -->
-	<summon_stats npc_id_light="201010" npc_id_dark="201011" level="17">
-		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="6.0"/>
+	<summon_stats npc_id_light="201022" npc_id_dark="201023" level="16">
+		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="8.0"/>
 	</summon_stats>
-	
-	<!-- [ATracer] not confirmed, just for test -->
-	<summon_stats npc_id_light="201010" npc_id_dark="201011" level="18">
-		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="6.0"/>
+	<summon_stats npc_id_light="201022" npc_id_dark="201023" level="17">
+		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="8.0"/>
 	</summon_stats>
-
+	<!-- (Retail Like) Fire spirit II -->	
+	<summon_stats npc_id_light="201028" npc_id_dark="201029" level="22">
+		<stats_template maxHp="1839" pdefense="522" mresist="462" main_hand_attack="142" run_speed="8.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201028" npc_id_dark="201029" level="23">
+		<stats_template maxHp="1969" pdefense="542" mresist="479" main_hand_attack="147" run_speed="8.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201028" npc_id_dark="201029" level="24">
+		<stats_template maxHp="2099" pdefense="562" mresist="496" main_hand_attack="152" run_speed="8.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201028" npc_id_dark="201029" level="25">
+		<stats_template maxHp="2229" pdefense="582" mresist="513" main_hand_attack="157" run_speed="8.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201028" npc_id_dark="201029" level="26">
+		<stats_template maxHp="2359" pdefense="602" mresist="530" main_hand_attack="162" run_speed="8.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201028" npc_id_dark="201029" level="27">
+		<stats_template maxHp="2489" pdefense="622" mresist="547" main_hand_attack="167" run_speed="8.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201028" npc_id_dark="201029" level="28">
+		<stats_template maxHp="2619" pdefense="642" mresist="564" main_hand_attack="172" run_speed="8.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201028" npc_id_dark="201029" level="29">
+		<stats_template maxHp="2749" pdefense="662" mresist="581" main_hand_attack="177" run_speed="8.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201028" npc_id_dark="201029" level="30">
+		<stats_template maxHp="2879" pdefense="682" mresist="598" main_hand_attack="182" run_speed="8.0"/>
+	</summon_stats>
+	<!-- (Retail Like) Fire spirit III -->
+	<summon_stats npc_id_light="201031" npc_id_dark="201030" level="34">
+		<stats_template maxHp="3569" pdefense="758" mresist="672" main_hand_attack="205" run_speed="8.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201031" npc_id_dark="201030" level="35">
+		<stats_template maxHp="3721" pdefense="778" mresist="689" main_hand_attack="211" run_speed="8.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201031" npc_id_dark="201030" level="36">
+		<stats_template maxHp="3873" pdefense="798" mresist="706" main_hand_attack="216" run_speed="8.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201031" npc_id_dark="201030" level="37">
+		<stats_template maxHp="4025" pdefense="818" mresist="723" main_hand_attack="222" run_speed="8.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201031" npc_id_dark="201030" level="38">
+		<stats_template maxHp="4177" pdefense="838" mresist="740" main_hand_attack="227" run_speed="8.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201031" npc_id_dark="201030" level="39">
+		<stats_template maxHp="4329" pdefense="858" mresist="757" main_hand_attack="233" run_speed="8.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201031" npc_id_dark="201030" level="40">
+		<stats_template maxHp="4481" pdefense="878" mresist="774" main_hand_attack="238" run_speed="8.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201031" npc_id_dark="201030" level="41">
+		<stats_template maxHp="4633" pdefense="898" mresist="791" main_hand_attack="244" run_speed="8.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201031" npc_id_dark="201030" level="42">
+		<stats_template maxHp="4785" pdefense="918" mresist="808" main_hand_attack="249" run_speed="8.0"/>
+	</summon_stats>
+	<!-- (TODO) Fire spirit IV -->
+	<summon_stats npc_id_light="201034" npc_id_dark="201035" level="44">
+		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="8.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201034" npc_id_dark="201035" level="45">
+		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="8.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201034" npc_id_dark="201035" level="46">
+		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="8.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201034" npc_id_dark="201035" level="47">
+		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="8.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201034" npc_id_dark="201035" level="48">
+		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="8.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201034" npc_id_dark="201035" level="49">
+		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="8.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201034" npc_id_dark="201035" level="50">
+		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="8.0"/>
+	</summon_stats>
 </stats_templates>
