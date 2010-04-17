@@ -16,7 +16,11 @@
  */
 package com.aionemu.gameserver.model.gameobjects.stats;
 
+import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Summon;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_SUMMON_UPDATE;
+import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
  * @author ATracer
@@ -34,7 +38,13 @@ public class SummonLifeStats extends CreatureLifeStats<Summon>
 	@Override
 	protected void onIncreaseHp()
 	{
-		// TODO Auto-generated method stub	
+		Creature master = getOwner().getMaster();
+		sendAttackStatusPacketUpdate();
+		
+		if(master instanceof Player)
+		{
+			PacketSendUtility.sendPacket((Player) master, new SM_SUMMON_UPDATE(getOwner()));
+		}
 	}
 
 	@Override
@@ -46,12 +56,18 @@ public class SummonLifeStats extends CreatureLifeStats<Summon>
 	@Override
 	protected void onReduceHp()
 	{
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub	
 	}
 
 	@Override
 	protected void onReduceMp()
 	{
 		// TODO Auto-generated method stub
+	}
+
+	@Override
+	public Summon getOwner()
+	{
+		return (Summon) super.getOwner();
 	}
 }

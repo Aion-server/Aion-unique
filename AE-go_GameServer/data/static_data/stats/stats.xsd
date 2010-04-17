@@ -31,7 +31,8 @@
 		<xs:sequence>
 			<xs:element name="stats_template" type="summonStatsTemplate" minOccurs="0" />
 		</xs:sequence>
-		<xs:attribute type="xs:int" name="npc_id" use="required" />
+		<xs:attribute type="xs:int" name="npc_id_light" use="required" />
+		<xs:attribute type="xs:int" name="npc_id_dark" use="required" />
 		<xs:attribute type="xs:byte" name="level" use="required" />
 	</xs:complexType>
 	
@@ -63,8 +64,8 @@
 	<xs:complexType name="statsTemplatesType">
 		<xs:sequence>
 			<xs:element ref="import" minOccurs="0" maxOccurs="unbounded" />
-			<xs:element name="player_stats" type="playerStatsTemplateType" minOccurs="1" maxOccurs="unbounded"/>
-			<xs:element name="summon_stats" type="summonStatsTemplateType" minOccurs="1" maxOccurs="unbounded"/>
+			<xs:element name="player_stats" type="playerStatsTemplateType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="summon_stats" type="summonStatsTemplateType" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 

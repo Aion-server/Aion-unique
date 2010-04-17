@@ -24,6 +24,7 @@ import com.aionemu.gameserver.model.gameobjects.stats.SummonLifeStats;
 import com.aionemu.gameserver.model.templates.NpcTemplate;
 import com.aionemu.gameserver.model.templates.VisibleObjectTemplate;
 import com.aionemu.gameserver.model.templates.spawn.SpawnTemplate;
+import com.aionemu.gameserver.model.templates.stats.SummonStatsTemplate;
 import com.aionemu.gameserver.world.WorldPosition;
 
 /**
@@ -35,6 +36,7 @@ public class Summon extends Creature
 
 	private Player	master;
 	private SummonMode mode;
+	private byte level;
 
 	public static enum SummonMode
 	{
@@ -64,16 +66,16 @@ public class Summon extends Creature
 	 * @param controller
 	 * @param spawnTemplate
 	 * @param objectTemplate
+	 * @param statsTemplate 
 	 * @param position
 	 */
 	public Summon(int objId, CreatureController<? extends Creature> controller, SpawnTemplate spawnTemplate,
-		VisibleObjectTemplate objectTemplate)
+		VisibleObjectTemplate objectTemplate, SummonStatsTemplate statsTemplate)
 	{
 		super(objId, controller, spawnTemplate, objectTemplate, new WorldPosition());
 
 		controller.setOwner(this);
-
-		super.setGameStats(new SummonGameStats(this));
+		super.setGameStats(new SummonGameStats(this, statsTemplate));
 		super.setLifeStats(new SummonLifeStats(this));
 		
 		this.mode = SummonMode.GUARD;
@@ -103,10 +105,21 @@ public class Summon extends Creature
 		return objectTemplate.getName();
 	}
 
+	/**
+	 * @return the level
+	 */
 	@Override
 	public byte getLevel()
 	{
-		return getObjectTemplate().getLevel();
+		return level;
+	}
+
+	/**
+	 * @param level the level to set
+	 */
+	public void setLevel(byte level)
+	{
+		this.level = level;
 	}
 
 	@Override

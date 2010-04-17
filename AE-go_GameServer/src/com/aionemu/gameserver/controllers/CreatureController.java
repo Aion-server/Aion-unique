@@ -300,7 +300,7 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 	/**
 	 * @param npcId
 	 */
-	public void createSummon(int npcId)
+	public void createSummon(int npcId, int skillLvl)
 	{
 		// TODO Auto-generated method stub
 		

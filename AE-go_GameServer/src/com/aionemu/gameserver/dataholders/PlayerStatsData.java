@@ -63,8 +63,10 @@ public class PlayerStatsData
 		
 		for (SummonStatsType st : summonTemplatesList)
 		{
-			int code = makeHash2(st.getNpcId(), st.getRequiredLevel());
-			summonTemplates.put(code, st.getTemplate());
+			int code1 = makeHash2(st.getNpcIdDark(), st.getRequiredLevel());
+			summonTemplates.put(code1, st.getTemplate());
+			int code2 = makeHash2(st.getNpcIdLight(), st.getRequiredLevel());
+			summonTemplates.put(code2, st.getTemplate());
 		}
 		
 		/** for unknown templates **/
@@ -85,6 +87,11 @@ public class PlayerStatsData
 		templatesList = null;
 	}
 
+	/**
+	 * 
+	 * @param player
+	 * @return
+	 */
 	public PlayerStatsTemplate getTemplate(Player player)
 	{
 		PlayerStatsTemplate template = getTemplate(player.getCommonData().getPlayerClass(), player.getLevel());
@@ -93,11 +100,31 @@ public class PlayerStatsData
 		return template;
 	}
 
+	/**
+	 * 
+	 * @param playerClass
+	 * @param level
+	 * @return
+	 */
 	public PlayerStatsTemplate getTemplate(PlayerClass playerClass, int level)
 	{
 		PlayerStatsTemplate template =  playerTemplates.get(makeHash(playerClass, level));
 		if(template == null)
 			template = getTemplate(playerClass, 0);
+		return template;
+	}
+	
+	/**
+	 * 
+	 * @param npcId
+	 * @param level
+	 * @return
+	 */
+	public SummonStatsTemplate getSummonTemplate(int npcId, int level)
+	{
+		SummonStatsTemplate template =  summonTemplates.get(makeHash2(npcId, level));
+		if(template == null)
+			template = summonTemplates.get(makeHash2(201011, 10));//TEMP till all templates are done
 		return template;
 	}
 
@@ -151,21 +178,30 @@ public class PlayerStatsData
 	@XmlRootElement(name="summonStatsTemplateType")
 	private static class SummonStatsType
 	{
-		@XmlAttribute(name = "npc_id", required = true)
-		private int npcId;
+		@XmlAttribute(name = "npc_id_dark", required = true)
+		private int npcIdDark;
+		@XmlAttribute(name = "npc_id_light", required = true)
+		private int npcIdLight;
 		@XmlAttribute(name = "level", required = true)
 		private int requiredLevel;
 
 		@XmlElement(name="stats_template")
 		private SummonStatsTemplate template;
 
-		
 		/**
-		 * @return the npcId
+		 * @return the npcIdDark
 		 */
-		public int getNpcId()
+		public int getNpcIdDark()
 		{
-			return npcId;
+			return npcIdDark;
+		}
+
+		/**
+		 * @return the npcIdLight
+		 */
+		public int getNpcIdLight()
+		{
+			return npcIdLight;
 		}
 
 		/**

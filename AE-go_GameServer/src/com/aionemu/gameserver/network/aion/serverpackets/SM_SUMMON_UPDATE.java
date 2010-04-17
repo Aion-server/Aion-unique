@@ -45,7 +45,7 @@ public class SM_SUMMON_UPDATE extends AionServerPacket
 		writeD(buf, 0);// unk
 		writeD(buf, summon.getLifeStats().getCurrentHp());
 		writeD(buf, summon.getGameStats().getCurrentStat(StatEnum.MAXHP));
-		writeD(buf, summon.getGameStats().getCurrentStat(StatEnum.PHYSICAL_ATTACK));
+		writeD(buf, summon.getGameStats().getCurrentStat(StatEnum.MAIN_HAND_POWER));
 		writeH(buf, summon.getGameStats().getCurrentStat(StatEnum.PHYSICAL_DEFENSE));
 		writeH(buf, summon.getGameStats().getCurrentStat(StatEnum.MAGICAL_RESIST));
 	}

@@ -37,6 +37,7 @@ import com.aionemu.gameserver.dataholders.BindPointData;
 import com.aionemu.gameserver.dataholders.GatherableData;
 import com.aionemu.gameserver.dataholders.NpcData;
 import com.aionemu.gameserver.dataholders.NpcSkillData;
+import com.aionemu.gameserver.dataholders.PlayerStatsData;
 import com.aionemu.gameserver.dataholders.SpawnsData;
 import com.aionemu.gameserver.dataholders.WorldMapsData;
 import com.aionemu.gameserver.model.NpcType;
@@ -56,6 +57,7 @@ import com.aionemu.gameserver.model.templates.VisibleObjectTemplate;
 import com.aionemu.gameserver.model.templates.WorldMapTemplate;
 import com.aionemu.gameserver.model.templates.spawn.SpawnGroup;
 import com.aionemu.gameserver.model.templates.spawn.SpawnTemplate;
+import com.aionemu.gameserver.model.templates.stats.SummonStatsTemplate;
 import com.aionemu.gameserver.utils.gametime.DayTime;
 import com.aionemu.gameserver.utils.gametime.GameTime;
 import com.aionemu.gameserver.utils.gametime.GameTimeManager;
@@ -103,6 +105,8 @@ public class SpawnEngine
 	private BindPointData				bindPointData;
 	@Inject
 	private NpcSkillData				npcSkillData;
+	@Inject
+	private PlayerStatsData				statsData;
 
 	private Injector					injector;
 
@@ -258,7 +262,7 @@ public class SpawnEngine
 	 * @param npcId
 	 * @return
 	 */
-	public Summon spawnSummon(Player creator, int npcId)
+	public Summon spawnSummon(Player creator, int npcId, int skillLvl)
 	{	
 		float x = creator.getX();
 		float y = creator.getY();
@@ -270,8 +274,11 @@ public class SpawnEngine
 		SpawnTemplate spawn = createSpawnTemplate(worldId, npcId, x, y, z, heading, 0, 0);
 		NpcTemplate npcTemplate = npcData.getNpcTemplate(npcId);
 		
+		byte level = (byte) (npcTemplate.getLevel() + skillLvl - 1);
+		SummonStatsTemplate statsTemplate = statsData.getSummonTemplate(npcId, level);
 		Summon summon = new Summon(aionObjectsIDFactory.nextId(), injector.getInstance(SummonController.class), spawn,
-			npcTemplate);
+			npcTemplate, statsTemplate);
+		summon.setLevel(level);
 		summon.setKnownlist(new KnownList(summon));
 		summon.setEffectController(new EffectController(summon));
 		summon.setMaster(creator);

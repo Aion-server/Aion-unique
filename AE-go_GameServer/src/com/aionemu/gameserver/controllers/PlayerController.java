@@ -592,10 +592,10 @@ public class PlayerController extends CreatureController<Player>
 	}
 
 	@Override
-	public void createSummon(int npcId)
+	public void createSummon(int npcId, int skillLvl)
 	{
 		Player master = getOwner();
-		Summon summon = sp.getSpawnEngine().spawnSummon(master, npcId);
+		Summon summon = sp.getSpawnEngine().spawnSummon(master, npcId, skillLvl);
 		master.setSummon(summon);
 		PacketSendUtility.sendPacket(master, new SM_SUMMON_PANEL(summon));
 		PacketSendUtility.broadcastPacket(master, new SM_EMOTION(summon, 30));

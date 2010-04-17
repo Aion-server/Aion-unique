@@ -4,48 +4,48 @@
 	<!-- Fire Spirit I -->
 	
 	<!-- [ATracer] not confirmed, just for test -->
-	<summon_stats npc_id="201011" level="10">
-		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="6000"/>
+	<summon_stats npc_id_light="201010" npc_id_dark="201011" level="10">
+		<stats_template maxHp="724" pdefense="285" mresist="252" main_hand_attack="82" run_speed="6.0"/>
 	</summon_stats>
 	
 	<!-- [ATracer] not confirmed, just for test -->
-	<summon_stats npc_id="201011" level="11">
-		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="6000"/>
+	<summon_stats npc_id_light="201010" npc_id_dark="201011" level="11">
+		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="6.0"/>
 	</summon_stats>
 	
 	<!-- [ATracer] not confirmed, just for test -->
-	<summon_stats npc_id="201011" level="12">
-		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="6000"/>
+	<summon_stats npc_id_light="201010" npc_id_dark="201011" level="12">
+		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="6.0"/>
 	</summon_stats>
 	
 	<!-- [ATracer] not confirmed, just for test -->
-	<summon_stats npc_id="201011" level="13">
-		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="6000"/>
+	<summon_stats npc_id_light="201010" npc_id_dark="201011" level="13">
+		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="6.0"/>
 	</summon_stats>
 	
 	<!-- [ATracer] not confirmed, just for test -->
-	<summon_stats npc_id="201011" level="14">
-		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="6000"/>
+	<summon_stats npc_id_light="201010" npc_id_dark="201011" level="14">
+		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="6.0"/>
 	</summon_stats>
 	
 	<!-- [ATracer] not confirmed, just for test -->
-	<summon_stats npc_id="201011" level="15">
-		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="6000"/>
+	<summon_stats npc_id_light="201010" npc_id_dark="201011" level="15">
+		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="6.0"/>
 	</summon_stats>
 	
 	<!-- [ATracer] not confirmed, just for test -->
-	<summon_stats npc_id="201011" level="16">
-		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="6000"/>
+	<summon_stats npc_id_light="201010" npc_id_dark="201011" level="16">
+		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="6.0"/>
 	</summon_stats>
 	
 	<!-- [ATracer] not confirmed, just for test -->
-	<summon_stats npc_id="201011" level="17">
-		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="6000"/>
+	<summon_stats npc_id_light="201010" npc_id_dark="201011" level="17">
+		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="6.0"/>
 	</summon_stats>
 	
 	<!-- [ATracer] not confirmed, just for test -->
-	<summon_stats npc_id="201011" level="18">
-		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="6000"/>
+	<summon_stats npc_id_light="201010" npc_id_dark="201011" level="18">
+		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="6.0"/>
 	</summon_stats>
 
 </stats_templates>

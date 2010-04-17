@@ -22,7 +22,6 @@ import java.util.concurrent.locks.ReentrantLock;
 import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
-import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS;
 import com.aionemu.gameserver.services.LifeStatsRestoreService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -182,11 +181,7 @@ public abstract class CreatureLifeStats<T extends Creature>
 		{
 			return;
 		}
-		PacketSendUtility.broadcastPacket(owner, new SM_ATTACK_STATUS(owner, 0));
-		if(owner instanceof Player)
-		{
-			PacketSendUtility.sendPacket((Player) owner, new SM_ATTACK_STATUS(owner, 0));
-		}
+		PacketSendUtility.broadcastPacketAndReceive(owner, new SM_ATTACK_STATUS(owner, 0));		
 	}
 
 	/**

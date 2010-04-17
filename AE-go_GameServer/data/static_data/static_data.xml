@@ -75,7 +75,7 @@
 	<import file="player_titles.xml" />
 	
 	<stats_templates>
-		<import file="stats/" skipRoot="true" />
+		<import file="stats" skipRoot="true" />
 	</stats_templates>
 	
 	<npc_templates>
