@@ -56,6 +56,9 @@ public class CM_SUMMON_EMOTION extends AionClientPacket
 	protected void runImpl()
 	{
 		Player activePlayer = getConnection().getActivePlayer();
+		if(activePlayer == null)//Temp
+			return;
+		
 		Summon summon = activePlayer.getSummon();
 		
 		switch(emotionType)

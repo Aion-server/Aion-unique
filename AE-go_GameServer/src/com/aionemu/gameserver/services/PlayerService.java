@@ -374,7 +374,7 @@ public class PlayerService
 	 */
 	public void playerLoggedIn(Player player)
 	{
-		log.info("Player logged in: " + player.getName());
+		log.info("Player logged in: " + player.getName() + " Account: " + player.getClientConnection().getAccount().getName());
 		player.getCommonData().setOnline(true);
 		DAOManager.getDAO(PlayerDAO.class).onlinePlayer(player, true);
 		player.onLoggedIn();

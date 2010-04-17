@@ -47,6 +47,9 @@ public class SummonController extends CreatureController<Summon>
 	public void notSee(VisibleObject object, boolean isOutOfRange)
 	{
 		super.notSee(object, isOutOfRange);
+		if(getOwner().getMaster() == null)
+			return;
+		
 		if(object.getObjectId() == getOwner().getMaster().getObjectId())
 		{
 			release(UnsummonType.DISTANCE);
