@@ -30,6 +30,7 @@ public enum EquipType {
 
     ARMOR,
     WEAPON,
+    STIGMA,
     NONE;
 
     public String value() {

@@ -64,7 +64,7 @@ public class ItemTemplate extends VisibleObjectTemplate
 	private int					useDelay;
 
 	@XmlAttribute(name = "equipment_type")
-	private EquipType			equipmentType;
+	private EquipType			equipmentType = EquipType.NONE;
 
 	@XmlAttribute(name = "cash_item")
 	private int					cashItem;
@@ -151,6 +151,9 @@ public class ItemTemplate extends VisibleObjectTemplate
 	
 	@XmlElement(name = "godstone")
 	private GodstoneInfo		godstoneInfo;
+	
+	@XmlElement(name = "stigma")
+	private Stigma		stigma;
 	
 	/**
 	 * @return the mask
@@ -418,6 +421,11 @@ public class ItemTemplate extends VisibleObjectTemplate
 		return itemId == ItemId.KINAH.value();
 	}
 	
+	public boolean isStigma()
+	{
+		return itemId > 140000000 && itemId < 140001000;
+	}
+	
 	void afterUnmarshal (Unmarshaller u, Object parent)
 	{
 		setItemId(Integer.parseInt(id));
@@ -494,5 +502,13 @@ public class ItemTemplate extends VisibleObjectTemplate
 	public int getDelayId()
 	{
 		return useDelayId;
+	}
+
+	/**
+	 * @return the stigma
+	 */
+	public Stigma getStigma()
+	{
+		return stigma;
 	}
 }

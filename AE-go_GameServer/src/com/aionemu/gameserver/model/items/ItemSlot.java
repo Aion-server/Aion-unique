@@ -46,13 +46,20 @@ public enum ItemSlot
 	WAIST(1<<16),
 	MAIN_OFF_HAND(1<<17),
 	SUB_OFF_HAND(1<<18),
-	NONE(1<<19),
+	NONE(1<<30),
 	//combo
 	MAIN_OR_SUB(MAIN_HAND.slotIdMask | SUB_HAND.slotIdMask, true), // 3
 	EARRING_RIGHT_OR_LEFT(EARRINGS_LEFT.slotIdMask | EARRINGS_RIGHT.slotIdMask, true), //192
 	RING_RIGHT_OR_LEFT(RING_LEFT.slotIdMask | RING_RIGHT.slotIdMask, true), //768
 	SHARD_RIGHT_OR_LEFT(POWER_SHARD_LEFT.slotIdMask | POWER_SHARD_RIGHT.slotIdMask, true), //24576
-	TORSO_GLOVE_FOOT_SHOULDER_LEG(0, true);//TODO
+	TORSO_GLOVE_FOOT_SHOULDER_LEG(0, true),//TODO
+	
+	//STIGMA slots
+	STIGMA1(1<<19),
+	STIGMA2(1<<20),
+	STIGMA3(1<<21),
+	STIGMA4(1<<22),
+	STIGMA5(1<<23);
 
 	private int slotIdMask;
 	private boolean combo;

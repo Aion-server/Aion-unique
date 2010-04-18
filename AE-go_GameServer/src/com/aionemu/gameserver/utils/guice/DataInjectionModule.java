@@ -69,6 +69,7 @@ import com.aionemu.gameserver.services.RespawnService;
 import com.aionemu.gameserver.services.ServiceProxy;
 import com.aionemu.gameserver.services.SkillLearnService;
 import com.aionemu.gameserver.services.SocialService;
+import com.aionemu.gameserver.services.StigmaService;
 import com.aionemu.gameserver.services.TeleportService;
 import com.aionemu.gameserver.services.TradeService;
 import com.aionemu.gameserver.services.WarehouseService;
@@ -140,6 +141,7 @@ public class DataInjectionModule extends AbstractModule
 		bind(InstanceService.class).in(Scopes.SINGLETON);
 		bind(EnchantService.class).in(Scopes.SINGLETON);
 		bind(DebugService.class).asEagerSingleton();
+		bind(StigmaService.class).in(Scopes.SINGLETON);
 	}
 	
 	@Provides

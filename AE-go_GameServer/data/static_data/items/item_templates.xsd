@@ -19,6 +19,12 @@
 		<xs:attribute name="probability" type="xs:int"/>
 		<xs:attribute name="probabilityleft" type="xs:int"/>
 	</xs:complexType>
+	
+	<xs:complexType name="Stigma">
+		<xs:attribute name="skillid" type="xs:int"/>
+		<xs:attribute name="skilllvl" type="xs:int"/>
+		<xs:attribute name="shard" type="xs:int"/>
+	</xs:complexType>
 
 	<xs:complexType name="itemTemplate">
 		<xs:sequence>
@@ -27,6 +33,8 @@
 			<xs:element name="actions" type="ItemActions" minOccurs="0"
 				maxOccurs="unbounded" />
 			<xs:element name="godstone" type="Godstone" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="stigma" type="Stigma" minOccurs="0"
 				maxOccurs="1" />
 		</xs:sequence>
 		<xs:attribute name="return_alias" type="xs:string" />
