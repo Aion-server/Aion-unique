@@ -1,0 +1,42 @@
+<!-- Nochsana Training Camp-->
+<spawns>
+	<!-- Indratu Fortress Abyss Gate (Object Normal lvl:3)-->
+	<spawn map="300030000" npcid="700565" pool="1" interval="295">
+		<object staticid="14" x="466.89075" y="708.46313" z="346.6602" h="73"/>
+	</spawn>
+	<!-- Nochsana Artifact (Object Normal lvl:1)-->
+	<spawn map="300030000" npcid="700437" pool="1" interval="295">
+		<object staticid="32" x="312.7441" y="596.14636" z="373.53244" h="93"/>
+	</spawn>
+	<!-- Treasure Chest of Gust Valley (Object Normal lvl:1)-->
+	<spawn map="300030000" npcid="700419" pool="28" interval="295">
+		<object staticid="15" x="378.12918" y="320.85995" z="397.22217" h="79"/>
+		<object staticid="22" x="284.64728" y="345.3849" z="379.1711" h="104"/>
+		<object staticid="17" x="320.9779" y="328.8806" z="393.09186" h="54"/>
+		<object staticid="16" x="361.30795" y="320.43927" z="393.09546" h="21"/>
+		<object staticid="3" x="385.5742" y="304.3762" z="397.95798" h="87"/>
+		<object staticid="7" x="326.2201" y="346.12552" z="393.10983" h="119"/>
+		<object staticid="25" x="395.56396" y="289.27383" z="378.42038" h="87"/>
+		<object staticid="2" x="371.52823" y="287.3894" z="380.09625" h="84"/>
+		<object staticid="21" x="281.0685" y="321.80658" z="378.1371" h="49"/>
+		<object staticid="26" x="365.63217" y="352.35913" z="377.7976" h="34"/>
+		<object staticid="6" x="285.87317" y="314.7006" z="398.4026" h="45"/>
+		<object staticid="28" x="353.38766" y="278.51666" z="380.09628" h="30"/>
+		<object staticid="9" x="377.68127" y="331.09747" z="378.70132" h="95"/>
+		<object staticid="19" x="314.03183" y="338.77664" z="393.1098" h="40"/>
+		<object staticid="1" x="312.4669" y="329.2349" z="380.4146" h="97"/>
+		<object staticid="18" x="307.0731" y="326.4111" z="393.09296" h="94"/>
+		<object staticid="31" x="305.98895" y="271.19775" z="392.43225" h="16"/>
+		<object staticid="24" x="392.07605" y="309.37234" z="378.25476" h="51"/>
+		<object staticid="27" x="303.5807" y="288.85614" z="380.09625" h="36"/>
+		<object staticid="30" x="287.1647" y="292.30658" z="397.798" h="46"/>
+		<object staticid="29" x="373.7306" y="322.95703" z="380.4146" h="77"/>
+		<object staticid="20" x="335.76715" y="351.32294" z="392.41586" h="6"/>
+		<object staticid="4" x="314.85944" y="303.75156" z="380.09625" h="88"/>
+		<object staticid="12" x="307.38608" y="343.63208" z="380.523" h="120"/>
+		<object staticid="5" x="301.28244" y="282.6137" z="392.87323" h="54"/>
+		<object staticid="8" x="369.02985" y="338.9051" z="393.1098" h="43"/>
+		<object staticid="11" x="367.5456" y="280.65286" z="380.09625" h="33"/>
+		<object staticid="13" x="335.66263" y="305.57278" z="403.3898" h="90"/>
+	</spawn>
+</spawns>

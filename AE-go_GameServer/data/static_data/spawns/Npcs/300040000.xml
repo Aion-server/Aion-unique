@@ -1,0 +1,101 @@
+<!-- Dark Poeta-->
+<spawns>
+	<!-- Auxiliary Power Generator (Object Hero lvl:50)-->
+	<spawn map="300040000" npcid="214896" pool="1" interval="295">
+		<object x="254.91415" y="334.6687" z="121.82052" h="24"/>
+	</spawn>
+	<!-- Balaur Barricade (Object Normal lvl:50)-->
+	<spawn map="300040000" npcid="700558" pool="3" interval="295">
+		<object staticid="55" x="309.50507" y="983.87494" z="111.14812" h="55"/>
+		<object staticid="57" x="285.58893" y="998.22437" z="112.278046" h="36"/>
+		<object staticid="59" x="206.27953" y="845.2054" z="100.5" h="58"/>
+	</spawn>
+	<!-- Balaur Material Converter (Object Normal lvl:1)-->
+	<spawn map="300040000" npcid="730212" pool="1" interval="295">
+		<object staticid="95" x="246.93385" y="408.8613" z="104.129974" h="117"/>
+	</spawn>
+	<!-- Balaur Operation Order (Object Normal lvl:1)-->
+	<spawn map="300040000" npcid="730192" pool="1" interval="295">
+		<object staticid="136" x="823.5606" y="555.29865" z="118.97435" h="71"/>
+	</spawn>
+	<!-- Camouflaging Stone Wall (NPC Normal lvl:3)-->
+	<spawn map="300040000" npcid="700516" pool="1" interval="295">
+		<object staticid="142" x="166.0" y="415.0" z="132.74905" h="76"/>
+	</spawn>
+	<!-- ControllerA (NPC Legendary lvl:50)-->
+	<spawn map="300040000" npcid="700448" pool="1" interval="295">
+		<object x="665.39215" y="389.7151" z="99.375" h="40"/>
+		<object x="589.8195" y="359.27567" z="99.375" h="115"/>
+		<object x="655.46545" y="308.19363" z="99.375" h="13"/>
+	</spawn>
+	<!-- ControllerB (NPC Legendary lvl:50)-->
+	<spawn map="300040000" npcid="700449" pool="1" interval="295">
+		<object x="666.12964" y="401.29813" z="99.375" h="56"/>
+		<object x="590.557" y="370.8587" z="99.375" h="87"/>
+		<object x="656.20294" y="319.77667" z="99.375" h="12"/>
+	</spawn>
+	<!-- Dark Poeta Abyss Gate (Object Normal lvl:1)-->
+	<spawn map="300040000" npcid="730211" pool="1" interval="295">
+		<object staticid="223" x="1179.0" y="1223.0" z="144.98427" h="27"/>
+	</spawn>
+	<!-- Drana (Object Normal lvl:1)-->
+	<spawn map="300040000" npcid="700520" pool="21" interval="295">
+		<object x="345.69153" y="1379.235" z="158.0" h="89"/>
+		<object x="294.31226" y="1384.3507" z="171.00241" h="111"/>
+		<object x="348.513" y="1322.1237" z="157.25" h="117"/>
+		<object x="342.79" y="1254.69" z="154.75" h="86"/>
+		<object x="358.6703" y="1142.9541" z="145.5" h="35"/>
+		<object x="274.6309" y="1095.1758" z="140.0" h="10"/>
+		<object x="388.9436" y="1383.1406" z="160.375" h="84"/>
+		<object x="229.35432" y="1361.2815" z="157.25" h="77"/>
+		<object x="213.34578" y="1234.4996" z="175.9159" h="92"/>
+		<object x="276.30582" y="1132.5195" z="147.0" h="34"/>
+		<object x="203.61331" y="1122.722" z="155.92334" h="34"/>
+		<object x="279.55893" y="1294.8901" z="158.875" h="38"/>
+		<object x="402.9243" y="1311.2197" z="161.25" h="56"/>
+		<object x="303.4184" y="1260.7308" z="156.49068" h="83"/>
+		<object x="212.66457" y="1049.9932" z="136.62625" h="44"/>
+		<object x="328.80173" y="1207.4724" z="163.57489" h="101"/>
+		<object x="300.3557" y="1199.0345" z="155.0" h="91"/>
+		<object x="281.57117" y="1401.1101" z="159.25" h="114"/>
+		<object x="384.90063" y="1186.4022" z="150.30629" h="33"/>
+		<object x="204.23041" y="1153.0696" z="171.0" h="101"/>
+		<object x="259.59213" y="1181.1823" z="154.125" h="20"/>
+	</spawn>
+	<!-- Drana Lump (NPC Normal lvl:50)-->
+	<spawn map="300040000" npcid="281178" pool="6" interval="295">
+		<object x="261.42343" y="1413.4564" z="155.78717" h="55"/>
+		<object x="344.38287" y="1404.4099" z="152.2742" h="20"/>
+		<object x="335.0064" y="1171.0132" z="150.83322" h="12"/>
+		<object x="339.66098" y="1280.072" z="153.30598" h="108"/>
+		<object x="267.67084" y="1162.3098" z="147.94595" h="102"/>
+		<object x="249.0203" y="1310.5864" z="149.3099" h="32"/>
+	</spawn>
+	<!-- Emergency Generator (Object Hero lvl:50)-->
+	<spawn map="300040000" npcid="214897" pool="1" interval="295">
+		<object x="248.8292" y="361.8071" z="124.2962" h="99"/>
+	</spawn>
+	<!-- Generator Core Controller (NPC Normal lvl:50)-->
+	<spawn map="300040000" npcid="281210" pool="1" interval="295">
+		<object x="247.49515" y="337.92334" z="121.61827" h="98"/>
+	</spawn>
+	<!-- Huge Drana (Object Normal lvl:1)-->
+	<spawn map="300040000" npcid="700518" pool="3" interval="295">
+		<object staticid="83" x="191.79227" y="432.7248" z="123.29983" h="10"/>
+		<object staticid="87" x="220.5054" y="386.66074" z="126.678986" h="117"/>
+		<object staticid="168" x="200.23024" y="426.76007" z="106.449875" h="6"/>
+	</spawn>
+	<!-- Indratu Fortress Abyss Gate (Object Normal lvl:3)-->
+	<spawn map="300040000" npcid="700565" pool="1" interval="295">
+		<object staticid="579" x="299.2994" y="316.23352" z="133.52376" h="98"/>
+	</spawn>
+	<!-- Main Power Generator (Object Hero lvl:50)-->
+	<spawn map="300040000" npcid="214895" pool="1" interval="295">
+		<object x="231.45505" y="308.22177" z="120.63396" h="62"/>
+	</spawn>
+	<!-- Red Journal (Object Normal lvl:1)-->
+	<spawn map="300040000" npcid="730148" pool="1" interval="295">
+		<object staticid="146" x="140.28009" y="409.0543" z="135.81497" h="98"/>
+	</spawn>
+
+</spawns>

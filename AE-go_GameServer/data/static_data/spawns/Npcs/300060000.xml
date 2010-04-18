@@ -1,0 +1,7 @@
+<!-- Sulfur Tree Nest-->
+<spawns>
+	<!-- Sealed Gold Chest (Object Hero lvl:35)-->
+	<spawn map="300060000" npcid="214804" pool="1" interval="295">
+		<object x="457.11148" y="487.451" z="163.72969" h="31"/>
+	</spawn>
+</spawns>

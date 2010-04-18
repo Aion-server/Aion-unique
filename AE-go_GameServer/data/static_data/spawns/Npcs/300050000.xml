@@ -1,0 +1,16 @@
+<!-- Asteria Chamber-->
+<spawns>
+
+	<!-- Golden Abyss Crate (Object Normal lvl:45)-->
+	<spawn map="300050000" npcid="700475" pool="1" interval="295">
+		<object x="524.5648" y="706.177" z="191.8985" h="77"/>
+	</spawn>
+	<!-- Jeweled Abyss Crate (Object Normal lvl:45)-->
+	<spawn map="300050000" npcid="700476" pool="1" interval="295">
+		<object x="522.29724" y="421.42368" z="201.66695" h="57"/>
+	</spawn>
+	<!-- Magic Abyss Crate (Object Normal lvl:3)-->
+	<spawn map="300050000" npcid="700477" pool="1" interval="295">
+		<object x="671.4528" y="565.16864" z="206.14534" h="10"/>
+	</spawn>
+</spawns>
