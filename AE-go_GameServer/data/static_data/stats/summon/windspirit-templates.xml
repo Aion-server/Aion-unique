@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<stats_templates xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../stats.xsd">
-	<!-- (TODO) Wind spirit I -->
+<!-- edited by youli -->
+<summon_stats_templates xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../stats.xsd">
+	<!-- (TODO : This is Custom stat until we get retail like) Wind spirit I -->
 	<summon_stats npc_id_light="201012" npc_id_dark="201013" level="13">
-		<stats_template maxHp="1000" pdefense="37" mresist="252" main_hand_attack="82" run_speed="11.0"/>
+		<stats_template maxHp="462" pdefense="184" mresist="305" main_hand_attack="100" run_speed="11.0"/>
 	</summon_stats>
 	<summon_stats npc_id_light="201012" npc_id_dark="201013" level="14">
-		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="11.0"/>
+		<stats_template maxHp="579" pdefense="195" mresist="322" main_hand_attack="104" run_speed="11.0"/>
 	</summon_stats>
 	<summon_stats npc_id_light="201012" npc_id_dark="201013" level="15">
-		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="11.0"/>
+		<stats_template maxHp="696" pdefense="206" mresist="339" main_hand_attack="108" run_speed="11.0"/>
 	</summon_stats>
 	<summon_stats npc_id_light="201012" npc_id_dark="201013" level="16">
-		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="11.0"/>
+		<stats_template maxHp="813" pdefense="217" mresist="356" main_hand_attack="112" run_speed="11.0"/>
 	</summon_stats>
 	<summon_stats npc_id_light="201012" npc_id_dark="201013" level="17">
-		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="11.0"/>
+		<stats_template maxHp="930" pdefense="228" mresist="373" main_hand_attack="116" run_speed="11.0"/>
 	</summon_stats>
 	<summon_stats npc_id_light="201012" npc_id_dark="201013" level="18">
-		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="11.0"/>
+		<stats_template maxHp="1047" pdefense="239" mresist="390" main_hand_attack="120" run_speed="11.0"/>
 	</summon_stats>
 	<summon_stats npc_id_light="201012" npc_id_dark="201013" level="19">
-		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="11.0"/>
+		<stats_template maxHp="1164" pdefense="250" mresist="407" main_hand_attack="124" run_speed="11.0"/>
 	</summon_stats>
 	<summon_stats npc_id_light="201012" npc_id_dark="201013" level="20">
-		<stats_template maxHp="1320" pdefense="285" mresist="252" main_hand_attack="82" run_speed="11.0"/>
-	</summon_stats>	
-	<summon_stats npc_id_light="201012" npc_id_dark="201013" level="21">
-		<stats_template maxHp="1398" pdefense="836" mresist="493" main_hand_attack="112" run_speed="11.0"/>
+		<stats_template maxHp="1281" pdefense="261" mresist="424" main_hand_attack="128" run_speed="11.0"/>
 	</summon_stats>
-	
+	<summon_stats npc_id_light="201012" npc_id_dark="201013" level="21">
+		<stats_template maxHp="1398" pdefense="272" mresist="441" main_hand_attack="132" run_speed="11.0"/>
+	</summon_stats>
 	<!-- (Retail Like) Wind spirit II -->
 	<summon_stats npc_id_light="201016" npc_id_dark="201017" level="25">
 		<stats_template maxHp="1707" pdefense="330" mresist="515" main_hand_attack="160" run_speed="11.0"/>
@@ -57,47 +57,45 @@
 	<summon_stats npc_id_light="201016" npc_id_dark="201017" level="33">
 		<stats_template maxHp="2683" pdefense="418" mresist="651" main_hand_attack="192" run_speed="11.0"/>
 	</summon_stats>
-	
-	<!-- (TODO) Wind spirit III -->
+	<!-- (TODO : This is Custom stat until we get retail like) Wind spirit III -->
 	<summon_stats npc_id_light="201020" npc_id_dark="201021" level="37">
-		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="11.0"/>
+		<stats_template maxHp="2742" pdefense="462" mresist="252" main_hand_attack="208" run_speed="11.0"/>
 	</summon_stats>
 	<summon_stats npc_id_light="201020" npc_id_dark="201021" level="38">
-		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="11.0"/>
+		<stats_template maxHp="2870" pdefense="473" mresist="252" main_hand_attack="212" run_speed="11.0"/>
 	</summon_stats>
 	<summon_stats npc_id_light="201020" npc_id_dark="201021" level="39">
-		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="11.0"/>
+		<stats_template maxHp="2998" pdefense="484" mresist="252" main_hand_attack="216" run_speed="11.0"/>
 	</summon_stats>
 	<summon_stats npc_id_light="201020" npc_id_dark="201021" level="40">
-		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="11.0"/>
+		<stats_template maxHp="3126" pdefense="495" mresist="252" main_hand_attack="220" run_speed="11.0"/>
 	</summon_stats>
 	<summon_stats npc_id_light="201020" npc_id_dark="201021" level="41">
-		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="11.0"/>
+		<stats_template maxHp="3254" pdefense="506" mresist="252" main_hand_attack="224" run_speed="11.0"/>
 	</summon_stats>
 	<summon_stats npc_id_light="201020" npc_id_dark="201021" level="42">
-		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="11.0"/>
+		<stats_template maxHp="3382" pdefense="517" mresist="252" main_hand_attack="228" run_speed="11.0"/>
 	</summon_stats>
 	<summon_stats npc_id_light="201020" npc_id_dark="201021" level="43">
-		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="11.0"/>
+		<stats_template maxHp="3510" pdefense="528" mresist="252" main_hand_attack="232" run_speed="11.0"/>
 	</summon_stats>
 	<summon_stats npc_id_light="201020" npc_id_dark="201021" level="44">
-		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="11.0"/>
+		<stats_template maxHp="3638" pdefense="539" mresist="252" main_hand_attack="236" run_speed="11.0"/>
 	</summon_stats>
 	<summon_stats npc_id_light="201020" npc_id_dark="201021" level="45">
-		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="11.0"/>
+		<stats_template maxHp="3766" pdefense="550" mresist="252" main_hand_attack="240" run_speed="11.0"/>
 	</summon_stats>
-	
-	<!-- (TODO) Wind spirit IV -->
+	<!-- (Retail Like) Wind spirit IV -->
 	<summon_stats npc_id_light="201036" npc_id_dark="201037" level="47">
-		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="11.0"/>
+		<stats_template maxHp="4456" pdefense="576" mresist="900" main_hand_attack="282" run_speed="11.0"/>
 	</summon_stats>
 	<summon_stats npc_id_light="201036" npc_id_dark="201037" level="48">
-		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="11.0"/>
+		<stats_template maxHp="4606" pdefense="587" mresist="917" main_hand_attack="286" run_speed="11.0"/>
 	</summon_stats>
 	<summon_stats npc_id_light="201036" npc_id_dark="201037" level="49">
-		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="11.0"/>
+		<stats_template maxHp="4756" pdefense="598" mresist="934" main_hand_attack="290" run_speed="11.0"/>
 	</summon_stats>
 	<summon_stats npc_id_light="201036" npc_id_dark="201037" level="50">
-		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="11.0"/>
+		<stats_template maxHp="4906" pdefense="609" mresist="951" main_hand_attack="294" run_speed="11.0"/>
 	</summon_stats>
-</stats_templates>
+</summon_stats_templates>

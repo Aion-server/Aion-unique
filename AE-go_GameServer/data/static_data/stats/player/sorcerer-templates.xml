@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<stats_templates xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../stats.xsd">
+<player_stats_templates xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../stats.xsd">
 
 	<!-- Checked By Kamui 10/2009 at US Retail -->
 	<player_stats class="SORCERER" level="9">
@@ -462,4 +462,4 @@
 		                main_hand_attack="16" main_hand_accuracy="590" main_hand_crit_rate="2"
 		                magic_accuracy="713" />
 	</player_stats>
-</stats_templates>
+</player_stats_templates>

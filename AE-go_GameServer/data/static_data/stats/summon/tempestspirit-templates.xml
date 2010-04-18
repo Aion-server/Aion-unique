@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited by youli -->
+<summon_stats_templates xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../stats.xsd">
+	<!-- (TODO) Tempest spirit DP 2000 -->
+	<summon_stats npc_id_light="201040" level="50">
+		<stats_template maxHp="9511" pdefense="1611" mresist="1052" main_hand_attack="358" run_speed="10.0"/>
+	</summon_stats>
+</summon_stats_templates>

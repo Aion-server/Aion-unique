@@ -36,6 +36,7 @@ import com.aionemu.gameserver.dataholders.QuestsData;
 import com.aionemu.gameserver.dataholders.SkillData;
 import com.aionemu.gameserver.dataholders.SkillTreeData;
 import com.aionemu.gameserver.dataholders.SpawnsData;
+import com.aionemu.gameserver.dataholders.SummonStatsData;
 import com.aionemu.gameserver.dataholders.TeleLocationData;
 import com.aionemu.gameserver.dataholders.TeleporterData;
 import com.aionemu.gameserver.dataholders.TradeListData;
@@ -255,6 +256,12 @@ public class DataInjectionModule extends AbstractModule
 	PlayerStatsData providePlayerStatsData(DataManager datamanager)
 	{
 		return datamanager.PLAYER_STATS_DATA;
+	}
+	
+	@Provides
+	SummonStatsData provideSummonStatsData(DataManager datamanager)
+	{
+		return datamanager.SUMMON_STATS_DATA;
 	}
 
 	@Provides

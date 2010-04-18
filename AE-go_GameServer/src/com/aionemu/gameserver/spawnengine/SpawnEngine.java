@@ -37,8 +37,8 @@ import com.aionemu.gameserver.dataholders.BindPointData;
 import com.aionemu.gameserver.dataholders.GatherableData;
 import com.aionemu.gameserver.dataholders.NpcData;
 import com.aionemu.gameserver.dataholders.NpcSkillData;
-import com.aionemu.gameserver.dataholders.PlayerStatsData;
 import com.aionemu.gameserver.dataholders.SpawnsData;
+import com.aionemu.gameserver.dataholders.SummonStatsData;
 import com.aionemu.gameserver.dataholders.WorldMapsData;
 import com.aionemu.gameserver.model.NpcType;
 import com.aionemu.gameserver.model.gameobjects.AionObject;
@@ -106,7 +106,7 @@ public class SpawnEngine
 	@Inject
 	private NpcSkillData				npcSkillData;
 	@Inject
-	private PlayerStatsData				statsData;
+	private SummonStatsData				summonStatsData;
 
 	private Injector					injector;
 
@@ -275,7 +275,7 @@ public class SpawnEngine
 		NpcTemplate npcTemplate = npcData.getNpcTemplate(npcId);
 		
 		byte level = (byte) (npcTemplate.getLevel() + skillLvl - 1);
-		SummonStatsTemplate statsTemplate = statsData.getSummonTemplate(npcId, level);
+		SummonStatsTemplate statsTemplate = summonStatsData.getSummonTemplate(npcId, level);
 		Summon summon = new Summon(aionObjectsIDFactory.nextId(), injector.getInstance(SummonController.class), spawn,
 			npcTemplate, statsTemplate);
 		summon.setLevel(level);

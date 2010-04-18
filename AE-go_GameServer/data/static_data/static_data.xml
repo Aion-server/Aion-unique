@@ -74,9 +74,13 @@
 	<import file="items/item_templates.xml"/>
 	<import file="player_titles.xml" />
 	
-	<stats_templates>
-		<import file="stats" skipRoot="true" />
-	</stats_templates>
+	<player_stats_templates>
+		<import file="stats/player" skipRoot="true" />
+	</player_stats_templates>
+	
+	<summon_stats_templates>
+		<import file="stats/summon" skipRoot="true" />
+	</summon_stats_templates>
 	
 	<npc_templates>
 		<import file="npcs" skipRoot="true"/>

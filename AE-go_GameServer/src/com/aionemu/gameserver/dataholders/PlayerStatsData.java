@@ -33,25 +33,20 @@ import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.templates.stats.CalculatedPlayerStatsTemplate;
 import com.aionemu.gameserver.model.templates.stats.PlayerStatsTemplate;
-import com.aionemu.gameserver.model.templates.stats.SummonStatsTemplate;
 
 /**
  * Created on: 31.07.2009 14:20:03
  *
  * @author Aquanox
  */
-@XmlRootElement(name = "stats_templates")
+@XmlRootElement(name = "player_stats_templates")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class PlayerStatsData
 {
 	@XmlElement(name = "player_stats", required = true)
 	private List<PlayerStatsType> templatesList = new ArrayList<PlayerStatsType>();
 	
-	@XmlElement(name = "summon_stats", required = true)
-	private List<SummonStatsType> summonTemplatesList = new ArrayList<SummonStatsType>();
-
 	private final TIntObjectHashMap<PlayerStatsTemplate> playerTemplates = new TIntObjectHashMap<PlayerStatsTemplate>();
-	private final TIntObjectHashMap<SummonStatsTemplate> summonTemplates = new TIntObjectHashMap<SummonStatsTemplate>();
 
 	void afterUnmarshal(Unmarshaller u, Object parent)
 	{
@@ -59,14 +54,6 @@ public class PlayerStatsData
 		{
 			int code = makeHash(pt.getRequiredPlayerClass(), pt.getRequiredLevel());
 			playerTemplates.put(code, pt.getTemplate());
-		}
-		
-		for (SummonStatsType st : summonTemplatesList)
-		{
-			int code1 = makeHash2(st.getNpcIdDark(), st.getRequiredLevel());
-			summonTemplates.put(code1, st.getTemplate());
-			int code2 = makeHash2(st.getNpcIdLight(), st.getRequiredLevel());
-			summonTemplates.put(code2, st.getTemplate());
 		}
 		
 		/** for unknown templates **/
@@ -113,20 +100,6 @@ public class PlayerStatsData
 			template = getTemplate(playerClass, 0);
 		return template;
 	}
-	
-	/**
-	 * 
-	 * @param npcId
-	 * @param level
-	 * @return
-	 */
-	public SummonStatsTemplate getSummonTemplate(int npcId, int level)
-	{
-		SummonStatsTemplate template =  summonTemplates.get(makeHash2(npcId, level));
-		if(template == null)
-			template = summonTemplates.get(makeHash2(201011, 10));//TEMP till all templates are done
-		return template;
-	}
 
 	/**
 	 * Size of player templates
@@ -138,16 +111,6 @@ public class PlayerStatsData
 		return playerTemplates.size();
 	}
 	
-	/**
-	 * Size of summon templates
-	 * 
-	 * @return
-	 */
-	public int size2()
-	{
-		return summonTemplates.size();
-	}
-
 	@XmlRootElement(name="playerStatsTemplateType")
 	private static class PlayerStatsType
 	{
@@ -174,54 +137,6 @@ public class PlayerStatsData
 			return template;
 		}
 	}
-	
-	@XmlRootElement(name="summonStatsTemplateType")
-	private static class SummonStatsType
-	{
-		@XmlAttribute(name = "npc_id_dark", required = true)
-		private int npcIdDark;
-		@XmlAttribute(name = "npc_id_light", required = true)
-		private int npcIdLight;
-		@XmlAttribute(name = "level", required = true)
-		private int requiredLevel;
-
-		@XmlElement(name="stats_template")
-		private SummonStatsTemplate template;
-
-		/**
-		 * @return the npcIdDark
-		 */
-		public int getNpcIdDark()
-		{
-			return npcIdDark;
-		}
-
-		/**
-		 * @return the npcIdLight
-		 */
-		public int getNpcIdLight()
-		{
-			return npcIdLight;
-		}
-
-		/**
-		 * 
-		 * @return requiredLevel
-		 */
-		public int getRequiredLevel()
-		{
-			return requiredLevel;
-		}
-
-		/**
-		 * 
-		 * @return template
-		 */
-		public SummonStatsTemplate getTemplate()
-		{
-			return template;
-		}
-	}
 
 	/**
 	 * 
@@ -232,18 +147,5 @@ public class PlayerStatsData
 	private static int makeHash(PlayerClass playerClass, int level)
 	{
 		return level << 8 | playerClass.ordinal();
-	}
-	
-	/**
-	 *  Note:<br>
-	 *  max level is 255
-	 *  
-	 * @param npcId
-	 * @param level
-	 * @return
-	 */
-	private static int makeHash2(int npcId, int level)
-	{
-		return npcId << 8 | level;
 	}
 }

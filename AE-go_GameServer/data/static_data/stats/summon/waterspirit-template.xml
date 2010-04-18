@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<stats_templates xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../stats.xsd">
+<!-- edited by youli -->
+<summon_stats_templates xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../stats.xsd">
 	<!-- (Retail Like) Water spirit I -->
 	<summon_stats npc_id_light="201024" npc_id_dark="201025" level="19">
 		<stats_template maxHp="750" pdefense="132" mresist="410" main_hand_attack="115" run_speed="8.0"/>
@@ -15,7 +16,7 @@
 	</summon_stats>
 	<summon_stats npc_id_light="201024" npc_id_dark="201025" level="23">
 		<stats_template maxHp="1018" pdefense="156" mresist="480" main_hand_attack="135" run_speed="8.0"/>
-	</summon_stats>	
+	</summon_stats>
 	<summon_stats npc_id_light="201024" npc_id_dark="201025" level="24">
 		<stats_template maxHp="1085" pdefense="162" mresist="493" main_hand_attack="140" run_speed="8.0"/>
 	</summon_stats>
@@ -28,64 +29,64 @@
 	<summon_stats npc_id_light="201024" npc_id_dark="201025" level="27">
 		<stats_template maxHp="1286" pdefense="180" mresist="546" main_hand_attack="155" run_speed="8.0"/>
 	</summon_stats>
-	
-	<!-- (TODO) Water spirit II -->
+	<!-- (TODO : This is Custom stat until we get retail like) Water spirit II -->
 	<summon_stats npc_id_light="201026" npc_id_dark="201027" level="28">
-		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="8.0"/>
+		<stats_template maxHp="1703" pdefense="199" mresist="620" main_hand_attack="174" run_speed="8.0"/>
 	</summon_stats>
 	<summon_stats npc_id_light="201026" npc_id_dark="201027" level="29">
-		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="8.0"/>
+		<stats_template maxHp="1778" pdefense="205" mresist="637" main_hand_attack="178" run_speed="8.0"/>
 	</summon_stats>
 	<summon_stats npc_id_light="201026" npc_id_dark="201027" level="30">
-		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="8.0"/>
+		<stats_template maxHp="1853" pdefense="211" mresist="654" main_hand_attack="182" run_speed="8.0"/>
 	</summon_stats>
 	<summon_stats npc_id_light="201026" npc_id_dark="201027" level="31">
-		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="8.0"/>
+		<stats_template maxHp="1928" pdefense="217" mresist="671" main_hand_attack="186" run_speed="8.0"/>
 	</summon_stats>
 	<summon_stats npc_id_light="201026" npc_id_dark="201027" level="32">
-		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="8.0"/>
+		<stats_template maxHp="2003" pdefense="223" mresist="688" main_hand_attack="190" run_speed="8.0"/>
 	</summon_stats>
 	<summon_stats npc_id_light="201026" npc_id_dark="201027" level="33">
-		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="8.0"/>
+		<stats_template maxHp="2078" pdefense="229" mresist="705" main_hand_attack="194" run_speed="8.0"/>
 	</summon_stats>
 	<summon_stats npc_id_light="201026" npc_id_dark="201027" level="34">
-		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="8.0"/>
+		<stats_template maxHp="2153" pdefense="235" mresist="722" main_hand_attack="198" run_speed="8.0"/>
 	</summon_stats>
 	<summon_stats npc_id_light="201026" npc_id_dark="201027" level="35">
-		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="8.0"/>
+		<stats_template maxHp="2228" pdefense="241" mresist="739" main_hand_attack="202" run_speed="8.0"/>
 	</summon_stats>
 	<summon_stats npc_id_light="201026" npc_id_dark="201027" level="36">
-		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="8.0"/>
+		<stats_template maxHp="2303" pdefense="247" mresist="756" main_hand_attack="206" run_speed="8.0"/>
 	</summon_stats>
-	<!-- (TODO) Water spirit III -->
+	<!-- (TODO need Confirm HP i dont have Info from lvl 40-48 other stat are right one) Water spirit III -->
 	<summon_stats npc_id_light="201032" npc_id_dark="201033" level="40">
-		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="8.0"/>
+		<stats_template maxHp="2477" pdefense="249" mresist="778" main_hand_attack="224" run_speed="8.0"/>
 	</summon_stats>
 	<summon_stats npc_id_light="201032" npc_id_dark="201033" level="41">
-		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="8.0"/>
+		<stats_template maxHp="2561" pdefense="255" mresist="795" main_hand_attack="228" run_speed="8.0"/>
 	</summon_stats>
 	<summon_stats npc_id_light="201032" npc_id_dark="201033" level="42">
-		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="8.0"/>
+		<stats_template maxHp="2645" pdefense="261" mresist="812" main_hand_attack="232" run_speed="8.0"/>
 	</summon_stats>
 	<summon_stats npc_id_light="201032" npc_id_dark="201033" level="43">
-		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="8.0"/>
+		<stats_template maxHp="2729" pdefense="267" mresist="829" main_hand_attack="236" run_speed="8.0"/>
 	</summon_stats>
 	<summon_stats npc_id_light="201032" npc_id_dark="201033" level="44">
-		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="8.0"/>
+		<stats_template maxHp="2813" pdefense="273" mresist="846" main_hand_attack="240" run_speed="8.0"/>
 	</summon_stats>
 	<summon_stats npc_id_light="201032" npc_id_dark="201033" level="45">
-		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="8.0"/>
+		<stats_template maxHp="2897" pdefense="279" mresist="863" main_hand_attack="244" run_speed="8.0"/>
 	</summon_stats>
 	<summon_stats npc_id_light="201032" npc_id_dark="201033" level="46">
-		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="8.0"/>
+		<stats_template maxHp="2981" pdefense="285" mresist="880" main_hand_attack="248" run_speed="8.0"/>
 	</summon_stats>
 	<summon_stats npc_id_light="201032" npc_id_dark="201033" level="47">
-		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="8.0"/>
+		<stats_template maxHp="3065" pdefense="291" mresist="897" main_hand_attack="252" run_speed="8.0"/>
 	</summon_stats>
 	<summon_stats npc_id_light="201032" npc_id_dark="201033" level="48">
-		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="8.0"/>
+		<stats_template maxHp="3149" pdefense="296" mresist="914" main_hand_attack="256" run_speed="8.0"/>
 	</summon_stats>
 	<summon_stats npc_id_light="201032" npc_id_dark="201033" level="49">
-		<stats_template maxHp="1000" pdefense="285" mresist="252" main_hand_attack="82" run_speed="8.0"/>
+		<!-- Level 49 Stat from Eu Server -->
+		<stats_template maxHp="3233" pdefense="303" mresist="931" main_hand_attack="260" run_speed="8.0"/>
 	</summon_stats>
-</stats_templates>
+</summon_stats_templates>

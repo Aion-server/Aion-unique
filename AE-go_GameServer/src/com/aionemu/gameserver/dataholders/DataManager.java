@@ -90,10 +90,10 @@ public final class DataManager
 	public QuestsData					QUEST_DATA;
 
 	public QuestScriptsData				QUEST_SCRIPTS_DATA;
-	/**
-	 * 
-	 */
+	
 	public PlayerStatsData				PLAYER_STATS_DATA;
+	
+	public SummonStatsData				SUMMON_STATS_DATA;
 
 	public static ItemData				ITEM_DATA;
 
@@ -151,7 +151,8 @@ public final class DataManager
 
 		WORLD_MAPS_DATA = data.worldMapsData;
 		PLAYER_EXPERIENCE_TABLE = data.playerExperienceTable;
-		PLAYER_STATS_DATA = data.statsData;
+		PLAYER_STATS_DATA = data.playerStatsData;
+		SUMMON_STATS_DATA = data.summonStatsData;
 		ITEM_DATA = data.itemData;
 		NPC_DATA = data.npcData;
 		GATHERABLE_DATA = data.gatherableData;

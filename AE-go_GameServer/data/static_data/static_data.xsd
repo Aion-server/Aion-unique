@@ -45,7 +45,8 @@
 				<xs:element ref="player_initial_data" minOccurs="0" />
 				<xs:element ref="item_templates" minOccurs="0" />
 				<xs:element ref="player_titles" minOccurs="0" />
-				<xs:element ref="stats_templates" minOccurs="0" />
+				<xs:element ref="player_stats_templates" minOccurs="0" />
+				<xs:element ref="summon_stats_templates" minOccurs="0" />
 				<xs:element ref="npc_templates" minOccurs="0" />
 				<xs:element ref="skill_data" minOccurs="0" />
 				<xs:element ref="skill_tree" minOccurs="0" />
