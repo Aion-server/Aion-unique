@@ -56,7 +56,7 @@ public class MpUseOverTimeEffect extends EffectTemplate
 				onPeriodicAction(effect, requiredMp);
 			}
 		}, 0, checktime);
-		effect.setPeriodicTask(task);
+		effect.setMpUseTask(task);
 	}
 
 	public void onPeriodicAction(Effect effect, int value)

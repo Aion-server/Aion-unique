@@ -197,6 +197,8 @@
 				minOccurs="0" maxOccurs="1" />
 			<xs:element name="summonservant" type="SummonServantEffect"
 				minOccurs="0" maxOccurs="1" />
+			<xs:element name="skillatkdraininstant" type="SkillAtkDrainInstantEffect"
+				minOccurs="0" maxOccurs="1" />
 		</xs:sequence>
 		<xs:attribute name="food" type="xs:boolean"/>
 	</xs:complexType>
@@ -978,6 +980,15 @@
 	</xs:complexType>
 	
 	<xs:complexType name="SpellAtkDrainInstantEffect">
+		<xs:complexContent>
+			<xs:extension base="DamageEffect">				
+				<xs:attribute name="percent" type="xs:int" />	
+				<xs:attribute name="heal_type" type="HealType" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="SkillAtkDrainInstantEffect">
 		<xs:complexContent>
 			<xs:extension base="DamageEffect">				
 				<xs:attribute name="percent" type="xs:int" />	

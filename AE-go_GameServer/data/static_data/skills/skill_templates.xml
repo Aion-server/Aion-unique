@@ -1801,6 +1801,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <skillatkdraininstant heal_type="HP" percent="100" value="314" delta="30" e="1" hoptype="DAMAGE"/>
+        </effects>
         <actions>
             <dpuse value="1000"/>
         </actions>
@@ -5045,6 +5048,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <skillatkdraininstant heal_type="HP" percent="100" value="418" delta="6" e="1" hoptype="DAMAGE"/>
+        </effects>
         <actions>
             <mpuse value="124" delta="0"/>
         </actions>
@@ -6500,8 +6506,8 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
-	<effects>
-            <spellatkdraininstant heal_type="HP" percent="50" value="738" delta="2" e="1" element="FIRE" hoptype="DAMAGE"/>
+        <effects>
+            <skillatkdraininstant heal_type="HP" percent="50" value="720" delta="7" e="1" hoptype="DAMAGE"/>
         </effects>
         <actions>
             <mpuse value="124" delta="0"/>
@@ -7776,8 +7782,8 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
-	<effects>
-            <spellatkdraininstant heal_type="HP" percent="50" value="738" delta="2" e="1" element="FIRE" hoptype="DAMAGE"/>
+        <effects>
+            <skillatkdraininstant heal_type="HP" percent="50" value="720" delta="7" e="1" hoptype="DAMAGE"/>
         </effects>
         <actions>
             <mpuse value="124" delta="0"/>
@@ -7830,6 +7836,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <skillatkdraininstant heal_type="HP" percent="50" value="881" delta="10" e="1" hoptype="DAMAGE"/>
+        </effects>
         <actions>
             <mpuse value="165" delta="0"/>
         </actions>
@@ -10755,6 +10764,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <skillatkdraininstant heal_type="HP" percent="100" value="300" delta="0" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="757" name="STR_SKILL_RA_DrainArrow_G2" nameId="576865" stack="SKILL_RA_DRAINARROW" lvl="2" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="10" duration="0">
         <initproperties>
@@ -10768,6 +10780,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <skillatkdraininstant heal_type="HP" percent="100" value="300" delta="0" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="758" name="STR_SKILL_RA_RangersGift_G1" nameId="576869" stack="SKILL_RA_RANGERSGIFT" lvl="1" skilltype="PHYSICAL" skillsubtype="NONE" tslot="NOSHOW" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>

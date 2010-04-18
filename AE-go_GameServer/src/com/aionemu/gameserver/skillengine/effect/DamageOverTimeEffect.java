@@ -79,6 +79,6 @@ public class DamageOverTimeEffect extends DamageEffect
 				onPeriodicAction(effect);
 			}
 		}, checktime, checktime);
-		effect.setPeriodicTask(task);	
+		effect.setPeriodicTask(task, position);	
 	}
 }

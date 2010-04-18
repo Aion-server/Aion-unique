@@ -102,7 +102,7 @@ public class AuraEffect extends EffectTemplate
 				onPeriodicAction(effect);
 			}
 		}, 0, 6500);
-		effect.setPeriodicTask(task);
+		effect.setPeriodicTask(task, position);
 	}
 
 	@Override

@@ -16,73 +16,47 @@
  */
 package com.aionemu.gameserver.skillengine.effect;
 
-import java.util.concurrent.Future;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
-import com.aionemu.gameserver.model.gameobjects.Creature;
+import com.aionemu.gameserver.skillengine.action.DamageType;
 import com.aionemu.gameserver.skillengine.model.Effect;
 import com.aionemu.gameserver.skillengine.model.HealType;
-import com.aionemu.gameserver.utils.ThreadPoolManager;
 
 /**
  * @author ATracer
- *
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "HealOverTimeEffect")
-public class HealOverTimeEffect extends EffectTemplate
+@XmlType(name = "SkillAtkDrainInstantEffect")
+public class SkillAtkDrainInstantEffect extends DamageEffect
 {
-
-	@XmlAttribute(required = true)
-	protected int checktime;	
 	@XmlAttribute
-	protected int value;
-	@XmlAttribute
-	protected int delta;
-	@XmlAttribute
-	protected HealType type;
+	protected int		percent;
+	@XmlAttribute(name = "heal_type")
+	protected HealType	healType;
 
 	@Override
 	public void applyEffect(Effect effect)
 	{
-		effect.addToEffectedController();
+		super.applyEffect(effect);
+		int value = effect.getReserved1() * percent / 100;
+		switch(healType)
+		{
+			case HP:
+				effect.getEffector().getLifeStats().increaseHp(value);
+				break;
+			case MP:
+				effect.getEffector().getLifeStats().increaseMp(value);
+				break;
+		}
 	}
 
 	@Override
 	public void calculate(Effect effect)
 	{
-		effect.increaseSuccessEffect();
-	}
-
-	@Override
-	public void endEffect(Effect effect)
-	{
-		//nothing todo
-	}
-
-	@Override
-	public void onPeriodicAction(Effect effect)
-	{
-		Creature effected = effect.getEffected();
-		int valueWithDelta = value + delta * effect.getSkillLevel();
-		effected.getController().onRestore(type, valueWithDelta);
-	}
-
-	@Override
-	public void startEffect(final Effect effect)
-	{
-		Future<?> task = ThreadPoolManager.getInstance().scheduleEffectAtFixedRate(new Runnable(){
-
-			@Override
-			public void run()
-			{
-				onPeriodicAction(effect);
-			}
-		}, checktime, checktime);
-		effect.setPeriodicTask(task, position);	
+		super.calculate(effect, DamageType.PHYSICAL);
 	}
 }

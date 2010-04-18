@@ -46,7 +46,7 @@ public class Effect
 	private Creature effector;
 	private Future<?> checkTask = null;
 	private Future<?> task = null;
-	private Future<?> periodicTask = null;
+	private Future<?>[] periodicTasks = null;
 	private Future<?> mpUseTask = null;
 	
 	/**
@@ -214,17 +214,20 @@ public class Effect
 	/**
 	 * @return the periodicTask
 	 */
-	public Future<?> getPeriodicTask()
+	public Future<?> getPeriodicTask(int i)
 	{
-		return periodicTask;
+		return periodicTasks[i];
 	}
 
 	/**
 	 * @param periodicTask the periodicTask to set
+	 * @param i
 	 */
-	public void setPeriodicTask(Future<?> periodicTask)
+	public void setPeriodicTask(Future<?> periodicTask, int i)
 	{
-		this.periodicTask = periodicTask;
+		if(periodicTasks == null)
+			periodicTasks = new Future<?>[4];
+		this.periodicTasks[i] = periodicTask;
 	}
 
 	/**
@@ -606,10 +609,16 @@ public class Effect
 			checkTask = null;
 		}
 		
-		if(periodicTask != null)
+		if(periodicTasks != null)
 		{
-			periodicTask.cancel(true);
-			periodicTask = null;
+			for(Future<?> periodicTask : this.periodicTasks)
+			{
+				if(periodicTask != null)
+				{
+					periodicTask.cancel(true);
+					periodicTask = null;
+				}
+			}
 		}
 		
 		if(mpUseTask != null)
