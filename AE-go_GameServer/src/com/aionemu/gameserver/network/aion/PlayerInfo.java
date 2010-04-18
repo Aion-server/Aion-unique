@@ -145,7 +145,7 @@ public abstract class PlayerInfo extends AionServerPacket
 
 		int itemsDataSize = 0;
 		//TODO figure out this part when fully equipped
-		List<Item> items = accPlData.getEquipment().getEquippedItems();
+		List<Item> items = accPlData.getEquipment().getEquippedItemsWithoutStigma();
 
 		for(Item item : items) {
 

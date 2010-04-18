@@ -80,6 +80,114 @@ public abstract class InventoryPacket extends AionServerPacket
 		if(!mail)
 			writeH(buf, item.getEquipmentSlot()); // not equipable items		
 	}
+	
+	protected void writeStigmaInfo(ByteBuffer buf, Item item)
+	{
+		writeH(buf, 325); //length of details 45 01
+		writeC(buf, 0x6);
+		if(item.isEquipped())
+			writeD(buf, item.getEquipmentSlot());
+		else
+			writeD(buf, 0);
+		writeC(buf, 0x7);
+		writeH(buf, 702); //skill id
+		writeD(buf, 0);
+		writeH(buf, 0);
+		writeD(buf, 0x3c);  //0x3c
+		
+		writeD(buf, 0);
+		writeD(buf, 0);
+		
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		
+		writeD(buf, 0);
+		writeD(buf, 0);	
+		writeD(buf, 1);//1
+		writeD(buf, 0);
+		
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);	
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);	
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeH(buf, 0);
+		writeH(buf, 0x0b); //0b
+		
+		
+		writeC(buf, 0);
+		writeD(buf, item.getItemTemplate().getTemplateId());		
+		
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeC(buf, 0);
+		
+		writeD(buf, 82750); //3E 43 01 00
+		
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeC(buf, 0);
+		
+		writeC(buf, 0x22); // 22
+		writeH(buf, 0);
+	}
 
 	/**
 	 * 

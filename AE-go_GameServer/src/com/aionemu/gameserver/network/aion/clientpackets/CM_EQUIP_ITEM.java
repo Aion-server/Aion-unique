@@ -16,12 +16,15 @@
  */
 package com.aionemu.gameserver.network.aion.clientpackets;
 
+import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Equipment;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_PLAYER_APPEARANCE;
 import com.aionemu.gameserver.restrictions.RestrictionsManager;
+import com.aionemu.gameserver.services.StigmaService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.google.inject.Inject;
 
 /**
  * 
@@ -33,6 +36,9 @@ public class CM_EQUIP_ITEM extends AionClientPacket
 	public int	itemUniqueId;
 	public int	action;
 
+	@Inject
+	private StigmaService stigmaService;
+	
 	public CM_EQUIP_ITEM(int opcode)
 	{
 		super(opcode);
@@ -51,7 +57,7 @@ public class CM_EQUIP_ITEM extends AionClientPacket
 	{
 		final Player activePlayer = getConnection().getActivePlayer();
 		Equipment equipment = activePlayer.getEquipment();
-		boolean operationResult = false;
+		Item resultItem = null;
 
 		if(!RestrictionsManager.canChangeEquip(activePlayer))
 			return;
@@ -59,21 +65,30 @@ public class CM_EQUIP_ITEM extends AionClientPacket
 		switch(action)
 		{
 			case 0:
-				operationResult = equipment.equipItem(itemUniqueId, slotRead);
+				resultItem = equipment.equipItem(itemUniqueId, slotRead);
 				break;
 			case 1:
-				operationResult = equipment.unEquipItem(itemUniqueId, slotRead);
+				resultItem = equipment.unEquipItem(itemUniqueId, slotRead);
 				break;
 			case 2:
-				operationResult = equipment.switchHands();
+				equipment.switchHands();
 				break;
 		}
 
-		if(operationResult)
+		if(resultItem != null || action == 2)
 		{
 			PacketSendUtility.broadcastPacket(activePlayer, new SM_UPDATE_PLAYER_APPEARANCE(activePlayer.getObjectId(),
-				equipment.getEquippedItems()), true);
+				equipment.getEquippedItemsWithoutStigma()), true);	
+			
+			switch(action)
+			{
+				case 0:
+					stigmaService.notifyEquipAction(activePlayer, resultItem);
+					break;
+				case 1:
+					stigmaService.notifyUnequipAction(activePlayer, resultItem);
+					break;
+			}		
 		}
-
 	}
 }

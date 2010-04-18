@@ -53,6 +53,7 @@ import com.aionemu.gameserver.services.LegionService;
 import com.aionemu.gameserver.services.MailService;
 import com.aionemu.gameserver.services.PlayerService;
 import com.aionemu.gameserver.services.PunishmentService;
+import com.aionemu.gameserver.services.StigmaService;
 import com.aionemu.gameserver.services.TeleportService;
 import com.aionemu.gameserver.utils.rates.Rates;
 import com.aionemu.gameserver.world.World;
@@ -84,6 +85,8 @@ public class CM_ENTER_WORLD extends AionClientPacket
 	private PunishmentService	punishmentService;
 	@Inject
 	private MailService			mailService;
+	@Inject
+	private StigmaService		stigmaService;;
 
 	/**
 	 * Constructs new instance of <tt>CM_ENTER_WORLD </tt> packet
@@ -131,6 +134,7 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			world.storeObject(player);
 
 			sendPacket(new SM_SKILL_LIST(player));
+			stigmaService.onPlayerLogin(player);
 
 			// sendPacket(new SM_UNK91());
 			// sendPacket(new SM_UNKC7());

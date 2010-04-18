@@ -68,6 +68,10 @@ public class SM_INVENTORY_UPDATE extends InventoryPacket
 			{
 				writeArmorInfo(buf,item, true, false, false);
 			}
+			else if (itemTemplate.isStigma())
+			{
+				writeStigmaInfo(buf,item);
+			}
 			else
 			{
 				writeGeneralItemInfo(buf, item, false, false);

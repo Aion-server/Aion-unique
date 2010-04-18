@@ -72,6 +72,6 @@ public class CM_VIEW_PLAYER_DETAILS extends AionClientPacket
 			sendPacket(SM_SYSTEM_MESSAGE.STR_MSG_REJECTED_WATCH(player.getName()));
 			return;
 		}
-		sendPacket(new SM_VIEW_PLAYER_DETAILS(player.getEquipment().getEquippedItems()));
+		sendPacket(new SM_VIEW_PLAYER_DETAILS(player.getEquipment().getEquippedItemsWithoutStigma()));
 	}
 }

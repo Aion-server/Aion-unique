@@ -75,6 +75,10 @@ public class SM_UPDATE_ITEM extends InventoryPacket
 		{
 			writeArmorInfo(buf,item, true, false, false);
 		}
+		else if (itemTemplate.isStigma())
+		{
+			writeStigmaInfo(buf,item);
+		}
 		else
 		{
 			writeGeneralItemInfo(buf, item);
@@ -94,6 +98,15 @@ public class SM_UPDATE_ITEM extends InventoryPacket
 		writeC(buf, 0);
 		writeH(buf, 0);
 		writeH(buf, item.getEquipmentSlot()); // not equipable items		
+	}
+	
+	@Override
+	protected void writeStigmaInfo(ByteBuffer buf, Item item)
+	{
+		int itemSlotId = item.getEquipmentSlot();
+		writeH(buf, 0x05); //length of details
+		writeC(buf, 0x06); //unk
+		writeD(buf, item.isEquipped() ? itemSlotId : 0);
 	}
 
 	@Override

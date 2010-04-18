@@ -119,7 +119,7 @@ public class SM_PLAYER_INFO extends AionServerPacket
 		writeH(buf, pcd.getDp());// current dp
 		writeC(buf, 0x00);// unk (0x00)
 
-		List<Item> items = player.getEquipment().getEquippedItems();
+		List<Item> items = player.getEquipment().getEquippedItemsWithoutStigma();
 		short mask = 0;
 		for(Item item : items)
 		{
@@ -213,7 +213,7 @@ public class SM_PLAYER_INFO extends AionServerPacket
 
 		writeH(buf, player.getGameStats().getBaseStat(StatEnum.ATTACK_SPEED));
 		writeH(buf, player.getGameStats().getCurrentStat(StatEnum.ATTACK_SPEED));
-		writeC(buf, 0);
+		writeC(buf, 2);
 
 		writeS(buf, player.hasStore() ? player.getStore().getStoreMessage() : "");// private store message
 

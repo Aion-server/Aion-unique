@@ -146,7 +146,22 @@ public class SkillList
 		}
 		return true;
 	}
+	
+	/**
+	 * @param skill
+	 */
+	public void addSkill(SkillListEntry skill)
+	{
+		skills.put(skill.getSkillId(), skill);
+	}
 
+	/**
+	 * 
+	 * @param player
+	 * @param skillId
+	 * @param xpReward
+	 * @return
+	 */
 	public boolean addSkillXp(Player player, int skillId, int xpReward)
 	{
 		SkillListEntry  skillEntry =  getSkillEntry(skillId);
@@ -201,6 +216,11 @@ public class SkillList
 		return skills.get(skillId).getSkillLevel();
 	}
 	
+	/**
+	 * 
+	 * @param skillId
+	 * @return
+	 */
 	public synchronized boolean removeSkill(int skillId)
 	{
 		SkillListEntry entry = skills.get(skillId);
@@ -221,6 +241,11 @@ public class SkillList
 		return skills.size();
 	}
 	
+	/**
+	 * 
+	 * @param player
+	 * @param skillId
+	 */
 	private void sendMessage(Player player , int skillId)
 	{
 		switch (skillId)

@@ -46,41 +46,55 @@ public class Equipment
 		this.owner = player;
 	}
 
-	public boolean equipItem(int itemUniqueId, int slot)
+	/**
+	 * 
+	 * @param itemUniqueId
+	 * @param slot
+	 * @return item or null in case of failure
+	 */
+	public Item equipItem(int itemUniqueId, int slot)
 	{
 		synchronized(equipment)
 		{
 			Item item = owner.getInventory().getItemByObjId(itemUniqueId);
 
 			if(item == null)
-			{
-				return false;
-			}
+				return null;
+
 			//don't allow to wear items of higher level
 			if(item.getItemTemplate().getLevel() > owner.getCommonData().getLevel())
 			{
 				PacketSendUtility.sendPacket(owner, 
 					SM_SYSTEM_MESSAGE.STR_CANNOT_USE_ITEM_TOO_LOW_LEVEL_MUST_BE_THIS_LEVEL(
 						item.getItemTemplate().getLevel(), new DescriptionId(Integer.parseInt(item.getName()))));
-				return false;
+				return null;
 			}
 
 			int itemSlotToEquip = 0;
 
-			switch(item.getItemTemplate().getEquipmentType())
+			switch(item.getEquipmentType())
 			{
 				case ARMOR:
 					if(!validateEquippedArmor(item))
-						return false;
+						return null;
 					break;
 				case WEAPON:
 					if(!validateEquippedWeapon(item))
-						return false;
+						return null;
 					break;
 			}
 
 			//check whether there is already item in specified slot
-			int itemSlotMask = item.getItemTemplate().getItemSlot();
+			int itemSlotMask =  0 ;		
+			switch(item.getEquipmentType())
+			{
+				case STIGMA:
+					itemSlotMask = slot;
+					break;
+				default:
+					item.getItemTemplate().getItemSlot();
+					break;
+			}
 
 			List<ItemSlot> possibleSlots = ItemSlot.getSlotsFor(itemSlotMask);
 			for(ItemSlot possibleSlot : possibleSlots)
@@ -98,7 +112,7 @@ public class Equipment
 			}
 			
 			if(itemSlotToEquip == 0)
-				return false;
+				return null;
 			
 			//remove item first from inventory to have at least one slot free
 			owner.getInventory().removeFromBag(item, false);
@@ -108,9 +122,9 @@ public class Equipment
 				unEquip(itemSlotToEquip);
 			
 			equip(itemSlotToEquip, item);
-		}
-		setPersistentState(PersistentState.UPDATE_REQUIRED);
-		return true;
+			setPersistentState(PersistentState.UPDATE_REQUIRED);
+			return item;
+		}	
 	}
 	
 	private void equip(int slot, Item item)
@@ -139,15 +153,14 @@ public class Equipment
 	 *
 	 * @param itemUniqueId
 	 * @param slot
-	 * @return true or false
+	 * @return item or null in case of failure
 	 */
-	public boolean unEquipItem(int itemUniqueId, int slot)
+	public Item unEquipItem(int itemUniqueId, int slot)
 	{
 		//if inventory is full unequip action is disabled
 		if(owner.getInventory().isFull())
-		{
-			return false;
-		}
+			return null;
+		
 		synchronized(equipment)
 		{
 			Item itemToUnequip = null;
@@ -161,9 +174,7 @@ public class Equipment
 			}
 
 			if(itemToUnequip == null || !itemToUnequip.isEquipped())
-			{
-				return false;
-			}
+				return null;
 
 			//if unequip bow - unequip arrows also
 			if(itemToUnequip.getItemTemplate().getWeaponType() == WeaponType.BOW)
@@ -173,7 +184,7 @@ public class Equipment
 				{
 					//TODO more wise check here is needed
 					if(owner.getInventory().getNumberOfFreeSlots() < 1)
-						return false;
+						return null;
 					unEquip(ItemSlot.SUB_HAND.getSlotIdMask());
 				}
 			}
@@ -184,7 +195,7 @@ public class Equipment
 				if(ohWeapon != null && ohWeapon.getItemTemplate().isWeapon())
 				{
 					if(owner.getInventory().getNumberOfFreeSlots() < 2)
-						return false;
+						return null;
 					else
 						unEquip(ItemSlot.SUB_HAND.getSlotIdMask());
 				}
@@ -198,8 +209,8 @@ public class Equipment
 			}
 
 			unEquip(itemToUnequip.getEquipmentSlot());
-		}
-		return true;
+			return itemToUnequip;
+		}	
 	}
 	
 	private void unEquip(int slot)
@@ -408,6 +419,22 @@ public class Equipment
 
 		return equippedItems;
 	}
+	
+	/**
+	 * 
+	 * @return List<Item>
+	 */
+	public List<Item> getEquippedItemsWithoutStigma()
+	{
+		List<Item> equippedItems = new ArrayList<Item>();
+		for(Item item : equippedItems)
+		{
+			if(item.getEquipmentSlot() < ItemSlot.STIGMA1.getSlotIdMask())
+				equippedItems.addAll(equipment.values());
+		}
+
+		return equippedItems;
+	}
 
 	/**
 	 * @return Number of parts equipped belonging to requested itemset
@@ -593,10 +620,9 @@ public class Equipment
 	}
 
 	/**
-	 *
-	 * @return true or false
+	 * Switch OFF and MAIN hands
 	 */
-	public boolean switchHands()
+	public void switchHands()
 	{
 		Item mainHandItem = equipment.get(ItemSlot.MAIN_HAND.getSlotIdMask());
 		Item subHandItem = equipment.get(ItemSlot.SUB_HAND.getSlotIdMask());
@@ -665,7 +691,6 @@ public class Equipment
 
 		owner.getLifeStats().updateCurrentStats();
 		setPersistentState(PersistentState.UPDATE_REQUIRED);
-		return true;
 	}
 
 	/**
