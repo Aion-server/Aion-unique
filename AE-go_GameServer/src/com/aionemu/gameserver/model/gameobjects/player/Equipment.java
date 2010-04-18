@@ -92,7 +92,7 @@ public class Equipment
 					itemSlotMask = slot;
 					break;
 				default:
-					item.getItemTemplate().getItemSlot();
+					itemSlotMask = item.getItemTemplate().getItemSlot();
 					break;
 			}
 
@@ -427,10 +427,10 @@ public class Equipment
 	public List<Item> getEquippedItemsWithoutStigma()
 	{
 		List<Item> equippedItems = new ArrayList<Item>();
-		for(Item item : equippedItems)
+		for(Item item : equipment.values())
 		{
 			if(item.getEquipmentSlot() < ItemSlot.STIGMA1.getSlotIdMask())
-				equippedItems.addAll(equipment.values());
+				equippedItems.add(item);
 		}
 
 		return equippedItems;
