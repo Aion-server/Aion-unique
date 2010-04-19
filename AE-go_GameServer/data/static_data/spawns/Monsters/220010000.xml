@@ -1210,7 +1210,7 @@ Ishalgen-->
 		<object x="609.4572" y="2454.6704" z="280.5" h="46"/>
 	</spawn>
 	<!-- Treasure Box (Monster Normal lvl:9)-->
-	<spawn map="220010000" npcid="210596" pool="6" interval="295">
+	<spawn map="220010000" npcid="210596" pool="1" interval="3600">
 		<object x="640.62" y="1066.07" z="312.9169" h="83"/>
 		<object x="628.22" y="1064.39" z="313.88464" h="93"/>
 		<object x="759.61" y="1051.26" z="316.79376" h="50"/>

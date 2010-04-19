@@ -6424,7 +6424,7 @@ Morheim-->
 		<object x="2419.0" y="2378.85" z="106.00937" h="8"/>
 	</spawn>
 	<!-- Treasure Box (Monster Normal lvl:18)-->
-	<spawn map="220020000" npcid="212928" pool="1" interval="295">
+	<spawn map="220020000" npcid="212928" pool="1" interval="3600">
 		<object x="170.47" y="1672.38" z="473.13312" h="114"/>
 		<object x="205.37" y="1682.78" z="471.9675" h="16"/>
 		<object x="535.94" y="1681.63" z="425.62097" h="32"/>

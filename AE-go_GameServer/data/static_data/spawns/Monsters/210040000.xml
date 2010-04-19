@@ -6246,7 +6246,7 @@ Heiron-->
 		<object x="1812.4622" y="836.3138" z="233.32544" h="119"/>
 	</spawn>
 	<!-- Treasure Box (Object Normal lvl:9)-->
-	<spawn map="210040000" npcid="210596" pool="18" interval="295">
+	<spawn map="210040000" npcid="210596" pool="1" interval="3600">
 		<object x="2418.0" y="287.0" z="402.0" h="57"/>
 		<object x="2405.0" y="453.0" z="409.8125" h="99"/>
 		<object x="2720.0" y="468.0" z="448.875" h="118"/>
