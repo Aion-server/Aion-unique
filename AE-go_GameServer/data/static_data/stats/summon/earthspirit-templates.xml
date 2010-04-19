@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited by youli -->
 <summon_stats_templates xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../stats.xsd">
-	<!-- (Retail Like) Earth spirit I -->
+	<!-- (Retail Like Confirmed by myself) Earth spirit I -->
 	<summon_stats npc_id_light="201010" npc_id_dark="201011" level="16">
 		<stats_template maxHp="1740" pdefense="604" mresist="357" main_hand_attack="88" run_speed="7.0"/>
 	</summon_stats>
