@@ -50,7 +50,7 @@ Poeta -->
 	</spawn>
 	<!-- Daminu (NPC Normal lvl:50)-->
 	<spawn map="210010000" npcid="730008" pool="1" interval="295">
-		<object x="600.0" y="1542.0" z="116.375" h="0"/>
+		<object x="600.0" y="1542.0" z="116.375" h="90"/>
 	</spawn>
 	<!-- Elpas (NPC Normal lvl:20)-->
 	<spawn map="210010000" npcid="203049" pool="1" interval="295">
@@ -228,7 +228,7 @@ Poeta -->
 		<object x="692.0093" y="1205.8406" z="108.62384" h="4"/>
 	</spawn>
 	<!-- Protector of Daminu (NPC Normal lvl:20)-->
-	<spawn map="210010000" npcid="730009" pool="1" interval="295">
+	<spawn map="210010000" npcid="730009" pool="2" interval="295">
 		<object x="592.0" y="1539.0" z="116.125" h="90"/>
 		<object x="608.5164" y="1543.891" z="116.46091" h="0"/>
 	</spawn>

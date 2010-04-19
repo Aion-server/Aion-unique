@@ -4833,7 +4833,7 @@ Eltnen-->
 		<object x="1250.808" y="2737.529" z="304.59558" h="108"/>
 	</spawn>
 	<!-- Treasure Box (Monster Normal lvl:9)-->
-	<spawn map="210020000" npcid="210596" pool="1" interval="295">
+	<spawn map="210020000" npcid="210596" pool="12" interval="295">
 		<object x="513.94" y="2699.89" z="152.86436" h="52"/>
 		<object x="114.34" y="2676.92" z="152.97874" h="27"/>
 		<object x="506.37" y="2868.52" z="153.29688" h="60"/>
